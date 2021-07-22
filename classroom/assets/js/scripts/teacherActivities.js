@@ -22,6 +22,36 @@ function createActivity(link = null, id = null) {
     ClassroomSettings.activityInWriting = true
 }
 
+function createCabriExpressActivity(link = null, id = null) {
+  ClassroomSettings.status = "attribute"
+  ClassroomSettings.isNew = true;
+  if (id == null) {
+//    console.log('1')
+    if (link) {
+//      console.log('2')
+
+      $('.wysibb-text-editor').html('[iframe]' + URLServer + '' + link + '[/iframe]')
+    } else {
+//      console.log('3')
+
+      $('.wysibb-text-editor').html('')
+    }
+
+    $('#activity-form-title').val('')
+
+  } else {
+//    console.log('4')
+
+    ClassroomSettings.activity = id
+    ClassroomSettings.status = 'action';
+    Main.getClassroomManager().getActivity(ClassroomSettings.activity).then(function (activity) {
+      $('#activity-form-title').val(activity.title)
+      $('.wysibb-text-editor').html(activity.content)
+    })
+  }
+  navigatePanel('classroom-dashboard-new-cabriexpress-activity-panel', 'dashboard-activities-teacher')
+  ClassroomSettings.activityInWriting = true
+}
 
 // Lorsque le stockage local change, regarder l'état de la correction.
 window.addEventListener('storage', () => {

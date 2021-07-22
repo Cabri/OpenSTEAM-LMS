@@ -18,6 +18,10 @@
 
         <button id="new-activity-panel1" onclick="createActivity()" class=" btn c-btn-outline-secondary"><span class="mr-1" data-i18n="classroom.activities.add"></span><i class="fas fa-chevron-right"></i>
         </button>
+
+
+        <button id="new-activity-panel2" onclick="createCabriExpressActivity()" class=" btn c-btn-outline-secondary"><span class="mr-1" data-i18n="classroom.activities.add_cabriexpress"></span><i class="fas fa-chevron-right"></i>
+        </button>
     </div>
 
     <div id="list-activities-teacher">
@@ -26,6 +30,41 @@
 </div>
 
 <div id="classroom-dashboard-activities-panel-library-teacher" style="display:none;" class="dashboard-block">
+</div>
+
+<div id="classroom-dashboard-new-cabriexpress-activity-panel" style="display:none;margin-right:0px;"
+     class="activity-creation-form row dashboard-block">
+  <nav class="row w-50" style="margin: 0 auto;">
+    <div class="col-4 text-center"><span class="form-activity form-activity-activate"><b>1</b></span><span
+      data-i18n="classroom.activities.form.1"></span></div>
+    <div class="col-4">__________________________</div>
+    <div class=" col-4 text-center"><span class="form-activity form-activity-desactivate"><b>2</b></span>
+      <span data-i18n="classroom.activities.form.2"></span></div>
+  </nav>
+  <div class="form-group mb-2 part-content-index part-row c-primary-form" style="max-width: 60%;">
+    <div class="form-row mt-1">
+      <label for="part-content-input" class="tutorial-label">
+        <span data-i18n="classroom.activities.form.title.label"></span>
+      </label>
+      <input data-i18n="[placeholder]classroom.activities.form.title.placeholder" type="text"
+             id="activity-form-title" class="form-control part-title-input">
+    </div>
+    <div class="form-row mt-1">
+      <label for="part-content-input" class="tutorial-label">
+        <span data-i18n='classroom.activities.form.content.label'></span>
+      </label>
+
+
+<!--      <textarea id="activity-form-content" class='part-content' width='100%' style='min-height: 60vh;'></textarea>-->
+      <iframe id="cabriexpress-teacher-iframe"
+              src="http://localhost:7080/lti/web/login.php?iss=http%3A%2F%2Flocalhost:7080&login_hint=12345&target_link_uri=http%3A%2F%2Flocalhost%2Fgame.php&lti_message_hint=12345'"
+              width="800px" height="600px"></iframe>
+    </div>
+    <div class="form-row mt-1">
+    </div>
+  </div>
+  <button class="new-activity-panel2 c-btn-primary"><span data-i18n="classroom.activities.form.button"></span> <i
+    class="fas fa-check"></i></button>
 </div>
 
 <div id="classroom-dashboard-new-activity-panel" style="display:none;margin-right:0px;"
