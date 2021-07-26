@@ -23,6 +23,7 @@ function createActivity(link = null, id = null) {
 }
 
 function createCabriExpressActivity(link = null, id = null) {
+  console.log('createCabriExpressActivity1')
   ClassroomSettings.status = "attribute"
   ClassroomSettings.isNew = true;
   if (id == null) {

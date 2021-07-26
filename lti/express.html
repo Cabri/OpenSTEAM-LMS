@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Cabri Express</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.1/axios.min.js"></script>
+</head>
+<body>
+<h1>Cabri Express</h1>
+<button onclick="saveClmc()">Save Resource</button>
+
+<script>
+
+
+    const getLtik = () => {
+        const searchParams = new URLSearchParams(window.location.search)
+        const ltik = searchParams.get('ltik')
+        if (!ltik) throw new Error('Missing lti key.')
+        return ltik
+    }
+
+
+  async function saveClmc() {
+      try {
+        //Date.now();
+        //await axios.post('/deeplink', {resource: {name: 'cabri', value: Date.now()}}, {headers: { Authorization: 'Bearer ' + getLtik() }})
+        //await axios.post('http://localhost:7080/lti/web/platform/postback.php', {grade: 80}, {headers: { Authorization: 'Bearer ' + getLtik() }})
+         //await axios.post('/postback', {activity_id: 123456}, {headers: { Authorization: 'Bearer ' + getLtik() }})
+
+        console.log(this.)
+      } catch(e) {
+          console.log(e);
+      }
+  }
+</script>
+</body>
+</html>
