@@ -3,6 +3,7 @@ require_once __DIR__ . '/../../vendor/autoload.php';
 require_once __DIR__ . '/../../db/example_database.php';
 
 use \IMSGlobal\LTI;
+use \Firebase\JWT\JWT;
 
 function get_public_key($key_set_url) {
 
@@ -28,8 +29,13 @@ function get_public_key($key_set_url) {
     // Could not find public key with a matching kid and alg.
     throw new LTI_Exception("Unable to find public key", 1);
 }
-
-$jwt = JWT::decode($_POST['client_assertion'], get_public_key(TOOL_HOST . "/jwk.php"), array('RS256'));
+echo get_public_key(TOOL_HOST . "/jwk.php");
+try {
+  $jwt = JWT::decode($_POST['client_assertion'], get_public_key(TOOL_HOST . "/jwk.php"), array('RS256'));
+}
+catch (Exception $e) {
+  echo $e->getMessage();
+}
 
 echo json_encode([
     'access_token' => '9a4b5056-cdce-4cdd-8981-053b610d0842'

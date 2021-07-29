@@ -49,7 +49,7 @@ function teacherSandboxItem(json) {
     let html = `<div class="sandbox-item sandbox-teacher">
                     <div class="sandbox-card sandbox-card-` + json.interface + `" data-id="${json.id}" data-href="/` + json.interface + `/?link=` + json.link + `&embed=1">
                         <div class="sandbox-card-top">
-                        <i class="fas fa-share fa-2x" style="grid-column-start: 1; grid-column-end: 1;" data-link="${json.link}" ></i>      
+                        <i class="fas fa-share fa-2x" style="grid-column-start: 1; grid-column-end: 1;" data-link="${json.link}" ></i>
                             <div class="dropdown"><i class="fas fa-cog fa-2x" style="grid-column-start: 3; grid-column-end: 3;" type="button" id="dropdown-teacherSandboxItem-${json.id}" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></i>
                     <div class="dropdown-menu" aria-labelledby="dropdown-teacherSandboxItem-${json.id}">`
     if (UserManager.getUser().isRegular) {
@@ -331,7 +331,7 @@ function statusActivity(activity, state = true) {
                 case 0:
                     return "Pas encore réalisé"
                     break;
-            
+
                 case null:
                     return "Pas encore réalisé"
                     break;
@@ -451,8 +451,16 @@ function loadActivity(isDoable) {
 
         correction += '<button onclick="giveNote()" class="btn c-btn-primary">' + i18next.t('classroom.activities.sendResults') + '<i class="fas fa-chevron-right"> </i></button>'
     }
+
     $('#activity-content').html(bbcodeToHtml(content))
-    $('#activity-correction').html(bbcodeToHtml(correction)).show()
+
+
+  // replace with if content is LTI
+    if(content.startsWith('http'))
+      $('#activity-content-lti')[0].src = 'http://localhost:7080/lti/web/login.php?iss=http%3A%2F%2Flocalhost:7080' +
+        '&login_hint=12345&target_link_uri=http%3A%2F%2Flocalhost%2Fgame.php&lti_message_hint='+encodeURI(content);
+
+  $('#activity-correction').html(bbcodeToHtml(correction)).show()
     if (isDoable == false) {
         $('#activity-validate').hide()
         $('#activity-save').hide()

@@ -178,7 +178,13 @@
         <h3 id="activity-title"></h3>
         <h4 id="activity-details"></h4>
         <p id="activity-content"> </p>
-        <button class="btn c-btn-primary" id="activity-validate" data-i18n="classroom.activities.validate"
+        <iframe id="activity-content-lti" width="1000" height="800"></iframe>
+
+<!--      <iframe id="cabriexpress-teacher-iframe"-->
+<!--              src="http://localhost:7080/lti/web/login.php?iss=http%3A%2F%2Flocalhost:7080&login_hint=12345&target_link_uri=http%3A%2F%2Flocalhost%2Fgame.php&lti_message_hint=12345'"-->
+<!--              width="800px" height="600px"></iframe>-->
+
+      <button class="btn c-btn-primary" id="activity-validate" data-i18n="classroom.activities.validate"
             onclick="validateActivity()"> <i class="fas fa-chevron-right"></i></button>
         <button class="btn c-btn-primary" id="activity-save" style="display:none;" onclick="saveActivity()"
             data-i18n="classroom.activities.save-draft"><i class="fas fa-chevron-right"></i></button>
@@ -210,6 +216,7 @@
         </p>
     </div>
 </div>
+
 <div id="classroom-dashboard-profil-panel-teacher" class="dashboard-block profile-panel" style="display:none;">
     <img src="assets/media/profile_picture.svg" alt="Photo de profil" class="user-picture">
     <span id="user-name-teacher" data-i18n="classroom.profile.identity"></span>
