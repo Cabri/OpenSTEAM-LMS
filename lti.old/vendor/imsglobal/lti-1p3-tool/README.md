@@ -26,8 +26,9 @@ In your code, you will now be able to use classes in the `\IMSGlobal\LTI` namesp
 
 ### Manually
 To import the library, copy the `lti` folder inside `src` into your project and use the following code at the beginning of execution:
+
 ```php
-require_once('lti/lti.php');
+require_once('lti.old/lti.php');
 use \IMSGlobal\LTI;
 ```
 

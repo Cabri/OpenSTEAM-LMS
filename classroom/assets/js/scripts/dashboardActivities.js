@@ -456,10 +456,11 @@ function loadActivity(isDoable) {
 
 
   // replace with if content is LTI
-    if(content.startsWith('http'))
+    if(content.startsWith('http')) {
+     console.log('helloooo')
       $('#activity-content-lti')[0].src = 'http://localhost:7080/lti/web/login.php?iss=http%3A%2F%2Flocalhost:7080' +
-        '&login_hint=12345&target_link_uri=http%3A%2F%2Flocalhost%2Fgame.php&lti_message_hint='+encodeURI(content);
-
+        '&login_hint=12345&target_link_uri=http%3A%2F%2Flocalhost%2Fgame.php&lti_message_hint=' + encodeURI(content);
+    }
   $('#activity-correction').html(bbcodeToHtml(correction)).show()
     if (isDoable == false) {
         $('#activity-validate').hide()

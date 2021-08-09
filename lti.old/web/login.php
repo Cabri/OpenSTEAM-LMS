@@ -13,6 +13,6 @@ use \IMSGlobal\LTI;
 // The request contains jwt containing all login information (ExampleDatabase())
 LTI\LTI_OIDC_Login::new(new Example_Database())
     //->do_oidc_login_redirect(TOOL_HOST . "/lti/web/game.php")
-    ->do_oidc_login_redirect("http://localhost:3000/player?")
+    ->do_oidc_login_redirect("http://localhost:3000/player")
     ->do_redirect();
 ?>

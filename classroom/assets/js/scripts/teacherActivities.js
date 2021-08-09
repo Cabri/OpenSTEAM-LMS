@@ -23,17 +23,13 @@ function createActivity(link = null, id = null) {
 }
 
 function createCabriExpressActivity(link = null, id = null) {
-  console.log('createCabriExpressActivity1')
   ClassroomSettings.status = "attribute"
   ClassroomSettings.isNew = true;
   if (id == null) {
-//    console.log('1')
     if (link) {
-//      console.log('2')
 
       $('.wysibb-text-editor').html('[iframe]' + URLServer + '' + link + '[/iframe]')
     } else {
-//      console.log('3')
 
       $('.wysibb-text-editor').html('')
     }
@@ -41,8 +37,6 @@ function createCabriExpressActivity(link = null, id = null) {
     $('#activity-form-title').val('')
 
   } else {
-//    console.log('4')
-
     ClassroomSettings.activity = id
     ClassroomSettings.status = 'action';
     Main.getClassroomManager().getActivity(ClassroomSettings.activity).then(function (activity) {
@@ -50,8 +44,13 @@ function createCabriExpressActivity(link = null, id = null) {
       $('.wysibb-text-editor').html(activity.content)
     })
   }
+
   navigatePanel('classroom-dashboard-new-cabriexpress-activity-panel', 'dashboard-activities-teacher')
   ClassroomSettings.activityInWriting = true
+
+  // Start LTI 1.3 tool launch
+  document.getElementsByName('lti_login_form')[0].style.display = 'none';
+  document.forms["lti_login_form"].submit();
 }
 
 // Lorsque le stockage local change, regarder l'état de la correction.

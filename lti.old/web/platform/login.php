@@ -32,6 +32,18 @@ $message_jwt = [
           "https://purl.imsglobal.org/spec/lti-ags/scope/score"
         ],
         "lineitems" => "http://localhost/platform/services/ags/lineitems.php",
+      "https://purl.imsglobal.org/spec/lti-dl/claim/deep_linking_settings"=> [
+        "accept_types"=> ["link", "file", "html", "ltiResourceLink", "image"],
+        "accept_media_types"=> "image/:::asterisk:::,text/html",
+        "accept_presentation_document_targets"=>["iframe", "window", "embed"],
+        "accept_multiple"=> true,
+        "auto_create"=> true,
+        "title"=> "This is the default title",
+        "text"=> "This is the default text",
+        "data"=> "Some random opaque data that MUST be sent back",
+        "deep_link_return_url"=> "https://localhost:7080/lti/web/deep_links.php"
+      ]
+      //"lineitems" => "http://localhost:7080/lti/web/api",
     ]
 ];
 
