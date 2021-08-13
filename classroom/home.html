@@ -178,15 +178,27 @@
         <h3 id="activity-title"></h3>
         <h4 id="activity-details"></h4>
         <p id="activity-content"> </p>
-        <iframe id="activity-content-lti" width="1000" height="800"></iframe>
 
-<!--      <iframe id="cabriexpress-teacher-iframe"-->
-<!--              src="http://localhost:7080/lti/web/login.php?iss=http%3A%2F%2Flocalhost:7080&login_hint=12345&target_link_uri=http%3A%2F%2Flocalhost%2Fgame.php&lti_message_hint=12345'"-->
-<!--              width="800px" height="600px"></iframe>-->
+      <input id="activity-score" type="text" hidden/>
+      <form name="lti_student_login_form" action="http://localhost:3000/login" method="post" target="tool_content-student">
+        <input id="iss" type="hidden" name="iss" value="http://localhost:7080" />
+        <input id="login_hint" type="hidden" name="login_hint"/>
+        <input id="client_id" type="hidden" name="client_id" value="client_id_php" />
+        <input id="target_link_uri" type="hidden" name="target_link_uri" value="http://localhost:3000" />
+      </form>
+
+      <iframe src="about:blank" name="tool_content-student" title="Tool Content" width="1000" height="600"></iframe>
 
       <button class="btn c-btn-primary" id="activity-validate" data-i18n="classroom.activities.validate"
             onclick="validateActivity()"> <i class="fas fa-chevron-right"></i></button>
-        <button class="btn c-btn-primary" id="activity-save" style="display:none;" onclick="saveActivity()"
+      <script>
+        window.addEventListener("message", (event) => {
+          console.log('parent:' , event.origin, event.data)
+          $('#activity-score').val(event.data);
+        }, false);
+      </script>
+
+      <button class="btn c-btn-primary" id="activity-save" style="display:none;" onclick="saveActivity()"
             data-i18n="classroom.activities.save-draft"><i class="fas fa-chevron-right"></i></button>
         <div class="btn" id="activity-instruction" style="display:none"><span
                 data-i18n="classroom.activities.instruction"></span> <i class="fas fa-pen"></i></div>
@@ -467,33 +479,38 @@
         <span data-i18n='classroom.activities.form.content.label'></span>
       </label>
 
-
-<!--      <textarea id="activity-form-content" class='part-content' width='100%' style='min-height: 60vh;'></textarea>-->
 <!--      <iframe id="cabriexpress-teacher-iframe"-->
-<!--              src="http://localhost:7080/lti/web/login.php?iss=http%3A%2F%2Flocalhost:7080&login_hint=12345&target_link_uri=http%3A%2F%2Flocalhost%2Fgame.php&lti_message_hint=12345'"-->
+<!--        src="http://localhost:7080/lti/web/login.php?iss=http%3A%2F%2Flocalhost:7080&login_hint=12345&target_link_uri=http%3A%2F%2Flocalhost%2Fgame.php&lti_message_hint=12345'"-->
 <!--              width="800px" height="600px"></iframe>-->
 
 
 <!--      <iframe id="cabriexpress-teacher-iframe"-->
 <!--              src="../../lti/express.html"-->
 <!--              width="800px" height="600px"-->
+
       <!-- Resource Launch-->
       <!-- STEP 1-->
-      <form name="lti_login_form" action="http://localhost:3000/login" method="post" target="tool_content">
+      <input id="activity-form-content-lti" type="text" hidden/>
+      <form name="lti_login_form" action="http://localhost:3000/login" method="post" target="tool_content-teacher">
         <input id="iss" type="hidden" name="iss" value="http://localhost:7080" />
         <input id="login_hint" type="hidden" name="login_hint" value="login_hint" />
         <input id="client_id" type="hidden" name="client_id" value="client_id_php" />
         <input id="target_link_uri" type="hidden" name="target_link_uri" value="http://localhost:3000/deeplink" />
       </form>
 
-      <iframe src="about:blank" name="tool_content" title="Tool Content" width="1000" height="600"></iframe>
-
+      <iframe src="about:blank" name="tool_content-teacher" title="Tool Content" width="1000" height="600"></iframe>
+      <script>
+        window.addEventListener("message", (event) => {
+          console.log('parent:' , event.origin, event.data)
+          $('#activity-form-content-lti').val(event.data);
+        }, false);
+      </script>
 <!--      <textarea id="cabriexpress-activity-id"></textarea>-->
     </div>
     <div class="form-row mt-1">
     </div>
   </div>
-  <button class="new-activity-panel2 c-btn-primary"><span data-i18n="classroom.activities.form.button"></span> <i
+  <button class="new-activity-panel-lti c-btn-primary"><span data-i18n="classroom.activities.form.button"></span> <i
     class="fas fa-check"></i></button>
 </div>
 

@@ -253,6 +253,47 @@ $('.new-activity-panel2').click(function () {
     }
 })
 
+//création/modification de l'activité de type LTI
+$('.new-activity-panel-lti').click(function () {
+  $(this).attr('disabled', 'disabled')
+  if (document.getElementById('activity-form-title').value.length < 1) {
+    displayNotification('#notif-div', "classroom.notif.activityTitleMissing", "error");
+    return;
+  }
+  if (ClassroomSettings.status != 'edit') {
+    Main.getClassroomManager().addActivity({
+      'title': $('#activity-form-title').val(),
+      'content': $('#activity-form-content-lti').val(),
+      "isFromClassroom": true
+    }).then(function (activity) {
+      ClassroomSettings.activity = activity.id
+      displayNotification('#notif-div', "classroom.notif.activityCreated", "success", `'{"activityTitle": "${activity.title}"}'`);
+      $('.new-activity-panel2').attr('disabled', false)
+      navigatePanel('classroom-dashboard-new-activity-panel2', 'dashboard-activities-teacher', ClassroomSettings.activity)
+      addTeacherActivityInList(activity)
+      teacherActivitiesDisplay()
+      ClassroomSettings.activityInWriting = false
+    });
+
+
+  } else {
+    /*Main.getClassroomManager().editActivity({
+      'id': ClassroomSettings.activity,
+      'title': $('#activity-form-title').val(),
+      'content': $('#activity-form-content').bbcode()
+    }).then(function (activity) {
+      displayNotification('#notif-div', "classroom.notif.activityChanged", "success", `'{"activityTitle": "${activity.title}"}'`);
+      $('.new-activity-panel2').attr('disabled', false)
+      navigatePanel('classroom-dashboard-new-activity-panel2', 'dashboard-activities-teacher', ClassroomSettings.activity)
+      Main.getClassroomManager().getTeacherActivities(Main.getClassroomManager()).then(function () {
+        teacherActivitiesDisplay()
+        ClassroomSettings.activityInWriting = false
+      })
+    })*/
+
+  }
+});
+
 function listStudentsToAttribute(ref = null) {
     let classes = Main.getClassroomManager()._myClasses
     if (classes.length == 0) {

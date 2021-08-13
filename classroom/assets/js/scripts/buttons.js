@@ -516,7 +516,8 @@ function validateActivity() {
         correction = 1
         let interface = /\[iframe\].*?vittascience(|.com)\/([a-z]{5,12})\/?/gm.exec(Activity.activity.content)[2]
         let project = window.localStorage[interface + 'CurrentProject']
-        Main.getClassroomManager().saveStudentActivity(JSON.parse(project), interface, Activity.id).then(function (activity) {
+        let note = Number($('#activity-score').val());
+        Main.getClassroomManager().saveStudentActivity(JSON.parse(project), interface, Activity.id, undefined, note).then(function (activity) {
             actualizeStudentActivities(activity, correction)
             $("#activity-validate").attr("disabled", false);
             navigatePanel('classroom-dashboard-activity-panel-correcting', 'dashboard-classes-teacher', '', '', true)

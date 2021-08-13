@@ -405,6 +405,7 @@ function displayStudentsActivities(link, activitiesList) {
 }
 
 function loadActivity(isDoable) {
+  console.log('loadActivity')
     ClassroomSettings.chrono = Date.now()
     $('#activity-introduction').hide()
     if (Activity.introduction != null && Activity.introduction != "") {
@@ -454,12 +455,16 @@ function loadActivity(isDoable) {
 
     $('#activity-content').html(bbcodeToHtml(content))
 
-
+    console.log(content);
   // replace with if content is LTI
     if(content.startsWith('http')) {
-     console.log('helloooo')
-      $('#activity-content-lti')[0].src = 'http://localhost:7080/lti/web/login.php?iss=http%3A%2F%2Flocalhost:7080' +
-        '&login_hint=12345&target_link_uri=http%3A%2F%2Flocalhost%2Fgame.php&lti_message_hint=' + encodeURI(content);
+     console.log('helloooo');
+     $('#login_hint').val("student-launch#"+content);
+      document.forms["lti_student_login_form"].submit();
+      // $('#activity-content-lti')[0].src = 'http://localhost:7080/lti/web/login.php?iss=http%3A%2F%2Flocalhost:7080' +
+     //   '&login_hint=12345&target_link_uri=http%3A%2F%2Flocalhost%2Fgame.php&lti_message_hint=' + encodeURI(content);
+
+
     }
   $('#activity-correction').html(bbcodeToHtml(correction)).show()
     if (isDoable == false) {

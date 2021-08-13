@@ -6,9 +6,11 @@ $nonce = base64_encode(random_bytes(16));
 
 use \Firebase\JWT\JWT;
 //require_once __DIR__ . '/../vendor/firebase/php-jwt/src/JWT.php';
+$platform_url = 'http://localhost:7080';
+$tool_url = 'https://5a45812989ea.ngrok.io';
 
 $jwt_payload = [
-  "iss" => 'http://localhost:7080',
+  "iss" => $platform_url,
   "aud" => ['client_id_php'],
   "sub" => 'client_id_php',
   "exp" => time() + 600,
@@ -26,7 +28,32 @@ $jwt_payload = [
 ];
 
 if(strpos($_REQUEST['login_hint'], 'student-launch') === 0) {
+  // create a new lineitem in database  if lineitem doesn't exist
+
+
+  $lineItemId = explode("#", $_REQUEST['login_hint'])[1];
+
   // Student Launch
+  $jwt_payload["https://purl.imsglobal.org/spec/lti-ags/claim/endpoint"] = [
+      "scope" => [
+        "https://purl.imsglobal.org/spec/lti-ags/scope/lineitem",
+        "https://purl.imsglobal.org/spec/lti-ags/scope/result.readonly",
+        "https://purl.imsglobal.org/spec/lti-ags/scope/score"
+      ],
+      // TODO hostname must be dynamic
+      "lineitems"=> "http://localhost:7080/lti/tools/1/lineitems",
+      "lineitem" => "http://localhost:7080/lti/tools/1/lineitems/" . urlencode($lineItemId)
+      // def: http://localhost:3000/<tool_id>/lineitems/<line_item_1>
+    ];
+
+    $jwt_payload['https://purl.imsglobal.org/spec/lti/claim/message_type'] = 'LtiResourceLinkRequest';
+    $jwt_payload['https://purl.imsglobal.org/spec/lti/claim/resource_link'] = [
+       "id" => $lineItemId,
+      //"description": "Assignment to introduce who you are",
+      //"title": "Introduction Assignment"
+    ];
+  $jwt_payload["https://purl.imsglobal.org/spec/lti/claim/target_link_uri"] = $tool_url;
+
 }
 else  {
   // Teacher Launch
@@ -34,10 +61,10 @@ else  {
   $jwt_payload["https://purl.imsglobal.org/spec/lti/claim/message_type"] = "LtiDeepLinkingRequest";
   $jwt_payload["https://purl.imsglobal.org/spec/lti-dl/claim/deep_linking_settings"] =
     [
-      "deep_link_return_url" => "http://localhost:7080/deeplink",
+      "deep_link_return_url" => $platform_url . "/lti/deeplink.php",
       "accept_types" => ["ltiResourceLink"]
     ];
-  $jwt_payload["https://purl.imsglobal.org/spec/lti/claim/target_link_uri"] = "http://localhost:3000/deeplink";
+  $jwt_payload["https://purl.imsglobal.org/spec/lti/claim/target_link_uri"] = $tool_url . "/deeplink";
 }
 
 $token = JWT::encode(
