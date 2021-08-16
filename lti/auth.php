@@ -28,12 +28,12 @@ $jwt_payload = [
 ];
 
 if(strpos($_REQUEST['login_hint'], 'student-launch') === 0) {
-  // create a new lineitem in database  if lineitem doesn't exist
+  // Student Launch
 
+  // create a new lineitem in database  if lineitem doesn't exist
 
   $lineItemId = explode("#", $_REQUEST['login_hint'])[1];
 
-  // Student Launch
   $jwt_payload["https://purl.imsglobal.org/spec/lti-ags/claim/endpoint"] = [
       "scope" => [
         "https://purl.imsglobal.org/spec/lti-ags/scope/lineitem",

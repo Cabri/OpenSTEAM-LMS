@@ -16,7 +16,6 @@ $contentItemsLabel = "https://purl.imsglobal.org/spec/lti-dl/claim/content_items
 
 <script>
   window.onload = function() {
-    console.log('child: posting message')
     // send deeplink url to parent window
     window.parent.postMessage('<?php echo $decoded->$contentItemsLabel[0]->custom->value; ?>', '*')
   }

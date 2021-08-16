@@ -191,12 +191,6 @@
 
       <button class="btn c-btn-primary" id="activity-validate" data-i18n="classroom.activities.validate"
             onclick="validateActivity()"> <i class="fas fa-chevron-right"></i></button>
-      <script>
-        window.addEventListener("message", (event) => {
-          console.log('parent:' , event.origin, event.data)
-          $('#activity-score').val(event.data);
-        }, false);
-      </script>
 
       <button class="btn c-btn-primary" id="activity-save" style="display:none;" onclick="saveActivity()"
             data-i18n="classroom.activities.save-draft"><i class="fas fa-chevron-right"></i></button>

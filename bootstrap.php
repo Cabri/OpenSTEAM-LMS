@@ -15,15 +15,16 @@ $useSimpleAnnotationReader = false;
 // Array of all namespaces containing entities with annotations.
 $config = Setup::createAnnotationMetadataConfiguration(
     array(
-        __DIR__ . "/user/Entity",
-        __DIR__ . "/classroom/Entity",
-        __DIR__ . "/python/Entity",
-        __DIR__ . "/interfaces/Entity",
-        __DIR__ . "/vittamapE/Entity",
-        __DIR__ . "/shop/Entity",
-        __DIR__ . "/tables/Entity",
-        __DIR__ . "/api/Entity",
-        __DIR__ . "/learn/Entity"
+        //__DIR__ . "/vendor/vittascience/vtuser/src/Entity",
+        //__DIR__ . "/vendor/vittascience/vtclassroom/src/Entity",
+        /*__DIR__ . "/python/Entity",*/
+        //__DIR__ . "/vendor/vittascience/vtinterfaces/src/Entity",
+        /*__DIR__ . "/vittamapE/Entity",*/
+        /*__DIR__ . "/shop/Entity",*/
+        /*__DIR__ . "/tables/Entity",*/
+        /*__DIR__ . "/api/Entity",*/
+        //__DIR__ . "/vendor/vittascience/vtlearn/Entity",
+      __DIR__ . "/lti/db/Entity"
     ),
     $isDevMode,
     $proxyDir,
@@ -31,7 +32,7 @@ $config = Setup::createAnnotationMetadataConfiguration(
     $useSimpleAnnotationReader
 );
 
-// Load env variables 
+// Load env variables
 $dotenv = Dotenv::createImmutable(__DIR__);
 $dotenv->load();
 
