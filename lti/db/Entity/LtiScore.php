@@ -71,6 +71,13 @@ class LtiScore implements \JsonSerializable, \Utils\JsonDeserializer
   private $lineitem;
 
   /**
+   * @ORM\Column(name="user_id", type="string", length=255, nullable=false)
+   * @var string
+   */
+  private $userId;
+
+
+  /**
    * LtiScore constructor.
    * @param int $id
    * @param int $scoreGiven
@@ -82,7 +89,8 @@ class LtiScore implements \JsonSerializable, \Utils\JsonDeserializer
    * @param string $gradingProgress
    * @param $lineitem
    */
-  public function __construct(int $scoreGiven, int $scoreMaximum, string $comment, string $tag, string $timestamp, string $activityProgress, string $gradingProgress, $lineitem)
+  public function __construct(int $scoreGiven, int $scoreMaximum, string $comment, string $tag, string $timestamp,
+                              string $activityProgress, string $gradingProgress, $lineitem, string $userId)
   {
     $this->scoreGiven = $scoreGiven;
     $this->scoreMaximum = $scoreMaximum;
@@ -92,6 +100,7 @@ class LtiScore implements \JsonSerializable, \Utils\JsonDeserializer
     $this->activityProgress = $activityProgress;
     $this->gradingProgress = $gradingProgress;
     $this->lineitem = $lineitem;
+    $this->userId = $userId;
   }
 
   /**
@@ -236,6 +245,22 @@ class LtiScore implements \JsonSerializable, \Utils\JsonDeserializer
   public function setLineitem($lineitem): void
   {
     $this->lineitem = $lineitem;
+  }
+
+  /**
+   * @return string
+   */
+  public function getUserId(): string
+  {
+    return $this->userId;
+  }
+
+  /**
+   * @param string $userId
+   */
+  public function setUserId(string $userId): void
+  {
+    $this->userId = $userId;
   }
 
 

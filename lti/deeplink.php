@@ -3,7 +3,7 @@ require_once __DIR__ . '/../vendor/autoload.php';
 use Firebase\JWT\JWK;
 use Firebase\JWT\JWT;
 
-$tool_jwks_keys_url = "https://5a45812989ea.ngrok.io/keys";
+$tool_jwks_keys_url = "https://e777241e7461.ngrok.io/keys";
 
 // decode jwt token and check signature using jwks public key
 $decoded = JWT::decode($_REQUEST['JWT'], JWK::parseKeySet(json_decode(file_get_contents($tool_jwks_keys_url), true)), array('RS256'));

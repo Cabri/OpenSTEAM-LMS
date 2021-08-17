@@ -295,7 +295,7 @@ DisplayPanel.prototype.classroom_dashboard_activity_panel = function (id) {
                 })
             }
         } else {
-            if ($_GET('interface') == 'newActivities' || $_GET('interface') == 'savedActivities') {
+           if ($_GET('interface') == 'newActivities' || $_GET('interface') == 'savedActivities') {
                 var isDoable = true
             } else {
                 var isDoable = false

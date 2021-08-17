@@ -20,11 +20,11 @@ class ControllerLtiLineItem extends Controller
         'add' => function($data) {
           $ltiLineItem = new LtiLineItem(
             $data['id'],
-            $data['scoreMaximum'],
+            $data['score_maximum'],
             $data['label'],
             $data['tag'],
-            $data['resourceId'],
-            $data['resourceLinkId']
+            $data['resource_id'],
+            $data['resource_link_id']
           );
 
           $this->entityManager->persist($ltiLineItem);

@@ -7,7 +7,7 @@ $nonce = base64_encode(random_bytes(16));
 use \Firebase\JWT\JWT;
 //require_once __DIR__ . '/../vendor/firebase/php-jwt/src/JWT.php';
 $platform_url = 'http://localhost:7080';
-$tool_url = 'https://5a45812989ea.ngrok.io';
+$tool_url = 'https://e777241e7461.ngrok.io';
 
 $jwt_payload = [
   "iss" => $platform_url,

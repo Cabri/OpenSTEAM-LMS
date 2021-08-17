@@ -3,7 +3,7 @@ require_once __DIR__ . '/../vendor/autoload.php';
 use Firebase\JWT\JWK;
 use Firebase\JWT\JWT;
 
-$tool_jwks_keys_url = "https://5a45812989ea.ngrok.io/keys";
+$tool_jwks_keys_url = "https://e777241e7461.ngrok.io/keys";
 $platform_url = "http://localhost:7080";
 
 // decode jwt token and check signature using jwks public key

@@ -261,18 +261,32 @@ $('.new-activity-panel-lti').click(function () {
     return;
   }
   if (ClassroomSettings.status != 'edit') {
+    const ltiID = $('#activity-form-content-lti').val();
     Main.getClassroomManager().addActivity({
       'title': $('#activity-form-title').val(),
-      'content': $('#activity-form-content-lti').val(),
+      'content': ltiID,
       "isFromClassroom": true
     }).then(function (activity) {
-      ClassroomSettings.activity = activity.id
-      displayNotification('#notif-div', "classroom.notif.activityCreated", "success", `'{"activityTitle": "${activity.title}"}'`);
-      $('.new-activity-panel2').attr('disabled', false)
-      navigatePanel('classroom-dashboard-new-activity-panel2', 'dashboard-activities-teacher', ClassroomSettings.activity)
-      addTeacherActivityInList(activity)
-      teacherActivitiesDisplay()
-      ClassroomSettings.activityInWriting = false
+      // create LTI lineItem
+      Main.getClassroomManager().addLtiLineItem({
+        'id': ltiID,
+        'score_maximum': 100,
+        'label': 'label',
+        'tag': 'tag',
+        'resource_id': activity.id,
+        'resource_link_id': activity.id
+      }).then(lineItem=>{
+        console.log('success addLtiLineItem');
+
+        ClassroomSettings.activity = activity.id
+        displayNotification('#notif-div', "classroom.notif.activityCreated", "success", `'{"activityTitle": "${activity.title}"}'`);
+        $('.new-activity-panel2').attr('disabled', false)
+        navigatePanel('classroom-dashboard-new-activity-panel2', 'dashboard-activities-teacher', ClassroomSettings.activity)
+        addTeacherActivityInList(activity)
+        teacherActivitiesDisplay()
+        ClassroomSettings.activityInWriting = false
+      });
+
     });
 
 

@@ -48,7 +48,7 @@ class SteamLmsGenerateDb{
 
         // add the user as Admin in db
         $req = $this->db->prepare("
-            INSERT INTO user_regulars(id, email, mail_messages, is_active, is_admin, private_flag) 
+            INSERT INTO user_regulars(id, email, mail_messages, is_active, is_admin, private_flag)
             VALUES (?, ?, ?, ?, ?, ?)
         ");
         $req->execute(array($lastInsertedId,$_A["email"],0,1,1,0));

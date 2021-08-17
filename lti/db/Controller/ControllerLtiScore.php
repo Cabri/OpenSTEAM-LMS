@@ -5,7 +5,7 @@ namespace Lti\Controller;
 use Lti\Entity\LtiScore;
 use Database\DataBaseManager;
 
-class ControllerScore extends Controller
+class ControllerLtiScore extends Controller
 {
     public function __construct($entityManager, $user)
     {

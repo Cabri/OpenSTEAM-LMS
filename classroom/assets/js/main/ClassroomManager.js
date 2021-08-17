@@ -192,8 +192,8 @@ class ClassroomManager {
 
     /**
      * create a new classroom
-     * @param {FormData}  
-     * @return {Classroom} 
+     * @param {FormData}
+     * @return {Classroom}
      */
     addClassroom(payload) {
         return new Promise(function (resolve, reject) {
@@ -214,8 +214,8 @@ class ClassroomManager {
 
     /**
      * update a  classroom
-     * @param {FormData}  
-     * @return {Classroom} 
+     * @param {FormData}
+     * @return {Classroom}
      */
     updateClassroom(payload) {
         return new Promise(function (resolve, reject) {
@@ -236,8 +236,8 @@ class ClassroomManager {
 
     /**
      * get a classroom by his link
-     * @param {FormData}  
-     * @return {Classroom} 
+     * @param {FormData}
+     * @return {Classroom}
      */
     getClassroom(link) {
         return new Promise(function (resolve, reject) {
@@ -260,8 +260,8 @@ class ClassroomManager {
 
     /**
      * get a classroom by his student
-     * @param {FormData}  
-     * @return {Classroom} 
+     * @param {FormData}
+     * @return {Classroom}
      */
     getMyClassroom(idStudent) {
         return new Promise(function (resolve, reject) {
@@ -586,7 +586,7 @@ class ClassroomManager {
     }
 
     /**
-     * 
+     *
      * @public
      * @returns {Array}
      */
@@ -1153,4 +1153,44 @@ class ClassroomManager {
             });
         });
     }
+
+  /**
+   * Create an activity
+   * */
+  addLtiLineItem(lineItem) {
+    return new Promise(function (resolve, reject) {
+      $.ajax({
+        type: "POST",
+        url: "/routing/Routing.php?controller=lti_line_item&action=add",
+        data: lineItem,
+        success: function (response) {
+          resolve(JSON.parse(response))
+
+        },
+        error: function () {
+          reject();
+        }
+      });
+    })
+  }
+
+  /**
+   * Create an activity
+   * */
+  addLtiLineItem(lineItem) {
+    return new Promise(function (resolve, reject) {
+      $.ajax({
+        type: "POST",
+        url: "/routing/Routing.php?controller=lti_line_item&action=add",
+        data: lineItem,
+        success: function (response) {
+          resolve(JSON.parse(response))
+
+        },
+        error: function () {
+          reject();
+        }
+      });
+    })
+  }
 }
