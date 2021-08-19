@@ -18,11 +18,13 @@ describe("Attribute an activity", () => {
         await activities.createActivity();
     });
 
-    it("Click on my activity button", async () => {
-        await page.clickButtonWhenDisplayed(await selector.buttonMyActivities);
-    })
+    it("Click on button class", async () => {
+        const buttonMyActivities = await selector.buttonMyActivities;
+        await page.waitForExist(buttonMyActivities);
+        await page.clickButtonWhenDisplayed(buttonMyActivities);
+    });
 
-    it("Click on attribute button button", async () => {
+    it("Click on attribute button", async () => {
         const settingsDropdownAttributeButton = await selector.settingsDropdownAttributeActivityButton;
         const settingsButtonOnActivityCard = await selector.settingsButtonOnActivityCard;
         await page.waitForExist(settingsButtonOnActivityCard);
@@ -44,19 +46,19 @@ describe("Attribute an activity", () => {
         const specificInstructionForTheseLearners = await selector.specificInstructionForTheseLearners;
         const instructions = "Exercice one draw a cricle \n and a cube";
         await page.input(specificInstructionForTheseLearners, instructions);
-    });
-
-    // TODO : remove activity
-
-    it("Delete class", async () => {
-        await classes.deleteClass();
+        await page.clickOnButton(await selector.attributeActivityButton);
+        await browser.pause(10000);
     });
 
     it("Activities was created", async () => {
         await classes.checkSuccess();
     });
 
-/*    it("delete class was created", async () => {
+    it("delete activity was created", async () => {
+        await activities.deleteActivity();
+    });
+
+    it("Delete class", async () => {
         await classes.deleteClass();
-    });*/
+    });
 });

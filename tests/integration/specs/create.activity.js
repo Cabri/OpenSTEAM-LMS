@@ -43,7 +43,7 @@ describe("Creation of activity", () => {
         await classes.checkSuccess();
     });
 
-/*    it("delete class was created", async () => {
-        await classes.deleteClass();
-    });*/
+    it("delete activity was created", async () => {
+        await activities.deleteActivity();
+    });
 });

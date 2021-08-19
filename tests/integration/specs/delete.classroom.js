@@ -3,7 +3,7 @@ const login = require('../opensteam/login');
 const selector = require('../opensteam/selector');
 const classes = require('../opensteam/classes');
 
-describe("update of classroom", () => {
+describe("Delete of classroom", () => {
     it("Login", async () => {
         await page.open('login.php');
         await login.login(login.email, login.password);

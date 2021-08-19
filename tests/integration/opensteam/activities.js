@@ -29,29 +29,19 @@ class Activities {
         await classes.checkSuccess();
     }
 
-    // TODO : delete acticity
-  /*  async deleteActvity () {
-        await page.defineConfirm(true);
+    async deleteActivity () {
+        await page.clickButtonWhenDisplayed(await selector.buttonMyActivities);
 
-        const buttonProfile = await selector.buttonProfile;
-        const buttonClasses = await selector.buttonClasses;
-        const settingsButtonOnClassCard = await selector.settingsButtonOnClassCard;
-        const settingsDropdownDeleteButton = await selector.settingsDropdownDeleteButton;
+        await page.defineConfirm(); // stay here to works
+        const settingsDropdownDeleteActivityButton = await selector.settingsDropdownDeleteActivityButton;
+        const settingsButtonOnActivityCard = await selector.settingsButtonOnActivityCard;
+        await page.waitForExist(settingsButtonOnActivityCard);
+        await page.clickButtonWhenDisplayed(settingsButtonOnActivityCard);
+        await page.waitForExist(settingsDropdownDeleteActivityButton);
+        await page.clickButtonWhenDisplayed(settingsDropdownDeleteActivityButton);
 
-        await page.waitForExist(buttonProfile);
-        await page.clickButtonWhenDisplayed(buttonProfile);
-
-        await page.waitForExist(buttonClasses);
-        await page.clickButtonWhenDisplayed(buttonClasses);
-
-        await page.waitForExist(settingsButtonOnClassCard);
-        await page.clickButtonWhenDisplayed(settingsButtonOnClassCard);
-
-        await page.waitForExist(settingsDropdownDeleteButton);
-        await page.clickButtonWhenDisplayed(settingsDropdownDeleteButton);
-
-        await this.checkSuccess();
-    }*/
+        await classes.checkSuccess();
+    }
 }
 
 module.exports = new Activities();
