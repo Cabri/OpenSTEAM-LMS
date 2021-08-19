@@ -22,7 +22,7 @@ class Classes {
         await page.clickButtonWhenDisplayed(await selector.buttonAddLearnerInModal);
 
     }
-
+    // TODO : move in page.js
     async checkSuccess () {
         const success = /status-success/g;
         let notifOfUpdateInformation = await selector.notifOfUpdateInformation;

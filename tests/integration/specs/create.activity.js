@@ -2,6 +2,7 @@ const page = require('../opensteam/page');
 const login = require('../opensteam/login');
 const selector = require('../opensteam/selector');
 const classes = require('../opensteam/classes');
+const activities = require('../opensteam/activities');
 
 describe("Creation of activity", () => {
     it("Login", async () => {
@@ -19,7 +20,7 @@ describe("Creation of activity", () => {
 
     it("Complete title of activity", async () => {
         const input = await selector.inputTitleActivity;
-        const activityTitle = "Made circle" + page.randomNumberBetween1to100();
+        const activityTitle = activities.title + page.randomNumberBetween1to100();
         await page.input(input, activityTitle);
     });
 
@@ -29,7 +30,7 @@ describe("Creation of activity", () => {
 
     it("Insert book url", async () => {
         const input = await selector.inputBookURL;
-        const link = "https://cabricloud.com/cabriexpress/";
+        const link = activities.bookUrl;
         await page.input(input, link);
         await page.clickButtonWhenDisplayed(await selector.buttonSaveURL);
     });
