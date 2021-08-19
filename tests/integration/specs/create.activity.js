@@ -10,7 +10,7 @@ describe("Creation of activity", () => {
         await login.login(login.email, login.password);
     });
 
-    it("Click on activity button", async () => {
+    it("Click on my activity button", async () => {
         await page.clickButtonWhenDisplayed(await selector.buttonMyActivities);
     });
 

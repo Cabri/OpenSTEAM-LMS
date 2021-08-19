@@ -28,6 +28,7 @@ class Activities {
 
         await classes.checkSuccess();
     }
+
     // TODO : delete acticity
   /*  async deleteActvity () {
         await page.defineConfirm(true);

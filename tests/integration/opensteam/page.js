@@ -33,8 +33,8 @@ class Page {
     }
 
     clickOnButton (button) {
-        expect(button).toBeDisplayedInViewport();
         button.scrollIntoView();
+        expect(button).toBeDisplayedInViewport();
         button.click();
     }
 

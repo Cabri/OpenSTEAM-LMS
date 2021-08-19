@@ -202,6 +202,50 @@ class Selector {
         return $(".new-activity-panel2");
     }
 
+    get settingsButtonOnActivityCard () {
+        return $("#list-activities-teacher .dropdown i");
+    }
+
+    get settingsDropdownAttributeActivityButton () {
+        return $("#list-activities-teacher .dropdown .dropdown-menu li:nth-child(1)");
+    }
+
+    get settingsDropdownDuplicateActivityButton () {
+        return $("#list-activities-teacher .dropdown .dropdown-menu li:nth-child(2)");
+    }
+
+    get settingsDropdownModifyActivityButton () {
+        return $("#list-activities-teacher .dropdown .dropdown-menu li:nth-child(3)");
+    }
+
+    get settingsDropdownDeleteActivityButton () {
+        return $("#list-activities-teacher .dropdown .dropdown-menu li:nth-child(4)");
+    }
+
+    get selectLearnersButton () {
+        return $("#new-activity-attribute");
+    }
+
+    get checkBoxClassModal () {
+        return $(".list-students-classroom");
+    }
+
+    get validateSelectClassModal () {
+        return $("#attribute-activity-to-students-close");
+    }
+
+    get specificInstructionForTheseLearners () {
+        return $("#introduction-activity-form");
+    }
+
+    get attributeActivityButton () {
+        return $("#attribute-activity-to-students");
+    }
+
+
+
+
+
     /**
      * add learner in class
      */
