@@ -242,9 +242,20 @@ class Selector {
         return $("#attribute-activity-to-students");
     }
 
+    /**
+     * sort activities
+     */
+    get filterActivitiesSelect () {
+        return $("#filter-activity-select");
+    }
 
+    get firstActivity () {
+        return $("#list-activities-teacher .activity-item:first-child .activity-item-title");
+    }
 
-
+    get lastActivity () {
+        return $("#list-activities-teacher .activity-item:last-child .activity-item-title");
+    }
 
     /**
      * add learner in class

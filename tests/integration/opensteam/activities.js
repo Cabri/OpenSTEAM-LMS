@@ -6,8 +6,16 @@ class Activities {
     constructor() {
         this.title = "Activity Name";
         this.bookUrl = "https://cabricloud.com/cabriexpress/";
+        this.filter = {
+            beforeFilterLastActivity: [],
+            afterFilterFirstActivity: []
+        }
     }
-
+    async checkFilter () {
+        console.log("filterZZ", this.filter);
+        const isFilterWorks = this.filter.beforeFilterLastActivity === this.filter.afterFilterFirstActivity;
+        expect(isFilterWorks).toBeTruthy();
+    }
     async createActivity () {
         await page.clickButtonWhenDisplayed(await selector.buttonMyActivities);
 
