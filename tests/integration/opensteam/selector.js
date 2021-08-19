@@ -59,7 +59,7 @@ class Selector {
     }
 
     get notifOfUpdateInformation() {
-        return $("#notif-div div");
+        return $("#notif-div div:last-child");
     }
 
 
