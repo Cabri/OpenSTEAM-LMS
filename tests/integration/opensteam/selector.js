@@ -170,6 +170,54 @@ class Selector {
     get settingsDropdownDeleteButton () {
         return $("#classroom-dashboard-classes-panel-teacher .dropdown .dropdown-menu li:nth-child(2)");
     }
+
+    /**
+     * My activities page
+     */
+    get buttonMyActivities () {
+        return $("#dashboard-activities-teacher");
+    }
+
+    get buttonCreateActivities () {
+        return $("#new-activity-panel1");
+    }
+
+    get inputTitleActivity () {
+        return $("#activity-form-title");
+    }
+
+    get buttonInsertBook () {
+        return $(".btn-inner");
+    }
+
+    get inputBookURL () {
+        return $(".inp-text");
+    }
+
+    get buttonSaveURL () {
+        return $(".wbb-button");
+    }
+
+    get buttonValidateCreationActivity () {
+        return $(".new-activity-panel2");
+    }
+
+    /**
+     * add learner in class
+     */
+    get buttonOpenClass () {
+        return $(".class-card:first-child");
+    }
+
+    get buttonAddLearnerInClass () {
+        return $("#add-student-dashboard-panel");
+    }
+
+    // inputLearnerName
+    // buttonAddLearnerInModal
+
+
+
 }
 
 module.exports = new Selector();
