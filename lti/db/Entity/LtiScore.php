@@ -3,6 +3,7 @@
 namespace Lti\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use User\Entity\User;
 use Utils\Exceptions\EntityDataIntegrityException;
 use Utils\Exceptions\EntityOperatorException;
 use Utils\JsonDeserializer;
@@ -71,10 +72,10 @@ class LtiScore implements \JsonSerializable, \Utils\JsonDeserializer
   private $lineitem;
 
   /**
-   * @ORM\Column(name="user_id", type="string", length=255, nullable=false)
-   * @var string
+   * @ORM\ManyToOne(targetEntity="User\Entity\User")
+   * @ORM\JoinColumn(name="id_user", referencedColumnName="id", onDelete="CASCADE")
    */
-  private $userId;
+  private $user;
 
 
   /**
@@ -90,7 +91,7 @@ class LtiScore implements \JsonSerializable, \Utils\JsonDeserializer
    * @param $lineitem
    */
   public function __construct(int $scoreGiven, int $scoreMaximum, string $comment, string $tag, string $timestamp,
-                              string $activityProgress, string $gradingProgress, $lineitem, string $userId)
+                              string $activityProgress, string $gradingProgress, $lineitem, User $user)
   {
     $this->scoreGiven = $scoreGiven;
     $this->scoreMaximum = $scoreMaximum;
@@ -100,7 +101,7 @@ class LtiScore implements \JsonSerializable, \Utils\JsonDeserializer
     $this->activityProgress = $activityProgress;
     $this->gradingProgress = $gradingProgress;
     $this->lineitem = $lineitem;
-    $this->userId = $userId;
+    $this->user = $user;
   }
 
   /**
@@ -248,19 +249,19 @@ class LtiScore implements \JsonSerializable, \Utils\JsonDeserializer
   }
 
   /**
-   * @return string
+   * @return mixed
    */
-  public function getUserId(): string
+  public function getUser()
   {
-    return $this->userId;
+    return $this->user;
   }
 
   /**
-   * @param string $userId
+   * @param mixed $user
    */
-  public function setUserId(string $userId): void
+  public function setUser($user): void
   {
-    $this->userId = $userId;
+    $this->user = $user;
   }
 
 

@@ -49,8 +49,15 @@ function createCabriExpressActivity(link = null, id = null) {
   ClassroomSettings.activityInWriting = true
 
   // Start LTI 1.3 tool launch
-  document.getElementsByName('lti_login_form')[0].style.display = 'none';
-  document.forms["lti_login_form"].submit();
+  const loginHint = {
+    userId: UserManager.getUser().id,
+    isStudentLaunch: false
+  };
+
+debugger
+ // document.getElementsByName('lti_teacher_login_form')[0].style.display = 'none';
+  $('#lti_teacher_login_hint').val(JSON.stringify(loginHint));
+  document.forms["lti_teacher_login_form"].submit();
 }
 
 // Lorsque le stockage local change, regarder l'état de la correction.

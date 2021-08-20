@@ -6,7 +6,19 @@ use Firebase\JWT\JWK;
 
 use Firebase\JWT\JWT;
 use Lti\Controller\ControllerLtiScore;
+use Lti\Entity\LtiScore;
+use User\Entity\User;
 
+//$score = new LtiScore();
+//$score->setComment("sssss");
+//$entityManager->persist($score); // et remove() stock uniquement dans la mémoire
+//$entityManager->flush(); // stockage dans la BD
+//$entityManager->clear(); // clean memory
+//
+//$entityManager->remove($score);
+
+//$users = $entityManager->getRepository(LtiScore::Class)->findAll();
+//var_dump($users[0]->getScoreGiven());
 $headers = apache_request_headers();
 
 $dbHost = 'cabrisql';
@@ -34,31 +46,36 @@ $object = json_decode($body, true);
 
 
 $lineItemId = urldecode($_REQUEST['lineitem']);
-$scoreGiven = $object['scoreGiven'];
-$scoreMaximum = $object['scoreMaximum'];
+$lineItemId = str_replace('https:/', 'https://', $lineItemId);
+$scoreGiven = intval($object['scoreGiven']);
+$scoreMaximum = intval($object['scoreMaximum']);
 $activityProgress = $object['activityProgress'];
 $gradingProgress = $object['gradingProgress'];
 $timestamp = $object['timestamp'];
 $userId = $object['userId'];
 $comment = $object['comment'];
 
+try {
+$lineitem = $entityManager->getRepository(LtiScore::class)->find($lineItemId);
+$user = $entityManager->getRepository(User::class)->find($userId);
 
-// TODO replace this  temporary fix
-$lineItemId = str_replace('https:/', 'https://', $lineItemId);
+$ltiScore = new LtiScore($scoreGiven, $scoreMaximum, $comment, 'tag', $timestamp,
+  $activityProgress, $gradingProgress, $lineitem, $user);
+$entityManager->persist($ltiScore); // et remove() stock uniquement dans la mémoire
+$entityManager->flush(); // stockage dans la BD
 
-echo $lineItemId;
+} catch(Exception $e){
+  // display errors
+  echo $e->getMessage();
+}
 
+//$entityManager->remove($score);
+//$users = $entityManager->getRepository(LtiScore::Class)->findAll();
+
+/*
 try {
   $db = new PDO($dsn,$dbUser,$dbPassword);
   $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-  /*
-    $lineItemId = 'https://cabri.blob.core.windows.net/shared/seif.benomar/C01_determiner_les_coordonnees_dun_point_du_plan_repere_orthonorme.clmc';
-    $scoreGiven = 70;
-    $scoreMaximum = 100;
-    $activityProgress = 'InProgress';
-    $gradingProgress = 'Graded';
-    $timestamp = 1234567;
-    $userId = 6;*/
 
   $data = [
     'score_given' => $scoreGiven,
@@ -78,5 +95,5 @@ try {
   // display errors
   echo $e->getMessage();
 }
-
+*/
 ?>

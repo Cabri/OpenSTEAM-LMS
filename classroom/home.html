@@ -180,14 +180,14 @@
         <p id="activity-content"> </p>
 
       <input id="activity-score" type="text" hidden/>
-      <form name="lti_student_login_form" action="http://localhost:3000/login" method="post" target="tool_content-student">
-        <input id="iss" type="hidden" name="iss" value="http://localhost:7080" />
-        <input id="login_hint" type="hidden" name="login_hint"/>
-        <input id="client_id" type="hidden" name="client_id" value="client_id_php" />
-        <input id="target_link_uri" type="hidden" name="target_link_uri" value="http://localhost:3000" />
+      <form name="lti_student_login_form" action="http://localhost:3000/login" method="post" target="lti_student_iframe">
+        <input id="lti_student_iss" type="hidden" name="iss" value="http://localhost:7080" />
+        <input id="lti_student_login_hint" type="hidden" name="login_hint"/>
+        <input id="lti_student_client_id" type="hidden" name="client_id" value="client_id_php" />
+        <input id="lti_student_target_link_uri" type="hidden" name="target_link_uri" value="http://localhost:3000" />
       </form>
 
-      <iframe src="about:blank" name="tool_content-student" title="Tool Content" width="1000" height="600"></iframe>
+      <iframe src="about:blank" name="lti_student_iframe" title="Tool Content" width="1000" height="600"></iframe>
 
       <button class="btn c-btn-primary" id="activity-validate" data-i18n="classroom.activities.validate"
             onclick="validateActivity()"> <i class="fas fa-chevron-right"></i></button>
@@ -485,14 +485,14 @@
       <!-- Resource Launch-->
       <!-- STEP 1-->
       <input id="activity-form-content-lti" type="text" hidden/>
-      <form name="lti_login_form" action="http://localhost:3000/login" method="post" target="tool_content-teacher">
-        <input id="iss" type="hidden" name="iss" value="http://localhost:7080" />
-        <input id="login_hint" type="hidden" name="login_hint" value="login_hint" />
-        <input id="client_id" type="hidden" name="client_id" value="client_id_php" />
-        <input id="target_link_uri" type="hidden" name="target_link_uri" value="http://localhost:3000/deeplink" />
+      <form name="lti_teacher_login_form" action="http://localhost:3000/login" method="post" target="lti_teacher_iframe">
+        <input id="lti_teacher_iss" type="hidden" name="iss" value="http://localhost:7080" />
+        <input id="lti_teacher_login_hint" type="hidden" name="login_hint"/>
+        <input id="lti_teacher_client_id" type="hidden" name="client_id" value="client_id_php" />
+        <input id="lti_teacher_target_link_uri" type="hidden" name="target_link_uri" value="http://localhost:3000/deeplink" />
       </form>
 
-      <iframe src="about:blank" name="tool_content-teacher" title="Tool Content" width="1000" height="600"></iframe>
+      <iframe src="about:blank" name="lti_teacher_iframe" title="Tool Content" width="1000" height="600"></iframe>
       <script>
         window.addEventListener("message", (event) => {
           console.log('parent:' , event.origin, event.data)

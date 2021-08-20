@@ -9,10 +9,12 @@ use \Firebase\JWT\JWT;
 $platform_url = 'http://localhost:7080';
 $tool_url = 'https://e777241e7461.ngrok.io';
 
+$loginHint = json_decode($_REQUEST['login_hint'], true);
+
 $jwt_payload = [
   "iss" => $platform_url,
   "aud" => ['client_id_php'],
-  "sub" => 'client_id_php',
+  "sub" => $loginHint['userId'],
   "exp" => time() + 600,
   "iat" => time(),
   "nonce" => $nonce,
@@ -20,19 +22,19 @@ $jwt_payload = [
   //"https://purl.imsglobal.org/spec/lti/claim/message_type" => "LtiResourceLinkRequest",
   "https://purl.imsglobal.org/spec/lti/claim/version" => "1.3.0",
   //"https://purl.imsglobal.org/spec/lti/claim/target_link_uri" => TOOL_HOST . "/game.php",
-  "https://purl.imsglobal.org/spec/lti/claim/roles" => [
-    "https://purl.imsglobal.org/vocab/lis/v2/institution/person#Student",
-    "https://purl.imsglobal.org/vocab/lis/v2/membership#Learner",
-    "https://purl.imsglobal.org/vocab/lis/v2/membership#Mentor"
-  ]
 ];
 
-if(strpos($_REQUEST['login_hint'], 'student-launch') === 0) {
+//if(strpos($_REQUEST['login_hint'], 'student-launch') === 0) {
+if($loginHint['isStudentLaunch']) {
   // Student Launch
 
   // create a new lineitem in database  if lineitem doesn't exist
 
-  $lineItemId = explode("#", $_REQUEST['login_hint'])[1];
+  //$lineItemId = explode("#", $_REQUEST['login_hint'])[1];
+
+  $jwt_payload[  "https://purl.imsglobal.org/spec/lti/claim/roles"] =  [
+    "https://purl.imsglobal.org/vocab/lis/v2/membership#Learner",
+  ];
 
   $jwt_payload["https://purl.imsglobal.org/spec/lti-ags/claim/endpoint"] = [
       "scope" => [
@@ -42,13 +44,13 @@ if(strpos($_REQUEST['login_hint'], 'student-launch') === 0) {
       ],
       // TODO hostname must be dynamic
       "lineitems"=> "http://localhost:7080/lti/tools/1/lineitems",
-      "lineitem" => "http://localhost:7080/lti/tools/1/lineitems/" . urlencode($lineItemId)
+      "lineitem" => "http://localhost:7080/lti/tools/1/lineitems/" . urlencode($loginHint['lineitemId'])
       // def: http://localhost:3000/<tool_id>/lineitems/<line_item_1>
     ];
 
     $jwt_payload['https://purl.imsglobal.org/spec/lti/claim/message_type'] = 'LtiResourceLinkRequest';
     $jwt_payload['https://purl.imsglobal.org/spec/lti/claim/resource_link'] = [
-       "id" => $lineItemId,
+       "id" => $loginHint['lineitemId'],
       //"description": "Assignment to introduce who you are",
       //"title": "Introduction Assignment"
     ];
@@ -58,6 +60,10 @@ if(strpos($_REQUEST['login_hint'], 'student-launch') === 0) {
 else  {
   // Teacher Launch
   // Using deep link
+  $jwt_payload[  "https://purl.imsglobal.org/spec/lti/claim/roles"] =  [
+    "http://purl.imsglobal.org/vocab/lis/v2/institution/person#Instructor"
+  ];
+
   $jwt_payload["https://purl.imsglobal.org/spec/lti/claim/message_type"] = "LtiDeepLinkingRequest";
   $jwt_payload["https://purl.imsglobal.org/spec/lti-dl/claim/deep_linking_settings"] =
     [
@@ -65,6 +71,7 @@ else  {
       "accept_types" => ["ltiResourceLink"]
     ];
   $jwt_payload["https://purl.imsglobal.org/spec/lti/claim/target_link_uri"] = $tool_url . "/deeplink";
+
 }
 
 $token = JWT::encode(
