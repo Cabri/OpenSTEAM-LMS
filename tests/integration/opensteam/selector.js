@@ -271,7 +271,32 @@ class Selector {
     // inputLearnerName
     // buttonAddLearnerInModal
 
+    /**
+     * switch to learner/teacher mode
+     */
+    get panelLearner () {
+        return $("#classroom-dashboard-profil-panel");
+    }
 
+    get panelLearnerSwitchButton () {
+        return $("#teacherSwitchButton");
+    }
+
+    get panelTeacher () {
+        return $("#classroom-dashboard-profil-panel-teacher");
+    }
+
+    get panelTeacherSwitchButton () {
+        return $("#classroom-dashboard-profil-panel-teacher :nth-child(6)");
+    }
+
+    get selectClassRadioButton () {
+        return $("#list-classes input");
+    }
+
+    get validateSwitchLearnerMode () {
+        return $("#mode-student-check");
+    }
 
 }
 

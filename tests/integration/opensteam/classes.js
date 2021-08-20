@@ -55,12 +55,13 @@ class Classes {
     }
 
     async deleteClass () {
-        await page.defineConfirm(true);
 
         const buttonProfile = await selector.buttonProfile;
         const buttonClasses = await selector.buttonClasses;
         const settingsButtonOnClassCard = await selector.settingsButtonOnClassCard;
         const settingsDropdownDeleteButton = await selector.settingsDropdownDeleteButton;
+
+        await page.defineConfirm();
 
         await page.waitForExist(buttonProfile);
         await page.clickButtonWhenDisplayed(buttonProfile);
