@@ -618,6 +618,7 @@ function filterSandboxInList(keywords = [], orderBy = 'id', asc = true) {
 function displayStudentsInClassroom(students) {
     $('#body-table-teach').html(''); //clean the display
     $('#add-student-container').html(''); //clean the display
+    $('#export-class-container').html(''); //clean the display
     $('#header-table-teach').html('<th class="table-title" style="max-width: 250px; font-size: 19pt; text-align: left; height: 3em;" data-i18n="classroom.activities.title">Activités</th>');
     // get the current classroom index of activities
     let arrayIndexesActivities = listIndexesActivities(students);
@@ -716,9 +717,12 @@ function displayStudentsInClassroom(students) {
         html += '</tr>';
         $('#body-table-teach').append(html);
     });
-    $('#add-student-container').append(`<button id="add-student-dashboard-panel" class="btn c-btn-primary"><span data-i18n="classroom.activities.addLearner">Ajouter un apprenant</span></button>`);
-    $('#add-student-container').append(`<button id="download-csv" class="btn c-btn-secondary ml-2" onclick="openDownloadCsvModal()"><i class="fa fa-download" aria-hidden="true"></i><span class="ml-1" data-i18n="classroom.activities.exportCsv">Exporter csv</span></button>`);
-    $('#header-table-teach').append(`<th colspan="7"> <button class="btn c-btn-primary dashboard-activities-teacher" onclick="pseudoModal.openModal('add-activity-modal')">Ajouter une activité</button></th>`)
+    
+    $('#add-student-container').append(`<button id="add-student-dashboard-panel" class="btn c-btn-primary"><span data-i18n="classroom.activities.addLearner">Ajouter des apprenants <i class="fas fa-plus"></i></span></button>`);
+
+    $('#export-class-container').append(`<button id="download-csv" class="btn c-btn-tertiary ml-2" onclick="openDownloadCsvModal()"><i class="fa fa-download" aria-hidden="true"></i><span class="ml-1" data-i18n="classroom.activities.exportCsv">Exporter CSV</span></button>`);
+
+    $('#header-table-teach').append(`<th class="add-activity-th" colspan="7"> <button class="btn c-btn-primary dashboard-activities-teacher" onclick="pseudoModal.openModal('add-activity-modal')">Ajouter une activité</button></th>`)
 }
 
 $('body').on('click', '.switch-pwd', function (event) {

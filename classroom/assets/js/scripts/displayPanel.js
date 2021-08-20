@@ -349,7 +349,7 @@ function getIntelFromClasses() {
                     }
                 })
             })
-            $('#list-classes').append('<div><input class="mx-5" type="radio" name="classroom" value="' + element.classroom.link + '">' + element.classroom.name + '</div>')
+            $('#list-classes').append('<div><input class="mx-5" type="radio" name="classroom" id="' + element.classroom.link + '" value="' + element.classroom.link + '"><label for="' + element.classroom.link + '">' + element.classroom.name + '</label></div>')
         });
         $('.no-classes').remove()
         $('#mode-student-check').show()

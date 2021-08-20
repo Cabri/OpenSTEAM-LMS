@@ -1,10 +1,12 @@
 <div id="classroom-dashboard-activities-panel-teacher" style="display:none;" class="dashboard-block">
-    <div class="d-flex w-75 c-primary-form" style="margin: 0 auto;">
-        <input type="search" id="filter-activity-input" placeholder="Recherche..." class="flex-fill">
+    <div class="d-flex justify-content-center c-primary-form activity-search" style="margin: 0 auto;">
+        <div class="d-flex flex-fill">
+            <input type="search" id="filter-activity-input" placeholder="Recherche..." class="flex-fill">
 
-        <button id="filter-activity" class="c-btn-primary" style="width: 3em;height: 3em;">
-            <i class="fas fa-search"></i>
-        </button>
+            <button id="filter-activity" class="c-btn-primary" style="width: 3em;height: 3em;">
+                <i class="fas fa-search"></i>
+            </button>
+        </div>
 
         <select name="filter-activity-select" id="filter-activity-select" class="c-primary-form">
             <option value="desc" data-i18n="classroom.filter.desc"></option>
@@ -14,8 +16,7 @@
     </div>
     </br>
 
-    <div class="buttons-interactions">
-
+    <div class="buttons-interactions flex-wrap">
         <button id="new-activity-panel1" onclick="createActivity()" class=" btn c-btn-outline-secondary"><span class="mr-1" data-i18n="classroom.activities.add"></span><i class="fas fa-chevron-right"></i>
         </button>
 
@@ -33,7 +34,7 @@
 <div id="classroom-dashboard-activities-panel-library-teacher" style="display:none;" class="dashboard-block">
 </div>
 
-<div id="classroom-dashboard-new-cabriexpress-activity-panel" style="display:none;margin-right:0px;"
+<div id="classroom-dashboard-new-cabriexpress-activity-panel" style="display:none;"
      class="activity-creation-form row dashboard-block">
   <nav class="row w-50" style="margin: 0 auto;">
     <div class="col-4 text-center"><span class="form-activity form-activity-activate"><b>1</b></span><span
@@ -92,14 +93,20 @@
 
 <div id="classroom-dashboard-new-activity-panel" style="display:none;margin-right:0px;"
     class="activity-creation-form row dashboard-block">
-    <nav class="row w-50" style="margin: 0 auto;">
-        <div class="col-4 text-center"><span class="form-activity form-activity-activate"><b>1</b></span><span
-                data-i18n="classroom.activities.form.1"></span></div>
-        <div class="col-4">__________________________</div>
-        <div class=" col-4 text-center"><span class="form-activity form-activity-desactivate"><b>2</b></span>
-            <span data-i18n="classroom.activities.form.2"></span></div>
+    <nav class="row" style="margin: 0 auto;">
+        <div class="col-4 text-center">
+            <span class="form-activity form-activity-activate"><b>1</b></span>
+            <span data-i18n="classroom.activities.form.1"></span>
+        </div>
+
+        <div class="col-4"></div>
+
+        <div class=" col-4 text-center">
+            <span class="form-activity form-activity-desactivate"><b>2</b></span>
+            <span data-i18n="classroom.activities.form.2"></span>
+        </div>
     </nav>
-    <div class="form-group mb-2 part-content-index part-row c-primary-form" style="max-width: 60%;">
+    <div class="form-group mb-2 part-content-index part-row c-primary-form">
         <div class="form-row mt-1">
             <label for="part-content-input" class="tutorial-label">
                 <span data-i18n="classroom.activities.form.title.label"></span>
@@ -121,13 +128,20 @@
 </div>
 <div id="classroom-dashboard-new-activity-panel2" style="display:none;"
     class="row flex-column dashboard-block class-creation-form-step2">
-    <nav class="row w-50" style="margin: 0 auto;">
-        <div class="col-4 text-center"><span class="form-activity form-activity-activate"><b>1</b></span><span
-                data-i18n="classroom.activities.form.1"></span></div>
-        <div class="col-4">__________________________</div>
-        <div class=" col-4 text-center"><span class="form-activity form-activity-desactivate"><b>2</b></span>
-            <span data-i18n="classroom.activities.form.2"></span></div>
+    <nav class="row" style="margin: 0 auto;">
+        <div class="col-4 text-center">
+            <span class="form-activity form-activity-activate"><b>1</b></span>
+            <span data-i18n="classroom.activities.form.1"></span>
+        </div>
+
+        <div class="col-4"></div>
+
+        <div class=" col-4 text-center">
+            <span class="form-activity form-activity-desactivate"><b>2</b></span>
+            <span data-i18n="classroom.activities.form.2"></span>
+        </div>
     </nav>
+
     <h1 data-i18n="classroom.activities.form.success"></h1>
     <div class="buttons">
         <button id="new-activity-panel3" class="new-activity-panel3 c-btn-primary"><span
@@ -146,12 +160,16 @@
     <p>Vous pourrez toujours plus tard attribuer ce parcours depuis le tableau de bord</p>
 </div> -->
 <div id="classroom-dashboard-new-activity-panel3" style="display:none;" class="dashboard-block">
-    <nav class="row w-50 mb-3" style="margin: 0 auto;">
-        <div class="col-4 text-center"><span class="form-activity form-activity-activate"><b>1</b></span><span
-                data-i18n="classroom.activities.form.1"></span></div>
-        <div class="col-4">__________________________</div>
-        <div class=" col-4 text-center"><span class="form-activity form-activity-desactivate"><b>2</b></span>
-            <span data-i18n="classroom.activities.form.2"></span></div>
+    <nav class="row mb-3" style="margin: 0 auto;">
+        <div class="col-4 text-center">
+            <span class="form-activity form-activity-activate"><b>1</b></span>
+            <span data-i18n="classroom.activities.form.1"></span>
+        </div>
+        <div class="col-4"></div>
+        <div class=" col-4 text-center">
+            <span class="form-activity form-activity-desactivate"><b>2</b></span>
+            <span data-i18n="classroom.activities.form.2"></span>
+        </div>
     </nav>
     <div class="row w-50" style="margin: 0 auto;">
 

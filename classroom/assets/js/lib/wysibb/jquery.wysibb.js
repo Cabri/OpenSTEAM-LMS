@@ -285,7 +285,7 @@ wbbdebug = false;
 							input: [{
 								param: "URL",
 								title: CURLANG.modal_cabri_url,
-								validation: '^http(s)?:\/\/cabricloud'
+								validation: '^http(s)?:\/\/.*'
 							}]
 						}]
 					},

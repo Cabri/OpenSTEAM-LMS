@@ -22,6 +22,8 @@
     --classroom-text-0: black;
     --classroom-text-1: #333;
     --classroom-text-2: #666;
+    
+    --classroom-shadow-1: rgba(0, 0, 0, 0.2);
 
     --classroom-white: #fff;
     --classroom-black: #000;
@@ -36,6 +38,8 @@
     --classroom-text-0: rgb(255, 255, 255);
     --classroom-text-1: rgb(205, 205, 205);
     --classroom-text-2: rgb(153, 153, 153);
+    --classroom-shadow-1: rgba(0, 0, 0, 1);
+
 }
 
 /* Used when the insterface is used by a teacher */
