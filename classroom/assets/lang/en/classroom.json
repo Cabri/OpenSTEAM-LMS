@@ -122,6 +122,8 @@
         "activities": {
             "save": "Save the draft ",
             "add": "Create an activity",
+            "addCabrixpress": "Cabri activity",
+            "addCabriexpressGenius": "Cabri genius activity",
             "new": "New",
             "current": "In progress",
             "done": "Done",

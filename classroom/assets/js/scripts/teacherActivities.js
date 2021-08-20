@@ -54,7 +54,6 @@ function createCabriExpressActivity(link = null, id = null) {
     isStudentLaunch: false
   };
 
-debugger
  // document.getElementsByName('lti_teacher_login_form')[0].style.display = 'none';
   $('#lti_teacher_login_hint').val(JSON.stringify(loginHint));
   document.forms["lti_teacher_login_form"].submit();
