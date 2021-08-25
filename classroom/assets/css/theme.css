@@ -24,13 +24,14 @@
     --classroom-text-2: #666;
     
     --classroom-shadow-1: rgba(0, 0, 0, 0.2);
-
+    --classroom-cell: #E6E6E6;
+    
     --classroom-white: #fff;
     --classroom-black: #000;
     --classroom-green: #22b573;
     --classroom-red: #dc3545;
     --classroom-blue: #3fa9f5;
-
+    
 }
 
 .theme-dark {
@@ -39,6 +40,7 @@
     --classroom-text-1: rgb(205, 205, 205);
     --classroom-text-2: rgb(153, 153, 153);
     --classroom-shadow-1: rgba(0, 0, 0, 1);
+    --classroom-cell: #4e4e4e;
 
 }
 

@@ -13,7 +13,11 @@ function goToDisconnect() {
             }
         });
     }).then(()=>{
-        window.location = '/classroom/';
+        if (UserManager.getUser().isFromGar){
+            window.location = 'https://simulent.partenaire.test-gar.education.fr/mediacentre';
+        } else {
+            window.location = '/classroom/';
+        }
     }).catch((e)=>{
         console.log(e);
     });

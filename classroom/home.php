@@ -10,8 +10,8 @@ if (isset($_SESSION['idProf'])) {
     $user = $entityManager->getRepository('User\Entity\User')
         ->find($_SESSION['id']);
 }
-if (!$user) {
-    header("Location: /classroom/login.php");
+if (empty($user)) {
+   header("Location: /classroom/login.php");
 }
 // $regular = $entityManager->getRepository('User\Entity\Regular')
 //     ->findOneBy(array('user' => $user->getId()));

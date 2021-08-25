@@ -187,21 +187,29 @@ $('.new-activity-panel2').click(function () {
     $(this).attr('disabled', 'disabled')
     if (document.getElementById('activity-form-title').value.length < 1) {
         displayNotification('#notif-div', "classroom.notif.activityTitleMissing", "error");
+        $(this).attr('disabled', false);
         return;
     }
     if (ClassroomSettings.status != 'edit') {
+        // Activity creation (not in edit status)
         Main.getClassroomManager().addActivity({
             'title': $('#activity-form-title').val(),
             'content': $('#activity-form-content').bbcode(),
             "isFromClassroom": true
         }).then(function (activity) {
-            ClassroomSettings.activity = activity.id
-            displayNotification('#notif-div', "classroom.notif.activityCreated", "success", `'{"activityTitle": "${activity.title}"}'`);
             $('.new-activity-panel2').attr('disabled', false)
-            navigatePanel('classroom-dashboard-new-activity-panel2', 'dashboard-activities-teacher', ClassroomSettings.activity)
-            addTeacherActivityInList(activity)
-            teacherActivitiesDisplay()
-            ClassroomSettings.activityInWriting = false
+            if (activity.errors) {
+                for (let error in activity.errors) {
+                    displayNotification('#notif-div', `classroom.notif.${error}`, "error");
+                }
+            }else{
+                ClassroomSettings.activity = activity.id;
+                displayNotification('#notif-div', "classroom.notif.activityCreated", "success", `'{"activityTitle": "${activity.title}"}'`);
+                navigatePanel('classroom-dashboard-new-activity-panel2', 'dashboard-activities-teacher', ClassroomSettings.activity);
+                addTeacherActivityInList(activity);
+                teacherActivitiesDisplay();
+                ClassroomSettings.activityInWriting = false;
+            }
         });
 
 
