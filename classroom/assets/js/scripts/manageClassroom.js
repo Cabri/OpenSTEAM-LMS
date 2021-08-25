@@ -771,7 +771,7 @@ function actualizeStudentActivities(activity, correction) {
 function addStudentRow(pseudo) {
     return `
     <li class="row align-items-center my-1 ">
-        <img class="col-2 propic" src="/classroom/assets/media/alphabet/` + pseudo.slice(0, 1).toUpperCase() + `.png" alt="Photo de profil">
+        <img class="col-2 propic" src="${_PATH}assets/media/alphabet/` + pseudo.slice(0, 1).toUpperCase() + `.png" alt="Photo de profil">
         <div class="col">` + pseudo + `</div>
         <button type=\"button\" class=\"btn btn-danger remove-student h-50\" data-toggle=\"tooltip\" data-placement=\"top\"  >
             <i class=\"fas fa-times\"></i>
@@ -968,8 +968,10 @@ function showFormInputError(id){
 function dashboardAutoRefresh(){
     if($_GET('panel') == 'classroom-table-panel-teacher' && $_GET('option')){
         Main.getClassroomManager().getClasses(Main.getClassroomManager()).then(() => {
-            let students = getClassroomInListByLink($_GET('option'))[0].students
-            displayStudentsInClassroom(students)
+            if (getClassroomInListByLink($_GET('option'))[0]) {
+                let students = getClassroomInListByLink($_GET('option'))[0].students;
+                displayStudentsInClassroom(students);
+            }
         });
         setTimeout(dashboardAutoRefresh, 15000);
     }

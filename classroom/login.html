@@ -212,7 +212,7 @@
             <div>
                 <a class="hint" href="/passwordRecovery" data-i18n="login_popup.form.forgot_password"></a>
             </div>
-            <button type='button' style="margin-top:10px;" onclick="checkLogin();" class="btn vitta-button"
+            <button type='button' style="margin-top:10px;" onclick="checkLogin();" class="btn c-btn-secondary"
                 id="login-button" data-i18n="login_popup.form.btn_connect"></button>
         </form>
     </div>
@@ -314,13 +314,6 @@
             // Block classroom feature
             $('#classroom-create-account .green-form').show();
             $('#blocked-class').remove();
-            if (classroom[0].isBlocked == true) {
-                $('#classroom-create-account').after(
-                    "<div id='blocked-class'>Cette classe a été bloquée par l'enseignant.e qui l'a crée, tu ne peux donc pas créer de nouveau compte. <br> Si tu as déja un compte, essaye plutot de te connecter</div>"
-                );
-                $('#classroom-create-account .green-form').hide();
-                $('#create-user').hide();
-            }
             let link = window.location.origin + window.location.pathname + '?link=' + linkC
             $('#classroom-login-container-bis').show();
             let state = {};
@@ -331,6 +324,18 @@
             } else {
                 $('#classroom-desc').html('Le code entré ne correspond à aucune classe.')
                 $('#classroom-login-account,#classroom-create-account').hide()
+            }
+            if (classroom[0].isBlocked == true) {
+  
+                let blockedClassDivElt = document.createElement("div")
+                blockedClassDivElt.id = "blocked-class"
+                blockedClassDivElt.innerHTML = "Cette classe a été bloquée par l'enseignant.e qui l'a crée, tu ne peux donc pas créer de nouveau compte.<br>Si tu as déja un compte, essaye plutot de te connecter.";
+                
+                $('#classroom-create-account').hide()
+                document.getElementById('classroom-desc').append(blockedClassDivElt);
+                
+                $('#classroom-create-account .green-form').hide();
+                $('#create-user').hide();
             }
         })
     }

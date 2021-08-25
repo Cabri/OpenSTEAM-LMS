@@ -157,7 +157,7 @@
 
 .modal-message-noUser span {
     opacity: 100%;
-    color: var(--text-1);
+    color: var(--classroom-text-1);
     font-size: 25px;
     margin:auto;
 }

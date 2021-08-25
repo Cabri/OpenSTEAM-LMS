@@ -1,13 +1,6 @@
 {
-	"release-announcement-banner": "Watch the May 12, 2021 video on the launch of the Vittascience Classroom module on YouTube! <a href='/classroom/'>Find out more</a>",
 	"classroom": {
 		"login": {
-			"announcement": {
-				"discoverButton": "Discover the video on Youtube",
-				"officialRelease": "Official release",
-				"classroomModule": "Classroom Module",
-				"releaseDate": "On May 12th 2021 on Youtube"
-			},
 			"noClass": "The code entered does not correspond to any classroom.",
 			"countdown1": "The Classroom management module is currently in its beta stage. If you wish to try it out, please <a href=\"/about?contact=1\">contact the Vittascience team</a>.",
 			"countdown2": "Official release in",
@@ -187,7 +180,11 @@
 			"messageMissingLearnerHelpForm": "You have to enter your message",
 			"invalidUserIdLearnerHelpForm": "Error sending the message: your username is invalid",
 			"unknownUserLearnerHelpForm": "Error sending the message: your username is unknown",
-			"unknownEmailLearnerHelpForm": "Error sending message: your teacher's email address is unknown"
+			"unknownEmailLearnerHelpForm": "Error sending message: your teacher's email address is unknown",
+			"activityTitleInvalid": "The activity could not be created: invalid title",
+			"activityContentInvalid": "Activity could not be created: invalid content",
+			"activityIsFromClassroomInvalid": "Activity could not be created: context error",
+			"activityUserIdInvalid": "Activity could not be created: invalid user"
 		},
 		"ids": {
 			"classroom-dashboard-help-panel-teacher": "Help",

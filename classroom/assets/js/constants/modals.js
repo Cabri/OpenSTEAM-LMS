@@ -55,8 +55,8 @@ const classroomModals = {
             title: 'classroom.modals.settingsTeacher.title'
         },
         content: `<h4 data-i18n="classroom.modals.settingsTeacher.lang">Langue</h4>
-        <div id="switch-lang-list" class="justify-content-center">
-            <img class="flags-item" alt="flag" src="assets/media/flags/fr.png" onclick="changeLang('fr')">
+        <div id="switch-lang-list" class="d-flex justify-content-center">
+            <img class="flags-item mr-2" alt="flag" src="assets/media/flags/fr.png" onclick="changeLang('fr')">
             <img class="flags-item" alt="flag" src="assets/media/flags/en.png" onclick="changeLang('en')">
         </div>
         <h4 data-i18n="classroom.modals.settingsTeacher.password">Mot de passe</h4>
@@ -87,8 +87,8 @@ const classroomModals = {
         content: `<div>
 
                     <h4 data-i18n="classroom.modals.settingsTeacher.lang">Langue</h4>
-                    <div id="switch-lang-list" class="justify-content-center">
-                    <img class="flags-item" alt="flag" src="assets/media/flags/fr.png" onclick="changeLang('fr')">
+                    <div id="switch-lang-list" class="d-flex justify-content-center">
+                    <img class="flags-item  mr-2" alt="flag" src="assets/media/flags/fr.png" onclick="changeLang('fr')">
                     <img class="flags-item" alt="flag" src="assets/media/flags/en.png" onclick="changeLang('en')">
                     </div>
                     <h4 data-i18n="classroom.modals.settingsTeacher.description">Pour modifier votre mot de passe ou d'autres paramètres de votre compte</h4>

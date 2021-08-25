@@ -1,108 +1,3 @@
-/* PRESENTATION PAGE */
-
-/* Release announcement */
-.release-announcement-container{
-    margin: 0;
-    background: var(--bg-2);
-    height: calc(100vh - 66px);
-    display: grid;
-    grid-template-columns: 4fr 5fr;
-    position: relative;
-}
-
-.announcement-content{
-    display: flex;
-    flex-direction: column;
-    margin-top: 40%;
-    align-items: flex-end;
-    padding: 0px 20px 0px 0px;
-    position: relative;
-}
-
-.play-picto-background{
-    position: absolute;
-    left: 40%;
-    top: 0;
-    width: 30%;
-    z-index: 200;
-}
-
-.image-content{
-    background: url('../media/release-announcement-background.png') no-repeat top right;
-    background-size: cover;
-    height: 100%;
-}
-
-.announcement-text-1{
-    text-transform: uppercase;
-    color: var(--vitta-black);
-    font-size: 1.7rem;
-    font-weight: 300;
-    margin: 0;
-    z-index: 201;
-}
-
-.announcement-text-2{
-    text-transform: uppercase;
-    color: var(--vitta-blue-dark);
-    font-size: 2.4rem;
-    font-weight: 800;
-    margin: 0;
-    z-index: 201;
-}
-
-.announcement-text-3{
-    color: var(--vitta-orange-light);
-    font-size: 1.65rem;
-    font-weight: 700;
-    margin: 0;
-    z-index: 201;
-}
-
-.announcement-content a{
-    z-index: 201;
-}
-
-.announcement-skipping{
-    position: absolute;
-    top: calc(100% - 50px);
-    left: calc(50% - 12px);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: var(--vitta-orange-light);
-    border: solid 1px var(--vitta-orange-light);
-    border-radius: 50%;
-    width: 40px;
-    height: 40px;
-    background-color: white;
-}
-
-.announcement-skipping:hover{
-    text-decoration: none;
-    color: var(--vitta-orange);
-    border: solid 1px var(--vitta-orange);
-}
-
-@media (max-width: 910px) {
-    .release-announcement-container{
-        grid-template-rows: 1fr 1fr;
-        grid-template-columns: 1fr;
-        height: calc(100vh - 2em);
-    }
-
-    .announcement-content{
-        margin-top: 5%;
-        align-items: center;
-        padding: 0;
-    }
-
-    .image-content{
-        width: 100%;
-        background-position: center;
-    }
-}
-
 /* Jumbotron */
 
 #home-jumbotron {
@@ -335,6 +230,17 @@
 
 /* FAQ section */
 
+/* Honeypot field css */
+
+.za78e-field {
+    opacity: 0;
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 0;
+    width: 0;
+}
+
 #classroom-faq h2 {
 
     color: var(--classroom-primary);
@@ -359,7 +265,65 @@
 
 }
 
+
+.resource-box,
+.kit-faq-box {
+    width: 100%;
+    padding: 15px 5px 15px 5px;
+    background-color: var(--bg-1);
+    margin: 10px 0px 10px 0px;
+    overflow: hidden;
+    border-radius: 10px;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    flex-direction: column;
+    line-height: 1;
+    box-shadow: 0 0 1px #333;
+}
+
+.faq-box-header {
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    align-items: center;
+    /* align vertical */
+    cursor: pointer;
+}
+
+.faq-box-dropdown {
+    min-width: 40px;
+    min-height: 40px;
+    max-width: 40px;
+    max-height: 40px;
+    background-color: var(--bg-4);
+    color: var(--vitta-white);
+    text-align: center;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
+.faq-box-content {
+    margin-top: 20px;
+    text-align: left;
+    display: none;
+    padding: 0 3% 0 3%;
+    line-height: 1.3;
+}
+
+
+
 /* LOGIN PAGE */
+
+.login-form,
+.recovery-form-div,
+#reset-password-form-div {
+    height: 100%;
+    padding: 20px;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+}
 
 #open-login-menu a {
     margin: 1em;
@@ -379,6 +343,11 @@ a.forgot-password {
     font-weight: bolder;
     color: var(--classroom-text-1);
     height: 75px;
+}
+
+#classroom-desc > #blocked-class {
+    font-size: 0.8em;
+    font-weight: normal ;
 }
 
 .inner-login-container {

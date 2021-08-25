@@ -50,13 +50,25 @@
 
 .c-btn-red {
     background: var(--classroom-red);
-    color: white;
+    color: var(--classroom-white);
     border-radius: 256px;
 }
 
 .c-btn-outline-red {
     border: 2px solid var(--classroom-tertiary);
     color: var(--classroom-tertiary);
+    background: transparent;
+}
+
+.c-btn-grey {
+    background: var(--classroom-text-2);
+    color: var(--classroom-white);
+    border-radius: 256px;
+}
+
+.c-btn-outline-grey {
+    border: 2px solid var(--classroom-text-2);
+    color: var(--classroom-text-2);
     background: transparent;
 }
 
@@ -67,7 +79,9 @@
 .c-btn-outline-tertiary,
 .c-btn-tertiary,
 .c-btn-outline-red,
-.c-btn-red {
+.c-btn-red,
+.c-btn-outline-grey,
+.c-btn-grey {
     font-weight: 700;
     border-radius: 256px;
 }
@@ -79,7 +93,9 @@
 .c-btn-outline-tertiary:focus,
 .c-btn-tertiary:focus,
 .c-btn-outline-red:focus,
-.c-btn-red:focus {
+.c-btn-red:focus,
+.c-btn-outline-grey:focus,
+.c-btn-grey:focus {
     outline: 0;
     box-shadow: 0 0 0 .2rem rgba(0, 0, 0, .25);
 }
@@ -91,7 +107,9 @@
 .c-btn-outline-tertiary:hover,
 .c-btn-tertiary:hover,
 .c-btn-outline-red:hover,
-.c-btn-red:hover {
+.c-btn-red:hover,
+.c-btn-outline-grey:hover,
+.c-btn-grey:hover {
     filter: brightness(0.9);
 }
 
@@ -118,7 +136,7 @@
 .c-tertiary-form input[type="email"],
 .c-tertiary-form select,
 .c-tertiary-form input[type="password"] {
-    border: 2px solid var(--text-1);
+    border: 2px solid var(--classroom-text-1);
     border-radius: 0.5em;
     margin: 0.5em;
     padding: 0.2em 0.5em;
