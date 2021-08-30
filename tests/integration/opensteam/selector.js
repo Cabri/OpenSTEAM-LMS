@@ -298,6 +298,27 @@ class Selector {
         return $("#mode-student-check");
     }
 
+    /**
+     * switch to learner/teacher mode
+     */
+    get copyLinkButton () {
+        return $("#code-copy");
+    }
+
+    get learnerNameInput () {
+        return $("#new-user-pseudo-form");
+    }
+
+    get confirmJoinButton () {
+        return $("#create-user");
+    }
+
+    get urlCopySpan () {
+        return $("#classroom-link-tocopy");
+    }
+
+
+
 }
 
 module.exports = new Selector();
