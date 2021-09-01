@@ -408,7 +408,6 @@ function displayStudentsActivities(link, activitiesList) {
 
 function loadActivity(isDoable) {
   console.log('loadActivity')
-  debugger
     ClassroomSettings.chrono = Date.now()
     $('#activity-introduction').hide()
     if (Activity.introduction != null && Activity.introduction != "") {
@@ -460,7 +459,8 @@ function loadActivity(isDoable) {
 
     if(content.startsWith('http')) {  // TODO replace with "if content is LTI"
       if (UserManager.getUser().isRegular && Activity.correction > 0) {
-        $('#lti-activity-submission').html('<iframe style="width: 100%; height: 100%;" allowfullscreen="true" frameborder="0" src="https://cabricloud.com/cabriexpress?clmc=' + Activity.commentary + '"></iframe>');
+        const ltiActivitySubmission = $('#lti-activity-submission').html('<iframe style="width: 100%; height: 100%;" allowfullscreen="true" frameborder="0" src="https://cabricloud.com/cabriexpress?clmc=' + Activity.commentary + '"></iframe>');
+        ltiActivitySubmission.css({'display': 'block'});
       }
 
       if(isDoable) {
