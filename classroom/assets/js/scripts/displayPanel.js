@@ -36,6 +36,28 @@ DisplayPanel.prototype.classroom_dashboard_ide_panel = function (option) {
     } else {
         $('#classroom-dashboard-ide-panel').html('<iframe width="100%" style="height:85vh;" frameborder="0" allowfullscreen="" style="border:1px #d6d6d6 solid;" src="' + URLServer + '/' + $_GET('interface') + '/?link=' + option + '&embed=1"></iframe>')
     }
+
+
+    // Hiding the share option in the interface saving process
+    function hideShareOptionArea(iframe) {
+        let shareOptAreaElt = iframe.contentWindow.document.getElementById('check_box_div');
+        let shareOptDescElt = iframe.contentWindow.document.getElementById('check_box_hint');
+        if (shareOptAreaElt){
+            shareOptAreaElt.style.position = 'absolute';
+            shareOptAreaElt.style.top = '-9999px';
+            shareOptAreaElt.style.left = '-9999px';
+            shareOptDescElt.style.position = 'absolute';
+            shareOptDescElt.style.top = '-9999px';
+            shareOptDescElt.style.left = '-9999px';
+        } else {
+            setTimeout(() => {hideShareOptionArea(iframe)}, 400);
+        }
+    }
+
+    document.querySelector('iframe').addEventListener('load', (e) => {
+        let iframe = e.target;
+        hideShareOptionArea(iframe);
+    });
 }
 
 DisplayPanel.prototype.classroom_dashboard_activities_panel = function () {
@@ -213,6 +235,12 @@ DisplayPanel.prototype.classroom_dashboard_activities_panel_teacher = function (
 
 DisplayPanel.prototype.classroom_table_panel_teacher = function (link) {
     if (link != 'null') {
+        // hide the non relevant elements in gar context
+        if (UserManager.getUser().isFromGar) {
+            document.getElementById('add-student-container').style.display = 'none';
+            document.getElementById('classroom-info').style.display = 'none';
+        }
+
         // restore the add student div to its default content to remove potential changes from the update classroom modal
         $('#classroom-form-name').val(''),
         $('#classroom-form-school').val('')
@@ -239,9 +267,16 @@ DisplayPanel.prototype.classroom_table_panel_teacher = function (link) {
             $('.classroom-link').html(ClassroomSettings.classroom)
             // Block classroom feature
             if (getClassroomInListByLink(link)[0].classroom.isBlocked == false) {
-                $('#classroom-info').addClass('greyscale')
-            } else {
                 $('#classroom-info').removeClass('greyscale')
+                $('#classroom-info > *:not(:first-child)').css('display','unset');
+                $('#classroom-info > button > i.fa').removeClass('fa-lock').addClass('fa-lock-open');
+
+            } else {
+                $('#classroom-info').addClass('greyscale')
+                $('#classroom-info > *:not(:first-child)').css('display','none');
+                $('#classroom-info > button > i.fa').removeClass('fa-lock-open').addClass('fa-lock');
+
+
             }
             // Get the classes from database and refresh the dashboard
             Main.getClassroomManager().getClasses(Main.getClassroomManager()).then(() => {

@@ -107,7 +107,13 @@ class ClassroomManager {
                         if (JSON.parse(response).error_message && JSON.parse(response).error_message !== undefined) {
                             container.errors.push(GET_PUBLIC_PROJECTS_ERROR)
                         }
-                        container._myClasses = JSON.parse(response);
+                        let responseParsed = JSON.parse(response);
+                        for (let classroom of responseParsed){
+                            if(classroom.classroom.groupe) {
+                                classroom.classroom.name = `${classroom.classroom.name} | ${classroom.classroom.groupe}`;
+                            }
+                        }
+                        container._myClasses = responseParsed;
                         onEnd();
                         resolve();
                     },

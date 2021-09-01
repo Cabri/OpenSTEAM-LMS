@@ -20,6 +20,8 @@ $('body').on('click', '.vitta-notif-exit-btn', function () {
 $('#home-connexion').click(function () {
     $('#home-container').toggle();
     $('#classroom-login-container').toggle();
+    document.documentElement.style = "scroll-behavior: auto";
+    document.documentElement.scrollTo({ top: 0, behavior: 'auto' });
 })
 $('#class-connexion').click(function () {
     findClassroomToConnect($('#class-code').val())

@@ -55,7 +55,7 @@
             <button class="btn dropdown-toggle c-btn-primary" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 <i class="fas fa-low-vision"></i>
             </button>
-            <div class="dropdown-menu a11y-dropdown" aria-labelledby="dropdownMenuButton" style="background: var(--bg-1); padding: 1em;">
+            <div class="dropdown-menu a11y-dropdown" aria-labelledby="dropdownMenuButton">
                 <form action="javascript:void(0);" id="access-form">
                     <h5 class="c-text-primary text-center"><i class="fas fa-low-vision"></i> <span data-i18n='switchAccessibility.title'></span></h5>
 
@@ -86,9 +86,6 @@
 
                         <input type="radio" id="radio-verdana-font" name="font" value="verdana">
                         <label for="radio-verdana-font" style="font-family: 'Verdana'!important">Verdana</label><br>
-                    </div>
-                    <div style="margin: 0 auto; text-align: center; ">
-                        <a href="/accessibility" data-i18n='switchAccessibility.know_more' style="filter:grayscale(1); text-decoration:underline;"></a>
                     </div>
                 </form>
             </div>
@@ -662,7 +659,7 @@
         </div>
 
         <div class="col-6 d-flex justify-content-start mt-5">
-            <button class="btn login-button grey-button"
+            <button class="btn login-button c-btn-grey"
                 onclick="navigatePanel('classroom-dashboard-activities-panel-teacher', 'dashboard-activities-teacher')"><i
                     class="fas fa-angle-left"></i> <span class="text-capitalize"
                     data-i18n="words.return"></span></button>

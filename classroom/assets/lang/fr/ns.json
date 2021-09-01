@@ -1,13 +1,6 @@
 {
-	"release-announcement-banner": "Retrouvez la vidéo de lancement du module Classe du 12 mai 2021 sur YouTube ! <a href='/classroom/'>En savoir plus</a>",
 	"classroom": {
 		"login": {
-			"announcement": {
-				"discoverButton": "Découvrir la vidéo sur Youtube",
-				"officialRelease": "Sortie officielle",
-				"classroomModule": "Module classe",
-				"releaseDate": "Le 12 mai 2021 sur Youtube"
-			},
 			"noClass": "Le code entré ne correspond à aucune classe.",
 			"countdown1": "Le module de gestion de classe est actuellement en version bêta. Si vous souhaitez l’essayer, veuillez <a href=\"/about?contact=1\">contacter l’équipe Vittascience</a>.",
 			"countdown2": "Sortie officielle dans",
@@ -187,7 +180,11 @@
 			"messageMissingLearnerHelpForm": "Tu dois saisir ton message",
 			"invalidUserIdLearnerHelpForm": "Erreur lors de l'envoi du message : ton identifiant est invalide",
 			"unknownUserLearnerHelpForm": "Erreur lors de l'envoi du message : ton identifiant est inconnu",
-			"unknownEmailLearnerHelpForm": "Erreur lors de l'envoi du message : l'adresse e-mail de ton enseignant est inconnue"
+			"unknownEmailLearnerHelpForm": "Erreur lors de l'envoi du message : l'adresse e-mail de ton enseignant est inconnue",
+			"activityTitleInvalid": "L'activité n'a pas pu être créée : titre invalide",
+			"activityContentInvalid": "L'activité n'a pas pu être créée : contenu invalide",
+			"activityIsFromClassroomInvalid": "L'activité n'a pas pu être créée : erreur de contexte",
+			"activityUserIdInvalid": "L'activité n'a pas pu être créée : utilisateur invalide"
 		},
 		"ids": {
 			"classroom-dashboard-help-panel-teacher": "Aide",
@@ -871,7 +868,7 @@
 	"words": {
 		"send": "envoyer",
 		"settings": "paramètres",
-		"disconnect": "déconnection",
+		"disconnect": "déconnexion",
 		"help": "aide",
 		"duplicate": "dupliquer",
 		"delete": "supprimer",

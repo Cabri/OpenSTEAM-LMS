@@ -11,23 +11,22 @@ var Main = (function () {
 
     if (UserManager.getUser()) {
       return new Promise(function (resolve, reject) {
-        R.classroomManager.getClasses(R.classroomManager).then(function () {
           if (UserManager.getUser().isRegular) {
-            R.classroomManager.getTeacherActivities(R.classroomManager).then(function () {
+            R.classroomManager.getClasses(R.classroomManager).then(function () {
+              R.classroomManager.getTeacherActivities(R.classroomManager).then(function () {
               resolve("loaded");
-
-            })
+              });
+            });
           } else {
             R.classroomManager.getStudentActivities(R.classroomManager).then(function () {
               resolve("loaded");
             })
           }
-        })
-      })
+      });
     } else {
       return new Promise(function (resolve) {
         resolve("loaded");
-      })
+      });
     }
   };
   return {

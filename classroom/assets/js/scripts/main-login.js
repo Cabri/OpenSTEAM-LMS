@@ -40,7 +40,6 @@ function checkLogin() {
         'password': $('#login-pwd-input').val(),
         'za78e-username': honeyUsername,
     }
-    console.log(form)
     loginUser(form).then(function (response) {
         if (response.success === true) {
             var infoBox = document.getElementById("info-box");
