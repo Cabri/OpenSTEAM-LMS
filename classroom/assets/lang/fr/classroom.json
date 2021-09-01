@@ -125,9 +125,7 @@
         },
         "activities": {
             "save": "Sauver le brouillon ",
-            "add": "Créer",
-            "addCabriexpress": "Activité Cabri",
-            "addCabriexpressGenius": "Activité Cabri Genius",
+            "add": "Créer une activité",
             "new": "Nouveaux",
             "current": "En attente de correction",
             "done": "Terminés",

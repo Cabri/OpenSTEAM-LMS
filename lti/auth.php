@@ -7,7 +7,7 @@ $nonce = base64_encode(random_bytes(16));
 use \Firebase\JWT\JWT;
 //require_once __DIR__ . '/../vendor/firebase/php-jwt/src/JWT.php';
 $platform_url = 'http://localhost:7080';
-$tool_url = 'https://e777241e7461.ngrok.io';
+$tool_url = 'https://9985-82-216-88-13.ngrok.io';
 
 $loginHint = json_decode($_REQUEST['login_hint'], true);
 
@@ -44,7 +44,8 @@ if($loginHint['isStudentLaunch']) {
       ],
       // TODO hostname must be dynamic
       "lineitems"=> "http://localhost:7080/lti/tools/1/lineitems",
-      "lineitem" => "http://localhost:7080/lti/tools/1/lineitems/" . urlencode($loginHint['lineitemId'])
+      "lineitem" => "http://localhost:7080/lti/tools/1/lineitems/" . urlencode($loginHint['activitiesLinkUser'])
+      //"lineitem" => "http://localhost:7080/lti/tools/1/lineitems/" . urlencode($loginHint['lineitemId'])
       // def: http://localhost:3000/<tool_id>/lineitems/<line_item_1>
     ];
 

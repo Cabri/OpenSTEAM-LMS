@@ -280,6 +280,8 @@ function activityWatch(id) {
 $('body').on('click', '.bilan-cell', function () {
     let self = $(this)
     if (!self.hasClass('no-activity')) {
+       // TODO navigate to panel to show only the student response
+
         navigatePanel('classroom-dashboard-activity-panel', 'dashboard-activities', 'AC' + parseInt(self.attr('data-id')), self.attr("data-state"))
     }
 
@@ -454,27 +456,46 @@ function loadActivity(isDoable) {
         correction += '<button onclick="giveNote()" class="btn c-btn-primary">' + i18next.t('classroom.activities.sendResults') + '<i class="fas fa-chevron-right"> </i></button>'
     }
 
-    $('#activity-content').html(bbcodeToHtml(content))
+    // Review student submission by teacher
 
-    console.log(content);
-  // replace with if content is LTI
-    if(content.startsWith('http')) {
-     //$('#login_hint').val("student-launch#"+content);
+    if(content.startsWith('http')) {  // TODO replace with "if content is LTI"
+      if (UserManager.getUser().isRegular && Activity.correction > 0) {
+        $('#lti-activity-submission').html('<iframe style="width: 100%; height: 100%;" allowfullscreen="true" frameborder="0" src="https://cabricloud.com/cabriexpress?clmc=' + Activity.commentary + '"></iframe>');
+      }
 
-      const loginHint = {
-        lineitemId: content,
-        userId: UserManager.getUser().id,
-        isStudentLaunch: true
-      };
+      if(isDoable) {
+        if(content.startsWith('http')) {
+          const loginHint = {
+            lineitemId: content,
+            userId: UserManager.getUser().id,
+            isStudentLaunch: true,
+            isDoable: isDoable,
+            activitiesLinkUser: Activity.id
+          };
 
-      $('#lti_student_login_hint').val(JSON.stringify(loginHint));
+          const ltiStudentLaunch = `
+          <input id="activity-score" type="text" hidden/>
+          <form name="lti_student_login_form" action="http://localhost:3000/login" method="post" target="lti_student_iframe">
+            <input id="lti_student_iss" type="hidden" name="iss" value="http://localhost:7080" />
+            <input id="lti_student_login_hint" type="hidden" name="login_hint"/>
+            <input id="lti_student_client_id" type="hidden" name="client_id" value="client_id_php" />
+            <input id="lti_student_target_link_uri" type="hidden" name="target_link_uri" value="http://localhost:3000" />
+          </form>
 
-      document.forms["lti_student_login_form"].submit();
-      // $('#activity-content-lti')[0].src = 'http://localhost:7080/lti/web/login.php?iss=http%3A%2F%2Flocalhost:7080' +
-     //   '&login_hint=12345&target_link_uri=http%3A%2F%2Flocalhost%2Fgame.php&lti_message_hint=' + encodeURI(content);
+          <iframe src="about:blank" name="lti_student_iframe" title="Tool Content" width="1000" height="600"></iframe>`;
 
 
+          $('#lti-student-launch').html(ltiStudentLaunch);
+          $('#lti_student_login_hint').val(JSON.stringify(loginHint));
+
+          document.forms["lti_student_login_form"].submit();
+        }
+      }
     }
+
+  if(isDoable) {
+    $('#activity-content').html(bbcodeToHtml(content))
+  }
   $('#activity-correction').html(bbcodeToHtml(correction)).show()
     if (isDoable == false) {
         $('#activity-validate').hide()

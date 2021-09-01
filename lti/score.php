@@ -8,6 +8,7 @@ use Firebase\JWT\JWT;
 use Lti\Controller\ControllerLtiScore;
 use Lti\Entity\LtiScore;
 use User\Entity\User;
+use Classroom\Entity\ActivityLinkUser;
 
 //$score = new LtiScore();
 //$score->setComment("sssss");
@@ -56,18 +57,32 @@ $userId = $object['userId'];
 $comment = $object['comment'];
 
 try {
-$lineitem = $entityManager->getRepository(LtiScore::class)->find($lineItemId);
-$user = $entityManager->getRepository(User::class)->find($userId);
+  // $lineItemId is the id of the activityLinkUser (sent back from the tool)
+  $activityLinkUser = $entityManager->getRepository(ActivityLinkUser::class)->find($lineItemId);
+  $activityLinkUser->setCommentary($comment);
+  $activityLinkUser->setCorrection(1);
+  $entityManager->persist($activityLinkUser);
+  $entityManager->flush();
 
-$ltiScore = new LtiScore($scoreGiven, $scoreMaximum, $comment, 'tag', $timestamp,
-  $activityProgress, $gradingProgress, $lineitem, $user);
-$entityManager->persist($ltiScore); // et remove() stock uniquement dans la mémoire
-$entityManager->flush(); // stockage dans la BD
-
-} catch(Exception $e){
-  // display errors
+} catch(Exception $e) {
   echo $e->getMessage();
 }
+
+//try {
+//$lineitem = $entityManager->getRepository(LtiScore::class)->find($lineItemId);
+//$user = $entityManager->getRepository(User::class)->find($userId);
+//
+//$ltiScore = new LtiScore($scoreGiven, $scoreMaximum, $comment, 'tag', $timestamp,
+//  $activityProgress, $gradingProgress, $lineitem, $user);
+//$entityManager->persist($ltiScore); // et remove() stock uniquement dans la mémoire
+//$entityManager->flush(); // stockage dans la BD
+//
+//} catch(Exception $e){
+//  // display errors
+//  echo $e->getMessage();
+//}
+
+
 
 //$entityManager->remove($score);
 //$users = $entityManager->getRepository(LtiScore::Class)->findAll();

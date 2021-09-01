@@ -17,31 +17,22 @@
 </div>
 
 
-<div id="classroom-dashboard-activity-panel" class="dashboard-block row mx-0" style="display:none;">
-    <div id="main-div" class="col-md-8" style="margin: 0 auto;">
+<div id="classroom-dashboard-activity-panel" class="dashboard-block" style="display:none;">
+    <div id="main-div" style="margin: 0 auto;">
         <h3 id="activity-title"></h3>
         <h4 id="activity-details"></h4>
         <p id="activity-content"> </p>
+      <div id="lti-activity-submission" style="height: 100%; width: 100%; border: 0 none;"></div>
 
-      <input id="activity-score" type="text" hidden/>
-      <form name="lti_student_login_form" action="http://localhost:3000/login" method="post" target="lti_student_iframe">
-        <input id="lti_student_iss" type="hidden" name="iss" value="http://localhost:7080" />
-        <input id="lti_student_login_hint" type="hidden" name="login_hint"/>
-        <input id="lti_student_client_id" type="hidden" name="client_id" value="client_id_php" />
-        <input id="lti_student_target_link_uri" type="hidden" name="target_link_uri" value="http://localhost:3000" />
-      </form>
-
-      <iframe src="about:blank" name="lti_student_iframe" title="Tool Content" width="1000" height="600"></iframe>
-
+      <div id="lti-student-launch"></div>
       <button class="btn c-btn-primary" id="activity-validate" data-i18n="classroom.activities.validate"
             onclick="validateActivity()"> <i class="fas fa-chevron-right"></i></button>
-
       <button class="btn c-btn-primary" id="activity-save" style="display:none;" onclick="saveActivity()"
             data-i18n="classroom.activities.save-draft"><i class="fas fa-chevron-right"></i></button>
         <div class="btn" id="activity-instruction" style="display:none"><span
                 data-i18n="classroom.activities.instruction"></span> <i class="fas fa-pen"></i></div>
     </div>
-    <div id="activity-correction" class="col-4" style="display:none">
+    <div id="activity-correction" style="display:none">
     </div>
 </div>
 
