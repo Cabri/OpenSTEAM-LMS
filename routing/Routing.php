@@ -28,8 +28,8 @@ use Learn\Controller\ControllerActivity;
 use Learn\Controller\ControllerCourseLinkCourse;
 use Learn\Controller\ControllerCollection;
 
-use Lti\Controller\ControllerLtiScore;
-use Lti\Controller\ControllerLtiLineItem;
+//use Lti\Controller\ControllerLtiScore;
+//use Lti\Controller\ControllerLtiLineItem;
 
 use Monolog\Logger;
 use VittaLogger\Log;
@@ -182,7 +182,7 @@ try {
             echo (json_encode($user));
             $log->info($action, OK);
             break;
-        case 'lti_line_item':
+        /*case 'lti_line_item':
             $controller = new ControllerLtiLineItem($entityManager, $user);
             echo (json_encode($controller->action($action, $_POST, true)));
             $log->info($action, OK);
@@ -191,7 +191,7 @@ try {
           $controller = new ControllerLtiScore($entityManager, $user);
           echo (json_encode($controller->action($action, $_POST, true)));
           $log->info($action, OK);
-          break;
+          break;*/
         default:
             $log->warning(null, __FILE__, __LINE__, "Non matched controller");
             break;

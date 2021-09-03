@@ -1159,44 +1159,4 @@ class ClassroomManager {
             });
         });
     }
-
-  /**
-   * Create an activity
-   * */
-  addLtiLineItem(lineItem) {
-    return new Promise(function (resolve, reject) {
-      $.ajax({
-        type: "POST",
-        url: "/routing/Routing.php?controller=lti_line_item&action=add",
-        data: lineItem,
-        success: function (response) {
-          resolve(JSON.parse(response))
-
-        },
-        error: function () {
-          reject();
-        }
-      });
-    })
-  }
-
-  /**
-   * Create an activity
-   * */
-  addLtiLineItem(lineItem) {
-    return new Promise(function (resolve, reject) {
-      $.ajax({
-        type: "POST",
-        url: "/routing/Routing.php?controller=lti_line_item&action=add",
-        data: lineItem,
-        success: function (response) {
-          resolve(JSON.parse(response))
-
-        },
-        error: function () {
-          reject();
-        }
-      });
-    })
-  }
 }

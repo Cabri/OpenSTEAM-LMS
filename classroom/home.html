@@ -451,10 +451,10 @@
         <!--<button id="new-activity-panel1" onclick="createActivity()" class=" btn c-btn-outline-secondary"><span class="mr-1" data-i18n="classroom.activities.add"></span><i class="fas fa-chevron-right"></i>
         </button>-->
 
-        <button id="new-activity-panel2" onclick="createCabriExpressActivity('express')" class=" btn c-btn-outline-secondary"><span class="mr-1" data-i18n="classroom.activities.addCabriExpress"></span><i class="fas fa-chevron-right"></i>
+        <button id="new-activity-panel2" onclick="createCabriActivity(null, null, 'EXPRESS')" class=" btn c-btn-outline-secondary"><span class="mr-1" data-i18n="classroom.activities.addCabriExpress"></span><i class="fas fa-chevron-right"></i>
         </button>
 
-        <button id="new-activity-panel1" onclick="createActivity('genius')" class=" btn c-btn-outline-secondary"><span class="mr-1" data-i18n="classroom.activities.addCabriGenius"></span><i class="fas fa-chevron-right"></i>
+        <button id="new-activity-panel1" onclick="createCabriActivity(null, null, 'GENIUS')" class=" btn c-btn-outline-secondary"><span class="mr-1" data-i18n="classroom.activities.addCabriGenius"></span><i class="fas fa-chevron-right"></i>
         </button>
 
     </div>
@@ -847,6 +847,10 @@
     })
 </script>
 <script src="assets/js/utils/translate.js"></script>
+<script src="assets/plugins/js/get_teacher_activity.js"></script>
+<script src="assets/plugins/js/limitation_activities_per_teacher.js"></script>
+<script src="assets/plugins/js/limitation_user_per_classroom.js"></script>
+<script src="assets/plugins/js/wordpress-widget.js"></script>
 
 </body>
 </html>

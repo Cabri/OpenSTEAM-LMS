@@ -22,7 +22,7 @@ function createActivity(link = null, id = null) {
     ClassroomSettings.activityInWriting = true
 }
 
-function createCabriExpressActivity(link = null, id = null) {
+function createCabriActivity(link = null, id = null, type) {
   ClassroomSettings.status = "attribute"
   ClassroomSettings.isNew = true;
   if (id == null) {
@@ -45,18 +45,28 @@ function createCabriExpressActivity(link = null, id = null) {
     })
   }
 
-  navigatePanel('classroom-dashboard-new-cabriexpress-activity-panel', 'dashboard-activities-teacher')
-  ClassroomSettings.activityInWriting = true
+  Main.getClassroomManager().canAddActivity({type}).then( data => {
+    console.log(data);
+    if(!data.canAdd) {
+      alert('Cannot add activity because of limitation ');
+      return;
+    }
 
-  // Start LTI 1.3 tool launch
-  const loginHint = {
-    userId: UserManager.getUser().id,
-    isStudentLaunch: false
-  };
+    navigatePanel('classroom-dashboard-new-cabriexpress-activity-panel', 'dashboard-activities-teacher')
+    ClassroomSettings.activityInWriting = true
 
- // document.getElementsByName('lti_teacher_login_form')[0].style.display = 'none';
-  $('#lti_teacher_login_hint').val(JSON.stringify(loginHint));
-  document.forms["lti_teacher_login_form"].submit();
+    // Start LTI 1.3 tool launch
+    const loginHint = {
+      userId: UserManager.getUser().id,
+      isStudentLaunch: false,
+      activityType: type
+    };
+
+   // document.getElementsByName('lti_teacher_login_form')[0].style.display = 'none';
+    $('#lti_teacher_login_hint').val(JSON.stringify(loginHint));
+    document.forms["lti_teacher_login_form"].submit();
+
+  });
 }
 
 // Lorsque le stockage local change, regarder l'état de la correction.
@@ -279,8 +289,17 @@ $('.new-activity-panel-lti').click(function () {
     Main.getClassroomManager().addActivity({
       'title': $('#activity-form-title').val(),
       'content': ltiID,
-      "isFromClassroom": true
+      "isFromClassroom": true,
+      'type': JSON.parse($('#lti_teacher_login_hint').val()).activityType
     }).then(function (activity) {
+      ClassroomSettings.activity = activity.id
+      displayNotification('#notif-div', "classroom.notif.activityCreated", "success", `'{"activityTitle": "${activity.title}"}'`);
+      $('.new-activity-panel2').attr('disabled', false)
+      navigatePanel('classroom-dashboard-new-activity-panel2', 'dashboard-activities-teacher', ClassroomSettings.activity)
+      addTeacherActivityInList(activity)
+      teacherActivitiesDisplay()
+      ClassroomSettings.activityInWriting = false
+      /*
       // create LTI lineItem
       Main.getClassroomManager().addLtiLineItem({
         'id': ltiID,
@@ -289,17 +308,10 @@ $('.new-activity-panel-lti').click(function () {
         'tag': 'tag',
         'resource_id': activity.id,
         'resource_link_id': activity.id
-      }).then(lineItem=>{
-        console.log('success addLtiLineItem');
+      }).then(lineItem=>{      });
 
-        ClassroomSettings.activity = activity.id
-        displayNotification('#notif-div', "classroom.notif.activityCreated", "success", `'{"activityTitle": "${activity.title}"}'`);
-        $('.new-activity-panel2').attr('disabled', false)
-        navigatePanel('classroom-dashboard-new-activity-panel2', 'dashboard-activities-teacher', ClassroomSettings.activity)
-        addTeacherActivityInList(activity)
-        teacherActivitiesDisplay()
-        ClassroomSettings.activityInWriting = false
-      });
+        console.log('success addLtiLineItem');*/
+
 
     });
 

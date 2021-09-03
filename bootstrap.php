@@ -24,7 +24,7 @@ $config = Setup::createAnnotationMetadataConfiguration(
         /*__DIR__ . "/tables/Entity",*/
         /*__DIR__ . "/api/Entity",*/
         //__DIR__ . "/vendor/vittascience/vtlearn/Entity",
-      __DIR__ . "/lti/db/Entity"
+        //__DIR__ . "/lti/db/Entity"
     ),
     $isDevMode,
     $proxyDir,
