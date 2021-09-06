@@ -756,6 +756,9 @@
                                             'dashboard-profil', $_GET('option'),
                                             $_GET('interface'))
                                     }
+                                    if(UserManager.getUser().isFromGar) {
+                                        document.getElementById('settings-student').style.display = 'none';
+                                    }
                                 })
 
                             }
