@@ -3,7 +3,7 @@ const login = require('../opensteam/login');
 const selector = require('../opensteam/selector');
 const classes = require('../opensteam/classes');
 
-describe("update of classroom", () => {
+describe("Delete of classroom", () => {
     it("Login", async () => {
         await page.open('login.php');
         await login.login(login.email, login.password);
@@ -13,21 +13,20 @@ describe("update of classroom", () => {
         await classes.createClass();
     });
 
-    it("Click on classes button", async () => {
-        await page.clickButtonWhenDisplayed(await selector.buttonClasses);
-    });
-
     it("Click on delete button", async () => {
         await page.defineConfirm(); // stay here to works
-        const settingsButtonOnClassCard = await selector.settingsButtonOnClassCard;
-        const settingsDropdownDeleteButton = await selector.settingsDropdownDeleteButton;
-        await page.waitForExist(settingsButtonOnClassCard);
-        await page.clickButtonWhenDisplayed(settingsButtonOnClassCard);
-        await page.waitForExist(settingsDropdownDeleteButton);
-        await page.clickButtonWhenDisplayed(settingsDropdownDeleteButton);
+        await classes.clickSettingsButton(classes.settings.delete);
+    });
+
+    it("Notification - Check class was deleted", async () => {
+        await classes.checkSuccess();
     });
 
     it("Check class was deleted", async () => {
-        await classes.checkSuccess();
+        // tricks to refresh classes panel
+        await page.clickButtonWhenDisplayed(await selector.buttonProfile);
+        await page.clickButtonWhenDisplayed(await selector.buttonClasses);
+
+        expect(!await classes.isClassExist()).toBeTruthy();
     });
 });

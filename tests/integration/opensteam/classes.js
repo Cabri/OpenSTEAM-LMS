@@ -6,6 +6,18 @@ class Classes {
     constructor() {
         this.className = "";
         this.schoolName = "";
+        this.settings = {
+            modify: async function () {
+                await browser.execute(() => {
+                    document.querySelector("#classroom-dashboard-classes-panel-teacher .dropdown .dropdown-menu li:nth-child(1)").click();
+                });
+            },
+            delete: async function () {
+                await browser.execute(() => {
+                    document.querySelector("#classroom-dashboard-classes-panel-teacher .dropdown .dropdown-menu li:nth-child(2)").click();
+                });
+            },
+        }
     }
 
     async inputInForm (className, schoolName) {
@@ -38,6 +50,7 @@ class Classes {
     }
 
     async createClass () {
+        expect(!await this.isClassExist()).toBeTruthy();
         const buttonClasses = await selector.buttonClasses;
         const buttonCreateClass = await selector.buttonCreateClass;
         const buttonSaveClass = await selector.buttonSaveClass;
@@ -52,15 +65,18 @@ class Classes {
         await page.clickButtonWhenDisplayed(buttonSaveClass);
 
         await this.checkSuccess();
+
+        await page.clickButtonWhenDisplayed(await selector.buttonClasses);
+        expect(await this.isClassExist()).toBeTruthy();
     }
 
     async deleteClass () {
+        await page.clickButtonWhenDisplayed(await selector.buttonClasses);
+        expect(await this.isClassExist()).toBeTruthy();
         await page.defineConfirm(true);
 
         const buttonProfile = await selector.buttonProfile;
         const buttonClasses = await selector.buttonClasses;
-        const settingsButtonOnClassCard = await selector.settingsButtonOnClassCard;
-        const settingsDropdownDeleteButton = await selector.settingsDropdownDeleteButton;
 
         await page.waitForExist(buttonProfile);
         await page.clickButtonWhenDisplayed(buttonProfile);
@@ -68,15 +84,27 @@ class Classes {
         await page.waitForExist(buttonClasses);
         await page.clickButtonWhenDisplayed(buttonClasses);
 
-        await page.waitForExist(settingsButtonOnClassCard);
-        await page.clickButtonWhenDisplayed(settingsButtonOnClassCard);
-
-        await page.waitForExist(settingsDropdownDeleteButton);
-        await page.clickButtonWhenDisplayed(settingsDropdownDeleteButton);
+        await this.clickSettingsButton(this.settings.delete);
 
         await this.checkSuccess();
+
+        // tricks to refresh classes
+        await page.clickButtonWhenDisplayed(await selector.buttonProfile);
+        await page.clickButtonWhenDisplayed(await selector.buttonClasses);
+
+        expect(!await this.isClassExist()).toBeTruthy();
     }
 
+    async clickSettingsButton (action) {
+        const settingsButtonOnClassCard = await selector.settingsButtonOnClassCard;
+        await page.waitElementDisplayed(settingsButtonOnClassCard);
+        await action();
+    }
+
+    async isClassExist () {
+        const classNameOnClassCard = await selector.classNameOnClassCard;
+        return await classNameOnClassCard.isExisting();
+    }
 
 }
 
