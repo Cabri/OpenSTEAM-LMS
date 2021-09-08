@@ -198,8 +198,8 @@ class ClassroomManager {
 
     /**
      * create a new classroom
-     * @param {FormData}
-     * @return {Classroom}
+     * @param {FormData}  
+     * @return {Classroom} 
      */
     addClassroom(payload) {
         return new Promise(function (resolve, reject) {
@@ -220,8 +220,8 @@ class ClassroomManager {
 
     /**
      * update a  classroom
-     * @param {FormData}
-     * @return {Classroom}
+     * @param {FormData}  
+     * @return {Classroom} 
      */
     updateClassroom(payload) {
         return new Promise(function (resolve, reject) {
@@ -242,8 +242,8 @@ class ClassroomManager {
 
     /**
      * get a classroom by his link
-     * @param {FormData}
-     * @return {Classroom}
+     * @param {FormData}  
+     * @return {Classroom} 
      */
     getClassroom(link) {
         return new Promise(function (resolve, reject) {
@@ -266,8 +266,8 @@ class ClassroomManager {
 
     /**
      * get a classroom by his student
-     * @param {FormData}
-     * @return {Classroom}
+     * @param {FormData}  
+     * @return {Classroom} 
      */
     getMyClassroom(idStudent) {
         return new Promise(function (resolve, reject) {
@@ -592,7 +592,7 @@ class ClassroomManager {
     }
 
     /**
-     *
+     * 
      * @public
      * @returns {Array}
      */

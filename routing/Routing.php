@@ -28,9 +28,6 @@ use Learn\Controller\ControllerActivity;
 use Learn\Controller\ControllerCourseLinkCourse;
 use Learn\Controller\ControllerCollection;
 
-//use Lti\Controller\ControllerLtiScore;
-//use Lti\Controller\ControllerLtiLineItem;
-
 use Monolog\Logger;
 use VittaLogger\Log;
 
@@ -42,7 +39,6 @@ $dotenv->safeLoad();
 const OK = "OK";
 $controller = isset($_GET['controller']) ? $_GET['controller'] : null;
 $action = isset($_GET['action']) ? $_GET['action'] : null;
-
 try {
     // Get User.
     session_start();
@@ -88,13 +84,13 @@ try {
             // check if a Controller folder exists in the plugins list
             if(in_array("Controller",$singlePluginFolders))
             {
-                // check if the required controller file exists and require it
-                if (file_exists("../plugins/$singlePlugin/Controller/$ControllerToInstanciate.php"))
+                // check if the required controller file exists and require it 
+                if (file_exists("../plugins/$singlePlugin/Controller/$ControllerToInstanciate.php")) 
                 {
                     require_once "../plugins/$singlePlugin/Controller/".$ControllerToInstanciate.".php";
-
+                
                     // instanciate the matching controller
-                    $class = "Plugins\\Controller\\".$ControllerToInstanciate;
+                    $class = "Plugins\\Controller\\".$ControllerToInstanciate; 
                     $controller = new $class($entityManager, $user);
 
                     // return data and exit the foreach loop with a break
@@ -102,7 +98,7 @@ try {
                     $log->info($action, OK);
                     break ;
                 }
-            }
+            }    
         }
     }
 
@@ -182,16 +178,6 @@ try {
             echo (json_encode($user));
             $log->info($action, OK);
             break;
-        /*case 'lti_line_item':
-            $controller = new ControllerLtiLineItem($entityManager, $user);
-            echo (json_encode($controller->action($action, $_POST, true)));
-            $log->info($action, OK);
-            break;
-        case 'lti_score':
-          $controller = new ControllerLtiScore($entityManager, $user);
-          echo (json_encode($controller->action($action, $_POST, true)));
-          $log->info($action, OK);
-          break;*/
         default:
             $log->warning(null, __FILE__, __LINE__, "Non matched controller");
             break;
@@ -215,3 +201,4 @@ try {
     $log->error($action, $e->getFile(), $e->getLine(), $e->getMessage());
     echo (json_encode(Errors::createError($e->getMessage())));
 }
+ 

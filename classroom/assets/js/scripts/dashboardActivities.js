@@ -333,7 +333,7 @@ function statusActivity(activity, state = true) {
                 case 0:
                     return "Pas encore réalisé"
                     break;
-
+            
                 case null:
                     return "Pas encore réalisé"
                     break;
@@ -407,7 +407,6 @@ function displayStudentsActivities(link, activitiesList) {
 }
 
 function loadActivity(isDoable) {
-  console.log('loadActivity')
     ClassroomSettings.chrono = Date.now()
     $('#activity-introduction').hide()
     if (Activity.introduction != null && Activity.introduction != "") {
