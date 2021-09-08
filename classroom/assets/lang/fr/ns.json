@@ -225,6 +225,8 @@
 			"title": "Activités",
 			"save": "Sauver le brouillon ",
 			"add": "Créer une activité",
+      "addCabriExpress": "Activité Cabri",
+      "addCabriGenius": "Activité Cabri Genius",
 			"new": "Nouveaux",
 			"current": "En attente de correction",
 			"waiting": "Pas encore réalisé",

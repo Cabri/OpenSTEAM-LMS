@@ -49,7 +49,7 @@ function teacherSandboxItem(json) {
     let html = `<div class="sandbox-item sandbox-teacher">
                     <div class="sandbox-card sandbox-card-` + json.interface + `" data-id="${json.id}" data-href="/` + json.interface + `/?link=` + json.link + `&embed=1">
                         <div class="sandbox-card-top">
-                        <i class="fas fa-share fa-2x" style="grid-column-start: 1; grid-column-end: 1;" data-link="${json.link}" ></i>      
+                        <i class="fas fa-share fa-2x" style="grid-column-start: 1; grid-column-end: 1;" data-link="${json.link}" ></i>
                             <div class="dropdown"><i class="fas fa-cog fa-2x" style="grid-column-start: 3; grid-column-end: 3;" type="button" id="dropdown-teacherSandboxItem-${json.id}" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></i>
                     <div class="dropdown-menu" aria-labelledby="dropdown-teacherSandboxItem-${json.id}">`
     if (UserManager.getUser().isRegular) {
@@ -280,6 +280,8 @@ function activityWatch(id) {
 $('body').on('click', '.bilan-cell', function () {
     let self = $(this)
     if (!self.hasClass('no-activity')) {
+       // TODO navigate to panel to show only the student response
+
         navigatePanel('classroom-dashboard-activity-panel', 'dashboard-activities', 'AC' + parseInt(self.attr('data-id')), self.attr("data-state"))
     }
 
@@ -436,7 +438,7 @@ function loadActivity(isDoable) {
         content = content
     }
     let correction = ''
-    if (Activity.correction == 1) {
+    if (UserManager.getUser().isRegular && Activity.correction == 1) {
         correction += `<div class="activity-correction-header d-flex justify-content-between"><h3>` + i18next.t('classroom.activities.bilan.results') + `</h3><i class="fas fa-chevron-right fa-2x" ></i></div><div id='giveNote' ><div onclick="setNote(3,'givenote-3')" id="givenote-3" class="note-choice"><i class="fas fa-check"></i>` + i18next.t('classroom.activities.accept') + ` </div><div onclick="setNote(2,'givenote-2')" id="givenote-2" class="note-choice" ><i class="fas fa-check"></i>` + i18next.t('classroom.activities.vgood') + ` </div><div onclick="setNote(1,'givenote-1')" id="givenote-1" class="note-choice" ><i class="fas fa-check"></i>` + i18next.t('classroom.activities.good') + ` </div><div onclick="setNote(0,'givenote-0')" id="givenote-0" class="note-choice" ><i class="fas fa-check"></i>` + i18next.t('classroom.activities.refuse') + ` </div></div>`
 
     }
@@ -451,8 +453,49 @@ function loadActivity(isDoable) {
 
         correction += '<button onclick="giveNote()" class="btn c-btn-primary">' + i18next.t('classroom.activities.sendResults') + '<i class="fas fa-chevron-right"> </i></button>'
     }
+
+    // Review student submission by teacher
+
+    if(content.startsWith('http')) {  // TODO replace with "if content is LTI"
+      if (UserManager.getUser().isRegular && Activity.correction > 0) {
+        const ltiActivitySubmission = $('#lti-activity-submission').html('<iframe style="width: 100%; height: 100%;" allowfullscreen="true" frameborder="0" src="https://cabricloud.com/cabriexpress?clmc=' + Activity.commentary + '"></iframe>');
+        ltiActivitySubmission.css({'display': 'block'});
+      }
+
+      if(isDoable) {
+        if(content.startsWith('http')) {
+          const loginHint = {
+            lineitemId: content,
+            userId: UserManager.getUser().id,
+            isStudentLaunch: true,
+            isDoable: isDoable,
+            activitiesLinkUser: Activity.id
+          };
+
+          const ltiStudentLaunch = `
+          <input id="activity-score" type="text" hidden/>
+          <form name="lti_student_login_form" action="https://lti1p3.cabricloud.com/login" method="post" target="lti_student_iframe">
+            <input id="lti_student_iss" type="hidden" name="iss" value="${location.host}" />
+            <input id="lti_student_login_hint" type="hidden" name="login_hint"/>
+            <input id="lti_student_client_id" type="hidden" name="client_id" value="client_id_php" />
+            <input id="lti_student_target_link_uri" type="hidden" name="target_link_uri" value="https://lti1p3.cabricloud.com" />
+          </form>
+
+          <iframe src="about:blank" name="lti_student_iframe" title="Tool Content" width="1000" height="600"></iframe>`;
+
+
+          $('#lti-student-launch').html(ltiStudentLaunch);
+          $('#lti_student_login_hint').val(JSON.stringify(loginHint));
+
+          document.forms["lti_student_login_form"].submit();
+        }
+      }
+    }
+
+  if(isDoable) {
     $('#activity-content').html(bbcodeToHtml(content))
-    $('#activity-correction').html(bbcodeToHtml(correction)).show()
+  }
+  $('#activity-correction').html(bbcodeToHtml(correction)).show()
     if (isDoable == false) {
         $('#activity-validate').hide()
         $('#activity-save').hide()

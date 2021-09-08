@@ -168,20 +168,25 @@
 </div>
 
 
-<div id="classroom-dashboard-activity-panel" class="dashboard-block row mx-0" style="display:none;">
-    <div id="main-div" class="col-md-8" style="margin: 0 auto;">
-        <h3 id="activity-title"></h3>
-        <h4 id="activity-details"></h4>
-        <p id="activity-content"> </p>
-        <button class="btn c-btn-primary" id="activity-validate" data-i18n="classroom.activities.validate"
-            onclick="validateActivity()"> <i class="fas fa-chevron-right"></i></button>
-        <button class="btn c-btn-primary" id="activity-save" style="display:none;" onclick="saveActivity()"
-            data-i18n="classroom.activities.save-draft"><i class="fas fa-chevron-right"></i></button>
-        <div class="btn" id="activity-instruction" style="display:none"><span
-                data-i18n="classroom.activities.instruction"></span> <i class="fas fa-pen"></i></div>
+<div id="classroom-dashboard-activity-panel" class="dashboard-block" style="display:none;">
+  <div class="classroom-dashboard-activity-parent" style="display: flex;">
+    <div id="main-div" style="margin: 0 auto; flex: 1 0 50vw">
+      <h3 id="activity-title"></h3>
+      <h4 id="activity-details"></h4>
+      <p id="activity-content"> </p>
+      <div id="lti-activity-submission" style="height: calc(50vw * 3/4); border: 0 none; display: none;"></div>
+
+      <div id="lti-student-launch"></div>
+      <button class="btn c-btn-primary" id="activity-validate" data-i18n="classroom.activities.validate"
+              onclick="validateActivity()"> <i class="fas fa-chevron-right"></i></button>
+      <button class="btn c-btn-primary" id="activity-save" style="display:none;" onclick="saveActivity()"
+              data-i18n="classroom.activities.save-draft"><i class="fas fa-chevron-right"></i></button>
+      <div class="btn" id="activity-instruction" style="display:none"><span
+        data-i18n="classroom.activities.instruction"></span> <i class="fas fa-pen"></i></div>
     </div>
-    <div id="activity-correction" class="col-4" style="display:none">
+    <div id="activity-correction" style="display:none">
     </div>
+  </div>
 </div>
 
 <div id="classroom-dashboard-activity-panel-success" class="dashboard-block" style="display:none;">
@@ -205,6 +210,7 @@
         </p>
     </div>
 </div>
+
 <div id="classroom-dashboard-profil-panel-teacher" class="dashboard-block profile-panel" style="display:none;">
     <img src="assets/media/profile_picture.svg" alt="Photo de profil" class="user-picture">
     <span id="user-name-teacher" data-i18n="classroom.profile.identity"></span>
@@ -442,8 +448,15 @@
     </br>
 
     <div class="buttons-interactions flex-wrap">
-        <button id="new-activity-panel1" onclick="createActivity()" class=" btn c-btn-outline-secondary"><span class="mr-1" data-i18n="classroom.activities.add"></span><i class="fas fa-chevron-right"></i>
+        <!--<button id="new-activity-panel1" onclick="createActivity()" class=" btn c-btn-outline-secondary"><span class="mr-1" data-i18n="classroom.activities.add"></span><i class="fas fa-chevron-right"></i>
+        </button>-->
+
+        <button id="new-activity-panel2" onclick="createCabriActivity(null, null, 'EXPRESS')" class=" btn c-btn-outline-secondary"><span class="mr-1" data-i18n="classroom.activities.addCabriExpress"></span><i class="fas fa-chevron-right"></i>
         </button>
+
+        <button id="new-activity-panel1" onclick="createCabriActivity(null, null, 'GENIUS')" class=" btn c-btn-outline-secondary"><span class="mr-1" data-i18n="classroom.activities.addCabriGenius"></span><i class="fas fa-chevron-right"></i>
+        </button>
+
     </div>
 
     <div id="list-activities-teacher">
@@ -454,7 +467,64 @@
 <div id="classroom-dashboard-activities-panel-library-teacher" style="display:none;" class="dashboard-block">
 </div>
 
-<div id="classroom-dashboard-new-activity-panel" style="display:none;"
+<div id="classroom-dashboard-new-cabriexpress-activity-panel" style="display:none;"
+     class="activity-creation-form row dashboard-block">
+  <nav class="row w-50" style="margin: 0 auto;">
+    <div class="col-4 text-center"><span class="form-activity form-activity-activate"><b>1</b></span><span
+      data-i18n="classroom.activities.form.1"></span></div>
+    <div class="col-4">__________________________</div>
+    <div class=" col-4 text-center"><span class="form-activity form-activity-desactivate"><b>2</b></span>
+      <span data-i18n="classroom.activities.form.2"></span></div>
+  </nav>
+  <div class="form-group mb-2 part-content-index part-row c-primary-form" style="max-width: 60%;">
+    <div class="form-row mt-1">
+      <label for="part-content-input" class="tutorial-label">
+        <span data-i18n="classroom.activities.form.title.label"></span>
+      </label>
+      <input data-i18n="[placeholder]classroom.activities.form.title.placeholder" type="text"
+             id="activity-form-title" class="form-control part-title-input">
+    </div>
+    <div class="form-row mt-1">
+      <label for="part-content-input" class="tutorial-label">
+        <span data-i18n='classroom.activities.form.content.label'></span>
+      </label>
+
+<!--      <iframe id="cabriexpress-teacher-iframe"-->
+<!--        src="http://localhost:7080/lti/web/login.php?iss=http%3A%2F%2Flocalhost:7080&login_hint=12345&target_link_uri=http%3A%2F%2Flocalhost%2Fgame.php&lti_message_hint=12345'"-->
+<!--              width="800px" height="600px"></iframe>-->
+
+
+<!--      <iframe id="cabriexpress-teacher-iframe"-->
+<!--              src="../../lti/express.html"-->
+<!--              width="800px" height="600px"-->
+
+      <!-- Resource Launch-->
+      <!-- STEP 1-->
+      <input id="activity-form-content-lti" type="text" hidden/>
+      <form name="lti_teacher_login_form" action="https://lti1p3.cabricloud.com/login" method="post" target="lti_teacher_iframe">
+        <input id="lti_teacher_iss" type="hidden" name="iss"/>
+        <input id="lti_teacher_login_hint" type="hidden" name="login_hint"/>
+        <input id="lti_teacher_client_id" type="hidden" name="client_id" value="client_id_php" />
+        <input id="lti_teacher_target_link_uri" type="hidden" name="target_link_uri" value="https://lti1p3.cabricloud.com/deeplink" />
+      </form>
+
+      <iframe src="about:blank" name="lti_teacher_iframe" title="Tool Content" width="1000" height="600"></iframe>
+      <script>
+        window.addEventListener("message", (event) => {
+          console.log('parent:' , event.origin, event.data)
+          $('#activity-form-content-lti').val(event.data);
+        }, false);
+      </script>
+<!--      <textarea id="cabriexpress-activity-id"></textarea>-->
+    </div>
+    <div class="form-row mt-1">
+    </div>
+  </div>
+  <button class="new-activity-panel-lti c-btn-primary"><span data-i18n="classroom.activities.form.button"></span> <i
+    class="fas fa-check"></i></button>
+</div>
+
+<div id="classroom-dashboard-new-activity-panel" style="display:none;margin-right:0px;"
     class="activity-creation-form row dashboard-block">
     <nav class="row" style="margin: 0 auto;">
         <div class="col-4 text-center">
@@ -601,6 +671,7 @@
         </div>
     </div>
 </div>
+
 <div id="classroom-dashboard-help-panel-teacher" style="display:none;" class="dashboard-block help-panel">
 <div class="teacher-contact-panel">
 
@@ -779,6 +850,10 @@
     })
 </script>
 <script src="assets/js/utils/translate.js"></script>
+<script src="assets/plugins/js/get_teacher_activity.js"></script>
+<script src="assets/plugins/js/limitation_activities_per_teacher.js"></script>
+<script src="assets/plugins/js/limitation_user_per_classroom.js"></script>
+<script src="assets/plugins/js/wordpress-widget.js"></script>
 
 </body>
 </html>

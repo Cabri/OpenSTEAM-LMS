@@ -22,6 +22,54 @@ function createActivity(link = null, id = null) {
     ClassroomSettings.activityInWriting = true
 }
 
+function createCabriActivity(link = null, id = null, type) {
+  ClassroomSettings.status = "attribute"
+  ClassroomSettings.isNew = true;
+  if (id == null) {
+    if (link) {
+
+      $('.wysibb-text-editor').html('[iframe]' + URLServer + '' + link + '[/iframe]')
+    } else {
+
+      $('.wysibb-text-editor').html('')
+    }
+
+    $('#activity-form-title').val('')
+
+  } else {
+    ClassroomSettings.activity = id
+    ClassroomSettings.status = 'action';
+    Main.getClassroomManager().getActivity(ClassroomSettings.activity).then(function (activity) {
+      $('#activity-form-title').val(activity.title)
+      $('.wysibb-text-editor').html(activity.content)
+    })
+  }
+
+  Main.getClassroomManager().canAddActivity({type}).then( data => {
+    console.log(data);
+    if(!data.canAdd) {
+      alert('Cannot add activity because of limitation ');
+      return;
+    }
+
+    navigatePanel('classroom-dashboard-new-cabriexpress-activity-panel', 'dashboard-activities-teacher')
+    ClassroomSettings.activityInWriting = true
+
+    // Start LTI 1.3 tool launch
+    const loginHint = {
+      userId: UserManager.getUser().id,
+      isStudentLaunch: false,
+      activityType: type
+    };
+
+   // document.getElementsByName('lti_teacher_login_form')[0].style.display = 'none';
+    $('#lti_teacher_login_hint').val(JSON.stringify(loginHint));
+    $('#lti_teacher_iss').val(location.host); // platform url
+
+    document.forms["lti_teacher_login_form"].submit();
+
+  });
+}
 
 // Lorsque le stockage local change, regarder l'état de la correction.
 window.addEventListener('storage', () => {
@@ -230,6 +278,63 @@ $('.new-activity-panel2').click(function () {
 
     }
 })
+
+//création/modification de l'activité de type LTI
+$('.new-activity-panel-lti').click(function () {
+  $(this).attr('disabled', 'disabled')
+  if (document.getElementById('activity-form-title').value.length < 1) {
+    displayNotification('#notif-div', "classroom.notif.activityTitleMissing", "error");
+    return;
+  }
+  if (ClassroomSettings.status != 'edit') {
+    const ltiID = $('#activity-form-content-lti').val();
+    Main.getClassroomManager().addActivity({
+      'title': $('#activity-form-title').val(),
+      'content': ltiID,
+      "isFromClassroom": true,
+      'type': JSON.parse($('#lti_teacher_login_hint').val()).activityType
+    }).then(function (activity) {
+      ClassroomSettings.activity = activity.id
+      displayNotification('#notif-div', "classroom.notif.activityCreated", "success", `'{"activityTitle": "${activity.title}"}'`);
+      $('.new-activity-panel2').attr('disabled', false)
+      navigatePanel('classroom-dashboard-new-activity-panel2', 'dashboard-activities-teacher', ClassroomSettings.activity)
+      addTeacherActivityInList(activity)
+      teacherActivitiesDisplay()
+      ClassroomSettings.activityInWriting = false
+      /*
+      // create LTI lineItem
+      Main.getClassroomManager().addLtiLineItem({
+        'id': ltiID,
+        'score_maximum': 100,
+        'label': 'label',
+        'tag': 'tag',
+        'resource_id': activity.id,
+        'resource_link_id': activity.id
+      }).then(lineItem=>{      });
+
+        console.log('success addLtiLineItem');*/
+
+
+    });
+
+
+  } else {
+    /*Main.getClassroomManager().editActivity({
+      'id': ClassroomSettings.activity,
+      'title': $('#activity-form-title').val(),
+      'content': $('#activity-form-content').bbcode()
+    }).then(function (activity) {
+      displayNotification('#notif-div', "classroom.notif.activityChanged", "success", `'{"activityTitle": "${activity.title}"}'`);
+      $('.new-activity-panel2').attr('disabled', false)
+      navigatePanel('classroom-dashboard-new-activity-panel2', 'dashboard-activities-teacher', ClassroomSettings.activity)
+      Main.getClassroomManager().getTeacherActivities(Main.getClassroomManager()).then(function () {
+        teacherActivitiesDisplay()
+        ClassroomSettings.activityInWriting = false
+      })
+    })*/
+
+  }
+});
 
 function listStudentsToAttribute(ref = null) {
     let classes = Main.getClassroomManager()._myClasses
