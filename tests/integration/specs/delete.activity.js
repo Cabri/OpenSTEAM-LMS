@@ -28,7 +28,13 @@ describe("Delete activity", () => {
         await page.clickButtonWhenDisplayed(settingsDropdownDeleteActivityButton);
     });
 
-    it("Check class was deleted", async () => {
+    it("Notification - Check activity was deleted", async () => {
         await classes.checkSuccess();
+    });
+
+    it("Check activity was deleted", async () => {
+        await page.clickButtonWhenDisplayed(await selector.buttonProfile);
+        await page.clickButtonWhenDisplayed(await selector.buttonMyActivities);
+        expect(!await activities.isActivityExist()).toBeTruthy();
     });
 });

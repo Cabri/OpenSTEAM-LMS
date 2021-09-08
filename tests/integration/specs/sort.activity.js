@@ -1,7 +1,6 @@
 const page = require('../opensteam/page');
 const login = require('../opensteam/login');
 const selector = require('../opensteam/selector');
-const classes = require('../opensteam/classes');
 const activities = require('../opensteam/activities');
 
 describe("Sort activity", () => {
@@ -15,7 +14,7 @@ describe("Sort activity", () => {
     });
 
     it("Create class 2", async () => {
-        await activities.createActivity();
+        await activities.createActivity(false);
     });
 
     it("Click on button class", async () => {
@@ -37,7 +36,7 @@ describe("Sort activity", () => {
     });
 
     it("delete all class", async () => {
-        await activities.deleteActivity();
+        await activities.deleteActivity(false);
         await activities.deleteActivity();
     });
 });

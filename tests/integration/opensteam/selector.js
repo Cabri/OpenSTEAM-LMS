@@ -143,6 +143,10 @@ class Selector {
         return $$("#table-students ul li");
     }
 
+    get firstLearnerInClass() {
+        return $("#body-table-teach tr:first-child .username div");
+    }
+
     get secondLearnerInTable() {
         return $("#table-students ul li:nth-child(2)");
     }
@@ -175,6 +179,10 @@ class Selector {
         return $("#classroom-dashboard-classes-panel-teacher .dropdown .dropdown-menu li:nth-child(2)");
     }
 
+    get firstAttributedActivity () {
+        return $("#header-table-teach .dropdown .span-act");
+    }
+
     /**
      * My activities page
      */
@@ -204,6 +212,14 @@ class Selector {
 
     get buttonValidateCreationActivity () {
         return $(".new-activity-panel2");
+    }
+
+    get firstActivityCreated () {
+        return $("#list-activities-teacher .activity-item:first-child");
+    }
+
+    get firstTitleActivity () {
+        return $("#list-activities-teacher .activity-item:first-child h3.activity-item-title");
     }
 
     get settingsButtonOnActivityCard () {

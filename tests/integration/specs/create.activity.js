@@ -4,6 +4,8 @@ const selector = require('../opensteam/selector');
 const classes = require('../opensteam/classes');
 const activities = require('../opensteam/activities');
 
+let titleActivity;
+
 describe("Creation of activity", () => {
     it("Login", async () => {
         await page.open('login.php');
@@ -20,11 +22,11 @@ describe("Creation of activity", () => {
 
     it("Complete title of activity", async () => {
         const input = await selector.inputTitleActivity;
-        const activityTitle = activities.title + page.randomNumberBetween1to100();
-        await page.input(input, activityTitle);
+        titleActivity = activities.title + page.randomNumberBetween1to100();
+        await page.input(input, titleActivity);
     });
 
-    it("Open modal insert boor url", async () => {
+    it("Open modal insert book url", async () => {
         await page.clickButtonWhenDisplayed(await selector.buttonInsertBook);
     });
 
@@ -39,8 +41,16 @@ describe("Creation of activity", () => {
         await page.clickButtonWhenDisplayed(await selector.buttonValidateCreationActivity);
     });
 
-    it("Activities was created", async () => {
+    it("Notification - Activities was created", async () => {
         await classes.checkSuccess();
+    });
+
+    it("Activities was created", async () => {
+        await page.clickButtonWhenDisplayed(await selector.buttonMyActivities);
+        const firstActivityCreated = await selector.firstTitleActivity;
+        const titleActivityCreated = await firstActivityCreated.getText();
+
+        expect(titleActivity.toLowerCase() === titleActivityCreated.toLowerCase()).toBeTruthy();
     });
 
     it("delete activity was created", async () => {

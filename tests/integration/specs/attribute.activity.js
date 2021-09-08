@@ -47,11 +47,19 @@ describe("Attribute an activity", () => {
         const instructions = "Exercice one draw a cricle \n and a cube";
         await page.input(specificInstructionForTheseLearners, instructions);
         await page.clickOnButton(await selector.attributeActivityButton);
-        await browser.pause(10000);
     });
 
-    it("Activities was created", async () => {
+    it("Notification - Activities was attribute", async () => {
         await classes.checkSuccess();
+    });
+
+    it("Activity was attribute", async () => {
+        //open class
+        await page.clickButtonWhenDisplayed(await selector.buttonClasses);
+        await page.clickButtonWhenDisplayed(await selector.buttonOpenClass);
+
+        await page.waitElementDisplayed(await selector.firstAttributedActivity);
+        expect(await activities.isAttributeActivityExist()).toBeTruthy();
     });
 
     it("delete activity was created", async () => {

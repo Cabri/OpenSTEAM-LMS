@@ -2,7 +2,6 @@ const page = require('../opensteam/page');
 const login = require('../opensteam/login');
 const selector = require('../opensteam/selector');
 const classes = require('../opensteam/classes');
-const activities = require('../opensteam/activities');
 
 describe("Switch learner/teacher", () => {
     it("Login", async () => {
