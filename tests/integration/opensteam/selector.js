@@ -109,6 +109,10 @@ class Selector {
         return $("#classroom-dashboard-classes-panel-teacher .btn");
     }
 
+    get classNameOnClassCard () {
+        return $("#classroom-dashboard-classes-panel-teacher .class-item:last-child .activity-item-title");
+    }
+
     get inputClassName() {
         return $("#classroom-form-name");
     }

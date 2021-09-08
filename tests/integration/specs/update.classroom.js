@@ -13,17 +13,8 @@ describe("Update of classroom", () => {
         await classes.createClass();
     });
 
-    it("Click on classes button", async () => {
-        await page.clickButtonWhenDisplayed(await selector.buttonClasses);
-    });
-
     it("Click on modify button", async () => {
-        const settingsDropdownModifyButton = await selector.settingsDropdownModifyButton;
-        const settingsButtonOnClassCard = await selector.settingsButtonOnClassCard;
-        await page.waitForExist(settingsButtonOnClassCard);
-        await page.clickButtonWhenDisplayed(settingsButtonOnClassCard);
-        await page.waitForExist(settingsDropdownModifyButton);
-        await page.clickButtonWhenDisplayed(settingsDropdownModifyButton);
+        await classes.clickSettingsButton(classes.settings.modify);
     });
 
     it("Change name of class and school", async () => {
@@ -36,8 +27,19 @@ describe("Update of classroom", () => {
         await page.clickButtonWhenDisplayed(await selector.buttonSaveClass);
     });
 
-    it("Class was modified", async () => {
+    it("Notification - Class was modified", async () => {
         await classes.checkSuccess();
+    });
+
+    it("Class was modified", async () => {
+        // tricks to refresh classes
+        await page.clickButtonWhenDisplayed(await selector.buttonProfile);
+        await page.clickButtonWhenDisplayed(await selector.buttonClasses);
+
+        const classNameOnClassCard = await selector.classNameOnClassCard;
+        const className = await classNameOnClassCard.getText();
+
+        expect(classes.className.toLowerCase() === className.toLowerCase()).toBeTruthy();
     });
 
     it("delete class was created", async () => {

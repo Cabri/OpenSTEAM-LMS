@@ -40,11 +40,20 @@ describe("Creation of classroom", () => {
         await page.clickButtonWhenDisplayed(await selector.buttonSaveClass);
     });
 
-    it("Class was created", async () => {
+    it("Notification - Class was created", async () => {
         await classes.checkSuccess();
     });
 
-    it("delete class was created", async () => {
+    it("Class was created", async () => {
+        await page.clickButtonWhenDisplayed(await selector.buttonClasses);
+
+        const classNameOnClassCard = await selector.classNameOnClassCard;
+        const className = await classNameOnClassCard.getText();
+
+        expect(classes.className.toLowerCase() === className.toLowerCase()).toBeTruthy();
+    });
+
+    it("delete class", async () => {
         await classes.deleteClass();
     });
 });
