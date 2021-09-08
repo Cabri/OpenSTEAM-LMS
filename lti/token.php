@@ -3,8 +3,9 @@ require_once __DIR__ . '/../vendor/autoload.php';
 use Firebase\JWT\JWK;
 use Firebase\JWT\JWT;
 
-$tool_jwks_keys_url = "https://9985-82-216-88-13.ngrok.io/keys";
-$platform_url = "http://localhost:7080";
+$tool_jwks_keys_url = "https://lti1p3.cabricloud.com/keys";
+// todo HTTP_HOST is insecure (controlled by the client)
+$platform_url = getenv('HTTP_HOST');
 
 // decode jwt token and check signature using jwks public key
 

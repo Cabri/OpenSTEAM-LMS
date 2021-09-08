@@ -6,8 +6,9 @@ $nonce = base64_encode(random_bytes(16));
 
 use \Firebase\JWT\JWT;
 //require_once __DIR__ . '/../vendor/firebase/php-jwt/src/JWT.php';
-$platform_url = 'http://localhost:7080';
-$tool_url = 'https://9985-82-216-88-13.ngrok.io';
+// todo HTTP_HOST is insecure (controlled by the client)
+$platform_url = getenv('HTTP_HOST');
+$tool_url = 'https://lti1p3.cabricloud.com';
 
 $loginHint = json_decode($_REQUEST['login_hint'], true);
 
@@ -46,10 +47,10 @@ if($loginHint['isStudentLaunch']) {
         "https://purl.imsglobal.org/spec/lti-ags/scope/score"
       ],
       // TODO hostname must be dynamic
-      "lineitems"=> "http://localhost:7080/lti/tools/1/lineitems",
-      "lineitem" => "http://localhost:7080/lti/tools/1/lineitems/" . urlencode($loginHint['activitiesLinkUser'])
-      //"lineitem" => "http://localhost:7080/lti/tools/1/lineitems/" . urlencode($loginHint['lineitemId'])
-      // def: http://localhost:3000/<tool_id>/lineitems/<line_item_1>
+      "lineitems"=> $platform_url . "/lti/tools/1/lineitems",
+      "lineitem" => $platform_url . "/lti/tools/1/lineitems/" . urlencode($loginHint['activitiesLinkUser'])
+      //"lineitem" => $platform_url . "/lti/tools/1/lineitems/" . urlencode($loginHint['lineitemId'])
+      // def: http://lti1p3.cabricloud.com/<tool_id>/lineitems/<line_item_1>
     ];
 
     $jwt_payload['https://purl.imsglobal.org/spec/lti/claim/message_type'] = 'LtiResourceLinkRequest';
