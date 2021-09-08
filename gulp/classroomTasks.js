@@ -382,17 +382,13 @@ class AutoBuildManager {
     async readFolderForList(plugin, folder, list) {
         return new Promise((resolve, reject) => {
             fs.readdir(folder, (err, files) => {
-                if(files){
-                    try {
-                        files.forEach(file => {
-                            this.pluginsList[this.pluginsList.indexOf(plugin)][list].push(file);
-                        });
-                        resolve();
-                    } catch (error) {
-                        reject(error);
-                    }
-                }else{
-                    console.error(`Folder ${folder} doesn't exist! Skipping!`);
+                try {
+                    files.forEach(file => {
+                        this.pluginsList[this.pluginsList.indexOf(plugin)][list].push(file);
+                    });
+                    resolve();
+                } catch (error) {
+                    reject(error);
                 }
             });
         }).catch((error) => {
