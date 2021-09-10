@@ -64,7 +64,7 @@ function createCabriActivity(link = null, id = null, type) {
 
    // document.getElementsByName('lti_teacher_login_form')[0].style.display = 'none';
     $('#lti_teacher_login_hint').val(JSON.stringify(loginHint));
-    $('#lti_teacher_iss').val(location.host); // platform url
+    $('#lti_teacher_iss').val(location.origin); // platform url
 
     document.forms["lti_teacher_login_form"].submit();
 
