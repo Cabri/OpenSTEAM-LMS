@@ -38,6 +38,11 @@ class Login {
         await this.inputEmailAndPassword(email, password);
         await page.clickOnButton(buttonConnexionThirdPage);
     }
+
+    async logout () {
+        await page.clickButtonWhenDisplayed(await selector.buttonProfile);
+        await page.clickButtonWhenDisplayed(await selector.logoutButton);
+    }
 }
 
 module.exports = new Login();

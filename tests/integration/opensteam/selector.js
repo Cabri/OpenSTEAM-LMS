@@ -319,7 +319,14 @@ class Selector {
     }
 
     /**
-     * switch to learner/teacher mode
+     * logout page
+     */
+    get mainCabriCom () {
+        return $("#main");
+    }
+
+    /**
+     * Learner join class
      */
     get copyLinkButton () {
         return $("#code-copy");
@@ -335,6 +342,10 @@ class Selector {
 
     get urlCopySpan () {
         return $("#classroom-link-tocopy");
+    }
+
+    get logoutButtonLearner() {
+        return $("#classroom-dashboard-profil-panel-teacher button:last-child");
     }
 
 

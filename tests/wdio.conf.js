@@ -1,7 +1,7 @@
 exports.config = {
     runner: 'local',
     specs: [
-        './integration/specs/**/switch.mode.js'
+        './integration/specs/**/*.js'
     ],
     exclude: [
     ],
@@ -9,9 +9,9 @@ exports.config = {
     capabilities: [{
         maxInstances: 5,
         browserName: 'chrome',
-/*        'goog:chromeOptions': {
+        'goog:chromeOptions': {
             args: ["--headless", "--disable-gpu", '--no-sandbox', "--verbose","--window-size=1440,735"]
-        },*/
+        },
         acceptInsecureCerts: true
     }],
     logLevel: 'silent',

@@ -2,7 +2,9 @@ const page = require('../opensteam/page');
 const login = require('../opensteam/login');
 const selector = require('../opensteam/selector');
 const classes = require('../opensteam/classes');
-const activities = require('../opensteam/activities');
+
+const nameOfLearner = "Marine";
+let urlText = "";
 
 describe("Learner join class with invitation link", () => {
     it("Login", async () => {
@@ -18,17 +20,53 @@ describe("Learner join class with invitation link", () => {
         await page.clickButtonWhenDisplayed(await selector.buttonClasses);
     });
 
-    it("Open classroom", async () => {
+    it("Copy link to join classroom", async () => {
         await page.clickButtonWhenDisplayed(await selector.buttonOpenClass);
         await page.clickButtonWhenDisplayed(await selector.copyLinkButton);
         const urlCopySpan = await selector.urlCopySpan;
-        const urlSpans = await urlCopySpan.$$("span");
-        const text = await urlSpans[0].getText();
-        console.log("testzz ", text);
+        const urlHTML = await urlCopySpan.getHTML();
+        urlText = urlHTML.replace(/<(?:.|\n)*?>/gm, '');
+    });
+
+    it("Logout from the teacher mode", async () => {
+        await login.logout();
+        await page.waitElementDisplayed(await selector.mainCabriCom);
+    });
+
+    it("Join class", async () => {
+        await browser.newWindow(urlText);
+
+        await page.input(await selector.learnerNameInput, nameOfLearner);
+        await page.clickButtonWhenDisplayed(await selector.confirmJoinButton);
+
+        expect(await page.waitElementDisplayed(await selector.panelLearner)).toBeTruthy();
+    });
+
+    it("Logout from learner", async () => {
+        const logoutButtonLearner = await selector.panelLearner.$(".btn:last-child")
+        await page.clickButtonWhenDisplayed(await logoutButtonLearner);
+        expect(await page.waitElementDisplayed(await selector.mainCabriCom)).toBeTruthy();
+    });
+
+    it("switch window dans login to teacher account", async () => {
+        const handles = await browser.getWindowHandles();
+
+        await browser.closeWindow()
+        await browser.switchToWindow(handles[0])
+        await page.open('login.php');
+        await login.login(login.email, login.password);
+    });
+
+    it("Learner has joined", async () => {
+        await page.clickButtonWhenDisplayed(await selector.buttonClasses);
+        await page.clickButtonWhenDisplayed(await selector.buttonOpenClass);
+        const firstLearnerInClass = await selector.firstLearnerInClass;
+        const learnerName = await firstLearnerInClass.getText();
+        expect(nameOfLearner.toLowerCase() === learnerName.toLowerCase()).toBeTruthy();
     });
 
 
-/*    it("Delete class", async () => {
+    it("Delete class", async () => {
         await classes.deleteClass();
-    });*/
+    });
 });
