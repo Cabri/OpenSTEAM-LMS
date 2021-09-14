@@ -135,8 +135,8 @@ $('.new-classroom-form').click(function () {
             'isBlocked': document.querySelector('#classroom-form-is-blocked').checked
         }).then(function (classroom) {
             // If the backend detects that the user is not a premium user and that he already has one classroom
-            if(classroom == false){
-                displayNotification('#notif-div', "classroom.notif.classNotCreated", "error");
+            if(classroom.isClassroomAdded == false){
+                displayNotification('#notif-div', "classroom.notif.classNotCreated", "error", `'{"classroomNumberLimit": "${classroom.classroomNumberLimit}"}'`);
             }else{
                 let students = []
                 let existingStudents = []
@@ -367,7 +367,7 @@ function classroomToCsv(link) {
     let html = "apprenant;mot de passe \n"
     let classroom = getClassroomInListByLink(link)[0]
     for (let i = 0; i < classroom.students.length; i++) {
-        if(classroom.students[i].user.pseudo != 'vittademo'){
+        if(classroom.students[i].user.pseudo != demoStudentName){
             html += classroom.students[i].user.pseudo + ";" + classroom.students[i].pwd + "\n";
         }
     }
@@ -397,7 +397,7 @@ function dashboardToCsv(link) {
     }
     headHtml += "\n"
     for (let i = 0; i < classroom.students.length; i++) {
-        if(classroom.students[i].user.pseudo != 'vittademo'){
+        if(classroom.students[i].user.pseudo != demoStudentName){
             let arrayActivities = reorderActivities(classroom.students[i].activities, index)
             html += classroom.students[i].user.pseudo + ";"
             for (let j = 0; j < arrayActivities.length; j++) {
@@ -645,7 +645,7 @@ function displayStudentsInClassroom(students) {
     }
 
     // sort the students by their name (it doesn't seem to work yet)
-    if (students[0].user.pseudo == "vittademo") {
+    if (students[0].user.pseudo == demoStudentName) {
         students.sort(function (a, b) {
             return (a.pseudo > b.pseudo) ? 1 : -1;
         })
@@ -661,8 +661,8 @@ function displayStudentsInClassroom(students) {
         if (element.user.pseudo.length > 10) {
             pseudo = element.user.pseudo.slice(0, 9) + "&#8230;";
         }
-        // Add vittademo's head table cell if it's the current student
-        if (element.user.pseudo == "vittademo") {
+        // Add demoStudent's head table cell if it's the current student
+        if (element.user.pseudo == demoStudentName) {
             html = `<tr><td class="username row" data-student-id="` + element.user.id + `"><img class="col-2 propic" src="${_PATH}assets/media/alphabet/` + element.user.pseudo.slice(0, 1).toUpperCase() + `.png" alt="Photo de profil"><div class="col-7 line_height34" title="` + element.user.pseudo + `">` + pseudo + ` </div> <div class="dropdown col "><i class="classroom-clickable line_height34 fas fa-exchange-alt" type="button" id="dropdown-studentItem-${element.user.id}" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></i>
             <div class="dropdown-menu" aria-labelledby="dropdown-studentItem-${element.user.id}">
         <li id="mode-apprenant" class="dropdown-item classroom-clickable col-12" href="#" onclick="modeApprenant()">Mode apprenant</li>
@@ -684,7 +684,7 @@ function displayStudentsInClassroom(students) {
 
         // Loop in the classroom activities index (with ids) to generate the dashboard table header and body
         for(let i=0; i<activitiesIndexWithId.length; i++){
-            if (element.user.pseudo == "vittademo") {
+            if (element.user.pseudo == demoStudentName) {
                 $('#header-table-teach').append(`
                 <th>
                     <div class="dropdown dropdown-act" style="width:30px;">

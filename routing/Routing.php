@@ -3,37 +3,44 @@
 
 require_once '../bootstrap.php';
 
-use Utils\Exceptions\EntityDataIntegrityException;
-use Utils\Exceptions\EntityOperatorException;
-use Doctrine\DBAL\DBALException;
-use Doctrine\DBAL\Driver\PDOException;
-use Doctrine\ORM\ORMException;
+use Dotenv\Dotenv;
+use Monolog\Logger;
+use VittaLogger\Log;
 use Utils\Backend\Errors;
+use Doctrine\ORM\ORMException;
+use Doctrine\DBAL\DBALException;
 
 use User\Controller\ControllerUser;
 
-use Interfaces\Controller\ControllerProject;
-use Interfaces\Controller\ControllerProjectLinkUser;
-
-use Classroom\Controller\ControllerClassroom;
-use Classroom\Controller\ControllerClassroomLinkUser;
-use Classroom\Controller\ControllerActivityLinkUser;
-
+use Doctrine\DBAL\Driver\PDOException;
 use Learn\Controller\ControllerCourse;
-use Learn\Controller\ControllerChapter;
-use Learn\Controller\ControllerFavorite;
+
 use Learn\Controller\ControllerLesson;
+use Learn\Controller\ControllerChapter;
 use Learn\Controller\ControllerComment;
+
+
 use Learn\Controller\ControllerActivity;
-use Learn\Controller\ControllerCourseLinkCourse;
+use Learn\Controller\ControllerFavorite;
 use Learn\Controller\ControllerCollection;
+use Interfaces\Controller\ControllerProject;
+use Classroom\Controller\ControllerClassroom;
+use Utils\Exceptions\EntityOperatorException;
 
-use Monolog\Logger;
-use VittaLogger\Log;
+/**
+ * A modifier pour le namespace superadmin
+ */
+use Classroom\Controller\ControllerGroupAdmin;
+use Classroom\Controller\ControllerSuperAdmin;
 
-use Dotenv\Dotenv;
+use Learn\Controller\ControllerCourseLinkCourse;
+use Utils\Exceptions\EntityDataIntegrityException;
+use Classroom\Controller\ControllerActivityLinkUser;
+use Interfaces\Controller\ControllerProjectLinkUser;
+use Classroom\Controller\ControllerClassroomLinkUser;
 
-$dotenv = Dotenv::createImmutable(__DIR__."/../");
+
+$dotenv = Dotenv::createImmutable(__DIR__ . "/../");
 $dotenv->safeLoad();
 
 const OK = "OK";
@@ -46,23 +53,30 @@ try {
     if (isset($_SESSION["id"])) {
         $user = $entityManager->getRepository('User\Entity\User')
             ->find(intval($_SESSION["id"]))->jsonSerialize();
-        $isFromGar = $entityManager->getRepository('User\Entity\ClassroomUser')
-        ->find(intval($_SESSION["id"]));
-        if($isFromGar){
-            $garTeacher = $isFromGar->jsonSerialize();
 
-            if($garTeacher['isTeacher'] === true && $garTeacher['garId'] != null){
-            $user['isFromGar'] = true;
-            }
-        }
-        
-        
         try {
             $regular = $entityManager->getRepository('User\Entity\Regular')
                 ->find(intval($_SESSION["id"]))->jsonSerialize();
             $user['isRegular']  = $regular['email'];
         } catch (error $e) {
             $user['isRegular'] = false;
+        }
+
+        $isFromGar = $entityManager->getRepository('User\Entity\ClassroomUser')
+        ->find(intval($_SESSION["id"]));
+        if($isFromGar){
+            $garUser = $isFromGar->jsonSerialize(); 
+
+            if($garUser['garId'] != null){
+                $user['isFromGar'] = true;
+
+                if($garUser['isTeacher'] == true && $garUser['mailTeacher'] == ''){
+                    $user['isRegular'] = 'no email provided';
+                }
+                if($garUser['isTeacher'] == true && $garUser['mailTeacher'] != ''){
+                    $user['isRegular'] = $garUser['mailTeacher'];  
+                }
+            }
         }
     }
     // Intercept action.
@@ -71,34 +85,32 @@ try {
 
     // get and scan the entire plugins folder
     $pluginsDir = '../plugins';
-    if(is_dir($pluginsDir)){
+    if (is_dir($pluginsDir)) {
         $pluginsFound = array_diff(scandir($pluginsDir), array('..', '.'));
 
         // scan each single plugin folder
-        foreach($pluginsFound as $singlePlugin){
+        foreach ($pluginsFound as $singlePlugin) {
             $singlePluginFolders = array_diff(scandir("../plugins/$singlePlugin"), array('..', '.'));
 
             // convert snake_case from url param into PascalCase to find the right controller file to instanciate
-            $ControllerToInstanciate = "Controller".str_replace('_', '', ucwords($controller, '_'));
+            $ControllerToInstanciate = "Controller" . str_replace('_', '', ucwords($controller, '_'));
 
             // check if a Controller folder exists in the plugins list
-            if(in_array("Controller",$singlePluginFolders))
-            {
+            if (in_array("Controller", $singlePluginFolders)) {
                 // check if the required controller file exists and require it 
-                if (file_exists("../plugins/$singlePlugin/Controller/$ControllerToInstanciate.php")) 
-                {
-                    require_once "../plugins/$singlePlugin/Controller/".$ControllerToInstanciate.".php";
-                
+                if (file_exists("../plugins/$singlePlugin/Controller/$ControllerToInstanciate.php")) {
+                    require_once "../plugins/$singlePlugin/Controller/" . $ControllerToInstanciate . ".php";
+
                     // instanciate the matching controller
-                    $class = "Plugins\\Controller\\".$ControllerToInstanciate; 
+                    $class = "Plugins\\Controller\\" . $ControllerToInstanciate;
                     $controller = new $class($entityManager, $user);
 
                     // return data and exit the foreach loop with a break
                     echo (json_encode($controller->action($action, $_POST)));
                     $log->info($action, OK);
-                    break ;
+                    break;
                 }
-            }    
+            }
         }
     }
 
@@ -178,6 +190,16 @@ try {
             echo (json_encode($user));
             $log->info($action, OK);
             break;
+        case 'superadmin':
+            $controller = new ControllerSuperAdmin($entityManager, $user);
+            echo (json_encode($controller->action($action, $_POST)));
+            $log->info($action, OK);
+            break;
+        case 'groupadmin':
+            $controller = new ControllerGroupAdmin($entityManager, $user);
+            echo (json_encode($controller->action($action, $_POST)));
+            $log->info($action, OK);
+            break;
         default:
             $log->warning(null, __FILE__, __LINE__, "Non matched controller");
             break;
@@ -201,4 +223,3 @@ try {
     $log->error($action, $e->getFile(), $e->getLine(), $e->getMessage());
     echo (json_encode(Errors::createError($e->getMessage())));
 }
- 

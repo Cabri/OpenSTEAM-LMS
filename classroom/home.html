@@ -40,7 +40,44 @@
         onclick="navigatePanel('classroom-dashboard-profil-panel-teacher', 'dashboard-profil-teacher')"><img
             class="user-picture" src="assets/media/profile_picture.svg" alt="Photo de profil">
         <span data-i18n="classroom.ids.classroom-dashboard-profil-panel-teacher"></span></div>
+</div>
+<div id="superadmin-dashboard-sidebar" class="sidebar-classroom" style="display:none;">
+    <!-- set your logo here -->
+    <div id="classroom-sidebar-logo"></div>
 
+    <div class="classroom-navbar-button" id="dashboard-superadmin-groups"
+        onclick="navigatePanel('superadmin-dashboard-main', 'dashboard-superadmin-groups')">
+        <img src="assets/media/my_classes.svg" alt="Icône classe">
+        <span data-i18n="superadmin.users.users">Utilisateurs</span>
+    </div>
+
+    <div id="dashboard-profil-superadmin" class="classroom-navbar-button"
+        onclick="navigatePanel('classroom-dashboard-profil-panel-superadmin', 'dashboard-profil-superadmin')">
+        <img class="user-picture" src="assets/media/profile_picture.svg" alt="Photo de profil">
+        <span data-i18n="classroom.ids.classroom-dashboard-profil-panel-teacher"></span>
+    </div>
+</div>
+<div id="groupadmin-dashboard-sidebar" class="sidebar-classroom" style="display:none;">
+    <!-- set your logo here -->
+    <div id="classroom-sidebar-logo"></div>
+
+    <div class="classroom-navbar-button" id="dashboard-groupadmin-users-side"
+        onclick="navigatePanel('groupadmin-dashboard-users', 'dashboard-groupadmin-users-side')">
+        <img src="assets/media/my_classes.svg" alt="Icône classe">
+        <span data-i18n="superadmin.users.users">Utilisateurs</span>
+    </div>
+
+    <div class="classroom-navbar-button" id="dashboard-groupadmin-help-side"
+        onclick="navigatePanel('groupadmin-dashboard-help', 'dashboard-groupadmin-help-side')">
+        <img src="assets/media/my_classes.svg" alt="Icône classe">
+        <span data-i18n="superadmin.profil.help">Appel à l'aide</span>
+    </div>
+
+    <div id="dashboard-profil-groupadmin" class="classroom-navbar-button"
+        onclick="navigatePanel('classroom-dashboard-profil-panel-groupadmin', 'dashboard-profil-groupadmin')">
+        <img class="user-picture" src="assets/media/profile_picture.svg" alt="Photo de profil">
+        <span data-i18n="classroom.ids.classroom-dashboard-profil-panel-teacher"></span>
+    </div>
 </div>
 <div id="classroom-dashboard-content">
     <div id="classroom-dashboard-top-bar">
@@ -228,51 +265,64 @@
                 data-i18n="[html]classroom.profil.correctionToDo"></span></div>
     </div>
 
-    <button class="btn mt-2 c-btn-outline-primary" id="settings-teacher"><span class="text-capitalize text-span-initial" data-i18n="words.settings"
-            class="text-capitalize"></span> <i class="fas fa-cog"></i></button>
-    <button class="btn mt-2 c-btn-outline-secondary" id="help-teacher"><span data-i18n="words.help" class="text-capitalize text-span-initial"></span>
+    <button class="btn mt-2 c-btn-outline-primary" id="settings-teacher"><span class="text-capitalize text-span-initial"
+            data-i18n="words.settings" class="text-capitalize"></span> <i class="fas fa-cog"></i></button>
+    <button class="btn mt-2 c-btn-outline-secondary" id="help-teacher"><span data-i18n="words.help"
+            class="text-capitalize text-span-initial"></span>
         <i class="fas fa-question-circle"></i></button>
-    <button class="btn mb-2 c-btn-outline-primary" onclick="listeModeApprenant()"><span data-i18n="classroom.profil.switchMode" class="text-span-initial mr-1"></span><i class="fas fa-cog"></i></button>
-    <button class="btn mt-2 c-btn-red" onclick="goToDisconnect('classroom');"><span
-            data-i18n="words.disconnect" class="text-capitalize text-span-initial"></span>
+    <button class="btn mb-2 c-btn-outline-primary" onclick="listeModeApprenant()"><span
+            data-i18n="classroom.profil.switchMode" class="text-span-initial mr-1"></span><i
+            class="fas fa-cog"></i></button>
+
+    <button class="btn mt-2 c-btn-red" onclick="goToDisconnect('classroom');"><span data-i18n="words.disconnect"
+            class="text-capitalize text-span-initial"></span>
         <i class="fas fa-power-off"></i></button>
 </div>
 
-<div id="classroom-dashboard-account-panel-teacher" class="mx-3 dashboard-block classes-panel class-creation-form" style="display:none;">
-	<h3 data-i18n="classroom.profil.accountSettings.title"></h3>
+<div id="classroom-dashboard-account-panel-teacher" class="mx-3 dashboard-block classes-panel class-creation-form"
+    style="display:none;">
+    <h3 data-i18n="classroom.profil.accountSettings.title"></h3>
     <form action="#" id="update-teacher-account-form">
         <div class="form-group part-content-index part-row c-primary-form">
             <div class="form-row">
-                <label for="profile-form-first-name" class="tutorial-label" data-i18n="classroom.profil.accountSettings.firstname"></label>
+                <label for="profile-form-first-name" class="tutorial-label"
+                    data-i18n="classroom.profil.accountSettings.firstname"></label>
                 <input type="text" name="first-name" id="profile-form-first-name" class="form-control form-control-lg">
             </div>
             <div class="form-row">
-                <label for="profile-form-last-name" class="tutorial-label" data-i18n="classroom.profil.accountSettings.lastname"></label>
+                <label for="profile-form-last-name" class="tutorial-label"
+                    data-i18n="classroom.profil.accountSettings.lastname"></label>
                 <input type="text" name="last-name" id="profile-form-last-name" class="form-control form-control-lg">
             </div>
             <div class="form-row">
-                <label for="profile-form-nick-name" class="tutorial-label" data-i18n="classroom.profil.accountSettings.nickname"></label>
+                <label for="profile-form-nick-name" class="tutorial-label"
+                    data-i18n="classroom.profil.accountSettings.nickname"></label>
                 <input type="text" name="nickname" id="profile-form-nick-name" class="form-control form-control-lg">
             </div>
             <div class="form-row">
-                <label for="profile-form-email" class="tutorial-label" data-i18n="classroom.profil.accountSettings.email"></label>
+                <label for="profile-form-email" class="tutorial-label"
+                    data-i18n="classroom.profil.accountSettings.email"></label>
                 <input type="email" name="email" id="profile-form-email" class="form-control form-control-lg">
             </div>
             <div>
-                <label for="profile-form-password" class="tutorial-label" data-i18n="classroom.profil.accountSettings.password"></label>
+                <label for="profile-form-password" class="tutorial-label"
+                    data-i18n="classroom.profil.accountSettings.password"></label>
             </div>
             <div class="form-inline">
                 <input type="password" name="password" id="profile-form-password" class="form-control form-control-lg">
                 <i class="classroom-clickable fas fa-low-vision ml-2 password-display-toggler"></i>
             </div>
-            <label for="profile-form-confirm-password" class="tutorial-label" data-i18n="classroom.profil.accountSettings.confirmPassword"></label>
+            <label for="profile-form-confirm-password" class="tutorial-label"
+                data-i18n="classroom.profil.accountSettings.confirmPassword"></label>
             <div class="form-inline">
-                <input type="password" name="confirm-password" id="profile-form-confirm-password" class="form-control form-control-lg">
+                <input type="password" name="confirm-password" id="profile-form-confirm-password"
+                    class="form-control form-control-lg">
                 <i class="classroom-clickable fas fa-low-vision ml-2 password-display-toggler"></i>
             </div>
             <input type="hidden" name="teacher-id" id="profile-form-teacher-id">
             <div class="d-flex flex-column align-items-center">
-                <input class="btn c-btn-primary m-3" type="submit" data-i18n="[value]classroom.profil.accountSettings.updateButton">
+                <input class="btn c-btn-primary m-3" type="submit"
+                    data-i18n="[value]classroom.profil.accountSettings.updateButton">
             </div>
         </div>
     </form>
@@ -673,24 +723,31 @@
 </div>
 
 <div id="classroom-dashboard-help-panel-teacher" style="display:none;" class="dashboard-block help-panel">
-<div class="teacher-contact-panel">
+    <div class="teacher-contact-panel">
 
-    <h3 data-i18n="classroom.teacherHelpPanel.contactForm.title">Contacter Vittascience</h3>
-    <div id="about-contact-info"></div>
-    <form id="about-contact-form" class="c-primary-form">
-        <input type="text" name="subject" class="form-control" id="contact-subject-input"  data-i18n="[placeholder]classroom.teacherHelpPanel.contactForm.objectPlaceholder" placeholder="Objet" style="width: 70%;">
+        <h3 data-i18n="classroom.teacherHelpPanel.contactForm.title">Contacter Vittascience</h3>
+        <div id="about-contact-info"></div>
+        <form id="about-contact-form" class="c-primary-form">
+            <input type="text" name="subject" class="form-control" id="contact-subject-input"
+                data-i18n="[placeholder]classroom.teacherHelpPanel.contactForm.objectPlaceholder" placeholder="Objet"
+                style="width: 70%;">
 
-        <textarea name="message" id="contact-message-input" rows="8" cols="25" style="resize: none; width: 100%;" data-i18n="[placeholder]classroom.teacherHelpPanel.contactForm.messagePlaceholder" placeholder="Écrivez votre message ici. (Maximum 800 caractères)"></textarea>
+            <textarea name="message" id="contact-message-input" rows="8" cols="25" style="resize: none; width: 100%;"
+                data-i18n="[placeholder]classroom.teacherHelpPanel.contactForm.messagePlaceholder"
+                placeholder="Écrivez votre message ici. (Maximum 800 caractères)"></textarea>
 
-        <input type="submit" data-i18n="[value]classroom.teacherHelpPanel.contactForm.sendButton" disabled="disabled" style="cursor:not-allowed;" class="btn btn-lg login-button c-btn-primary" >
-    </form>
+            <input type="submit" data-i18n="[value]classroom.teacherHelpPanel.contactForm.sendButton"
+                disabled="disabled" style="cursor:not-allowed;" class="btn btn-lg login-button c-btn-primary">
+        </form>
 
         <div id="footer-content" class="row" style="justify-content: space-around;width: 70%;flex-wrap: wrap;">
             <div class="col">
-                <a class="footer-link text-uppercase d-block" href="/privacy" data-i18n="classroom.footer.privacy"></a>
+                <a class="footer-link text-uppercase d-block" href="/classroom/privacy"
+                    data-i18n="classroom.footer.privacy"></a>
             </div>
             <div class="col">
-                <a class="footer-link text-uppercase d-block" href="/cgu" target="_blank" data-i18n="[html]classroom.footer.cgu"></a>
+                <a class="footer-link text-uppercase d-block" href="/classroom/cgu" target="_blank"
+                    data-i18n="[html]classroom.footer.cgu"></a>
             </div>
             <div class="col" data-i18n="classroom.footer.copyright">
             </div>
@@ -701,6 +758,286 @@
         <div id="teacher-faq-container"></div>
     </div>
 
+</div>
+<div id="groupadmin-dashboard-help" style="display:none;" class="dashboard-block help-panel">
+    <div class="teacher-contact-panel">
+
+        <h3 data-i18n="classroom.teacherHelpPanel.contactForm.title">Contacter Vittascience</h3>
+        <div id="about-contact-info"></div>
+        <form id="about-contact-form" class="c-primary-form">
+            <input type="text" name="subject" class="form-control" id="contact-subject-input"
+                data-i18n="[placeholder]classroom.teacherHelpPanel.contactForm.objectPlaceholder" placeholder="Objet"
+                style="width: 70%;">
+
+            <textarea name="message" id="contact-message-input" rows="8" cols="25" style="resize: none; width: 100%;"
+                data-i18n="[placeholder]classroom.teacherHelpPanel.contactForm.messagePlaceholder"
+                placeholder="Écrivez votre message ici. (Maximum 800 caractères)"></textarea>
+
+            <input type="submit" data-i18n="[value]classroom.teacherHelpPanel.contactForm.sendButton"
+                disabled="disabled" style="cursor:not-allowed;" class="btn btn-lg login-button c-btn-primary">
+        </form>
+
+        <div id="footer-content" class="row" style="justify-content: space-around;width: 70%;flex-wrap: wrap;">
+            <div class="col">
+                <a class="footer-link text-uppercase d-block" href="/classroom/privacy"
+                    data-i18n="classroom.footer.privacy"></a>
+            </div>
+            <div class="col">
+                <a class="footer-link text-uppercase d-block" href="/classroom/cgu" target="_blank"
+                    data-i18n="[html]classroom.footer.cgu"></a>
+            </div>
+            <div class="col" data-i18n="classroom.footer.copyright">
+            </div>
+        </div>
+    </div>
+    <div class="faq-panel">
+        <h2 class="c-text-secondary font-weight-bold text-center mt-5">FAQ</h2>
+        <div id="teacher-faq-container"></div>
+    </div>
+
+</div>
+<div id="classroom-dashboard-profil-panel-groupadmin" class="dashboard-block profile-panel" style="display:none;">
+    <div class="row text-center">
+        <div class="col-12">
+            <div class="col-12">
+                <img src="assets/media/profile_picture.svg" alt="Photo de profil"
+                    class="user-picture rounded mx-auto d-block">
+                <span id="user-name-groupadmin" data-i18n="classroom.profil.identity">PLACEHOLDER</span>
+            </div>
+            <div class="col-12">
+                <div class="m-auto">
+                    <button class="btn mt-2 c-btn-outline-primary btn-block" id="settings-groupadmin"><span
+                            class="text-capitalize text-span-initial" data-i18n="words.settings"
+                            class="text-capitalize"></span> <i class="fas fa-cog"></i>
+                    </button>
+
+                    <button class="btn mb-2 c-btn-outline-primary btn-block" onclick="switchToProf()"><span
+                            data-i18n="classroom.profil.switchModeTeacher" class="text-span-initial mr-1"></span><i
+                            class="fas fa-cog"></i>
+                    </button>
+
+                    <button class="btn mt-2 c-btn-red btn-block" onclick="goToDisconnect('classroom');"><span
+                            data-i18n="words.disconnect" class="text-capitalize text-span-initial"></span>
+                        <i class="fas fa-power-off"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div id="groupadmin-dashboard-users" style="display:none;" class="dashboard-block">
+    <div class="d-flex justify-content-center c-primary-form activity-search" style="margin: 0 auto;">
+        <div class="container">
+            <div class="row">
+                <div class="row mb-2" id="btn-create-superadmin">
+                    <button class="btn-warning btn mx-1" id="create_user_link_to_group_groupadmin"
+                        data-i18n="superadmin.buttons.user.createA">
+                        Créer un utilisateur
+                    </button>
+                </div>
+            </div>
+
+            <div class="row" id="groupadmin_groups">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th scope="col" data-i18n="superadmin.table.group">Groupe</th>
+                            <th scope="col" data-i18n="superadmin.table.description">Description</th>
+                            <th scope="col" data-i18n="superadmin.table.applications">Applications</th>
+                            <th scope="col" data-i18n="superadmin.table.link">Lien</th>
+                        </tr>
+                    </thead>
+                    <tbody id="groups_table_groupadmin">
+                    </tbody>
+                </table>
+            </div>
+
+            <div id="table_details_users_groupadmin" style="display: none;">
+
+                <div class="row my-2" id="users_options_groupadmin">
+
+                    <input class="mr-sm-2 flex-fill" type="search" id="name_user_search_groupadmin"
+                        placeholder="Rechercher" aria-label="Search" data-i18n="[placeholder]superadmin.buttons.search">
+                    <button class="btn btn-info btn-sm" id="search_user_groupadmin"
+                        data-i18n="superadmin.buttons.search">Rechercher</button>
+
+                    <select class="my-1 mr-sm-2 form-select" id="sort_users_filter_groupadmin">
+                        <option selected value="0" data-i18n="superadmin.sort.user.bylastname">Trier par nom</option>
+                        <option value="1" data-i18n="superadmin.sort.user.byfirstname">Trier par prénom</option>
+                    </select>
+
+                    <div class="mx-3">
+                        <label for="users_per_page" data-i18n="superadmin.users.usersPerPage">Utilisateurs par
+                            page</label>
+                        <select name="users_per_page" id="users_per_page_groupadmin" class="my-1 mr-sm-2 form-select">
+                            <option value="100">100</option>
+                            <option value="250">250</option>
+                            <option value="500">500</option>
+                        </select>
+                    </div>
+
+                </div>
+
+                <div class="row my-2">
+                    <button class="btn btn-secondary btn-sm mx-2" id="table_back_to_users_groupadmin"> -
+                    </button>
+                    <h2 id="group_name_from_table_groupadmin"></h2>
+                </div>
+
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th scope="col" data-i18n="superadmin.table.lastname">Nom</th>
+                            <th scope="col" data-i18n="superadmin.table.firstname">Prénom</th>
+                            <th scope="col" data-i18n="superadmin.table.right">Rôle</th>
+                            <th scope="col" data-i18n="superadmin.table.applications">Applications</th>
+                            <th scope="col" data-i18n="superadmin.table.resetPassword">Régénérer le mot de passe</th>
+                            <th scope="col" data-i18n="superadmin.buttons.update">Modifier</th>
+                            <th scope="col" data-i18n="superadmin.buttons.delete">Supprimer</th>
+                        </tr>
+                    </thead>
+                    <tbody id="table_info_group_data_groupadmin">
+                    </tbody>
+                </table>
+
+                <div id="paginationButtons_users_groupadmin" class="m-auto">
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div id="classroom-dashboard-profil-panel-superadmin" class="dashboard-block profile-panel" style="display:none;">
+    <div class="row text-center">
+        <div class="col-12">
+            <div class="col-12">
+                <img src="assets/media/profile_picture.svg" alt="Photo de profil"
+                    class="user-picture rounded mx-auto d-block">
+                <span id="user-name-superadmin" data-i18n="classroom.profil.identity">PLACEHOLDER</span>
+            </div>
+            <div class="col-12">
+                <div class="m-auto">
+                    <button class="btn mt-2 c-btn-outline-primary btn-block" id="settings-superadmin"><span
+                            class="text-capitalize text-span-initial" data-i18n="words.settings"
+                            class="text-capitalize"></span> <i class="fas fa-cog"></i>
+                    </button>
+
+                    <button class="btn mb-2 c-btn-outline-primary btn-block" onclick="switchToProf()"><span
+                            data-i18n="classroom.profil.switchModeTeacher" class="text-span-initial mr-1"></span><i
+                            class="fas fa-cog"></i>
+                    </button>
+
+                    <button class="btn mt-2 c-btn-red btn-block" onclick="goToDisconnect('classroom');"><span
+                            data-i18n="words.disconnect" class="text-capitalize text-span-initial"></span>
+                        <i class="fas fa-power-off"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div id="superadmin-dashboard-main" style="display:none;" class="dashboard-block">
+    <div class="d-flex justify-content-center c-primary-form activity-search" style="margin: 0 auto;">
+
+        <div class="container">
+            <div class="row mb-2" id="groups_options">
+                <input class="mr-sm-2 flex-fill" type="search" id="name_group_search" placeholder="Rechercher"
+                    aria-label="Search" data-i18n="[placeholder]superadmin.buttons.search">
+                <button class="btn btn-info btn-sm" id="search_group"
+                    data-i18n="superadmin.buttons.search">Rechercher</button>
+                <select class="my-1 mr-sm-2 form-select" id="sort_groups_filter">
+                    <option selected value="0" data-i18n="superadmin.sort.group.byname">Trier par nom</option>
+                    <option value="1" data-i18n="superadmin.sort.group.bydesc">Trier par description</option>
+                </select>
+                <div class="mx-3">
+                    <label for="groups_per_page" data-i18n="superadmin.group.groupsPerPage">Groupes par page</label>
+                    <select name="groups_per_page" id="groups_per_page" class="my-1 mr-sm-2 form-select">
+                        <option value="100">100</option>
+                        <option value="250">250</option>
+                        <option value="500">500</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="row mb-2" id="btn-create-superadmin">
+                <button class="btn-primary btn mx-1" id="create_group_superadmin"
+                    data-i18n="superadmin.group.create">Créer un
+                    groupe</button>
+                <button class="btn-warning btn mx-1" id="create_user_link_to_group_superadmin"
+                    data-i18n="superadmin.users.create">
+                    Créer un utilisateur
+                </button>
+            </div>
+
+            <div class="row" id="table_details_admins">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th scope="col" data-i18n="superadmin.table.group">Groupe</th>
+                            <th scope="col" data-i18n="superadmin.table.description">Description</th>
+                            <th scope="col" data-i18n="superadmin.table.applications">Applications</th>
+                            <th scope="col" data-i18n="superadmin.buttons.update">Modifier</th>
+                            <th scope="col" data-i18n="superadmin.buttons.delete">Supprimer</th>
+                        </tr>
+                    </thead>
+                    <tbody id="groups_table_superadmin">
+                    </tbody>
+                </table>
+            </div>
+
+            <div id="table_details_users" style="display: none;">
+                <div class="row my-2" id="users_options">
+                    <input class="mr-sm-2 flex-fill" type="search" id="name_user_search"
+                        data-i18n="[placeholder]superadmin.buttons.search" placeholder="Rechercher" aria-label="Search">
+                    <button class="btn btn-info btn-sm" id="search_user"
+                        data-i18n="superadmin.buttons.search">Rechercher</button>
+                    <select class="my-1 mr-sm-2 form-select" id="sort_users_filter">
+                        <option selected value="0" data-i18n="superadmin.sort.user.bylastname">Trier par nom</option>
+                        <option value="1" data-i18n="superadmin.sort.user.byfirstname">Trier par prénom</option>
+                    </select>
+                    <div class="mx-3">
+                        <label for="users_per_page" data-i18n="superadmin.users.usersPerPage">Utilisateurs par
+                            page</label>
+                        <select name="users_per_page" id="users_per_page" class="my-1 mr-sm-2 form-select">
+                            <option value="100">100</option>
+                            <option value="250">250</option>
+                            <option value="500">500</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="row my-2">
+                    <button class="btn btn-secondary btn-sm mx-2" id="table_back_to_users"> -
+                    </button>
+                    <h2 id="group_name_from_table"></h2>
+                </div>
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th scope="col" data-i18n="superadmin.table.lastname">Nom</th>
+                            <th scope="col" data-i18n="superadmin.table.firstname">Prénom</th>
+                            <th scope="col" data-i18n="superadmin.table.right">Rôle</th>
+                            <th scope="col" data-i18n="superadmin.table.applications">Applications</th>
+                            <th scope="col" data-i18n="superadmin.table.resetPassword">Régénérer le mot de passe</th>
+                            <th scope="col" data-i18n="superadmin.buttons.update">Modifier</th>
+                            <th scope="col" data-i18n="superadmin.buttons.delete">Supprimer</th>
+                        </tr>
+                    </thead>
+                    <tbody id="table_info_group_data">
+                    </tbody>
+                </table>
+
+                <div id="paginationButtons_users" class="m-auto">
+
+                </div>
+            </div>
+
+            <div class="row">
+                <div id="paginationButtons_groups" class="m-auto">
+
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
 <div id="classroom-dashboard-ide-panel" style="display:none;" class="dashboard-block">
     <iframe width="100%" style="height:85vh;" frameborder="0" allowfullscreen="" style="border:1px #d6d6d6 solid;" src=""></iframe>
@@ -765,15 +1102,18 @@
 <script src="assets/js/main/UIManager.js"></script>
 <script src="assets/js/main/User.js"></script>
 <script src="assets/js/main/ClassroomManager.js"></script>
+<!-- superadmin & groupadmin -->
+<script src="assets/js/main/SuperAdminManager.js"></script>
+<script src="assets/js/main/GroupAdminManager.js"></script>
+<script src="assets/js/main/MainSuperAdminAndGroup.js"></script>
+<!-- superadmin & groupadmin -->
 <script src="assets/js/main/Main.js"></script>
 <script src="assets/js/main/Loader.js"></script>
 <script>
     UIManager.init().then((resolve) => {
         UserManager.init().then((resolve) => {
-
                 Main.init().then((resolve) => {
                     const EVENTS_SCRIPTS = [{
-
                             id: "modals",
                             src: "assets/js/scripts/loadModals.js"
                         },
@@ -808,7 +1148,8 @@
                                 }
                             } else {
                                 $('#classroom-dashboard-sidebar').show()
-                                $('.user-picture').attr('src', '/classroom/assets/media/alphabet/' +
+                                $('.user-picture').attr('src',
+                                    '/classroom/assets/media/alphabet/' +
                                     UserManager.getUser().pseudo.slice(0, 1).toUpperCase() +
                                     '.png')
                                 Main.getClassroomManager().getMyClassroom(UserManager.getUser()
@@ -827,12 +1168,23 @@
                                             'dashboard-profil', $_GET('option'),
                                             $_GET('interface'))
                                     }
-                                    if(UserManager.getUser().isFromGar) {
-                                        document.getElementById('settings-student').style.display = 'none';
+                                    if (UserManager.getUser().isFromGar) {
+                                        document.getElementById('settings-student')
+                                            .style.display = 'none';
                                     }
                                 })
-
                             }
+
+                            // Init the super and group admin
+                            let currentTask = (onEnd) => {
+                                mainGroupAdmin.init().then((resolve) => {
+                                    mainSuperAdmin.init().then((resolve) => {
+                                        onEnd();
+                                    })
+                                })
+                            }
+                            Main.getClassroomManager()._addTaskToQueue(currentTask);
+
 
                         },
                         (reason) => {
@@ -856,4 +1208,5 @@
 <script src="assets/plugins/js/wordpress-widget.js"></script>
 
 </body>
+
 </html>

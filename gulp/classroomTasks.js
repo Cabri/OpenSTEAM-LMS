@@ -5,8 +5,12 @@ const replace = require('gulp-replace');
 const htmlReplace = require('gulp-html-replace');
 const merge = require('gulp-merge-json');
 const fs = require('fs');
-const { resolve } = require('path');
-const { task } = require('gulp');
+const {
+    resolve
+} = require('path');
+const {
+    task
+} = require('gulp');
 
 /**
  * Autobuild manager - Contains all the properties and methods to handle the gulp tasks
@@ -20,6 +24,8 @@ class AutoBuildManager {
             'header.html',
             'sidebar_student.html',
             'sidebar_teacher.html',
+            'sidebar_superadmin.html',
+            'sidebar_groupadmin.html',
             'home_topbar.html',
             'studentProfilePanel.html',
             'studentHelpPanel.html',
@@ -29,6 +35,11 @@ class AutoBuildManager {
             'teacherClassesPanel.html',
             'teacherActivitiesPanel.html',
             'teacherHelpPanel.html',
+            'groupAdminHelpPanel.html',
+            'groupAdminProfilePanel.html',
+            'groupAdminUsersPanel.html',
+            'superAdminProfilePanel.html',
+            'superAdminUsersPanel.html',
             'idePanel.html',
             'home_footer.html',
         ];
@@ -163,7 +174,10 @@ class AutoBuildManager {
      */
     emptyPluginsFolderInClassroom() {
         return new Promise((resolve, reject) => {
-            fs.rm(this.pluginsFolderInClassroom, { recursive: true, force: true }, () => resolve());
+            fs.rm(this.pluginsFolderInClassroom, {
+                recursive: true,
+                force: true
+            }, () => resolve());
         });
     }
 
@@ -282,7 +296,9 @@ class AutoBuildManager {
             });
             let headerCssPattern = /<!-- PLUGIN CSS-->([\s\S]*?)<!-- END PLUGIN CSS -->/;
             let cssLinksString = cssLinks.join('');
-            gulp.src(`${this.temporaryViewsFolder}/header.html`, { base: './' })
+            gulp.src(`${this.temporaryViewsFolder}/header.html`, {
+                    base: './'
+                })
                 .pipe(replace(headerCssPattern, cssLinksString))
                 .pipe(gulp.dest(`./`))
                 .on('finish', () => {
@@ -306,7 +322,9 @@ class AutoBuildManager {
             });
             let headerJsPattern = /<!-- PLUGIN SCRIPTS-->([\s\S]*?)<!-- END PLUGIN SCRIPTS -->/;
             let jsLinksString = jsLinks.join('');
-            gulp.src(`${this.temporaryViewsFolder}/home_footer.html`, { base: './' })
+            gulp.src(`${this.temporaryViewsFolder}/home_footer.html`, {
+                    base: './'
+                })
                 .pipe(replace(headerJsPattern, jsLinksString))
                 .pipe(gulp.dest(`./`))
                 .on('finish', () => {
@@ -321,9 +339,9 @@ class AutoBuildManager {
     loadPluginsList() {
         return new Promise((resolve, reject) => {
             fs.access(this.pluginFolder, (err) => {
-                if(err){
+                if (err) {
                     resolve();
-                }else{
+                } else {
                     fs.readdir(this.pluginFolder, (err, files) => {
                         files.forEach(file => {
                             let currentPlugin = {
@@ -498,41 +516,56 @@ class AutoBuildManager {
     homeConcat() {
         if (this.pluginsList.length) {
             return gulp.src([
-                "gulp/temp-views/header.html",
-                "gulp/temp-views/sidebar_student.html",
-                "gulp/temp-views/sidebar_teacher.html",
-                "gulp/temp-views/home_topbar.html",
-                "gulp/temp-views/studentProfilePanel.html",
-                "gulp/temp-views/studentHelpPanel.html",
-                "gulp/temp-views/sandboxPanel.html",
-                "gulp/temp-views/studentActivitiesPanel.html",
-                "gulp/temp-views/teacherProfilePanel.html",
-                "gulp/temp-views/teacherClassesPanel.html",
-                "gulp/temp-views/teacherActivitiesPanel.html",
-                "gulp/temp-views/teacherHelpPanel.html",
-                "gulp/temp-views/idePanel.html",
-                "gulp/temp-views/home_footer.html",
+                    "gulp/temp-views/header.html",
+                    "gulp/temp-views/sidebar_student.html",
+                    "gulp/temp-views/sidebar_teacher.html",
+                    'gulp/temp-views/sidebar_superadmin.html',
+                    'gulp/temp-views/sidebar_groupadmin.html',
+                    "gulp/temp-views/home_topbar.html",
+                    "gulp/temp-views/studentProfilePanel.html",
+                    "gulp/temp-views/studentHelpPanel.html",
+                    "gulp/temp-views/sandboxPanel.html",
+                    "gulp/temp-views/studentActivitiesPanel.html",
+                    "gulp/temp-views/teacherProfilePanel.html",
+                    "gulp/temp-views/teacherClassesPanel.html",
+                    "gulp/temp-views/teacherActivitiesPanel.html",
+                    "gulp/temp-views/teacherHelpPanel.html",
+                    'gulp/temp-views/groupAdminHelpPanel.html',
+                    'gulp/temp-views/groupAdminProfilePanel.html',
+                    'gulp/temp-views/groupAdminUsersPanel.html',
+                    'gulp/temp-views/superAdminProfilePanel.html',
+                    'gulp/temp-views/superAdminUsersPanel.html',
+                    "gulp/temp-views/idePanel.html",
+                    "gulp/temp-views/home_footer.html",
 
-            ]).pipe(concat('home.html'))
+
+                ]).pipe(concat('home.html'))
                 .pipe(gulp.dest('classroom/'))
         } else {
             return gulp.src([
-                "classroom/Views/header.html",
-                "classroom/Views/sidebar_student.html",
-                "classroom/Views/sidebar_teacher.html",
-                "classroom/Views/home_topbar.html",
-                "classroom/Views/studentProfilePanel.html",
-                "classroom/Views/studentHelpPanel.html",
-                "classroom/Views/sandboxPanel.html",
-                "classroom/Views/studentActivitiesPanel.html",
-                "classroom/Views/teacherProfilePanel.html",
-                "classroom/Views/teacherClassesPanel.html",
-                "classroom/Views/teacherActivitiesPanel.html",
-                "classroom/Views/teacherHelpPanel.html",
-                "classroom/Views/idePanel.html",
-                "classroom/Views/home_footer.html",
+                    "classroom/Views/header.html",
+                    "classroom/Views/sidebar_student.html",
+                    "classroom/Views/sidebar_teacher.html",
+                    'classroom/Views/sidebar_superadmin.html',
+                    'classroom/Views/sidebar_groupadmin.html',
+                    "classroom/Views/home_topbar.html",
+                    "classroom/Views/studentProfilePanel.html",
+                    "classroom/Views/studentHelpPanel.html",
+                    "classroom/Views/sandboxPanel.html",
+                    "classroom/Views/studentActivitiesPanel.html",
+                    "classroom/Views/teacherProfilePanel.html",
+                    "classroom/Views/teacherClassesPanel.html",
+                    "classroom/Views/teacherActivitiesPanel.html",
+                    "classroom/Views/teacherHelpPanel.html",
+                    'classroom/Views/groupAdminHelpPanel.html',
+                    'classroom/Views/groupAdminProfilePanel.html',
+                    'classroom/Views/groupAdminUsersPanel.html',
+                    'classroom/Views/superAdminProfilePanel.html',
+                    'classroom/Views/superAdminUsersPanel.html',
+                    "classroom/Views/idePanel.html",
+                    "classroom/Views/home_footer.html",
 
-            ]).pipe(concat('home.html'))
+                ]).pipe(concat('home.html'))
                 .pipe(gulp.dest('classroom/'))
         }
     }
@@ -543,7 +576,10 @@ class AutoBuildManager {
     removeTemporaryViewsFolder() {
         return new Promise((resolve, reject) => {
             if (this.pluginsList.length) {
-                fs.rm(this.temporaryViewsFolder, { recursive: true, force: true }, () => resolve());
+                fs.rm(this.temporaryViewsFolder, {
+                    recursive: true,
+                    force: true
+                }, () => resolve());
             } else {
                 resolve();
             }
@@ -555,13 +591,27 @@ let autoBuildManager = new AutoBuildManager();
 
 // Queueing all the tasks
 autoBuild = gulp.series(
-    () => { return autoBuildManager.init() },
-    () => { return autoBuildManager.pluginViews() },
-    () => { return autoBuildManager.pluginImages() },
-    () => { return autoBuildManager.pluginCss() },
-    () => { return autoBuildManager.pluginJs() },
-    () => { return autoBuildManager.homeConcat() },
-    () => { return autoBuildManager.removeTemporaryViewsFolder() }
+    () => {
+        return autoBuildManager.init()
+    },
+    () => {
+        return autoBuildManager.pluginViews()
+    },
+    () => {
+        return autoBuildManager.pluginImages()
+    },
+    () => {
+        return autoBuildManager.pluginCss()
+    },
+    () => {
+        return autoBuildManager.pluginJs()
+    },
+    () => {
+        return autoBuildManager.homeConcat()
+    },
+    () => {
+        return autoBuildManager.removeTemporaryViewsFolder()
+    }
 );
 autoBuild.displayName = "Classroom: gulp series";
 

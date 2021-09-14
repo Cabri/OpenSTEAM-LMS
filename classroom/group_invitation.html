@@ -1,0 +1,384 @@
+<!-- Register page -->
+<div id="classroom-register-container" style="display:none;">
+    <div class="inner-register-container">
+        <form action="#" id="create-teacher-account-and-link-to-group-form">
+            <div class="form-group part-content-index part-row c-primary-form row">
+
+                <div class="col-md-12">
+                    <h3 class="font-weight-bold green-vitta text-center mb-4 text-uppercase"
+                        data-i18n="superadmin.account.registration.title"></h3>
+                    <p class="text-center" data-i18n="superadmin.account.registration.description"></p>
+                </div>
+
+                <div class="col-md-6">
+                    <div class="form-row mb-4">
+                        <img src="assets/media/green_user.png" class="icon-label">
+                        <label for="profile-form-first-name" class="tutorial-label"
+                            data-i18n="[html]superadmin.profil.firstname"></label>
+                        <input type="text" name="first-name" id="profile-form-first-name"
+                            class="form-control form-control-lg">
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-row mb-4">
+                        <img src="assets/media/green_user.png" class="icon-label">
+                        <label for="profile-form-last-name" class="tutorial-label"
+                            data-i18n="[html]superadmin.profil.lastname"></label>
+                        <input type="text" name="last-name" id="profile-form-last-name"
+                            class="form-control form-control-lg">
+                    </div>
+                </div>
+
+                <div class="col-md-4">
+                    <div class="form-row mb-4">
+                        <img src="assets/media/green_user.png" class="icon-label">
+                        <label for="profile-form-pseudo" class="tutorial-label"
+                            data-i18n="[html]superadmin.profil.nickname"></label>
+                        <input type="text" name="pseudo" id="profile-form-pseudo" class="form-control form-control-lg">
+                    </div>
+                </div>
+
+                <div class="col-md-4">
+                    <div class="form-row mb-4">
+                        <img src="assets/media/green_user.png" class="icon-label">
+                        <label for="profile-form-email" class="tutorial-label"
+                            data-i18n="[html]superadmin.profil.email"></label>
+                        <input type="email" name="email" id="profile-form-email" class="form-control form-control-lg">
+                    </div>
+                </div>
+
+                <div class="col-md-4">
+                    <div class="form-row mb-4">
+                        <img src="assets/media/green_user.png" class="icon-label">
+                        <label for="profile-form-phone" class="tutorial-label"
+                            data-i18n="superadmin.profil.phone"></label>
+                        <input type="text" name="phone-number" class="form-control form-control-lg"
+                            id="profile-form-phone" class="form-control form-control-lg">
+                    </div>
+                </div>
+
+                <div class="col-md-12">
+                    <div class="form-row mb-4">
+                        <img src="assets/media/green_user.png" class="icon-label">
+                        <label for="profile-form-bio" class="tutorial-label"
+                            data-i18n="[html]superadmin.profil.bio"></label>
+                        <textarea class="form-control form-control-lg" name="mini-bio" id="profile-form-bio"
+                            rows="3"></textarea>
+                    </div>
+                </div>
+
+                <div class="col-md-12">
+                    <div class="form-row mb-4">
+                        <img src="assets/media/green_lock.png" class="icon-label">
+                        <label for="profile-form-school" class="tutorial-label"
+                            data-i18n="[html]superadmin.profil.school"></label>
+                        <input type="text" class="form-control form-control-lg" name="school" id="profile-form-school">
+                    </div>
+                </div>
+
+                <div class="col-md-6">
+                    <div class="form-row mb-4">
+                        <img src="assets/media/green_user.png" class="icon-label">
+                        <label for="profile-form-grade" class="tutorial-label"
+                            data-i18n="[html]superadmin.profil.grade"></label>
+                        <select class="form-control" id="profile-form-grade" name="grade">
+                            <option selected value="0" data-i18n="superadmin.users.teacherGrades.0">Primaire</option>
+                            <option value="1" data-i18n="superadmin.users.teacherGrades.1">Collège</option>
+                            <option value="2" data-i18n="superadmin.users.teacherGrades.2">Lycée</option>
+                            <option value="3" data-i18n="superadmin.users.teacherGrades.3">Lycée professionel</option>
+                            <option value="4" data-i18n="superadmin.users.teacherGrades.4">POST-BAC</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="col-md-6">
+                    <div class="form-row mb-4">
+                        <img src="assets/media/green_user.png" class="icon-label">
+                        <label for="profile-form-subject" class="tutorial-label"
+                            data-i18n="[html]superadmin.profil.subject"></label>
+                        <select class="form-control" id="profile-form-subject" name="subject">
+                        </select>
+                    </div>
+                </div>
+
+                <div class="col-md-6">
+                    <div>
+                        <img src="assets/media/green_lock.png" class="icon-label">
+                        <label for="profile-form-password" class="tutorial-label"
+                            data-i18n="[html]superadmin.profil.password"></label>
+                    </div>
+                    <div class="form-inline">
+                        <input type="password" name="password" id="profile-form-password"
+                            class="form-control form-control-lg">
+                        <i class="classroom-clickable fas fa-low-vision ml-2 password-display-toggler"></i>
+                        <p class="font-italic ml-2" data-i18n="superadmin.profil.passwordConstraints"></p>
+                    </div>
+                </div>
+
+                <div class="col-md-6">
+                    <img src="assets/media/green_lock.png" class="icon-label">
+                    <label for="profile-form-confirm-password" class="tutorial-label"
+                        data-i18n="[html]superadmin.profil.confirmPassword"></label>
+                    <div class="form-inline">
+                        <input type="password" name="confirm-password" id="profile-form-confirm-password"
+                            class="form-control form-control-lg">
+                        <i class="classroom-clickable fas fa-low-vision ml-2 password-display-toggler"></i>
+                    </div>
+                </div>
+            </div>
+
+            <p data-i18n="[html]superadmin.account.registration.disclaimerVittascience"></p>
+            <p data-i18n="[html]superadmin.account.registration.mandatory"></p>
+            <p data-i18n="[html]superadmin.account.registration.cguVittascience"></p>
+
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" id="cb_name_public">
+                <label class="form-check-label" for="cb_name_public"
+                    data-i18n="superadmin.account.registration.accountPublic">
+                </label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" id="cb_newsletter">
+                <label class="form-check-label" for="cb_newsletter"
+                    data-i18n="superadmin.account.registration.newsletter">
+                </label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" id="cb_alert_mail">
+                <label class="form-check-label" for="cb_alert_mail"
+                    data-i18n="superadmin.account.registration.mailAlert">
+                </label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" id="cb_allow_contact">
+                <label class="form-check-label" for="cb_allow_contact"
+                    data-i18n="superadmin.account.registration.allowContact">
+                </label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" id="cb_adult" required>
+                <label class="form-check-label" for="cb_adult" data-i18n="superadmin.account.registration.confirmAdult">
+                </label>
+            </div>
+
+            <div class="col-md-12 d-flex flex-column align-items-center">
+                <input class="btn browse-button mx-auto mt-3 btn-lg" type="submit"
+                    data-i18n="[value]classroom.login.signup">
+            </div>
+
+        </form>
+    </div>
+</div>
+
+
+<!-- login page by link -->
+<div id="classroom-login-container-bis" style="display:none;">
+    <div id="info-box"></div>
+    <div class="inner-login-container">
+        <p id="classroom-desc"></p>
+        <div id="classroom-create-account" class="container-border-left container-border-left-enable">
+            <h3 class="font-weight-bold green-vitta" data-i18n="classroom.login.signup"></h3>
+            <div class="c-primary-form">
+                <p data-i18n="superadmin.group.join.firstVisit"></p>
+            </div>
+            <button class="btn c-btn-primary" id="register-new-teacher" type="submit"><span
+                    data-i18n="classroom.login.signup"></span> <i class="fas fa-chevron-right"></i></button>
+            <span id="warning-pseudo-used" style="display:none;" data-i18n="classroom.login.error.used"></span>
+        </div>
+        <div id="classroom-login-account" class="container-border-right">
+            <div class="c-primary-form">
+                <h3 class="font-weight-bold green-vitta" data-i18n="classroom.login.signin"></h3>
+                <p data-i18n="superadmin.group.join.signinSubtitle"></p>
+
+                <img src="assets/media/green_user.png" class="icon-label">
+                <label for="username" data-i18n="superadmin.group.join.addressMail"></label></br>
+                <input type="text" placeholder="exemple@domaine.com" id="user-pseudo-form" name="secret_code"
+                    autocomplete="off" required></br>
+
+                <img src="assets/media/green_lock.png" class="icon-label">
+                <label for="username" data-i18n="words.password"></label></br>
+                <input type="password" placeholder="••••••••••" name="secret_code" id="user-password-form"
+                    autocomplete="off" required></br>
+                <a href="#" data-i18n="classroom.login.forgot"></a></br>
+                <span class="mt-2 mb-2 alert alert-warning mismatched-login" style="display:none;"
+                    data-i18n="classroom.login.error.badInput"></span>
+            </div>
+            <button class="btn c-btn-primary" id="connect-teacher"><span id="span-connect-group"
+                    data-i18n="superadmin.group.join.signin"></span> <i class="fas fa-chevron-right"></i></button>
+        </div>
+    </div>
+</div>
+
+<!-- link created successfuly -->
+<div id="group-joinded-container" style="display:none;">
+    <div class="inner-login-container">
+        <div class="col-12">
+            <h3 class="font-weight-bold green-vitta m-auto text-center" data-i18n="[html]superadmin.group.join.success">
+            </h3>
+            <p class="text-center" data-i18n="superadmin.group.join.clickToRedirectHome"></p>
+        </div>
+        <button class="btn browse-button mx-auto mt-3 btn-lg" onclick="goToHome()"
+            data-i18n="superadmin.buttons.continue"></button>
+    </div>
+</div>
+
+<!-- registration successful -->
+<div id="registration-successful" style="display:none;">
+    <div class="inner-login-container">
+        <div class="col-12">
+            <h3 class="font-weight-bold green-vitta m-auto text-center"
+                data-i18n="superadmin.account.registration.success"></h3>
+            <p class="text-center" data-i18n="[html]superadmin.account.registration.emailSent"></p>
+        </div>
+    </div>
+</div>
+
+<!-- invalid link -->
+<div id="invalid-link" style="display:none;">
+    <div class="inner-login-container">
+        <div class="col-12">
+            <h3 class="font-weight-bold green-vitta m-auto text-center" data-i18n="superadmin.group.join.invalidLink">
+            </h3>
+            <p class="text-center" data-i18n="superadmin.group.join.invalidFormatLink"></p>
+        </div>
+    </div>
+</div>
+
+<!-- Account activated successfuly -->
+<div id="account-activated" style="display:none;">
+    <div class="inner-login-container">
+        <div class="col-12">
+            <h3 class="font-weight-bold green-vitta m-auto text-center" data-i18n="superadmin.account.activate.success">
+            </h3>
+            <p class="text-center" data-i18n="superadmin.group.join.clickToRedirectLogin"></p>
+        </div>
+        <button class="btn browse-button mx-auto mt-3 btn-lg" onclick="goToLogin()"
+            data-i18n="superadmin.buttons.continue"></button>
+    </div>
+</div>
+
+<!-- group not found -->
+<div id="group-not-found" style="display:none;">
+    <div class="inner-login-container">
+        <div class="col-12">
+            <h3 class="font-weight-bold green-vitta m-auto text-center" data-i18n="superadmin.group.join.notfound">
+            </h3>
+            <p class="text-center" data-i18n="[html]superadmin.group.join.notfoundDetails"></p>
+        </div>
+    </div>
+</div>
+
+<!-- link created successfuly -->
+<div id="confirm-link-to-group" style="display:none;">
+    <div class="inner-login-container">
+        <div class="col-12">
+            <h3 class="font-weight-bold green-vitta m-auto text-center"
+                data-i18n="[html]superadmin.group.join.joinGroup">
+            </h3>
+            <p class="text-center" data-i18n="superadmin.group.join.disclaimer"></p>
+            <p class="text-center" data-i18n="superadmin.group.join.lastStep"></p>
+        </div>
+        <div class="row mx-auto">
+            <button class="btn browse-button mx-3 mt-3 btn-lg" id="linkTeacherToGroupBtn"
+                onclick="linkTeacherToGroupProcess()" data-i18n="superadmin.buttons.join"></button>
+            <button class="btn btn-danger mx-3 mt-3 btn-lg" data-i18n="superadmin.buttons.cancel"
+                onclick="goToHome()"></button>
+        </div>
+    </div>
+</div>
+
+<!-- user already active -->
+<div id="already-active" style="display:none;">
+    <div class="inner-login-container">
+        <div class="col-12">
+            <h3 class="font-weight-bold green-vitta m-auto text-center"
+                data-i18n="superadmin.account.activate.alreadyactive"></h3>
+            <p class="text-center" data-i18n="superadmin.group.join.clickToRedirectLogin"></p>
+        </div>
+        <button class="btn browse-button mx-auto mt-3 btn-lg" onclick="goToLogin()"
+            data-i18n="superadmin.buttons.continue"></button>
+    </div>
+</div>
+
+<!-- already linked to the group -->
+<div id="already-linked" style="display:none;">
+    <div class="inner-login-container">
+        <div class="col-12">
+            <h3 class="font-weight-bold green-vitta m-auto text-center" data-i18n="superadmin.group.join.alreadyLinked">
+            </h3>
+            <p class="text-center" data-i18n="superadmin.group.join.clickToRedirectHome"></p>
+        </div>
+        <button class="btn browse-button mx-auto mt-3 btn-lg" onclick="goToHome()"
+            data-i18n="superadmin.buttons.continue"></button>
+    </div>
+</div>
+
+<!-- user not found -->
+<div id="no-teacher" style="display:none;">
+    <div class="inner-login-container">
+        <div class="col-12">
+            <h3 class="font-weight-bold green-vitta m-auto text-center" data-i18n="superadmin.group.join.error"></h3>
+            <p class="text-center" data-i18n="superadmin.group.join.userNotFound"></p>
+            <p class="text-center" data-i18n="superadmin.group.join.contactAdmin"></p>
+        </div>
+        <button class="btn browse-button mx-auto mt-3 btn-lg" onclick="goToLogin()"
+            data-i18n="superadmin.buttons.continue"></button>
+    </div>
+</div>
+
+
+<div id="login-container" style="display:none;position:relative;">
+    <div class="login-form" id="signupin-div">
+        <h1><span class="fa fa-sign-in-alt"></span><span data-i18n="login_popup.title"></span> <button
+                onclick="returnToConnectionPanel('#login-container')" class="btn close-login-classroom"><i
+                    class="fas fa-times"></i></button></h1>
+
+        <p data-i18n="login_popup.details"></p>
+        <p><a data-i18n="login-page.createAccount" href='#' onclick="displaySignupClass();"></a></p>
+        <div id="info-div">
+
+        </div>
+        <form id="login-form">
+            <label for="login-mail-input">
+                <span class="fa fa-at"></span> <span data-i18n="login_popup.form.addressmail"></span><span
+                    class="mandatory">*</span>
+            </label>
+            <input name='mail' style="margin-bottom:5px;"
+                data-i18n="[placeholder]login_popup.form.addressmail_placeholder" class="form-control" type="email"
+                id="login-mail-input">
+
+            <label for="login-pwd-input">
+                <span class="fa fa-key"></span> <span data-i18n="login_popup.form.password"></span><span
+                    class="mandatory">*</span>
+            </label>
+            <input name='password' data-i18n="[placeholder]login_popup.form.password_placeholder" class="form-control"
+                type="password" id="login-pwd-input">
+
+            <input type="text" name="za78e-username" autocomplete="off" value="" id="za78e-username" class="za78e-field"
+                placeholder="za78e username" />
+            <input type="number" name="za78e-number" autocomplete="off" max="10" min="0" id="za78e-number"
+                class="za78e-field" placeholder="za78e number" />
+
+            <div>
+                <a class="hint" href="/passwordRecovery" data-i18n="login_popup.form.forgot_password"></a>
+            </div>
+            <button type='button' style="margin-top:10px;" onclick="checkLoginTeacher();" class="btn vitta-button"
+                id="login-button-group" data-i18n="login_popup.form.btn_connect"></button>
+        </form>
+    </div>
+</div>
+
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+    integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous">
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/i18next/8.1.0/i18next.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-i18next/1.2.1/jquery-i18next.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/i18next-xhr-backend/1.5.1/i18nextXHRBackend.min.js"></script>
+<script
+    src="https://cdnjs.cloudflare.com/ajax/libs/i18next-browser-languagedetector/2.2.3/i18nextBrowserLanguageDetector.min.js">
+</script>
+<script src="assets/js/scripts/displayPanel.js"></script>
+<script src="assets/js/utils/translate.js"></script>
+<script src="assets/js/utils/get.js"></script>
+<script src="assets/js/scripts/buttons.js"></script>
+<script src="assets/js/scripts/groupInvitation.js"></script>

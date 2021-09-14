@@ -45,15 +45,18 @@
 <script src="assets/js/main/UIManager.js"></script>
 <script src="assets/js/main/User.js"></script>
 <script src="assets/js/main/ClassroomManager.js"></script>
+<!-- superadmin & groupadmin -->
+<script src="assets/js/main/SuperAdminManager.js"></script>
+<script src="assets/js/main/GroupAdminManager.js"></script>
+<script src="assets/js/main/MainSuperAdminAndGroup.js"></script>
+<!-- superadmin & groupadmin -->
 <script src="assets/js/main/Main.js"></script>
 <script src="assets/js/main/Loader.js"></script>
 <script>
     UIManager.init().then((resolve) => {
         UserManager.init().then((resolve) => {
-
                 Main.init().then((resolve) => {
                     const EVENTS_SCRIPTS = [{
-
                             id: "modals",
                             src: "assets/js/scripts/loadModals.js"
                         },
@@ -88,7 +91,8 @@
                                 }
                             } else {
                                 $('#classroom-dashboard-sidebar').show()
-                                $('.user-picture').attr('src', '/classroom/assets/media/alphabet/' +
+                                $('.user-picture').attr('src',
+                                    '/classroom/assets/media/alphabet/' +
                                     UserManager.getUser().pseudo.slice(0, 1).toUpperCase() +
                                     '.png')
                                 Main.getClassroomManager().getMyClassroom(UserManager.getUser()
@@ -107,12 +111,23 @@
                                             'dashboard-profil', $_GET('option'),
                                             $_GET('interface'))
                                     }
-                                    if(UserManager.getUser().isFromGar) {
-                                        document.getElementById('settings-student').style.display = 'none';
+                                    if (UserManager.getUser().isFromGar) {
+                                        document.getElementById('settings-student')
+                                            .style.display = 'none';
                                     }
                                 })
-
                             }
+
+                            // Init the super and group admin
+                            let currentTask = (onEnd) => {
+                                mainGroupAdmin.init().then((resolve) => {
+                                    mainSuperAdmin.init().then((resolve) => {
+                                        onEnd();
+                                    })
+                                })
+                            }
+                            Main.getClassroomManager()._addTaskToQueue(currentTask);
+
 
                         },
                         (reason) => {
@@ -134,4 +149,5 @@
 
 <!-- END PLUGIN SCRIPTS -->
 </body>
+
 </html>

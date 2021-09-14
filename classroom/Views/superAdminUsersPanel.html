@@ -1,0 +1,103 @@
+<div id="superadmin-dashboard-main" style="display:none;" class="dashboard-block">
+    <div class="d-flex justify-content-center c-primary-form activity-search" style="margin: 0 auto;">
+
+        <div class="container">
+            <div class="row mb-2" id="groups_options">
+                <input class="mr-sm-2 flex-fill" type="search" id="name_group_search" placeholder="Rechercher"
+                    aria-label="Search" data-i18n="[placeholder]superadmin.buttons.search">
+                <button class="btn btn-info btn-sm" id="search_group"
+                    data-i18n="superadmin.buttons.search">Rechercher</button>
+                <select class="my-1 mr-sm-2 form-select" id="sort_groups_filter">
+                    <option selected value="0" data-i18n="superadmin.sort.group.byname">Trier par nom</option>
+                    <option value="1" data-i18n="superadmin.sort.group.bydesc">Trier par description</option>
+                </select>
+                <div class="mx-3">
+                    <label for="groups_per_page" data-i18n="superadmin.group.groupsPerPage">Groupes par page</label>
+                    <select name="groups_per_page" id="groups_per_page" class="my-1 mr-sm-2 form-select">
+                        <option value="100">100</option>
+                        <option value="250">250</option>
+                        <option value="500">500</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="row mb-2" id="btn-create-superadmin">
+                <button class="btn-primary btn mx-1" id="create_group_superadmin"
+                    data-i18n="superadmin.group.create">Créer un
+                    groupe</button>
+                <button class="btn-warning btn mx-1" id="create_user_link_to_group_superadmin"
+                    data-i18n="superadmin.users.create">
+                    Créer un utilisateur
+                </button>
+            </div>
+
+            <div class="row" id="table_details_admins">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th scope="col" data-i18n="superadmin.table.group">Groupe</th>
+                            <th scope="col" data-i18n="superadmin.table.description">Description</th>
+                            <th scope="col" data-i18n="superadmin.table.applications">Applications</th>
+                            <th scope="col" data-i18n="superadmin.buttons.update">Modifier</th>
+                            <th scope="col" data-i18n="superadmin.buttons.delete">Supprimer</th>
+                        </tr>
+                    </thead>
+                    <tbody id="groups_table_superadmin">
+                    </tbody>
+                </table>
+            </div>
+
+            <div id="table_details_users" style="display: none;">
+                <div class="row my-2" id="users_options">
+                    <input class="mr-sm-2 flex-fill" type="search" id="name_user_search"
+                        data-i18n="[placeholder]superadmin.buttons.search" placeholder="Rechercher" aria-label="Search">
+                    <button class="btn btn-info btn-sm" id="search_user"
+                        data-i18n="superadmin.buttons.search">Rechercher</button>
+                    <select class="my-1 mr-sm-2 form-select" id="sort_users_filter">
+                        <option selected value="0" data-i18n="superadmin.sort.user.bylastname">Trier par nom</option>
+                        <option value="1" data-i18n="superadmin.sort.user.byfirstname">Trier par prénom</option>
+                    </select>
+                    <div class="mx-3">
+                        <label for="users_per_page" data-i18n="superadmin.users.usersPerPage">Utilisateurs par
+                            page</label>
+                        <select name="users_per_page" id="users_per_page" class="my-1 mr-sm-2 form-select">
+                            <option value="100">100</option>
+                            <option value="250">250</option>
+                            <option value="500">500</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="row my-2">
+                    <button class="btn btn-secondary btn-sm mx-2" id="table_back_to_users"> -
+                    </button>
+                    <h2 id="group_name_from_table"></h2>
+                </div>
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th scope="col" data-i18n="superadmin.table.lastname">Nom</th>
+                            <th scope="col" data-i18n="superadmin.table.firstname">Prénom</th>
+                            <th scope="col" data-i18n="superadmin.table.right">Rôle</th>
+                            <th scope="col" data-i18n="superadmin.table.applications">Applications</th>
+                            <th scope="col" data-i18n="superadmin.table.resetPassword">Régénérer le mot de passe</th>
+                            <th scope="col" data-i18n="superadmin.buttons.update">Modifier</th>
+                            <th scope="col" data-i18n="superadmin.buttons.delete">Supprimer</th>
+                        </tr>
+                    </thead>
+                    <tbody id="table_info_group_data">
+                    </tbody>
+                </table>
+
+                <div id="paginationButtons_users" class="m-auto">
+
+                </div>
+            </div>
+
+            <div class="row">
+                <div id="paginationButtons_groups" class="m-auto">
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
