@@ -25,8 +25,8 @@
             "hasAccount": "Already have a Vittascience account?",
             "gar": "Enjoy the Classroom module with ease using GAR.</br><i class=\"fas fa-exclamation-triangle\" style=\"color:var(--vitta-orange-light)\"></i> The connection to GAR is not yet finalized, but will be ready soon.",
             "signup": "SIGN UP",
-			"firstVisit": "First time? Please choose a username.",
-			"signin": "SIGN IN",
+            "firstVisit": "First time? Please choose a username.",
+            "signin": "SIGN IN",
             "hasReturned": "Back to this Classroom?",
             "forgot": "I forgot my password",
             "error": {
@@ -58,7 +58,6 @@
                 "label": "Ask your teacher",
                 "question": "Write your questions...",
                 "title": "Object"
-
             },
             "teacher": {
                 "label": "Ask our team"
@@ -81,8 +80,8 @@
             "deleteProject": "The project has been deleted.",
             "shareProject": "The project has been shared.",
             "corrections": "An exercise has been realized in your classes",
-            "switchMode": "Toggle with student mode"
-
+            "switchMode": "Toggle with student mode",
+            "superAdmin": "Toggle with SuperAdmin mode"
         },
         "ids": {
             "classroom-dashboard-help-panel-teacher": "Help",
@@ -101,7 +100,6 @@
             "classroom-dashboard-sandbox-creation": "Interface selection",
             "classroom-dashboard-ide-panel": "{{interface}} sandbox ",
             "classroom-dashboard-activity-panel": "Activity {{name}}"
-
         },
         "displayCode": "Display the code",
         "navbar": {
@@ -146,7 +144,6 @@
                 "title": {
                     "label": "Activity title",
                     "placeholder": "Part title"
-
                 },
                 "content": {
                     "label": "Activity content"
@@ -179,7 +176,6 @@
         "sandbox": {
             "mine": "My projects",
             "shared": "Shared projects",
-
             "add": "Create a program",
             "chooseInterface": "Select the interface where you want to create a program : "
         },

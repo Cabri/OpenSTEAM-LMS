@@ -27,7 +27,7 @@
 			"signup": "SIGN UP",
 			"firstVisit": "First time? Please choose a username.",
 			"signin": "SIGN IN",
-			"registerLink": "Create an account",
+			"registerLink": "Register",
 			"hasReturned": "Back to this Classroom?",
 			"forgot": "I forgot my password",
 			"error": {
@@ -127,7 +127,7 @@
 			"usersNotAdded": "The learner could not be added (Your account does not allow you to have {{learnerNumber}} learners)",
 			"cantLoginLimitLearners": "You cannot join the class. Your teacher has reached his maximum number of learners.",
 			"cantLoginClassroomBlocked": "You cannot join the classroom, your teacher has locked access to it.",
-			"classNotCreated": "You cannot have more than one classroom.",
+			"classNotCreated": "You cannot have more than {{classroomNumberLimit}} classroom(s).",
 			"attributeActivityUndone": "The activity has been unassigned",
 			"pseudoUpdated": "The learner's new nickname is {{newPseudo}}",
 			"classroomDeleted": "The classroom {{classroomName}} has been deleted",
@@ -369,7 +369,7 @@
 			},
 			"listClass": {
 				"title": "Switch in student mode",
-				"description": "You can easily test the interface as a learner, and return to your teacher profile at any time. Progress as a learner will be saved to the Vittademo account.",
+				"description": "You can easily test the interface as a learner, and return to your teacher profile at any time. Progress as a learner will be saved to the \"{{demoStudent}}\" account.",
 				"switchButton": "Switch to learner mode"
 			},
 			"changePseudo": {
@@ -593,6 +593,315 @@
 		"password": "Password",
 		"yes": "Yes",
 		"no": "No"
+	},
+	"superadmin": {
+		"profil": {
+			"superAdmin": "Switch to superadmin",
+			"groupAdmin": "Switch to group admin",
+			"bio": "Bio <span class=\"text-danger\">*</span>",
+			"email": "E-mail <span class=\"text-danger\">*</span>",
+			"nickname": "Username <span class=\"text-danger\">*</span>",
+			"lastname": "Lastname <span class=\"text-danger\">*</span>",
+			"firstname": "Firstname <span class=\"text-danger\">*</span>",
+			"phone": "Phone number",
+			"grade": "Niveau de formation <span class=\"text-danger\">*</span>",
+			"subject": "Taught subject <span class=\"text-danger\">*</span>",
+			"school": "School <span class=\"text-danger\">*</span>",
+			"password": "Password <span class=\"text-danger\">*</span>",
+			"confirmPassword": "Confirm password <span class=\"text-danger\">*</span>",
+			"help": "Help",
+			"onlyVisibleGroupAdmin": "Only visible to you as a group administrator:",
+			"onlyVisibleSuperAdmin": "Only visible to you as super admin:"
+		},
+		"account": {
+			"activate": {
+				"success": "Your account has been activated !",
+				"alreadyactive": "Your account is already active.",
+				"noToken": "No token is attached to this link."
+			},
+			"active": "Active account",
+			"registration": {
+				"success": "Successful registration !",
+				"emailSent": "An email has just been sent to you, follow the link in it to activate your account and continue your link to the group \"<span id=\"gourpName2\"></span>\"",
+				"accountPublic": "Do you agree that your first and last name are public on the site ?",
+				"newsletter": "Would you like to receive our newsletter by email ?",
+				"mailAlert": "Would you like to receive email alerts when receiving new messages on the site ?",
+				"allowContact": "Would you like to be able to be contacted by other users of the site ?",
+				"confirmAdult": "I confirm that I am over 18 years old (article 1124 du code civil)*",
+				"disclaimerVittascience": "Vittascience places the security and confidentiality of its users' personal data at the heart of its concerns. Discover<a href=\"http://vittascience.com/privacy\"> our personal data protection policy</a> ",
+				"mandatory": "Fields marked with <span class=\"text-danger\">*</span> are mandatory.",
+				"cguVittascience": "By validating this form, you accept the <a href=\"http://vittascience.com/\"> Terms of Service</a>.",
+				"description": "Please complete the following fields to create your account.",
+				"title": "Registration",
+				"registrationFinalizationSuccess": "Your registration has been finalized, you can now connect",
+				"registrationFinalization": "Finalize your registration",
+				"descriptionFinalization": "Please complete the following fields to complete your registration.",
+				"noTokenOrUserActive": "Invalid token or user already active",
+				"noToken": "Missing token"
+			},
+			"notAllowedUpdateUser": "You do not have the rights to update this user.",
+			"notAllowedDeleteGroup": "You do not have the rights to delete this group.",
+			"notAllowedDisableUser": "You do not have the rights to disable this user.",
+			"notAllowedDeleteUser": "You do not have the rights to delete this user.",
+			"passwordUpdatedMessage": "Your password has been successfully changed",
+			"noUserFound": "No user using this address was found.",
+			"noUserFoundToken": "This token does not correspond to any user.",
+			"missingData": "Information is missing to finalize the operation.",
+			"errorSending": "An error occurred while sending the email",
+			"userNotFound": "User not found and / or already active",
+			"userNotFoundId": "User not found",
+			"errorActivation": "An error occurred during activation."
+		},
+		"users": {
+			"users": "Users",
+			"add": "Add user",
+			"create": "Create user",
+			"delete": "Delete user",
+			"deleteConfirmation": "Please write \"delete\" in the field below to validate the action.",
+			"deleteIntentionSA": "You are about to delete the user : <span id=\"mdi_firstnameSA\"></span>",
+			"disableIntention": "You are about to disable the user : <span id=\"mde_firstnameSA\"></span>",
+			"deleteConfirmationTitle": "Confirm deletion",
+			"disableConfirmationTitle": "Confirm deactivation",
+			"update": "Update user",
+			"updateAppUser": "Update user apps",
+			"updateApp": "Update apps",
+			"disable": {
+				"message": "Please write \"delete\" in the field below to validate the action.",
+				"intention": "You are about to delete the user : <span id=\"md_firstnameGA\"></span>"
+			},
+			"mail": {
+				"resetPassword": {
+					"subject": "Resetting your password.",
+					"bodyTitle": "Reset password.",
+					"textBeforeLink": "If the button above does not work, copy and paste into your browser the following link :"
+				},
+				"finalizeAccount": {
+					"title": "Registration finalization",
+					"subject": "Registration finalization",
+					"bodyTitle": "Finalize your registration.",
+					"textBeforeLink": "If the button above does not work, copy and paste into your browser the following link :"
+				}
+			},
+			"showResetLinkTitle": "Reset password.",
+			"showResetLink": "Password reset link.",
+			"groupAdmin": "Group administrator",
+			"admin": "Administrator",
+			"teacher": "Teacher",
+			"usersPerPage": "Users per page",
+			"userDeleted": "User deleted.",
+			"userDisabled": "User disabled.",
+			"userCreated": "User successfully created",
+			"userUpdated": "User successfully updated",
+			"chooseNewPassword": "Choose your new password",
+			"passwordUpdate": "Your password has been changed",
+			"enterYourEmail": "Enter your e-mail address",
+			"sendResetMailDescription": "By clicking on send an email containing a link to change your password will be sent to you.",
+			"yourMail": "Your email",
+			"emailSended": "An E-mail containing the procedure to follow has just been sent to you",
+			"emailNotReceived": "If you have not received the email, click on start over (the email may take a little while to arrive)",
+			"mailSentToUser": "An email has been sent to the user to complete their registration",
+			"mailNotSentToUser": "the registration finalization email could not be sent to the user",
+			"mailSentToUserReset": "An email has been sent to the user to change their password",
+			"mailNotSentToUserReset": "The password change email could not be sent to the user",
+			"appsUpdated": "User apps have been updated",
+			"teacherGrades": {
+				"0": "Elementary School",
+				"1": "Middle School",
+				"2": "High school",
+				"3": "Technical College",
+				"4": "POST-BAC"
+			},
+			"teacherSubjects": {
+				"0": {
+					"0": "Elementary School",
+					"1": "Other (specify in biography)"
+				},
+				"1": {
+					"0": "Physical and sports education",
+					"1": "Moral and civic education",
+					"2": "Artistic teaching",
+					"3": "French",
+					"4": "History geography",
+					"5": "Living language",
+					"6": "Mathematics",
+					"7": "Chemical Physics",
+					"8": "Life and earth sciences",
+					"9": "Technology",
+					"10": "Other (specify in bio)"
+				},
+				"2": {
+					"0": "Arts",
+					"1": "Circus arts",
+					"2": "Biology Ecology",
+					"3": "Biotechnologies",
+					"4": "Creation and design culture",
+					"5": "Technological creation and innovation",
+					"6": "Ecology-agronomy-territories-development durable",
+					"7": "Physical and sports education",
+					"8": "Moral and civic education",
+					"9": "Science education",
+					"10": "Transversal technological education",
+					"11": "French",
+					"12": "Hippology and horse riding",
+					"13": "History geography",
+					"14": "History geography, geopolitics and political science",
+					"15": "Humanities, literature and philosophy",
+					"16": "Languages and cultures of Antiquity: Latin or Greek",
+					"17": "Living language",
+					"18": "Foreign and regional languages, literatures and cultures",
+					"19": "Literature and languages and cultures of Antiquity",
+					"20": "Management",
+					"21": "Mathematics",
+					"22": "Digital and computer science",
+					"23": "Chemical Physics",
+					"24": "Fundamentals of economics and management",
+					"25": "Health and social",
+					"26": "Life and earth sciences",
+					"27": "Engineering Sciences",
+					"28": "Science and laboratory",
+					"29": "Sciences and techniques of theater, music and dance",
+					"30": "Laboratory science and technology",
+					"31": "Hotel and restaurant sciences and technologies",
+					"32": "Science and technology of industry and sustainable development",
+					"33": "Sciences and technologies of design and applied arts",
+					"34": "Management and sciences and technologies",
+					"35": "Digital science and technology",
+					"36": "Economic and social sciences",
+					"37": "Other (specify in biography)"
+				},
+				"3": {
+					"0": "Applied arts and artistic cultures",
+					"1": "Right economy",
+					"2": "Economy Management",
+					"3": "Physical education and sport",
+					"4": "Moral and civic education",
+					"5": "Transversal technological education",
+					"6": "French",
+					"7": "History geography",
+					"8": "Modern foreign languages",
+					"9": "Mathematics Physics-Chemistry",
+					"10": "Environmental health prevention",
+					"11": "Other (specify in biography)"
+				},
+				"4": {
+					"0": "Higher education",
+					"1": "Other (specify in biography)"
+				}
+			}
+		},
+		"group": {
+			"add": "Add group",
+			"create": "Create group",
+			"delete": "Delete group",
+			"deleteIntention": "You are about to delete the group : <span id=\"md_group\"></span>",
+			"update": "Update group",
+			"join": {
+				"firstVisit": "First visit ?",
+				"signin": "Sign in",
+				"signinSubtitle": "Enter your login details to access your account",
+				"addressMail": "Mail address",
+				"disclaimer": "By joining this group, you authorize the group's admin to modify and / or deactivate your account. You will also have the applications that the group owns.",
+				"lastStep": "There is only one step left! Click on the button below to finalize the link.",
+				"joinGroup": "You are about to join the group : \"<span id='groupNameConfirmLink'></span>\"",
+				"notfound": "Group not found !",
+				"notfoundDetails": "We cannot find any groups linked to the code <span id='gourpName3'></span>.",
+				"clickToRedirectLogin": "Click on continue to be redirected to the login page.",
+				"clickToRedirectHome": "Click on continue to be redirected to the home page.",
+				"invalidLink": "Invalid link !",
+				"invalidFormatLink": "The format of the link you entered does not match.",
+				"success": "You joined the group : \"<span id=\"gourpName\"></span>\" !",
+				"alreadyLinked": "You are already part of this group.",
+				"error": "An error occurred while linking.",
+				"userNotFound": "The user was not found, you can click on continue to be redirected to the login page.",
+				"contactAdmin": "If the problem persists contact the administration.",
+				"mail": {
+					"textBeforeName": "The user : ",
+					"textAfterName": "joined the group : ",
+					"emailSubject": "A user has joined the group"
+				}
+			},
+			"name": "Name of the group",
+			"description": "Description of the group",
+			"link": "Group link",
+			"applications": "Group applications",
+			"groupsPerPage": "Groups per page",
+			"groupDeleted": "Group deleted.",
+			"groupCreated": "Group successfully created",
+			"groupUpdated": "Group successfully updated",
+			"groupCreateFailed": "The group could not be created",
+			"showLinkTitle": "Group's link",
+			"usersWithoutGroups": "Users without groups",
+			"searchResult": "Result of the research",
+			"usersInactiveOrNoRegular": "Inactive users or not regular",
+			"usersWithoutGroupsDescription": "User group not linked to any group",
+			"usersInactiveOrNoRegularDescription": "Group of inactive and / or non-regular users",
+			"groupDeleteError": "The group could not be deleted."
+		},
+		"buttons": {
+			"continue": "Continue",
+			"validate": "Validate",
+			"cancel": "Cancel",
+			"finalize": "Finalize",
+			"send": "Send",
+			"login": "Sign in",
+			"signup": "Register",
+			"join": "Join",
+			"save": "Save",
+			"close": "Close",
+			"disable": "Disable",
+			"delete": "Delete",
+			"reset": "Reset",
+			"update": "Update",
+			"search": "Search",
+			"restart": "Restart",
+			"copyLink": "Copy link",
+			"show": "Show",
+			"user": {
+				"add": "Add user",
+				"create": "Create user",
+				"delete": "Delete user",
+				"update": "Update user",
+				"addGroup": "Add group",
+				"createA": "Create user",
+				"updateA": "Update user",
+				"updateApp": "Update applications"
+			},
+			"group": {
+				"add": "Add group",
+				"create": "Create group",
+				"delete": "Delete group",
+				"update": "Update group",
+				"createA": "Create group",
+				"updateA": "Update group"
+			}
+		},
+		"sort": {
+			"user": {
+				"bylastname": "Sort by lastname",
+				"byfirstname": "Sort by firstname"
+			},
+			"group": {
+				"byname": "Sort by name",
+				"bydesc": "Sort by description"
+			}
+		},
+		"input": {
+			"placeholder": {
+				"delete": "delete"
+			},
+			"writeDelete": "You must write delete to validate the action.",
+			"writeDisable": "You must write disable to validate the action."
+		},
+		"table": {
+			"lastname": "Lastname",
+			"firstname": "Firstname",
+			"applications": "Applications",
+			"group": "Group",
+			"description": "Description",
+			"right": "Rights",
+			"resetPassword": "Reset password",
+			"link": "Link"
+		}
 	},
 	"navbar": {
 		"items": {

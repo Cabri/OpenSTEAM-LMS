@@ -19,14 +19,14 @@ if ($user) {
         $adminProf = RegularDAO::getSharedInstance()->isAdmin($_SESSION['idProf']);
     }
 }
-
-if ($user && (!$user instanceof Regular || ($tester || $admin || $testerProf || $adminProf))) {
+// Pourquoi cette ligne ? 
+//&& (!$user instanceof Regular || ($tester || $admin || $testerProf || $adminProf))
+if ($user) {
     header("Location: /classroom/home.php");
     die();
 }
 
 require_once(__DIR__ . "/header.html");
-
 ?>
 <link rel="stylesheet" href="/classroom/assets/css/main.css">
 

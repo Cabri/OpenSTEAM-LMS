@@ -11,6 +11,15 @@
 </script>
 <script src="assets/js/utils/translate.js"></script>
 <!-- <script src="/interfaces/assets/js/main/modal.js" defer></script> -->
+<script>
+    // If the actual page is not "home.php", add a notif div at the top of the body
+    $(() => {
+        const pageName = location.href.split("/").slice(-1);
+        if (pageName != "home.php") {
+            $('body').prepend('<div id="notif-div"></div>');
+        }
+    })
+</script>
 </body>
 
 </html>

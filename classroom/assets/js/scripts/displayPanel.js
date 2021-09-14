@@ -14,9 +14,15 @@ DisplayPanel.prototype.classroom_dashboard_profil_panel_teacher = function () {
         $('.owned-activities').html(data.ownedActivities)
 
     })
-
     getIntelFromClasses()
+}
 
+DisplayPanel.prototype.classroom_dashboard_profil_panel_groupadmin = function () {
+    $('#user-name-groupadmin').html(UserManager.getUser().firstname + " " + UserManager.getUser().surname)
+}
+
+DisplayPanel.prototype.classroom_dashboard_profil_panel_superadmin = function () {
+    $('#user-name-superadmin').html(UserManager.getUser().firstname + " " + UserManager.getUser().surname)
 }
 
 DisplayPanel.prototype.classroom_dashboard_profil_panel = function () {
@@ -88,7 +94,7 @@ DisplayPanel.prototype.classroom_dashboard_help_panel = function () {
 
     let html = ''
     let index = [3, 2, 4, 4, 3, 2]
-    for (let i = 1; i <= index.length ; i++) {
+    for (let i = 1; i <= index.length; i++) {
         html += "<h4 data-i18n='[html]faqStudentNeutral." + i + ".section_title'></h4>";
         for (let j = 1; j < index[i - 1]; j++) {
             html += `<div class="kit-faq-box">
@@ -141,6 +147,10 @@ DisplayPanel.prototype.classroom_dashboard_help_panel = function () {
 DisplayPanel.prototype.classroom_dashboard_help_panel_teacher = function () {
     let html = '';
     let index = [7, 12, 5, 3, 3, 3]; // number of questions+1 per category in faq
+    
+    // capitalize demoStudent name
+    let capitalizedDemoStudentName = `${demoStudentName.charAt(0).toUpperCase()}${demoStudentName.slice(1)}`;
+    
     for (let i = 1; i <= index.length; i++) {
         html += "<h4 data-i18n='[html]faqTeacherNeutral." + i + ".section_title'></h4>";
         for (let j = 1; j < index[i - 1]; j++) {
@@ -154,7 +164,7 @@ DisplayPanel.prototype.classroom_dashboard_help_panel_teacher = function () {
                 </p>
             </div>
             <div class="faq-box-content">
-            <p data-i18n='[html]faqTeacherNeutral.` + i + `.question_list.` + j + `.answer'></p>
+            <p data-i18n='[html]faqTeacherNeutral.` + i + `.question_list.` + j + `.answer' data-i18n-options={"demoStudent":"${capitalizedDemoStudentName}"}></p>
             </div>
         </div>`;
         }
@@ -205,11 +215,11 @@ DisplayPanel.prototype.classroom_dashboard_form_classe_panel = function () {
     if (ClassroomSettings.classroom != null) {
         let classroom = getClassroomInListByLink(ClassroomSettings.classroom)[0]
         $('#classroom-form-name').val(classroom.classroom.name),
-        $('#classroom-form-school').val(classroom.classroom.school)
+            $('#classroom-form-school').val(classroom.classroom.school)
         $('#add-student-div').html(BASE_STUDENT_FORM)
-        if(classroom.classroom.isBlocked){
+        if (classroom.classroom.isBlocked) {
             document.querySelector('#classroom-form-is-blocked').checked = true;
-        }else{
+        } else {
             document.querySelector('#classroom-form-is-blocked').checked = false;
         }
         classroom.students.forEach(function (student) {
@@ -243,7 +253,7 @@ DisplayPanel.prototype.classroom_table_panel_teacher = function (link) {
 
         // restore the add student div to its default content to remove potential changes from the update classroom modal
         $('#classroom-form-name').val(''),
-        $('#classroom-form-school').val('')
+            $('#classroom-form-school').val('')
         $('#add-student-div').html(BASE_STUDENT_FORM);
         if (!Main.getClassroomManager()._myClasses) {
             Main.getClassroomManager().getClasses().then(function () {
@@ -253,10 +263,10 @@ DisplayPanel.prototype.classroom_table_panel_teacher = function (link) {
             })
 
         } else {
-            if(link == null || link == ''){
-                if(ClassroomSettings.classroom != null){
+            if (link == null || link == '') {
+                if (ClassroomSettings.classroom != null) {
                     link = ClassroomSettings.classroom;
-                }else{
+                } else {
                     navigatePanel('classroom-dashboard-classes-panel-teacher', 'dashboard-classes-teacher', '', '');
                     return;
                 }

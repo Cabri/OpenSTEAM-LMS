@@ -1,0 +1,94 @@
+<!-- div account activated successfuly -->
+<div id="account-activated" style="display:none;">
+    <div class="inner-login-container">
+        <div class="col-12">
+            <h3 class="font-weight-bold green-vitta m-auto text-center" data-i18n="superadmin.account.activate.success">
+            </h3>
+            <p class="text-center" data-i18n="superadmin.group.join.clickToRedirectLogin"></p>
+        </div>
+        <button class="btn browse-button mx-auto mt-3 btn-lg" onclick="goToLogin()"
+            data-i18n="superadmin.buttons.continue"></button>
+    </div>
+</div>
+
+
+<!-- Already active account div -->
+<div id="already-active" style="display:none;">
+    <div class="inner-login-container">
+        <div class="col-12">
+            <h3 class="font-weight-bold green-vitta m-auto text-center"
+                data-i18n="superadmin.account.activate.alreadyactive"></h3>
+            <p class="text-center" data-i18n="superadmin.group.join.clickToRedirectLogin"></p>
+        </div>
+        <button class="btn browse-button mx-auto mt-3 btn-lg" onclick="goToLogin()"
+            data-i18n="superadmin.buttons.continue"></button>
+    </div>
+</div>
+
+<!-- no token div -->
+<div id="no-token" style="display:none;">
+    <div class="inner-login-container">
+        <div class="col-12">
+            <h3 class="font-weight-bold green-vitta m-auto text-center" data-i18n="superadmin.account.activate.noToken">
+            </h3>
+            <p class="text-center" data-i18n="superadmin.group.join.clickToRedirectLogin"></p>
+        </div>
+        <button class="btn browse-button mx-auto mt-3 btn-lg" onclick="goToLogin()"
+            data-i18n="superadmin.buttons.continue"></button>
+    </div>
+</div>
+
+
+<!-- user not found div -->
+<div id="no-teacher" style="display:none;">
+    <div class="inner-login-container">
+        <div class="col-12">
+            <h3 class="font-weight-bold green-vitta m-auto text-center" data-i18n="superadmin.account.errorActivation">
+            </h3>
+            <p class="text-center" data-i18n="superadmin.group.join.userNotFound"></p>
+            <p class="text-center" data-i18n="superadmin.group.join.contactAdmin"></p>
+        </div>
+        <button class="btn browse-button mx-auto mt-3 btn-lg" onclick="goToLogin()"
+            data-i18n="superadmin.buttons.continue"></button>
+    </div>
+</div>
+
+
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+    integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous">
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/i18next/8.1.0/i18next.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-i18next/1.2.1/jquery-i18next.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/i18next-xhr-backend/1.5.1/i18nextXHRBackend.min.js"></script>
+<script
+    src="https://cdnjs.cloudflare.com/ajax/libs/i18next-browser-languagedetector/2.2.3/i18nextBrowserLanguageDetector.min.js">
+</script>
+<script src="assets/js/utils/translate.js"></script>
+<script src="assets/js/utils/get.js"></script>
+<script src="assets/js/scripts/displayPanel.js"></script>
+<script src="assets/js/scripts/main-login.js"></script>
+<script src="assets/js/scripts/buttons.js"></script>
+
+
+<script>
+    if ($_GET('page')) {
+        let page = $_GET('page');
+        switch (page) {
+            case 'success':
+                $("#account-activated").toggle();
+                break;
+            case 'user-not-found':
+                $("#no-teacher").toggle();
+                break;
+            case 'already-active':
+                $("#already-active").toggle();
+                break;
+            default:
+                break;
+        }
+    }
+
+    function goToLogin() {
+        document.location = "/classroom/login.php";
+    }
+</script>
