@@ -198,6 +198,8 @@
             "title": "Activités",
             "save": "Sauver le brouillon ",
             "add": "Créer une activité",
+            "addCabriExpress": "Créer activité Express",
+            "addCabriGenius": "Créer activité Genius",
             "new": "Nouveaux",
             "current": "En attente de correction",
             "waiting": "Pas encore réalisé",

@@ -198,6 +198,8 @@
             "title": "Actividades",
             "save": "Guardar el cuaderno",
             "add": "Crear una actividad",
+            "addCabriExpress": "Crear actividad Express",
+            "addCabriGenius": "Crear actividad Genius",
             "new": "Nuevos",
             "current": "En espera de corrección",
             "waiting": "Sin realizar aún",
