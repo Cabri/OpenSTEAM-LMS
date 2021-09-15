@@ -27,7 +27,7 @@
 			"signup": "S'INSCRIRE",
 			"firstVisit": "Première viste ? Veuillez choisir un identifiant.",
 			"signin": "SE CONNECTER",
-			"registerLink": "Créer un compte",
+			"registerLink": "S'inscrire",
 			"hasReturned": "De retour dans cette classe ?",
 			"forgot": "J'ai oublié mon mot de passe",
 			"error": {
@@ -127,7 +127,7 @@
 			"usersNotAdded": "L'apprenant n'a pas pu être ajouté (Votre compte ne vous permet pas d'avoir {{learnerNumber}} apprenants)",
 			"cantLoginLimitLearners": "Vous ne pouvez pas rejoindre la classe. Votre professeur a atteint son nombre maximum d'apprenants.",
 			"cantLoginClassroomBlocked": "Vous ne pouvez pas rejoindre la classe, votre professeur en a verrouillé l'accès.",
-			"classNotCreated": "Vous ne pouvez pas avoir plus d'une classe.",
+			"classNotCreated": "Vous ne pouvez pas avoir plus de {{classroomNumberLimit}} classe(s).",
 			"attributeActivityUndone": "L'activité a été désattribuée",
 			"pseudoUpdated": "Le nouveau pseudo de l'apprenant est {{newPseudo}}",
 			"classroomDeleted": "La classe {{classroomName}} a été supprimée",
@@ -371,7 +371,7 @@
 			},
 			"listClass": {
 				"title": "Passer en mode apprenant",
-				"description": "Vous pouvez tester en toute simplicité l'interface en tant qu'apprenant, et revenir à tout moment à votre profil d'enseignant. La progression en tant qu'apprenant sera sauvegardée sur le compte Vittademo.",
+				"description": "Vous pouvez tester en toute simplicité l'interface en tant qu'apprenant, et revenir à tout moment à votre profil d'enseignant. La progression en tant qu'apprenant sera sauvegardée sur le compte \"{{demoStudent}}\".",
 				"switchButton": "Passer en mode apprenant"
 			},
 			"changePseudo": {
@@ -579,7 +579,7 @@
 				},
 				"5": {
 					"title": "Comment tester une activité ?",
-					"answer": "Pour tester une activité, vous avez deux options :<ol><li>Soit aller dans <b>Profil</b> et cliquer sur le bouton “Passer en mode apprenant” puis sélectionner la classe dans laquelle vous souhaitez vous placer. Vous vous retrouvez sur le compte fictif d’un apprenant appelé “Vittademo”, vous pourrez y découvrir l’interface “Apprenant” et réaliser les activités que vous avez attribuées.</li><li>Soit aller sur <b>Mes classes</b> dans le tableau de bord d’une classe, vous pourrez alors vous placer dans la peau de l’apprenant Vittademo. Pour cela, cliquer sur l’icône <i class=\"fas fa-exchange-alt\"></i>, vous aurez la possibilité de devenir un apprenant de la classe et d’essayer les activités.</li></ol>Pour revenir au mode “Enseignant”, il suffit d’aller dans l’onglet <b>Profil</b> du compte Vittademo et de cliquer sur “Retourner au mode enseignant”"
+					"answer": "Pour tester une activité, vous avez deux options :<ol><li>Soit aller dans <b>Profil</b> et cliquer sur le bouton “Passer en mode apprenant” puis sélectionner la classe dans laquelle vous souhaitez vous placer. Vous vous retrouvez sur le compte fictif d’un apprenant appelé \"{{demoStudent}}\", vous pourrez y découvrir l’interface “Apprenant” et réaliser les activités que vous avez attribuées.</li><li>Soit aller sur <b>Mes classes</b> dans le tableau de bord d’une classe, vous pourrez alors vous placer dans la peau de l’apprenant \"{{demoStudent}}\". Pour cela, cliquer sur l’icône <i class=\"fas fa-exchange-alt\"></i>, vous aurez la possibilité de devenir un apprenant de la classe et d’essayer les activités.</li></ol>Pour revenir au mode “Enseignant”, il suffit d’aller dans l’onglet <b>Profil</b> du compte \"{{demoStudent}}\" et de cliquer sur “Retourner au mode enseignant”"
 				},
 				"6": {
 					"title": "Comment supprimer l’attribution d’une activité sans supprimer l’activité ?",
@@ -653,7 +653,7 @@
 				},
 				"4": {
 					"title": "Qu’est-ce que le mode apprenant ?",
-					"answer": "<p>Dans votre profil, vous pouvez cliquer sur le bouton “Passer en mode apprenant”. Après avoir choisi une classe, vous vous retrouvez sur le compte fictif d’un apprenant appelé “Vittademo”, dans lequel vous pourrez découvrir l’interface Apprenant et réaliser les activités que vous avez attribuées.</p><p>Pour revenir au mode “Enseignant”, il suffit d’aller dans l’onglet <b>Profil</b> du compte Vittademo et de cliquer sur “Retourner au mode enseignant”.</p>"
+					"answer": "<p>Dans votre profil, vous pouvez cliquer sur le bouton “Passer en mode apprenant”. Après avoir choisi une classe, vous vous retrouvez sur le compte fictif d’un apprenant appelé \"{{demoStudent}}\", dans lequel vous pourrez découvrir l’interface Apprenant et réaliser les activités que vous avez attribuées.</p><p>Pour revenir au mode “Enseignant”, il suffit d’aller dans l’onglet <b>Profil</b> du compte \"{{demoStudent}}\" et de cliquer sur “Retourner au mode enseignant”.</p>"
 				}
 			}
 		},
@@ -888,6 +888,315 @@
 		"password": "Mot de passe",
 		"yes": "Oui",
 		"no": "Non"
+	},
+	"superadmin": {
+		"profil": {
+			"superAdmin": "Passer en mode superadmin",
+			"groupAdmin": "Passer en mode admin de groupe",
+			"bio": "Bio <span class=\"text-danger\">*</span>",
+			"email": "E-mail <span class=\"text-danger\">*</span>",
+			"nickname": "Pseudo <span class=\"text-danger\">*</span>",
+			"lastname": "Nom <span class=\"text-danger\">*</span>",
+			"firstname": "Prénom <span class=\"text-danger\">*</span>",
+			"phone": "Numéro de téléphone",
+			"grade": "Niveau de formation <span class=\"text-danger\">*</span>",
+			"subject": "Matière enseignée <span class=\"text-danger\">*</span>",
+			"school": "Établissement <span class=\"text-danger\">*</span>",
+			"password": "Mot de passe <span class=\"text-danger\">*</span>",
+			"confirmPassword": "Confirmer le mot de passe <span class=\"text-danger\">*</span>",
+			"help": "Appel à l'aide",
+			"onlyVisibleGroupAdmin": "Uniquement visible par vous en tant qu'administrateur de groupe :",
+			"onlyVisibleSuperAdmin": "Uniquement visible par vous en tant que super admin :"
+		},
+		"account": {
+			"activate": {
+				"success": "Votre compte à bien été activé !",
+				"alreadyactive": "Votre compte est déjà actif.",
+				"noToken": "Aucun token n'est attaché à ce lien."
+			},
+			"active": "Compte actif",
+			"registration": {
+				"success": "Inscription réussie !",
+				"emailSent": "Un e-mail vient de vous être envoyé, suivez le lien dans celui-ci pour activer votre compte et continuez votre liaison au groupe \"<span id=\"gourpName2\"></span>\"",
+				"accountPublic": "Acceptez-vous que votre nom et prénom soient publics sur le site ?",
+				"newsletter": "Souhaitez-vous recevoir notre newsletter par mail ?",
+				"mailAlert": "Souhaitez-vous recevoir des alertes par mail lors de la réception de nouveaux messages sur le site ?",
+				"allowContact": "Souhaitez-vous pouvoir être contacté par les autres utilisateurs du site ?",
+				"confirmAdult": "Je confirme avoir plus de 18 ans (article 1124 du code civil)*",
+				"disclaimerVittascience": "Vittascience place la sécurité et la confidentialité des données personnelles de ses utilisateurs au coeur de ses préoccupations. Découvrez<a href=\"http://vittascience.com/privacy\"> notre politique de protection des données personnelles</a> ",
+				"mandatory": "Les champs marqués par un <span class=\"text-danger\">*</span> sont obligatoires.",
+				"cguVittascience": "En validant ce formulaire, vous acceptez les <a href=\"http://vittascience.com/\"> conditions générales d'utilisation</a>.",
+				"description": "Merci de compléter les champs suivants pour créer votre compte.",
+				"title": "Inscription",
+				"registrationFinalizationSuccess": "Votre inscription à bien été finalisé, vous pouvez maintenant vous connectez",
+				"registrationFinalization": "Finaliser votre inscription",
+				"descriptionFinalization": "Merci de compléter les champs suivants pour finaliser votre inscription.",
+				"noTokenOrUserActive": "Token invalide ou utilisateur déjà actif",
+				"noToken": "Token manquant"
+			},
+			"notAllowedUpdateUser": "Vous ne disposez pas des droits pour modifier cet utilisateur.",
+			"notAllowedDeleteGroup": "Vous ne disposez pas des droits pour supprimer ce groupe.",
+			"notAllowedDisableUser": "Vous ne disposez pas des droits pour désactiver cet utilisateur.",
+			"notAllowedDeleteUser": "Vous ne disposez pas des droits pour supprimer cet utilisateur.",
+			"passwordUpdatedMessage": "Votre mot de passe a été modifié avec succès",
+			"noUserFound": "Aucun utilisateur utilisant cette adresse n'a été trouvé.",
+			"noUserFoundToken": "Ce token ne correspond à aucun utilisateur.",
+			"missingData": "Il manque des informations pour finaliser l'opération.",
+			"errorSending": "Une erreur est survenue lors de l'envoie de l'e-mail",
+			"userNotFound": "Utilisateur introuvable et / ou déjà actif",
+			"userNotFoundId": "Utilisateur introuvable",
+			"errorActivation": "Une erreur est survenue lors de la l'activation."
+		},
+		"users": {
+			"users": "Utilisateurs",
+			"add": "Ajouter un utilisateur",
+			"create": "Créer un utilisateur",
+			"delete": "Supprimer un utilisateur",
+			"deleteConfirmation": "Veuillez écrire \"supprimer\" dans le champ si dessous pour valider l'action.",
+			"deleteIntentionSA": "Vous vous apprêtez à supprimer l'utilisateur : <span id=\"mdi_firstnameSA\"></span>",
+			"disableIntention": "Vous vous apprêtez à désactiver l'utilisateur : <span id=\"mde_firstnameSA\"></span>",
+			"deleteConfirmationTitle": "Confirmer la suppression",
+			"disableConfirmationTitle": "Confirmer la désactivation",
+			"update": "Modifier un utilisateur",
+			"updateAppUser": "Modifier les applications de l'utilisateur",
+			"updateApp": "Modifier les applications",
+			"disable": {
+				"message": "Veuillez écrire 'supprimer' dans le champ si dessous pour valider l'action.",
+				"intention": "Vous vous apprêtez à supprimer l'utilisateur : <span id=\"md_firstnameGA\"></span>"
+			},
+			"mail": {
+				"resetPassword": {
+					"subject": "Réinitialisation de votre mot de passe.",
+					"bodyTitle": "Réinitialisation du mot de passe.",
+					"textBeforeLink": "Si le bouton ci-dessus ne fonctionne pas, copiez et collez dans votre navigateur, le lien suivant :"
+				},
+				"finalizeAccount": {
+					"title": "Finalisation d'inscription",
+					"subject": "Finalisation d'inscription",
+					"bodyTitle": "Finaliser votre inscription.",
+					"textBeforeLink": "Si le bouton ci-dessus ne fonctionne pas, copiez et collez dans votre navigateur, le lien suivant :"
+				}
+			},
+			"showResetLinkTitle": "Réinitialisation de mot de passe.",
+			"showResetLink": "Lien de réinitialisation du mot de passe.",
+			"groupAdmin": "Administateur du groupe",
+			"admin": "Administrateur",
+			"teacher": "Enseignant",
+			"usersPerPage": "Utilisateurs par page",
+			"userDeleted": "Utilisateur supprimé.",
+			"userDisabled": "Utilisateur désactivé.",
+			"userCreated": "Utilisateur créé avec succès",
+			"userUpdated": "Utilisateur modifié avec succès",
+			"chooseNewPassword": "Choisissez votre nouveau mot de passe",
+			"passwordUpdate": "Votre mot de passe à été modifié",
+			"enterYourEmail": "Entrer votre adresse e-mail",
+			"sendResetMailDescription": "En cliquant sur envoyer un e-mail contenant un lien pour changer votre mot de passe vous sera envoyé.",
+			"yourMail": "Votre E-mail",
+			"emailSended": "Un E-mail contenant la procèdure à suivre vient de vous être envoyer",
+			"emailNotReceived": "Si vous n'avez pas reçu l'e-mail, cliquer sur recommencer (le mail peut mettre un petit peu de temps avant d'arriver)",
+			"mailSentToUser": "Un e-mail a été envoyé à l'utilisateur pour qu'il finalise son inscription",
+			"mailNotSentToUser": "l'e-mail de finalisation d'inscription n'a pas pu être envoyé à l'utilisateur",
+			"mailSentToUserReset": "Un e-mail a été envoyé à l'utilisateur pour qu'il change de mot de passe",
+			"mailNotSentToUserReset": "l'e-mail de changement de mot de passe n'a pas pu être envoyé à l'utilisateur",
+			"appsUpdated": "Les applications de l'utilisateur ont été mise à jour",
+			"teacherGrades": {
+				"0": "Primaire",
+				"1": "Collège",
+				"2": "Lycée",
+				"3": "Lycée Professionnel",
+				"4": "POST-BAC"
+			},
+			"teacherSubjects": {
+				"0": {
+					"0": "Ecole élémentaire",
+					"1": "Autre (préciser dans la biographie)"
+				},
+				"1": {
+					"0": "Education physique et sportive (EPS)",
+					"1": "Enseignement moral et civique",
+					"2": "Enseignements artistiques",
+					"3": "Français",
+					"4": "Histoire-géographie",
+					"5": "Langue vivante",
+					"6": "Mathématiques",
+					"7": "Physique-Chimie",
+					"8": "Sciences de la vie et de la Terre (SVT)",
+					"9": "Technologie",
+					"10": "Autre (préciser dans la biographie)"
+				},
+				"2": {
+					"0": "Arts",
+					"1": "Arts du cirque",
+					"2": "Biologie Ecologie",
+					"3": "Biotechnologies",
+					"4": "Création et culture design",
+					"5": "Création et innovation technologiques (CIT)",
+					"6": "Ecologie-agronomie-territoires-développement durable",
+					"7": "Education physique et sportive (EPS)",
+					"8": "Enseignement moral et civique",
+					"9": "Enseignement scientifique",
+					"10": "Enseignement technologique transversal (ETT)",
+					"11": "Français",
+					"12": "Hippologie et équitation",
+					"13": "Histoire - Géographie",
+					"14": "Histoire-géographie, géopolitique et sciences politiques",
+					"15": "Humanités, littérature et philosophie",
+					"16": "Langues et cultures de l’Antiquité : latin ou grec",
+					"17": "Langues vivantes",
+					"18": "Langues, littératures et cultures étrangères et régionales",
+					"19": "Littérature et langues et cultures de l’Antiquité",
+					"20": "Management et gestion",
+					"21": "Mathématiques",
+					"22": "Numérique et sciences informatiques (NSI)",
+					"23": "Physique-chimie",
+					"24": "Principes fondamentaux de l’économie et de la gestion",
+					"25": "Santé et social",
+					"26": "Sciences de la vie et de la Terre (SVT)",
+					"27": "Sciences de l’ingénieur",
+					"28": "Sciences et laboratoire",
+					"29": "Sciences et techniques du théâtre, de la musique et de la danse (S2TMD)",
+					"30": "Sciences et technologies de laboratoire (STL)",
+					"31": "Sciences et technologies de l’hôtellerie et de la restauration (STHR)",
+					"32": "Sciences et technologies de l’industrie et du développement durable (STI2D)",
+					"33": "Sciences et technologies du design et des arts appliqués (STD2A)",
+					"34": "Sciences et technologies du management et de la gestion (STMG)",
+					"35": "Sciences numériques et technologie (SNT)",
+					"36": "Sciences économiques et sociales (SES)",
+					"37": "Autre (préciser dans la biographie)"
+				},
+				"3": {
+					"0": "Arts appliqués et cultures artistiques",
+					"1": "Economie-Droit",
+					"2": "Economie-Gestion",
+					"3": "Education physique et sportive (EPS)",
+					"4": "Enseignement moral et civique",
+					"5": "Enseignement technologique transversal (ETT)",
+					"6": "Français",
+					"7": "Histoire-géographie",
+					"8": "Langues vivantes étrangères",
+					"9": "Mathématiques Physique-Chimie",
+					"10": "Prévention Santé Environnement",
+					"11": "Autre (préciser dans la biographie)"
+				},
+				"4": {
+					"0": "Etudes supérieures",
+					"1": "Autre (préciser dans la biographie)"
+				}
+			}
+		},
+		"group": {
+			"add": "Ajouter un groupe",
+			"create": "Créer un groupe",
+			"delete": "Supprimer un groupe",
+			"deleteIntention": "Vous vous apprêtez à supprimer le groupe : <span id=\"md_group\"></span>",
+			"update": "Modifier un groupe",
+			"join": {
+				"firstVisit": "Première visite ?",
+				"signin": "Se connecter",
+				"signinSubtitle": "Entrez vos identifiants pour accèder à votre compte",
+				"addressMail": "Adresse mail",
+				"disclaimer": "En rejoignant ce groupe, vous autorisez l'admin du groupe à mofidier et / ou désactiver votre compte. Vous disposerez aussi des applications que le groupe possède.",
+				"lastStep": "Il ne reste plus qu'une étape ! Cliquez sur le bouton si dessous pour finaliser la liaison.",
+				"joinGroup": "Vous vous apprêtez à rejoindre le groupe \"<span id='groupNameConfirmLink'></span>\"",
+				"notfound": "Groupe introuvable !",
+				"notfoundDetails": "Nous ne trouvons aucun groupe lié au code <span id='gourpName3'></span>.",
+				"clickToRedirectLogin": "Cliquez sur continuer pour être redirigé vers la page de connexion.",
+				"clickToRedirectHome": "Cliquez sur continuer pour être redirigé vers la page d'accueil.",
+				"invalidLink": "Lien invalide !",
+				"invalidFormatLink": "Le format du lien que vous avez entré ne correspond pas.",
+				"success": "Vous avez rejoint le groupe \"<span id=\"gourpName\"></span>\" !",
+				"alreadyLinked": "Vous faites déjà partie de ce groupe.",
+				"error": "Une erreur est survenue lors de la liaison.",
+				"userNotFound": "L'utilisateur n'a pas été trouvé, vous pouvez cliquer sur continuer afin d'être redirigé vers la page de login.",
+				"contactAdmin": "Si le problème persiste contactez l'administration.",
+				"mail": {
+					"textBeforeName": "L'utilisateur : ",
+					"textAfterName": "a rejoint le groupe : ",
+					"emailSubject": "Un utilisateur à rejoint le groupe"
+				}
+			},
+			"name": "Nom du groupe",
+			"description": "Description du groupe",
+			"link": "Lien du groupe",
+			"applications": "Application(s) du groupe",
+			"groupsPerPage": "Groupes par page",
+			"groupDeleted": "Groupe supprimé.",
+			"groupCreated": "Groupe créé avec succès",
+			"groupUpdated": "Groupe modifié avec succès",
+			"groupCreateFailed": "Le groupe n'a pas pu être créé",
+			"showLinkTitle": "Lien du groupe",
+			"usersWithoutGroups": "Utilisateurs sans groupe",
+			"searchResult": "Résultat de la recherche",
+			"usersInactiveOrNoRegular": "Utilisateurs inactifs et non regular",
+			"usersWithoutGroupsDescription": "Groupement d'utilisateurs n'étant liés à aucun groupe",
+			"usersInactiveOrNoRegularDescription": "Groupement d'utilisateurs inactifs et/ou non regular",
+			"groupDeleteError": "Le groupe n'a pas pu être supprimé."
+		},
+		"buttons": {
+			"continue": "Continuer",
+			"validate": "Valider",
+			"cancel": "Annuler",
+			"finalize": "Finaliser",
+			"send": "Envoyer",
+			"login": "Se connecter",
+			"signup": "S'incrire",
+			"join": "Rejoindre",
+			"save": "Enregistrer",
+			"close": "Fermer",
+			"disable": "Désactiver",
+			"delete": "Supprimer",
+			"reset": "Réinitialiser",
+			"update": "Modifier",
+			"search": "Rechercher",
+			"restart": "Recommencer",
+			"copyLink": "Copier le lien",
+			"show": "Afficher",
+			"user": {
+				"add": "Ajouter l'utilisateur",
+				"create": "Créer l'utilisateur",
+				"delete": "Supprimer l'utilisateur",
+				"update": "Modifier l'utilisateur",
+				"addGroup": "Ajouter un groupe",
+				"createA": "Créer un utilisateur",
+				"updateA": "Modifier un utilisateur",
+				"updateApp": "Modifier les applications"
+			},
+			"group": {
+				"add": "Ajouter le groupe",
+				"create": "Créer le groupe",
+				"delete": "Supprimer le groupe",
+				"update": "Modifier le groupe",
+				"createA": "Créer un groupe",
+				"updateA": "Modifier un groupe"
+			}
+		},
+		"sort": {
+			"user": {
+				"bylastname": "Trier par Nom",
+				"byfirstname": "Trier par Prénom"
+			},
+			"group": {
+				"byname": "Trier par nom",
+				"bydesc": "Trier par description"
+			}
+		},
+		"input": {
+			"placeholder": {
+				"delete": "supprimer"
+			},
+			"writeDelete": "Vous devez écrire supprimer pour valider l'action.",
+			"writeDisable": "Vous devez écrire désactiver pour valider l'action."
+		},
+		"table": {
+			"lastname": "Nom",
+			"firstname": "Prénom",
+			"applications": "Applications",
+			"group": "Groupe",
+			"description": "Description",
+			"right": "Rôle",
+			"resetPassword": "Réinitialiser le mot de passe",
+			"link": "Lien"
+		}
 	},
 	"navbar": {
 		"items": {

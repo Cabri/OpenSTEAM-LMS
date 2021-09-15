@@ -17,8 +17,10 @@ i18next.use(window.i18nextXHRBackend)
         });
         console.log('localize')
         $(document).localize();
-        $("[data-toggle='tooltip']").tooltip('dispose');
-        $("[data-toggle='tooltip']").tooltip();
+        if($("[data-toggle='tooltip']")[0]){
+            $("[data-toggle='tooltip']").tooltip('dispose');
+            $("[data-toggle='tooltip']").tooltip();
+        }
     });
 
 function getCookie(cname) {

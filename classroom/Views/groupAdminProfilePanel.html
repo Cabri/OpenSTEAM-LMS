@@ -1,0 +1,29 @@
+<div id="classroom-dashboard-profil-panel-groupadmin" class="dashboard-block profile-panel" style="display:none;">
+    <div class="row text-center">
+        <div class="col-12">
+            <div class="col-12">
+                <img src="assets/media/profile_picture.svg" alt="Photo de profil"
+                    class="user-picture rounded mx-auto d-block">
+                <span id="user-name-groupadmin" data-i18n="classroom.profil.identity">PLACEHOLDER</span>
+            </div>
+            <div class="col-12">
+                <div class="m-auto">
+                    <button class="btn mt-2 c-btn-outline-primary btn-block" id="settings-groupadmin"><span
+                            class="text-capitalize text-span-initial" data-i18n="words.settings"
+                            class="text-capitalize"></span> <i class="fas fa-cog"></i>
+                    </button>
+
+                    <button class="btn mb-2 c-btn-outline-primary btn-block" onclick="switchToProf()"><span
+                            data-i18n="classroom.profil.switchModeTeacher" class="text-span-initial mr-1"></span><i
+                            class="fas fa-cog"></i>
+                    </button>
+
+                    <button class="btn mt-2 c-btn-red btn-block" onclick="goToDisconnect('classroom');"><span
+                            data-i18n="words.disconnect" class="text-capitalize text-span-initial"></span>
+                        <i class="fas fa-power-off"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

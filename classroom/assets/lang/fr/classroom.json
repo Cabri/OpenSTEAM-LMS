@@ -19,11 +19,10 @@
             "hasAccount": "Vous avez déja un compte Vittascience ?",
             "gar": "Profitez du module classe en toute simplicité à l'aide du GAR.</br><i class=\"fas fa-exclamation-triangle\" style=\"color:var(--vitta-orange-light)\"></i> Le raccordement au GAR n’est pas encore finalisé, il sera prêt prochainement.",
             "signup": "S'INSCRIRE",
-			"firstVisit": "Première viste ? Veuillez choisir un identifiant.",
-			"signin": "SE CONNECTER",
+            "firstVisit": "Première viste ? Veuillez choisir un identifiant.",
+            "signin": "SE CONNECTER",
             "hasReturned": "De retour dans cette classe ?",
             "forgot": "J'ai oublié mon mot de passe",
-
             "error": {
                 "used": "Ce pseudo est déja utilisé, veuillez en choisir un autre",
                 "badInput": "Votre pseudo ou mot de passe est erroné."
@@ -59,7 +58,6 @@
                 "label": "Contacte ton enseignant",
                 "question": "Pose tes questions...",
                 "title": "Objet"
-
             },
             "teacher": {
                 "label": "Contacte ton enseignant"
@@ -72,7 +70,8 @@
             "done": "Activités </br> réalisées",
             "create": "Activités </br> crées",
             "correctionToDo": "Corrections </br> à faire",
-            "switchMode": "Passer en mode apprenant"
+            "switchMode": "Passer en mode apprenant",
+            "superAdmin": "Passer en mode SuperAdmin"
         },
         "notif": {
             "shareProjectTeacher": "Le projet a été partagé avec votre enseignant",
@@ -86,7 +85,6 @@
             "deleteAccount": "Etes vous sur de vouloir supprimer le compte de l'apprenant?",
             "accountIsDelete": "Le compte de l'apprenant  a été supprimé",
             "newPwd": "Le nouveau mot de passe de l'apprenant {{pseudo}} est {{pwd}}"
-
         },
         "ids": {
             "classroom-dashboard-help-panel-teacher": "Aide",
@@ -105,7 +103,6 @@
             "classroom-dashboard-sandbox-creation": "Sélection de l'interface",
             "classroom-dashboard-ide-panel": "Bac à sable {{interface}}",
             "classroom-dashboard-activity-panel": "Activité {{name}}"
-
         },
         "displayCode": "Projeter le code",
         "navbar": {
@@ -146,7 +143,6 @@
                 "title": {
                     "label": "Titre de l'activité",
                     "placeholder": "Titre de la partie"
-
                 },
                 "content": {
                     "label": "Contenu de l'activité"
@@ -183,10 +179,8 @@
         "sandbox": {
             "mine": "Mes projets",
             "shared": "Projets partagés",
-
             "add": "Créer un programme",
             "chooseInterface": "Sélectionnez l'interface sur laquelle vous souhaitez créer un programme : "
-
         },
         "footer": {
             "privacy": "Politique de confidentialité ",

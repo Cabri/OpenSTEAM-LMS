@@ -43,8 +43,8 @@
             "Learn\\": "vendor/vittascience/vtlearn",
             "Utils\\": "vendor/vittascience/vutils/src",
             "Classroom\\": "vendor/vittascience/vtclassroom/src",
-            "Plugins\\": "plugins",
-            "Lti\\": "lti/db"
+            "Superadmin\\": "superadmin/src",
+            "Plugins\\": "plugins"
         }
     },
     "autoload-dev": {

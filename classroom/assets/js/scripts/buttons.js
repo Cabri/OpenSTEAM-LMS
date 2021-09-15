@@ -17,6 +17,7 @@ function $_GET(param) {
     }
     return vars;
 }
+
 $(document).ready(function () {
     $(".dropdown-toggle").dropdown();
 });
@@ -300,10 +301,10 @@ function goToCreateActivityPanel() {
     navigatePanel('classroom-dashboard-new-activity-panel', 'dashboard-activities-teacher');
 }
 
-//prof-->vittademo
+//prof-->demoStudent
 function modeApprenant() {
     window.localStorage.showSwitchTeacherButton = 'true';
-    Main.getClassroomManager().getVittaDemo(ClassroomSettings.classroom)
+    Main.getClassroomManager().getDemoStudent(ClassroomSettings.classroom)
 }
 
 $('body').on('change', '#list-classes input', function () {
@@ -327,7 +328,8 @@ $('body').on('change', '#is-anonymised', function () {
 function listeModeApprenant() {
     pseudoModal.openModal('list-classes-modal')
 }
-//vittademo-->prof
+
+//demoStudent-->prof
 function modeProf() {
     Main.getClassroomManager().getTeacherAccount(ClassroomSettings.classroom).then(() => {
         window.localStorage.showSwitchTeacherButton = 'false';
@@ -339,7 +341,7 @@ if (document.getElementById('teacherSwitchButton') && window.localStorage.showSw
     document.getElementById('teacherSwitchButton').style.display = 'block';
 }
 
-if (document.getElementById('settings-student') && (window.localStorage.showSwitchTeacherButton == 'true' || UserManager.getUser().isFromGar)) {
+if (document.getElementById('settings-student') && window.localStorage.showSwitchTeacherButton == 'true') {
     document.getElementById('settings-student').style.display = 'none';
 }
 
@@ -385,7 +387,7 @@ window.addEventListener('storage', () => {
     try {
         addProjectInList(JSON.parse(window.localStorage.saveProject))
         delete window.localStorage.saveProject
-    } catch (e) { }
+    } catch (e) {}
 })
 
 //profil prof-->paramètres
@@ -856,3 +858,1209 @@ function resetStudentPassword(querySelector) {
         displayStudentPassword(querySelector, '');
     }
 }
+
+/***************************/
+/* superAdmin & groupAdmin */
+/***************************/
+
+$('#create_group_superadmin').click(function () {
+    pseudoModal.openModal('superadmin-create-group');
+    // Clean input
+    $('#group_name').val("");
+    $('#group_desc').val("");
+    optionsGroupApplications("create");
+});
+
+$('#settings-superadmin').click(function () {
+    pseudoModal.openModal('settings-teacher-modal')
+})
+
+$('#settings-groupadmin').click(function () {
+    pseudoModal.openModal('settings-teacher-modal')
+})
+
+function createGroupWithModal() {
+    let $name = $('#group_name').val(),
+        $description = $('#group_desc').val(),
+        ApplicationsData = [];
+
+    $("input:checkbox.form-check-input.app").each(function (element) {
+        const ApplicationTemp = [$(this).val(), $(this).is(':checked'), $('#begin_date_' + $(this).val()).val(), $('#end_date_' + $(this).val()).val()]
+        ApplicationsData.push(ApplicationTemp);
+    });
+
+    mainSuperAdmin.getSuperAdminManager().createGroup($description, $name, JSON.stringify(ApplicationsData)).then((response) => {
+        if (response.response == "success") {
+            displayNotification('#notif-div', "superadmin.group.groupCreated", "success");
+        } else {
+            displayNotification('#notif-div', "superadmin.group.groupCreateFailed", "error");
+        }
+    });
+    pseudoModal.closeAllModal();
+    tempoAndShowGroupsTable()
+}
+
+function showupdateGroupModal(id) {
+    mainSuperAdmin.getSuperAdminManager().getGroupInfos(id).then(function (res) {
+        mainSuperAdmin.getSuperAdminManager()._actualGroup = res;
+        pseudoModal.openModal('superadmin-update-group');
+        optionsGroupApplications("update");
+        $('#upd_group_name').val(res[0].name);
+        $('#upd_group_desc').val(res[0].description);
+        $('#upd_group_id').val(res[0].id);
+        let url = window.location.origin + "/classroom/group_invitation.php?gc=" + res[0].link;
+        $('#upd_group_link').val(url);
+    });
+}
+
+function updateGroupWithModal() {
+    let ApplicationsData = [];
+
+    $("input:checkbox.form-check-input.app").each(function (element) {
+        const ApplicationTemp = [$(this).val(), $(this).is(':checked'), $('#begin_date_' + $(this).val()).val(), $('#end_date_' + $(this).val()).val()]
+        ApplicationsData.push(ApplicationTemp);
+    });
+    mainSuperAdmin.getSuperAdminManager().updateGroup(
+        $('#upd_group_id').val(),
+        $('#upd_group_name').val(),
+        $('#upd_group_desc').val(),
+        JSON.stringify(ApplicationsData)
+    ).then((response) => {
+        if (response.message == "success") {
+            displayNotification('#notif-div', "superadmin.group.groupUpdated", "success");
+        } else if (response.message == "missing data") {
+            displayNotification('#notif-div', "superadmin.account.missingData", "error");
+        }
+    })
+    pseudoModal.closeAllModal()
+    tempoAndShowGroupsTable()
+}
+
+$('#table_back_to_users').click(function () {
+    $('#table_details_users').hide();
+    $('#table_details_admins').show();
+    $('#paginationButtons_users').hide();
+    $('#paginationButtons_groups').show();
+    $('#users_options').hide();
+    $('#groups_options').show();
+    $('#btn-create-superadmin').show();
+    $('#table_info_group_data').html("");
+    $('#paginationButtons_users').html("");
+})
+
+$('#table_back_to_users_groupadmin').click(function () {
+    $('#groupadmin_groups').show();
+    $('#table_details_users_groupadmin').hide();
+})
+
+$('#dashboard-superadmin-groups').click(() => {
+    let sort = $('#sort_groups_filter').val(),
+        groupsperpage = $('#groups_per_page').val();
+    mainSuperAdmin.getSuperAdminManager().getAllGroupsInfos(sort, 1, groupsperpage);
+})
+
+$('#sort_users_filter, #users_per_page').on('change', () => {
+    let $sort = $('#sort_users_filter').val(),
+        $userspp = $('#users_per_page').val(),
+        $group_id = mainSuperAdmin.getSuperAdminManager()._actualGroup;
+    mainSuperAdmin.getSuperAdminManager().showGroupMembers($group_id, 1, $userspp, $sort);
+})
+
+$('#search_user').click(() => {
+    let name = $('#name_user_search').val(),
+        usersperpage = $('#users_per_page').val();
+    if (name != "") {
+        mainSuperAdmin.getSuperAdminManager().globalSearchUser(name, 1, usersperpage);
+    }
+})
+
+$('#name_user_search').on('change', () => {
+    let name = $('#name_user_search').val(),
+        sort = $('#sort_users_filter').val(),
+        usersperpage = $('#users_per_page').val(),
+        group_id = mainSuperAdmin.getSuperAdminManager()._actualGroup;
+    if (name == "") {
+        mainSuperAdmin.getSuperAdminManager().showGroupMembers(group_id, 1, usersperpage, sort);
+    }
+})
+
+$('#name_group_search').on('change', () => {
+    let name = $('#name_group_search').val(),
+        sort = $('#sort_groups_filter').val(),
+        groupsperpage = $('#groups_per_page').val();
+    if (name == "") {
+        mainSuperAdmin.getSuperAdminManager().getAllGroupsInfos(sort, 1, groupsperpage);
+    }
+})
+
+$('#sort_groups_filter, #groups_per_page').on('change', () => {
+    let sort = $('#sort_groups_filter').val(),
+        groupsperpage = $('#groups_per_page').val();
+    mainSuperAdmin.getSuperAdminManager().getAllGroupsInfos(sort, 1, groupsperpage);
+})
+
+
+$('#search_group').click(() => {
+    let name = $('#name_group_search').val(),
+        sort = $('#sort_groups_filter').val(),
+        groupsperpage = $('#groups_per_page').val();
+    if (name == "") {
+        mainSuperAdmin.getSuperAdminManager().getAllGroupsInfos(sort, 1, groupsperpage);
+    } else {
+        mainSuperAdmin.getSuperAdminManager().searchGroup(name, 1, groupsperpage, );
+    }
+})
+
+$('#create_user_link_to_group_superadmin').click(function () {
+    mainSuperAdmin.getSuperAdminManager()._addedCreateUserGroup = 0;
+    $('#group_add_sa').html("");
+    $('#u_firstname').val("");
+    $('#u_surname').val("");
+    $('#u_bio').val("");
+    $('#u_mail').val("");
+    $('#u_pseudo').val("");
+    $('#user_teacher_infos').hide();
+    $('#u_phone').val("");
+    $('#u_school').val("");
+    $('#u_is_admin').prop("checked", false);
+    $('#u_is_teacher').prop("checked", false);
+    $('#u_is_active').prop("checked", false);
+    $('#user_teacher_grade').prop('selectedIndex', 0);
+    $('#user_teacher_subjects').prop('selectedIndex', 0);
+    $('#u_is_group_admin').prop("checked", false);
+
+
+    pseudoModal.openModal('superadmin-create-user');
+    // Bind function to select
+    $("#u_is_teacher").change(() => {
+        if ($('#u_is_teacher').is(':checked')) {
+            $('#user_teacher_infos').show();
+        } else {
+            $('#user_teacher_infos').hide();
+        }
+    })
+
+    $('#user_teacher_grade').change(() => {
+        switch ($('#user_teacher_grade').val()) {
+            case "0":
+                createSubjectSelect(getSubjects(0), 0);
+                break;
+            case "1":
+                createSubjectSelect(getSubjects(1), 0);
+                break;
+            case "2":
+                createSubjectSelect(getSubjects(2), 0);
+                break;
+            case "3":
+                createSubjectSelect(getSubjects(3), 0);
+                break;
+            case "4":
+                createSubjectSelect(getSubjects(4), 0);
+                break;
+            default:
+                break;
+        }
+    })
+    $("#user_teacher_grade").trigger("change");
+    if ($("#u_group")[0].length <= 0) {
+        $saved_groups = mainSuperAdmin.getSuperAdminManager()._comboGroups;
+        appendSelectGroups($saved_groups, 'u_group');
+    }
+
+});
+
+function addGroupSuperAdmin() {
+    let numberOfAddedGroup = mainSuperAdmin.getSuperAdminManager()._addedCreateUserGroup,
+        $saved_groups = mainSuperAdmin.getSuperAdminManager()._comboGroups;
+
+    // fix
+    if ($('#u_actual_group' + numberOfAddedGroup)[0]) {
+        for (i = 0; i <= numberOfAddedGroup; i++) {
+            if (!$('#u_actual_group' + i)[0]) {
+                numberOfAddedGroup = i;
+                break;
+            }
+        }
+    }
+
+    let HtmlToAdd = `<div class="input-group mb-3" id="u_actual_group${numberOfAddedGroup}">
+                    <div class="input-group-prepend">
+                        <div class="input-group-text">
+                        <input type="checkbox" id="u_is_group_admin${numberOfAddedGroup}">
+                        <label class="form-check-label mx-1" for="u_is_group_admin${numberOfAddedGroup}">
+                                Administrateur du groupe
+                            </label>
+                        </div>
+                    </div>
+                    <select class="form-control" id="u_group${numberOfAddedGroup}">
+                    </select>
+                    <button class="btn btn-danger ml-1" onclick="deleteGroupFromCreate(${numberOfAddedGroup})">Supprimer</button>
+                </div>`;
+    $('#group_add_sa').append(HtmlToAdd);
+
+    let item_id = 'u_group' + numberOfAddedGroup;
+    appendSelectGroups($saved_groups, item_id);
+    mainSuperAdmin.getSuperAdminManager()._addedCreateUserGroup += 1;
+}
+
+function deleteGroupFromCreate(id) {
+    mainSuperAdmin.getSuperAdminManager()._addedCreateUserGroup -= 1;
+    $('#u_actual_group' + id).remove();
+}
+
+// Fill the selectbox with the existing groups
+function appendSelectGroups(obj, item_id) {
+    const o = new Option("Aucun groupe", -1);
+    $(o).html("Aucun groupe");
+    $("#" + item_id).append(o);
+
+    for (let index = 0; index < obj.length; index++) {
+        const o = new Option(obj[index].name, obj[index].id);
+        $(o).html(obj[index].name);
+        $("#" + item_id).append(o);
+    }
+}
+
+function updateAppForUser() {
+    const process = (data) => {
+        // Get the actual user's information
+        let user = mainSuperAdmin.getSuperAdminManager()._actualUserDetails;
+        $('#user_apps_update').html("");
+
+        let stringhtml = "";
+        data.forEach(element => {
+
+            let infoapp = "";
+
+            if (user[0].hasOwnProperty('applications')) {
+                user[0].applications.some(function (item) {
+                    if (element.id == item.id)
+                        infoapp = item;
+                })
+            }
+
+            if (!infoapp) {
+                stringhtml += `<div class="form-check">
+                <input class="form-check-input appuser" type="checkbox" value="${element.id}" id="application_${element.id}">
+                <label class="form-check-label" for="application_${element.id}">
+                    ${element.name}
+                </label>
+                <input type="date" id="begin_date_${element.id}" name="trip-start" value="${new Date()}" min="${new Date()}"
+                    max="2023-12-31">
+                <input type="date" id="end_date_${element.id}" name="trip-start" min="0"
+                    max="2025-12-31">
+                </div>`;
+            } else {
+                let dateBegin = new Date(infoapp.date_begin).toISOString().split('T')[0],
+                    dateEnd = new Date(infoapp.date_end).toISOString().split('T')[0];
+
+                stringhtml += `<div class="form-check">
+                <input class="form-check-input appuser" type="checkbox" checked value="${element.id}" id="application_${element.id}">
+                <label class="form-check-label" for="application_${element.id}">
+                    ${element.name}
+                </label>
+                <input type="date" id="begin_date_${element.id}" name="trip-start" value="${dateBegin}"
+                    max="2023-12-31">
+                <input type="date" id="end_date_${element.id}" name="trip-start" value="${dateEnd}"
+                    max="2025-12-31">
+                </div>`;
+            }
+
+        });
+        $('#user_apps_update').html(stringhtml);
+        pseudoModal.openModal('superadmin-user-updateApp');
+
+    }
+    if (mainSuperAdmin.getSuperAdminManager()._allApplications == "") {
+        mainSuperAdmin.getSuperAdminManager().getAllApplications().then((res) => {
+            mainSuperAdmin.getSuperAdminManager()._allApplications = res;
+            process(res)
+        })
+    } else {
+        process(mainSuperAdmin.getSuperAdminManager()._allApplications)
+    }
+}
+
+function getAllGroupsIfNotAlreadyLoaded() {
+    if (mainSuperAdmin.getSuperAdminManager()._comboGroups == []) {
+        mainSuperAdmin.getSuperAdminManager().getAllGroups();
+    }
+}
+
+
+
+function persistUpdateUserApp() {
+    let user = mainSuperAdmin.getSuperAdminManager()._actualUserDetails[0].id;
+    let ApplicationsData = [];
+    $("input:checkbox.form-check-input.appuser").each(function (element) {
+        const ApplicationTemp = [$(this).val(), $(this).is(':checked'), $('#begin_date_' + $(this).val()).val(), $('#end_date_' + $(this).val()).val()]
+        ApplicationsData.push(ApplicationTemp);
+    });
+    mainSuperAdmin.getSuperAdminManager().updateUserApps(user, JSON.stringify(ApplicationsData)).then((res) => {
+        if (res.message == "success") {
+            displayNotification('#notif-div', "superadmin.users.appsUpdated", "success");
+            pseudoModal.closeAllModal();
+            tempoAndShowUsersTable();
+        } else if (res.message == "User not found") {
+            displayNotification('#notif-div', "superadmin.account.userNotFoundId", "error");
+        } else if (res.message == "missing data") {
+            displayNotification('#notif-div', "superadmin.account.missingData", "error");
+        }
+    })
+}
+
+function showupdateUserModal(id) {
+    let $groups = mainSuperAdmin.getSuperAdminManager()._comboGroups;
+    mainSuperAdmin.getSuperAdminManager()._updatedUserGroup = 0;
+    mainSuperAdmin.getSuperAdminManager().getUserInfoWithHisGroups(id).then(function (res) {
+        mainSuperAdmin.getSuperAdminManager()._actualUserDetails = res;
+        $("#update_actualgroup_sa").html("");
+        pseudoModal.openModal('superadmin-update-user');
+        $('#update_u_firstname').val(res[0].firstname);
+        $('#update_u_surname').val(res[0].surname);
+        $('#update_u_pseudo').val(res[0].pseudo);
+        $('#update_u_id').val(res[0].id);
+
+        if (res[0].isActive == true) {
+            $('#update_u_is_active').prop("checked", true);
+        } else {
+            $('#update_u_is_active').prop("checked", false);
+        }
+
+        $('#update_u_bio').val(res[0].bio);
+        $('#update_u_mail').val(res[0].email);
+        $('#update_u_phone').val(res[0].telephone);
+
+        $('#update_user_teacher_grade').change(() => {
+            switch ($('#update_user_teacher_grade').val()) {
+                case "0":
+                    createSubjectSelect(getSubjects(0), 2);
+                    break;
+                case "1":
+                    createSubjectSelect(getSubjects(1), 2);
+                    break;
+                case "2":
+                    createSubjectSelect(getSubjects(2), 2);
+                    break;
+                case "3":
+                    createSubjectSelect(getSubjects(3), 2);
+                    break;
+                case "4":
+                    createSubjectSelect(getSubjects(4), 2);
+                    break;
+                default:
+                    break;
+            }
+        })
+
+        if (res[0].isTeacher != null) {
+            $('#update_u_is_teacher').prop("checked", true);
+            $('#update_u_school').val(res[0].school);
+            $('#update_user_teacher_infos').show();
+            // set the grade then trigger the function to set the good subject
+            $('#update_user_teacher_grade').val(res[0].grade - 1);
+            $("#update_user_teacher_grade").trigger("change");
+            $('#update_user_teacher_subjects').val(res[0].subject - 1);
+        } else {
+            $('#update_u_is_teacher').prop("checked", false);
+            $('#update_user_teacher_infos').hide();
+        }
+
+        if (res[0].isAdmin == true) {
+            $('#update_u_is_admin').prop("checked", true);
+        } else {
+            $('#update_u_is_admin').prop("checked", false);
+        }
+
+        $("#update_u_is_teacher").change(() => {
+            if ($('#update_u_is_teacher').is(':checked')) {
+                $('#update_user_teacher_infos').show();
+                createSubjectSelect(getSubjects(0), 2);
+            } else {
+                $('#update_user_teacher_infos').hide();
+            }
+        })
+
+        if (res[0].hasOwnProperty('groups')) {
+            for (let i = 0; i < res[0].groups.length; i++) {
+                mainSuperAdmin.getSuperAdminManager()._updatedUserGroup += 1;
+                let group = `<div class="input-group mb-3" id="update_u_actual_group${i}">
+                                <div class="input-group-prepend">
+                                    <div class="input-group-text">
+                                        <input type="checkbox" id="update_u_is_group_admin${i}">
+                                        <label class="form-check-label mx-1" for="update_u_is_group_admin${i}">
+                                            Administrateur du groupe
+                                        </label>
+                                    </div>
+                                </div>
+                                <select class="form-control" id="update_u_group${i}">
+                                </select>
+                                <button class="btn btn-danger ml-1" onclick="deleteGroupFromUpdate(${i})">Supprimer</button>
+                            </div>`;
+                $("#update_actualgroup_sa").append(group);
+                if (res[0].groups[i].rights == 1) {
+                    $('#update_u_is_group_admin' + i).prop("checked", true);
+                }
+                const item_id = 'update_u_group' + i;
+                appendSelectGroups($groups, item_id);
+                $('#update_u_group' + i).val(res[0].groups[i].id);
+            }
+        }
+    });
+}
+
+function updateAddGroupSuperAdmin() {
+    let $groups = mainSuperAdmin.getSuperAdminManager()._comboGroups,
+        nextGroup = mainSuperAdmin.getSuperAdminManager()._updatedUserGroup;
+
+    // fix
+    if ($('#update_u_actual_group' + nextGroup)[0]) {
+        for (i = 0; i <= nextGroup; i++) {
+            if (!$('#update_u_actual_group' + i)[0]) {
+                nextGroup = i;
+                break;
+            }
+        }
+    }
+
+    let group = `<div class="input-group mb-3" id="update_u_actual_group${nextGroup}">
+                    <div class="input-group-prepend">
+                        <div class="input-group-text">
+                            <input type="checkbox" id="update_u_is_group_admin${nextGroup}">
+                            <label class="form-check-label mx-1" for="update_u_is_group_admin${nextGroup}">
+                            Administrateur du groupe
+                            </label>
+                        </div>
+                    </div>
+                    <select class="form-control" id="update_u_group${nextGroup}">
+                    </select>
+                    <button class="btn btn-danger ml-1" onclick="deleteGroupFromUpdate(${nextGroup})">Supprimer</button>
+                </div>`;
+    $("#update_actualgroup_sa").append(group);
+    const item_id = 'update_u_group' + nextGroup;
+    appendSelectGroups($groups, item_id);
+    mainSuperAdmin.getSuperAdminManager()._updatedUserGroup += 1;
+}
+
+function deleteGroupFromUpdate(id) {
+    mainSuperAdmin.getSuperAdminManager()._updatedUserGroup -= 1;
+    $('#update_u_actual_group' + id).remove();
+}
+
+function updateUserModal() {
+    let $firstname = $('#update_u_firstname').val(),
+        $surname = $('#update_u_surname').val(),
+        $user_id = $('#update_u_id').val(),
+        $bio = $('#update_u_bio').val(),
+        $mail = $('#update_u_mail').val(),
+        $pseudo = $('#update_u_pseudo').val(),
+        $phone = $('#update_u_phone').val(),
+        $school = $('#update_u_school').val(),
+        $is_active = $('#update_u_is_active').is(':checked'),
+        $is_admin = $('#update_u_is_admin').is(':checked'),
+        $is_teacher = $('#update_u_is_teacher').is(':checked'),
+        $teacher_grade = $('#update_user_teacher_grade').val(),
+        $teacher_suject = $('#update_user_teacher_subjects').val(),
+        $groups = [];
+
+    for (let index = 0; index < mainSuperAdmin.getSuperAdminManager()._updatedUserGroup; index++) {
+        $groups.push([$('#update_u_is_group_admin' + index).is(':checked'), $('#update_u_group' + index).val()])
+    }
+
+    mainSuperAdmin.getSuperAdminManager().updateUser($user_id,
+        $firstname,
+        $surname,
+        $pseudo,
+        $phone,
+        $mail,
+        $bio,
+        $groups,
+        $is_admin,
+        $is_teacher,
+        $teacher_grade,
+        $teacher_suject,
+        $school,
+        $is_active).then((response) => {
+        if (response.message == "success") {
+            displayNotification('#notif-div', "superadmin.users.userUpdated", "success");
+            pseudoModal.closeAllModal();
+            tempoAndShowUsersTable()
+        } else if (response.message == "missing data") {
+            displayNotification('#notif-div', "superadmin.account.missingData", "error");
+        }
+    });
+}
+
+
+function createUserAndLinkToGroup() {
+    let $firstname = $('#u_firstname').val(),
+        $surname = $('#u_surname').val(),
+        $bio = $('#u_bio').val(),
+        $mail = $('#u_mail').val(),
+        $pseudo = $('#u_pseudo').val(),
+        $phone = $('#u_phone').val(),
+        $school = $('#u_school').val(),
+        $is_active = $('#u_is_active').is(':checked'),
+        $is_admin = $('#u_is_admin').is(':checked'),
+        $is_teacher = $('#u_is_teacher').is(':checked'),
+        $teacher_grade = $('#user_teacher_grade').val(),
+        $teacher_suject = $('#user_teacher_subjects').val(),
+        $groups = [];
+
+    $groups.push([$('#u_is_group_admin').is(':checked'), $('#u_group').val()])
+    for (let index = 0; index < mainSuperAdmin.getSuperAdminManager()._addedCreateUserGroup; index++) {
+        $groups.push([$('#u_is_group_admin' + index).is(':checked'), $('#u_group' + index).val()])
+    }
+
+    mainSuperAdmin.getSuperAdminManager().createUserAndLinkToGroup($firstname,
+        $surname,
+        $pseudo,
+        $phone,
+        $mail,
+        $bio,
+        $groups,
+        $is_admin,
+        $is_teacher,
+        $teacher_grade,
+        $teacher_suject,
+        $school,
+        $is_active).then((response) => {
+        if (response.message == "success") {
+            displayNotification('#notif-div', "superadmin.users.userCreated", "success");
+            if (response.mail == true) {
+                displayNotification('#notif-div', "superadmin.users.mailSentToUser", "success");
+            } else {
+                displayNotification('#notif-div', "superadmin.users.mailSentToUser", "error");
+            }
+            pseudoModal.closeAllModal();
+            tempoAndShowUsersTable()
+        } else if (response.message == "missing data") {
+            displayNotification('#notif-div', "superadmin.account.missingData", "error");
+        }
+    });
+    pseudoModal.closeAllModal();
+    tempoAndShowUsersTable()
+}
+
+
+function tempoAndShowGroupsTable() {
+    let sort = $('#sort_groups_filter').val(),
+        groupsperpage = $('#groups_per_page').val();
+    setTimeout(() => {
+        mainSuperAdmin.getSuperAdminManager().getAllGroupsInfos(sort, 1, groupsperpage);
+    }, 500);
+}
+
+function tempoAndShowUsersTable() {
+    let sort = $('#sort_users_filter').val(),
+        usersperpage = $('#users_per_page').val(),
+        group_actuel = mainSuperAdmin.getSuperAdminManager()._actualGroup;
+    setTimeout(() => {
+        mainSuperAdmin.getSuperAdminManager().showGroupMembers(group_actuel, 1, usersperpage, sort);
+    }, 500);
+}
+
+function tempoAndShowUsersTableGroupAdmin() {
+    let actualGroup = mainGroupAdmin.getGroupAdminManager()._actualGroup;
+    setTimeout(() => {
+        mainGroupAdmin.getGroupAdminManager().getUsersFromGroup(actualGroup, 1);
+    }, 500);
+}
+
+function tempoAndShowGroupTableGroupAdmin() {
+    setTimeout(() => {
+        mainGroupAdmin.getGroupAdminManager().getGroupsUserAdmin();
+    }, 500);
+}
+
+function switchToSuperAdmin() {
+    //mainSuperAdmin.init();
+    navigatePanel('classroom-dashboard-profil-panel-superadmin', 'dashboard-profil-superadmin');
+    $('#classroom-dashboard-sidebar-teacher').hide();
+    $('#groupadmin-dashboard-sidebar').hide();
+    $('#superadmin-dashboard-sidebar').show();
+    pseudoModal.closeAllModal();
+}
+
+function switchToGroupAdmin() {
+    //mainGroupAdmin.init();
+    navigatePanel('classroom-dashboard-profil-panel-groupadmin', 'dashboard-profil-groupadmin');
+    $('#classroom-dashboard-sidebar-teacher').hide();
+    $('#superadmin-dashboard-sidebar').hide();
+    $('#groupadmin-dashboard-sidebar').show();
+    pseudoModal.closeAllModal();
+}
+
+function switchToProf() {
+    navigatePanel('classroom-dashboard-profil-panel-teacher', 'dashboard-profil-teacher');
+    $('#superadmin-dashboard-sidebar').hide();
+    $('#groupadmin-dashboard-sidebar').hide();
+    $('#classroom-dashboard-sidebar-teacher').show();
+}
+
+function deleteGroup(id) {
+    mainSuperAdmin.getSuperAdminManager()._actualGroup = id;
+    $('#validation_delete_group').val("");
+    pseudoModal.openModal('superadmin-delete-group');
+    mainSuperAdmin.getSuperAdminManager()._comboGroups.forEach(element => {
+        if (element.id == id) {
+            $('#md_group').text(element.name);
+        }
+    });
+}
+
+function persistDeleteGroup() {
+    let validation = $('#validation_delete_group').val();
+    let placeholderWord = $('#validation_delete_group').attr('placeholder');
+    const group = mainSuperAdmin.getSuperAdminManager()._actualGroup;
+    if (validation == placeholderWord) {
+        mainSuperAdmin.getSuperAdminManager().deleteGroup(group).then((response) => {
+            if (response.message == "missing data") {
+                displayNotification('#notif-div', "superadmin.group.groupDeleteError", "error");
+            } else if (response.message == "success") {
+                displayNotification('#notif-div', "superadmin.group.groupDeleted", "success");
+                mainSuperAdmin.getSuperAdminManager()._actualUser = 0;
+                pseudoModal.closeAllModal();
+                tempoAndShowGroupsTable();
+            }
+        })
+    } else {
+        displayNotification('#notif-div', "superadmin.input.writeDelete", "error");
+    }
+}
+
+function cancelDeleteGroup() {
+    $('#md_group').text("");
+    pseudoModal.closeAllModal();
+}
+
+function deleteUser(id, name) {
+    mainSuperAdmin.getSuperAdminManager()._actualUser = id;
+    $('#validation_delete').val("");
+    pseudoModal.openModal('superadmin-delete-user');
+    $('#mde_firstname').text(name);
+
+}
+
+function disableUser(id, name) {
+    mainSuperAdmin.getSuperAdminManager()._actualUser = id;
+    $('#validation_disable').val("");
+    pseudoModal.openModal('superadmin-disable-user');
+    $('#mdi_firstname').text(name);
+}
+
+function disableUserGA(id, name) {
+    mainGroupAdmin.getGroupAdminManager()._actualUser = id;
+    $('#validation_deleteGA').val("");
+    pseudoModal.openModal('groupadmin-delete-user');
+    $('#md_firstnameGA').text(name);
+}
+
+function persistDisable() {
+    let validation = $('#validation_disable').val();
+    let placeholderWord = $('#validation_disable').attr('placeholder');
+    const user = mainSuperAdmin.getSuperAdminManager()._actualUser;
+    if (validation == placeholderWord) {
+        mainSuperAdmin.getSuperAdminManager().disableUser(user).then((response) => {
+            if (response.message == "missing data") {
+                displayNotification('#notif-div', "superadmin.account.notAllowedDisableUser", "error");
+            } else if (response.message == "success") {
+                displayNotification('#notif-div', "superadmin.users.userDisabled", "success");
+                mainSuperAdmin.getSuperAdminManager()._actualUser = 0;
+                pseudoModal.closeAllModal();
+                tempoAndShowUsersTable()
+            }
+        })
+    } else {
+        displayNotification('#notif-div', "superadmin.input.writeDelete", "error");
+    }
+}
+
+function persistDelete() {
+    let validation = $('#validation_delete').val(),
+        placeholderWord = $('#validation_delete').attr('placeholder');
+    const user = mainSuperAdmin.getSuperAdminManager()._actualUser;
+    if (validation == placeholderWord) {
+        mainSuperAdmin.getSuperAdminManager().deleteUser(user).then((response) => {
+            if (response.message == "missing data") {
+                displayNotification('#notif-div', "superadmin.account.notAllowedDeleteUser", "error");
+            } else if (response.message == "allowed") {
+                displayNotification('#notif-div', "superadmin.users.userDeleted", "success");
+                mainSuperAdmin.getSuperAdminManager()._actualUser = 0;
+                pseudoModal.closeAllModal();
+                tempoAndShowUsersTable();
+            }
+        })
+    } else {
+        displayNotification('#notif-div', "superadmin.input.writeDelete", "error");
+    }
+}
+
+function persistDeleteGroupAdmin() {
+    let validation = $('#validation_deleteGA').val(),
+        placeholderWord = $('#validation_deleteGA').attr('placeholder');
+    const user = mainGroupAdmin.getGroupAdminManager()._actualUser;
+    if (validation == placeholderWord) {
+        mainGroupAdmin.getGroupAdminManager().disableUser(user).then((response) => {
+            if (response.message == "not_allowed") {
+                displayNotification('#notif-div', "superadmin.account.notAllowedDeleteUser", "error");
+            } else if (response.message == "success") {
+                displayNotification('#notif-div', "superadmin.users.userDeleted", "success");
+                mainGroupAdmin.getGroupAdminManager()._actualUser = 0;
+                pseudoModal.closeAllModal();
+                tempoAndShowUsersTableGroupAdmin()
+            } else {
+                displayNotification('#notif-div', "superadmin.account.missingData", "error");
+            }
+        })
+    } else {
+        displayNotification('#notif-div', "superadmin.input.writeDelete", "error");
+    }
+}
+
+/**
+ * Show an alert message 
+ * @param {int} i : 0 = class success, 1 = class danger
+ * @param {string} id : the id of the div we need to interact with
+ * @param {string} message : the message we need to show
+ */
+function switchAlertModal(i, id, message) {
+    $(id).text(message);
+    if (i == 0) {
+        $(id).removeClass("alert-danger");
+        $(id).addClass("alert-success");
+    } else if (i == 1) {
+        $(id).addClass("alert-danger");
+        $(id).removeClass("alert-success");
+    }
+    $(id).fadeIn(1000);
+    setTimeout(function () {
+        $(id).fadeOut(1000);
+    }, 3500);
+}
+
+function cancelDelete() {
+    $('#md_firstnameGA').text("");
+    pseudoModal.closeAllModal();
+}
+
+function cancelDisable() {
+    $('#md_firstnameGA').text("");
+    pseudoModal.closeAllModal();
+}
+
+function cancelDeleteGroupAdmin() {
+    $('#md_firstnameGA').text("");
+    pseudoModal.closeAllModal();
+}
+
+function showGroupMembers($group_id, $page, $userspp, $sort) {
+    mainSuperAdmin.getSuperAdminManager()._actualGroup = $group_id;
+    mainSuperAdmin.getSuperAdminManager().showGroupMembers($group_id, $page, $userspp, $sort);
+    $('#table_details_users').show();
+    $('#table_details_admins').hide();
+    $('#paginationButtons_users').show();
+    $('#paginationButtons_groups').hide();
+    $('#users_options').show();
+    $('#groups_options').hide();
+    $('#btn-create-superadmin').hide();
+}
+
+function showGroupMembersGroupAdmin(id) {
+    mainGroupAdmin.getGroupAdminManager().getUsersFromGroup(id, 1)
+    $('#groupadmin_groups').hide();
+    $('#table_details_users_groupadmin').show();
+}
+
+function optionsGroupApplications($type) {
+    const process = (data) => {
+
+        $('#group_upd_apps_options').html("");
+        $('#group_apps_options').html("");
+
+        let stringhtml = "",
+            actualGroup = mainSuperAdmin.getSuperAdminManager()._actualGroup;
+
+        data.forEach(element => {
+            let $infoapp = "";
+
+            if ($type == "update") {
+                actualGroup[0].applications.some(function (item) {
+                    if (element.id == item.application_id)
+                        $infoapp = item;
+                })
+            }
+
+            if (!$infoapp) {
+                stringhtml += `<div class="form-check">
+                <input class="form-check-input app" type="checkbox" value="${element.id}" id="application_${element.id}">
+                <label class="form-check-label" for="application_${element.id}">
+                    ${element.name}
+                </label>
+                <input type="date" id="begin_date_${element.id}" name="trip-start" value="${new Date()}" min="${new Date()}"
+                    max="2023-12-31">
+                <input type="date" id="end_date_${element.id}" name="trip-start" min="0"
+                    max="2025-12-31">
+                </div>`;
+            } else {
+                let dateBegin = new Date($infoapp.date_begin).toISOString().split('T')[0],
+                    dateEnd = new Date($infoapp.date_end).toISOString().split('T')[0];
+
+                stringhtml += `<div class="form-check">
+                <input class="form-check-input app" type="checkbox" checked value="${element.id}" id="application_${element.id}">
+                <label class="form-check-label" for="application_${element.id}">
+                    ${element.name}
+                </label>
+                <input type="date" id="begin_date_${element.id}" name="trip-start" value="${dateBegin}"
+                    max="2023-12-31">
+                <input type="date" id="end_date_${element.id}" name="trip-start" value="${dateEnd}"
+                    max="2025-12-31">
+                </div>`;
+            }
+
+        });
+
+        if ($type == "update")
+            $('#group_upd_apps_options').html(stringhtml);
+        else if ($type == "create")
+            $('#group_apps_options').html(stringhtml);
+
+    }
+    if (mainSuperAdmin.getSuperAdminManager()._allApplications == "") {
+        mainSuperAdmin.getSuperAdminManager().getAllApplications().then((res) => {
+            mainSuperAdmin.getSuperAdminManager()._allApplications = res;
+            process(res)
+        })
+    } else {
+        process(mainSuperAdmin.getSuperAdminManager()._allApplications)
+    }
+}
+
+function createSubjectSelect(array, type) {
+    if (type === 0) {
+        $("#user_teacher_subjects").empty();
+        for (let index = 0; index < array.length; index++) {
+            const o = new Option(array[index], index);
+            $(o).html(array[index]);
+            $("#user_teacher_subjects").append(o);
+        }
+    } else if (type === 1) {
+        $("#user_teacher_subjects_ga").empty();
+        for (let index = 0; index < array.length; index++) {
+            const o = new Option(array[index], index);
+            $(o).html(array[index]);
+            $("#user_teacher_subjects_ga").append(o);
+        }
+    } else if (type === 2) {
+        $("#update_user_teacher_subjects").empty();
+        for (let index = 0; index < array.length; index++) {
+            const o = new Option(array[index], index);
+            $(o).html(array[index]);
+            $("#update_user_teacher_subjects").append(o);
+        }
+    } else if (type === 3) {
+        $("#update_user_teacher_subjects_ga").empty();
+        for (let index = 0; index < array.length; index++) {
+            const o = new Option(array[index], index);
+            $(o).html(array[index]);
+            $("#update_user_teacher_subjects_ga").append(o);
+        }
+    }
+}
+
+$('#dashboard-groupadmin-users-side').click(() => {
+    mainGroupAdmin.getGroupAdminManager().getGroupsUserAdmin();
+})
+
+function showupdateUserModal_groupadmin(user_id) {
+    let $groups = mainGroupAdmin.getGroupAdminManager()._comboGroups;
+    mainGroupAdmin.getGroupAdminManager()._updatedUserGroup = 0;
+    mainGroupAdmin.getGroupAdminManager().getUserInfoWithHisGroups(user_id).then(function (res) {
+        if (res.message != "not_allowed") {
+            $("#update_actualgroup_ga").html("");
+            pseudoModal.openModal('groupadmin-update-user');
+            $('#update_u_firstname_ga').val(res[0].firstname);
+            $('#update_u_surname_ga').val(res[0].surname);
+            $('#update_u_pseudo_ga').val(res[0].pseudo);
+            $('#update_u_id_ga').val(res[0].id);
+
+            $('#update_u_bio_ga').val(res[0].bio);
+            $('#update_u_mail_ga').val(res[0].email);
+            $('#update_u_phone_ga').val(res[0].telephone);
+
+            $('#update_user_teacher_grade_ga').change(() => {
+                switch ($('#update_user_teacher_grade_ga').val()) {
+                    case "0":
+                        createSubjectSelect(getSubjects(0), 3);
+                        break;
+                    case "1":
+                        createSubjectSelect(getSubjects(1), 3);
+                        break;
+                    case "2":
+                        createSubjectSelect(getSubjects(2), 3);
+                        break;
+                    case "3":
+                        createSubjectSelect(getSubjects(3), 3);
+                        break;
+                    case "4":
+                        createSubjectSelect(getSubjects(4), 3);
+                        break;
+                    default:
+                        break;
+                }
+            })
+
+            // Teacher part
+            $('#update_u_school_ga').val(res[0].school);
+            $('#update_user_teacher_grade_ga').val(res[0].grade - 1);
+            $("#update_user_teacher_grade_ga").trigger("change");
+            $('#update_user_teacher_subjects_ga').val(res[0].subject - 1);
+
+            if (res[0].hasOwnProperty('groups')) {
+                for (let i = 0; i < res[0].groups.length; i++) {
+                    mainGroupAdmin.getGroupAdminManager()._updatedUserGroup += 1;
+                    let group = `<div class="input-group mb-3" id="update_u_actual_group_ga${i}">
+                                    <div class="input-group-prepend">
+                                        <div class="input-group-text">
+                                            <input type="checkbox" id="update_u_is_group_admin_ga${i}">
+                                            <label class="form-check mx-1" for="update_u_is_group_admin_ga${i}">
+                                                Administrateur du groupe
+                                            </label>
+                                        </div>
+                                    </div>
+                                    <select class="form-control" id="update_u_group_ga${i}">
+                                    </select>
+                                    <button class="btn btn-danger ml-1" onclick="deleteGroupFromUpdateGroupAdmin(${i})">Supprimer</button>
+                                </div>`;
+                    $("#update_actualgroup_ga").append(group);
+                    if (res[0].groups[i].rights == 1) {
+                        $('#update_u_is_group_admin_ga' + i).prop("checked", true);
+                    }
+                    const item_id = 'update_u_group_ga' + i;
+                    appendSelectGroups($groups, item_id);
+                    $('#update_u_group_ga' + i).val(res[0].groups[i].id);
+                }
+            }
+        } else {
+            displayNotification('#notif-div', "superadmin.account.notAllowedUpdateUser", "error");
+        }
+    });
+}
+
+function deleteGroupFromUpdateGroupAdmin(id) {
+    mainGroupAdmin.getGroupAdminManager()._updatedUserGroup -= 1;
+    $('#update_u_actual_group_ga' + id).remove();
+}
+
+function updateUserModalGroupAdmin() {
+    let $firstname = $('#update_u_firstname_ga').val(),
+        $surname = $('#update_u_surname_ga').val(),
+        $user_id = $('#update_u_id_ga').val(),
+        $bio = $('#update_u_bio_ga').val(),
+        $mail = $('#update_u_mail_ga').val(),
+        $pseudo = $('#update_u_pseudo_ga').val(),
+        $phone = $('#update_u_phone_ga').val(),
+        $school = $('#update_u_school_ga').val(),
+        $teacher_grade = $('#update_user_teacher_grade_ga').val(),
+        $teacher_suject = $('#update_user_teacher_subjects_ga').val(),
+        $groups = [];
+
+    for (let index = 0; index < mainGroupAdmin.getGroupAdminManager()._updatedUserGroup; index++) {
+        $groups.push([$('#update_u_is_group_admin_ga' + index).is(':checked'), $('#update_u_group_ga' + index).val()])
+    }
+
+    mainGroupAdmin.getGroupAdminManager().updateUser($user_id,
+        $firstname,
+        $surname,
+        $pseudo,
+        $phone,
+        $mail,
+        $bio,
+        $groups,
+        $teacher_grade,
+        $teacher_suject,
+        $school).then((response) => {
+        if (response.message == "success") {
+            displayNotification('#notif-div', "superadmin.users.userUpdated", "success");
+            pseudoModal.closeAllModal();
+        } else if (response.message == "missing data") {
+            displayNotification('#notif-div', "superadmin.account.missingData", "error");
+        }
+    });
+    tempoAndShowUsersTableGroupAdmin();
+}
+
+$('#users_per_page_groupadmin, #sort_users_filter_groupadmin').change(() => {
+    let actualGroup = mainGroupAdmin.getGroupAdminManager()._actualGroup;
+    mainGroupAdmin.getGroupAdminManager().getUsersFromGroup(actualGroup, 1);
+})
+
+$('#create_user_link_to_group_groupadmin').click(function () {
+    $('#group_add_ga').html("");
+    $('#u_firstname_ga').val("");
+    $('#u_surname_ga').val("");
+    $('#u_bio_ga').val("");
+    $('#u_mail_ga').val("");
+    $('#u_pseudo_ga').val("");
+    $('#u_phone_ga').val("");
+    $('#u_school_ga').val("");
+    $('#user_teacher_grade_ga').prop('selectedIndex', 0);
+    $('#user_teacher_subjects_ga').prop('selectedIndex', 0);
+    $('#u_is_group_admin_ga').prop("checked", false);
+
+    mainGroupAdmin.getGroupAdminManager()._addedCreateUserGroup = 0;
+    pseudoModal.openModal('groupeadmin-create-user');
+
+    // Bind functions to the selects who has been created
+    $saved_groups = mainGroupAdmin.getGroupAdminManager()._comboGroups;
+    let radioHTML = "";
+    $saved_groups.forEach(element => {
+        radioHTML += `<div class="form-check">
+                        <input class="form-check-input" type="radio" name="groupsRadio" id="groupRadio${element.id}" value="${element.id}" checked>
+                        <label class="form-check" for="groupRadio${element.id}">
+                            ${element.name}
+                        </label>
+                    </div>`;
+    });
+    $('#allGroupsGA').html(radioHTML);
+
+    $('#user_teacher_grade_ga').change(() => {
+        switch ($('#user_teacher_grade_ga').val()) {
+            case "0":
+                createSubjectSelect(getSubjects(0), 1);
+                break;
+            case "1":
+                createSubjectSelect(getSubjects(1), 1);
+                break;
+            case "2":
+                createSubjectSelect(getSubjects(2), 1);
+                break;
+            case "3":
+                createSubjectSelect(getSubjects(3), 1);
+                break;
+            case "4":
+                createSubjectSelect(getSubjects(4), 1);
+                break;
+            default:
+                break;
+        }
+    })
+    createSubjectSelect(getSubjects(0), 1);
+});
+
+function createUserAndLinkToGroup_groupAdmin() {
+    let $firstname = $('#u_firstname_ga').val(),
+        $surname = $('#u_surname_ga').val(),
+        $bio = $('#u_bio_ga').val(),
+        $mail = $('#u_mail_ga').val(),
+        $pseudo = $('#u_pseudo_ga').val(),
+        $phone = $('#u_phone_ga').val(),
+        $school = $('#u_school_ga').val(),
+        $teacher_grade = $('#user_teacher_grade_ga').val(),
+        $teacher_suject = $('#user_teacher_subjects_ga').val(),
+        $groups = [
+            $('#checkboxAdmin').is(':checked'),
+            $(':checked[name="groupsRadio"]').val()
+        ];
+
+    mainGroupAdmin.getGroupAdminManager().createUserAndLinkToGroup($firstname, $surname, $pseudo, $phone, $mail, $bio, $groups, $teacher_grade, $teacher_suject, $school);
+    pseudoModal.closeAllModal();
+    tempoAndShowGroupTableGroupAdmin();
+}
+
+function resetUserPassword(id) {
+    mainSuperAdmin.getSuperAdminManager().sendResetPassword(id).then((response) => {
+        if (response.isSent == true) {
+            displayNotification('#notif-div', "superadmin.users.mailSentToUserReset", "success");
+        } else {
+            displayNotification('#notif-div', "superadmin.users.mailNotSentToUserReset", "error");
+        }
+        pseudoModal.openModal('superadmin-show-resetlink');
+        $('#passwordLink').val(response.link);
+    })
+}
+
+function dismissModal() {
+    pseudoModal.closeAllModal();
+}
+
+function resetUserPasswordga(id) {
+    mainGroupAdmin.getGroupAdminManager().sendResetPassword(id).then((response) => {
+        if (response.message != "not_allowed") {
+            if (response.isSent == true) {
+                displayNotification('#notif-div', "superadmin.users.mailSentToUserReset", "success");
+            } else {
+                displayNotification('#notif-div', "superadmin.users.mailNotSentToUserReset", "error");
+            }
+            pseudoModal.openModal('superadmin-show-resetlink');
+            $('#passwordLink').val(response.link);
+        } else {
+            displayNotification('#notif-div', "superadmin.account.notAllowedUpdateUser", "error");
+        }
+    })
+}
+
+function copyLink(id) {
+    const copyText = $(id);
+    copyText.select();
+    document.execCommand("copy");
+}
+
+$('#search_user_groupadmin').click(() => {
+    let name = $('#name_user_search_groupadmin').val(),
+        usersperpage = $('#users_per_page_groupadmin').val();
+    if (name != "") {
+        mainGroupAdmin.getGroupAdminManager().globalSearchUser(name, 1, usersperpage);
+    }
+})
+
+
+function getGroupLinkGA(id) {
+    mainGroupAdmin.getGroupAdminManager().getGroupLink(id).then((response) => {
+        pseudoModal.openModal('groupadmin-show-grouplink');
+        $('#groupLink').val(response.link);
+    })
+}
+
+
+function getGrades() {
+    let Arr = [];
+    for (let i = 0; i < 5; i++) {
+        Arr.push(i18next.t(`superadmin.users.teacherGrades.${i}`))
+    }
+    return Arr;
+}
+
+function getSubjects(grade) {
+    let subjectsLength = 0;
+    switch (grade) {
+        case 0:
+            subjectsLength = 2;
+            break;
+        case 1:
+            subjectsLength = 11;
+            break;
+        case 2:
+            subjectsLength = 38;
+            break;
+        case 3:
+            subjectsLength = 12;
+            break;
+        case 4:
+            subjectsLength = 2;
+            break;
+        default:
+            break;
+    }
+    let TmpArr = [];
+    for (let i = 0; i < subjectsLength; i++) {
+        TmpArr.push(i18next.t(`superadmin.users.teacherSubjects.${grade}.${i}`))
+    }
+    return TmpArr;
+}
+
+
+/**
+ * Get the grade and the subject in the user language
+ */
+const Grade = getGrades();
