@@ -47,6 +47,7 @@ describe("Add a learner in class", () => {
     it("learner was added", async () => {
         const firstLearnerInClass = await selector.firstLearnerInClass;
         const learnerName = await firstLearnerInClass.getText();
+        console.log("learner: " + learnerName + " " + name);
         expect(name.toLowerCase() === learnerName.toLowerCase()).toBeTruthy();
     });
 

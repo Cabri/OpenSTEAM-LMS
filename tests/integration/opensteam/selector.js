@@ -144,7 +144,7 @@ class Selector {
     }
 
     get firstLearnerInClass() {
-        return $("#body-table-teach tr:first-child .username div");
+        return $("#body-table-teach tr:last-child .username div");
     }
 
     get secondLearnerInTable() {

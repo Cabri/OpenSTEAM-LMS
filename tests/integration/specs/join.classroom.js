@@ -34,7 +34,10 @@ describe("Learner join class with invitation link", () => {
     });
 
     it("Join class", async () => {
-        await browser.newWindow(urlText);
+        let cookies = await browser.deleteCookies();
+
+        await page.open("/login.php")
+        await page.clickButtonWhenDisplayed(await selector.buttonConnexionFirstPage)
 
         await page.input(await selector.learnerNameInput, nameOfLearner);
         await page.clickButtonWhenDisplayed(await selector.confirmJoinButton);
@@ -62,6 +65,7 @@ describe("Learner join class with invitation link", () => {
         await page.clickButtonWhenDisplayed(await selector.buttonOpenClass);
         const firstLearnerInClass = await selector.firstLearnerInClass;
         const learnerName = await firstLearnerInClass.getText();
+        console.log("learnerName" + nameOfLearner + " " + learnerName)
         expect(nameOfLearner.toLowerCase() === learnerName.toLowerCase()).toBeTruthy();
     });
 

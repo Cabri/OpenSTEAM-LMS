@@ -3,6 +3,7 @@ const login = require('../opensteam/login');
 const selector = require('../opensteam/selector');
 const classes = require('../opensteam/classes');
 
+
 describe("Update of classroom", () => {
     it("Login", async () => {
         await page.open('login.php');
@@ -35,10 +36,12 @@ describe("Update of classroom", () => {
         // tricks to refresh classes
         await page.clickButtonWhenDisplayed(await selector.buttonProfile);
         await page.clickButtonWhenDisplayed(await selector.buttonClasses);
+        await page.clickButtonWhenDisplayed(await selector.buttonClasses);
 
         const classNameOnClassCard = await selector.classNameOnClassCard;
         const className = await classNameOnClassCard.getText();
 
+        console.log("Classname: " + className + " compared to " + classes.className);
         expect(classes.className.toLowerCase() === className.toLowerCase()).toBeTruthy();
     });
 

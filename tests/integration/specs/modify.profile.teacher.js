@@ -35,6 +35,7 @@ describe("Teacher login on OpenSTEAM LMS", () => {
     });
 
     it("Login with new informations", async () => {
+        await page.open('login.php');
         await login.login(settings.formInformations.email, settings.formInformations.password);
         let isDiplayed = await page.waitElementDisplayed(await selector.accessibilityButton);
         expect(isDiplayed).toBeTruthy();
