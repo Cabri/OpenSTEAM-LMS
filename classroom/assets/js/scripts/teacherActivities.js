@@ -128,10 +128,25 @@ function activityModify(id) {
     Main.getClassroomManager().getActivity(ClassroomSettings.activity).then(function (activity) {
         $('#activity-form-title').val(activity.title)
         $('.wysibb-text-editor').html(activity.content)
-    })
-    ClassroomSettings.status = 'edit';
-    navigatePanel('classroom-dashboard-new-activity-panel', 'dashboard-activities-teacher')
 
+        ClassroomSettings.status = 'edit';
+        navigatePanel('classroom-dashboard-new-cabriexpress-activity-panel', 'dashboard-activities-teacher')
+
+      // Start LTI 1.3 tool launch
+      const loginHint = {
+        userId: UserManager.getUser().id,
+        isStudentLaunch: false,
+        isUpdate: true,
+        updateURL: activity.content,
+        activityType: activity.type
+      };
+
+      // document.getElementsByName('lti_teacher_login_form')[0].style.display = 'none';
+      $('#lti_teacher_login_hint').val(JSON.stringify(loginHint));
+      $('#lti_teacher_iss').val(location.origin); // platform url
+
+      document.forms["lti_teacher_login_form"].submit();
+    })
 }
 
 //création activité vers attribution
@@ -287,6 +302,7 @@ $('.new-activity-panel-lti').click(function () {
     return;
   }
   if (ClassroomSettings.status !== 'edit') {
+    // activity creation
     const ltiID = $('#activity-form-content-lti').val();
     Main.getClassroomManager().addActivity({
       'title': $('#activity-form-title').val(),
@@ -314,11 +330,23 @@ $('.new-activity-panel-lti').click(function () {
 
         console.log('success addLtiLineItem');*/
 
-
     });
-
-
   } else {
+    // activity update
+    const ltiID = $('#activity-form-content-lti').val();
+    Main.getClassroomManager().editActivity({
+      'id': ClassroomSettings.activity,
+      'title': $('#activity-form-title').val(),
+      'content': ltiID,
+    }).then((activity)=>{
+      displayNotification('#notif-div', "classroom.notif.activityCreated", "success", `'{"activityTitle": "${activity.title}"}'`);
+      $('.new-activity-panel-lti').attr('disabled', false);
+      navigatePanel('classroom-dashboard-new-activity-panel2', 'dashboard-activities-teacher', ClassroomSettings.activity)
+      Main.getClassroomManager().getTeacherActivities(Main.getClassroomManager()).then(function () {
+        teacherActivitiesDisplay()
+        ClassroomSettings.activityInWriting = false
+      })
+    });
     /*Main.getClassroomManager().editActivity({
       'id': ClassroomSettings.activity,
       'title': $('#activity-form-title').val(),
