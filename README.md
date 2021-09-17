@@ -204,4 +204,8 @@ The current repository only contains front elements of the LMS. The back end is 
 - [vclassroom](https://github.com/vittascience/vclassroom)
 - [vutils](https://github.com/vittascience/vutils)
 - vinterfaces (not public yet)
-- vlearn (not public yet)
+- vlearn (not public yet
+
+## Build integration tests
+
+[Redirect here](tests/README.md)

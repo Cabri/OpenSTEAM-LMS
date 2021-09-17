@@ -5,7 +5,7 @@ exports.config = {
     ],
     exclude: [
     ],
-    maxInstances: 10,
+    maxInstances: 1,
     capabilities: [{
         maxInstances: 5,
         browserName: 'chrome',
@@ -14,7 +14,7 @@ exports.config = {
         },
         acceptInsecureCerts: true
     }],
-    logLevel: 'info',
+    logLevel: 'silent',
     bail: 0,
     baseUrl: 'http://steamlms:7080',
     waitforTimeout: 10000,

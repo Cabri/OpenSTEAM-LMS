@@ -76,7 +76,7 @@
 		},
 		"successPanel": "Bravo, tu as réussi cette activité !",
 		"failPanel": "La réponse n'est pas correcte",
-		"toCorrectPanel": "L'activité à été transmise à ton enseignant,</br>qui reviendra vers toi bientôt ! <i class=\"fas fa-pen\"></i>",
+		"toCorrectPanel": "L'activité à été transmise à ton enseignant, </br>qui reviendra vers toi bientôt ! <i class=\"fas fa-pen\"></i>",
 		"bank": {
 			"helpTooltip": "La banque de ressource contient de nombreuses activités sur lesquelles tu peux t'entraîner en autonomie ! Ton enseignant n'aura pas accès aux résultats de ces activités."
 		},
