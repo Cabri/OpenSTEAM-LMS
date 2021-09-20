@@ -1951,3 +1951,26 @@ i.line_height34 {
     border-color: var(--classroom-red) !important;
     color: var(--classroom-red) !important;
 }
+
+
+/*TODO CABRI must move to a separate plugin*/
+.outline-green {
+  border: 2px solid #12acb3 !important;
+  color: #12acb3 !important;
+  background: transparent !important;
+}
+
+/*TODO CABRI must move to a separate plugin*/
+.outline-yellow {
+  border: 2px solid #f5cb5c !important;
+  color: #f5cb5c !important;
+  background: transparent !important;
+}
+
+/*TODO CABRI must move to a seprate plugin */
+.activity-card-cabri-genius {
+  background: url("../media/cards/card-cabri-genius.jpeg") !important;
+  border-radius: 1.2em !important;
+  background-clip: content-box !important;
+  background-size: cover !important;
+}

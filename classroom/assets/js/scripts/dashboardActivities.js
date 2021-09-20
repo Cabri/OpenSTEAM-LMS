@@ -80,8 +80,8 @@ function teacherActivityItem(activity) {
         ide = "arduino"
     }
 
-    let html = `<div class="activity-item activity-teacher " >
-                <div class="activity-card activity-card-` + ide + `">
+    let html = `<div class="activity-item activity-teacher" >
+                <div class="${activity.type==='GENIUS' ? 'activity-card-cabri-genius': ''} activity-card activity-card-` + ide + `">
                     <div class="activity-card-top">
                     <div class="dropdown"><i class="fas fa-cog fa-2x" type="button" id="dropdown-activityItem-${activity.id}" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></i>
                     <div class="dropdown-menu" aria-labelledby="dropdown-activityItem-${activity.id}" data-id="${activity.id}">
@@ -458,7 +458,7 @@ function loadActivity(isDoable) {
 
     if(content.startsWith('http')) {  // TODO replace with "if content is LTI"
       if (UserManager.getUser().isRegular && Activity.correction > 0) {
-        const ltiActivitySubmission = $('#lti-activity-submission').html('<iframe style="width: 100%; height: 100%;" allowfullscreen="true" frameborder="0" src="https://cabricloud.com/cabriexpress?clmc=' + Activity.commentary + '"></iframe>');
+        const ltiActivitySubmission = $('#lti-activity-submission').html('<iframe style="width: 100%; height: 100%;" allowfullscreen="true" frameborder="0" src="https://cabricloud.com/cabriexpress?clmc=' + Activity.commentary + '" allowfullscreen></iframe>');
         ltiActivitySubmission.css({'display': 'block'});
       }
 
@@ -474,14 +474,14 @@ function loadActivity(isDoable) {
 
           const ltiStudentLaunch = `
           <input id="activity-score" type="text" hidden/>
-          <form name="lti_student_login_form" action="https://lti1p3.cabricloud.com/login" method="post" target="lti_student_iframe">
+          <form name="lti_student_login_form" action="http://localhost:3000/login" method="post" target="lti_student_iframe">
             <input id="lti_student_iss" type="hidden" name="iss" value="${location.origin}" />
             <input id="lti_student_login_hint" type="hidden" name="login_hint"/>
             <input id="lti_student_client_id" type="hidden" name="client_id" value="client_id_php" />
-            <input id="lti_student_target_link_uri" type="hidden" name="target_link_uri" value="https://lti1p3.cabricloud.com" />
+            <input id="lti_student_target_link_uri" type="hidden" name="target_link_uri" value="http://localhost:3000" />
           </form>
 
-          <iframe src="about:blank" name="lti_student_iframe" title="Tool Content" width="1000" height="600"></iframe>`;
+          <iframe src="about:blank" name="lti_student_iframe" title="Tool Content" width="1000" height="600" allowfullscreen></iframe>`;
 
 
           $('#lti-student-launch').html(ltiStudentLaunch);

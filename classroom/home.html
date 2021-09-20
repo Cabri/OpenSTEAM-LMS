@@ -504,10 +504,10 @@
         <!--<button id="new-activity-panel1" onclick="createActivity()" class=" btn c-btn-outline-secondary"><span class="mr-1" data-i18n="classroom.activities.add"></span><i class="fas fa-chevron-right"></i>
         </button>-->
 
-        <button id="new-activity-panel2" onclick="createCabriActivity(null, null, 'EXPRESS')" class=" btn c-btn-outline-secondary"><span class="mr-1" data-i18n="classroom.activities.addCabriExpress"></span><i class="fas fa-chevron-right"></i>
+        <button id="new-activity-panel2" onclick="createCabriActivity(null, null, 'EXPRESS')" class="btn c-btn-outline-secondary outline-green"><span class="mr-1" data-i18n="classroom.activities.addCabriExpress"></span><i class="fas fa-chevron-right"></i>
         </button>
 
-        <button id="new-activity-panel1" onclick="createCabriActivity(null, null, 'GENIUS')" class=" btn c-btn-outline-secondary"><span class="mr-1" data-i18n="classroom.activities.addCabriGenius"></span><i class="fas fa-chevron-right"></i>
+        <button id="new-activity-panel1" onclick="createCabriActivity(null, null, 'GENIUS')" class="btn c-btn-outline-secondary outline-yellow"><span class="mr-1" data-i18n="classroom.activities.addCabriGenius"></span><i class="fas fa-chevron-right"></i>
         </button>
 
     </div>
@@ -541,34 +541,23 @@
       <label for="part-content-input" class="tutorial-label">
         <span data-i18n='classroom.activities.form.content.label'></span>
       </label>
-
-<!--      <iframe id="cabriexpress-teacher-iframe"-->
-<!--        src="http://localhost:7080/lti/web/login.php?iss=http%3A%2F%2Flocalhost:7080&login_hint=12345&target_link_uri=http%3A%2F%2Flocalhost%2Fgame.php&lti_message_hint=12345'"-->
-<!--              width="800px" height="600px"></iframe>-->
-
-
-<!--      <iframe id="cabriexpress-teacher-iframe"-->
-<!--              src="../../lti/express.html"-->
-<!--              width="800px" height="600px"-->
-
       <!-- Resource Launch-->
       <!-- STEP 1-->
       <input id="activity-form-content-lti" type="text" hidden/>
-      <form name="lti_teacher_login_form" action="https://lti1p3.cabricloud.com/login" method="post" target="lti_teacher_iframe">
+      <form name="lti_teacher_login_form" action="http://localhost:3000/login" method="post" target="lti_teacher_iframe">
         <input id="lti_teacher_iss" type="hidden" name="iss"/>
         <input id="lti_teacher_login_hint" type="hidden" name="login_hint"/>
         <input id="lti_teacher_client_id" type="hidden" name="client_id" value="client_id_php" />
-        <input id="lti_teacher_target_link_uri" type="hidden" name="target_link_uri" value="https://lti1p3.cabricloud.com/deeplink" />
+        <input id="lti_teacher_target_link_uri" type="hidden" name="target_link_uri" value="http://localhost:3000/deeplink" />
       </form>
 
-      <iframe src="about:blank" name="lti_teacher_iframe" title="Tool Content" width="1000" height="600"></iframe>
+      <iframe src="about:blank" name="lti_teacher_iframe" title="Tool Content" width="1000" height="600" allowfullscreen></iframe>
       <script>
         window.addEventListener("message", (event) => {
           console.log('parent:' , event.origin, event.data)
           $('#activity-form-content-lti').val(event.data);
         }, false);
       </script>
-<!--      <textarea id="cabriexpress-activity-id"></textarea>-->
     </div>
     <div class="form-row mt-1">
     </div>
@@ -637,7 +626,7 @@
                 class="fas fa-chevron-right"></i></button>
     </div>
     <p data-i18n="classroom.activities.form.hint"></p>
-    <button class="c-btn-primary" onclick="createActivity()" data-i18n="classroom.activities.form.modify"></button>
+<!--    <button class="c-btn-primary" onclick="createActivity()" data-i18n="classroom.activities.form.modify"></button>-->
 </div>
 <!-- <div id="classroom-dashboard-new-course-panel2" style="display:none;" class=" row dashboard-block">
     <h1>Bravo, vous avez crée un parcours</h1>
