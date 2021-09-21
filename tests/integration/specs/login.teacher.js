@@ -8,11 +8,11 @@ describe("Teacher login on OpenSTEAM LMS", () => {
     });
 
     it("Click on first connexion button", async () => {
-        login.clickOnButton(await selector.buttonConnexionFirstPage);
+        page.clickOnButton(await selector.buttonConnexionFirstPage);
     });
 
     it("Click on second connexion button", async () => {
-        login.clickOnButton(await selector.buttonConnexionSecondPage);
+        page.clickOnButton(await selector.buttonConnexionSecondPage);
     });
 
     it("Enter username and password and login", async () => {
@@ -20,7 +20,7 @@ describe("Teacher login on OpenSTEAM LMS", () => {
     });
 
     it("Click to connect", async () => {
-        login.clickOnButton(await selector.buttonConnexionThirdPage);
+        page.clickOnButton(await selector.buttonConnexionThirdPage);
     });
 
     it("User is Connected and redirect on home page", async () => {

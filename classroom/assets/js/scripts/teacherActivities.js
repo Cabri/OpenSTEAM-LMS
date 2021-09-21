@@ -286,7 +286,7 @@ $('.new-activity-panel-lti').click(function () {
     displayNotification('#notif-div', "classroom.notif.activityTitleMissing", "error");
     return;
   }
-  if (ClassroomSettings.status != 'edit') {
+  if (ClassroomSettings.status !== 'edit') {
     const ltiID = $('#activity-form-content-lti').val();
     Main.getClassroomManager().addActivity({
       'title': $('#activity-form-title').val(),
@@ -296,7 +296,7 @@ $('.new-activity-panel-lti').click(function () {
     }).then(function (activity) {
       ClassroomSettings.activity = activity.id
       displayNotification('#notif-div', "classroom.notif.activityCreated", "success", `'{"activityTitle": "${activity.title}"}'`);
-      $('.new-activity-panel2').attr('disabled', false)
+      $('.new-activity-panel-lti').attr('disabled', false);
       navigatePanel('classroom-dashboard-new-activity-panel2', 'dashboard-activities-teacher', ClassroomSettings.activity)
       addTeacherActivityInList(activity)
       teacherActivitiesDisplay()

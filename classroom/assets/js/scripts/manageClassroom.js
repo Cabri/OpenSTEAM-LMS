@@ -717,12 +717,13 @@ function displayStudentsInClassroom(students) {
         html += '</tr>';
         $('#body-table-teach').append(html);
     });
-    
+
     $('#add-student-container').append(`<button id="add-student-dashboard-panel" class="btn c-btn-primary"><span data-i18n="classroom.activities.addLearner">Ajouter des apprenants <i class="fas fa-plus"></i></span></button>`);
 
     $('#export-class-container').append(`<button id="download-csv" class="btn c-btn-tertiary ml-2" onclick="openDownloadCsvModal()"><i class="fa fa-download" aria-hidden="true"></i><span class="ml-1" data-i18n="classroom.activities.exportCsv">Exporter CSV</span></button>`);
 
-    $('#header-table-teach').append(`<th class="add-activity-th" colspan="7"> <button class="btn c-btn-primary dashboard-activities-teacher" onclick="pseudoModal.openModal('add-activity-modal')">Ajouter une activité</button></th>`)
+    // todo replace by plugin, disabled by cabri for lti release purposes
+    //$('#header-table-teach').append(`<th class="add-activity-th" colspan="7"> <button class="btn c-btn-primary dashboard-activities-teacher" onclick="pseudoModal.openModal('add-activity-modal')">Ajouter une activité</button></th>`)
 }
 
 $('body').on('click', '.switch-pwd', function (event) {

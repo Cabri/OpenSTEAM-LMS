@@ -214,8 +214,11 @@
       <div id="lti-activity-submission" style="height: calc(50vw * 3/4); border: 0 none; display: none;"></div>
 
       <div id="lti-student-launch"></div>
+      <!--
+      TODO disabled for cabri lti
       <button class="btn c-btn-primary" id="activity-validate" data-i18n="classroom.activities.validate"
               onclick="validateActivity()"> <i class="fas fa-chevron-right"></i></button>
+      -->
       <button class="btn c-btn-primary" id="activity-save" style="display:none;" onclick="saveActivity()"
               data-i18n="classroom.activities.save-draft"><i class="fas fa-chevron-right"></i></button>
       <div class="btn" id="activity-instruction" style="display:none"><span
@@ -1102,18 +1105,15 @@
 <script src="assets/js/main/UIManager.js"></script>
 <script src="assets/js/main/User.js"></script>
 <script src="assets/js/main/ClassroomManager.js"></script>
-<!-- superadmin & groupadmin -->
-<script src="assets/js/main/SuperAdminManager.js"></script>
-<script src="assets/js/main/GroupAdminManager.js"></script>
-<script src="assets/js/main/MainSuperAdminAndGroup.js"></script>
-<!-- superadmin & groupadmin -->
 <script src="assets/js/main/Main.js"></script>
 <script src="assets/js/main/Loader.js"></script>
 <script>
     UIManager.init().then((resolve) => {
         UserManager.init().then((resolve) => {
+
                 Main.init().then((resolve) => {
                     const EVENTS_SCRIPTS = [{
+
                             id: "modals",
                             src: "assets/js/scripts/loadModals.js"
                         },
@@ -1148,8 +1148,7 @@
                                 }
                             } else {
                                 $('#classroom-dashboard-sidebar').show()
-                                $('.user-picture').attr('src',
-                                    '/classroom/assets/media/alphabet/' +
+                                $('.user-picture').attr('src', '/classroom/assets/media/alphabet/' +
                                     UserManager.getUser().pseudo.slice(0, 1).toUpperCase() +
                                     '.png')
                                 Main.getClassroomManager().getMyClassroom(UserManager.getUser()
@@ -1168,23 +1167,9 @@
                                             'dashboard-profil', $_GET('option'),
                                             $_GET('interface'))
                                     }
-                                    if (UserManager.getUser().isFromGar) {
-                                        document.getElementById('settings-student')
-                                            .style.display = 'none';
-                                    }
                                 })
-                            }
 
-                            // Init the super and group admin
-                            let currentTask = (onEnd) => {
-                                mainGroupAdmin.init().then((resolve) => {
-                                    mainSuperAdmin.init().then((resolve) => {
-                                        onEnd();
-                                    })
-                                })
                             }
-                            Main.getClassroomManager()._addTaskToQueue(currentTask);
-
 
                         },
                         (reason) => {
@@ -1208,5 +1193,4 @@
 <script src="assets/plugins/js/wordpress-widget.js"></script>
 
 </body>
-
 </html>
