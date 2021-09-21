@@ -225,6 +225,8 @@
 			"title": "Activities",
 			"save": "Save the draft ",
 			"add": "Create an activity",
+			"addCabriExpress": "Create Express activity",
+			"addCabriGenius": "Create Genius activity",
 			"new": "New",
 			"current": "In progress",
 			"waiting": "Not yet completed",
