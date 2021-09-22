@@ -798,534 +798,226 @@
             }
         },
         "faqTeacherNeutral": {
-        "title": "FAQ",
-        "1": {
-            "section_title": "Activités",
-            "question_list": {
-                "1": {
-                    "title": "À quoi sert l’onglet Mes activités ?",
-                    "answer": "Dans l’onglet <b>Mes activités</b>, vous allez pouvoir :<ol><li>Créer vos propres activités.</li><li>Puis les attribuer à vos apprenants !</li></ol>"
-                },
-                "2": {
-                    "title": "Qu’est-ce qu’une activité ?",
-                    "answer": "Une activité est un contenu interactif créé à partir de Cabri Express, Cabri Genius ou un cahier Cabri déjà existant."
-                },
-                "3": {
-                    "title": "Comment créer ou modifier une activité ?",
-                    "answer": "<p> Vous pouvez facilement créer ou modifier des activités.</p><p>Pour modifier une activité, rendez-vous dans l’onglet <b>Mes activités</b> et cliquez sur l’icône <i class=\"fas fa-cog\"></i> de votre activité puis cliquez sur Modifier. N’oubliez pas de sauvegarder vos modifications.</p>"
-                },
-                "4": {
-                    "title": "Comment attribuer une activité ?",
-                    "answer": "Pour attribuer une activité, vous avez trois options :<ol><li>Soit, vous vous rendez dans l’onglet <b>Mes activités</b> et cliquez sur l’icône <i class=\"fas fa-cog\"></i> de votre activité puis cliquez sur Attribuer. Ensuite, vous n’aurez plus qu’à suivre les étapes.</li><li>Cette option Attribuer est également disponible dans l’activité elle-même une fois ouverte.</li><li>Sinon, vous allez dans l’onglet <b>Mes classes</b> et cliquez sur une classe. Une fois arrivé sur le tableau de bord de la classe, vous n’avez plus qu’à cliquer sur le bouton “Ajouter une activité”.</li></ol>"
-                },
-                "5": {
-                    "title": "Comment tester une activité ?",
-                    "answer": "Pour tester une activité, vous avez deux options :<ol><li>Soit aller dans <b>Profil</b> et cliquer sur le bouton “Passer en mode apprenant” puis sélectionner la classe dans laquelle vous souhaitez vous placer. Vous vous retrouvez sur le compte fictif d’un apprenant appelé “Vittademo”, vous pourrez y découvrir l’interface “Apprenant” et réaliser les activités que vous avez attribuées.</li><li>Soit aller sur <b>Mes classes</b> dans le tableau de bord d’une classe, vous pourrez alors vous placer dans la peau de l’apprenant Vittademo. Pour cela, cliquer sur l’icône <i class=\"fas fa-exchange-alt\"></i>, vous aurez la possibilité de devenir un apprenant de la classe et d’essayer les activités.</li></ol>Pour revenir au mode “Enseignant”, il suffit d’aller dans l’onglet <b>Profil</b> du compte Vittademo et de cliquer sur “Retourner au mode enseignant”"
-                },
-                "6": {
-                    "title": "Comment supprimer l’attribution d’une activité sans supprimer l’activité ?",
-                    "answer": "Pour supprimer l’attribution d’une activité, aller dans l’onglet <b>Classe</b>, ouvrir le tableau de bord d’une des classes, puis cliquez sur l’activité (l’icône devient <i class=\"fas fa-cog\"></i> quand on passe dessus) puis sur Modifier l’attribution. Vous n’avez plus qu’à modifier les paramètres, sélectionner ou désélectionner les apprenants."
-                }
-            }
-        },
-        "2": {
-            "section_title": "Classe",
-            "question_list": {
-                "1": {
-                    "title": "À quoi sert l’onglet Mes classes ?",
-                    "answer": "Dans l’onglet Mes Classes, vous allez pouvoir :<ol><li>Créer vos propres classes et ajouter des apprenants</li><li>Corriger les réponses de vos apprenants aux activités,</li><li>et suivre leur progression.</li></ol>"
-                },
-                "2": {
-                    "title": "Comment ajouter mes apprenants à ma classe ?",
-                    "answer": "Plusieurs options s’offrent à vous :<ol><li>En classe, vous pouvez <b>projeter le code au tableau</b>. Pour cela, rendez-vous dans votre classe et cliquez sur le bouton agrandir le code ci-dessous :<br><img class=\"faq-img-center img-fluid\" src=\"assets/media/faq/image1.png\">Vos apprenants n’auront plus qu’à s'inscrire ou se connecter sur le site en rentrant le code. Ils pourront également noter ce code pour se connecter chez eux.</li><li>Vous pouvez également créer des apprenants avec le bouton “Ajouter un apprenant” et ensuite leur <b>communiquer leur mot de passe individuellement</b>, celui-ci est visible sur le Tableau de bord de la classe ci-dessous :<br><img class=\"faq-img-center img-fluid\" src=\"assets/media/faq/image2.png\"></li></ol>"
-                },
-                "3": {
-                    "title": "Un apprenant peut-il se trouver dans deux classes différentes ?",
-                    "answer": "Non, ce n’est actuellement pas possible."
-                },
-                "4": {
-                    "title": "Comment bloquer l’arrivée d’autres apprenants dans une classe ?",
-                    "answer": "Cette option sera bientôt disponible ! Cela permettra notamment d’éviter que les apprenants s'inscrivent plusieurs fois dans une même classe par erreur, et également d’éviter que des personnes externes entrent dans la classe sans autorisation."
-                },
-                "5": {
-                    "title": "Comment attribuer une activité ?",
-                    "answer": "<p>Vous pouvez attribuer une activité à toutes les classes que vous avez créées ou seulement à un apprenant en particulier.</p><p>Pour attribuer une activité, vous avez trois options :</p><ol><li>Soit, vous vous rendez dans l’onglet <b>Mes activités</b> et cliquez sur l’icône <i class=\"fas fa-cog\"></i> de votre activité puis cliquez sur Attribuer. Ensuite, vous n’aurez plus qu’à suivre les étapes.</li><li>Cette option Attribuer est également disponible dans l’activité elle-même une fois ouverte.</li><li>Sinon, vous allez dans l’onglet <b>Mes classes</b> et cliquez sur une classe. Une fois arrivé sur le tableau de bord de la classe, vous n’avez plus qu’à cliquer sur le bouton “Ajouter une activité”.</li></ol>"
-                },
-                "6": {
-                    "title": "Peut-on revenir sur l'attribution d’une activité ?",
-                    "answer": "Pour revenir sur l’attribution d’une activité, aller dans l’onglet <b>Classe</b>, ouvrir la tableau de bord d’une des classes, puis cliquez sur l’activité (l’icône devient <i class=\"fas fa-cog\"></i> quand on passe dessus) puis sur Modifier l’attribution. Vous n’avez plus qu’à modifier les paramètres, sélectionner ou désélectionner les apprenants."
-                },
-                "7": {
-                    "title": "Comment l’évaluation des activités se fait-elle ?",
-                    "answer": "Les évaluations sont :<ul><li>soit manuellement sur 4 niveaux : Très bonne maîtrise ; Maîtrise suffisante ; Maîtrise faible et Maîtrise insuffisante</li><li>Soit automatique sur 2 niveaux : Très bonne maîtrise et Maîtrise faible.<br>Ce type d’évaluation permet à l’apprenant d’obtenir sa correction immédiatement et pour l’enseignant de bénéficier d’un gain de temps non négligeable.</li></ul><p>Une fois que l’apprenant a terminé son activité, il a la possibilité de la recommencer si l’enseignant a sélectionné le mode “Exercice” lors de l’attribution. Dans le mode “Évaluation”, l’élève ne peut pas recommencer une fois l’activité validée.</p><p>Pour visualiser les résultats, il vous suffit de vous rendre dans le Tableau de bord de la classe.</p><p>Une activité non corrigée est symbolisée par un crayon dans le Tableau de bord. Pour la corriger, cliquer sur le crayon, ensuite il vous suffit d’évaluer et commenter le travail de l’apprenant.</p>"
-                },
-                "8": {
-                    "title": "Comment sait-on lorsque les apprenants ont terminé leurs activités ?",
-                    "answer": "Lorsqu’un apprenant a terminé son activité, vous recevrez une notification par e-mail.<br>Ce paramètre sera ajustable à l’avenir, pour l’instant ce n’est pas paramétrable."
-                },
-                "9": {
-                    "title": "Comment modifier le nom d’une classe ?",
-                    "answer": "Pour changer le nom de votre classe, il faudra cliquer sur l’icône <i class=\"fas fa-cog\"></i> depuis l’onglet Mes classes, puis sur modifier. Vous n’aurez plus qu’à changer son nom."
-                },
-                "10": {
-                    "title": "Comment supprimer un apprenant d’une classe ?",
-                    "answer": "<p>Pour supprimer un apprenant, il suffit de cliquer sur l’icône <i class=\"fas fa-cog\"></i> à côté du nom de l’apprenant sur le Tableau de bord de la classe.</p><p>Attention, cette action est irréversible et clôture le compte de l’apprenant.</p>"
-                },
-                "11": {
-                    "title": "À quoi sert le bouton anonymiser dans le Tableau de bord ?",
-                    "answer": "Ce bouton remplace le nom des apprenants par des numéros. Cela permet de projeter les résultats des élèves au tableau anonymement pour ne pas stigmatiser certains élèves."
-                }
-            }
-        },
-        "3": {
-            "section_title": "Profil",
-            "question_list": {
-                "1": {
-                    "title": "À quoi sert l’onglet Profil ?",
-                    "answer": "Dans l’onglet Profil, vous allez pouvoir :<ol><li>Gérer vos paramètres de compte,</li><li>Visualiser vos statistiques,</li><li>et échanger des messages avec vos apprenants ainsi que l’équipe de Cabrilog si vous avez besoin d’aide.</li></ol>"
-                },
-                "2": {
-                    "title": "Comment changer de mot de passe ou d’autres paramètres de compte ?",
-                    "answer": "Pour changer de mot de passe ou d’autres paramètres, allez sur l’onglet Profil. Dans le cas du GAR, les paramètres sont ceux de votre ENT."
-                },
-                "3": {
-                    "title": "Comment change-t-on la langue ?",
-                    "answer": "Le module Classe est actuellement disponible en français et en anglais. Pour changer de langue, allez dans l'onglet profil, cliquez sur le bouton “Paramètres”, puis sélectionnez la langue qui vous convient."
-                },
-                "4": {
-                    "title": "Qu’est-ce que le mode apprenant ?",
-                    "answer": "<p>Dans votre profil, vous pouvez cliquer sur le bouton “Passer en mode apprenant”. Après avoir choisi une classe, vous vous retrouvez sur le compte fictif d’un apprenant appelé “Vittademo”, dans lequel vous pourrez découvrir l’interface Apprenant et réaliser les activités que vous avez attribuées.</p><p>Pour revenir au mode “Enseignant”, il suffit d’aller dans l’onglet <b>Profil</b> du compte Vittademo et de cliquer sur “Retourner au mode enseignant”.</p>"
-                }
-            }
-        },
-        "4": {
-            "section_title": "Questions générales",
-            "question_list": {
-                "1": {
-                    "title": "Sur quel support le module classe est-il compatible ?",
-                    "answer": "<p>Les interfaces fonctionnent sans installation, sur ordinateur, tablette et smartphone ! Les mises à jour sont automatiques et vos programmes sont sauvegardés dans le cloud.</p><p>Pour profiter pleinement de toutes les fonctionnalités, nous vous conseillons d’utiliser Chrome ou Firefox.</p>"
-                },
-                "2": {
-                    "title": "Comment créer un raccourci pour accéder au module Classe ?",
-                    "answer": "<p>Vous avez la possibilité de mettre une icône sur le bureau de l'ordinateur pour accéder rapidement au module Classe. Pour cela :</p><p>Sur Windows et sur Mac:</p><ol><li>Ouvrez la page : <a href=\"/classroom\" target=\"_blank\">classroom/</a>, puis réduisez la taille de la fenêtre du navigateur afin de voir le bureau à côté.</li><li>Dans votre navigateur Web, sélectionnez à la souris le symbole situé à gauche de l'adresse et, sans relâcher votre clic, faites glisser le pointeur jusqu'au Bureau. Relâchez pour créer le raccourci.</li><li>Le raccourci est créé. Vous n’aurez plus qu’à double-cliquer dessus pour ouvrir la page web liée.</li></ol><p>Sur Android avec Chrome :</p><ol><li>Ouvrez la page : <a href=\"/classroom\" target=\"_blank\">classroom/</a>, puis appuyez sur le bouton de menu, puis sélectionnez \"Ajouter à l'écran d'accueil\".</li><li>Nommez la page et appuyez sur \"Ajouter\".</li><li>Le raccourci est créé. Vous n’aurez plus qu’à double-cliquer dessus pour ouvrir la page web liée.</li></ol><p>Sur Android avec Firefox :</p><ol><li>Ouvrez la page : <a href=\"/classroom\" target=\"_blank\">classroom/</a>, puis appuyez sur le bouton de menu, puis appuyez sur Page.</li><li>Appuyez sur Ajouter un raccourci vers la page.</li><li>Le raccourci est créé sur l’écran d’accueil. Vous n’aurez plus qu’à cliquer dessus pour ouvrir la page web liée.</li></ol><p>Sur iOS avec Safari :</p><ol><li>Ouvrez la page : <a href=\"/classroom\" target=\"_blank\">classroom/</a>, puis touchez l'icône Partage.</li><li>Sélectionnez sur l'écran d'accueil, puis appuyez sur Ajouter.</li><li>Le raccourci est créé sur l’écran d’accueil. Vous n’aurez plus qu’à cliquer dessus pour ouvrir la page web liée.</li></ol><p>Vous pourrez trouver d'autres tutoriels sur Internet pour créer un raccourci sur le bureau.</p>"
-                }
-            }
-        },
-        "5": {
-            "section_title": "Problème technique",
-            "question_list": {
-                "1": {
-                    "title": "J’ai un bug, que faire ?",
-                    "answer": "Lorsqu’un bug se produit, la première chose à faire est d'essayer de rafraîchir la page. Si le bug persiste, vous pouvez nous contacter dans l’onglet Profil avec le bouton “Aide”."
-                },
-                "2": {
-                    "title": "Comment signaler des bugs et faire part de mes commentaires ?",
-                    "answer": "Si le bug persiste, vous pouvez nous contacter dans l’onglet profil avec le bouton “Aide”.<br>Pour nous faire des commentaires, vous pouvez également nous contacter dans l’onglet Profil avec le bouton “Aide”."
-                }
-            }
-        },
-        "6": {
-            "section_title": "Licences et autorisations",
-            "question_list": {
-                "1": {
-                    "title": "Peut-on faire une description ou présentation du module Classe ?",
-                    "answer": "Oui, vous pouvez réutiliser les visuels pour module Classe pour créer une description, présentation, formation, tutoriel, cours ou autre. Si vous souhaitez inclure des images ou contenus d'activités, veuillez mentionner l'auteur (voir question suivante)."
-                },
-                "2": {
-                    "title": "Où peut-on trouver le code source du module Classe ?",
-                    "answer": "Le code source du module Classe est disponible sur le <a href=\"https://github.com/vittascience/OpenSTEAM-LMS\" target=\"_href\">repository git OpenSTEAM-LMS</a>, n'hésitez pas à contribuer !"
-                }
-            }
-        }
-    },
-    "faqStudentNeutral": {
-        "title": "FAQ",
-        "1": {
-            "section_title": "Activités",
-            "question_list": {
-                "1": {
-                    "title": "À quoi sert l’onglet Mes activités ?",
-                    "answer": "Dans l’onglet Mes Activités, tu vas pouvoir :<ol><li>Réaliser les nouvelles activités de tes enseignants.</li><li>Sauvegarder celles que tu n’as pas encore terminées.</li><li>Et revoir celles que tu as faites !</li></ol>"
-                },
-                "2": {
-                    "title": "Qu’est-ce qu’une activité ?",
-                    "answer": "Une activité est un contenu interactif créé à partir de Cabri Express ou Cabri auteur."
-                }
-            }
-        },
-        "2": {
-            "section_title": "Appel à l'aide",
-            "question_list": {
-                "1": {
-                    "title": "À quoi sert l’onglet Appel à l’aide ?",
-                    "answer": "Dans l’onglet Appel à l’aide, tu vas pouvoir :<ol><li>Demander de l’aide à tes enseignants à tout moment,</li><li>Consulter les questions fréquemment posées.</li></ol>Tu pourras suivre l’échange de tes messages dans l’onglet Profil."
-                }
-            }
-        },
-        "3": {
-            "section_title": "Profil",
-            "question_list": {
-                "1": {
-                    "title": "À quoi sert l’onglet Profil ?",
-                    "answer": "Dans l’onglet Profil, tu vas pouvoir :<ol><li>Gérer tes paramètres de compte,</li><li>Visualiser tes statistiques,</li><li>et échanger des messages avec tes enseignants.</li></ol>"
-                },
-                "2": {
-                    "title": "Comment changer de mot de passe ou d’autres paramètres de compte ?",
-                    "answer": "Pour changer de mot de passe ou d’autres paramètres, vas sur l’onglet Profil."
-                },
-                "3": {
-                    "title": "Comment change-t-on la langue ?",
-                    "answer": "Le module Classe est actuellement disponible en français et en anglais. Pour changer de langue, allez dans l'onglet profil, clique sur le bouton “Paramètres”, puis sélectionne la langue qui te convient."
-                }
-            }
-        },
-        "4": {
-            "section_title": "Questions générales",
-            "question_list": {
-                "1": {
-                    "title": "Comment prendre en main le module Classe ?",
-                    "answer": "À tout moment, tu peux accéder à l’aide générale en cliquant sur l’icône <i class=\"fas fa-question\"></i> en haut à droite pour prendre en main le module Classe."
-                },
-                "2": {
-                    "title": "Sur quel support le module classe est-il compatible ?",
-                    "answer": "<p>Les interfaces fonctionnent sans installation, sur ordinateur, tablette et smartphone ! Les mises à jour sont automatiques et tes programmes sont sauvegardés dans le cloud.</p><p>Pour profiter pleinement de toutes les fonctionnalités, nous te conseillons d’utiliser Chrome ou Firefox.</p>"
-                },
-                "3": {
-                    "title": "Comment créer un raccourci pour accéder au module Classe ?",
-                    "answer": "<p>Tu as la possibilité de mettre une icône sur le bureau de l'ordinateur pour accéder rapidement au module Classe. Pour cela :</p><p>Sur Windows et sur Mac:</p><ol><li>Ouvre la page : <a href=\"/classroom\" target=\"_blank\">/classroom/</a>, puis réduis la taille de la fenêtre du navigateur afin de voir le bureau à côté.</li><li>Dans ton navigateur Web, sélectionne à la souris le symbole situé à gauche de l'adresse et, sans relâcher ton clic, faits glisser le pointeur jusqu'au Bureau. Relâche pour créer le raccourci.</li><li>Le raccourci est créé. Tu n’auras plus qu’à double-cliquer dessus pour ouvrir la page web liée.</li></ol><p>Sur Android avec Chrome :</p><ol><li>Ouvre la page : <a href=\"/classroom\" target=\"_blank\">/classroom/</a>, puis appuie sur le bouton de menu, puis sélectionne \"Ajouter à l'écran d'accueil\".</li><li>Nomme la page et appuie sur \"Ajouter\".</li><li>Le raccourci est créé. Tu n'auras plus qu’à double-cliquer dessus pour ouvrir la page web liée.</li></ol><p>Sur Android avec Firefox :</p><ol><li>Ouvre la page : <a href=\"/classroom\" target=\"_blank\">/classroom/</a>, puis appuie sur le bouton de menu, puis appuie sur Page.</li><li>Appuie sur Ajouter un raccourci vers la page.</li><li>Le raccourci est créé sur l’écran d’accueil. Tu n'auras plus qu’à cliquer dessus pour ouvrir la page web liée.</li></ol><p>Sur iOS avec Safari :</p><ol><li>Ouvre la page : <a href=\"/classroom\" target=\"_blank\">/classroom/</a>, puis touche l'icône Partage.</li><li>Sélectionne sur l'écran d'accueil, puis appuie sur Ajouter.</li><li>Le raccourci est créé sur l’écran d’accueil. Tu n'auras plus qu’à cliquer dessus pour ouvrir la page web liée.</li></ol><p>Tu pourras trouver d'autres tutoriels sur Internet pour créer un raccourci sur le bureau.</p>"
-                }
-            }
-        },
-        "5": {
-            "section_title": "Problème technique",
-            "question_list": {
-                "1": {
-                    "title": "J’ai un bug, que faire ?",
-                    "answer": "Lorsqu’un bug se produit, la première chose à faire est d'essayer de rafraîchir la page. Si le bug persiste, tu peux contacter ton enseignant dans l’onglet Appel à l’aide."
-                },
-                "2": {
-                    "title": "Comment signaler des bugs et faire part de mes commentaires ?",
-                    "answer": "<p>Si le bug persiste, vous pouvez contacter votre enseignant dans l’onglet Aide.</p><p>Pour faire des commentaires à ton enseignement, tu peux également le contacter dans l’onglet Aide.</p>"
-                }
-            }
-        },
-        "6": {
-            "section_title": "Licences et autorisations",
-            "question_list": {
-                "1": {
-                    "title": "Où peut-on trouver le code source du module Classe ?",
-                    "answer": "Le code source du module Classe est disponible sur <a href=\"https://github.com/vittascience/OpenSTEAM-LMS\" target=\"_href\">le repository git OpenSTEAM-LMS</a>, n'hésites pas à contribuer !"
-                }
-            }
-        }
-    },
-    "superadmin": {
-        "profil": {
-            "superAdmin": "Passer en mode superadmin",
-            "groupAdmin": "Passer en mode admin de groupe",
-            "bio": "Bio <span class=\"text-danger\">*</span>",
-            "email": "E-mail <span class=\"text-danger\">*</span>",
-            "nickname": "Pseudo <span class=\"text-danger\">*</span>",
-            "lastname": "Nom <span class=\"text-danger\">*</span>",
-            "firstname": "Prénom <span class=\"text-danger\">*</span>",
-            "phone": "Numéro de téléphone",
-            "grade": "Niveau de formation <span class=\"text-danger\">*</span>",
-            "subject": "Matière enseignée <span class=\"text-danger\">*</span>",
-            "school": "Établissement <span class=\"text-danger\">*</span>",
-            "password": "Mot de passe <span class=\"text-danger\">*</span>",
-            "confirmPassword": "Confirmer le mot de passe <span class=\"text-danger\">*</span>",
-            "help": "Appel à l'aide",
-            "onlyVisibleGroupAdmin": "Uniquement visible par vous en tant qu'administrateur de groupe :",
-            "onlyVisibleSuperAdmin": "Uniquement visible par vous en tant que super admin :"
-        },
-        "account": {
-            "activate": {
-                "success": "Votre compte à bien été activé !",
-                "alreadyactive": "Votre compte est déjà actif.",
-                "noToken": "Aucun token n'est attaché à ce lien."
-            },
-            "active": "Compte actif",
-            "registration": {
-                "success": "Inscription réussie !",
-                "emailSent": "Un e-mail vient de vous être envoyé, suivez le lien dans celui-ci pour activer votre compte et continuez votre liaison au groupe \"<span id=\"gourpName2\"></span>\"",
-                "accountPublic": "Acceptez-vous que votre nom et prénom soient publics sur le site ?",
-                "newsletter": "Souhaitez-vous recevoir notre newsletter par mail ?",
-                "mailAlert": "Souhaitez-vous recevoir des alertes par mail lors de la réception de nouveaux messages sur le site ?",
-                "allowContact": "Souhaitez-vous pouvoir être contacté par les autres utilisateurs du site ?",
-                "confirmAdult": "Je confirme avoir plus de 18 ans (article 1124 du code civil)*",
-                "disclaimerVittascience": "Vittascience place la sécurité et la confidentialité des données personnelles de ses utilisateurs au coeur de ses préoccupations. Découvrez<a href=\"http://vittascience.com/privacy\"> notre politique de protection des données personnelles</a> ",
-                "mandatory": "Les champs marqués par un <span class=\"text-danger\">*</span> sont obligatoires.",
-                "cguVittascience": "En validant ce formulaire, vous acceptez les <a href=\"http://vittascience.com/\"> conditions générales d'utilisation</a>.",
-                "description": "Merci de compléter les champs suivants pour créer votre compte.",
-                "title": "Inscription",
-                "registrationFinalizationSuccess": "Votre inscription à bien été finalisé, vous pouvez maintenant vous connectez",
-                "registrationFinalization": "Finaliser votre inscription",
-                "descriptionFinalization": "Merci de compléter les champs suivants pour finaliser votre inscription.",
-                "noTokenOrUserActive": "Token invalide ou utilisateur déjà actif",
-                "noToken": "Token manquant"
-            },
-            "notAllowedUpdateUser": "Vous ne disposez pas des droits pour modifier cet utilisateur.",
-            "notAllowedDeleteGroup": "Vous ne disposez pas des droits pour supprimer ce groupe.",
-            "notAllowedDisableUser": "Vous ne disposez pas des droits pour désactiver cet utilisateur.",
-            "notAllowedDeleteUser": "Vous ne disposez pas des droits pour supprimer cet utilisateur.",
-            "passwordUpdatedMessage": "Votre mot de passe a été modifié avec succès",
-            "noUserFound": "Aucun utilisateur utilisant cette adresse n'a été trouvé.",
-            "noUserFoundToken": "Ce token ne correspond à aucun utilisateur.",
-            "missingData": "Il manque des informations pour finaliser l'opération.",
-            "errorSending": "Une erreur est survenue lors de l'envoie de l'e-mail",
-            "userNotFound": "Utilisateur introuvable et / ou déjà actif",
-            "userNotFoundId": "Utilisateur introuvable",
-            "errorActivation": "Une erreur est survenue lors de la l'activation."
-        },
-        "users": {
-            "users": "Utilisateurs",
-            "add": "Ajouter un utilisateur",
-            "create": "Créer un utilisateur",
-            "delete": "Supprimer un utilisateur",
-            "deleteConfirmation": "Veuillez écrire \"supprimer\" dans le champ si dessous pour valider l'action.",
-            "deleteIntentionSA": "Vous vous apprêtez à supprimer l'utilisateur : <span id=\"mdi_firstnameSA\"></span>",
-            "disableIntention": "Vous vous apprêtez à désactiver l'utilisateur : <span id=\"mde_firstnameSA\"></span>",
-            "deleteConfirmationTitle": "Confirmer la suppression",
-            "disableConfirmationTitle": "Confirmer la désactivation",
-            "update": "Modifier un utilisateur",
-            "updateAppUser": "Modifier les applications de l'utilisateur",
-            "updateApp": "Modifier les applications",
-            "disable": {
-                "message": "Veuillez écrire 'supprimer' dans le champ si dessous pour valider l'action.",
-                "intention": "Vous vous apprêtez à supprimer l'utilisateur : <span id=\"md_firstnameGA\"></span>"
-            },
-            "mail": {
-                "resetPassword": {
-                    "subject": "Réinitialisation de votre mot de passe.",
-                    "bodyTitle": "Réinitialisation du mot de passe.",
-                    "textBeforeLink": "Si le bouton ci-dessus ne fonctionne pas, copiez et collez dans votre navigateur, le lien suivant :"
-                },
-                "finalizeAccount": {
-                    "title": "Finalisation d'inscription",
-                    "subject": "Finalisation d'inscription",
-                    "bodyTitle": "Finaliser votre inscription.",
-                    "textBeforeLink": "Si le bouton ci-dessus ne fonctionne pas, copiez et collez dans votre navigateur, le lien suivant :"
+            "title": "FAQ",
+            "1": {
+                "section_title": "Activités",
+                "question_list": {
+                    "1": {
+                        "title": "À quoi sert l’onglet Mes activités ?",
+                        "answer": "Dans l’onglet <b>Mes activités</b>, vous allez pouvoir :<ol><li>Créer vos propres activités.</li><li>Puis les attribuer à vos apprenants !</li></ol>"
+                    },
+                    "2": {
+                        "title": "Qu’est-ce qu’une activité ?",
+                        "answer": "Une activité est un contenu interactif créé à partir de Cabri Express, Cabri Genius ou un cahier Cabri déjà existant."
+                    },
+                    "3": {
+                        "title": "Comment créer ou modifier une activité ?",
+                        "answer": "<p> Vous pouvez facilement créer ou modifier des activités.</p><p>Pour modifier une activité, rendez-vous dans l’onglet <b>Mes activités</b> et cliquez sur l’icône <i class=\"fas fa-cog\"></i> de votre activité puis cliquez sur Modifier. N’oubliez pas de sauvegarder vos modifications.</p>"
+                    },
+                    "4": {
+                        "title": "Comment attribuer une activité ?",
+                        "answer": "Pour attribuer une activité, vous avez trois options :<ol><li>Soit, vous vous rendez dans l’onglet <b>Mes activités</b> et cliquez sur l’icône <i class=\"fas fa-cog\"></i> de votre activité puis cliquez sur Attribuer. Ensuite, vous n’aurez plus qu’à suivre les étapes.</li><li>Cette option Attribuer est également disponible dans l’activité elle-même une fois ouverte.</li><li>Sinon, vous allez dans l’onglet <b>Mes classes</b> et cliquez sur une classe. Une fois arrivé sur le tableau de bord de la classe, vous n’avez plus qu’à cliquer sur le bouton “Ajouter une activité”.</li></ol>"
+                    },
+                    "5": {
+                        "title": "Comment tester une activité ?",
+                        "answer": "Pour tester une activité, vous avez deux options :<ol><li>Soit aller dans <b>Profil</b> et cliquer sur le bouton “Passer en mode apprenant” puis sélectionner la classe dans laquelle vous souhaitez vous placer. Vous vous retrouvez sur le compte fictif d’un apprenant appelé “Vittademo”, vous pourrez y découvrir l’interface “Apprenant” et réaliser les activités que vous avez attribuées.</li><li>Soit aller sur <b>Mes classes</b> dans le tableau de bord d’une classe, vous pourrez alors vous placer dans la peau de l’apprenant Vittademo. Pour cela, cliquer sur l’icône <i class=\"fas fa-exchange-alt\"></i>, vous aurez la possibilité de devenir un apprenant de la classe et d’essayer les activités.</li></ol>Pour revenir au mode “Enseignant”, il suffit d’aller dans l’onglet <b>Profil</b> du compte Vittademo et de cliquer sur “Retourner au mode enseignant”"
+                    },
+                    "6": {
+                        "title": "Comment supprimer l’attribution d’une activité sans supprimer l’activité ?",
+                        "answer": "Pour supprimer l’attribution d’une activité, aller dans l’onglet <b>Classe</b>, ouvrir le tableau de bord d’une des classes, puis cliquez sur l’activité (l’icône devient <i class=\"fas fa-cog\"></i> quand on passe dessus) puis sur Modifier l’attribution. Vous n’avez plus qu’à modifier les paramètres, sélectionner ou désélectionner les apprenants."
+                    }
                 }
             },
-            "showResetLinkTitle": "Réinitialisation de mot de passe.",
-            "showResetLink": "Lien de réinitialisation du mot de passe.",
-            "groupAdmin": "Administateur du groupe",
-            "admin": "Administrateur",
-            "teacher": "Enseignant",
-            "usersPerPage": "Utilisateurs par page",
-            "userDeleted": "Utilisateur supprimé.",
-            "userDisabled": "Utilisateur désactivé.",
-            "userCreated": "Utilisateur créé avec succès",
-            "userUpdated": "Utilisateur modifié avec succès",
-            "chooseNewPassword": "Choisissez votre nouveau mot de passe",
-            "passwordUpdate": "Votre mot de passe à été modifié",
-            "enterYourEmail": "Entrer votre adresse e-mail",
-            "sendResetMailDescription": "En cliquant sur envoyer un e-mail contenant un lien pour changer votre mot de passe vous sera envoyé.",
-            "yourMail": "Votre E-mail",
-            "emailSended": "Un E-mail contenant la procèdure à suivre vient de vous être envoyer",
-            "emailNotReceived": "Si vous n'avez pas reçu l'e-mail, cliquer sur recommencer (le mail peut mettre un petit peu de temps avant d'arriver)",
-            "mailSentToUser": "Un e-mail a été envoyé à l'utilisateur pour qu'il finalise son inscription",
-            "mailNotSentToUser": "l'e-mail de finalisation d'inscription n'a pas pu être envoyé à l'utilisateur",
-            "mailSentToUserReset": "Un e-mail a été envoyé à l'utilisateur pour qu'il change de mot de passe",
-            "mailNotSentToUserReset": "l'e-mail de changement de mot de passe n'a pas pu être envoyé à l'utilisateur",
-            "appsUpdated": "Les applications de l'utilisateur ont été mise à jour",
-            "teacherGrades": {
-                "0": "Primaire",
-                "1": "Collège",
-                "2": "Lycée",
-                "3": "Lycée Professionnel",
-                "4": "POST-BAC"
+            "2": {
+                "section_title": "Classe",
+                "question_list": {
+                    "1": {
+                        "title": "À quoi sert l’onglet Mes classes ?",
+                        "answer": "Dans l’onglet Mes Classes, vous allez pouvoir :<ol><li>Créer vos propres classes et ajouter des apprenants</li><li>Corriger les réponses de vos apprenants aux activités,</li><li>et suivre leur progression.</li></ol>"
+                    },
+                    "2": {
+                        "title": "Comment ajouter mes apprenants à ma classe ?",
+                        "answer": "Plusieurs options s’offrent à vous :<ol><li>En classe, vous pouvez <b>projeter le code au tableau</b>. Pour cela, rendez-vous dans votre classe et cliquez sur le bouton agrandir le code ci-dessous :<br><img class=\"faq-img-center img-fluid\" src=\"assets/media/faq/image1.png\">Vos apprenants n’auront plus qu’à s'inscrire ou se connecter sur le site en rentrant le code. Ils pourront également noter ce code pour se connecter chez eux.</li><li>Vous pouvez également créer des apprenants avec le bouton “Ajouter un apprenant” et ensuite leur <b>communiquer leur mot de passe individuellement</b>, celui-ci est visible sur le Tableau de bord de la classe ci-dessous :<br><img class=\"faq-img-center img-fluid\" src=\"assets/media/faq/image2.png\"></li></ol>"
+                    },
+                    "3": {
+                        "title": "Un apprenant peut-il se trouver dans deux classes différentes ?",
+                        "answer": "Non, ce n’est actuellement pas possible."
+                    },
+                    "4": {
+                        "title": "Comment bloquer l’arrivée d’autres apprenants dans une classe ?",
+                        "answer": "Cette option sera bientôt disponible ! Cela permettra notamment d’éviter que les apprenants s'inscrivent plusieurs fois dans une même classe par erreur, et également d’éviter que des personnes externes entrent dans la classe sans autorisation."
+                    },
+                    "5": {
+                        "title": "Comment attribuer une activité ?",
+                        "answer": "<p>Vous pouvez attribuer une activité à toutes les classes que vous avez créées ou seulement à un apprenant en particulier.</p><p>Pour attribuer une activité, vous avez trois options :</p><ol><li>Soit, vous vous rendez dans l’onglet <b>Mes activités</b> et cliquez sur l’icône <i class=\"fas fa-cog\"></i> de votre activité puis cliquez sur Attribuer. Ensuite, vous n’aurez plus qu’à suivre les étapes.</li><li>Cette option Attribuer est également disponible dans l’activité elle-même une fois ouverte.</li><li>Sinon, vous allez dans l’onglet <b>Mes classes</b> et cliquez sur une classe. Une fois arrivé sur le tableau de bord de la classe, vous n’avez plus qu’à cliquer sur le bouton “Ajouter une activité”.</li></ol>"
+                    },
+                    "6": {
+                        "title": "Peut-on revenir sur l'attribution d’une activité ?",
+                        "answer": "Pour revenir sur l’attribution d’une activité, aller dans l’onglet <b>Classe</b>, ouvrir la tableau de bord d’une des classes, puis cliquez sur l’activité (l’icône devient <i class=\"fas fa-cog\"></i> quand on passe dessus) puis sur Modifier l’attribution. Vous n’avez plus qu’à modifier les paramètres, sélectionner ou désélectionner les apprenants."
+                    },
+                    "7": {
+                        "title": "Comment l’évaluation des activités se fait-elle ?",
+                        "answer": "Les évaluations sont :<ul><li>soit manuellement sur 4 niveaux : Très bonne maîtrise ; Maîtrise suffisante ; Maîtrise faible et Maîtrise insuffisante</li><li>Soit automatique sur 2 niveaux : Très bonne maîtrise et Maîtrise faible.<br>Ce type d’évaluation permet à l’apprenant d’obtenir sa correction immédiatement et pour l’enseignant de bénéficier d’un gain de temps non négligeable.</li></ul><p>Une fois que l’apprenant a terminé son activité, il a la possibilité de la recommencer si l’enseignant a sélectionné le mode “Exercice” lors de l’attribution. Dans le mode “Évaluation”, l’élève ne peut pas recommencer une fois l’activité validée.</p><p>Pour visualiser les résultats, il vous suffit de vous rendre dans le Tableau de bord de la classe.</p><p>Une activité non corrigée est symbolisée par un crayon dans le Tableau de bord. Pour la corriger, cliquer sur le crayon, ensuite il vous suffit d’évaluer et commenter le travail de l’apprenant.</p>"
+                    },
+                    "8": {
+                        "title": "Comment sait-on lorsque les apprenants ont terminé leurs activités ?",
+                        "answer": "Lorsqu’un apprenant a terminé son activité, vous recevrez une notification par e-mail.<br>Ce paramètre sera ajustable à l’avenir, pour l’instant ce n’est pas paramétrable."
+                    },
+                    "9": {
+                        "title": "Comment modifier le nom d’une classe ?",
+                        "answer": "Pour changer le nom de votre classe, il faudra cliquer sur l’icône <i class=\"fas fa-cog\"></i> depuis l’onglet Mes classes, puis sur modifier. Vous n’aurez plus qu’à changer son nom."
+                    },
+                    "10": {
+                        "title": "Comment supprimer un apprenant d’une classe ?",
+                        "answer": "<p>Pour supprimer un apprenant, il suffit de cliquer sur l’icône <i class=\"fas fa-cog\"></i> à côté du nom de l’apprenant sur le Tableau de bord de la classe.</p><p>Attention, cette action est irréversible et clôture le compte de l’apprenant.</p>"
+                    },
+                    "11": {
+                        "title": "À quoi sert le bouton anonymiser dans le Tableau de bord ?",
+                        "answer": "Ce bouton remplace le nom des apprenants par des numéros. Cela permet de projeter les résultats des élèves au tableau anonymement pour ne pas stigmatiser certains élèves."
+                    }
+                }
             },
-            "teacherSubjects": {
-                "0": {
-                    "0": "Ecole élémentaire",
-                    "1": "Autre (préciser dans la biographie)"
-                },
-                "1": {
-                    "0": "Education physique et sportive (EPS)",
-                    "1": "Enseignement moral et civique",
-                    "2": "Enseignements artistiques",
-                    "3": "Français",
-                    "4": "Histoire-géographie",
-                    "5": "Langue vivante",
-                    "6": "Mathématiques",
-                    "7": "Physique-Chimie",
-                    "8": "Sciences de la vie et de la Terre (SVT)",
-                    "9": "Technologie",
-                    "10": "Autre (préciser dans la biographie)"
-                },
-                "2": {
-                    "0": "Arts",
-                    "1": "Arts du cirque",
-                    "2": "Biologie Ecologie",
-                    "3": "Biotechnologies",
-                    "4": "Création et culture design",
-                    "5": "Création et innovation technologiques (CIT)",
-                    "6": "Ecologie-agronomie-territoires-développement durable",
-                    "7": "Education physique et sportive (EPS)",
-                    "8": "Enseignement moral et civique",
-                    "9": "Enseignement scientifique",
-                    "10": "Enseignement technologique transversal (ETT)",
-                    "11": "Français",
-                    "12": "Hippologie et équitation",
-                    "13": "Histoire - Géographie",
-                    "14": "Histoire-géographie, géopolitique et sciences politiques",
-                    "15": "Humanités, littérature et philosophie",
-                    "16": "Langues et cultures de l’Antiquité : latin ou grec",
-                    "17": "Langues vivantes",
-                    "18": "Langues, littératures et cultures étrangères et régionales",
-                    "19": "Littérature et langues et cultures de l’Antiquité",
-                    "20": "Management et gestion",
-                    "21": "Mathématiques",
-                    "22": "Numérique et sciences informatiques (NSI)",
-                    "23": "Physique-chimie",
-                    "24": "Principes fondamentaux de l’économie et de la gestion",
-                    "25": "Santé et social",
-                    "26": "Sciences de la vie et de la Terre (SVT)",
-                    "27": "Sciences de l’ingénieur",
-                    "28": "Sciences et laboratoire",
-                    "29": "Sciences et techniques du théâtre, de la musique et de la danse (S2TMD)",
-                    "30": "Sciences et technologies de laboratoire (STL)",
-                    "31": "Sciences et technologies de l’hôtellerie et de la restauration (STHR)",
-                    "32": "Sciences et technologies de l’industrie et du développement durable (STI2D)",
-                    "33": "Sciences et technologies du design et des arts appliqués (STD2A)",
-                    "34": "Sciences et technologies du management et de la gestion (STMG)",
-                    "35": "Sciences numériques et technologie (SNT)",
-                    "36": "Sciences économiques et sociales (SES)",
-                    "37": "Autre (préciser dans la biographie)"
-                },
-                "3": {
-                    "0": "Arts appliqués et cultures artistiques",
-                    "1": "Economie-Droit",
-                    "2": "Economie-Gestion",
-                    "3": "Education physique et sportive (EPS)",
-                    "4": "Enseignement moral et civique",
-                    "5": "Enseignement technologique transversal (ETT)",
-                    "6": "Français",
-                    "7": "Histoire-géographie",
-                    "8": "Langues vivantes étrangères",
-                    "9": "Mathématiques Physique-Chimie",
-                    "10": "Prévention Santé Environnement",
-                    "11": "Autre (préciser dans la biographie)"
-                },
-                "4": {
-                    "0": "Etudes supérieures",
-                    "1": "Autre (préciser dans la biographie)"
+            "3": {
+                "section_title": "Profil",
+                "question_list": {
+                    "1": {
+                        "title": "À quoi sert l’onglet Profil ?",
+                        "answer": "Dans l’onglet Profil, vous allez pouvoir :<ol><li>Gérer vos paramètres de compte,</li><li>Visualiser vos statistiques,</li><li>et échanger des messages avec vos apprenants ainsi que l’équipe de Cabrilog si vous avez besoin d’aide.</li></ol>"
+                    },
+                    "2": {
+                        "title": "Comment changer de mot de passe ou d’autres paramètres de compte ?",
+                        "answer": "Pour changer de mot de passe ou d’autres paramètres, allez sur l’onglet Profil. Dans le cas du GAR, les paramètres sont ceux de votre ENT."
+                    },
+                    "3": {
+                        "title": "Comment change-t-on la langue ?",
+                        "answer": "Le module Classe est actuellement disponible en français et en anglais. Pour changer de langue, allez dans l'onglet profil, cliquez sur le bouton “Paramètres”, puis sélectionnez la langue qui vous convient."
+                    },
+                    "4": {
+                        "title": "Qu’est-ce que le mode apprenant ?",
+                        "answer": "<p>Dans votre profil, vous pouvez cliquer sur le bouton “Passer en mode apprenant”. Après avoir choisi une classe, vous vous retrouvez sur le compte fictif d’un apprenant appelé “Vittademo”, dans lequel vous pourrez découvrir l’interface Apprenant et réaliser les activités que vous avez attribuées.</p><p>Pour revenir au mode “Enseignant”, il suffit d’aller dans l’onglet <b>Profil</b> du compte Vittademo et de cliquer sur “Retourner au mode enseignant”.</p>"
+                    }
+                }
+            },
+            "4": {
+                "section_title": "Questions générales",
+                "question_list": {
+                    "1": {
+                        "title": "Sur quel support le module classe est-il compatible ?",
+                        "answer": "<p>Les interfaces fonctionnent sans installation, sur ordinateur, tablette et smartphone ! Les mises à jour sont automatiques et vos programmes sont sauvegardés dans le cloud.</p><p>Pour profiter pleinement de toutes les fonctionnalités, nous vous conseillons d’utiliser Chrome ou Firefox.</p>"
+                    },
+                    "2": {
+                        "title": "Comment créer un raccourci pour accéder au module Classe ?",
+                        "answer": "<p>Vous avez la possibilité de mettre une icône sur le bureau de l'ordinateur pour accéder rapidement au module Classe. Pour cela :</p><p>Sur Windows et sur Mac:</p><ol><li>Ouvrez la page : <a href=\"/classroom\" target=\"_blank\">classroom/</a>, puis réduisez la taille de la fenêtre du navigateur afin de voir le bureau à côté.</li><li>Dans votre navigateur Web, sélectionnez à la souris le symbole situé à gauche de l'adresse et, sans relâcher votre clic, faites glisser le pointeur jusqu'au Bureau. Relâchez pour créer le raccourci.</li><li>Le raccourci est créé. Vous n’aurez plus qu’à double-cliquer dessus pour ouvrir la page web liée.</li></ol><p>Sur Android avec Chrome :</p><ol><li>Ouvrez la page : <a href=\"/classroom\" target=\"_blank\">classroom/</a>, puis appuyez sur le bouton de menu, puis sélectionnez \"Ajouter à l'écran d'accueil\".</li><li>Nommez la page et appuyez sur \"Ajouter\".</li><li>Le raccourci est créé. Vous n’aurez plus qu’à double-cliquer dessus pour ouvrir la page web liée.</li></ol><p>Sur Android avec Firefox :</p><ol><li>Ouvrez la page : <a href=\"/classroom\" target=\"_blank\">classroom/</a>, puis appuyez sur le bouton de menu, puis appuyez sur Page.</li><li>Appuyez sur Ajouter un raccourci vers la page.</li><li>Le raccourci est créé sur l’écran d’accueil. Vous n’aurez plus qu’à cliquer dessus pour ouvrir la page web liée.</li></ol><p>Sur iOS avec Safari :</p><ol><li>Ouvrez la page : <a href=\"/classroom\" target=\"_blank\">classroom/</a>, puis touchez l'icône Partage.</li><li>Sélectionnez sur l'écran d'accueil, puis appuyez sur Ajouter.</li><li>Le raccourci est créé sur l’écran d’accueil. Vous n’aurez plus qu’à cliquer dessus pour ouvrir la page web liée.</li></ol><p>Vous pourrez trouver d'autres tutoriels sur Internet pour créer un raccourci sur le bureau.</p>"
+                    }
+                }
+            },
+            "5": {
+                "section_title": "Problème technique",
+                "question_list": {
+                    "1": {
+                        "title": "J’ai un bug, que faire ?",
+                        "answer": "Lorsqu’un bug se produit, la première chose à faire est d'essayer de rafraîchir la page. Si le bug persiste, vous pouvez nous contacter dans l’onglet Profil avec le bouton “Aide”."
+                    },
+                    "2": {
+                        "title": "Comment signaler des bugs et faire part de mes commentaires ?",
+                        "answer": "Si le bug persiste, vous pouvez nous contacter dans l’onglet profil avec le bouton “Aide”.<br>Pour nous faire des commentaires, vous pouvez également nous contacter dans l’onglet Profil avec le bouton “Aide”."
+                    }
+                }
+            },
+            "6": {
+                "section_title": "Licences et autorisations",
+                "question_list": {
+                    "1": {
+                        "title": "Peut-on faire une description ou présentation du module Classe ?",
+                        "answer": "Oui, vous pouvez réutiliser les visuels pour module Classe pour créer une description, présentation, formation, tutoriel, cours ou autre. Si vous souhaitez inclure des images ou contenus d'activités, veuillez mentionner l'auteur (voir question suivante)."
+                    },
+                    "2": {
+                        "title": "Où peut-on trouver le code source du module Classe ?",
+                        "answer": "Le code source du module Classe est disponible sur le <a href=\"https://github.com/vittascience/OpenSTEAM-LMS\" target=\"_href\">repository git OpenSTEAM-LMS</a>, n'hésitez pas à contribuer !"
+                    }
                 }
             }
         },
-        "group": {
-            "add": "Ajouter un groupe",
-            "create": "Créer un groupe",
-            "delete": "Supprimer un groupe",
-            "deleteIntention": "Vous vous apprêtez à supprimer le groupe : <span id=\"md_group\"></span>",
-            "update": "Modifier un groupe",
-            "join": {
-                "firstVisit": "Première visite ?",
-                "signin": "Se connecter",
-                "signinSubtitle": "Entrez vos identifiants pour accèder à votre compte",
-                "addressMail": "Adresse mail",
-                "disclaimer": "En rejoignant ce groupe, vous autorisez l'admin du groupe à mofidier et / ou désactiver votre compte. Vous disposerez aussi des applications que le groupe possède.",
-                "lastStep": "Il ne reste plus qu'une étape ! Cliquez sur le bouton si dessous pour finaliser la liaison.",
-                "joinGroup": "Vous vous apprêtez à rejoindre le groupe \"<span id='groupNameConfirmLink'></span>\"",
-                "notfound": "Groupe introuvable !",
-                "notfoundDetails": "Nous ne trouvons aucun groupe lié au code <span id='gourpName3'></span>.",
-                "clickToRedirectLogin": "Cliquez sur continuer pour être redirigé vers la page de connexion.",
-                "clickToRedirectHome": "Cliquez sur continuer pour être redirigé vers la page d'accueil.",
-                "invalidLink": "Lien invalide !",
-                "invalidFormatLink": "Le format du lien que vous avez entré ne correspond pas.",
-                "success": "Vous avez rejoint le groupe \"<span id=\"gourpName\"></span>\" !",
-                "alreadyLinked": "Vous faites déjà partie de ce groupe.",
-                "error": "Une erreur est survenue lors de la liaison.",
-                "userNotFound": "L'utilisateur n'a pas été trouvé, vous pouvez cliquer sur continuer afin d'être redirigé vers la page de login.",
-                "contactAdmin": "Si le problème persiste contactez l'administration.",
-                "mail": {
-                    "textBeforeName": "L'utilisateur : ",
-                    "textAfterName": "a rejoint le groupe : ",
-                    "emailSubject": "Un utilisateur à rejoint le groupe"
+        "faqStudentNeutral": {
+            "title": "FAQ",
+            "1": {
+                "section_title": "Activités",
+                "question_list": {
+                    "1": {
+                        "title": "À quoi sert l’onglet Mes activités ?",
+                        "answer": "Dans l’onglet Mes Activités, tu vas pouvoir :<ol><li>Réaliser les nouvelles activités de tes enseignants.</li><li>Sauvegarder celles que tu n’as pas encore terminées.</li><li>Et revoir celles que tu as faites !</li></ol>"
+                    },
+                    "2": {
+                        "title": "Qu’est-ce qu’une activité ?",
+                        "answer": "Une activité est un contenu interactif créé à partir de Cabri Express ou Cabri auteur."
+                    }
                 }
             },
-            "name": "Nom du groupe",
-            "description": "Description du groupe",
-            "link": "Lien du groupe",
-            "applications": "Application(s) du groupe",
-            "groupsPerPage": "Groupes par page",
-            "groupDeleted": "Groupe supprimé.",
-            "groupCreated": "Groupe créé avec succès",
-            "groupUpdated": "Groupe modifié avec succès",
-            "groupCreateFailed": "Le groupe n'a pas pu être créé",
-            "showLinkTitle": "Lien du groupe",
-            "usersWithoutGroups": "Utilisateurs sans groupe",
-            "searchResult": "Résultat de la recherche",
-            "usersInactiveOrNoRegular": "Utilisateurs inactifs et non regular",
-            "usersWithoutGroupsDescription": "Groupement d'utilisateurs n'étant liés à aucun groupe",
-            "usersInactiveOrNoRegularDescription": "Groupement d'utilisateurs inactifs et/ou non regular",
-            "groupDeleteError": "Le groupe n'a pas pu être supprimé."
-        },
-        "buttons": {
-            "continue": "Continuer",
-            "validate": "Valider",
-            "cancel": "Annuler",
-            "finalize": "Finaliser",
-            "send": "Envoyer",
-            "login": "Se connecter",
-            "signup": "S'incrire",
-            "join": "Rejoindre",
-            "save": "Enregistrer",
-            "close": "Fermer",
-            "disable": "Désactiver",
-            "delete": "Supprimer",
-            "reset": "Réinitialiser",
-            "update": "Modifier",
-            "search": "Rechercher",
-            "restart": "Recommencer",
-            "copyLink": "Copier le lien",
-            "show": "Afficher",
-            "user": {
-                "add": "Ajouter l'utilisateur",
-                "create": "Créer l'utilisateur",
-                "delete": "Supprimer l'utilisateur",
-                "update": "Modifier l'utilisateur",
-                "addGroup": "Ajouter un groupe",
-                "createA": "Créer un utilisateur",
-                "updateA": "Modifier un utilisateur",
-                "updateApp": "Modifier les applications"
+            "2": {
+                "section_title": "Appel à l'aide",
+                "question_list": {
+                    "1": {
+                        "title": "À quoi sert l’onglet Appel à l’aide ?",
+                        "answer": "Dans l’onglet Appel à l’aide, tu vas pouvoir :<ol><li>Demander de l’aide à tes enseignants à tout moment,</li><li>Consulter les questions fréquemment posées.</li></ol>Tu pourras suivre l’échange de tes messages dans l’onglet Profil."
+                    }
+                }
             },
-            "group": {
-                "add": "Ajouter le groupe",
-                "create": "Créer le groupe",
-                "delete": "Supprimer le groupe",
-                "update": "Modifier le groupe",
-                "createA": "Créer un groupe",
-                "updateA": "Modifier un groupe"
+            "3": {
+                "section_title": "Profil",
+                "question_list": {
+                    "1": {
+                        "title": "À quoi sert l’onglet Profil ?",
+                        "answer": "Dans l’onglet Profil, tu vas pouvoir :<ol><li>Gérer tes paramètres de compte,</li><li>Visualiser tes statistiques,</li><li>et échanger des messages avec tes enseignants.</li></ol>"
+                    },
+                    "2": {
+                        "title": "Comment changer de mot de passe ou d’autres paramètres de compte ?",
+                        "answer": "Pour changer de mot de passe ou d’autres paramètres, vas sur l’onglet Profil."
+                    },
+                    "3": {
+                        "title": "Comment change-t-on la langue ?",
+                        "answer": "Le module Classe est actuellement disponible en français et en anglais. Pour changer de langue, allez dans l'onglet profil, clique sur le bouton “Paramètres”, puis sélectionne la langue qui te convient."
+                    }
+                }
+            },
+            "4": {
+                "section_title": "Questions générales",
+                "question_list": {
+                    "1": {
+                        "title": "Comment prendre en main le module Classe ?",
+                        "answer": "À tout moment, tu peux accéder à l’aide générale en cliquant sur l’icône <i class=\"fas fa-question\"></i> en haut à droite pour prendre en main le module Classe."
+                    },
+                    "2": {
+                        "title": "Sur quel support le module classe est-il compatible ?",
+                        "answer": "<p>Les interfaces fonctionnent sans installation, sur ordinateur, tablette et smartphone ! Les mises à jour sont automatiques et tes programmes sont sauvegardés dans le cloud.</p><p>Pour profiter pleinement de toutes les fonctionnalités, nous te conseillons d’utiliser Chrome ou Firefox.</p>"
+                    },
+                    "3": {
+                        "title": "Comment créer un raccourci pour accéder au module Classe ?",
+                        "answer": "<p>Tu as la possibilité de mettre une icône sur le bureau de l'ordinateur pour accéder rapidement au module Classe. Pour cela :</p><p>Sur Windows et sur Mac:</p><ol><li>Ouvre la page : <a href=\"/classroom\" target=\"_blank\">/classroom/</a>, puis réduis la taille de la fenêtre du navigateur afin de voir le bureau à côté.</li><li>Dans ton navigateur Web, sélectionne à la souris le symbole situé à gauche de l'adresse et, sans relâcher ton clic, faits glisser le pointeur jusqu'au Bureau. Relâche pour créer le raccourci.</li><li>Le raccourci est créé. Tu n’auras plus qu’à double-cliquer dessus pour ouvrir la page web liée.</li></ol><p>Sur Android avec Chrome :</p><ol><li>Ouvre la page : <a href=\"/classroom\" target=\"_blank\">/classroom/</a>, puis appuie sur le bouton de menu, puis sélectionne \"Ajouter à l'écran d'accueil\".</li><li>Nomme la page et appuie sur \"Ajouter\".</li><li>Le raccourci est créé. Tu n'auras plus qu’à double-cliquer dessus pour ouvrir la page web liée.</li></ol><p>Sur Android avec Firefox :</p><ol><li>Ouvre la page : <a href=\"/classroom\" target=\"_blank\">/classroom/</a>, puis appuie sur le bouton de menu, puis appuie sur Page.</li><li>Appuie sur Ajouter un raccourci vers la page.</li><li>Le raccourci est créé sur l’écran d’accueil. Tu n'auras plus qu’à cliquer dessus pour ouvrir la page web liée.</li></ol><p>Sur iOS avec Safari :</p><ol><li>Ouvre la page : <a href=\"/classroom\" target=\"_blank\">/classroom/</a>, puis touche l'icône Partage.</li><li>Sélectionne sur l'écran d'accueil, puis appuie sur Ajouter.</li><li>Le raccourci est créé sur l’écran d’accueil. Tu n'auras plus qu’à cliquer dessus pour ouvrir la page web liée.</li></ol><p>Tu pourras trouver d'autres tutoriels sur Internet pour créer un raccourci sur le bureau.</p>"
+                    }
+                }
+            },
+            "5": {
+                "section_title": "Problème technique",
+                "question_list": {
+                    "1": {
+                        "title": "J’ai un bug, que faire ?",
+                        "answer": "Lorsqu’un bug se produit, la première chose à faire est d'essayer de rafraîchir la page. Si le bug persiste, tu peux contacter ton enseignant dans l’onglet Appel à l’aide."
+                    },
+                    "2": {
+                        "title": "Comment signaler des bugs et faire part de mes commentaires ?",
+                        "answer": "<p>Si le bug persiste, vous pouvez contacter votre enseignant dans l’onglet Aide.</p><p>Pour faire des commentaires à ton enseignement, tu peux également le contacter dans l’onglet Aide.</p>"
+                    }
+                }
+            },
+            "6": {
+                "section_title": "Licences et autorisations",
+                "question_list": {
+                    "1": {
+                        "title": "Où peut-on trouver le code source du module Classe ?",
+                        "answer": "Le code source du module Classe est disponible sur <a href=\"https://github.com/vittascience/OpenSTEAM-LMS\" target=\"_href\">le repository git OpenSTEAM-LMS</a>, n'hésites pas à contribuer !"
+                    }
+                }
             }
-        },
-        "sort": {
-            "user": {
-                "bylastname": "Trier par Nom",
-                "byfirstname": "Trier par Prénom"
-            },
-            "group": {
-                "byname": "Trier par nom",
-                "bydesc": "Trier par description"
-            }
-        },
-        "input": {
-            "placeholder": {
-                "delete": "supprimer"
-            },
-            "writeDelete": "Vous devez écrire supprimer pour valider l'action.",
-            "writeDisable": "Vous devez écrire désactiver pour valider l'action."
-        },
-        "table": {
-            "lastname": "Nom",
-            "firstname": "Prénom",
-            "applications": "Applications",
-            "group": "Groupe",
-            "description": "Description",
-            "right": "Rôle",
-            "resetPassword": "Réinitialiser le mot de passe",
-            "link": "Lien"
         }
     }
 }
