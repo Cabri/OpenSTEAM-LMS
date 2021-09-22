@@ -734,7 +734,7 @@ const classroomModals = {
           </div>
 
           <div class="row  justify-content-md-center"">
-                <button class="save-student-in-classroom c-btn-primary m-3" onclick="startActivityCreation()"><i class="fas fa-save"></i> <span class="ml-1" data-i18n="classroom.modals.addActivity.start">Start Adding Activity</span></button>
+                <button class="save-student-in-classroom c-btn-primary m-3" onclick="startActivityCreation()"><i class="fas fa-save"></i> <span class="ml-1" data-i18n="classroom.modals.addActivity.continue"></span></button>
           </div>
       `,
       footer: ``

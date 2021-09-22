@@ -54,8 +54,7 @@ function createCabriActivity(link = null, id = null, type) {
 
     navigatePanel('classroom-dashboard-new-cabriexpress-activity-panel', 'dashboard-activities-teacher')
     pseudoModal.openModal('add-activity-name');
-    //pseudoModal.resetEventClick();
-    // todo cabri must remove previous exit events before setting a new one !
+    // todo cabri must remove previous exit events listeners before setting a new one !
     pseudoModal.clickOnExit('add-activity-name', ()=>{
       navigatePanel('classroom-dashboard-activities-panel-teacher', 'dashboard-activities-teacher');
     });
@@ -137,6 +136,12 @@ function activityModify(id) {
 
         ClassroomSettings.status = 'edit';
         navigatePanel('classroom-dashboard-new-cabriexpress-activity-panel', 'dashboard-activities-teacher')
+
+      pseudoModal.openModal('add-activity-name');
+      // todo cabri must remove previous exit event listeners before setting a new one !
+      pseudoModal.clickOnExit('add-activity-name', ()=>{
+        navigatePanel('classroom-dashboard-activities-panel-teacher', 'dashboard-activities-teacher');
+      });
 
       // Start LTI 1.3 tool launch
       const loginHint = {

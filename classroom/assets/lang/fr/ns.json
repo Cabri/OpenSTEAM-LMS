@@ -338,7 +338,8 @@
 				"createActivity": {
 					"title": "Créer une nouvelle activité",
 					"button": "Créer une activité "
-				}
+				},
+        "continue": "Continue"
 			},
 			"settingsTeacher": {
 				"title": "Paramètres du compte",
