@@ -2059,6 +2059,20 @@ function getSubjects(grade) {
     return TmpArr;
 }
 
+/* todo CABRI must move to a seperate plugin */
+function startActivityCreation() {
+  // check if all modal elements are given
+  const title = $('#activity-form-title').val();
+  if(!title || title==='') {
+    // display form errors
+    alert('Veuillez remplir tous les champs obligatoires !')
+  }
+  else {
+    // hide modal and show cabri activity creation
+    pseudoModal.closeModal('add-activity-name');
+    $('#lti_teacher_iframe').css('filter', '')
+  }
+}
 
 /**
  * Get the grade and the subject in the user language

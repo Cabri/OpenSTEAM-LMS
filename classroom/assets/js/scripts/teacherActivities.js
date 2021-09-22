@@ -53,6 +53,12 @@ function createCabriActivity(link = null, id = null, type) {
     }
 
     navigatePanel('classroom-dashboard-new-cabriexpress-activity-panel', 'dashboard-activities-teacher')
+    pseudoModal.openModal('add-activity-name');
+    //pseudoModal.resetEventClick();
+    // todo cabri must remove previous exit events before setting a new one !
+    pseudoModal.clickOnExit('add-activity-name', ()=>{
+      navigatePanel('classroom-dashboard-activities-panel-teacher', 'dashboard-activities-teacher');
+    });
     ClassroomSettings.activityInWriting = true
 
     // Start LTI 1.3 tool launch
@@ -65,7 +71,7 @@ function createCabriActivity(link = null, id = null, type) {
    // document.getElementsByName('lti_teacher_login_form')[0].style.display = 'none';
     $('#lti_teacher_login_hint').val(JSON.stringify(loginHint));
     $('#lti_teacher_iss').val(location.origin); // platform url
-
+    $('#lti_teacher_iframe').css('filter', 'blur(5px)')
     document.forms["lti_teacher_login_form"].submit();
 
   });
@@ -313,6 +319,7 @@ $('.new-activity-panel-lti').click(function () {
       ClassroomSettings.activity = activity.id
       displayNotification('#notif-div', "classroom.notif.activityCreated", "success", `'{"activityTitle": "${activity.title}"}'`);
       $('.new-activity-panel-lti').attr('disabled', false);
+
       navigatePanel('classroom-dashboard-new-activity-panel2', 'dashboard-activities-teacher', ClassroomSettings.activity)
       addTeacherActivityInList(activity)
       teacherActivitiesDisplay()

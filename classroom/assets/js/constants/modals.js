@@ -710,5 +710,33 @@ const classroomModals = {
                     </div>`,
         footer: ``
     },
+    'add-activity-name': {
+      selector: '',
+      header: {
+        icon: '',
+        title: 'classroom.modals.addActivity.title'
+      },
+      content: `
+          <div class="col-12">
+            <div class="row">
+                <label for="part-content-input" class="tutorial-label">
+                    <span data-i18n="classroom.activities.form.title.label">Titre de l'activité</span>
+                </label>
 
+                 <input data-i18n="classroom.activities.form.title.placeholder" type="text" id="activity-form-title" class="form-control part-title-input" placeholder="Titre de la partie">
+            </div>
+
+         <div class="row">
+<!--              <label for="activity-form-content" class="tutorial-label">-->
+<!--                  <span data-i18n='classroom.activities.form.content.label'></span>-->
+<!--              </label>-->
+<!--              <textarea id="activity-form-content" class="form-control" name="part-content-input" rows="3"></textarea>-->
+          </div>
+
+          <div class="row  justify-content-md-center"">
+                <button class="save-student-in-classroom c-btn-primary m-3" onclick="startActivityCreation()"><i class="fas fa-save"></i> <span class="ml-1" data-i18n="classroom.modals.addActivity.start">Start Adding Activity</span></button>
+          </div>
+      `,
+      footer: ``
+    },
 }

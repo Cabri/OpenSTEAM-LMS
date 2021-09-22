@@ -45,18 +45,18 @@
     <div class=" col-4 text-center"><span class="form-activity form-activity-desactivate"><b>2</b></span>
       <span data-i18n="classroom.activities.form.2"></span></div>
   </nav>
-  <div class="form-group mb-2 part-content-index part-row c-primary-form" style="max-width: 60%;">
-    <div class="form-row mt-1">
+  <div class="form-group mb-2 part-content-index part-row c-primary-form" style="max-width: 90%;">
+    <!--<div class="form-row mt-1">
       <label for="part-content-input" class="tutorial-label">
         <span data-i18n="classroom.activities.form.title.label"></span>
       </label>
       <input data-i18n="[placeholder]classroom.activities.form.title.placeholder" type="text"
              id="activity-form-title" class="form-control part-title-input">
-    </div>
+    </div>-->
     <div class="form-row mt-1">
-      <label for="part-content-input" class="tutorial-label">
+      <!--<label for="part-content-input" class="tutorial-label">
         <span data-i18n='classroom.activities.form.content.label'></span>
-      </label>
+      </label>-->
       <!-- Resource Launch-->
       <!-- STEP 1-->
       <input id="activity-form-content-lti" type="text" hidden/>
@@ -67,23 +67,25 @@
         <input id="lti_teacher_target_link_uri" type="hidden" name="target_link_uri" value="http://localhost:3000/deeplink" />
       </form>
 
-      <iframe src="about:blank" name="lti_teacher_iframe" title="Tool Content" width="1000" height="600" allowfullscreen></iframe>
+      <iframe id="lti_teacher_iframe" src="about:blank" name="lti_teacher_iframe" title="Tool Content" width="1000" height="600" allowfullscreen></iframe>
       <script>
         window.addEventListener("message", (event) => {
           console.log('parent:' , event.origin, event.data)
           $('#activity-form-content-lti').val(event.data);
+          $('.new-activity-panel-lti').click();
         }, false);
       </script>
     </div>
     <div class="form-row mt-1">
     </div>
   </div>
-  <button class="new-activity-panel-lti c-btn-primary"><span data-i18n="classroom.activities.form.button"></span> <i
+  <button class="new-activity-panel-lti c-btn-primary" hidden><span data-i18n="classroom.activities.form.button"></span> <i
     class="fas fa-check"></i></button>
 </div>
 
 <div id="classroom-dashboard-new-activity-panel" style="display:none;margin-right:0px;"
     class="activity-creation-form row dashboard-block">
+  <!-- Disabled by Cabri for LTI -->
     <nav class="row" style="margin: 0 auto;">
         <div class="col-4 text-center">
             <span class="form-activity form-activity-activate"><b>1</b></span>
@@ -102,14 +104,16 @@
             <label for="part-content-input" class="tutorial-label">
                 <span data-i18n="classroom.activities.form.title.label"></span>
             </label>
-            <input data-i18n="[placeholder]classroom.activities.form.title.placeholder" type="text"
-                id="activity-form-title" class="form-control part-title-input">
+          <!-- Disabled by Cabri for LTI -->
+<!--          <input data-i18n="[placeholder]classroom.activities.form.title.placeholder" type="text"-->
+<!--                id="activity-form-title" class="form-control part-title-input">-->
         </div>
         <div class="form-row mt-1">
             <label for="part-content-input" class="tutorial-label">
                 <span data-i18n='classroom.activities.form.content.label'></span>
             </label>
-            <textarea id="activity-form-content" class='part-content' width='100%' style='min-height: 60vh;'></textarea>
+          <!-- Disabled by Cabri for LTI -->
+<!--          <textarea id="activity-form-content" class='part-content' width='100%' style='min-height: 60vh;'></textarea>-->
         </div>
         <div class="form-row mt-1">
         </div>
@@ -117,6 +121,7 @@
     <button class="new-activity-panel2 c-btn-primary"><span data-i18n="classroom.activities.form.button"></span> <i
             class="fas fa-check"></i></button>
 </div>
+
 <div id="classroom-dashboard-new-activity-panel2" style="display:none;"
     class="row flex-column dashboard-block class-creation-form-step2">
     <nav class="row" style="margin: 0 auto;">

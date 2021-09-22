@@ -253,7 +253,7 @@
 				"2": "Attribution",
 				"title": {
 					"label": "Titre de l'activité",
-					"placeholder": "Titre de la partie"
+					"placeholder": "Titre"
 				},
 				"content": {
 					"label": "Contenu de l'activité"
