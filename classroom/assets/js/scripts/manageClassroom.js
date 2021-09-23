@@ -588,6 +588,23 @@ function filterTeacherActivityInList(keywords = [], orderBy = 'id', asc = true) 
 
 }
 
+function filterTeacherActivityInListByType(keywords = [], type) {
+  let expression = ''
+  for (let i = 0; i < keywords.length; i++) {
+    expression += '(?=.*'
+    expression += keywords[i].toUpperCase()
+    expression += ')'
+
+  }
+  let regExp = new RegExp(expression)
+  // filter by keywords
+  let list = Main.getClassroomManager()._myTeacherActivities
+    .filter(x => regExp.test(x.title.toUpperCase()) || regExp.test(x.content.toUpperCase()))
+
+  // filter by type
+  return list.filter(x => x.type.toUpperCase() === type.toUpperCase());
+}
+
 function filterSandboxInList(keywords = [], orderBy = 'id', asc = true) {
 
     let expression = ''

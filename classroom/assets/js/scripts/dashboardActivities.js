@@ -195,30 +195,59 @@ function classeList(classe, ref = null) {
 //filter activity
 $('body').on('click', '#filter-activity', function () {
     let arrayKeywords = $('#filter-activity-input').val().split(' ')
-    if ($('#filter-activity-select').val() == 'asc') {
+    let filterValue = $('#filter-activity-select').val();
+
+    if (filterValue === 'asc') {
         teacherActivitiesDisplay(filterTeacherActivityInList(arrayKeywords, "id", false))
-    } else {
+    }
+    else if(filterValue === 'desc') {
         teacherActivitiesDisplay(filterTeacherActivityInList(arrayKeywords, "id", true))
+    }
+    /* TODO cabri: move to separate plugin */
+    else if(filterValue === 'typeGenius') {
+      teacherActivitiesDisplay(filterTeacherActivityInListByType(arrayKeywords, 'GENIUS'));
+    }
+    else if(filterValue === 'typeExpress') {
+      teacherActivitiesDisplay(filterTeacherActivityInListByType(arrayKeywords, 'EXPRESS'));
     }
 })
 
 $('body').on('change', '#filter-activity-select', function () {
     let arrayKeywords = $('#filter-activity-input').val().split(' ')
-    if ($('#filter-activity-select').val() == 'asc') {
+    let filterValue = $('#filter-activity-select').val();
+
+    if (filterValue === 'asc') {
         teacherActivitiesDisplay(filterTeacherActivityInList(arrayKeywords, "id", false))
-    } else {
+    }
+    else if(filterValue === 'desc') {
         teacherActivitiesDisplay(filterTeacherActivityInList(arrayKeywords, "id", true))
     }
-
+    /* TODO cabri: TODO cabri: move to separate plugin*/
+    else if(filterValue === 'typeGenius') {
+        teacherActivitiesDisplay(filterTeacherActivityInListByType(arrayKeywords, 'GENIUS'));
+    }
+    else if(filterValue === 'typeExpress') {
+        teacherActivitiesDisplay(filterTeacherActivityInListByType(arrayKeywords, 'EXPRESS'));
+    }
 })
 
 $(document).on('keyup', function (e) {
     if ($("#filter-activity-input").is(":focus") || $("#filter-activity").is(":focus") || $("#filter-activity-select").is(":focus")) {
         let arrayKeywords = $('#filter-activity-input').val().split(' ')
-        if ($('#filter-activity-select').val() == 'asc') {
+        let filterValue = $('#filter-activity-select').val();
+
+        if (filterValue === 'asc') {
             teacherActivitiesDisplay(filterTeacherActivityInList(arrayKeywords, "id", false))
-        } else {
+        }
+        else if(filterValue === 'desc') {
             teacherActivitiesDisplay(filterTeacherActivityInList(arrayKeywords, "id", true))
+        }
+        /*TODO cabri: move to separate plugin*/
+        else if(filterValue === 'typeGenius') {
+          teacherActivitiesDisplay(filterTeacherActivityInListByType(arrayKeywords, 'GENIUS'));
+        }
+        else if(filterValue === 'typeExpress') {
+          teacherActivitiesDisplay(filterTeacherActivityInListByType(arrayKeywords, 'EXPRESS'));
         }
     }
 });
@@ -455,10 +484,9 @@ function loadActivity(isDoable) {
     }
 
     // Review student submission by teacher
-
     if(content.startsWith('http')) {  // TODO replace with "if content is LTI"
       if (UserManager.getUser().isRegular && Activity.correction > 0) {
-        const ltiActivitySubmission = $('#lti-activity-submission').html('<iframe style="width: 100%; height: 100%;" allowfullscreen="true" frameborder="0" src="https://cabricloud.com/cabriexpress?clmc=' + Activity.commentary + '" allowfullscreen></iframe>');
+        const ltiActivitySubmission = $('#lti-activity-submission').html('<iframe style="width: 100%; height: 100%;" allowfullscreen="true" frameborder="0" src="https://cabricloud.com/ed/player?calculator=false&clmc=' + Activity.commentary + '" allowfullscreen></iframe>');
         ltiActivitySubmission.css({'display': 'block'});
       }
 

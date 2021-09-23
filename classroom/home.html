@@ -209,9 +209,10 @@
   <div class="classroom-dashboard-activity-parent" style="display: flex;">
     <div id="main-div" style="margin: 0 auto; flex: 1 0 50vw">
       <h3 id="activity-title"></h3>
+
+      <div id="lti-activity-submission" style="height: calc(50vw * 3/4); border: 0 none; display: none;"></div>
       <h4 id="activity-details"></h4>
       <p id="activity-content"> </p>
-      <div id="lti-activity-submission" style="height: calc(50vw * 3/4); border: 0 none; display: none;"></div>
 
       <div id="lti-student-launch"></div>
       <!--
@@ -495,6 +496,9 @@
         <select name="filter-activity-select" id="filter-activity-select" class="c-primary-form">
             <option value="desc" data-i18n="classroom.filter.desc"></option>
             <option value="asc" data-i18n="classroom.filter.asc"></option>
+            <!-- TODO Move to a separate plugin -->
+            <option value="typeGenius" data-i18n="classroom.filter.cabriGenius"></option>
+            <option value="typeExpress" data-i18n="classroom.filter.cabriExpress"></option>
         </select>
 
     </div>

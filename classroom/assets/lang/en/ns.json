@@ -287,6 +287,8 @@
 		"filter": {
 			"desc": "From oldest to newest",
 			"asc": "From newest to oldest",
+      "cabriExpress": "Only Cabri Express activities",
+      "cabriGenius": "Only Cabri Genius activities",
 			"placeholder": "Search..."
 		},
 		"sandbox": {
