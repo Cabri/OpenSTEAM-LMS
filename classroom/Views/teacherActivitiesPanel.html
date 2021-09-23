@@ -70,7 +70,10 @@
         <input id="lti_teacher_target_link_uri" type="hidden" name="target_link_uri" value="http://localhost:3000/deeplink" />
       </form>
 
-      <iframe id="lti_teacher_iframe" src="about:blank" name="lti_teacher_iframe" title="Tool Content" width="1000" height="600" allowfullscreen></iframe>
+      <div class="cabriIframeWrapper">
+        <iframe id="lti_teacher_iframe" src="about:blank" name="lti_teacher_iframe" title="Tool Content" allowfullscreen></iframe>
+      </div>
+
       <script>
         window.addEventListener("message", (event) => {
           console.log('parent:' , event.origin, event.data)

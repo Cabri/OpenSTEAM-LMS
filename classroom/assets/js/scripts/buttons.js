@@ -1619,7 +1619,7 @@ function persistDeleteGroupAdmin() {
 }
 
 /**
- * Show an alert message 
+ * Show an alert message
  * @param {int} i : 0 = class success, 1 = class danger
  * @param {string} id : the id of the div we need to interact with
  * @param {string} message : the message we need to show
@@ -2070,7 +2070,7 @@ function startActivityCreation() {
   else {
     // hide modal and show cabri activity creation
     pseudoModal.closeModal('add-activity-name');
-    $('#lti_teacher_iframe').css('filter', '')
+    $('#lti_teacher_iframe').css({'filter': '', 'pointer-events': 'all'});
   }
 }
 
