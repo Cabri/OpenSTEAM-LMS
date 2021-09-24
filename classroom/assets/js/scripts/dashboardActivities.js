@@ -519,11 +519,11 @@ function loadActivity(isDoable) {
 
           const ltiStudentLaunch = `
           <input id="activity-score" type="text" hidden/>
-          <form name="lti_student_login_form" action="http://localhost:3000/login" method="post" target="lti_student_iframe">
+          <form name="lti_student_login_form" action="https://lti1p3.cabricloud.com/login" method="post" target="lti_student_iframe">
             <input id="lti_student_iss" type="hidden" name="iss" value="${location.origin}" />
             <input id="lti_student_login_hint" type="hidden" name="login_hint"/>
             <input id="lti_student_client_id" type="hidden" name="client_id" value="client_id_php" />
-            <input id="lti_student_target_link_uri" type="hidden" name="target_link_uri" value="http://localhost:3000" />
+            <input id="lti_student_target_link_uri" type="hidden" name="target_link_uri" value="https://lti1p3.cabricloud.com" />
           </form>
 
           <iframe src="about:blank" name="lti_student_iframe" title="Tool Content" width="100%" height="100%" allowfullscreen></iframe>`;
