@@ -438,6 +438,8 @@ function displayStudentsActivities(link, activitiesList) {
 function loadActivity(isDoable) {
     ClassroomSettings.chrono = Date.now()
     $('#activity-introduction').hide()
+    $('#activity-content').hide();
+    
     if (Activity.introduction != null && Activity.introduction != "") {
         $('#text-introduction').html(bbcodeToHtml(Activity.introduction))
         $('#activity-introduction').show()
@@ -471,10 +473,14 @@ function loadActivity(isDoable) {
         correction += `<div class="activity-correction-header d-flex justify-content-between"><h3>` + i18next.t('classroom.activities.bilan.results') + `</h3><i class="fas fa-chevron-right fa-2x" ></i></div><div id='giveNote' ><div onclick="setNote(3,'givenote-3')" id="givenote-3" class="note-choice"><i class="fas fa-check"></i>` + i18next.t('classroom.activities.accept') + ` </div><div onclick="setNote(2,'givenote-2')" id="givenote-2" class="note-choice" ><i class="fas fa-check"></i>` + i18next.t('classroom.activities.vgood') + ` </div><div onclick="setNote(1,'givenote-1')" id="givenote-1" class="note-choice" ><i class="fas fa-check"></i>` + i18next.t('classroom.activities.good') + ` </div><div onclick="setNote(0,'givenote-0')" id="givenote-0" class="note-choice" ><i class="fas fa-check"></i>` + i18next.t('classroom.activities.refuse') + ` </div></div>`
 
     }
+
+    // todo Cabri: renable when commentary database attribute is no more used for cabri student response !!
+    /*
     if (UserManager.getUser().isRegular && Activity.correction > 0) {
         correction += '<div id="commentary-panel" class="c-primary-form"><label>' + i18next.t("classroom.activities.comments") + '</label><textarea id="commentary-textarea" style="width:90%" rows="8">' + Activity.commentary + '</textarea></div>'
     }
-    if (!UserManager.getUser().isRegular && Activity.correction > 0) {
+
+   if (!UserManager.getUser().isRegular && Activity.correction > 0) {
         correction += '<div id="commentary-panel">' + Activity.commentary + '</div>'
     }
 
@@ -482,13 +488,14 @@ function loadActivity(isDoable) {
 
         correction += '<button onclick="giveNote()" class="btn c-btn-primary">' + i18next.t('classroom.activities.sendResults') + '<i class="fas fa-chevron-right"> </i></button>'
     }
+    */
 
     // Review student submission by teacher
     if(content.startsWith('http')) {  // TODO replace with "if content is LTI"
       if (UserManager.getUser().isRegular && Activity.correction > 0) {
         // TODO cabri: for review, better use the same player version as the one used to create the activity and used by student
-        const ltiActivitySubmission = $('#lti-activity-submission').html('<iframe style="width: 100%; height: 100%;" allowfullscreen="true" frameborder="0" src="https://cabricloud.com/ed/player?calculator=false&clmc=' + Activity.commentary + '" allowfullscreen></iframe>');
-        ltiActivitySubmission.css({'display': 'block'});
+       let ltiReviewSubmission = $('#lti-review-submission').html('<iframe style="width: 100%; height: 100%;" allowfullscreen="true" frameborder="0" src="https://cabricloud.com/ed/player?calculator=false&clmc=' + Activity.commentary + '" allowfullscreen></iframe>');
+        ltiReviewSubmission.css({'display': 'block'});
       }
 
       if(isDoable) {
@@ -510,10 +517,11 @@ function loadActivity(isDoable) {
             <input id="lti_student_target_link_uri" type="hidden" name="target_link_uri" value="http://localhost:3000" />
           </form>
 
-          <iframe src="about:blank" name="lti_student_iframe" title="Tool Content" width="1000" height="600" allowfullscreen></iframe>`;
+          <iframe src="about:blank" name="lti_student_iframe" title="Tool Content" width="100%" height="100%" allowfullscreen></iframe>`;
 
 
-          $('#lti-student-launch').html(ltiStudentLaunch);
+          let ltiStudentLaunchElement = $('#lti-student-launch').html(ltiStudentLaunch);
+          ltiStudentLaunchElement.css('display', 'block');
           $('#lti_student_login_hint').val(JSON.stringify(loginHint));
 
           document.forms["lti_student_login_form"].submit();

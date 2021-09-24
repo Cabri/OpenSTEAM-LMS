@@ -19,14 +19,15 @@
 
 <div id="classroom-dashboard-activity-panel" class="dashboard-block" style="display:none;">
   <div class="classroom-dashboard-activity-parent" style="display: flex;">
-    <div id="main-div" style="margin: 0 auto; flex: 1 0 50vw">
+    <div id="main-div" style="margin: 0 auto; flex: 1 0 50vw; height: 85vh; display: flex; flex-direction: column;">
       <h3 id="activity-title"></h3>
 
-      <div id="lti-activity-submission" style="height: calc(50vw * 3/4); border: 0 none; display: none;"></div>
+<!--      <div id="lti-activity-submission" style="height: calc(50vw * 3/4); border: 0 none; display: none;"></div>-->
+      <div id="lti-review-submission" style="flex: 1 1 100%; display: none;"></div>
       <h4 id="activity-details"></h4>
       <p id="activity-content"> </p>
 
-      <div id="lti-student-launch"></div>
+      <div id="lti-student-launch" style="flex: 1 1 100%; display: none;"></div>
       <!--
       TODO disabled for cabri lti
       <button class="btn c-btn-primary" id="activity-validate" data-i18n="classroom.activities.validate"
@@ -37,7 +38,7 @@
       <div class="btn" id="activity-instruction" style="display:none"><span
         data-i18n="classroom.activities.instruction"></span> <i class="fas fa-pen"></i></div>
     </div>
-    <div id="activity-correction" style="display:none">
+    <div id="activity-correction" style="display:none; align-self: center;">
     </div>
   </div>
 </div>
