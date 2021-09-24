@@ -290,7 +290,8 @@
 			"asc": "Du plus récent au moins récent",
       "cabriExpress": "Uniquement les activités Cabri Express",
       "cabriGenius": "Uniquement les activités Cabri Genius",
-			"placeholder": "Recherche..."
+      "iframe": "Uniquement les autres activités",
+      "placeholder": "Recherche..."
 		},
 		"sandbox": {
 			"mine": "Mes projets",

@@ -81,7 +81,7 @@ function teacherActivityItem(activity) {
     }
 
     let html = `<div class="activity-item activity-teacher" >
-                <div class="${activity.type==='GENIUS' ? 'activity-card-cabri-genius': ''} activity-card activity-card-` + ide + `">
+                <div class="${activity.type==='GENIUS' ? 'activity-card-cabri-genius': activity.type === 'IFRAME' ? 'activity-card-cabri-iframe' :  ''} activity-card activity-card-` + ide + `">
                     <div class="activity-card-top">
                     <div class="dropdown"><i class="fas fa-cog fa-2x" type="button" id="dropdown-activityItem-${activity.id}" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></i>
                     <div class="dropdown-menu" aria-labelledby="dropdown-activityItem-${activity.id}" data-id="${activity.id}">
@@ -210,6 +210,9 @@ $('body').on('click', '#filter-activity', function () {
     else if(filterValue === 'typeExpress') {
       teacherActivitiesDisplay(filterTeacherActivityInListByType(arrayKeywords, 'EXPRESS'));
     }
+    else if(filterValue === 'typeIframe') {
+      teacherActivitiesDisplay(filterTeacherActivityInListByType(arrayKeywords, 'IFRAME'));
+    }
 })
 
 $('body').on('change', '#filter-activity-select', function () {
@@ -228,6 +231,9 @@ $('body').on('change', '#filter-activity-select', function () {
     }
     else if(filterValue === 'typeExpress') {
         teacherActivitiesDisplay(filterTeacherActivityInListByType(arrayKeywords, 'EXPRESS'));
+    }
+    else if(filterValue === 'typeIframe') {
+      teacherActivitiesDisplay(filterTeacherActivityInListByType(arrayKeywords, 'IFRAME'));
     }
 })
 
@@ -248,6 +254,9 @@ $(document).on('keyup', function (e) {
         }
         else if(filterValue === 'typeExpress') {
           teacherActivitiesDisplay(filterTeacherActivityInListByType(arrayKeywords, 'EXPRESS'));
+        }
+        else if(filterValue === 'typeIframe') {
+          teacherActivitiesDisplay(filterTeacherActivityInListByType(arrayKeywords, 'IFRAME'));
         }
     }
 });
@@ -362,7 +371,7 @@ function statusActivity(activity, state = true) {
                 case 0:
                     return "Pas encore réalisé"
                     break;
-            
+
                 case null:
                     return "Pas encore réalisé"
                     break;
@@ -439,7 +448,7 @@ function loadActivity(isDoable) {
     ClassroomSettings.chrono = Date.now()
     $('#activity-introduction').hide()
     $('#activity-content').hide();
-    
+
     if (Activity.introduction != null && Activity.introduction != "") {
         $('#text-introduction').html(bbcodeToHtml(Activity.introduction))
         $('#activity-introduction').show()
@@ -531,6 +540,7 @@ function loadActivity(isDoable) {
 
   if(isDoable) {
     $('#activity-content').html(bbcodeToHtml(content))
+    $('#activity-content').show();
   }
   $('#activity-correction').html(bbcodeToHtml(correction)).show()
     if (isDoable == false) {

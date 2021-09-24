@@ -211,8 +211,10 @@
       <h3 id="activity-title"></h3>
 
 <!--      <div id="lti-activity-submission" style="height: calc(50vw * 3/4); border: 0 none; display: none;"></div>-->
-      <div id="lti-review-submission" style="flex: 1 1 100%; display: none;"></div>
       <h4 id="activity-details"></h4>
+
+      <div id="lti-review-submission" style="flex: 1 1 100%; display: none;"></div>
+
       <p id="activity-content"> </p>
 
       <div id="lti-student-launch" style="flex: 1 1 100%; display: none;"></div>
@@ -500,6 +502,7 @@
             <!-- TODO Move to a separate plugin -->
             <option value="typeGenius" data-i18n="classroom.filter.cabriGenius"></option>
             <option value="typeExpress" data-i18n="classroom.filter.cabriExpress"></option>
+            <option value="typeIframe" data-i18n="classroom.filter.iframe"></option>
         </select>
 
     </div>
@@ -512,7 +515,7 @@
         <button onclick="createCabriActivity(null, null, 'GENIUS')" class="btn c-btn-outline-secondary outline-yellow"><span class="mr-1" data-i18n="classroom.activities.addCabriGenius"></span><i class="fas fa-chevron-right"></i>
         </button>
 
-        <button onclick="createActivity()" class=" btn c-btn-outline-secondary"><span class="mr-1" data-i18n="classroom.activities.addOther"></span><i class="fas fa-chevron-right"></i>
+        <button onclick="createActivity()" class=" btn c-btn-outline-secondary outline-gray"><span class="mr-1" data-i18n="classroom.activities.addOther"></span><i class="fas fa-chevron-right"></i>
         </button>
     </div>
 

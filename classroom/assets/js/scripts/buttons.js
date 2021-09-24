@@ -188,7 +188,8 @@ function backToClassroomFromCode() {
  */
 function navigatePanel(id, idNav, option = "", interface = '', skipConfirm = false, isOnpopstate = false) {
     let confirmExit = true;
-    if ($_GET('interface') == "newActivities" && !Activity.project && !skipConfirm) {
+    //TODO CABRI remove !Activity.commentary once a specific attribute for student answer is created in DB
+    if ($_GET('interface') == "newActivities" && !Activity.project && !Activity.commentary && !skipConfirm) {
         confirmExit = confirm(i18next.t("classroom.notif.saveProject"));
     }
     if (confirmExit) {

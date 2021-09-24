@@ -133,32 +133,40 @@ function activityModify(id) {
     $('#activity-form-title').val('')
     $('.wysibb-text-editor').html('')
     Main.getClassroomManager().getActivity(ClassroomSettings.activity).then(function (activity) {
-        $('#activity-form-title').val(activity.title)
-        $('.wysibb-text-editor').html(activity.content)
-
         ClassroomSettings.status = 'edit';
-        navigatePanel('classroom-dashboard-new-cabriexpress-activity-panel', 'dashboard-activities-teacher')
 
-      pseudoModal.openModal('add-activity-name');
-      // todo cabri must remove previous exit event listeners before setting a new one !
-      pseudoModal.clickOnExit('add-activity-name', ()=>{
-        navigatePanel('classroom-dashboard-activities-panel-teacher', 'dashboard-activities-teacher');
-      });
+        if(!activity.type || activity.type === 'IFRAME') {
+          // Other Activity type
+          $('#activity-form-title').val(activity.title)
+          $('.wysibb-text-editor').html(activity.content)
+          navigatePanel('classroom-dashboard-new-activity-panel', 'dashboard-activities-teacher')
+        }
+        else {
+          // Cabri Activity
+          $('#activity-lti-form-title').val(activity.title)
+          navigatePanel('classroom-dashboard-new-cabriexpress-activity-panel', 'dashboard-activities-teacher')
 
-      // Start LTI 1.3 tool launch
-      const loginHint = {
-        userId: UserManager.getUser().id,
-        isStudentLaunch: false,
-        isUpdate: true,
-        updateURL: activity.content,
-        activityType: activity.type
-      };
+          pseudoModal.openModal('add-activity-name');
+          // todo cabri must remove previous exit event listeners before setting a new one !
+          pseudoModal.clickOnExit('add-activity-name', ()=>{
+            navigatePanel('classroom-dashboard-activities-panel-teacher', 'dashboard-activities-teacher');
+          });
 
-      // document.getElementsByName('lti_teacher_login_form')[0].style.display = 'none';
-      $('#lti_teacher_login_hint').val(JSON.stringify(loginHint));
-      $('#lti_teacher_iss').val(location.origin); // platform url
+          // Start LTI 1.3 tool launch
+          const loginHint = {
+            userId: UserManager.getUser().id,
+            isStudentLaunch: false,
+            isUpdate: true,
+            updateURL: activity.content,
+            activityType: activity.type
+          };
 
-      document.forms["lti_teacher_login_form"].submit();
+          // document.getElementsByName('lti_teacher_login_form')[0].style.display = 'none';
+          $('#lti_teacher_login_hint').val(JSON.stringify(loginHint));
+          $('#lti_teacher_iss').val(location.origin); // platform url
+
+          document.forms["lti_teacher_login_form"].submit();
+        }
     })
 }
 

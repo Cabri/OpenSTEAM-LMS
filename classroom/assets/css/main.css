@@ -1967,9 +1967,24 @@ i.line_height34 {
   background: transparent !important;
 }
 
+/*TODO CABRI must move to a separate plugin*/
+.outline-gray {
+  border: 2px solid #7c7c7c !important;
+  color: #7c7c7c !important;
+  background: transparent !important;
+}
+
 /*TODO CABRI must move to a seprate plugin */
 .activity-card-cabri-genius {
   background: url("../media/cards/card-cabri-genius.jpeg") !important;
+  border-radius: 1.2em !important;
+  background-clip: content-box !important;
+  background-size: cover !important;
+}
+
+/*TODO CABRI must move to a seprate plugin */
+.activity-card-cabri-iframe {
+  background: url("../media/cards/card-cabri-iframe.jpeg") !important;
   border-radius: 1.2em !important;
   background-clip: content-box !important;
   background-size: cover !important;
