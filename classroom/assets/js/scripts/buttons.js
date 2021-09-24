@@ -188,7 +188,8 @@ function backToClassroomFromCode() {
  */
 function navigatePanel(id, idNav, option = "", interface = '', skipConfirm = false, isOnpopstate = false) {
     let confirmExit = true;
-    if ($_GET('interface') == "newActivities" && !Activity.project && !skipConfirm) {
+    //TODO CABRI remove !Activity.commentary once a specific attribute for student answer is created in DB
+    if ($_GET('interface') == "newActivities" && !Activity.project && !Activity.commentary && !skipConfirm) {
         confirmExit = confirm(i18next.t("classroom.notif.saveProject"));
     }
     if (confirmExit) {
@@ -1619,7 +1620,7 @@ function persistDeleteGroupAdmin() {
 }
 
 /**
- * Show an alert message 
+ * Show an alert message
  * @param {int} i : 0 = class success, 1 = class danger
  * @param {string} id : the id of the div we need to interact with
  * @param {string} message : the message we need to show
@@ -2059,6 +2060,20 @@ function getSubjects(grade) {
     return TmpArr;
 }
 
+/* todo CABRI must move to a seperate plugin */
+function startActivityCreation() {
+  // check if all modal elements are given
+  const title = $('#activity-lti-form-title').val();
+  if(!title || title==='') {
+    // display form errors
+    alert('Veuillez remplir tous les champs obligatoires !')
+  }
+  else {
+    // hide modal and show cabri activity creation
+    pseudoModal.closeModal('add-activity-name');
+    $('#lti_teacher_iframe').css({'filter': '', 'pointer-events': 'all'});
+  }
+}
 
 /**
  * Get the grade and the subject in the user language

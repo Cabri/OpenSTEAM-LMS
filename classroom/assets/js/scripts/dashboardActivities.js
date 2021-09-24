@@ -80,8 +80,8 @@ function teacherActivityItem(activity) {
         ide = "arduino"
     }
 
-    let html = `<div class="activity-item activity-teacher " >
-                <div class="activity-card activity-card-` + ide + `">
+    let html = `<div class="activity-item activity-teacher" >
+                <div class="${activity.type==='GENIUS' ? 'activity-card-cabri-genius': activity.type === 'IFRAME' ? 'activity-card-cabri-iframe' :  ''} activity-card activity-card-` + ide + `">
                     <div class="activity-card-top">
                     <div class="dropdown"><i class="fas fa-cog fa-2x" type="button" id="dropdown-activityItem-${activity.id}" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></i>
                     <div class="dropdown-menu" aria-labelledby="dropdown-activityItem-${activity.id}" data-id="${activity.id}">
@@ -195,30 +195,68 @@ function classeList(classe, ref = null) {
 //filter activity
 $('body').on('click', '#filter-activity', function () {
     let arrayKeywords = $('#filter-activity-input').val().split(' ')
-    if ($('#filter-activity-select').val() == 'asc') {
+    let filterValue = $('#filter-activity-select').val();
+
+    if (filterValue === 'asc') {
         teacherActivitiesDisplay(filterTeacherActivityInList(arrayKeywords, "id", false))
-    } else {
+    }
+    else if(filterValue === 'desc') {
         teacherActivitiesDisplay(filterTeacherActivityInList(arrayKeywords, "id", true))
+    }
+    /* TODO cabri: move to separate plugin */
+    else if(filterValue === 'typeGenius') {
+      teacherActivitiesDisplay(filterTeacherActivityInListByType(arrayKeywords, 'GENIUS'));
+    }
+    else if(filterValue === 'typeExpress') {
+      teacherActivitiesDisplay(filterTeacherActivityInListByType(arrayKeywords, 'EXPRESS'));
+    }
+    else if(filterValue === 'typeIframe') {
+      teacherActivitiesDisplay(filterTeacherActivityInListByType(arrayKeywords, 'IFRAME'));
     }
 })
 
 $('body').on('change', '#filter-activity-select', function () {
     let arrayKeywords = $('#filter-activity-input').val().split(' ')
-    if ($('#filter-activity-select').val() == 'asc') {
+    let filterValue = $('#filter-activity-select').val();
+
+    if (filterValue === 'asc') {
         teacherActivitiesDisplay(filterTeacherActivityInList(arrayKeywords, "id", false))
-    } else {
+    }
+    else if(filterValue === 'desc') {
         teacherActivitiesDisplay(filterTeacherActivityInList(arrayKeywords, "id", true))
     }
-
+    /* TODO cabri: TODO cabri: move to separate plugin*/
+    else if(filterValue === 'typeGenius') {
+        teacherActivitiesDisplay(filterTeacherActivityInListByType(arrayKeywords, 'GENIUS'));
+    }
+    else if(filterValue === 'typeExpress') {
+        teacherActivitiesDisplay(filterTeacherActivityInListByType(arrayKeywords, 'EXPRESS'));
+    }
+    else if(filterValue === 'typeIframe') {
+      teacherActivitiesDisplay(filterTeacherActivityInListByType(arrayKeywords, 'IFRAME'));
+    }
 })
 
 $(document).on('keyup', function (e) {
     if ($("#filter-activity-input").is(":focus") || $("#filter-activity").is(":focus") || $("#filter-activity-select").is(":focus")) {
         let arrayKeywords = $('#filter-activity-input').val().split(' ')
-        if ($('#filter-activity-select').val() == 'asc') {
+        let filterValue = $('#filter-activity-select').val();
+
+        if (filterValue === 'asc') {
             teacherActivitiesDisplay(filterTeacherActivityInList(arrayKeywords, "id", false))
-        } else {
+        }
+        else if(filterValue === 'desc') {
             teacherActivitiesDisplay(filterTeacherActivityInList(arrayKeywords, "id", true))
+        }
+        /*TODO cabri: move to separate plugin*/
+        else if(filterValue === 'typeGenius') {
+          teacherActivitiesDisplay(filterTeacherActivityInListByType(arrayKeywords, 'GENIUS'));
+        }
+        else if(filterValue === 'typeExpress') {
+          teacherActivitiesDisplay(filterTeacherActivityInListByType(arrayKeywords, 'EXPRESS'));
+        }
+        else if(filterValue === 'typeIframe') {
+          teacherActivitiesDisplay(filterTeacherActivityInListByType(arrayKeywords, 'IFRAME'));
         }
     }
 });
@@ -333,7 +371,7 @@ function statusActivity(activity, state = true) {
                 case 0:
                     return "Pas encore réalisé"
                     break;
-            
+
                 case null:
                     return "Pas encore réalisé"
                     break;
@@ -409,6 +447,8 @@ function displayStudentsActivities(link, activitiesList) {
 function loadActivity(isDoable) {
     ClassroomSettings.chrono = Date.now()
     $('#activity-introduction').hide()
+    $('#activity-content').hide();
+
     if (Activity.introduction != null && Activity.introduction != "") {
         $('#text-introduction').html(bbcodeToHtml(Activity.introduction))
         $('#activity-introduction').show()
@@ -442,10 +482,14 @@ function loadActivity(isDoable) {
         correction += `<div class="activity-correction-header d-flex justify-content-between"><h3>` + i18next.t('classroom.activities.bilan.results') + `</h3><i class="fas fa-chevron-right fa-2x" ></i></div><div id='giveNote' ><div onclick="setNote(3,'givenote-3')" id="givenote-3" class="note-choice"><i class="fas fa-check"></i>` + i18next.t('classroom.activities.accept') + ` </div><div onclick="setNote(2,'givenote-2')" id="givenote-2" class="note-choice" ><i class="fas fa-check"></i>` + i18next.t('classroom.activities.vgood') + ` </div><div onclick="setNote(1,'givenote-1')" id="givenote-1" class="note-choice" ><i class="fas fa-check"></i>` + i18next.t('classroom.activities.good') + ` </div><div onclick="setNote(0,'givenote-0')" id="givenote-0" class="note-choice" ><i class="fas fa-check"></i>` + i18next.t('classroom.activities.refuse') + ` </div></div>`
 
     }
+
+    // todo Cabri: renable when commentary database attribute is no more used for cabri student response !!
+    /*
     if (UserManager.getUser().isRegular && Activity.correction > 0) {
         correction += '<div id="commentary-panel" class="c-primary-form"><label>' + i18next.t("classroom.activities.comments") + '</label><textarea id="commentary-textarea" style="width:90%" rows="8">' + Activity.commentary + '</textarea></div>'
     }
-    if (!UserManager.getUser().isRegular && Activity.correction > 0) {
+
+   if (!UserManager.getUser().isRegular && Activity.correction > 0) {
         correction += '<div id="commentary-panel">' + Activity.commentary + '</div>'
     }
 
@@ -453,13 +497,14 @@ function loadActivity(isDoable) {
 
         correction += '<button onclick="giveNote()" class="btn c-btn-primary">' + i18next.t('classroom.activities.sendResults') + '<i class="fas fa-chevron-right"> </i></button>'
     }
+    */
 
     // Review student submission by teacher
-
     if(content.startsWith('http')) {  // TODO replace with "if content is LTI"
       if (UserManager.getUser().isRegular && Activity.correction > 0) {
-        const ltiActivitySubmission = $('#lti-activity-submission').html('<iframe style="width: 100%; height: 100%;" allowfullscreen="true" frameborder="0" src="https://cabricloud.com/cabriexpress?clmc=' + Activity.commentary + '"></iframe>');
-        ltiActivitySubmission.css({'display': 'block'});
+        // TODO cabri: for review, better use the same player version as the one used to create the activity and used by student
+       let ltiReviewSubmission = $('#lti-review-submission').html('<iframe style="width: 100%; height: 100%;" allowfullscreen="true" frameborder="0" src="https://cabricloud.com/ed/player?calculator=false&clmc=' + Activity.commentary + '" allowfullscreen></iframe>');
+        ltiReviewSubmission.css({'display': 'block'});
       }
 
       if(isDoable) {
@@ -481,10 +526,11 @@ function loadActivity(isDoable) {
             <input id="lti_student_target_link_uri" type="hidden" name="target_link_uri" value="https://lti1p3.cabricloud.com" />
           </form>
 
-          <iframe src="about:blank" name="lti_student_iframe" title="Tool Content" width="1000" height="600"></iframe>`;
+          <iframe src="about:blank" name="lti_student_iframe" title="Tool Content" width="100%" height="100%" allowfullscreen></iframe>`;
 
 
-          $('#lti-student-launch').html(ltiStudentLaunch);
+          let ltiStudentLaunchElement = $('#lti-student-launch').html(ltiStudentLaunch);
+          ltiStudentLaunchElement.css('display', 'block');
           $('#lti_student_login_hint').val(JSON.stringify(loginHint));
 
           document.forms["lti_student_login_form"].submit();
@@ -494,6 +540,7 @@ function loadActivity(isDoable) {
 
   if(isDoable) {
     $('#activity-content').html(bbcodeToHtml(content))
+    $('#activity-content').show();
   }
   $('#activity-correction').html(bbcodeToHtml(correction)).show()
     if (isDoable == false) {

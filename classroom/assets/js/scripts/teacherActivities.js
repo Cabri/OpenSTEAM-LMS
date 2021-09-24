@@ -26,6 +26,7 @@ function createCabriActivity(link = null, id = null, type) {
   ClassroomSettings.status = "attribute"
   ClassroomSettings.isNew = true;
   if (id == null) {
+    // creation
     if (link) {
 
       $('.wysibb-text-editor').html('[iframe]' + URLServer + '' + link + '[/iframe]')
@@ -34,13 +35,14 @@ function createCabriActivity(link = null, id = null, type) {
       $('.wysibb-text-editor').html('')
     }
 
-    $('#activity-form-title').val('')
+    $('#activity-lti-form-title').val('')
 
   } else {
+    // edition
     ClassroomSettings.activity = id
     ClassroomSettings.status = 'action';
     Main.getClassroomManager().getActivity(ClassroomSettings.activity).then(function (activity) {
-      $('#activity-form-title').val(activity.title)
+      $('#activity-lti-form-title').val(activity.title)
       $('.wysibb-text-editor').html(activity.content)
     })
   }
@@ -53,6 +55,11 @@ function createCabriActivity(link = null, id = null, type) {
     }
 
     navigatePanel('classroom-dashboard-new-cabriexpress-activity-panel', 'dashboard-activities-teacher')
+    pseudoModal.openModal('add-activity-name');
+    // todo cabri must remove previous exit events listeners before setting a new one !
+    pseudoModal.clickOnExit('add-activity-name', ()=>{
+      navigatePanel('classroom-dashboard-activities-panel-teacher', 'dashboard-activities-teacher');
+    });
     ClassroomSettings.activityInWriting = true
 
     // Start LTI 1.3 tool launch
@@ -65,7 +72,7 @@ function createCabriActivity(link = null, id = null, type) {
    // document.getElementsByName('lti_teacher_login_form')[0].style.display = 'none';
     $('#lti_teacher_login_hint').val(JSON.stringify(loginHint));
     $('#lti_teacher_iss').val(location.origin); // platform url
-
+    $('#lti_teacher_iframe').css({'filter': 'blur(5px)', 'pointer-events': 'none'})
     document.forms["lti_teacher_login_form"].submit();
 
   });
@@ -126,12 +133,41 @@ function activityModify(id) {
     $('#activity-form-title').val('')
     $('.wysibb-text-editor').html('')
     Main.getClassroomManager().getActivity(ClassroomSettings.activity).then(function (activity) {
-        $('#activity-form-title').val(activity.title)
-        $('.wysibb-text-editor').html(activity.content)
-    })
-    ClassroomSettings.status = 'edit';
-    navigatePanel('classroom-dashboard-new-activity-panel', 'dashboard-activities-teacher')
+        ClassroomSettings.status = 'edit';
 
+        if(!activity.type || activity.type === 'IFRAME') {
+          // Other Activity type
+          $('#activity-form-title').val(activity.title)
+          $('.wysibb-text-editor').html(activity.content)
+          navigatePanel('classroom-dashboard-new-activity-panel', 'dashboard-activities-teacher')
+        }
+        else {
+          // Cabri Activity
+          $('#activity-lti-form-title').val(activity.title)
+          navigatePanel('classroom-dashboard-new-cabriexpress-activity-panel', 'dashboard-activities-teacher')
+
+          pseudoModal.openModal('add-activity-name');
+          // todo cabri must remove previous exit event listeners before setting a new one !
+          pseudoModal.clickOnExit('add-activity-name', ()=>{
+            navigatePanel('classroom-dashboard-activities-panel-teacher', 'dashboard-activities-teacher');
+          });
+
+          // Start LTI 1.3 tool launch
+          const loginHint = {
+            userId: UserManager.getUser().id,
+            isStudentLaunch: false,
+            isUpdate: true,
+            updateURL: activity.content,
+            activityType: activity.type
+          };
+
+          // document.getElementsByName('lti_teacher_login_form')[0].style.display = 'none';
+          $('#lti_teacher_login_hint').val(JSON.stringify(loginHint));
+          $('#lti_teacher_iss').val(location.origin); // platform url
+
+          document.forms["lti_teacher_login_form"].submit();
+        }
+    })
 }
 
 //création activité vers attribution
@@ -243,7 +279,8 @@ $('.new-activity-panel2').click(function () {
         Main.getClassroomManager().addActivity({
             'title': $('#activity-form-title').val(),
             'content': $('#activity-form-content').bbcode(),
-            "isFromClassroom": true
+            "isFromClassroom": true,
+            'type': 'IFRAME'
         }).then(function (activity) {
             $('.new-activity-panel2').attr('disabled', false)
             if (activity.errors) {
@@ -282,14 +319,15 @@ $('.new-activity-panel2').click(function () {
 //création/modification de l'activité de type LTI
 $('.new-activity-panel-lti').click(function () {
   $(this).attr('disabled', 'disabled')
-  if (document.getElementById('activity-form-title').value.length < 1) {
+  if (document.getElementById('activity-lti-form-title').value.length < 1) {
     displayNotification('#notif-div', "classroom.notif.activityTitleMissing", "error");
     return;
   }
   if (ClassroomSettings.status !== 'edit') {
+    // activity creation
     const ltiID = $('#activity-form-content-lti').val();
     Main.getClassroomManager().addActivity({
-      'title': $('#activity-form-title').val(),
+      'title': $('#activity-lti-form-title').val(),
       'content': ltiID,
       "isFromClassroom": true,
       'type': JSON.parse($('#lti_teacher_login_hint').val()).activityType
@@ -297,6 +335,7 @@ $('.new-activity-panel-lti').click(function () {
       ClassroomSettings.activity = activity.id
       displayNotification('#notif-div', "classroom.notif.activityCreated", "success", `'{"activityTitle": "${activity.title}"}'`);
       $('.new-activity-panel-lti').attr('disabled', false);
+
       navigatePanel('classroom-dashboard-new-activity-panel2', 'dashboard-activities-teacher', ClassroomSettings.activity)
       addTeacherActivityInList(activity)
       teacherActivitiesDisplay()
@@ -314,11 +353,23 @@ $('.new-activity-panel-lti').click(function () {
 
         console.log('success addLtiLineItem');*/
 
-
     });
-
-
   } else {
+    // activity update
+    const ltiID = $('#activity-form-content-lti').val();
+    Main.getClassroomManager().editActivity({
+      'id': ClassroomSettings.activity,
+      'title': $('#activity-lti-form-title').val(),
+      'content': ltiID,
+    }).then((activity)=>{
+      displayNotification('#notif-div', "classroom.notif.activityCreated", "success", `'{"activityTitle": "${activity.title}"}'`);
+      $('.new-activity-panel-lti').attr('disabled', false);
+      navigatePanel('classroom-dashboard-new-activity-panel2', 'dashboard-activities-teacher', ClassroomSettings.activity)
+      Main.getClassroomManager().getTeacherActivities(Main.getClassroomManager()).then(function () {
+        teacherActivitiesDisplay()
+        ClassroomSettings.activityInWriting = false
+      })
+    });
     /*Main.getClassroomManager().editActivity({
       'id': ClassroomSettings.activity,
       'title': $('#activity-form-title').val(),

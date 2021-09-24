@@ -408,7 +408,7 @@ button {
 }
 
 .dashboard-block {
-    margin-top: 2.5em;
+  margin-top: 2.5em;
 }
 
 
@@ -1950,4 +1950,59 @@ i.line_height34 {
 .form-input-error {
     border-color: var(--classroom-red) !important;
     color: var(--classroom-red) !important;
+}
+
+
+/*TODO CABRI must move to a separate plugin*/
+.outline-green {
+  border: 2px solid #12acb3 !important;
+  color: #12acb3 !important;
+  background: transparent !important;
+}
+
+/*TODO CABRI must move to a separate plugin*/
+.outline-yellow {
+  border: 2px solid #f5cb5c !important;
+  color: #f5cb5c !important;
+  background: transparent !important;
+}
+
+/*TODO CABRI must move to a separate plugin*/
+.outline-gray {
+  border: 2px solid #7c7c7c !important;
+  color: #7c7c7c !important;
+  background: transparent !important;
+}
+
+/*TODO CABRI must move to a seprate plugin */
+.activity-card-cabri-genius {
+  background: url("../media/cards/card-cabri-genius.jpeg") !important;
+  border-radius: 1.2em !important;
+  background-clip: content-box !important;
+  background-size: cover !important;
+}
+
+/*TODO CABRI must move to a seprate plugin */
+.activity-card-cabri-iframe {
+  background: url("../media/cards/card-cabri-iframe.jpeg") !important;
+  border-radius: 1.2em !important;
+  background-clip: content-box !important;
+  background-size: cover !important;
+}
+
+/*TODO CABRI must move to a seprate plugin */
+.cabriIframeWrapper {
+  position: relative;
+  padding-bottom: 49%; /* 9/16 - (4%) */
+  /*padding-top: 25px;*/
+  /*height: 0;*/
+  width: 100vw;
+  flex: 1 1 600px;
+}
+.cabriIframeWrapper iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
 }

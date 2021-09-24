@@ -200,6 +200,7 @@
             "add": "Créer une activité",
             "addCabriExpress": "Créer activité Express",
             "addCabriGenius": "Créer activité Genius",
+            "addOther": "Créer autre activité",
             "new": "Nouveaux",
             "current": "En attente de correction",
             "waiting": "Pas encore réalisé",
@@ -226,7 +227,7 @@
                 "2": "Attribution",
                 "title": {
                     "label": "Titre de l'activité",
-                    "placeholder": "Titre de la partie"
+                    "placeholder": "Titre"
                 },
                 "content": {
                     "label": "Contenu de l'activité"
@@ -260,6 +261,9 @@
         "filter": {
             "desc": "Du moins récent au plus récent",
             "asc": "Du plus récent au moins récent",
+            "cabriExpress": "Uniquement les activités Cabri Express",
+            "cabriGenius": "Uniquement les activités Cabri Genius",
+            "iframe": "Uniquement les autres activités",
             "placeholder": "Recherche..."
         },
         "sandbox": {
@@ -299,7 +303,8 @@
                 "createActivity": {
                     "title": "Créer une nouvelle activité",
                     "button": "Créer une activité "
-                }
+                },
+                "continue": "Continue"
             },
             "settingsTeacher": {
                 "title": "Paramètres du compte",

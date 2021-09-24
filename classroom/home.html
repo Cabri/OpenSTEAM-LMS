@@ -184,7 +184,7 @@
 </div>
 </div>
 <div id="classroom-dashboard-sandbox-panel" style="display:none;" class="dashboard-block ">
-    
+
 </div>
 <div id="classroom-dashboard-activities-panel" style="display:none;" class="dashboard-block">
     <h3 class="section-title section-new" onclick="sectionToggle('new')" data-i18n="classroom.activities.new"><i
@@ -207,13 +207,17 @@
 
 <div id="classroom-dashboard-activity-panel" class="dashboard-block" style="display:none;">
   <div class="classroom-dashboard-activity-parent" style="display: flex;">
-    <div id="main-div" style="margin: 0 auto; flex: 1 0 50vw">
+    <div id="main-div" style="margin: 0 auto; flex: 1 0 50vw; height: 85vh; display: flex; flex-direction: column;">
       <h3 id="activity-title"></h3>
-      <h4 id="activity-details"></h4>
-      <p id="activity-content"> </p>
-      <div id="lti-activity-submission" style="height: calc(50vw * 3/4); border: 0 none; display: none;"></div>
 
-      <div id="lti-student-launch"></div>
+<!--      <div id="lti-activity-submission" style="height: calc(50vw * 3/4); border: 0 none; display: none;"></div>-->
+      <h4 id="activity-details"></h4>
+
+      <div id="lti-review-submission" style="flex: 1 1 100%; display: none;"></div>
+
+      <p id="activity-content"> </p>
+
+      <div id="lti-student-launch" style="flex: 1 1 100%; display: none;"></div>
       <!--
       TODO disabled for cabri lti
       <button class="btn c-btn-primary" id="activity-validate" data-i18n="classroom.activities.validate"
@@ -224,7 +228,7 @@
       <div class="btn" id="activity-instruction" style="display:none"><span
         data-i18n="classroom.activities.instruction"></span> <i class="fas fa-pen"></i></div>
     </div>
-    <div id="activity-correction" style="display:none">
+    <div id="activity-correction" style="display:none; align-self: center;">
     </div>
   </div>
 </div>
@@ -495,21 +499,24 @@
         <select name="filter-activity-select" id="filter-activity-select" class="c-primary-form">
             <option value="desc" data-i18n="classroom.filter.desc"></option>
             <option value="asc" data-i18n="classroom.filter.asc"></option>
+            <!-- TODO Move to a separate plugin -->
+            <option value="typeGenius" data-i18n="classroom.filter.cabriGenius"></option>
+            <option value="typeExpress" data-i18n="classroom.filter.cabriExpress"></option>
+            <option value="typeIframe" data-i18n="classroom.filter.iframe"></option>
         </select>
 
     </div>
     </br>
 
     <div class="buttons-interactions flex-wrap">
-        <!--<button id="new-activity-panel1" onclick="createActivity()" class=" btn c-btn-outline-secondary"><span class="mr-1" data-i18n="classroom.activities.add"></span><i class="fas fa-chevron-right"></i>
-        </button>-->
-
-        <button id="new-activity-panel2" onclick="createCabriActivity(null, null, 'EXPRESS')" class=" btn c-btn-outline-secondary"><span class="mr-1" data-i18n="classroom.activities.addCabriExpress"></span><i class="fas fa-chevron-right"></i>
+        <button onclick="createCabriActivity(null, null, 'EXPRESS')" class="btn c-btn-outline-secondary outline-green"><span class="mr-1" data-i18n="classroom.activities.addCabriExpress"></span><i class="fas fa-chevron-right"></i>
         </button>
 
-        <button id="new-activity-panel1" onclick="createCabriActivity(null, null, 'GENIUS')" class=" btn c-btn-outline-secondary"><span class="mr-1" data-i18n="classroom.activities.addCabriGenius"></span><i class="fas fa-chevron-right"></i>
+        <button onclick="createCabriActivity(null, null, 'GENIUS')" class="btn c-btn-outline-secondary outline-yellow"><span class="mr-1" data-i18n="classroom.activities.addCabriGenius"></span><i class="fas fa-chevron-right"></i>
         </button>
 
+        <button onclick="createActivity()" class=" btn c-btn-outline-secondary outline-gray"><span class="mr-1" data-i18n="classroom.activities.addOther"></span><i class="fas fa-chevron-right"></i>
+        </button>
     </div>
 
     <div id="list-activities-teacher">
@@ -529,56 +536,50 @@
     <div class=" col-4 text-center"><span class="form-activity form-activity-desactivate"><b>2</b></span>
       <span data-i18n="classroom.activities.form.2"></span></div>
   </nav>
-  <div class="form-group mb-2 part-content-index part-row c-primary-form" style="max-width: 60%;">
-    <div class="form-row mt-1">
+  <div class="form-group mb-2 part-content-index part-row c-primary-form" style="max-width: 90%;">
+    <!--<div class="form-row mt-1">
       <label for="part-content-input" class="tutorial-label">
         <span data-i18n="classroom.activities.form.title.label"></span>
       </label>
       <input data-i18n="[placeholder]classroom.activities.form.title.placeholder" type="text"
              id="activity-form-title" class="form-control part-title-input">
-    </div>
+    </div>-->
     <div class="form-row mt-1">
-      <label for="part-content-input" class="tutorial-label">
+      <!--<label for="part-content-input" class="tutorial-label">
         <span data-i18n='classroom.activities.form.content.label'></span>
-      </label>
-
-<!--      <iframe id="cabriexpress-teacher-iframe"-->
-<!--        src="http://localhost:7080/lti/web/login.php?iss=http%3A%2F%2Flocalhost:7080&login_hint=12345&target_link_uri=http%3A%2F%2Flocalhost%2Fgame.php&lti_message_hint=12345'"-->
-<!--              width="800px" height="600px"></iframe>-->
-
-
-<!--      <iframe id="cabriexpress-teacher-iframe"-->
-<!--              src="../../lti/express.html"-->
-<!--              width="800px" height="600px"-->
-
+      </label>-->
       <!-- Resource Launch-->
       <!-- STEP 1-->
       <input id="activity-form-content-lti" type="text" hidden/>
-      <form name="lti_teacher_login_form" action="https://lti1p3.cabricloud.com/login" method="post" target="lti_teacher_iframe">
+      <form name="lti_teacher_login_form" action="https://lti1p3.cabricloud.com//login" method="post" target="lti_teacher_iframe">
         <input id="lti_teacher_iss" type="hidden" name="iss"/>
         <input id="lti_teacher_login_hint" type="hidden" name="login_hint"/>
         <input id="lti_teacher_client_id" type="hidden" name="client_id" value="client_id_php" />
         <input id="lti_teacher_target_link_uri" type="hidden" name="target_link_uri" value="https://lti1p3.cabricloud.com/deeplink" />
       </form>
 
-      <iframe src="about:blank" name="lti_teacher_iframe" title="Tool Content" width="1000" height="600"></iframe>
+      <div class="cabriIframeWrapper">
+        <iframe id="lti_teacher_iframe" src="about:blank" name="lti_teacher_iframe" title="Tool Content" allowfullscreen></iframe>
+      </div>
+
       <script>
         window.addEventListener("message", (event) => {
           console.log('parent:' , event.origin, event.data)
           $('#activity-form-content-lti').val(event.data);
+          $('.new-activity-panel-lti').click();
         }, false);
       </script>
-<!--      <textarea id="cabriexpress-activity-id"></textarea>-->
     </div>
     <div class="form-row mt-1">
     </div>
   </div>
-  <button class="new-activity-panel-lti c-btn-primary"><span data-i18n="classroom.activities.form.button"></span> <i
+  <button class="new-activity-panel-lti c-btn-primary" hidden><span data-i18n="classroom.activities.form.button"></span> <i
     class="fas fa-check"></i></button>
 </div>
 
 <div id="classroom-dashboard-new-activity-panel" style="display:none;margin-right:0px;"
     class="activity-creation-form row dashboard-block">
+  <!-- Disabled by Cabri for LTI -->
     <nav class="row" style="margin: 0 auto;">
         <div class="col-4 text-center">
             <span class="form-activity form-activity-activate"><b>1</b></span>
@@ -597,14 +598,16 @@
             <label for="part-content-input" class="tutorial-label">
                 <span data-i18n="classroom.activities.form.title.label"></span>
             </label>
-            <input data-i18n="[placeholder]classroom.activities.form.title.placeholder" type="text"
+          <!-- Disabled by Cabri for LTI -->
+          <input data-i18n="[placeholder]classroom.activities.form.title.placeholder" type="text"
                 id="activity-form-title" class="form-control part-title-input">
         </div>
         <div class="form-row mt-1">
             <label for="part-content-input" class="tutorial-label">
                 <span data-i18n='classroom.activities.form.content.label'></span>
             </label>
-            <textarea id="activity-form-content" class='part-content' width='100%' style='min-height: 60vh;'></textarea>
+          <!-- Disabled by Cabri for LTI -->
+          <textarea id="activity-form-content" class='part-content' width='100%' style='min-height: 60vh;'></textarea>
         </div>
         <div class="form-row mt-1">
         </div>
@@ -612,6 +615,7 @@
     <button class="new-activity-panel2 c-btn-primary"><span data-i18n="classroom.activities.form.button"></span> <i
             class="fas fa-check"></i></button>
 </div>
+
 <div id="classroom-dashboard-new-activity-panel2" style="display:none;"
     class="row flex-column dashboard-block class-creation-form-step2">
     <nav class="row" style="margin: 0 auto;">
@@ -637,7 +641,7 @@
                 class="fas fa-chevron-right"></i></button>
     </div>
     <p data-i18n="classroom.activities.form.hint"></p>
-    <button class="c-btn-primary" onclick="createActivity()" data-i18n="classroom.activities.form.modify"></button>
+<!--    <button class="c-btn-primary" onclick="createActivity()" data-i18n="classroom.activities.form.modify"></button>-->
 </div>
 <!-- <div id="classroom-dashboard-new-course-panel2" style="display:none;" class=" row dashboard-block">
     <h1>Bravo, vous avez crée un parcours</h1>

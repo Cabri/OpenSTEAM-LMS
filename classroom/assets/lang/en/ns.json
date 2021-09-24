@@ -287,6 +287,9 @@
 		"filter": {
 			"desc": "From oldest to newest",
 			"asc": "From newest to oldest",
+      "cabriExpress": "Only Cabri Express activities",
+      "cabriGenius": "Only Cabri Genius activities",
+      "iframe": "Only other activities",
 			"placeholder": "Search..."
 		},
 		"sandbox": {
@@ -338,8 +341,9 @@
 				"createActivity": {
 					"title": "Create a new activity",
 					"button": "Create an activity "
-				}
-			},
+				},
+        "continue": "Continue"
+      },
 			"settingsTeacher": {
 				"title": "Account settings",
 				"lang": "Language",
