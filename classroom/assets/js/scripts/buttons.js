@@ -2062,7 +2062,7 @@ function getSubjects(grade) {
 /* todo CABRI must move to a seperate plugin */
 function startActivityCreation() {
   // check if all modal elements are given
-  const title = $('#activity-form-title').val();
+  const title = $('#activity-lti-form-title').val();
   if(!title || title==='') {
     // display form errors
     alert('Veuillez remplir tous les champs obligatoires !')

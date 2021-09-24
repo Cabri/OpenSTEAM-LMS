@@ -371,7 +371,15 @@ function getTeacherActivity() {
     $('#activity-title').html(Activity.title + `<button class="btn btn-link" onclick="attributeActivity(` + Activity.id + `)">
     <i class="fas fa-arrow-down"></i> ` + capitalizeFirstLetter(i18next.t('words.attribute')) + `
 </button>`)
-    $('#activity-content').html(bbcodeToHtml(Activity.content))
+
+    // TODO cabri replace with IF LTI
+    if(Activity.content.startsWith('http')) {
+      const ltiActivitySubmission = $('#activity-content').html('<iframe style="width: 100%; height: 100%;" allowfullscreen="true" frameborder="0" src="https://cabricloud.com/ed/player?calculator=false&clmc=' + Activity.content + '" allowfullscreen></iframe>');
+      ltiActivitySubmission.css({'display': 'block'});
+    }
+    else
+      $('#activity-content').html(bbcodeToHtml(Activity.content))
+
     $('#activity-introduction').hide()
     $('#activity-validate').hide()
 }

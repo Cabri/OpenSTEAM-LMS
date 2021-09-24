@@ -26,6 +26,7 @@ function createCabriActivity(link = null, id = null, type) {
   ClassroomSettings.status = "attribute"
   ClassroomSettings.isNew = true;
   if (id == null) {
+    // creation
     if (link) {
 
       $('.wysibb-text-editor').html('[iframe]' + URLServer + '' + link + '[/iframe]')
@@ -34,13 +35,14 @@ function createCabriActivity(link = null, id = null, type) {
       $('.wysibb-text-editor').html('')
     }
 
-    $('#activity-form-title').val('')
+    $('#activity-lti-form-title').val('')
 
   } else {
+    // edition
     ClassroomSettings.activity = id
     ClassroomSettings.status = 'action';
     Main.getClassroomManager().getActivity(ClassroomSettings.activity).then(function (activity) {
-      $('#activity-form-title').val(activity.title)
+      $('#activity-lti-form-title').val(activity.title)
       $('.wysibb-text-editor').html(activity.content)
     })
   }
@@ -269,7 +271,8 @@ $('.new-activity-panel2').click(function () {
         Main.getClassroomManager().addActivity({
             'title': $('#activity-form-title').val(),
             'content': $('#activity-form-content').bbcode(),
-            "isFromClassroom": true
+            "isFromClassroom": true,
+            'type': 'IFRAME'
         }).then(function (activity) {
             $('.new-activity-panel2').attr('disabled', false)
             if (activity.errors) {
@@ -308,7 +311,7 @@ $('.new-activity-panel2').click(function () {
 //création/modification de l'activité de type LTI
 $('.new-activity-panel-lti').click(function () {
   $(this).attr('disabled', 'disabled')
-  if (document.getElementById('activity-form-title').value.length < 1) {
+  if (document.getElementById('activity-lti-form-title').value.length < 1) {
     displayNotification('#notif-div', "classroom.notif.activityTitleMissing", "error");
     return;
   }
@@ -316,7 +319,7 @@ $('.new-activity-panel-lti').click(function () {
     // activity creation
     const ltiID = $('#activity-form-content-lti').val();
     Main.getClassroomManager().addActivity({
-      'title': $('#activity-form-title').val(),
+      'title': $('#activity-lti-form-title').val(),
       'content': ltiID,
       "isFromClassroom": true,
       'type': JSON.parse($('#lti_teacher_login_hint').val()).activityType
@@ -348,7 +351,7 @@ $('.new-activity-panel-lti').click(function () {
     const ltiID = $('#activity-form-content-lti').val();
     Main.getClassroomManager().editActivity({
       'id': ClassroomSettings.activity,
-      'title': $('#activity-form-title').val(),
+      'title': $('#activity-lti-form-title').val(),
       'content': ltiID,
     }).then((activity)=>{
       displayNotification('#notif-div', "classroom.notif.activityCreated", "success", `'{"activityTitle": "${activity.title}"}'`);

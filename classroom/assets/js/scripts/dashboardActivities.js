@@ -486,6 +486,7 @@ function loadActivity(isDoable) {
     // Review student submission by teacher
     if(content.startsWith('http')) {  // TODO replace with "if content is LTI"
       if (UserManager.getUser().isRegular && Activity.correction > 0) {
+        // TODO cabri: for review, better use the same player version as the one used to create the activity and used by student
         const ltiActivitySubmission = $('#lti-activity-submission').html('<iframe style="width: 100%; height: 100%;" allowfullscreen="true" frameborder="0" src="https://cabricloud.com/ed/player?calculator=false&clmc=' + Activity.commentary + '" allowfullscreen></iframe>');
         ltiActivitySubmission.css({'display': 'block'});
       }
