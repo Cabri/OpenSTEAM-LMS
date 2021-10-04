@@ -226,7 +226,7 @@
 			"save": "Save the draft ",
 			"add": "Create an activity",
       "addCabriExpress": "Create Express activity",
-      "addCabriGenius": "Créer Genius activity",
+      "addCabriGenius": "Créer Smart activity",
 			"new": "New",
 			"current": "In progress",
 			"waiting": "Not yet completed",
@@ -288,7 +288,7 @@
 			"desc": "From oldest to newest",
 			"asc": "From newest to oldest",
       "cabriExpress": "Only Cabri Express activities",
-      "cabriGenius": "Only Cabri Genius activities",
+      "cabriGenius": "Only Cabri Smart activities",
       "iframe": "Only other activities",
 			"placeholder": "Search..."
 		},
