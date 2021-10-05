@@ -318,8 +318,6 @@ function activityWatch(id) {
 $('body').on('click', '.bilan-cell', function () {
     let self = $(this)
     if (!self.hasClass('no-activity')) {
-       // TODO navigate to panel to show only the student response
-
         navigatePanel('classroom-dashboard-activity-panel', 'dashboard-activities', 'AC' + parseInt(self.attr('data-id')), self.attr("data-state"))
     }
 
@@ -483,8 +481,6 @@ function loadActivity(isDoable) {
 
     }
 
-    // todo Cabri: renable when commentary database attribute is no more used for cabri student response !!
-    /*
     if (UserManager.getUser().isRegular && Activity.correction > 0) {
         correction += '<div id="commentary-panel" class="c-primary-form"><label>' + i18next.t("classroom.activities.comments") + '</label><textarea id="commentary-textarea" style="width:90%" rows="8">' + Activity.commentary + '</textarea></div>'
     }
@@ -497,7 +493,6 @@ function loadActivity(isDoable) {
 
         correction += '<button onclick="giveNote()" class="btn c-btn-primary">' + i18next.t('classroom.activities.sendResults') + '<i class="fas fa-chevron-right"> </i></button>'
     }
-    */
 
     // Review student submission by teacher
     if(content.startsWith('http')) {  // TODO replace with "if content is LTI"
