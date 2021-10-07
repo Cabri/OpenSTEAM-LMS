@@ -199,7 +199,7 @@
             "save": "Guardar el cuaderno",
             "add": "Crear una actividad",
             "addCabriExpress": "Crear actividad Express",
-            "addCabriGenius": "Crear actividad Genius",
+            "addCabriGenius": "Crear actividad Smart",
             "new": "Nuevos",
             "current": "En espera de corrección",
             "waiting": "Sin realizar aún",
@@ -464,7 +464,7 @@
                 },
                 "2": {
                     "title": "¿Que es una actividad?",
-                    "answer": "Una actividad es un contenido interactivo creado a partir de Cabri Express, Cabri Genius o un cuaderno Cabri ya existente."
+                    "answer": "Una actividad es un contenido interactivo creado a partir de Cabri Express, Cabri Smart o un cuaderno Cabri ya existente."
                 },
                 "3": {
                     "title": "¿Cómo crear o modificar una actividad?",

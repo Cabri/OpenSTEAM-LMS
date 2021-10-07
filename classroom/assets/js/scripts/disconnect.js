@@ -16,7 +16,8 @@ function goToDisconnect() {
         if (UserManager.getUser().isFromGar){
             window.location = 'https://simulent.partenaire.test-gar.education.fr/mediacentre';
         } else {
-            window.location = '/classroom/';
+            // TODO updated by CABRI
+            window.location = '/classroom/login.php';
         }
     }).catch((e)=>{
         console.log(e);

@@ -199,7 +199,7 @@
             "save": "Sauver le brouillon ",
             "add": "Créer une activité",
             "addCabriExpress": "Créer activité Express",
-            "addCabriGenius": "Créer activité Genius",
+            "addCabriGenius": "Créer activité Smart",
             "addOther": "Créer autre activité",
             "new": "Nouveaux",
             "current": "En attente de correction",
@@ -262,7 +262,7 @@
             "desc": "Du moins récent au plus récent",
             "asc": "Du plus récent au moins récent",
             "cabriExpress": "Uniquement les activités Cabri Express",
-            "cabriGenius": "Uniquement les activités Cabri Genius",
+            "cabriGenius": "Uniquement les activités Cabri Smart",
             "iframe": "Uniquement les autres activités",
             "placeholder": "Recherche..."
         },
@@ -814,7 +814,7 @@
           },
           "2": {
             "title": "Qu’est-ce qu’une activité ?",
-            "answer": "Une activité est un contenu interactif créé à partir de Cabri Express, Cabri Genius ou un cahier Cabri déjà existant."
+            "answer": "Une activité est un contenu interactif créé à partir de Cabri Express, Cabri Smart ou un cahier Cabri déjà existant."
           },
           "3": {
             "title": "Comment créer ou modifier une activité ?",

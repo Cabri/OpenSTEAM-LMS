@@ -214,8 +214,8 @@
       <h4 id="activity-details"></h4>
 
       <div id="lti-review-submission" style="flex: 1 1 100%; display: none;"></div>
-
-      <p id="activity-content"> </p>
+      <!-- TODO CABRI move changes of lti to a separate plugin -->
+<!--      <p id="activity-content"> </p>-->
 
       <div id="lti-student-launch" style="flex: 1 1 100%; display: none;"></div>
       <!--
@@ -563,11 +563,13 @@
       </div>
 
       <script>
-        window.addEventListener("message", (event) => {
+
+       /* window.addEventListener("message", (event) => {
           console.log('parent:' , event.origin, event.data)
           $('#activity-form-content-lti').val(event.data);
           $('.new-activity-panel-lti').click();
-        }, false);
+        }, false);*/
+
       </script>
     </div>
     <div class="form-row mt-1">

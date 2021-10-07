@@ -1,3 +1,23 @@
+window.addEventListener("message", (event) => {
+  console.log('parent:' , event.origin, event.data)
+  const msg = JSON.parse(event.data);
+  switch(msg.type) {
+    case 'end-lti-score':
+        console.log('ENDING LTI SCORE');
+        navigatePanel('classroom-dashboard-activities-panel','dashboard-activities', '', '', true);
+        location.reload();
+        break;
+    case 'end-lti-deeplink':
+        console.log('ENDING LTI DEEPLINK');
+        $('#activity-form-content-lti').val(msg.content);
+        $('.new-activity-panel-lti').click();
+        break;
+    default:
+      console.log('Other Action !');
+      console.log(event.data);
+  }
+}, false);
+
 //formulaire de création de classe
 $('body').on('click', '.teacher-new-classe', function (event) {
     ClassroomSettings.classroom = null

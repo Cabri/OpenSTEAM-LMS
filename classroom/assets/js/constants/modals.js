@@ -725,7 +725,9 @@ const classroomModals = {
                     <span data-i18n="classroom.activities.form.title.label">Titre de l'activité</span>
                 </label>
 
-                 <input data-i18n="classroom.activities.form.title.placeholder" type="text" id="activity-lti-form-title" class="form-control part-title-input" placeholder="Titre de la partie">
+
+                 <input data-i18n="[placeholder]classroom.activities.form.title.placeholder" type="text" id="activity-lti-form-title"
+                 class="form-control part-title-input">
             </div>
 
          <div class="row">

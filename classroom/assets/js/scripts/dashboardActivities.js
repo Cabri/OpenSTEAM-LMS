@@ -318,8 +318,6 @@ function activityWatch(id) {
 $('body').on('click', '.bilan-cell', function () {
     let self = $(this)
     if (!self.hasClass('no-activity')) {
-       // TODO navigate to panel to show only the student response
-
         navigatePanel('classroom-dashboard-activity-panel', 'dashboard-activities', 'AC' + parseInt(self.attr('data-id')), self.attr("data-state"))
     }
 
@@ -483,8 +481,6 @@ function loadActivity(isDoable) {
 
     }
 
-    // todo Cabri: renable when commentary database attribute is no more used for cabri student response !!
-    /*
     if (UserManager.getUser().isRegular && Activity.correction > 0) {
         correction += '<div id="commentary-panel" class="c-primary-form"><label>' + i18next.t("classroom.activities.comments") + '</label><textarea id="commentary-textarea" style="width:90%" rows="8">' + Activity.commentary + '</textarea></div>'
     }
@@ -497,13 +493,12 @@ function loadActivity(isDoable) {
 
         correction += '<button onclick="giveNote()" class="btn c-btn-primary">' + i18next.t('classroom.activities.sendResults') + '<i class="fas fa-chevron-right"> </i></button>'
     }
-    */
 
     // Review student submission by teacher
     if(content.startsWith('http')) {  // TODO replace with "if content is LTI"
       if (UserManager.getUser().isRegular && Activity.correction > 0) {
         // TODO cabri: for review, better use the same player version as the one used to create the activity and used by student
-       let ltiReviewSubmission = $('#lti-review-submission').html('<iframe style="width: 100%; height: 100%;" allowfullscreen="true" frameborder="0" src="https://cabricloud.com/ed/player?calculator=false&clmc=' + Activity.commentary + '" allowfullscreen></iframe>');
+       let ltiReviewSubmission = $('#lti-review-submission').html('<iframe style="width: 100%; height: 100%;" allowfullscreen="true" frameborder="0" src="https://cabricloud.com/ed/opensteam/player?calculator=false&clmc=' + Activity.url + '" allowfullscreen></iframe>');
         ltiReviewSubmission.css({'display': 'block'});
       }
 
