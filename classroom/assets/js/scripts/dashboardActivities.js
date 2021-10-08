@@ -534,8 +534,8 @@ function loadActivity(isDoable) {
     }
 
   if(isDoable) {
-    $('#activity-content').html(bbcodeToHtml(content))
-    $('#activity-content').show();
+ //   $('#activity-content').html(bbcodeToHtml(content))
+ //   $('#activity-content').show();
   }
   $('#activity-correction').html(bbcodeToHtml(correction)).show()
     if (isDoable == false) {
