@@ -2006,3 +2006,9 @@ i.line_height34 {
   width: 100%;
   height: 100%;
 }
+
+#activity-content-lti {
+  width: 100%;
+  height: 100%;
+  margin-left: 10px;
+}

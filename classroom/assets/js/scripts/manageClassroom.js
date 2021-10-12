@@ -1,3 +1,4 @@
+// Used to make direct communications between parent and child (iframe)
 window.addEventListener("message", (event) => {
   console.log('parent:' , event.origin, event.data)
   const msg = JSON.parse(event.data);
@@ -17,6 +18,12 @@ window.addEventListener("message", (event) => {
       console.log(event.data);
   }
 }, false);
+
+// Used to detect user clicking on browser's previous page button
+window.addEventListener('popstate', function (event) {
+  console.log('popstate');
+  pseudoModal.closeAllModal();
+});
 
 //formulaire de création de classe
 $('body').on('click', '.teacher-new-classe', function (event) {

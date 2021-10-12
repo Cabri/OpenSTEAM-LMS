@@ -446,6 +446,7 @@ function loadActivity(isDoable) {
     ClassroomSettings.chrono = Date.now()
     $('#activity-introduction').hide()
     $('#activity-content').hide();
+    $('#activity-content-lti').hide();
 
     if (Activity.introduction != null && Activity.introduction != "") {
         $('#text-introduction').html(bbcodeToHtml(Activity.introduction))
