@@ -1,22 +1,25 @@
 <div id="classroom-dashboard-activities-panel-teacher" style="display:none;" class="dashboard-block">
-    <div class="d-flex justify-content-center c-primary-form activity-search" style="margin: 0 auto;">
-        <div class="d-flex flex-fill">
-            <input type="search" id="filter-activity-input" placeholder="Recherche..." class="flex-fill">
+    <div class="d-flex justify-content-center c-primary-form row" style="margin: 0 auto;">
+        <div class="col-12 col-md-7">
+            <div class="d-flex flex-fill">
+                <input type="search" id="filter-activity-input" placeholder="Recherche..." class="flex-fill">
 
-            <button id="filter-activity" class="c-btn-primary" style="width: 3em;height: 3em;">
-                <i class="fas fa-search"></i>
-            </button>
+                <button id="filter-activity" class="c-btn-primary" style="width: 3em;height: 3em;">
+                    <i class="fas fa-search"></i>
+                </button>
+            </div>
         </div>
 
-        <select name="filter-activity-select" id="filter-activity-select" class="c-primary-form">
-            <option value="desc" data-i18n="classroom.filter.desc"></option>
-            <option value="asc" data-i18n="classroom.filter.asc"></option>
-            <!-- TODO Move to a separate plugin -->
-            <option value="typeGenius" data-i18n="classroom.filter.cabriGenius"></option>
-            <option value="typeExpress" data-i18n="classroom.filter.cabriExpress"></option>
-            <option value="typeIframe" data-i18n="classroom.filter.iframe"></option>
-        </select>
-
+        <div class="col-auto">
+            <select name="filter-activity-select" id="filter-activity-select" class="c-primary-form">
+                <option value="desc" data-i18n="classroom.filter.desc"></option>
+                <option value="asc" data-i18n="classroom.filter.asc"></option>
+                <!-- TODO cabri Move to a separate plugin -->
+                <option value="typeGenius" data-i18n="classroom.filter.cabriGenius"></option>
+                <option value="typeExpress" data-i18n="classroom.filter.cabriExpress"></option>
+                <option value="typeIframe" data-i18n="classroom.filter.iframe"></option>
+            </select>
+        </div>
     </div>
     </br>
 

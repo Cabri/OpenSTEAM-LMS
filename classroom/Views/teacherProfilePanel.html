@@ -1,7 +1,12 @@
 <div id="classroom-dashboard-profil-panel-teacher" class="dashboard-block profile-panel" style="display:none;">
-    <img src="assets/media/profile_picture.svg" alt="Photo de profil" class="user-picture">
-    <span id="user-name-teacher" data-i18n="classroom.profile.identity"></span>
-    <!--  <span>CLASSE : <span id="classroom-subject-teacher"> matière enseignée</span></span> -->
+    <!-- Div alert when application has expired -->
+    <div id="info-applications" class="alert alert-danger text-center" style="display:none;"></div>
+    
+    <div class="d-flex flex-column text-center">
+        <img src="assets/media/profile_picture.svg" alt="Photo de profil" class="user-picture">
+        <span id="user-name-teacher" class="mt-4" data-i18n="classroom.profile.identity"></span>
+        <!--  <span>CLASSE : <span id="classroom-subject-teacher"> matière enseignée</span></span> -->
+    </div>
 
     <div id="classroom-dashboard-profile-stats-teacher">
         <div style="grid-column: 2; grid-row: 1;" class="activity-panel-link-t classroom-clickable"
@@ -15,18 +20,26 @@
                 data-i18n="[html]classroom.profil.correctionToDo"></span></div>
     </div>
 
-    <button class="btn mt-2 c-btn-outline-primary" id="settings-teacher"><span class="text-capitalize text-span-initial"
-            data-i18n="words.settings" class="text-capitalize"></span> <i class="fas fa-cog"></i></button>
-    <button class="btn mt-2 c-btn-outline-secondary" id="help-teacher"><span data-i18n="words.help"
-            class="text-capitalize text-span-initial"></span>
-        <i class="fas fa-question-circle"></i></button>
-    <button class="btn mb-2 c-btn-outline-primary" onclick="listeModeApprenant()"><span
-            data-i18n="classroom.profil.switchMode" class="text-span-initial mr-1"></span><i
-            class="fas fa-cog"></i></button>
+    <div class="d-flex flex-column" style="gap: 1.5em;">
+        <button class="btn c-btn-outline-primary" id="settings-teacher">
+            <span class="text-capitalize text-span-initial" data-i18n="words.settings" class="text-capitalize"></span>
+            <i class="fas fa-cog"></i>
+        </button>
 
-    <button class="btn mt-2 c-btn-red" onclick="goToDisconnect('classroom');"><span data-i18n="words.disconnect"
-            class="text-capitalize text-span-initial"></span>
-        <i class="fas fa-power-off"></i></button>
+        <button class="btn c-btn-outline-secondary" id="help-teacher">
+            <span data-i18n="words.help" class="text-capitalize text-span-initial"></span>
+            <i class="fas fa-question-circle"></i>
+        </button>
+
+        <button class="btn c-btn-outline-primary" onclick="listeModeApprenant()">
+            <span data-i18n="classroom.profil.switchMode" class="text-span-initial mr-1"></span>
+            <i class="fas fa-cog"></i></button>
+
+        <button class="btn c-btn-red" onclick="goToDisconnect('classroom');">
+            <span data-i18n="words.disconnect" class="text-capitalize text-span-initial"></span>
+            <i class="fas fa-power-off"></i>
+        </button>
+    </div>
 </div>
 
 <div id="classroom-dashboard-account-panel-teacher" class="mx-3 dashboard-block classes-panel class-creation-form"

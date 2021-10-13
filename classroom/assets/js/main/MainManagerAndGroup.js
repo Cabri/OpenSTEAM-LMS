@@ -1,18 +1,18 @@
-const mainSuperAdmin = (function () {
+const mainManager = (function () {
     /**
-     * This object contains all the superadmin application's functionalities.
+     * This object contains all the manager application's functionalities.
      * @private
      */
     const S = {};
-    S.superadminManager = null;
+    S.managermanager = null;
     S.init = function () {
         return new Promise(function (resolve, reject) {
-            S.superadminManager = new SuperAdminManager();
+            S.managermanager = new managerManager();
             if (UserManager.getUser()) {
-                S.superadminManager.isAdmin().then((res) => {
+                S.managermanager.isAdmin().then((res) => {
                     if (res.Admin === true) {
-                        $('#superadmin-switch-button').show();
-                        $('#superAdmin_options').show();
+                        $('#manager-switch-button').show();
+                        $('#manager_options').show();
                         resolve("loaded");
                     } else {
                         resolve("loaded");
@@ -27,11 +27,11 @@ const mainSuperAdmin = (function () {
             return S.init();
         },
         /**
-         * Export the superadmin manager
+         * Export the manager manager
          * @public
          */
-        getSuperAdminManager: function () {
-            return S.superadminManager;
+        getmanagerManager: function () {
+            return S.managermanager;
         },
 
     }

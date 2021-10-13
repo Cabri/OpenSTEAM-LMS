@@ -1,16 +1,14 @@
 :root {
     --classroom-logo: url('../media/no-logo.png');
 
-    --classroom-primary: #9e9e9e;
-    --classroom-primary-dark: #707070;
-    --classroom-secondary:#e74c3c;
-    --classroom-secondary-dark:#c0392b;
-    --classroom-tertiary:#2e6dcc;
+    --classroom-primary: #59C07C;
+    --classroom-primary-dark: #5AA26D;
+    --classroom-secondary: #F58246;
+    --classroom-secondary-dark: #EC684C;
+    --classroom-tertiary: #62CAE0;
+    --classroom-tertiary-dark: #50afc2;
 
-    --classroom-dashboard: var(--classroom-primary);
-    --classroom-dashboard-dark: var(--classroom-primary-dark);
-
-    --correction-0: #ffc152 ;
+    --correction-0: #ffc152;
     --correction-1: #ffda97;
     --correction-2: #7cc6a5;
     --correction-3: #22b573;
@@ -22,16 +20,22 @@
     --classroom-text-0: black;
     --classroom-text-1: #333;
     --classroom-text-2: #666;
-    
+
     --classroom-shadow-1: rgba(0, 0, 0, 0.2);
     --classroom-cell: #E6E6E6;
-    
+
     --classroom-white: #fff;
     --classroom-black: #000;
     --classroom-green: #22b573;
     --classroom-red: #dc3545;
+    --classroom-red-dark: #ad242c;
     --classroom-blue: #3fa9f5;
-    
+    --classroom-gold: #f0af39;
+
+    /* Default dashboard colors (used for students) */
+    --classroom-dashboard: var(--classroom-primary);
+    --classroom-dashboard-dark: var(--classroom-primary-dark);
+
 }
 
 .theme-dark {
@@ -41,24 +45,11 @@
     --classroom-text-2: rgb(153, 153, 153);
     --classroom-shadow-1: rgba(0, 0, 0, 1);
     --classroom-cell: #4e4e4e;
-
-}
-
-/* Used when the insterface is used by a teacher */
-.theme-alt {
-    --classroom-dashboard: var(--classroom-secondary);
-    --classroom-dashboard-dark: var(--classroom-secondary-dark);
 }
 
 /* Change the hue-rotate to make the icon color match your primary color */
 .sidebar-classroom div img:not(.user-picture) {
-    filter: grayscale(1);
-}
-
-/* Change the hue-rotate to make the icon color match your secondary color */
-.theme-alt .sidebar-classroom div img:not(.user-picture) {
-    /*filter: hue-rotate(425deg);*/
-    filter: hue-rotate(215deg);
+    filter: hue-rotate(320deg);
 }
 
 /* Change the scale of your logo if it is too big */
@@ -66,3 +57,41 @@
     background-size: 90% !important;
 }
 
+/* OTHER USER TYPES */
+
+/* TEACHER THEMING
+Used when the insterface is used by a teacher */
+.theme-teacher {
+    --classroom-dashboard: #1976d2;
+    --classroom-dashboard-dark: #1260ad;
+}
+
+.theme-teacher .sidebar-classroom div img:not(.user-picture) {
+    /* Change the hue-rotate to make the icon color match your theme color */
+    filter: hue-rotate(45deg);
+}
+
+
+/* GROUP ADMIN THEMING
+Used when the insterface is used by a group administrator */
+.theme-group-admin {
+    --classroom-dashboard: #F1CA3F;
+    --classroom-dashboard-dark: #DEB421;
+}
+
+.theme-group-admin .sidebar-classroom div img:not(.user-picture) {
+    /* Change the hue-rotate to make the icon color match your theme color */
+    filter: hue-rotate(260deg) brightness(1.2);
+}
+
+/* SUPER ADMIN THEMING
+Used when the insterface is used by a super administrator */
+.theme-super-admin {
+    --classroom-dashboard: #BB5D5D;
+    --classroom-dashboard-dark: #A84D4D;
+}
+
+.theme-super-admin .sidebar-classroom div img:not(.user-picture) {
+    /* Change the hue-rotate to make the icon color match your theme color */
+    filter: hue-rotate(210deg);
+}

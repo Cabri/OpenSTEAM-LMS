@@ -2,11 +2,21 @@
 session_start();
 require_once(__DIR__ . "/../vendor/autoload.php");
 
-use Utils\ConnectionManager;
-use Database\DatabaseManager;
-use DAO\SettingsDAO;
+use Dotenv\Dotenv;
 use DAO\RegularDAO;
 use models\Regular;
+use DAO\SettingsDAO;
+use Utils\ConnectionManager;
+use Database\DatabaseManager;
+
+// load data from .env file
+$dotenv = Dotenv::createImmutable(__DIR__."/../");
+$dotenv->safeLoad();
+
+// load demoStudent name from .env file or set it to default demoStudent
+$demoStudent = !empty($_ENV['VS_DEMOSTUDENT'])
+                ? htmlspecialchars(strip_tags(trim($_ENV['VS_DEMOSTUDENT'])))
+                : 'demoStudent';
 
 $user = ConnectionManager::getSharedInstance()->checkConnected();
 if ($user) {
@@ -36,6 +46,8 @@ require_once(__DIR__ . "/header.html");
 
 <body>
     <?php
+    // add script tag with demoStudent name to make it available on the whole site
+    echo "<script>const demoStudentName = `{$demoStudent}`</script>";
     require_once(__DIR__ . "/login.html");
     ?>
 

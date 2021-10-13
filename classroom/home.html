@@ -41,18 +41,24 @@
             class="user-picture" src="assets/media/profile_picture.svg" alt="Photo de profil">
         <span data-i18n="classroom.ids.classroom-dashboard-profil-panel-teacher"></span></div>
 </div>
-<div id="superadmin-dashboard-sidebar" class="sidebar-classroom" style="display:none;">
+<div id="manager-dashboard-sidebar" class="sidebar-classroom" style="display:none;">
     <!-- set your logo here -->
     <div id="classroom-sidebar-logo"></div>
 
-    <div class="classroom-navbar-button" id="dashboard-superadmin-groups"
-        onclick="navigatePanel('superadmin-dashboard-main', 'dashboard-superadmin-groups')">
+    <div class="classroom-navbar-button" id="dashboard-manager-groups"
+        onclick="navigatePanel('manager-dashboard-main', 'dashboard-manager-groups')">
         <img src="assets/media/my_classes.svg" alt="Icône classe">
-        <span data-i18n="superadmin.users.users">Utilisateurs</span>
+        <span data-i18n="manager.users.users">Utilisateurs</span>
     </div>
 
-    <div id="dashboard-profil-superadmin" class="classroom-navbar-button"
-        onclick="navigatePanel('classroom-dashboard-profil-panel-superadmin', 'dashboard-profil-superadmin')">
+    <div class="classroom-navbar-button" id="dashboard-manager-apps"
+        onclick="navigatePanel('manager-apps-main', 'dashboard-manager-apps')">
+        <img src="assets/media/my_apps.svg" alt="Icône Apps">
+        <span data-i18n="manager.apps.apps">Applications</span>
+    </div>
+
+    <div id="dashboard-profil-manager" class="classroom-navbar-button"
+        onclick="navigatePanel('classroom-dashboard-profil-panel-manager', 'dashboard-profil-manager')">
         <img class="user-picture" src="assets/media/profile_picture.svg" alt="Photo de profil">
         <span data-i18n="classroom.ids.classroom-dashboard-profil-panel-teacher"></span>
     </div>
@@ -64,13 +70,19 @@
     <div class="classroom-navbar-button" id="dashboard-groupadmin-users-side"
         onclick="navigatePanel('groupadmin-dashboard-users', 'dashboard-groupadmin-users-side')">
         <img src="assets/media/my_classes.svg" alt="Icône classe">
-        <span data-i18n="superadmin.users.users">Utilisateurs</span>
+        <span data-i18n="manager.users.users">Utilisateurs</span>
+    </div>
+
+    <div class="classroom-navbar-button" id="dashboard-groupadmin-apps"
+        onclick="navigatePanel('groupadmin-apps-main', 'dashboard-groupadmin-apps')">
+        <img src="assets/media/my_apps.svg" alt="Icône classe">
+        <span data-i18n="manager.apps.apps">Applications</span>
     </div>
 
     <div class="classroom-navbar-button" id="dashboard-groupadmin-help-side"
         onclick="navigatePanel('groupadmin-dashboard-help', 'dashboard-groupadmin-help-side')">
-        <img src="assets/media/my_classes.svg" alt="Icône classe">
-        <span data-i18n="superadmin.profil.help">Appel à l'aide</span>
+        <img src="assets/media/call_for_help.svg" alt="Icône Appel à l'aide">
+        <span data-i18n="manager.profil.help">Appel à l'aide</span>
     </div>
 
     <div id="dashboard-profil-groupadmin" class="classroom-navbar-button"
@@ -129,10 +141,13 @@
         </div>
     </div>
 <div id="classroom-dashboard-profil-panel" style="display:none;" class="dashboard-block profile-panel">
-        <img src="assets/media/profile_picture.svg" alt="Photo de profil" class="user-picture">
-        <span id="user-name" data-i18n="classroom.profile.identity"></span>
-        <span><span data-i18n="classroom.profil.class"></span><span id="classroom-name"></span></span>
-        <!-- <span id="establishment-name"></span> -->
+        
+        <div class="d-flex flex-column text-center align-items-center">
+                <img src="assets/media/profile_picture.svg" alt="Photo de profil" class="user-picture">
+                <span id="user-name" class="mt-4" data-i18n="classroom.profile.identity"></span>
+                <span><span data-i18n="classroom.profil.class"></span><span id="classroom-name"></span></span>
+                <!-- <span id="establishment-name"></span> -->
+        </div>
 
         <div id="classroom-dashboard-profile-stats">
                 <div style="grid-column: 1; grid-row: 1;" class="activity-panel-link"><span
@@ -144,11 +159,13 @@
         </div>
         <!-- <div id="space-return-button"></div> -->
 
-        <button class="btn mb-2 c-btn-outline-primary" id="settings-student"><span data-i18n="words.settings" class="text-capitalize mr-1 text-span-initial"></span><i class="fas fa-cog"></i></button>
-        <button id="teacherSwitchButton" class="btn  mb-2 c-btn-outline-primary" onclick="modeProf()"><span class="text-span-initial mr-1" data-i18n="[html]classroom.profil.switchModeTeacher"></span><i class="fas fa-cog"></i></button>
-        <button class="btn mb-2 c-btn-red" onclick="goToDisconnect('classroom');"><span
-                        data-i18n="words.disconnect" class="text-capitalize text-span-initial"></span>
-                <i class="fas fa-power-off"></i></button>
+        <div class="d-flex flex-column" style="gap: 1.5em;">
+                <button class="btn mb-2 c-btn-outline-primary" id="settings-student"><span data-i18n="words.settings" class="text-capitalize mr-1 text-span-initial"></span><i class="fas fa-cog"></i></button>
+                <button id="teacherSwitchButton" class="btn  mb-2 c-btn-outline-primary" onclick="modeProf()"><span class="text-span-initial mr-1" data-i18n="[html]classroom.profil.switchModeTeacher"></span><i class="fas fa-cog"></i></button>
+                <button class="btn mb-2 c-btn-red" onclick="goToDisconnect('classroom');"><span
+                                data-i18n="words.disconnect" class="text-capitalize text-span-initial"></span>
+                        <i class="fas fa-power-off"></i></button>
+        </div>
 </div>
 <div id="classroom-dashboard-help-panel" style="display:none;" class="dashboard-block help-panel-student">
     <div class="teacher-contact-panel">
@@ -168,11 +185,13 @@
 
     <div id="footer-content" style="justify-content: space-around;width: 70%;flex-wrap: wrap;">
         <div class="col">
-            <a class="footer-link text-uppercase d-block" href="/privacy" data-i18n="classroom.footer.privacy"></a>
+            <a class="footer-link text-uppercase d-block" href="/classroom/privacy.php" target="_blank" data-i18n="[html]classroom.footer.privacy"></a>
         </div>
         <div class="col">
-            <a class="footer-link text-uppercase d-block" href="/cgu" target="_blank"
-                data-i18n="[html]classroom.footer.cgu"></a>
+            <a class="footer-link text-uppercase d-block" href="/classroom/cgu.php" target="_blank" data-i18n="[html]classroom.footer.cgu"></a>
+        </div>
+        <div class="col">
+            <a class="footer-link text-uppercase d-block" href="/classroom/legal.php" target="_blank" data-i18n="[html]classroom.footer.legal"></a>
         </div>
         <div class="col" data-i18n="classroom.footer.copyright">
         </div>
@@ -257,9 +276,14 @@
 </div>
 
 <div id="classroom-dashboard-profil-panel-teacher" class="dashboard-block profile-panel" style="display:none;">
-    <img src="assets/media/profile_picture.svg" alt="Photo de profil" class="user-picture">
-    <span id="user-name-teacher" data-i18n="classroom.profile.identity"></span>
-    <!--  <span>CLASSE : <span id="classroom-subject-teacher"> matière enseignée</span></span> -->
+    <!-- Div alert when application has expired -->
+    <div id="info-applications" class="alert alert-danger text-center" style="display:none;"></div>
+    
+    <div class="d-flex flex-column text-center">
+        <img src="assets/media/profile_picture.svg" alt="Photo de profil" class="user-picture">
+        <span id="user-name-teacher" class="mt-4" data-i18n="classroom.profile.identity"></span>
+        <!--  <span>CLASSE : <span id="classroom-subject-teacher"> matière enseignée</span></span> -->
+    </div>
 
     <div id="classroom-dashboard-profile-stats-teacher">
         <div style="grid-column: 2; grid-row: 1;" class="activity-panel-link-t classroom-clickable"
@@ -273,18 +297,26 @@
                 data-i18n="[html]classroom.profil.correctionToDo"></span></div>
     </div>
 
-    <button class="btn mt-2 c-btn-outline-primary" id="settings-teacher"><span class="text-capitalize text-span-initial"
-            data-i18n="words.settings" class="text-capitalize"></span> <i class="fas fa-cog"></i></button>
-    <button class="btn mt-2 c-btn-outline-secondary" id="help-teacher"><span data-i18n="words.help"
-            class="text-capitalize text-span-initial"></span>
-        <i class="fas fa-question-circle"></i></button>
-    <button class="btn mb-2 c-btn-outline-primary" onclick="listeModeApprenant()"><span
-            data-i18n="classroom.profil.switchMode" class="text-span-initial mr-1"></span><i
-            class="fas fa-cog"></i></button>
+    <div class="d-flex flex-column" style="gap: 1.5em;">
+        <button class="btn c-btn-outline-primary" id="settings-teacher">
+            <span class="text-capitalize text-span-initial" data-i18n="words.settings" class="text-capitalize"></span>
+            <i class="fas fa-cog"></i>
+        </button>
 
-    <button class="btn mt-2 c-btn-red" onclick="goToDisconnect('classroom');"><span data-i18n="words.disconnect"
-            class="text-capitalize text-span-initial"></span>
-        <i class="fas fa-power-off"></i></button>
+        <button class="btn c-btn-outline-secondary" id="help-teacher">
+            <span data-i18n="words.help" class="text-capitalize text-span-initial"></span>
+            <i class="fas fa-question-circle"></i>
+        </button>
+
+        <button class="btn c-btn-outline-primary" onclick="listeModeApprenant()">
+            <span data-i18n="classroom.profil.switchMode" class="text-span-initial mr-1"></span>
+            <i class="fas fa-cog"></i></button>
+
+        <button class="btn c-btn-red" onclick="goToDisconnect('classroom');">
+            <span data-i18n="words.disconnect" class="text-capitalize text-span-initial"></span>
+            <i class="fas fa-power-off"></i>
+        </button>
+    </div>
 </div>
 
 <div id="classroom-dashboard-account-panel-teacher" class="mx-3 dashboard-block classes-panel class-creation-form"
@@ -488,24 +520,27 @@
     </div>
 </div>
 <div id="classroom-dashboard-activities-panel-teacher" style="display:none;" class="dashboard-block">
-    <div class="d-flex justify-content-center c-primary-form activity-search" style="margin: 0 auto;">
-        <div class="d-flex flex-fill">
-            <input type="search" id="filter-activity-input" placeholder="Recherche..." class="flex-fill">
+    <div class="d-flex justify-content-center c-primary-form row" style="margin: 0 auto;">
+        <div class="col-12 col-md-7">
+            <div class="d-flex flex-fill">
+                <input type="search" id="filter-activity-input" placeholder="Recherche..." class="flex-fill">
 
-            <button id="filter-activity" class="c-btn-primary" style="width: 3em;height: 3em;">
-                <i class="fas fa-search"></i>
-            </button>
+                <button id="filter-activity" class="c-btn-primary" style="width: 3em;height: 3em;">
+                    <i class="fas fa-search"></i>
+                </button>
+            </div>
         </div>
 
-        <select name="filter-activity-select" id="filter-activity-select" class="c-primary-form">
-            <option value="desc" data-i18n="classroom.filter.desc"></option>
-            <option value="asc" data-i18n="classroom.filter.asc"></option>
-            <!-- TODO Move to a separate plugin -->
-            <option value="typeGenius" data-i18n="classroom.filter.cabriGenius"></option>
-            <option value="typeExpress" data-i18n="classroom.filter.cabriExpress"></option>
-            <option value="typeIframe" data-i18n="classroom.filter.iframe"></option>
-        </select>
-
+        <div class="col-auto">
+            <select name="filter-activity-select" id="filter-activity-select" class="c-primary-form">
+                <option value="desc" data-i18n="classroom.filter.desc"></option>
+                <option value="asc" data-i18n="classroom.filter.asc"></option>
+                <!-- TODO cabri Move to a separate plugin -->
+                <option value="typeGenius" data-i18n="classroom.filter.cabriGenius"></option>
+                <option value="typeExpress" data-i18n="classroom.filter.cabriExpress"></option>
+                <option value="typeIframe" data-i18n="classroom.filter.iframe"></option>
+            </select>
+        </div>
     </div>
     </br>
 
@@ -729,12 +764,13 @@
 
         <div id="footer-content" class="row" style="justify-content: space-around;width: 70%;flex-wrap: wrap;">
             <div class="col">
-                <a class="footer-link text-uppercase d-block" href="/classroom/privacy"
-                    data-i18n="classroom.footer.privacy"></a>
+                <a class="footer-link text-uppercase d-block" href="/classroom/privacy.php" target="_blank" data-i18n="[html]classroom.footer.privacy"></a>
             </div>
             <div class="col">
-                <a class="footer-link text-uppercase d-block" href="/classroom/cgu" target="_blank"
-                    data-i18n="[html]classroom.footer.cgu"></a>
+                <a class="footer-link text-uppercase d-block" href="/classroom/cgu.php" target="_blank" data-i18n="[html]classroom.footer.cgu"></a>
+            </div>
+            <div class="col">
+                <a class="footer-link text-uppercase d-block" href="/classroom/legal.php" target="_blank" data-i18n="[html]classroom.footer.legal"></a>
             </div>
             <div class="col" data-i18n="classroom.footer.copyright">
             </div>
@@ -747,16 +783,16 @@
 
 </div>
 <div id="groupadmin-dashboard-help" style="display:none;" class="dashboard-block help-panel">
-    <div class="teacher-contact-panel">
+    <div class="groupadmin-contact-panel">
 
         <h3 data-i18n="classroom.teacherHelpPanel.contactForm.title">Contacter Vittascience</h3>
-        <div id="about-contact-info"></div>
-        <form id="about-contact-form" class="c-primary-form">
-            <input type="text" name="subject" class="form-control" id="contact-subject-input"
+        <div id="groupadmin-about-contact-info"></div>
+        <form id="groupadmin-about-contact-form" class="c-primary-form">
+            <input type="text" name="subject" class="form-control" id="groupadmin-contact-subject-input"
                 data-i18n="[placeholder]classroom.teacherHelpPanel.contactForm.objectPlaceholder" placeholder="Objet"
                 style="width: 70%;">
 
-            <textarea name="message" id="contact-message-input" rows="8" cols="25" style="resize: none; width: 100%;"
+            <textarea name="message" id="groupadmin-contact-message-input" rows="8" cols="25" style="resize: none; width: 100%;"
                 data-i18n="[placeholder]classroom.teacherHelpPanel.contactForm.messagePlaceholder"
                 placeholder="Écrivez votre message ici. (Maximum 800 caractères)"></textarea>
 
@@ -764,14 +800,16 @@
                 disabled="disabled" style="cursor:not-allowed;" class="btn btn-lg login-button c-btn-primary">
         </form>
 
-        <div id="footer-content" class="row" style="justify-content: space-around;width: 70%;flex-wrap: wrap;">
+
+        <div id="groupadmin-footer-content" class="row" style="justify-content: space-around;width: 70%;flex-wrap: wrap;">
             <div class="col">
-                <a class="footer-link text-uppercase d-block" href="/classroom/privacy"
-                    data-i18n="classroom.footer.privacy"></a>
+                <a class="footer-link text-uppercase d-block" href="/classroom/privacy.php" target="_blank" data-i18n="[html]classroom.footer.privacy"></a>
             </div>
             <div class="col">
-                <a class="footer-link text-uppercase d-block" href="/classroom/cgu" target="_blank"
-                    data-i18n="[html]classroom.footer.cgu"></a>
+                <a class="footer-link text-uppercase d-block" href="/classroom/cgu.php" target="_blank" data-i18n="[html]classroom.footer.cgu"></a>
+            </div>
+            <div class="col">
+                <a class="footer-link text-uppercase d-block" href="/classroom/legal.php" target="_blank" data-i18n="[html]classroom.footer.legal"></a>
             </div>
             <div class="col" data-i18n="classroom.footer.copyright">
             </div>
@@ -779,59 +817,78 @@
     </div>
     <div class="faq-panel">
         <h2 class="c-text-secondary font-weight-bold text-center mt-5">FAQ</h2>
-        <div id="teacher-faq-container"></div>
+        <div id="groupadmin-faq-container"></div>
     </div>
-
 </div>
 <div id="classroom-dashboard-profil-panel-groupadmin" class="dashboard-block profile-panel" style="display:none;">
-    <div class="row text-center">
-        <div class="col-12">
-            <div class="col-12">
-                <img src="assets/media/profile_picture.svg" alt="Photo de profil"
-                    class="user-picture rounded mx-auto d-block">
-                <span id="user-name-groupadmin" data-i18n="classroom.profil.identity">PLACEHOLDER</span>
-            </div>
-            <div class="col-12">
-                <div class="m-auto">
-                    <button class="btn mt-2 c-btn-outline-primary btn-block" id="settings-groupadmin"><span
-                            class="text-capitalize text-span-initial" data-i18n="words.settings"
-                            class="text-capitalize"></span> <i class="fas fa-cog"></i>
-                    </button>
 
-                    <button class="btn mb-2 c-btn-outline-primary btn-block" onclick="switchToProf()"><span
-                            data-i18n="classroom.profil.switchModeTeacher" class="text-span-initial mr-1"></span><i
-                            class="fas fa-cog"></i>
-                    </button>
+    <div class="d-flex flex-column text-center">
+        <img src="assets/media/profile_picture.svg" alt="Photo de profil" class="user-picture">
+        <span id="user-name-groupadmin" class="mt-4" data-i18n="classroom.profil.identity">PLACEHOLDER</span>
+    </div>
 
-                    <button class="btn mt-2 c-btn-red btn-block" onclick="goToDisconnect('classroom');"><span
-                            data-i18n="words.disconnect" class="text-capitalize text-span-initial"></span>
-                        <i class="fas fa-power-off"></i>
-                    </button>
-                </div>
-            </div>
-        </div>
+    <div class="d-flex flex-column" style="gap: 1.5em;">
+        <button class="btn c-btn-outline-primary" id="settings-groupadmin"><span class="text-capitalize text-span-initial" data-i18n="words.settings" class="text-capitalize"></span> <i class="fas fa-cog"></i>
+        </button>
+
+        <button class="btn c-btn-outline-primary" onclick="switchToProf()"><span data-i18n="classroom.profil.switchModeTeacher" class="text-span-initial mr-1"></span><i class="fas fa-cog"></i>
+        </button>
+
+        <button class="btn c-btn-red" onclick="goToDisconnect('classroom');"><span data-i18n="words.disconnect" class="text-capitalize text-span-initial"></span>
+            <i class="fas fa-power-off"></i>
+        </button>
     </div>
 </div>
 <div id="groupadmin-dashboard-users" style="display:none;" class="dashboard-block">
-    <div class="d-flex justify-content-center c-primary-form activity-search" style="margin: 0 auto;">
-        <div class="container">
+    <div class="d-flex justify-content-center c-primary-form " style="margin: 0 auto;">
+        <div class="container-fluid px-5">
             <div class="row">
-                <div class="row mb-2" id="btn-create-superadmin">
-                    <button class="btn-warning btn mx-1" id="create_user_link_to_group_groupadmin"
-                        data-i18n="superadmin.buttons.user.createA">
-                        Créer un utilisateur
+                <div class="row mb-2" id="btn-create-manager">
+                    <button class="btn c-btn-outline-secondary mx-1" id="create_user_link_to_group_groupadmin">
+                        <span data-i18n="manager.buttons.user.createA">Créer un utilisateur</span>
+                        <i class="fas fa-chevron-right"></i>
                     </button>
+                </div>
+            </div>
+            <!-- Div alert when application has expired -->
+            <div id="info-group-applications" class="alert alert-danger text-center" style="display:none;"></div>
+            <div class="row mb-2 c-primary-form" id="users_options_groupadmin">
+                <!-- Search bar -->
+                <div class="col col-md-6 col-lg-8 d-flex align-items-center">
+                    <input class="flex-fill" type="search" id="name_user_search_groupadmin" placeholder="Rechercher" aria-label="Search" data-i18n="[placeholder]manager.buttons.search">
+                    <button class="btn c-btn-primary" id="search_user_groupadmin" style="width: 3em; height: 3em;">
+                        <i class="fas fa-search"></i>
+                    </button>
+                </div>
+
+                <!-- View filter -->
+                <div class="col-md form-row">
+                    <div class="col-12">
+                        <select class="form-select  w-100" id="sort_users_filter_groupadmin">
+                            <option selected value="0" data-i18n="manager.sort.user.bylastname">Trier par nom</option>
+                            <option value="1" data-i18n="manager.sort.user.byfirstname">Trier par prénom</option>
+                        </select>
+                    </div>
+
+                    <div class="col-12">
+                        <label for="users_per_page" data-i18n="manager.users.usersPerPage">Utilisateurs par page</label>
+                        <select name="users_per_page" id="users_per_page_groupadmin" class="my-1 form-select">
+                            <option value="100">100</option>
+                            <option value="250">250</option>
+                            <option value="500">500</option>
+                        </select>
+                    </div>
                 </div>
             </div>
 
             <div class="row" id="groupadmin_groups">
-                <table class="table">
+                <table class="table c-table">
                     <thead>
                         <tr>
-                            <th scope="col" data-i18n="superadmin.table.group">Groupe</th>
-                            <th scope="col" data-i18n="superadmin.table.description">Description</th>
-                            <th scope="col" data-i18n="superadmin.table.applications">Applications</th>
-                            <th scope="col" data-i18n="superadmin.table.link">Lien</th>
+                            <th scope="col" data-i18n="manager.table.group">Groupe</th>
+                            <th scope="col" data-i18n="manager.table.description">Description</th>
+                            <th scope="col" data-i18n="manager.table.applications">Applications</th>
+                            <th scope="col" data-i18n="manager.table.link">Lien</th>
                         </tr>
                     </thead>
                     <tbody id="groups_table_groupadmin">
@@ -839,183 +896,275 @@
                 </table>
             </div>
 
-            <div id="table_details_users_groupadmin" style="display: none;">
-
-                <div class="row my-2" id="users_options_groupadmin">
-
-                    <input class="mr-sm-2 flex-fill" type="search" id="name_user_search_groupadmin"
-                        placeholder="Rechercher" aria-label="Search" data-i18n="[placeholder]superadmin.buttons.search">
-                    <button class="btn btn-info btn-sm" id="search_user_groupadmin"
-                        data-i18n="superadmin.buttons.search">Rechercher</button>
-
-                    <select class="my-1 mr-sm-2 form-select" id="sort_users_filter_groupadmin">
-                        <option selected value="0" data-i18n="superadmin.sort.user.bylastname">Trier par nom</option>
-                        <option value="1" data-i18n="superadmin.sort.user.byfirstname">Trier par prénom</option>
-                    </select>
-
-                    <div class="mx-3">
-                        <label for="users_per_page" data-i18n="superadmin.users.usersPerPage">Utilisateurs par
-                            page</label>
-                        <select name="users_per_page" id="users_per_page_groupadmin" class="my-1 mr-sm-2 form-select">
-                            <option value="100">100</option>
-                            <option value="250">250</option>
-                            <option value="500">500</option>
-                        </select>
-                    </div>
-
-                </div>
-
-                <div class="row my-2">
-                    <button class="btn btn-secondary btn-sm mx-2" id="table_back_to_users_groupadmin"> -
-                    </button>
+            <div id="table_details_users_groupadmin">
+                <div class="group-header row my-2">
                     <h2 id="group_name_from_table_groupadmin"></h2>
                 </div>
 
-                <table class="table">
+                <table class="table c-table">
                     <thead>
                         <tr>
-                            <th scope="col" data-i18n="superadmin.table.lastname">Nom</th>
-                            <th scope="col" data-i18n="superadmin.table.firstname">Prénom</th>
-                            <th scope="col" data-i18n="superadmin.table.right">Rôle</th>
-                            <th scope="col" data-i18n="superadmin.table.applications">Applications</th>
-                            <th scope="col" data-i18n="superadmin.table.resetPassword">Régénérer le mot de passe</th>
-                            <th scope="col" data-i18n="superadmin.buttons.update">Modifier</th>
-                            <th scope="col" data-i18n="superadmin.buttons.delete">Supprimer</th>
+                            <th scope="col" data-i18n="manager.table.lastname">Nom</th>
+                            <th scope="col" data-i18n="manager.table.firstname">Prénom</th>
+                            <th scope="col" data-i18n="manager.table.right">Rôle</th>
+                            <th scope="col" data-i18n="manager.table.applications">Applications</th>
+                            <th scope="col" data-i18n="manager.table.resetPassword">Régénérer le mot de passe</th>
+                            <th scope="col" data-i18n="manager.buttons.update">Modifier</th>
+                            <th scope="col" data-i18n="manager.buttons.delete">Supprimer</th>
                         </tr>
                     </thead>
                     <tbody id="table_info_group_data_groupadmin">
                     </tbody>
                 </table>
 
-                <div id="paginationButtons_users_groupadmin" class="m-auto">
+                <nav id="paginationButtons_users_groupadmin" class="m-auto">
 
-                </div>
+                </nav>
             </div>
         </div>
     </div>
 </div>
-<div id="classroom-dashboard-profil-panel-superadmin" class="dashboard-block profile-panel" style="display:none;">
-    <div class="row text-center">
+<div id="groupadmin-apps-main" class="dashboard-block" style="display: none;">
+    <div class="container">
         <div class="col-12">
-            <div class="col-12">
-                <img src="assets/media/profile_picture.svg" alt="Photo de profil"
-                    class="user-picture rounded mx-auto d-block">
-                <span id="user-name-superadmin" data-i18n="classroom.profil.identity">PLACEHOLDER</span>
-            </div>
-            <div class="col-12">
-                <div class="m-auto">
-                    <button class="btn mt-2 c-btn-outline-primary btn-block" id="settings-superadmin"><span
-                            class="text-capitalize text-span-initial" data-i18n="words.settings"
-                            class="text-capitalize"></span> <i class="fas fa-cog"></i>
-                    </button>
-
-                    <button class="btn mb-2 c-btn-outline-primary btn-block" onclick="switchToProf()"><span
-                            data-i18n="classroom.profil.switchModeTeacher" class="text-span-initial mr-1"></span><i
-                            class="fas fa-cog"></i>
-                    </button>
-
-                    <button class="btn mt-2 c-btn-red btn-block" onclick="goToDisconnect('classroom');"><span
-                            data-i18n="words.disconnect" class="text-capitalize text-span-initial"></span>
-                        <i class="fas fa-power-off"></i>
-                    </button>
+            <div id="update-applications-modal">
+                <div class="row" id="group-monitoring">
+                    <p data-i18n="manager.table.monitoring" class="font-weight-bold">Group's applications monitoring</p>
+                    <table class="table c-table">
+                        <thead>
+                            <tr>
+                                <th scope="col" data-i18n="manager.table.name">Name</th>
+                                <th scope="col" data-i18n="manager.table.outDated">outDated</th>
+                                <th scope="col" data-i18n="manager.table.dateBegin">dateBegin</th>
+                                <th scope="col" data-i18n="manager.table.dateEnd">dateEnd</th>
+                                <th scope="col" data-i18n="manager.table.maxStudents">maxStudents</th>
+                                <th scope="col" data-i18n="manager.table.actualStudents">actualStudents</th>
+                                <th scope="col" data-i18n="manager.table.maxTeachers">maxTeachers</th>
+                                <th scope="col" data-i18n="manager.table.actualTeachers">actualTeachers</th>
+                                <th scope="col" data-i18n="manager.table.maxStudentsPerTeachers">maxStudentsPerTeacher</th>
+                            </tr>
+                        </thead>
+                        <tbody id="group-monitoring-body">
+                        </tbody>
+                    </table>
                 </div>
             </div>
         </div>
     </div>
 </div>
-<div id="superadmin-dashboard-main" style="display:none;" class="dashboard-block">
-    <div class="d-flex justify-content-center c-primary-form activity-search" style="margin: 0 auto;">
+<div id="classroom-dashboard-profil-panel-manager" class="dashboard-block profile-panel" style="display:none;">
 
-        <div class="container">
-            <div class="row mb-2" id="groups_options">
-                <input class="mr-sm-2 flex-fill" type="search" id="name_group_search" placeholder="Rechercher"
-                    aria-label="Search" data-i18n="[placeholder]superadmin.buttons.search">
-                <button class="btn btn-info btn-sm" id="search_group"
-                    data-i18n="superadmin.buttons.search">Rechercher</button>
-                <select class="my-1 mr-sm-2 form-select" id="sort_groups_filter">
-                    <option selected value="0" data-i18n="superadmin.sort.group.byname">Trier par nom</option>
-                    <option value="1" data-i18n="superadmin.sort.group.bydesc">Trier par description</option>
-                </select>
-                <div class="mx-3">
-                    <label for="groups_per_page" data-i18n="superadmin.group.groupsPerPage">Groupes par page</label>
-                    <select name="groups_per_page" id="groups_per_page" class="my-1 mr-sm-2 form-select">
-                        <option value="100">100</option>
-                        <option value="250">250</option>
-                        <option value="500">500</option>
-                    </select>
+    <div class="d-flex flex-column text-center">
+        <img src="assets/media/profile_picture.svg" alt="Photo de profil" class="user-picture">
+        <span id="user-name-manager" class="mt-4" data-i18n="classroom.profil.identity">PLACEHOLDER</span>
+    </div>
+
+    <div class="d-flex flex-column" style="gap: 1.5em;">
+        <button class="btn c-btn-outline-primary" id="settings-manager"><span class="text-capitalize text-span-initial" data-i18n="words.settings" class="text-capitalize"></span> <i class="fas fa-cog"></i>
+        </button>
+
+        <button class="btn c-btn-outline-primary" onclick="switchToProf()"><span data-i18n="classroom.profil.switchModeTeacher" class="text-span-initial mr-1"></span><i class="fas fa-cog"></i>
+        </button>
+
+        <button class="btn c-btn-red" onclick="goToDisconnect('classroom');"><span data-i18n="words.disconnect" class="text-capitalize text-span-initial"></span>
+            <i class="fas fa-power-off"></i>
+        </button>
+    </div>
+</div>
+<div id="manager-apps-main" class="dashboard-block" style="display: none;">
+    <div class="container-fluid px-5">
+        <div class="col-12">
+            <div id="update-applications-modal">
+
+                <div class="col-12" id="default-restrictions">
+<!--                     <div class="row">
+                        <button class="btn c-btn-outline-primary mx-1" data-i18n="manager.defaultRestrictions.getDefaultRestrictions" onclick="getAllrestrictions()">
+                            <span data-i18n="manager.apps.confirm"></span>
+                            <i class="fas fa-chevron-right"></i>
+                        </button>
+                    </div> -->
+                    <h3 data-i18n="manager.apps.defaultRestrictions">Restrictions par defaut</h3>
+                    <table class="table c-table">
+                        <thead>
+                            <tr>
+                                <th scope="col" data-i18n="manager.table.name">Name</th>
+                                <th scope="col" data-i18n="manager.table.restrictions">Restrictions</th>
+                                <th scope="col" data-i18n="manager.buttons.update">Modifier</th>
+                            </tr>
+                        </thead>
+                        <tbody id="all-default-restrictions">
+
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="col-12" id="all-applications">
+                    <div class="row">
+                        <button class="btn c-btn-outline-primary mx-1" onclick="createApp()">
+                            <span data-i18n="manager.apps.create"></span>
+                            <i class="fas fa-chevron-right"></i>
+                        </button>
+                    </div>
+                    <table class="table c-table">
+                        <thead>
+                            <tr>
+                                <th scope="col" data-i18n="manager.table.name">Name</th>
+                                <th scope="col" data-i18n="manager.table.description">Description</th>
+                                <th scope="col" data-i18n="manager.table.image">Image</th>
+                                <th scope="col" data-i18n="manager.buttons.update">Modifier</th>
+                                <th scope="col" data-i18n="manager.buttons.delete">Supprimer</th>
+                                <th scope="col" data-i18n="manager.activitiesRestrictions.restrictions">Activities Restrictions</th>
+                            </tr>
+                        </thead>
+                        <tbody id="all-applications-crud">
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="col-12" id="all-restrictions-from-app" style="display: none;">
+                    <input type="hidden" id="application-id-for-restriction">
+                    <div class="row">
+                        <button class="btn c-btn-outline-tertiary mx-1" onclick="createRestriction()">
+                            <span data-i18n="manager.activitiesRestrictions.create">Créer une restriction</span>
+                            <i class="fas fa-chevron-right"></i>
+                        </button>
+
+                        <button class="btn c-btn-outline-grey mx-1" onclick="closeRestrictionDetail()">
+                            <span data-i18n="manager.activitiesRestrictions.closeDetail">Fermer le détail</span>
+                            <i class="fas fa-times"></i>
+                        </button>
+                    </div>
+                    <table class="table c-table">
+                        <thead>
+                            <tr>
+                                <th scope="col" data-i18n="manager.activitiesRestrictions.restrictionType">Activity Type</th>
+                                <th scope="col" data-i18n="manager.activitiesRestrictions.maxActivity">Maximum Activity</th>
+                                <th scope="col" data-i18n="manager.buttons.update">Modifier</th>
+                                <th scope="col" data-i18n="manager.buttons.delete">Supprimer</th>
+                            </tr>
+                        </thead>
+                        <tbody id="all-activities-restrictions-crud">
+                        </tbody>
+                    </table>
                 </div>
             </div>
+        </div>
+    </div>
+</div>
+<div id="manager-dashboard-main" style="display:none;" class="dashboard-block">
+    <div class="d-flex justify-content-center" style="margin: 0 auto;">
 
-            <div class="row mb-2" id="btn-create-superadmin">
-                <button class="btn-primary btn mx-1" id="create_group_superadmin"
-                    data-i18n="superadmin.group.create">Créer un
-                    groupe</button>
-                <button class="btn-warning btn mx-1" id="create_user_link_to_group_superadmin"
-                    data-i18n="superadmin.users.create">
-                    Créer un utilisateur
-                </button>
-            </div>
+        <div class="container-fluid px-5">
+            <div class="row mb-2 c-primary-form" id="groups_options">
 
-            <div class="row" id="table_details_admins">
-                <table class="table">
-                    <thead>
-                        <tr>
-                            <th scope="col" data-i18n="superadmin.table.group">Groupe</th>
-                            <th scope="col" data-i18n="superadmin.table.description">Description</th>
-                            <th scope="col" data-i18n="superadmin.table.applications">Applications</th>
-                            <th scope="col" data-i18n="superadmin.buttons.update">Modifier</th>
-                            <th scope="col" data-i18n="superadmin.buttons.delete">Supprimer</th>
-                        </tr>
-                    </thead>
-                    <tbody id="groups_table_superadmin">
-                    </tbody>
-                </table>
-            </div>
+                <!-- Search bar -->
+                <div class="col col-md-6 col-lg-8 d-flex align-items-center">
+                    <input class="flex-fill" type="search" id="name_group_search" placeholder="Rechercher" aria-label="Search" data-i18n="[placeholder]manager.buttons.search">
+                    <button class="btn c-btn-primary" id="search_group" style="width: 3em; height: 3em;">
+                        <i class="fas fa-search"></i>
+                    </button>
+                </div>
 
-            <div id="table_details_users" style="display: none;">
-                <div class="row my-2" id="users_options">
-                    <input class="mr-sm-2 flex-fill" type="search" id="name_user_search"
-                        data-i18n="[placeholder]superadmin.buttons.search" placeholder="Rechercher" aria-label="Search">
-                    <button class="btn btn-info btn-sm" id="search_user"
-                        data-i18n="superadmin.buttons.search">Rechercher</button>
-                    <select class="my-1 mr-sm-2 form-select" id="sort_users_filter">
-                        <option selected value="0" data-i18n="superadmin.sort.user.bylastname">Trier par nom</option>
-                        <option value="1" data-i18n="superadmin.sort.user.byfirstname">Trier par prénom</option>
-                    </select>
-                    <div class="mx-3">
-                        <label for="users_per_page" data-i18n="superadmin.users.usersPerPage">Utilisateurs par
-                            page</label>
-                        <select name="users_per_page" id="users_per_page" class="my-1 mr-sm-2 form-select">
+                <!-- View filter -->
+                <div class="col-md form-row">
+                    <div class="col-12">
+                        <select class="form-select w-100" id="sort_groups_filter">
+                            <option selected value="0" data-i18n="manager.sort.group.byname">Trier par nom</option>
+                            <option value="1" data-i18n="manager.sort.group.bydesc">Trier par description</option>
+                        </select>
+                    </div>
+
+                    <div class="col-12">
+                        <label for="groups_per_page" data-i18n="manager.group.groupsPerPage">Groupes par page</label>
+                        <select name="groups_per_page" id="groups_per_page" class="my-1 form-select">
                             <option value="100">100</option>
                             <option value="250">250</option>
                             <option value="500">500</option>
                         </select>
                     </div>
                 </div>
-                <div class="row my-2">
-                    <button class="btn btn-secondary btn-sm mx-2" id="table_back_to_users"> -
+            </div>
+
+            <div class="row mb-2" id="btn-create-manager">
+                <button class="btn c-btn-outline-primary mx-1" id="create_group_manager">
+                    <span data-i18n="manager.group.create">Créer un groupe</span> <i class="fas fa-chevron-right"></i>
+                </button>
+                <button class="btn c-btn-outline-secondary mx-1" id="create_user_link_to_group_manager">
+                    <span data-i18n="manager.users.create">Créer un utilisateur</span> <i class="fas fa-chevron-right"></i>
+                </button>
+            </div>
+
+            <div class="row" id="table_details_admins">
+                <table class="table c-table">
+                    <thead>
+                        <tr>
+                            <th scope="col" data-i18n="manager.table.group">Groupe</th>
+                            <th scope="col" data-i18n="manager.table.description">Description</th>
+                            <th scope="col" data-i18n="manager.table.applications">Applications</th>
+                            <th scope="col" data-i18n="manager.buttons.update">Modifier</th>
+                            <th scope="col" data-i18n="manager.buttons.delete">Supprimer</th>
+                        </tr>
+                    </thead>
+                    <tbody id="groups_table_manager">
+                    </tbody>
+                </table>
+            </div>
+
+            <div id="table_details_users" class="c-primary-form" style="display: none;">
+                <div class="row mb-2 c-primary-form" id="users_options">
+
+                    <!-- Search bar -->
+                    <div class="col col-md-6 col-lg-8 d-flex align-items-center">
+                        <input class="flex-fill" type="search" id="name_user_search" data-i18n="[placeholder]manager.buttons.search" placeholder="Rechercher" aria-label="Search">
+                        <button class="btn c-btn-primary" id="search_user" style="width: 3em; height: 3em;">
+                            <i class="fas fa-search"></i>
+                        </button>
+                    </div>
+                
+                    <!-- View filter -->
+                    <div class="col-md form-row">
+                        <div class="col-12">
+                            <select class="form-select w-100" id="sort_users_filter">
+                                <option selected value="0" data-i18n="manager.sort.user.bylastname">Trier par nom</option>
+                                <option value="1" data-i18n="manager.sort.user.byfirstname">Trier par prénom</option>
+                            </select>
+                        </div>
+                
+                        <div class="col-12">
+                            <label for="users_per_page" data-i18n="manager.users.usersPerPage">Utilisateurs par page</label>
+                            <select name="users_per_page" id="users_per_page" class="my-1 form-select">
+                                <option value="100">100</option>
+                                <option value="250">250</option>
+                                <option value="500">500</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="row my-2 group-header">
+                    <button class="btn btn-sm c-btn-grey" id="table_back_to_users">
+                        <i class="fas fa-arrow-left"></i>
                     </button>
                     <h2 id="group_name_from_table"></h2>
                 </div>
-                <table class="table">
+                <table class="table c-table">
                     <thead>
                         <tr>
-                            <th scope="col" data-i18n="superadmin.table.lastname">Nom</th>
-                            <th scope="col" data-i18n="superadmin.table.firstname">Prénom</th>
-                            <th scope="col" data-i18n="superadmin.table.right">Rôle</th>
-                            <th scope="col" data-i18n="superadmin.table.applications">Applications</th>
-                            <th scope="col" data-i18n="superadmin.table.resetPassword">Régénérer le mot de passe</th>
-                            <th scope="col" data-i18n="superadmin.buttons.update">Modifier</th>
-                            <th scope="col" data-i18n="superadmin.buttons.delete">Supprimer</th>
+                            <th scope="col" data-i18n="manager.table.lastname">Nom</th>
+                            <th scope="col" data-i18n="manager.table.firstname">Prénom</th>
+                            <th scope="col" data-i18n="manager.table.right">Rôle</th>
+                            <th scope="col" data-i18n="manager.table.applications">Applications</th>
+                            <th scope="col" data-i18n="manager.table.resetPassword">Régénérer le mot de passe</th>
+                            <th scope="col" data-i18n="manager.buttons.update">Modifier</th>
+                            <th scope="col" data-i18n="manager.buttons.delete">Supprimer</th>
                         </tr>
                     </thead>
                     <tbody id="table_info_group_data">
                     </tbody>
                 </table>
 
-                <div id="paginationButtons_users" class="m-auto">
+                <nav id="paginationButtons_users" class="m-auto">
 
-                </div>
+                </nav>
             </div>
 
             <div class="row">
@@ -1065,11 +1214,11 @@
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
     integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous">
 </script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/i18next/8.1.0/i18next.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-i18next/1.2.1/jquery-i18next.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/i18next-xhr-backend/1.5.1/i18nextXHRBackend.min.js"></script>
+<script src="assets/js/lib/i18next.js"></script>
+<script src="assets/js/lib/jquery-i18next.min.js"></script>
+<script src="assets/js/lib/i18nextXHRBackend.min.js"></script>
 <script
-    src="https://cdnjs.cloudflare.com/ajax/libs/i18next-browser-languagedetector/2.2.3/i18nextBrowserLanguageDetector.min.js">
+    src="assets/js/lib/i18nextBrowserLanguageDetector.min.js">
 </script>
 <!-- build:js-classroom -->
 <script src="assets/js/utils/url.js"></script>
@@ -1089,6 +1238,11 @@
 <script src="assets/js/main/UIManager.js"></script>
 <script src="assets/js/main/User.js"></script>
 <script src="assets/js/main/ClassroomManager.js"></script>
+<!-- manager & groupadmin -->
+<script src="assets/js/main/ManagerManager.js"></script>
+<script src="assets/js/main/GroupAdminManager.js"></script>
+<script src="assets/js/main/MainManagerAndGroup.js"></script>
+<!-- manager & groupadmin -->
 <script src="assets/js/main/Main.js"></script>
 <script src="assets/js/main/Loader.js"></script>
 <script>
@@ -1130,9 +1284,21 @@
                                         'dashboard-profil-teacher', $_GET('option'), $_GET(
                                             'interface'))
                                 }
+
+                                // Init the super and group admin
+                                let currentTask = (onEnd) => {
+                                    mainGroupAdmin.init().then((resolve) => {
+                                        mainManager.init().then((resolve) => {
+                                            onEnd();
+                                        })
+                                    })
+                                }
+                                Main.getClassroomManager()._addTaskToQueue(currentTask);
                             } else {
                                 $('#classroom-dashboard-sidebar').show()
-                                $('.user-picture').attr('src', '/classroom/assets/media/alphabet/' +
+                                $('body').addClass('theme-student')
+                                $('.user-picture').attr('src',
+                                    '/classroom/assets/media/alphabet/' +
                                     UserManager.getUser().pseudo.slice(0, 1).toUpperCase() +
                                     '.png')
                                 Main.getClassroomManager().getMyClassroom(UserManager.getUser()
@@ -1150,6 +1316,10 @@
                                             'classroom-dashboard-profil-panel',
                                             'dashboard-profil', $_GET('option'),
                                             $_GET('interface'))
+                                    }
+                                    if (UserManager.getUser().isFromGar) {
+                                        document.getElementById('settings-student')
+                                            .style.display = 'none';
                                     }
                                 })
 

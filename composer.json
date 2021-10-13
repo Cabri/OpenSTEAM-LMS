@@ -1,11 +1,11 @@
 {
   "require-dev": {
         "phpunit/phpunit": "8.0.0",
-        "vittascience/vtuser": "dev-rewrite-services",
-        "vittascience/vtinterfaces": "dev-main",
-        "vittascience/vtclassroom": "dev-main",
-        "vittascience/vtlearn": "dev-main",
-        "vittascience/vutils": "dev-main",
+        "vittascience/vtuser": "1.2.1",
+        "vittascience/vtinterfaces": "1.2.1",
+        "vittascience/vtclassroom": "1.2.1",
+        "vittascience/vtlearn": "1.2.1",
+        "vittascience/vutils": "1.2.1",
         "symfony/var-dumper": "^5.3"
     },
     "require": {
@@ -36,7 +36,6 @@
             "Learn\\": "vendor/vittascience/vtlearn",
             "Utils\\": "vendor/vittascience/vutils/src",
             "Classroom\\": "vendor/vittascience/vtclassroom/src",
-            "Superadmin\\": "superadmin/src",
             "Plugins\\": "plugins"
         }
     },
