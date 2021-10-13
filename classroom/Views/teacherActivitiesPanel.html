@@ -39,7 +39,7 @@
 <div id="classroom-dashboard-activities-panel-library-teacher" style="display:none;" class="dashboard-block">
 </div>
 
-<div id="classroom-dashboard-new-cabriexpress-activity-panel" style="display:none;"
+<div id="classroom-dashboard-new-cabriexpress-activity-panel" style="height:85vh; display:none;justify-content: normal;"
      class="activity-creation-form row dashboard-block">
   <nav class="row w-50" style="margin: 0 auto;">
     <div class="col-4 text-center"><span class="form-activity form-activity-activate"><b>1</b></span><span
@@ -48,47 +48,24 @@
     <div class=" col-4 text-center"><span class="form-activity form-activity-desactivate"><b>2</b></span>
       <span data-i18n="classroom.activities.form.2"></span></div>
   </nav>
-  <div class="form-group mb-2 part-content-index part-row c-primary-form" style="max-width: 90%;">
-    <!--<div class="form-row mt-1">
-      <label for="part-content-input" class="tutorial-label">
-        <span data-i18n="classroom.activities.form.title.label"></span>
-      </label>
-      <input data-i18n="[placeholder]classroom.activities.form.title.placeholder" type="text"
-             id="activity-form-title" class="form-control part-title-input">
-    </div>-->
-    <div class="form-row mt-1">
-      <!--<label for="part-content-input" class="tutorial-label">
-        <span data-i18n='classroom.activities.form.content.label'></span>
-      </label>-->
-      <!-- Resource Launch-->
-      <!-- STEP 1-->
-      <input id="activity-form-content-lti" type="text" hidden/>
-      <form name="lti_teacher_login_form" action="https://lti1p3.cabricloud.com/login" method="post" target="lti_teacher_iframe">
-        <input id="lti_teacher_iss" type="hidden" name="iss"/>
-        <input id="lti_teacher_login_hint" type="hidden" name="login_hint"/>
-        <input id="lti_teacher_client_id" type="hidden" name="client_id" value="client_id_php" />
-        <input id="lti_teacher_target_link_uri" type="hidden" name="target_link_uri" value="https://lti1p3.cabricloud.com/deeplink" />
-      </form>
 
-      <div class="cabriIframeWrapper">
-        <iframe id="lti_teacher_iframe" src="about:blank" name="lti_teacher_iframe" title="Tool Content" allowfullscreen></iframe>
-      </div>
+  <div style="flex: 1 1; width: 95%; max-width: 100%;" >
+    <input id="activity-form-content-lti" type="text" hidden/>
+    <form name="lti_teacher_login_form" action="https://lti1p3.cabricloud.com/login" method="post" target="lti_teacher_iframe">
+      <input id="lti_teacher_iss" type="hidden" name="iss"/>
+      <input id="lti_teacher_login_hint" type="hidden" name="login_hint"/>
+      <input id="lti_teacher_client_id" type="hidden" name="client_id" value="client_id_php" />
+      <input id="lti_teacher_target_link_uri" type="hidden" name="target_link_uri" value="https://lti1p3.cabricloud.com/deeplink" />
+    </form>
 
-      <script>
-
-       /* window.addEventListener("message", (event) => {
-          console.log('parent:' , event.origin, event.data)
-          $('#activity-form-content-lti').val(event.data);
-          $('.new-activity-panel-lti').click();
-        }, false);*/
-
-      </script>
-    </div>
-    <div class="form-row mt-1">
+    <div style="width: 100%; height: 100%;">
+      <iframe id="lti_teacher_iframe" src="about:blank" name="lti_teacher_iframe" title="Tool Content" width="100%"  height="100%" allowfullscreen></iframe>
     </div>
   </div>
+
   <button class="new-activity-panel-lti c-btn-primary" hidden><span data-i18n="classroom.activities.form.button"></span> <i
     class="fas fa-check"></i></button>
+
 </div>
 
 <div id="classroom-dashboard-new-activity-panel" style="display:none;margin-right:0px;"

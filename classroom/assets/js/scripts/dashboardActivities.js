@@ -446,6 +446,7 @@ function loadActivity(isDoable) {
     ClassroomSettings.chrono = Date.now()
     $('#activity-introduction').hide()
     $('#activity-content').hide();
+    $('#activity-content-lti').hide();
 
     if (Activity.introduction != null && Activity.introduction != "") {
         $('#text-introduction').html(bbcodeToHtml(Activity.introduction))
@@ -534,8 +535,8 @@ function loadActivity(isDoable) {
     }
 
   if(isDoable) {
-    $('#activity-content').html(bbcodeToHtml(content))
-    $('#activity-content').show();
+ //   $('#activity-content').html(bbcodeToHtml(content))
+ //   $('#activity-content').show();
   }
   $('#activity-correction').html(bbcodeToHtml(correction)).show()
     if (isDoable == false) {

@@ -373,14 +373,17 @@ function getTeacherActivity() {
 </button>`)
 
     let activityContent = $('#activity-content');
-    // TODO cabri replace with IF LTI
+    let activityContentLti = $('#activity-content-lti');
+
+   // TODO cabri replace with IF LTI
     if(Activity.content.startsWith('http')) {
-      activityContent.html('<iframe style="width: 100%; height: 620px;" allowfullscreen="true" frameborder="0" src="https://cabricloud.com/ed/opensteam/express?calculator=false&clmc=' + Activity.content + '" allowfullscreen></iframe>');
+      activityContentLti.html('<iframe style="width: 100%; height: 100%;" allowfullscreen="true" frameborder="0" src="https://cabricloud.com/ed/opensteam/express?calculator=false&clmc=' + Activity.content + '" allowfullscreen></iframe>');
     }
     else
       activityContent.html(bbcodeToHtml(Activity.content))
 
     activityContent.css('display', 'block');
+    activityContentLti.css('display', 'block');
     $('#activity-introduction').hide()
     $('#activity-validate').hide()
     $('#lti-review-submission').hide()
