@@ -353,6 +353,9 @@
 				},
         "continue": "Continue"
       },
+      "updateActivity": {
+        "title": "Update an activity"
+      },
 			"settingsTeacher": {
 				"title": "Account settings",
 				"lang": "Language",

@@ -890,7 +890,7 @@ const classroomModals = {
       selector: '',
       header: {
         icon: '',
-        title: 'classroom.modals.addActivity.title'
+        title: 'classroom.modals.updateActivity.title'
       },
       content: `
           <div class="col-12">

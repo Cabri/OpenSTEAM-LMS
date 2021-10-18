@@ -352,6 +352,9 @@
         },
         "continue": "Continue"
       },
+      "updateActivity": {
+        "title": "Modifier une activité"
+      },
       "settingsTeacher": {
         "title": "Paramètres du compte",
         "lang": "Langue",
