@@ -2288,7 +2288,7 @@ function startActivityCreation() {
   }
   else {
     // hide modal and show cabri activity creation
-    pseudoModal.closeModal('add-activity-name');
+    pseudoModal.closeModal('add-lti-activity-name');
     $('#lti_teacher_iframe').css({'filter': '', 'pointer-events': 'all'});
   }
 }

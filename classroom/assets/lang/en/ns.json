@@ -261,7 +261,7 @@
 				"2": "Attribution",
 				"title": {
 					"label": "Activity title",
-					"placeholder": "Part title"
+					"placeholder": "Title"
 				},
 				"content": {
 					"label": "Activity content"
@@ -336,6 +336,7 @@
 			}
 		},
 		"modals": {
+      "addLtiActivityName": "What is the title of the activity ?",
 			"addActivity": {
 				"title": "Add an activity",
 				"resourceBank": {
@@ -351,7 +352,9 @@
 					"title": "Create a new activity",
 					"button": "Create an activity "
 				},
-        "continue": "Continue"
+        "continue": "Continue",
+        "limitTitle": "Exceeded limit",
+        "limitDescription": "You cannot create more activities of this type because you have exceeded the limit allowed for your account."
       },
       "updateActivity": {
         "title": "Update an activity"

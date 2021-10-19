@@ -335,6 +335,7 @@
       }
     },
     "modals": {
+      "addLtiActivityName": "Quel est le titre de l'activité ?",
       "addActivity": {
         "title": "Ajouter une activité",
         "resourceBank": {
@@ -350,7 +351,9 @@
           "title": "Créer une nouvelle activité",
           "button": "Créer une activité "
         },
-        "continue": "Continue"
+        "continue": "Continue",
+        "limitTitle": "Limite dépassée",
+        "limitDescription": "Vous ne pouvez pas créer plus d'activités de ce type car vous avez dépassé la limite authorisée pour votre compte."
       },
       "updateActivity": {
         "title": "Modifier une activité"
