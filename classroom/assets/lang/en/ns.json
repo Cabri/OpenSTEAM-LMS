@@ -235,7 +235,8 @@
 			"add": "Create an activity",
       "addCabriExpress": "Create Express activity",
       "addCabriGenius": "Créer Smart activity",
-			"new": "New",
+      "addOther": "Other type of activity",
+      "new": "New",
 			"current": "In progress",
 			"waiting": "Not yet completed",
 			"done": "Done",
@@ -297,7 +298,7 @@
 			"asc": "From newest to oldest",
       "cabriExpress": "Only Cabri Express activities",
       "cabriGenius": "Only Cabri Smart activities",
-      "iframe": "Only other activities",
+      "iframe": "Only other types of activities",
 			"placeholder": "Search..."
 		},
 		"sandbox": {

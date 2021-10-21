@@ -233,7 +233,7 @@
       "add": "Créer une activité",
       "addCabriExpress": "Créer activité Express",
       "addCabriGenius": "Créer activité Smart",
-      "addOther": "Créer autre activité",
+      "addOther": "Autre type d'activité",
       "new": "Nouveaux",
       "current": "En attente de correction",
       "waiting": "Pas encore réalisé",
@@ -296,7 +296,7 @@
       "asc": "Du plus récent au moins récent",
       "cabriExpress": "Uniquement les activités Cabri Express",
       "cabriGenius": "Uniquement les activités Cabri Smart",
-      "iframe": "Uniquement les autres activités",
+      "iframe": "Uniquement les autres types d'activités",
       "placeholder": "Recherche..."
     },
     "sandbox": {
