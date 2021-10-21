@@ -353,7 +353,7 @@
         },
         "continue": "Continue",
         "limitTitle": "Limite dépassée",
-        "limitDescription": "Vous ne pouvez pas créer plus d'activités de ce type car vous avez dépassé la limite authorisée pour votre compte."
+        "limitDescription": "La limite du nombre d'activités liée à ce compte est atteinte."
       },
       "updateActivity": {
         "title": "Modifier une activité"

@@ -354,7 +354,7 @@
 				},
         "continue": "Continue",
         "limitTitle": "Exceeded limit",
-        "limitDescription": "You cannot create more activities of this type because you have exceeded the limit allowed for your account."
+        "limitDescription": "The limit of the number of activities linked to this account has been reached."
       },
       "updateActivity": {
         "title": "Update an activity"
