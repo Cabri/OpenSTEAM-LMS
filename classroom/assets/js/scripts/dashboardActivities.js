@@ -499,7 +499,7 @@ function loadActivity(isDoable) {
     if(content.startsWith('http')) {  // TODO replace with "if content is LTI"
       if (UserManager.getUser().isRegular && Activity.correction > 0) {
         // TODO cabri: for review, better use the same player version as the one used to create the activity and used by student
-       let ltiReviewSubmission = $('#lti-review-submission').html('<iframe style="width: 100%; height: 100%;" allowfullscreen="true" frameborder="0" src="https://cabricloud.com/ed/opensteam/player?calculator=false&clmc=' + Activity.url + '" allowfullscreen></iframe>');
+       let ltiReviewSubmission = $('#lti-review-submission').html('<iframe style="width: 100%; height: 100%;" allowfullscreen="true" frameborder="0" src="https://cabricloud.com/ed/opensteam/player?isMobile&calculator=false&clmc=' + Activity.url + '" allowfullscreen></iframe>');
         ltiReviewSubmission.css({'display': 'block'});
       }
 

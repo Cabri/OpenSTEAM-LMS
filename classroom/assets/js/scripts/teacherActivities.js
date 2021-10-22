@@ -1,4 +1,4 @@
-function createActivity(link = null, id = null) {
+function createActivity(link = null, id = null, type) {
     ClassroomSettings.status = "attribute"
     ClassroomSettings.isNew = true;
     if (id == null) {
@@ -22,7 +22,39 @@ function createActivity(link = null, id = null) {
     ClassroomSettings.activityInWriting = true
 }
 
-function createCabriActivity(link = null, id = null, type) {
+function createCabriIframeActivity(link = null, id = null) {
+  ClassroomSettings.status = "attribute"
+  ClassroomSettings.isNew = true;
+  if (id == null) {
+
+    if (link) {
+      $('.wysibb-text-editor').html('[iframe]' + URLServer + '' + link + '[/iframe]')
+    } else {
+      $('.wysibb-text-editor').html('')
+    }
+    $('#activity-form-title').val('')
+
+  } else {
+    ClassroomSettings.activity = id
+    ClassroomSettings.status = 'action';
+    Main.getClassroomManager().getActivity(ClassroomSettings.activity).then(function (activity) {
+      $('#activity-form-title').val(activity.title)
+      $('.wysibb-text-editor').html(activity.content)
+    })
+  }
+
+  Main.getClassroomManager().canAddActivity({type: 'IFRAME'}).then( data => {
+    if (!data.canAdd) {
+      pseudoModal.openModal('add-activity-limitation');
+      return;
+    }
+
+    navigatePanel('classroom-dashboard-new-activity-panel', 'dashboard-activities-teacher')
+    ClassroomSettings.activityInWriting = true
+  });
+}
+
+function createCabriLtiActivity(link = null, id = null, type) {
   ClassroomSettings.status = "attribute"
   ClassroomSettings.isNew = true;
   if (id == null) {
@@ -48,7 +80,6 @@ function createCabriActivity(link = null, id = null, type) {
   }
 
   Main.getClassroomManager().canAddActivity({type}).then( data => {
-    console.log(data);
     if(!data.canAdd) {
       pseudoModal.openModal('add-activity-limitation');
       return;

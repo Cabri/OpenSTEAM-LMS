@@ -152,10 +152,10 @@ DisplayPanel.prototype.classroom_dashboard_help_panel = function () {
 DisplayPanel.prototype.classroom_dashboard_help_panel_teacher = function () {
     let html = '';
     let index = [7, 12, 5, 3, 3, 3]; // number of questions+1 per category in faq
-    
+
     // capitalize demoStudent name
     let capitalizedDemoStudentName = `${demoStudentName.charAt(0).toUpperCase()}${demoStudentName.slice(1)}`;
-    
+
     for (let i = 1; i <= index.length; i++) {
         html += "<h4 data-i18n='[html]faqTeacherNeutral." + i + ".section_title'></h4>";
         for (let j = 1; j < index[i - 1]; j++) {
@@ -385,7 +385,7 @@ function getTeacherActivity() {
 
    // TODO cabri replace with IF LTI
     if(Activity.content.startsWith('http')) {
-      activityContentLti.html('<iframe style="width: 100%; height: 100%;" allowfullscreen="true" frameborder="0" src="https://cabricloud.com/ed/opensteam/express?calculator=false&clmc=' + Activity.content + '" allowfullscreen></iframe>');
+      activityContentLti.html('<iframe style="width: 100%; height: 100%;" allowfullscreen="true" frameborder="0" src="https://cabricloud.com/ed/opensteam/express?isMobile&calculator=false&clmc=' + Activity.content + '" allowfullscreen></iframe>');
     }
     else
       activityContent.html(bbcodeToHtml(Activity.content))
