@@ -506,7 +506,6 @@ function loadActivity(isDoable) {
       }
 
       if(isDoable) {
-        if(content.startsWith('http')) {
           const loginHint = {
             lineitemId: content,
             userId: UserManager.getUser().id,
@@ -532,14 +531,17 @@ function loadActivity(isDoable) {
           $('#lti_student_login_hint').val(JSON.stringify(loginHint));
 
           document.forms["lti_student_login_form"].submit();
-        }
       }
     }
+    else if(content.startsWith('[iframe]') && isDoable) {
+        $('#lti-student-launch').html(bbcodeToHtml(content))
+        $('#lti-student-launch').show();
+    }
+    else if(isDoable) {
+        $('#activity-content').html(bbcodeToHtml(content))
+        $('#activity-content').show();
+    }
 
-  if(isDoable) {
- //   $('#activity-content').html(bbcodeToHtml(content))
- //   $('#activity-content').show();
-  }
   $('#activity-correction').html(bbcodeToHtml(correction)).show()
     if (isDoable == false) {
         $('#activity-validate').hide()
