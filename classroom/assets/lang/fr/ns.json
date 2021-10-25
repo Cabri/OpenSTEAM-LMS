@@ -358,6 +358,12 @@
       "updateActivity": {
         "title": "Modifier une activité"
       },
+      "deleteActivity": {
+        "title": "Supprimer une activity",
+        "description": "Etes vous sur de vouloir supprimer l'activité ?",
+        "confirm": "Confirmer",
+        "cancel": "Annuler"
+      },
       "settingsTeacher": {
         "title": "Paramètres du compte",
         "lang": "Langue",

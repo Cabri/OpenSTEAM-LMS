@@ -360,6 +360,12 @@
       "updateActivity": {
         "title": "Update an activity"
       },
+      "deleteActivity": {
+        "title": "Delete activity",
+        "description": "Are you sure you want to delete the activity ?",
+        "confirm": "Confirm",
+        "cancel": "Cancel"
+      },
 			"settingsTeacher": {
 				"title": "Account settings",
 				"lang": "Language",
