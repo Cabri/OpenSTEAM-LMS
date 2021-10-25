@@ -1,0 +1,94 @@
+/* SWITCH TO ADMIN MODE */
+
+fieldset.switch-to-admin {
+    padding: revert;
+    border: 1px solid var(--classroom-text-2);
+    border-radius: 10px;
+    text-align: center;
+}
+
+fieldset.switch-to-admin legend {
+    color: var(--classroom-text-2);
+    width: auto;
+    font-size: 0.75em;
+
+}
+
+.c-btn-dashboard {
+    color: var(--classroom-dashboard) !important;
+    border-color: var(--classroom-dashboard) !important;
+}
+
+/* ADMIN PANELS */
+
+
+#groups_table_groupadmin>tr>th:first-child,
+#groups_table_manager>tr>th:first-child {
+    cursor: pointer;
+}
+
+.group-header {
+    display: flex;
+    justify-content: flex-start;
+}
+
+.group-header h2 {
+    font-weight: 700;
+    margin-left: 0.5em;
+    margin-bottom: 0em;
+}
+
+.group-header button {
+    width: 2em;
+    height: 2em;
+    border-radius: 50%;
+    align-self: center;
+    line-height: 0.5em;
+}
+
+.group-header button i {
+    left: -1px;
+    position: relative;
+    vertical-align: middle;
+}
+
+.tooltip-container {
+    position: relative;
+}
+
+.pagination {
+    color: var(--classroom-tertiary);
+}
+
+.pagination .page-link {
+    color: var(--classroom-tertiary);
+    background-color: var(--classroom-background);
+    border-color: var(--classroom-cell);
+    font-weight: bold;
+}
+
+.pagination .page-item.active .page-link {
+    color: var(--classroom-white);
+    background-color: var(--classroom-tertiary);
+    border-color: var(--classroom-tertiary);
+}
+
+.pagination .page-item:last-child .page-link {
+    border-top-right-radius: 3rem;
+    border-bottom-right-radius: 3rem;
+}
+
+.pagination .page-item:first-child .page-link {
+    border-top-left-radius: 3rem;
+    border-bottom-left-radius: 3rem;
+}
+
+/* GROUP ADMIN */
+/* MANAGER */
+
+.activity-add-form {
+    display: grid;
+    grid-template-columns: max-content max-content;
+    column-gap: 1em;
+    row-gap: 0.5em;
+}

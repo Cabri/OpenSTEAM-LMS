@@ -1,14 +1,14 @@
 <div id="groupadmin-dashboard-help" style="display:none;" class="dashboard-block help-panel">
-    <div class="teacher-contact-panel">
+    <div class="groupadmin-contact-panel">
 
         <h3 data-i18n="classroom.teacherHelpPanel.contactForm.title">Contacter Vittascience</h3>
-        <div id="about-contact-info"></div>
-        <form id="about-contact-form" class="c-primary-form">
-            <input type="text" name="subject" class="form-control" id="contact-subject-input"
+        <div id="groupadmin-about-contact-info"></div>
+        <form id="groupadmin-about-contact-form" class="c-primary-form">
+            <input type="text" name="subject" class="form-control" id="groupadmin-contact-subject-input"
                 data-i18n="[placeholder]classroom.teacherHelpPanel.contactForm.objectPlaceholder" placeholder="Objet"
                 style="width: 70%;">
 
-            <textarea name="message" id="contact-message-input" rows="8" cols="25" style="resize: none; width: 100%;"
+            <textarea name="message" id="groupadmin-contact-message-input" rows="8" cols="25" style="resize: none; width: 100%;"
                 data-i18n="[placeholder]classroom.teacherHelpPanel.contactForm.messagePlaceholder"
                 placeholder="Écrivez votre message ici. (Maximum 800 caractères)"></textarea>
 
@@ -16,14 +16,16 @@
                 disabled="disabled" style="cursor:not-allowed;" class="btn btn-lg login-button c-btn-primary">
         </form>
 
-        <div id="footer-content" class="row" style="justify-content: space-around;width: 70%;flex-wrap: wrap;">
+
+        <div id="groupadmin-footer-content" class="row" style="justify-content: space-around;width: 70%;flex-wrap: wrap;">
             <div class="col">
-                <a class="footer-link text-uppercase d-block" href="/classroom/privacy"
-                    data-i18n="classroom.footer.privacy"></a>
+                <a class="footer-link text-uppercase d-block" href="/classroom/privacy.php" target="_blank" data-i18n="[html]classroom.footer.privacy"></a>
             </div>
             <div class="col">
-                <a class="footer-link text-uppercase d-block" href="/classroom/cgu" target="_blank"
-                    data-i18n="[html]classroom.footer.cgu"></a>
+                <a class="footer-link text-uppercase d-block" href="/classroom/cgu.php" target="_blank" data-i18n="[html]classroom.footer.cgu"></a>
+            </div>
+            <div class="col">
+                <a class="footer-link text-uppercase d-block" href="/classroom/legal.php" target="_blank" data-i18n="[html]classroom.footer.legal"></a>
             </div>
             <div class="col" data-i18n="classroom.footer.copyright">
             </div>
@@ -31,7 +33,6 @@
     </div>
     <div class="faq-panel">
         <h2 class="c-text-secondary font-weight-bold text-center mt-5">FAQ</h2>
-        <div id="teacher-faq-container"></div>
+        <div id="groupadmin-faq-container"></div>
     </div>
-
 </div>

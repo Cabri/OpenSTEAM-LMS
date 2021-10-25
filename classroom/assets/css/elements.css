@@ -11,6 +11,49 @@
     color: var(--classroom-tertiary)
 }
 
+.c-text-gold {
+    color: var(--classroom-gold)
+}
+
+.c-text-red {
+    color: var(--classroom-red)
+}
+
+
+/* Links */
+
+.c-link-primary {
+    color: var(--classroom-primary)
+}
+
+.c-link-primary:hover {
+    color: var(--classroom-primary-dark)
+}
+
+.c-link-secondary {
+    color: var(--classroom-secondary)
+}
+
+.c-link-secondary:hover {
+    color: var(--classroom-secondary-dark)
+}
+
+.c-link-tertiary {
+    color: var(--classroom-tertiary)
+}
+
+.c-link-tertiary:hover {
+    color: var(--classroom-tertiary-dark)
+}
+
+.c-link-red {
+    color: var(--classroom-red)
+}
+
+.c-link-red:hover {
+    color: var(--classroom-red-dark)
+}
+
 /* Buttons */
 .c-btn-primary {
     background: var(--classroom-primary);
@@ -72,6 +115,18 @@
     background: transparent;
 }
 
+.c-btn-light {
+    background: var(--classroom-cell);
+    color: var(--classroom-white);
+    border-radius: 256px;
+}
+
+.c-btn-outline-light {
+    border: 2px solid var(--classroom-cell);
+    color: var(--classroom-cell);
+    background: transparent;
+}
+
 .c-btn-outline-primary,
 .c-btn-primary,
 .c-btn-outline-secondary,
@@ -81,7 +136,9 @@
 .c-btn-outline-red,
 .c-btn-red,
 .c-btn-outline-grey,
-.c-btn-grey {
+.c-btn-grey,
+.c-btn-outline-light,
+.c-btn-light {
     font-weight: 700;
     border-radius: 256px;
 }
@@ -95,9 +152,11 @@
 .c-btn-outline-red:focus,
 .c-btn-red:focus,
 .c-btn-outline-grey:focus,
-.c-btn-grey:focus {
+.c-btn-grey:focus,
+.c-btn-outline-light:focus,
+.c-btn-light:focus {
     outline: 0;
-    box-shadow: 0 0 0 .2rem rgba(0, 0, 0, .25);
+    box-shadow: 0 0 0 .2rem rgba(126, 126, 126, 0.25);
 }
 
 .c-btn-outline-primary:hover,
@@ -109,7 +168,9 @@
 .c-btn-outline-red:hover,
 .c-btn-red:hover,
 .c-btn-outline-grey:hover,
-.c-btn-grey:hover {
+.c-btn-grey:hover,
+.c-btn-outline-light:hover,
+.c-btn-light:hover {
     filter: brightness(0.9);
 }
 
@@ -122,6 +183,8 @@
 .c-primary-form input[type="email"],
 .c-primary-form select,
 .c-primary-form input[type="password"],
+.c-primary-form input[type="number"],
+.c-primary-form input[type="date"],
 .c-secondary-form input[type="text"],
 .c-secondary-form textarea,
 .c-secondary-form input[type="datetime-local"],
@@ -129,17 +192,55 @@
 .c-secondary-form input[type="email"],
 .c-secondary-form select,
 .c-secondary-form input[type="password"],
+.c-secondary-form input[type="number"],
+.c-secondary-form input[type="date"],
 .c-tertiary-form input[type="text"],
 .c-tertiary-form textarea,
 .c-tertiary-form input[type="datetime-local"],
 .c-tertiary-form input[type="color"],
 .c-tertiary-form input[type="email"],
 .c-tertiary-form select,
-.c-tertiary-form input[type="password"] {
+.c-tertiary-form input[type="password"],
+.c-tertiary-form input[type="number"],
+.c-tertiary-form input[type="date"] {
     border: 2px solid var(--classroom-text-1);
     border-radius: 0.5em;
+    /*
     margin: 0.5em;
+    Removed because of conflicts with Bootstrap
+    */
     padding: 0.2em 0.5em;
+}
+
+.c-primary-form input[type="text"]:focus,
+.c-primary-form textarea:focus,
+.c-primary-form input[type="datetime-local"]:focus,
+.c-primary-form input[type="color"]:focus,
+.c-primary-form input[type="email"]:focus,
+.c-primary-form select:focus,
+.c-primary-form input[type="password"]:focus,
+.c-primary-form input[type="number"]:focus,
+.c-primary-form input[type="date"]:focus,
+.c-secondary-form input[type="text"]:focus,
+.c-secondary-form textarea:focus,
+.c-secondary-form input[type="datetime-local"]:focus,
+.c-secondary-form input[type="color"]:focus,
+.c-secondary-form input[type="email"]:focus,
+.c-secondary-form select:focus,
+.c-secondary-form input[type="password"]:focus,
+.c-secondary-form input[type="number"]:focus,
+.c-secondary-form input[type="date"]:focus,
+.c-tertiary-form input[type="text"]:focus,
+.c-tertiary-form textarea:focus,
+.c-tertiary-form input[type="datetime-local"]:focus,
+.c-tertiary-form input[type="color"]:focus,
+.c-tertiary-form input[type="email"]:focus,
+.c-tertiary-form select:focus,
+.c-tertiary-form input[type="password"]:focus,
+.c-tertiary-form input[type="number"]:focus,
+.c-tertiary-form input[type="date"]:focus {
+    outline: 0;
+    box-shadow: 0 0 0 .2rem rgba(126, 126, 126, 0.25);
 }
 
 
@@ -149,8 +250,10 @@
 .c-primary-form input[type="color"],
 .c-primary-form input[type="email"],
 .c-primary-form select,
-.c-primary-form input[type="password"] {
-    border-color: var(--classroom-primary);
+.c-primary-form input[type="password"],
+.c-primary-form input[type="number"],
+.c-primary-form input[type="date"] {
+    border-color: var(--classroom-primary) !important;
 }
 
 .c-secondary-form input[type="text"],
@@ -159,8 +262,10 @@
 .c-secondary-form input[type="color"],
 .c-secondary-form input[type="email"],
 .c-secondary-form select,
-.c-secondary-form input[type="password"]{
-    border-color: var(--classroom-secondary);
+.c-secondary-form input[type="password"],
+.c-secondary-form input[type="number"],
+.c-secondary-form input[type="date"] {
+    border-color: var(--classroom-secondary) !important;
 }
 
 .c-tertiary-form input[type="text"],
@@ -169,8 +274,10 @@
 .c-tertiary-form input[type="color"],
 .c-tertiary-form input[type="email"],
 .c-tertiary-form select,
-.c-tertiary-form input[type="password"] {
-    border-color: var(--classroom-tertiary);
+.c-tertiary-form input[type="password"],
+.c-tertiary-form input[type="number"],
+.c-tertiary-form input[type="date"] {
+    border-color: var(--classroom-tertiary) !important;
 }
 
 .c-primary-form select,
@@ -179,7 +286,7 @@
     -moz-appearance: none;
     -webkit-appearance: none;
     appearance: none;
-    background-image: url('../media/theme/dropdown_icon_fallback.svg');
+    background-image: url('../media/theme/dropdown_icon.svg');
     background-repeat: no-repeat, repeat;
     background-position: right .7em top 50%, 0 0;
     background-size: 1em auto, 100%;
@@ -187,12 +294,128 @@
     padding-right: 2em;
 }
 
-.c-primary-form select {
-    background-image: url('../media/theme/dropdown_icon_primary.svg');
+.c-primary-form .input-group-text,
+.c-secondary-form .input-group-text,
+.c-tertiary-form .input-group-text {
+    border-radius: 0.5em;
+    align-self: center;
+    color: var(--classroom-white);
 }
-.c-secondary-form select {
-    background-image: url('../media/theme/dropdown_icon_secondary.svg');
+
+.c-primary-form .input-group-text {
+    border-color: var(--classroom-primary);
+    background: var(--classroom-primary);
 }
-.c-tertiary-form select {
-    background-image: url('../media/theme/dropdown_icon_tertiary.svg');
+.c-secondary-form .input-group-text {
+    border-color: var(--classroom-secondary);
+    background: var(--classroom-secondary);
+}
+.c-tertiary-form .input-group-text {
+    border-color: var(--classroom-tertiary);
+    background: var(--classroom-tertiary);
+}
+
+/* Search */
+
+.c-primary-form input[type="search"],
+.c-secondary-form input[type="search"],
+.c-tertiary-form input[type="search"] {
+    border: 0px;
+    border-bottom: 2px solid var(--classroom-text-1);
+    margin: 0.25em;
+    flex-grow: 1;
+    background: var(--classroom-background);
+    color: var(--classroom-text-1);
+}
+
+.c-primary-form input[type="search"]:focus,
+.c-secondary-form input[type="search"]:focus,
+.c-tertiary-form input[type="search"]:focus {
+    outline: 0;
+    border-color: var(--classroom-text-2);
+}
+
+.c-primary-form input[type="search"] {
+    border-color: var(--classroom-primary);
+}
+
+.c-primary-form input[type="search"]:focus {
+    border-color: var(--classroom-primary-dark);
+}
+
+.c-secondary-form input[type="search"] {
+    border-color: var(--classroom-secondary);
+}
+
+.c-secondary-form input[type="search"]:focus {
+    border-color: var(--classroom-secondary-dark);
+}
+
+.c-tertiary-form input[type="search"] {
+    border-color: var(--classroom-tertiary);
+}
+
+.c-tertiary-form input[type="search"]:focus {
+    border-color: var(--classroom-tertiary-dark);
+}
+
+/* Table */
+
+.c-table thead th {
+    border-bottom: 0px solid transparent;
+    border-top: 0px solid transparent;
+    font-size: smaller;
+    position: relative;
+}
+
+.c-table thead th:not(:last-child):after {
+    content: '';
+    height: 50%;
+    width: 2px;
+
+    position: absolute;
+    right: 0;
+    top: 25%;
+
+    background-color: var(--classroom-cell);
+}
+
+.c-table tbody {
+    box-shadow: 0 0 0 1.5px var(--classroom-cell);
+    border-radius: 15px;
+    border-top: 5px solid transparent;
+}
+
+.c-table tbody th,
+.c-table tbody td {
+    border: 1px solid var(--classroom-cell);
+    vertical-align: middle;
+}
+
+.c-table tbody th:first-child,
+.c-table tbody td:first-child {
+    border-left: 0px solid transparent;
+}
+
+.c-table tbody th:last-child,
+.c-table tbody td:last-child {
+    border-right: 0px solid transparent;
+}
+
+.c-table tbody tr:last-child th,
+.c-table tbody tr:last-child td {
+    border-bottom: 0px solid transparent;
+}
+
+/* Line separator */
+
+hr {
+    border-color: var(--classroom-cell);
+}
+
+/* Tooltip theming */
+
+.tooltip-inner {
+    font-family: var(--main-font);
+    font-size: 0.75rem;
 }

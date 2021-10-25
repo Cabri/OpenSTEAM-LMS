@@ -106,7 +106,7 @@ if (!$group && $page != "badlink") {
     return header("Location: $url?gc=$groupCode&page=badlink");
 }
 
-if (isset($_SESSION['id']) && ($page != "confirm" && $page != "success" && $page != "alreadylinked" && $page != "badlink")) {
+if (isset($_SESSION['id']) && ($page != "confirm" && $page != "success" && $page != "alreadylinked" && $page != "badlink" && $page != "limit" && $page != "userInGroup")) {
     return header("Location: $url?gc=$groupCode&page=confirm");
 }
 

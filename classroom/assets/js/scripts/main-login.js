@@ -29,7 +29,6 @@ function checkLogin() {
     let honeyNumber = $('#za78e-number').val();
     let honeyUsername = $('#za78e-username').val();
 
-
     button.setAttribute("disabled", "disabled");
     button.style.cursor = "not-allowed";
 
@@ -72,15 +71,23 @@ function checkLogin() {
             button.style.cursor = "pointer";
             infoBox = document.createElement("div");
             infoBox.className = "alert alert-danger";
-            if (response.success == false) {
+            console.log(response)
+            if(response.success == false && response.error == 'badInput'){
                 infoBox.innerHTML = i18next.t('login_popup.error');
-            } else {
+            }
+            if(response.success == false) {
+                infoBox.innerHTML = i18next.t('login_popup.error');
+            }
+            else {
                 infoBox.innerHTML = i18next.t('login_popup.errorBeta');
             }
             document.getElementById("info-div").innerHTML = "";
             document.getElementById("info-div").style.display = "none";
             document.getElementById("info-div").appendChild(infoBox);
             $("#info-div").fadeIn("slow");
+            setTimeout(() => {
+                $("#info-div").fadeOut("slow");
+            }, 5000);
         }
     })
 }

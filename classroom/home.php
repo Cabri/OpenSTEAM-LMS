@@ -1,17 +1,23 @@
 <?php
 session_start();
-use Dotenv\Dotenv;
-require_once(__DIR__ . "/../vendor/autoload.php");
-require_once '../bootstrap.php';
 
+$openClassroomDir = __DIR__."/../../openClassroom";
+if(is_dir($openClassroomDir)){
+    require __DIR__."/../../vendor/autoload.php";
+    require __DIR__."/../../bootstrap.php";
+} else {
+    require __DIR__."/../vendor/autoload.php";
+    require __DIR__."/../bootstrap.php";
+}
+use Dotenv\Dotenv;
 // load data from .env file
 $dotenv = Dotenv::createImmutable(__DIR__."/../");
 $dotenv->safeLoad();
 
 // load demoStudent name from .env file or set it to default demoStudent
-$demoStudent = !empty($_ENV['demoStudent'])
-                ? htmlspecialchars(strip_tags(trim($_ENV['demoStudent'])))
-                : 'demoStudent';
+$demoStudent = !empty($_ENV['VS_DEMOSTUDENT'])
+                ? htmlspecialchars(strip_tags(trim($_ENV['VS_DEMOSTUDENT'])))
+                : 'demostudent';
 
 if (isset($_SESSION['idProf'])) {
     $user = $entityManager->getRepository('User\Entity\User')
@@ -23,18 +29,7 @@ if (isset($_SESSION['idProf'])) {
 if (empty($user)) {
    header("Location: /classroom/login.php");
 }
-// $regular = $entityManager->getRepository('User\Entity\Regular')
-//     ->findOneBy(array('user' => $user->getId()));
 
-/* $premium = $entityManager->getRepository('User\Entity\UserPremium')
-    ->findOneBy(array('user' => $user)); */
-
-
-/* $tester = $premium->isTester(); */
-// $admin = $regular->getIsAdmin();
-// if (!$regular && (/* !$tester && */!$admin)) {
-//     header("Location: /classroom/login.php?warn=notester");
-// }
 require_once(__DIR__ . "/header.html");
 
 // add script tag with demoStudent name to make it available on the whole site

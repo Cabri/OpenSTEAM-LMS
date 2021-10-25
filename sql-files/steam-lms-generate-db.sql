@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.1.0
+-- version 5.1.1
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : mariadb
--- Généré le : ven. 28 mai 2021 à 07:21
--- Version du serveur :  10.5.10-MariaDB-1:10.5.10+maria~focal
--- Version de PHP : 7.4.16
+-- Généré le : mer. 15 sep. 2021 à 08:11
+-- Version du serveur : 10.6.3-MariaDB-1:10.6.3+maria~focal
+-- Version de PHP : 7.4.20
 
 SET FOREIGN_KEY_CHECKS=0;
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
@@ -35,7 +35,8 @@ CREATE TABLE `classrooms` (
   `groupe` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
   `link` varchar(5) COLLATE utf8_unicode_ci NOT NULL,
   `is_changed` tinyint(1) DEFAULT NULL,
-  `is_blocked` int(11) NOT NULL DEFAULT 0
+  `is_blocked` int(11) NOT NULL DEFAULT 0,
+  `uai` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 -- --------------------------------------------------------
@@ -83,7 +84,8 @@ CREATE TABLE `classroom_activities_link_classroom_users` (
   `commentary` varchar(2000) COLLATE utf8_unicode_ci DEFAULT NULL,
   `introduction` varchar(2000) COLLATE utf8_unicode_ci DEFAULT NULL,
   `is_autocorrected` tinyint(1) NOT NULL DEFAULT 0,
-  `is_evaluation` tinyint(1) NOT NULL DEFAULT 0
+  `is_evaluation` tinyint(1) NOT NULL DEFAULT 0,
+  `url` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 -- --------------------------------------------------------
@@ -160,7 +162,8 @@ CREATE TABLE `learn_activities` (
   `id_user` int(11) DEFAULT NULL,
   `is_from_classroom` tinyint(1) NOT NULL DEFAULT 0,
   `title` varchar(1000) COLLATE utf8_unicode_ci DEFAULT 'No title',
-  `content` varchar(10000) COLLATE utf8_unicode_ci NOT NULL DEFAULT 'No content'
+  `content` varchar(10000) COLLATE utf8_unicode_ci NOT NULL DEFAULT 'No content',
+  `type` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 -- --------------------------------------------------------
@@ -353,6 +356,110 @@ CREATE TABLE `user_teachers` (
   `school` varchar(255) COLLATE utf8_unicode_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `applications`
+--
+
+CREATE TABLE `classroom_applications` (
+  `id` int(11) NOT NULL,
+  `name` varchar(255) NOT NULL,
+  `description` varchar(255) NOT NULL,
+  `image` varchar(255) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `groups`
+--
+
+CREATE TABLE `classroom_groups` (
+  `id` int(11) NOT NULL,
+  `name` varchar(255) NOT NULL,
+  `link` varchar(5) NOT NULL,
+  `description` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `groups_link_applications`
+--
+
+CREATE TABLE `classroom_groups_link_applications` (
+  `id` int(11) NOT NULL,
+  `group_id` int(11) NOT NULL,
+  `application_id` int(11) NOT NULL,
+  `date_begin` datetime NOT NULL,
+  `date_end` datetime NOT NULL,
+  `max_students_per_groups` int(11) DEFAULT NULL,
+  `max_teachers_per_groups` int(11) DEFAULT NULL,
+  `max_students_per_teachers` int(11) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `users_link_applications`
+--
+
+CREATE TABLE `classroom_users_link_applications` (
+  `id` int(11) NOT NULL,
+  `user_id` int(11) NOT NULL,
+  `application_id` int(11) NOT NULL,
+  `date_begin` datetime NOT NULL,
+  `date_end` datetime NOT NULL,
+  `max_students_per_teachers` int(11) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `users_link_applications_from_groups`
+--
+
+CREATE TABLE `classroom_users_link_applications_from_groups` (
+  `id` int(11) NOT NULL,
+  `group_id` int(11) NOT NULL,
+  `user_id` int(11) NOT NULL,
+  `application_id` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `users_link_groups`
+--
+
+CREATE TABLE `classroom_users_link_groups` (
+  `id` int(11) NOT NULL,
+  `user_id` int(11) NOT NULL,
+  `group_id` int(11) NOT NULL,
+  `rights` int(2) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Structure de la table `classroom_restrictions`
+--
+
+CREATE TABLE `classroom_restrictions` (
+  `id` int(11) NOT NULL,
+  `name` varchar(255) NOT NULL,
+  `restrictions` longtext CHARACTER SET utf8 COLLATE=utf8_unicode_ci DEFAULT NULL CHECK (json_valid(`restrictions`))
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Déchargement des données de la table `classroom_restrictions`
+--
+
+INSERT INTO `classroom_restrictions` (`id`, `name`, `restrictions`) VALUES
+(1, 'userDefaultRestrictions', '\"{\\\"maxStudents\\\":50}\"'),
+(2, 'groupDefaultRestrictions', '\"{\\\"maxStudents\\\":1000,\\\"maxTeachers\\\":20,\\\"maxStudentsPerTeacher\\\":50}\"'),
+(3, 'activitiesDefaultRestrictions', '\"{\\\"Genius\\\":10,\\\"Express\\\":10}\"');
+
+
 --
 -- Index pour les tables déchargées
 --
@@ -520,6 +627,54 @@ ALTER TABLE `user_teachers`
   ADD KEY `IDX_D8AFBF6AC2FB178` (`user`);
 
 --
+-- Index pour la table `classroom_applications`
+--
+ALTER TABLE `classroom_applications`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Index pour la table `classroom_groups`
+--
+ALTER TABLE `classroom_groups`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Index pour la table `classroom_groups_link_applications`
+--
+ALTER TABLE `classroom_groups_link_applications`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `group_id` (`group_id`),
+  ADD KEY `application_id` (`application_id`);
+
+--
+-- Index pour la table `classroom_users_link_applications`
+--
+ALTER TABLE `classroom_users_link_applications`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `user_id` (`user_id`),
+  ADD KEY `application_id` (`application_id`);
+
+--
+-- Index pour la table `classroom_users_link_applications_from_groups`
+--
+ALTER TABLE `classroom_users_link_applications_from_groups`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Index pour la table `classroom_users_link_groups`
+--
+ALTER TABLE `classroom_users_link_groups`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `user_id` (`user_id`),
+  ADD KEY `group_id` (`group_id`);
+
+--
+-- Index pour la table `classroom_restrictions`
+--
+ALTER TABLE `classroom_restrictions`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- AUTO_INCREMENT pour les tables déchargées
 --
 
@@ -594,6 +749,50 @@ ALTER TABLE `users`
 --
 ALTER TABLE `user_teachers`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT pour la table `classroom_applications`
+--
+ALTER TABLE `classroom_applications`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT pour la table `classroom_groups`
+--
+ALTER TABLE `classroom_groups`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT pour la table `classroom_groups_link_applications`
+--
+ALTER TABLE `classroom_groups_link_applications`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT pour la table `classroom_users_link_applications`
+--
+ALTER TABLE `classroom_users_link_applications`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT pour la table `classroom_users_link_applications_from_groups`
+--
+ALTER TABLE `classroom_users_link_applications_from_groups`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT pour la table `classroom_users_link_groups`
+--
+ALTER TABLE `classroom_users_link_groups`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+COMMIT;
+
+--
+-- AUTO_INCREMENT pour la table `classroom_restrictions`
+--
+ALTER TABLE `classroom_restrictions`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+COMMIT;
 
 --
 -- Contraintes pour les tables déchargées

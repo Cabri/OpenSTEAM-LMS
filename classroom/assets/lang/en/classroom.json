@@ -81,7 +81,7 @@
             "shareProject": "The project has been shared.",
             "corrections": "An exercise has been realized in your classes",
             "switchMode": "Toggle with student mode",
-            "superAdmin": "Toggle with SuperAdmin mode"
+            "manager": "Toggle with manager mode"
         },
         "ids": {
             "classroom-dashboard-help-panel-teacher": "Help",

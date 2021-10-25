@@ -90,9 +90,9 @@ document.getElementById('finalize-registration-form').addEventListener('submit',
                 $('#registration-finalization-container').toggle();
             } else {
                 if (response.message == "no user or already active") {
-                    displayNotification('#notif-div', "superadmin.account.userNotFound", "error");
+                    displayNotification('#notif-div', "manager.account.userNotFound", "error");
                 } else if (response.message == "missing data") {
-                    displayNotification('#notif-div', "superadmin.account.userNotFound", "error");
+                    displayNotification('#notif-div', "manager.account.userNotFound", "error");
                 }
             }
         });

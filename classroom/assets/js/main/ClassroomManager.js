@@ -300,8 +300,6 @@ class ClassroomManager {
      * add a non-gar student
      */
     createAccount(pseudo, classroomLink) {
-        console.log(pseudo)
-        console.log(classroomLink)
         return new Promise(function (resolve, reject) {
             $.ajax({
                 type: "POST",

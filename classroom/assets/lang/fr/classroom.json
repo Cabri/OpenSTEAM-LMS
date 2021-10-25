@@ -71,7 +71,7 @@
             "create": "Activités </br> crées",
             "correctionToDo": "Corrections </br> à faire",
             "switchMode": "Passer en mode apprenant",
-            "superAdmin": "Passer en mode SuperAdmin"
+            "manager": "Passer en mode manager"
         },
         "notif": {
             "shareProjectTeacher": "Le projet a été partagé avec votre enseignant",

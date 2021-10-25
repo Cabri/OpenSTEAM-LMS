@@ -1,6 +1,8 @@
 # French
 OpenSTEAM LMS est un module de gestion de classe (LMS en anglais) co-développé par Vittascience et Cabrilog, qui vous est proposé sur les plateformes [vittascience.com](https://fr.vittascience.com) et [cabri.com](https://cabri.com/fr/) sous forme de service Cloud.
 
+[![Slack Badge](https://img.shields.io/badge/Slack-4A154B?style=for-the-badge&logo=slack&logoColor=white)](https://join.slack.com/t/opensteamlms/shared_invite/zt-vte7c70i-ISGyg~OpWqFrodMlSVOkXg)
+
 ![Vittascience-Cabri-FR](https://user-images.githubusercontent.com/36603099/115318825-d7003b80-a17e-11eb-89e6-2884b40bef60.jpg)
 
 OpenSTEAM LMS a bénéficié du soutien du Ministère de l'Éducation Nationale via [le dispositif Édu-up](https://eduscol.education.fr/1603/le-dispositif-edu).
@@ -15,6 +17,8 @@ N’hésitez pas à contacter l’équipe [Vittascience](mailto:contact@vittasci
 
 # English
 OpenSTEAM LMS is a Learning Management System (LMS) co-developed by Vittascience and Cabrilog, which is offered to you on the [vittascience.com](https://en.vittascience.com) and [cabri.com](https://cabri.com/en/) platforms as a Cloud service.
+
+[![Slack Badge](https://img.shields.io/badge/Slack-4A154B?style=for-the-badge&logo=slack&logoColor=white)](https://join.slack.com/t/opensteamlms/shared_invite/zt-vte7c70i-ISGyg~OpWqFrodMlSVOkXg)
 
 ![Vittascience-Cabri-EN](https://user-images.githubusercontent.com/36603099/115319277-b2589380-a17f-11eb-9f17-2bbfbd4b227c.jpg)
 
@@ -38,8 +42,8 @@ You can find the LMS tutorial on [a video on Youtube](https://www.youtube.com/wa
 1. [Clone the repository](https://github.com/vittascience/OpenSTEAM-LMS#clone-the-repository)
 2. [.env file creation](https://github.com/vittascience/OpenSTEAM-LMS#env-file-creation)
 3. [VirtualHost Setup](https://github.com/vittascience/OpenSTEAM-LMS#virtualhost-setup)
-4. [Database setup](https://github.com/vittascience/OpenSTEAM-LMS#database-setup)
-5. [Dependencies](https://github.com/vittascience/OpenSTEAM-LMS#dependencies)
+4. [Dependencies](https://github.com/vittascience/OpenSTEAM-LMS#dependencies)
+5. [Database setup](https://github.com/vittascience/OpenSTEAM-LMS#database-setup)
 6. [Build](https://github.com/vittascience/OpenSTEAM-LMS#build)
 7. [Plugins](https://github.com/vittascience/OpenSTEAM-LMS#plugins)
 8. [Email Templates](https://github.com/vittascience/OpenSTEAM-LMS#email-templates)
@@ -73,8 +77,11 @@ VS_REPLY_TO_MAIL=support@your_company_name.com
 VS_REPLY_TO_NAME=Support # it can be Support,Contact or something else
 VS_SET_FROM=your_website.com
 
+# set the default student name to every classroom to be created
+VS_DEMOSTUDENT=vittademo
+
 # path to use for the activity logger(ie: routing/Routing.php)
-LOG_PATH=/logs/log.log
+VS_LOG_PATHH=/logs/log.log
 
 # setup the new admin data
 ADMIN_PSEUDO=PSEUDO
@@ -94,13 +101,7 @@ Don't forget to fill/change these constants with relevant information (at least 
 
 4. Make sure that PHP is running a version 7.x (with x above 2) and that NodeJS at least 14 is there.
 
-5. Choose a logs directory. By default, this is `/logs/`. You can change this value using the entry in the `.env` named  `LOG_PATH`, e.g. `LOG_PATH=/tmp/log`.
-
-## Database setup
-
-To setup the database, type this command in your shell: php sql-files/SteamLmsGenerateDb.php
-Make sure you added the necessay informations (below # setup the new admin data) in the .env file
-Then you have to check if the created database name match the VS_DB_NAME in the .env file.
+5. Choose a logs directory. By default, this is `/logs/`. You can change this value using the entry in the `.env` named  `VS_LOG_PATH`, e.g. `VS_LOG_PATH=/tmp/log`.
 
 ## Dependencies
 
@@ -109,6 +110,12 @@ Then, run `npm install` to download all the needed JavaScript dependencies (for 
 
 Now you should be able to access the lms on your browser in ```http://steamlms/classroom```
 The default account login is ```the email you provide here ADMIN_EMAIL``` and password is ```the password you provided here ADMIN_PASSWORD```
+
+## Database setup
+
+To setup the database, type this command in your shell: php sql-files/SteamLmsGenerateDb.php
+Make sure you added the necessay informations (below # setup the new admin data) in the .env file
+Then you have to check if the created database name match the VS_DB_NAME in the .env file.
 
 ## Build
 
@@ -204,4 +211,8 @@ The current repository only contains front elements of the LMS. The back end is 
 - [vclassroom](https://github.com/vittascience/vclassroom)
 - [vutils](https://github.com/vittascience/vutils)
 - vinterfaces (not public yet)
-- vlearn (not public yet)
+- vlearn (not public yet
+
+## Build integration tests
+
+[Redirect here](tests/README.md)

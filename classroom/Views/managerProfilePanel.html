@@ -1,0 +1,19 @@
+<div id="classroom-dashboard-profil-panel-manager" class="dashboard-block profile-panel" style="display:none;">
+
+    <div class="d-flex flex-column text-center">
+        <img src="assets/media/profile_picture.svg" alt="Photo de profil" class="user-picture">
+        <span id="user-name-manager" class="mt-4" data-i18n="classroom.profil.identity">PLACEHOLDER</span>
+    </div>
+
+    <div class="d-flex flex-column" style="gap: 1.5em;">
+        <button class="btn c-btn-outline-primary" id="settings-manager"><span class="text-capitalize text-span-initial" data-i18n="words.settings" class="text-capitalize"></span> <i class="fas fa-cog"></i>
+        </button>
+
+        <button class="btn c-btn-outline-primary" onclick="switchToProf()"><span data-i18n="classroom.profil.switchModeTeacher" class="text-span-initial mr-1"></span><i class="fas fa-cog"></i>
+        </button>
+
+        <button class="btn c-btn-red" onclick="goToDisconnect('classroom');"><span data-i18n="words.disconnect" class="text-capitalize text-span-initial"></span>
+            <i class="fas fa-power-off"></i>
+        </button>
+    </div>
+</div>

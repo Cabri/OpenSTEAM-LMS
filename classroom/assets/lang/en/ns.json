@@ -184,7 +184,15 @@
 			"activityTitleInvalid": "The activity could not be created: invalid title",
 			"activityContentInvalid": "Activity could not be created: invalid content",
 			"activityIsFromClassroomInvalid": "Activity could not be created: context error",
-			"activityUserIdInvalid": "Activity could not be created: invalid user"
+			"activityUserIdInvalid": "Activity could not be created: invalid user",
+			"personalLimitationsReached": "You have reached your maximum number of students.",
+			"groupLimitationsGroup": "Your group can no longer accommodate learners",
+			"groupLimitationsTeacher": "You have reached the learner limit that your group grants you",
+			"bothLimitationsReached": "You have reached the student limitations that you and your group may have.",
+			"ClassroomNameInvalid": "The classroom name is required",
+			"reservedNickname": "The name : \"{{reservedNickname}}\" can not be attributed.",
+			"invalidLink": "The link you entered is not valid",
+			"noUser" : "You have to add a student"
 		},
 		"ids": {
 			"classroom-dashboard-help-panel-teacher": "Help",
@@ -227,7 +235,8 @@
 			"add": "Create an activity",
       "addCabriExpress": "Create Express activity",
       "addCabriGenius": "Créer Smart activity",
-			"new": "New",
+      "addOther": "Other type of activity",
+      "new": "New",
 			"current": "In progress",
 			"waiting": "Not yet completed",
 			"done": "Done",
@@ -253,7 +262,7 @@
 				"2": "Attribution",
 				"title": {
 					"label": "Activity title",
-					"placeholder": "Part title"
+					"placeholder": "Title"
 				},
 				"content": {
 					"label": "Activity content"
@@ -289,7 +298,7 @@
 			"asc": "From newest to oldest",
       "cabriExpress": "Only Cabri Express activities",
       "cabriGenius": "Only Cabri Smart activities",
-      "iframe": "Only other activities",
+      "iframe": "Only other types of activities",
 			"placeholder": "Search..."
 		},
 		"sandbox": {
@@ -303,6 +312,7 @@
 		"footer": {
 			"privacy": "Privacy policy ",
 			"cgu": "Terms of Service",
+			"legal": "Legal Notices",
 			"copyright": ""
 		},
 		"teacherHelpPanel": {
@@ -327,6 +337,7 @@
 			}
 		},
 		"modals": {
+      "addLtiActivityName": "What is the title of the activity ?",
 			"addActivity": {
 				"title": "Add an activity",
 				"resourceBank": {
@@ -342,7 +353,12 @@
 					"title": "Create a new activity",
 					"button": "Create an activity "
 				},
-        "continue": "Continue"
+        "continue": "Continue",
+        "limitTitle": "Exceeded limit",
+        "limitDescription": "The limit of the number of activities linked to this account has been reached."
+      },
+      "updateActivity": {
+        "title": "Update an activity"
       },
 			"settingsTeacher": {
 				"title": "Account settings",
@@ -600,24 +616,27 @@
 		"yes": "Yes",
 		"no": "No"
 	},
-	"superadmin": {
+	"manager": {
 		"profil": {
-			"superAdmin": "Switch to superadmin",
-			"groupAdmin": "Switch to group admin",
-			"bio": "Bio <span class=\"text-danger\">*</span>",
-			"email": "E-mail <span class=\"text-danger\">*</span>",
-			"nickname": "Username <span class=\"text-danger\">*</span>",
-			"lastname": "Lastname <span class=\"text-danger\">*</span>",
-			"firstname": "Firstname <span class=\"text-danger\">*</span>",
+			"manager": "Switch to manager",
+			"groupAdmin": "Switch to group administrator",
+			"bio": "Bio",
+			"group": "Group",
+			"apps": "Apps",
+			"personalApps": "Personal apps",
+			"email": "E-mail <span class=\"c-text-red\">*</span>",
+			"nickname": "Username",
+			"lastname": "Lastname <span class=\"c-text-red\">*</span>",
+			"firstname": "Firstname <span class=\"c-text-red\">*</span>",
 			"phone": "Phone number",
-			"grade": "Niveau de formation <span class=\"text-danger\">*</span>",
-			"subject": "Taught subject <span class=\"text-danger\">*</span>",
-			"school": "School <span class=\"text-danger\">*</span>",
-			"password": "Password <span class=\"text-danger\">*</span>",
-			"confirmPassword": "Confirm password <span class=\"text-danger\">*</span>",
+			"grade": "Niveau de formation <span class=\"c-text-red\">*</span>",
+			"subject": "Taught subject <span class=\"c-text-red\">*</span>",
+			"school": "School <span class=\"c-text-red\">*</span>",
+			"password": "Password <span class=\"c-text-red\">*</span>",
+			"confirmPassword": "Confirm password <span class=\"c-text-red\">*</span>",
 			"help": "Help",
 			"onlyVisibleGroupAdmin": "Only visible to you as a group administrator:",
-			"onlyVisibleSuperAdmin": "Only visible to you as super admin:"
+			"onlyVisiblemanager": "Only visible to you as a manager:"
 		},
 		"account": {
 			"activate": {
@@ -635,8 +654,9 @@
 				"allowContact": "Would you like to be able to be contacted by other users of the site ?",
 				"confirmAdult": "I confirm that I am over 18 years old (article 1124 du code civil)*",
 				"disclaimerVittascience": "Vittascience places the security and confidentiality of its users' personal data at the heart of its concerns. Discover<a href=\"http://vittascience.com/privacy\"> our personal data protection policy</a> ",
-				"mandatory": "Fields marked with <span class=\"text-danger\">*</span> are mandatory.",
+				"mandatory": "Fields marked with <span class=\"c-text-red\">*</span> are mandatory.",
 				"cguVittascience": "By validating this form, you accept the <a href=\"http://vittascience.com/\"> Terms of Service</a>.",
+				"cguOpenSteam": "By validating this form, you accept the <a target=\"_blank\" href=\"/classroom/cgu.php\"> Terms of Service</a>.",
 				"description": "Please complete the following fields to create your account.",
 				"title": "Registration",
 				"registrationFinalizationSuccess": "Your registration has been finalized, you can now connect",
@@ -656,7 +676,9 @@
 			"errorSending": "An error occurred while sending the email",
 			"userNotFound": "User not found and / or already active",
 			"userNotFoundId": "User not found",
-			"errorActivation": "An error occurred during activation."
+			"errorActivation": "An error occurred during activation.",
+			"notAllowedToCreateUserInThisGroup": "You are not authorized to create a user in this group.",
+			"subscriptionOudated": "Your APPNAME app has expired on DATE. For more information contact an administrator."
 		},
 		"users": {
 			"users": "Users",
@@ -691,7 +713,7 @@
 			"showResetLinkTitle": "Reset password.",
 			"showResetLink": "Password reset link.",
 			"groupAdmin": "Group administrator",
-			"admin": "Administrator",
+			"admin": "Manager",
 			"teacher": "Teacher",
 			"usersPerPage": "Users per page",
 			"userDeleted": "User deleted.",
@@ -710,6 +732,7 @@
 			"mailSentToUserReset": "An email has been sent to the user to change their password",
 			"mailNotSentToUserReset": "The password change email could not be sent to the user",
 			"appsUpdated": "User apps have been updated",
+			"updateApps": "Update apps",
 			"teacherGrades": {
 				"0": "Elementary School",
 				"1": "Middle School",
@@ -801,6 +824,7 @@
 			"delete": "Delete group",
 			"deleteIntention": "You are about to delete the group : <span id=\"md_group\"></span>",
 			"update": "Update group",
+			"academy": "Academy",
 			"join": {
 				"firstVisit": "First visit ?",
 				"signin": "Sign in",
@@ -820,6 +844,8 @@
 				"error": "An error occurred while linking.",
 				"userNotFound": "The user was not found, you can click on continue to be redirected to the login page.",
 				"contactAdmin": "If the problem persists contact the administration.",
+				"groupFull": "The group you want to join is full.",
+				"onlyOneGroup": "You are already part of a group, you cannot join another",
 				"mail": {
 					"textBeforeName": "The user : ",
 					"textAfterName": "joined the group : ",
@@ -841,7 +867,15 @@
 			"usersInactiveOrNoRegular": "Inactive users or not regular",
 			"usersWithoutGroupsDescription": "User group not linked to any group",
 			"usersInactiveOrNoRegularDescription": "Group of inactive and / or non-regular users",
-			"groupDeleteError": "The group could not be deleted."
+			"groupDeleteError": "The group could not be deleted.",
+			"groupFull": "The group is full.",
+			"groupFullAdminMessage": "The group is full, you cannot add other users.",
+			"toManyStudentsFromTheTeacher": "The teacher you want to add to the group has too many students",
+			"toManyStudentsInGroup": "The group cannot accommodate so many students, the teacher has too many students.",
+			"teachersPerGroup": "Teacher per group",
+			"studentsPerGroup": "Students per group",
+			"studentsPerTeacher": "Students per teacher",
+			"maxStudents": "Maximum students"
 		},
 		"buttons": {
 			"continue": "Continue",
@@ -862,6 +896,7 @@
 			"restart": "Restart",
 			"copyLink": "Copy link",
 			"show": "Show",
+			"manage": "Manage",
 			"user": {
 				"add": "Add user",
 				"create": "Create user",
@@ -906,7 +941,65 @@
 			"description": "Description",
 			"right": "Rights",
 			"resetPassword": "Reset password",
-			"link": "Link"
+			"link": "Link",
+			"name": "Name",
+			"dateBegin": "Begin date",
+			"dateEnd": "End date",
+			"outDated": "Out dated",
+			"maxStudents": "Maximum students",
+			"actualStudents": "Current students",
+			"maxTeachers": "Maximum teachers",
+			"actualTeachers": "Current teachers",
+			"maxStudentsPerTeachers": "Maximum students per teacher",
+			"maxStudentsPerTeacher": "Maximum students per teacher",
+			"monitoring": "Apps monitoring",
+			"image": "Image",
+			"userNoRights": "No rights assigned",
+			"userAdmin": "Administrator",
+			"userTeacher": "Teacher",
+			"restrictions": "Restrictions"
+		},
+		"apps": {
+			"apps": "Apps",
+			"create": "Create an app",
+			"updateSuccess": "App successfully updated",
+			"createSuccess": "App successfully created",
+			"deleteSuccess": "App successfully deleted",
+			"deleteIntention": "You are about to delete the app : <span id=\"application_delete_name\"></span>",
+			"outDatedApp": "The app you want to assign is outdated.",
+			"infoMaxStudentsPerTeachers": "Determine the maximum number of students that a teacher in the group can have.",
+			"infoMaxStudentsPerGroups": "Determines the maximum number of students that the group can have (By adding the total of students of teachers who have this application)",
+			"infoMaxTeachers": "Determines the maximum number of teachers who can have the application in this group",
+			"usersLimitation": "Users students limitation",
+			"groupsLimitation": "Groups limitations",
+			"activitiesLimitation": "Activities limitations",
+			"defaultRestrictions": "Default restrictions"
+		},
+		"activitiesRestrictions": {
+			"updateAll": "Update restrictions",
+			"update": "Update restriction",
+			"create": "Create restriction",
+			"delete": "Delete restriction",
+			"updateSuccess": "Restriction successfully updated",
+			"createSuccess": "Restriction successfully created",
+			"deleteSuccess": "Restriction successfully deleted",
+			"deleteIntention": "You are about to delete the restriction : <span id=\"restriction_delete_name\"></span>",
+			"restrictionType": "Activity type",
+			"maxActivity": "Activity maximum",
+			"closeDetail": "Close the detail",
+			"restrictions": "Activity restrictions"
+		},
+		"defaultRestrictions": {
+			"update": "Update default restrictions",
+			"type": "Activity type",
+			"max": "Maximum",
+			"add": "Add a restriction",
+			"updateUsersRestrictionsSuccess": "Default users restrictions updated successfuly",
+			"updateGroupsRestrictionsSuccess": "Default groups restrictions updated successfuly",
+			"updateActivitiesRestrictionsSuccess": "Default activities restrictions updated successfuly",
+			"deleteActivitiesRestrictionsSuccess": "Default activity restriction deleted successfuly",
+			"getDefaultRestrictions": "Show the default restrictions",
+			"restrictionAlreadyExist": "The restriction already exist"
 		}
 	},
 	"navbar": {

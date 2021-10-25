@@ -1,41 +1,44 @@
-[type="checkbox"]:not(:checked) + label,
-[type="checkbox"]:checked + label {
+[type="checkbox"]:not(:checked)+label,
+[type="checkbox"]:checked+label {
     all: unset;
 }
 
 
-[type="checkbox"]:not(:checked) + label:before,
-[type="checkbox"]:checked + label:before {
+[type="checkbox"]:not(:checked)+label:before,
+[type="checkbox"]:checked+label:before {
     all: unset;
 }
 
-[type="checkbox"]:not(:checked) + label:after,
-[type="checkbox"]:checked + label:after {
+[type="checkbox"]:not(:checked)+label:after,
+[type="checkbox"]:checked+label:after {
     all: unset;
 }
 
-[type="checkbox"]:not(:checked) + label:after {
-    all: unset;
-}
-[type="checkbox"]:checked + label:after {
+[type="checkbox"]:not(:checked)+label:after {
     all: unset;
 }
 
-[type="checkbox"]:disabled:not(:checked) + label:before,
-[type="checkbox"]:disabled:checked + label:before {
+[type="checkbox"]:checked+label:after {
     all: unset;
 }
-[type="checkbox"]:disabled:checked + label:after {
+
+[type="checkbox"]:disabled:not(:checked)+label:before,
+[type="checkbox"]:disabled:checked+label:before {
     all: unset;
 }
-[type="checkbox"]:disabled + label {
+
+[type="checkbox"]:disabled:checked+label:after {
+    all: unset;
+}
+
+[type="checkbox"]:disabled+label {
     all: unset;
 }
 
 
 [type="checkbox"] {
     position: relative !important;
-    height: 20px!important;
-  width: 20px!important;
-  left: -10px !important;
+    height: 20px !important;
+    width: 20px !important;
+    left: -10px !important;
 }

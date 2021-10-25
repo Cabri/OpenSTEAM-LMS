@@ -50,14 +50,14 @@ function createCabriActivity(link = null, id = null, type) {
   Main.getClassroomManager().canAddActivity({type}).then( data => {
     console.log(data);
     if(!data.canAdd) {
-      alert('Cannot add activity because of limitation ');
+      pseudoModal.openModal('add-activity-limitation');
       return;
     }
 
     navigatePanel('classroom-dashboard-new-cabriexpress-activity-panel', 'dashboard-activities-teacher')
-    pseudoModal.openModal('add-activity-name');
+    pseudoModal.openModal('add-lti-activity-name');
     // todo cabri must remove previous exit events listeners before setting a new one !
-    pseudoModal.clickOnExit('add-activity-name', ()=>{
+    pseudoModal.clickOnExit('add-lti-activity-name', ()=>{
       navigatePanel('classroom-dashboard-activities-panel-teacher', 'dashboard-activities-teacher');
     });
     ClassroomSettings.activityInWriting = true
@@ -146,9 +146,12 @@ function activityModify(id) {
           $('#activity-lti-form-title').val(activity.title)
           navigatePanel('classroom-dashboard-new-cabriexpress-activity-panel', 'dashboard-activities-teacher')
 
-          pseudoModal.openModal('add-activity-name');
+          // update modal title
+          $('#add-lti-activity-name .vitta-modal-header .vitta-modal-title').html();
+
+          pseudoModal.openModal('add-lti-activity-name');
           // todo cabri must remove previous exit event listeners before setting a new one !
-          pseudoModal.clickOnExit('add-activity-name', ()=>{
+          pseudoModal.clickOnExit('add-lti-activity-name', ()=>{
             navigatePanel('classroom-dashboard-activities-panel-teacher', 'dashboard-activities-teacher');
           });
 

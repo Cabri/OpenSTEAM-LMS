@@ -1,0 +1,80 @@
+<div id="manager-apps-main" class="dashboard-block" style="display: none;">
+    <div class="container-fluid px-5">
+        <div class="col-12">
+            <div id="update-applications-modal">
+
+                <div class="col-12" id="default-restrictions">
+<!--                     <div class="row">
+                        <button class="btn c-btn-outline-primary mx-1" data-i18n="manager.defaultRestrictions.getDefaultRestrictions" onclick="getAllrestrictions()">
+                            <span data-i18n="manager.apps.confirm"></span>
+                            <i class="fas fa-chevron-right"></i>
+                        </button>
+                    </div> -->
+                    <h3 data-i18n="manager.apps.defaultRestrictions">Restrictions par defaut</h3>
+                    <table class="table c-table">
+                        <thead>
+                            <tr>
+                                <th scope="col" data-i18n="manager.table.name">Name</th>
+                                <th scope="col" data-i18n="manager.table.restrictions">Restrictions</th>
+                                <th scope="col" data-i18n="manager.buttons.update">Modifier</th>
+                            </tr>
+                        </thead>
+                        <tbody id="all-default-restrictions">
+
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="col-12" id="all-applications">
+                    <div class="row">
+                        <button class="btn c-btn-outline-primary mx-1" onclick="createApp()">
+                            <span data-i18n="manager.apps.create"></span>
+                            <i class="fas fa-chevron-right"></i>
+                        </button>
+                    </div>
+                    <table class="table c-table">
+                        <thead>
+                            <tr>
+                                <th scope="col" data-i18n="manager.table.name">Name</th>
+                                <th scope="col" data-i18n="manager.table.description">Description</th>
+                                <th scope="col" data-i18n="manager.table.image">Image</th>
+                                <th scope="col" data-i18n="manager.buttons.update">Modifier</th>
+                                <th scope="col" data-i18n="manager.buttons.delete">Supprimer</th>
+                                <th scope="col" data-i18n="manager.activitiesRestrictions.restrictions">Activities Restrictions</th>
+                            </tr>
+                        </thead>
+                        <tbody id="all-applications-crud">
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="col-12" id="all-restrictions-from-app" style="display: none;">
+                    <input type="hidden" id="application-id-for-restriction">
+                    <div class="row">
+                        <button class="btn c-btn-outline-tertiary mx-1" onclick="createRestriction()">
+                            <span data-i18n="manager.activitiesRestrictions.create">Créer une restriction</span>
+                            <i class="fas fa-chevron-right"></i>
+                        </button>
+
+                        <button class="btn c-btn-outline-grey mx-1" onclick="closeRestrictionDetail()">
+                            <span data-i18n="manager.activitiesRestrictions.closeDetail">Fermer le détail</span>
+                            <i class="fas fa-times"></i>
+                        </button>
+                    </div>
+                    <table class="table c-table">
+                        <thead>
+                            <tr>
+                                <th scope="col" data-i18n="manager.activitiesRestrictions.restrictionType">Activity Type</th>
+                                <th scope="col" data-i18n="manager.activitiesRestrictions.maxActivity">Maximum Activity</th>
+                                <th scope="col" data-i18n="manager.buttons.update">Modifier</th>
+                                <th scope="col" data-i18n="manager.buttons.delete">Supprimer</th>
+                            </tr>
+                        </thead>
+                        <tbody id="all-activities-restrictions-crud">
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
