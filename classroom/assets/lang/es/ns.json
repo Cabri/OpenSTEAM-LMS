@@ -200,6 +200,7 @@
             "add": "Crear una actividad",
             "addCabriExpress": "Crear actividad Express",
             "addCabriGenius": "Crear actividad Smart",
+            "addOther": "Otro tipo de actividades",
             "new": "Nuevos",
             "current": "En espera de corrección",
             "waiting": "Sin realizar aún",
@@ -285,7 +286,8 @@
             }
         },
         "modals": {
-            "addActivity": {
+          "addLtiActivityName": "¿Cuál es el título de la actividad?",
+          "addActivity": {
                 "title": "Agregar una actividad",
                 "resourceBank": {
                     "title": "Navegar en la banca de recursos colaborativos",
@@ -299,7 +301,19 @@
                 "createActivity": {
                     "title": "Crear una nueva actividad",
                     "button": "Crear una actividad"
-                }
+                },
+                "continue": "Continuar",
+                "limitTitle": "Límite excedido",
+                "limitDescription": "Se alcanzó el límite de la cantidad de actividades vinculadas a esta cuenta."
+            },
+            "updateActivity": {
+              "title": "Modificar una actividad"
+            },
+            "deleteActivity": {
+              "title": "Eliminar una actividad",
+              "description": "¿Estás seguro de que deseas eliminar la actividad?",
+              "confirm": "Confirmar",
+              "cancel": "Anular"
             },
             "settingsTeacher": {
                 "title": "Parámetros de la cuenta",
