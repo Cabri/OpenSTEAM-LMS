@@ -1,4 +1,4 @@
-#activity-content-lti@import url("./admin.css");
+@import url("./admin.css");
 
 /* FONTS */
 @font-face {
@@ -364,6 +364,7 @@ button {
     position: absolute;
     width: calc(100% - 200px);
     z-index: 10;
+    pointer-events: none;
 }
 
 #classroom-dashboard-content {
