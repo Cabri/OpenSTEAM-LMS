@@ -8,8 +8,8 @@ function bbcodeToHtml(html) {
     html = html.replace(/(\[iframe\])(https:\/\/view\.genial\.ly[a-zA-Z0-9?=&_\-\/﻿]+)(\[\/iframe\])/gi, "<iframe width='100%' height='500' frameborder='0' allowfullscreen style='border:1px #d6d6d6 solid;' src=\"$2\"></iframe>");
     html = html.replace(/(\[iframe\])(https:\/\/docs\.google\.com[a-zA-Z0-9?=&_\-\/﻿]+)(\[\/iframe\])/gi, "<iframe width='100%' height='500' frameborder='0' allowfullscreen style='border:1px #d6d6d6 solid;' src=\"$2\"></iframe>");
     // Cabri iframe
-    html = html.replace(/(\[iframe\])(http(s)?:\/\/.*?)(\[\/iframe\])/gi, "<iframe width='100%' height='620' frameborder='0' allowfullscreen style='border:1px #d6d6d6 solid;' src=\"$2\"></iframe>");
-    
+    html = html.replace(/(\[iframe\])(http(s)?:\/\/.*?)(\[\/iframe\])/gi, "<iframe style='width: 100%; height: 100%;' frameborder='0' allowfullscreen style='border:1px #d6d6d6 solid;' src=\"$2\"></iframe>");
+
     //url
     html = html.replace(/(href=)/gi, " target=\"_blank\" $1")
     html = html.replace(/(\[url=)(.+?(?=\]))(\])(.+?(?=\[))(\[\/url\])/gi, "<a href='$2' target=\"_blank\">$4</a>")

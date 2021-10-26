@@ -2855,6 +2855,16 @@ function closeDefault() {
     pseudoModal.closeAllModal();
 }
 
+function deleteActivity() {
+  Main.getClassroomManager().deleteActivity(ClassroomSettings.activity).then(function (activity) {
+    displayNotification('#notif-div', "classroom.notif.activityDeleted", "success", `'{"activityName": "${activity.name}"}'`);
+    deleteTeacherActivityInList(activity.id);
+    teacherActivitiesDisplay();
+    pseudoModal.closeModal('activity-delete-confirm');
+  })
+  ClassroomSettings.activity = null;
+}
+
 /* <div class="form-row mt-1 c-secondary-form">
 <div class="col-md">
 <label for="activity_restrictions_update_type">Type activity</label>

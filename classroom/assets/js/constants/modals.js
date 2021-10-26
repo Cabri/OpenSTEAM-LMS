@@ -894,13 +894,14 @@ const classroomModals = {
       },
       content: `
           <div class="col-12">
-          <div class="row">
+            <div class="row">
                <input data-i18n="[placeholder]classroom.activities.form.title.label" type="text" id="activity-lti-form-title"
                class="form-control part-title-input">
             </div>
 
-          <div class="row  justify-content-md-center"">
-                <button class="c-btn-primary m-3" onclick="startActivityCreation()"><i class="fas fa-save"></i> <span class="ml-1" data-i18n="classroom.modals.addActivity.continue"></span></button>
+            <div class="row  justify-content-md-center"">
+                  <button class="c-btn-primary m-3" onclick="startActivityCreation()"><i class="fas fa-save"></i> <span class="ml-1" data-i18n="classroom.modals.addActivity.continue"></span></button>
+            </div>
           </div>
       `,
       footer: ``
@@ -913,12 +914,37 @@ const classroomModals = {
     },
     content: `
           <div class="col-12">
-            <div class="row">
-                <p class="text-center" data-i18n="classroom.modals.addActivity.limitDescription"></p>
+              <div class="row">
+                  <p class="text-center" data-i18n="classroom.modals.addActivity.limitDescription"></p>
+              </div>
+
+              <div class="row  justify-content-md-center"">
+                    <button class="c-btn-primary m-3" onclick="window.pseudoModal.closeModal('add-activity-limitation')"><i class="fas fa-check"></i> <span class="ml-1">Ok</span></button>
+              </div>
+          </div>
+      `,
+    footer: ``
+  },
+  'activity-delete-confirm': {
+    selector: '',
+    header: {
+      icon: '',
+      title: 'classroom.modals.deleteActivity.title'
+    },
+    content: `
+          <div class="col-12">
+            <div class="row justify-content-md-center">
+                <p class="text-center" data-i18n="classroom.modals.deleteActivity.description"></p>
             </div>
 
-          <div class="row  justify-content-md-center"">
-                <button class="c-btn-primary m-3" onclick="window.pseudoModal.closeModal('add-activity-limitation')"><i class="fas fa-check"></i> <span class="ml-1">Ok</span></button>
+            <div class="row justify-content-md-center"">
+                  <button class="c-btn-primary m-3" onclick="deleteActivity()">
+                      <i class="fas fa-check"></i> <span class="ml-1" data-i18n="classroom.modals.deleteActivity.confirm"></span>
+                  </button>
+                  <button class="c-btn-primary m-3" onclick="window.pseudoModal.closeModal('activity-delete-confirm')">
+                      <i class="fa fa-times"></i> <span class="ml-1" data-i18n="classroom.modals.deleteActivity.cancel"></span>
+                  </button>
+            </div>
           </div>
       `,
     footer: ``

@@ -85,8 +85,10 @@ function teacherActivityItem(activity) {
                     <div class="activity-card-top">
                     <div class="dropdown"><i class="fas fa-cog fa-2x" type="button" id="dropdown-activityItem-${activity.id}" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></i>
                     <div class="dropdown-menu" aria-labelledby="dropdown-activityItem-${activity.id}" data-id="${activity.id}">
-    <li class="classroom-clickable col-12 dropdown-item" href="#" onclick="attributeActivity(${activity.id})" style="border-bottom:2px solid rgba(0,0,0,.15">` + capitalizeFirstLetter(i18next.t('words.attribute')) + `</li>
-                <li class="dropdown-item classroom-clickable col-12" href="#" onclick="createActivity(null,${activity.id})">` + capitalizeFirstLetter(i18next.t('words.duplicate')) + `</li>
+                <li class="classroom-clickable col-12 dropdown-item" href="#" onclick="attributeActivity(${activity.id})" style="border-bottom:2px solid rgba(0,0,0,.15">` + capitalizeFirstLetter(i18next.t('words.attribute')) + `</li>
+
+                <li style="display: ${activity.type==='GENIUS' || activity.type==='EXPRESS' ? 'none' : 'block'}" class="dropdown-item classroom-clickable col-12" href="#" onclick="createActivity(null,${activity.id})">` + capitalizeFirstLetter(i18next.t('words.duplicate')) + `</li>
+
                 <li class=" classroom-clickable col-12 dropdown-item" onclick="activityModify(${activity.id})" href="#">` + capitalizeFirstLetter(i18next.t('words.modify')) + `</li>
                 <li class="dropdown-item modal-activity-delete classroom-clickable col-12" href="#">` + capitalizeFirstLetter(i18next.t('words.delete')) + `</li>
               </div>
@@ -444,29 +446,34 @@ function displayStudentsActivities(link, activitiesList) {
 
 function loadActivity(isDoable) {
     ClassroomSettings.chrono = Date.now()
-    $('#activity-introduction').hide()
-    $('#activity-content').hide();
-    $('#activity-content-lti').hide();
+    const activityIntroduction = $('#activity-introduction')
+    const activityContent = $('#activity-content')
+    const activityTitle = $('#activity-title')
+    const activityDetails = $('#activity-details')
 
-    if (Activity.introduction != null && Activity.introduction != "") {
+    activityDetails.html('')
+    activityTitle.html('')
+    activityContent.html('')
+    activityIntroduction.html('')
+
+    if (Activity.introduction != null && Activity.introduction !== "") {
         $('#text-introduction').html(bbcodeToHtml(Activity.introduction))
         $('#activity-introduction').show()
     }
-    $('#activity-title').html(Activity.activity.title)
+    activityTitle.html(Activity.activity.title)
     if (UserManager.getUser().isRegular) {
         if (Activity.correction >= 1) {
-            $('#activity-details').html("Activité de " + Activity.user.pseudo + " rendue le " + formatHour(Activity.dateSend))
+            activityDetails.html("Activité de " + Activity.user.pseudo + " rendue le " + formatHour(Activity.dateSend))
         } else {
-            $('#activity-details').html(i18next.t("classroom.activities.noSend"))
+            activityDetails.html(i18next.t("classroom.activities.noSend"))
         }
     } else {
         if (Activity.correction >= 1) {
-            $('#activity-details').html("Cette activité a été rendue le " + formatHour(Activity.dateSend))
+            activityDetails.html("Cette activité a été rendue le " + formatHour(Activity.dateSend))
         } else {
-            $('#activity-details').html("Activité à rendre pour le " + formatDay(Activity.dateEnd))
+            activityDetails.html("Activité à rendre pour le " + formatDay(Activity.dateEnd))
         }
     }
-
 
     var content = Activity.activity.content.replace(/(\[iframe\].*?link=[a-f0-9]{13})/gm, '$1&use=classroom')
     if (Activity.project != null) {
@@ -495,16 +502,13 @@ function loadActivity(isDoable) {
         correction += '<button onclick="giveNote()" class="btn c-btn-primary">' + i18next.t('classroom.activities.sendResults') + '<i class="fas fa-chevron-right"> </i></button>'
     }
 
-    // Review student submission by teacher
+    // Review student submission by teacher (and by student)
     if(content.startsWith('http')) {  // TODO replace with "if content is LTI"
-      if (UserManager.getUser().isRegular && Activity.correction > 0) {
+      if (!isDoable && Activity.correction > 0) {
         // TODO cabri: for review, better use the same player version as the one used to create the activity and used by student
-       let ltiReviewSubmission = $('#lti-review-submission').html('<iframe style="width: 100%; height: 100%;" allowfullscreen="true" frameborder="0" src="https://cabricloud.com/ed/opensteam/player?calculator=false&clmc=' + Activity.url + '" allowfullscreen></iframe>');
-        ltiReviewSubmission.css({'display': 'block'});
+        activityContent.html('<iframe style="width: 100%; height: 100%;" allowfullscreen="true" frameborder="0" src="https://cabricloud.com/ed/opensteam/player?isMobile&calculator=false&clmc=' + Activity.url + '" allowfullscreen></iframe>');
       }
-
-      if(isDoable) {
-        if(content.startsWith('http')) {
+      else if(isDoable) {
           const loginHint = {
             lineitemId: content,
             userId: UserManager.getUser().id,
@@ -525,19 +529,19 @@ function loadActivity(isDoable) {
           <iframe src="about:blank" name="lti_student_iframe" title="Tool Content" width="100%" height="100%" allowfullscreen></iframe>`;
 
 
-          let ltiStudentLaunchElement = $('#lti-student-launch').html(ltiStudentLaunch);
-          ltiStudentLaunchElement.css('display', 'block');
+          activityContent.html(ltiStudentLaunch);
           $('#lti_student_login_hint').val(JSON.stringify(loginHint));
 
           document.forms["lti_student_login_form"].submit();
-        }
       }
     }
+    else if(content.startsWith('[iframe]') && isDoable) {
+      activityContent.html(bbcodeToHtml(content))
+    }
+    else if(isDoable) {
+      activityContent.html(bbcodeToHtml(content))
+    }
 
-  if(isDoable) {
- //   $('#activity-content').html(bbcodeToHtml(content))
- //   $('#activity-content').show();
-  }
   $('#activity-correction').html(bbcodeToHtml(correction)).show()
     if (isDoable == false) {
         $('#activity-validate').hide()

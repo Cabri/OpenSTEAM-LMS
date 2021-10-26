@@ -94,13 +94,13 @@
 <div id="classroom-dashboard-content">
     <div id="classroom-dashboard-top-bar">
         <!-- Breadcrumb -->
-        <div id="breadcrumb" class="row ml-2 mr-auto"></div>
+        <div id="breadcrumb" class="row ml-2 mr-auto" style="display: none;"></div>
 
         <div id="notif-div"></div>
         <button class="btn c-btn-secondary" type="button" id="questionMenuButton" style="display: none;">
             <i class="fas fa-question"></i>
         </button>
-        <div class="dropdown" style="align-self: flex-end;">
+        <div class="dropdown" style="align-self: flex-end; pointer-events: all;">
             <button class="btn dropdown-toggle c-btn-primary" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 <i class="fas fa-low-vision"></i>
             </button>
@@ -140,6 +140,7 @@
             </div>
         </div>
     </div>
+
 <div id="classroom-dashboard-profil-panel" style="display:none;" class="dashboard-block profile-panel">
         
         <div class="d-flex flex-column text-center align-items-center">
@@ -229,15 +230,12 @@
     <div id="main-div" style="margin: 0 auto; flex: 1 0 50vw; height: 85vh; display: flex; flex-direction: column;">
       <h3 id="activity-title"></h3>
 
-<!--      <div id="lti-activity-submission" style="height: calc(50vw * 3/4); border: 0 none; display: none;"></div>-->
+<!--  <div id="lti-activity-submission" style="height: calc(50vw * 3/4); border: 0 none; display: none;"></div>-->
       <h4 id="activity-details"></h4>
 
-      <div id="lti-review-submission" style="flex: 1 1 100%; display: none;"></div>
       <!-- TODO CABRI move changes of lti to a separate plugin -->
-      <p id="activity-content"></p>
-      <div id="activity-content-lti"> </div>
+        <div id="activity-content"></div>
 
-      <div id="lti-student-launch" style="flex: 1 1 100%; display: none;"></div>
       <!--
       TODO disabled for cabri lti
       <button class="btn c-btn-primary" id="activity-validate" data-i18n="classroom.activities.validate"
@@ -545,13 +543,13 @@
     </br>
 
     <div class="buttons-interactions flex-wrap">
-        <button onclick="createCabriActivity(null, null, 'EXPRESS')" class="btn c-btn-outline-secondary outline-green"><span class="mr-1" data-i18n="classroom.activities.addCabriExpress"></span><i class="fas fa-chevron-right"></i>
+        <button onclick="createCabriLtiActivity(null, null, 'EXPRESS')" class="btn c-btn-outline-secondary outline-green"><span class="mr-1" data-i18n="classroom.activities.addCabriExpress"></span><i class="fas fa-chevron-right"></i>
         </button>
 
-        <button onclick="createCabriActivity(null, null, 'GENIUS')" class="btn c-btn-outline-secondary outline-yellow"><span class="mr-1" data-i18n="classroom.activities.addCabriGenius"></span><i class="fas fa-chevron-right"></i>
+        <button onclick="createCabriLtiActivity(null, null, 'GENIUS')" class="btn c-btn-outline-secondary outline-yellow"><span class="mr-1" data-i18n="classroom.activities.addCabriGenius"></span><i class="fas fa-chevron-right"></i>
         </button>
 
-        <button onclick="createActivity()" class=" btn c-btn-outline-secondary outline-gray"><span class="mr-1" data-i18n="classroom.activities.addOther"></span><i class="fas fa-chevron-right"></i>
+        <button onclick="createCabriIframeActivity()" class=" btn c-btn-outline-secondary outline-gray"><span class="mr-1" data-i18n="classroom.activities.addOther"></span><i class="fas fa-chevron-right"></i>
         </button>
     </div>
 

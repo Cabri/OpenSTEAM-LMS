@@ -94,7 +94,7 @@
       "class": "CLASSE : ",
       "todo": "Activités </br> à faire",
       "done": "Activités </br> réalisées",
-      "create": "Activités </br> crées",
+      "create": "Activités </br> créées",
       "correctionToDo": "Corrections </br> à faire",
       "switchMode": "Passer en mode apprenant",
       "switchModeTeacher": "Retour au mode enseignant",
@@ -236,9 +236,9 @@
       "addOther": "Autre type d'activité",
       "new": "Nouveaux",
       "current": "En attente de correction",
-      "waiting": "Pas encore réalisé",
+      "waiting": "Pas encore réalisée",
       "done": "Terminés",
-      "todo": "A corriger",
+      "todo": "À corriger",
       "anonymise": "Anonymiser la liste de vos élèves afin de pouvoir afficher le tableau de bord à vos apprenants.",
       "save-draft": "Sauvegarder en tant que brouillon",
       "validate": "Valider l'activité",
@@ -357,6 +357,12 @@
       },
       "updateActivity": {
         "title": "Modifier une activité"
+      },
+      "deleteActivity": {
+        "title": "Supprimer une activity",
+        "description": "Etes vous sur de vouloir supprimer l'activité ?",
+        "confirm": "Confirmer",
+        "cancel": "Annuler"
       },
       "settingsTeacher": {
         "title": "Paramètres du compte",
