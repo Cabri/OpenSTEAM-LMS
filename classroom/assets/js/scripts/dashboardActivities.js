@@ -447,10 +447,13 @@ function displayStudentsActivities(link, activitiesList) {
 function loadActivity(isDoable) {
     ClassroomSettings.chrono = Date.now()
     $('#activity-introduction').hide()
-    $('#activity-content').hide();
-    $('#activity-content-lti').hide();
+    $('#activity-content').hide()
+    $('#activity-content-lti').hide()
+    $('#activity-title').html('')
+    $('#activity-details').html('')
 
-    if (Activity.introduction != null && Activity.introduction != "") {
+
+  if (Activity.introduction != null && Activity.introduction != "") {
         $('#text-introduction').html(bbcodeToHtml(Activity.introduction))
         $('#activity-introduction').show()
     }
@@ -497,15 +500,14 @@ function loadActivity(isDoable) {
         correction += '<button onclick="giveNote()" class="btn c-btn-primary">' + i18next.t('classroom.activities.sendResults') + '<i class="fas fa-chevron-right"> </i></button>'
     }
 
-    // Review student submission by teacher
+    // Review student submission by teacher (and by student)
     if(content.startsWith('http')) {  // TODO replace with "if content is LTI"
-      if (UserManager.getUser().isRegular && Activity.correction > 0) {
+      if (!isDoable && Activity.correction > 0) {
         // TODO cabri: for review, better use the same player version as the one used to create the activity and used by student
        let ltiReviewSubmission = $('#lti-review-submission').html('<iframe style="width: 100%; height: 100%;" allowfullscreen="true" frameborder="0" src="https://cabricloud.com/ed/opensteam/player?isMobile&calculator=false&clmc=' + Activity.url + '" allowfullscreen></iframe>');
         ltiReviewSubmission.css({'display': 'block'});
       }
-
-      if(isDoable) {
+      else if(isDoable) {
           const loginHint = {
             lineitemId: content,
             userId: UserManager.getUser().id,
