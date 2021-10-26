@@ -376,29 +376,21 @@ function formatDateInput(date) {
 }
 
 function getTeacherActivity() {
+    $('#activity-details').html('')
     $('#activity-title').html(Activity.title + `<button class="btn btn-link" onclick="attributeActivity(` + Activity.id + `)">
     <i class="fas fa-arrow-down"></i> ` + capitalizeFirstLetter(i18next.t('words.attribute')) + `
 </button>`)
 
     let activityContent = $('#activity-content');
-    let activityContentLti = $('#activity-content-lti');
 
-    activityContent.html('');
-    activityContentLti.html('');
-
-   // TODO cabri replace with IF LTI
+    // TODO cabri replace with IF LTI
     if(Activity.content.startsWith('http'))
-      activityContentLti.html('<iframe style="width: 100%; height: 100%;" allowfullscreen="true" frameborder="0" src="https://cabricloud.com/ed/opensteam/express?isMobile&calculator=false&clmc=' + Activity.content + '" allowfullscreen></iframe>');
-    else if(Activity.content.startsWith('[iframe]'))
-      activityContentLti.html(bbcodeToHtml(Activity.content));
+      activityContent.html('<iframe style="width: 100%; height: 100%;" allowfullscreen="true" frameborder="0" src="https://cabricloud.com/ed/opensteam/express?isMobile&calculator=false&clmc=' + Activity.content + '" allowfullscreen></iframe>');
     else
-      activityContent.html(bbcodeToHtml(Activity.content))
+      activityContent.html(bbcodeToHtml(Activity.content));
 
-    activityContent.css('display', 'block');
-    activityContentLti.css('display', 'block');
     $('#activity-introduction').hide()
     $('#activity-validate').hide()
-    $('#lti-review-submission').hide()
     $('#activity-correction').hide();
 }
 
