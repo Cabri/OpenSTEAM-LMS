@@ -54,6 +54,30 @@ function createCabriActivity(link = null, id = null, type) {
       return;
     }
 
+    let isPlayer = type.toLowerCase() === "player";
+
+    if (isPlayer)
+        $("#player").css("display", "block");
+    else
+        $("#player").css("display", "none");
+
+    $("#validate").click(() => {
+      let playerType = $('input[name=player]:checked', '#player').val();
+
+      if(isPlayer) {
+          $('#lti_teacher_login_hint').val(JSON.stringify(loginHint));
+          $('#lti_teacher_iss').val(location.origin); // platform url
+          $('#lti_teacher_iframe').css({'filter': 'blur(5px)', 'pointer-events': 'none'});
+          if(playerType.toLowerCase() === "imuscica") {
+              $('#lti_teacher_login_form').attr("action", "https://workbench-imuscica.cabricloud.com/lti/login");
+              $('#lti_teacher_target_link_uri').val("https://workbench-imuscica.cabricloud.com/lti/deeplink");
+          }
+
+          document.forms["lti_teacher_login_form"].submit();
+      }
+    });
+
+
     navigatePanel('classroom-dashboard-new-cabriexpress-activity-panel', 'dashboard-activities-teacher')
     pseudoModal.openModal('add-lti-activity-name');
     // todo cabri must remove previous exit events listeners before setting a new one !
@@ -70,10 +94,17 @@ function createCabriActivity(link = null, id = null, type) {
     };
 
    // document.getElementsByName('lti_teacher_login_form')[0].style.display = 'none';
-    $('#lti_teacher_login_hint').val(JSON.stringify(loginHint));
-    $('#lti_teacher_iss').val(location.origin); // platform url
-    $('#lti_teacher_iframe').css({'filter': 'blur(5px)', 'pointer-events': 'none'})
-    document.forms["lti_teacher_login_form"].submit();
+
+
+    if(!isPlayer) {
+        $('#lti_teacher_login_form').attr("action", "https://lti1p3.cabricloud.com/login");
+        $('#lti_teacher_target_link_uri').val("https://lti1p3.cabricloud.com/deeplink");
+        $('#lti_teacher_login_hint').val(JSON.stringify(loginHint));
+        $('#lti_teacher_iss').val(location.origin); // platform url
+        $('#lti_teacher_iframe').css({'filter': 'blur(5px)', 'pointer-events': 'none'});
+        document.forms["lti_teacher_login_form"].submit();
+    }
+
 
   });
 }

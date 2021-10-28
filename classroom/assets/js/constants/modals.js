@@ -898,9 +898,19 @@ const classroomModals = {
                <input data-i18n="[placeholder]classroom.activities.form.title.label" type="text" id="activity-lti-form-title"
                class="form-control part-title-input">
             </div>
-
+          <form id="player" class="row justify-content-md-center" style="display: none">
+            <div>
+              <input type="radio" id="imuscica" name="player" value="imuscica"
+                     checked>
+              <label for="imuscica">iMuSciCA</label>
+            </div>
+            <div>
+              <input type="radio" id="epsilon" name="player" value="epsilon">
+              <label for="epsilon">Epsilon</label>
+            </div>
+          </form>
           <div class="row  justify-content-md-center"">
-                <button class="c-btn-primary m-3" onclick="startActivityCreation()"><i class="fas fa-save"></i> <span class="ml-1" data-i18n="classroom.modals.addActivity.continue"></span></button>
+                <button id="validate" class="c-btn-primary m-3" onclick="startActivityCreation()"><i class="fas fa-save"></i> <span class="ml-1" data-i18n="classroom.modals.addActivity.continue"></span></button>
           </div>
       `,
       footer: ``

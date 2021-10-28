@@ -1977,6 +1977,13 @@ i.line_height34 {
 }
 
 /*TODO CABRI must move to a separate plugin*/
+.outline-violet {
+    border: 2px solid #9b51e0 !important;
+    color: #9b51e0 !important;
+    background: transparent !important;
+}
+
+/*TODO CABRI must move to a separate plugin*/
 .outline-gray {
   border: 2px solid #7c7c7c !important;
   color: #7c7c7c !important;

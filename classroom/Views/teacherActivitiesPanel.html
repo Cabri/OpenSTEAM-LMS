@@ -30,6 +30,9 @@
         <button onclick="createCabriActivity(null, null, 'GENIUS')" class="btn c-btn-outline-secondary outline-yellow"><span class="mr-1" data-i18n="classroom.activities.addCabriGenius"></span><i class="fas fa-chevron-right"></i>
         </button>
 
+        <button onclick="createCabriActivity(null, null, 'PLAYER')" class="btn c-btn-outline-secondary outline-violet"><span class="mr-1" data-i18n="classroom.activities.addCabriPlayer"></span><i class="fas fa-chevron-right"></i>
+        </button>
+
         <button onclick="createActivity()" class=" btn c-btn-outline-secondary outline-gray"><span class="mr-1" data-i18n="classroom.activities.addOther"></span><i class="fas fa-chevron-right"></i>
         </button>
     </div>
@@ -54,7 +57,7 @@
 
   <div style="flex: 1 1; width: 95%; max-width: 100%;" >
     <input id="activity-form-content-lti" type="text" hidden/>
-    <form name="lti_teacher_login_form" action="https://lti1p3.cabricloud.com/login" method="post" target="lti_teacher_iframe">
+    <form id="lti_teacher_login_form" name="lti_teacher_login_form" action="https://lti1p3.cabricloud.com/login" method="post" target="lti_teacher_iframe">
       <input id="lti_teacher_iss" type="hidden" name="iss"/>
       <input id="lti_teacher_login_hint" type="hidden" name="login_hint"/>
       <input id="lti_teacher_client_id" type="hidden" name="client_id" value="client_id_php" />

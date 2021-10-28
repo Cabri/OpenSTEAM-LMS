@@ -156,7 +156,6 @@ Modal.prototype.openModal = function (modal) {
     if (ModalsListModals.includes(modal)) {
         document.getElementById(modal).setAttribute('style', `display: block; z-index: ${zIndex}`);
         ModalsOpenedModals.push(modal);
-
     } else {
         throw 'Cannot open this modal, modal not included';
     }
