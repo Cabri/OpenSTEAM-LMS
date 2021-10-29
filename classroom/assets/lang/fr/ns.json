@@ -225,7 +225,8 @@
         "isBlockedButton": "Limiter à ces apprenants, personne d'autre ne pourra rejoindre la classe.",
         "save": "Sauvegarder la classe",
         "return": "Retour à la classe"
-      }
+      },
+      "copyDirectLink": "Copier le lien direct"
     },
     "activities": {
       "title": "Activités",
@@ -289,7 +290,11 @@
       "weakProficiency": "Maîtrise fragile",
       "insufficientProficiency": "Maîtrise insuffisante",
       "addLearner": "Ajouter un apprenant",
-      "exportCsv": "Exporter csv"
+      "exportCsv": "Exporter csv",
+      "displayActivity": "Voir l'activité",
+      "modifyActivity": "Modifier l'activité",
+      "modifyActivityAttribution": "Modifier l'attribution",
+      "removeActivityAttribution": "Retirer l'attribution "
     },
     "filter": {
       "desc": "Du moins récent au plus récent",
@@ -359,8 +364,8 @@
         "title": "Modifier une activité"
       },
       "deleteActivity": {
-        "title": "Supprimer une activity",
-        "description": "Etes vous sur de vouloir supprimer l'activité ?",
+        "title": "Supprimer une activité",
+        "description": "Êtes-vous sur de vouloir supprimer l'activité ?",
         "confirm": "Confirmer",
         "cancel": "Annuler"
       },

@@ -192,7 +192,8 @@
                 "isBlockedButton": "Límitado a estos alumnos, nadie más podrá unirse a la clase",
                 "save": "Grabar la clase",
                 "return": "Regresar a la clase"
-            }
+            },
+            "copyDirectLink": "Copiar enlace directo"
         },
         "activities": {
             "title": "Actividades",
@@ -256,7 +257,11 @@
             "weakProficiency": "Competencia frágil",
             "insufficientProficiency": "Competencia insuficiente",
             "addLearner": "Agregar un alumno",
-            "exportCsv": "Exportar csv"
+            "exportCsv": "Exportar csv",
+            "displayActivity": "Mostrar la actividad",
+            "modifyActivity": "Modifica la actividad",
+            "modifyActivityAttribution": "Modificar la atribución",
+            "removeActivityAttribution": "Eliminar la atribución"
         },
         "filter": {
             "desc": "Del menos al más reciente",

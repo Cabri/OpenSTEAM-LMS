@@ -227,14 +227,15 @@
 				"isBlockedButton": "Limit to these learners, no one else will be able to join the classroom.",
 				"save": "Save the classroom",
 				"return": "Return to the classroom"
-			}
-		},
+			},
+      "copyDirectLink": "Copy direct link"
+    },
 		"activities": {
 			"title": "Activities",
 			"save": "Save the draft ",
 			"add": "Create an activity",
       "addCabriExpress": "Create Express activity",
-      "addCabriGenius": "Créer Smart activity",
+      "addCabriGenius": "Create Smart activity",
       "addOther": "Other type of activity",
       "new": "New",
 			"current": "In progress",
@@ -291,7 +292,11 @@
 			"weakProficiency": "Weak proficiency",
 			"insufficientProficiency": "Insufficient proficiency",
 			"addLearner": "Add a learner",
-			"exportCsv": "Export csv"
+			"exportCsv": "Export csv",
+      "displayActivity": "Display activity",
+      "modifyActivity": "Modify activity",
+      "modifyActivityAttribution": "Modify attribution",
+      "removeActivityAttribution": "Remove attribution "
 		},
 		"filter": {
 			"desc": "From oldest to newest",
@@ -901,7 +906,7 @@
 			"search": "Search",
 			"restart": "Restart",
 			"copyLink": "Copy link",
-			"show": "Show",
+      "show": "Show",
 			"manage": "Manage",
 			"user": {
 				"add": "Add user",
