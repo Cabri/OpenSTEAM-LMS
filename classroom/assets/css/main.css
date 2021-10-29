@@ -2010,3 +2010,7 @@ i.line_height34 {
 #activity-title{
   padding-left: 10px;
 }
+
+#other-activity-form-title {
+    width: 35%;
+}

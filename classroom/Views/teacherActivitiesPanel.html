@@ -30,7 +30,7 @@
         <button onclick="createCabriLtiActivity(null, null, 'GENIUS')" class="btn c-btn-outline-secondary outline-yellow"><span class="mr-1" data-i18n="classroom.activities.addCabriGenius"></span><i class="fas fa-chevron-right"></i>
         </button>
 
-        <button onclick="createCabriIframeActivity()" class=" btn c-btn-outline-secondary outline-gray"><span class="mr-1" data-i18n="classroom.activities.addOther"></span><i class="fas fa-chevron-right"></i>
+        <button onclick="createActivity()" class=" btn c-btn-outline-secondary outline-gray"><span class="mr-1" data-i18n="classroom.activities.addOther"></span><i class="fas fa-chevron-right"></i>
         </button>
     </div>
 
@@ -108,6 +108,34 @@
     </div>
     <button class="new-activity-panel2 c-btn-primary"><span data-i18n="classroom.activities.form.button"></span> <i
             class="fas fa-check"></i></button>
+</div>
+
+<!-- Cabri other button -->
+<div id="classroom-dashboard-new-other-activity-panel" style="display:none;margin-right:0px;"
+     class="activity-creation-form row dashboard-block">
+
+        <label for="other-activity-form-title">
+            <span data-i18n="classroom.activities.form.title.label"></span>
+        </label>
+        <input data-i18n="[placeholder]classroom.activities.form.title.placeholder" type="text"
+               id="other-activity-form-title" class="form-control part-title-input">
+
+    <div class="d-flex flex-column">
+        <div class="d-flex flex-row">
+            <span>Cahier d'activité</span>
+            <span>Vidéo et page internet</span>
+        </div>
+        <div id="tab-activity-book">
+            <i class="fas fa-question-circle" data-bs-toggle="tooltip" data-bs-placement="bottom" title="text help" style="float:left"></i>
+            <div class="icons-cards">
+                <div class="icons"></div>
+                <span></span>
+            </div>
+        </div>
+    </div>
+
+<!--    <label><bold>Quel est le titre de l'activité ?</bold></label>-->
+<!--    <input type="text" />-->
 </div>
 
 <div id="classroom-dashboard-new-activity-panel2" style="display:none;"

@@ -18,7 +18,7 @@ function createActivity(link = null, id = null, type) {
             $('.wysibb-text-editor').html(activity.content)
         })
     }
-    navigatePanel('classroom-dashboard-new-activity-panel', 'dashboard-activities-teacher')
+    navigatePanel('classroom-dashboard-new-other-activity-panel', 'dashboard-activities-teacher')
     ClassroomSettings.activityInWriting = true
 }
 
@@ -30,7 +30,7 @@ function createCabriIframeActivity(link = null, id = null) {
     if (link) {
       $('.wysibb-text-editor').html('[iframe]' + URLServer + '' + link + '[/iframe]')
     } else {
-      $('.wysibb-text-editor').html('')
+      $('.wysibb-text-editor').html('') // me pass here
     }
     $('#activity-form-title').val('')
 
@@ -43,7 +43,7 @@ function createCabriIframeActivity(link = null, id = null) {
     })
   }
 
-  Main.getClassroomManager().canAddActivity({type: 'IFRAME'}).then( data => {
+  Main.getClassroomManager().canAddActivity({type: 'IFRAME'}).then( data => { // type others
     if (!data.canAdd) {
       pseudoModal.openModal('add-activity-limitation');
       return;
