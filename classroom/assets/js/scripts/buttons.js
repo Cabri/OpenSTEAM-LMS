@@ -432,7 +432,9 @@ if (accessForm) {
         updateWebsiteAcessibility($(this));
     });
 }
-
+/*
+* This event was override by Cabri plugins
+* */
 //navbar prof-->new sandbox
 $('.open-ide').click(function () {
     let option = $(this).attr('data-interface')

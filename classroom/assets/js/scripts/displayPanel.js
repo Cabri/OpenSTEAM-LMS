@@ -205,6 +205,9 @@ DisplayPanel.prototype.classroom_dashboard_help_panel_teacher = function () {
     });
 }
 
+/*
+* This event was override by Cabri plugins
+* */
 DisplayPanel.prototype.classroom_dashboard_sandbox_panel = function () {
     ClassroomSettings.activity = false
     if (!Main.getClassroomManager()._myProjects) {

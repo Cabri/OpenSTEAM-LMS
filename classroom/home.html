@@ -10,36 +10,66 @@
     <div id="classroom-dashboard-container">
         <div id="classroom-dashboard-sidebar" class="sidebar-classroom" style="display:none;">
             <div id="classroom-sidebar-logo"></div>
-            <div class="classroom-navbar-button" id="dashboard-activities"><img src="assets/media/my_activities.svg"
-                    alt="Icône activités">
+
+            <!-- My activities -->
+            <div class="classroom-navbar-button" id="dashboard-activities">
+                <img src="assets/media/my_activities.svg" alt="Icône activités">
                 <span data-i18n="classroom.ids.classroom-dashboard-activities-panel-teacher"></span>
             </div>
+
+            <!-- My apps -->
+            <div class="classroom-navbar-button" id="dashboard-my-apps"
+                onclick="navigatePanel('classroom-dashboard-sandbox-panel', 'dashboard-my-apps')"><img
+                    src="assets/media/sandbox.svg" alt="Icône Mes applications">
+                <span data-i18n="classroom.ids.classroom-dashboard-my-apps-panel"></span>
+            </div>
+
+            <!-- Helps -->
             <div class=" classroom-navbar-button" id="dashboard-help"
-                onclick="navigatePanel('classroom-dashboard-help-panel', 'dashboard-help')"><img
-                    src="assets/media/call_for_help.svg" alt="Icône Appel à l'aide">
+                onclick="navigatePanel('classroom-dashboard-help-panel', 'dashboard-help')">
+                <img src="assets/media/call_for_help.svg" alt="Icône Appel à l'aide">
                 <span data-i18n="classroom.ids.classroom-dashboard-help-panel"></span>
             </div>
+
+            <!-- My profiles -->
             <div id="dashboard-profil" class="classroom-navbar-button"
-                onclick="navigatePanel('classroom-dashboard-profil-panel', 'dashboard-profil')"><img
-                    class="user-picture" src="assets/media/profile_picture.svg" alt="Photo de profil">
+                onclick="navigatePanel('classroom-dashboard-profil-panel', 'dashboard-profil')">
+                <img class="user-picture" src="assets/media/profile_picture.svg" alt="Photo de profil">
                 <span data-i18n="classroom.ids.classroom-dashboard-profil-panel-teacher"></span>
             </div>
 
         </div>
 <div id="classroom-dashboard-sidebar-teacher" class="sidebar-classroom" style="display:none;">
     <div id="classroom-sidebar-logo"></div>
+
+    <!-- My activities -->
     <div class="classroom-navbar-button" id="dashboard-activities-teacher"
         onclick="navigatePanel('classroom-dashboard-activities-panel-teacher', 'dashboard-activities-teacher')">
         <img src="assets/media/my_activities.svg" alt="Icône activités">
-        <span data-i18n="classroom.ids.classroom-dashboard-activities-panel-teacher"></span> </div>
+        <span data-i18n="classroom.ids.classroom-dashboard-activities-panel-teacher"></span>
+    </div>
+
+    <!-- My apps -->
+    <div class="classroom-navbar-button" id="dashboard-my-apps-teacher"
+         onclick="navigatePanel('classroom-dashboard-sandbox-panel', 'dashboard-my-apps-teacher')"><img
+            src="assets/media/sandbox.svg" alt="Icône Mes applications">
+        <span data-i18n="classroom.ids.classroom-dashboard-my-apps-panel"></span>
+    </div>
+
+    <!-- My classes -->
     <div class=" classroom-navbar-button" id="dashboard-classes-teacher"
         onclick="navigatePanel('classroom-dashboard-classes-panel-teacher', 'dashboard-classes-teacher')">
         <img src="assets/media/my_classes.svg" alt="Icône classe">
-        <span data-i18n="classroom.ids.classroom-dashboard-classes-panel-teacher"></span> </div>
+        <span data-i18n="classroom.ids.classroom-dashboard-classes-panel-teacher"></span>
+    </div>
+
+    <!-- My profils -->
     <div id="dashboard-profil-teacher" class="active classroom-navbar-button"
-        onclick="navigatePanel('classroom-dashboard-profil-panel-teacher', 'dashboard-profil-teacher')"><img
-            class="user-picture" src="assets/media/profile_picture.svg" alt="Photo de profil">
-        <span data-i18n="classroom.ids.classroom-dashboard-profil-panel-teacher"></span></div>
+        onclick="navigatePanel('classroom-dashboard-profil-panel-teacher', 'dashboard-profil-teacher')">
+        <img class="user-picture" src="assets/media/profile_picture.svg" alt="Photo de profil">
+        <span data-i18n="classroom.ids.classroom-dashboard-profil-panel-teacher"></span>
+    </div>
+
 </div>
 <div id="manager-dashboard-sidebar" class="sidebar-classroom" style="display:none;">
     <!-- set your logo here -->
@@ -204,7 +234,56 @@
 </div>
 </div>
 <div id="classroom-dashboard-sandbox-panel" style="display:none;" class="dashboard-block ">
-    
+    <div id="classroom-dashboard-sandbox-creation-container" class="row">
+        <!-- HTML inject by the script below -->
+    </div>
+    <script>
+        let appsListHtml;
+        let apps = [
+            {
+                "name": "express",
+                "displayedName": "Cabri Express",
+                "url" : "https://cabricloud.com/cabriexpress/",
+                "img": "https://cabri.com/wp-content/uploads/icone-express-carree-300x300.png",
+                "description": "Editeur de géométrie dynamique"
+            }, {
+                "name": "imuscica",
+                "displayedName": "Workbench iMuSciCA",
+                "url" : "https://workbench-imuscica.cabricloud.com/",
+                "img": "https://cabri.com/wp-content/uploads/imuscica_logo.max-1-400x258.png",
+                "description": "Boîte à outils STEAM"
+            },
+        ];
+
+        appsListHtml = `
+        <div class='card'>
+            <div class='card-body'>
+                <h4 class='instructions-title' data-i18n="classroom.myAppsOpenPanel.title">Sélectionnez l'application que vous souhaitez ouvrir</h4>
+            </div>
+        </div>
+        `;
+
+        /*
+        * The event of each card is in js of this plugins
+        * */
+        for(app of apps){
+            appsListHtml += `
+            <div class='card open-ide' data-app=${app['name']} data-url=${app['url']}>
+                <img class='card-img-top app-img' src='${app['img']}' alt='${app['name']}'>
+                <div class='card-body'>
+                    <h5 class='card-title'>${app['displayedName']}</h5>
+                    <p class='app-description' data-i18n='classroom.myAppsOpenPanel.appsDescription.${app['name']}'>${app['description']}</p>
+                </div>
+            </div>
+            `;
+        }
+
+        document.getElementById('classroom-dashboard-sandbox-creation-container').innerHTML = appsListHtml;
+
+        if($('#classroom-dashboard-sandbox-creation-container').localize){
+            $('#classroom-dashboard-sandbox-creation-container').localize();
+        }
+    </script>
 </div>
 <div id="classroom-dashboard-activities-panel" style="display:none;" class="dashboard-block">
     <h3 class="section-title section-new" onclick="sectionToggle('new')" data-i18n="classroom.activities.new"><i
@@ -1342,6 +1421,8 @@
 <script src="assets/plugins/js/get_teacher_activity.js"></script>
 <script src="assets/plugins/js/limitation_activities_per_teacher.js"></script>
 <script src="assets/plugins/js/limitation_user_per_classroom.js"></script>
+<script src="assets/plugins/js/displayPanelSandbox.js"></script>
+<script src="assets/plugins/js/openTabApp.js"></script>
 <script src="assets/plugins/js/wordpress-widget.js"></script>
 
 </body>

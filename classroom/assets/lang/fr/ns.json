@@ -197,6 +197,7 @@
       "classroom-dashboard-activities-panel-teacher": "Mes activités",
       "classroom-dashboard-classes-panel-teacher": "Mes classes",
       "classroom-dashboard-sandbox-panel": "Bac à sable",
+      "classroom-dashboard-my-apps-panel": "Mes applications",
       "classroom-dashboard-profil-panel-teacher": "Profil",
       "classroom-dashboard-activities-panel": "Mes activités",
       "classroom-dashboard-profil-panel": "Profil",
@@ -332,6 +333,14 @@
         "texas-instruments": "Interface de programmation pour la calculatrice avec la carte micro:bit",
         "esp32": "Interface de programmation pour les cartes ESP32 (Wemos D1R32, NodeMCU, Huzzah32, …)",
         "quickpi": "Interface de programmation pour la carte Quick-Pi"
+      },
+      "myAppsOpenPanel": {
+        "title": "Sélectionnez l'application que vous souhaitez ouvrir",
+        "knowMoreButton": "En savoir plus sur les applications",
+        "appsDescription": {
+          "express": "Editeur de géométrie dynamique",
+          "imuscica": "Boîte à outils STEAM"
+        }
       }
     },
     "modals": {
