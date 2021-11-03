@@ -133,7 +133,7 @@ function classeItem(classe, nbStudents, students) {
                 <h3 class="activity-item-title">${classe.name}</h3>
             </div>`
     html += `<div class="class-card-bot">
-                <span class="nb-activities">${maxAct}</span> Activité` + setPluriel(maxAct) + `</p>
+                <span class="nb-activities">${maxAct}</span> ` + setActivityPlural(maxAct) + `</p>
             </div>`
     html += `</div></div>`
 
@@ -572,8 +572,13 @@ function loadActivity(isDoable) {
     }
 }
 
-function setPluriel(number) {
-    if (number > 1) {
-        return 's'
-    } else return ''
+function setActivityPlural(number) {
+    switch (i18next.language) {
+      case 'fr': return number>1 ? 'activités' : 'activité';
+      case 'en': return number===1 ? 'activity' : 'activities';
+      case 'es': return number>1 ? 'actividades' : 'actividad';
+      default: { // english fallback
+        return number===1 ? 'activity' : 'activities';
+      }
+    }
 }
