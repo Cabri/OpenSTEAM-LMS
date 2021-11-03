@@ -254,10 +254,12 @@
 			"sendResults": "Send the comment to the learner ",
 			"noSend": "This activity hasn't been returned",
 			"comments": "Write your comments there",
-			"bilan": {
+      "teacherComments": "Teacher's comments",
+      "bilan": {
 				"title": "Bilan",
-				"results": "Results"
-			},
+				"results": "Results",
+        "grade": "Grade"
+      },
 			"form": {
 				"1": "Activity creation",
 				"2": "Attribution",

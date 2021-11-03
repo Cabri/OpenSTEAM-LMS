@@ -1634,7 +1634,7 @@ i.line_height34 {
 }
 
 .activity-correction-header {
-    color: var(--classroom-primary);
+    color: black;
 }
 
 .open-ide:hover {

@@ -252,9 +252,11 @@
       "sendResults": "Envoyer le commentaire à l'apprenant ",
       "noSend": "Cette activité n'a pas été rendue",
       "comments": "Entrez ici vos remarques",
+      "teacherComments": "Remarques de l'enseignant",
       "bilan": {
         "title": "Bilan",
-        "results": "Résultats"
+        "results": "Résultats",
+        "grade": "Note"
       },
       "form": {
         "1": "Création de l'activité",

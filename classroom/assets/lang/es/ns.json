@@ -219,9 +219,11 @@
             "sendResults": "Enviar el comentario al alumno",
             "noSend": "Ésta actividad no ha sido retroalimentada",
             "comments": "Ingrese sus observaciones",
+            "teacherComments": "Comentarios del profesor",
             "bilan": {
                 "title": "Balance",
-                "results": "Resultados"
+                "results": "Resultados",
+                "grade": "Calificación"
             },
             "form": {
                 "1": "Creación de la actividad",

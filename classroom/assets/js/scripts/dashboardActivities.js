@@ -26,7 +26,7 @@ function activityItem(activity, state) {
         var status = "new-exercise"
     }
     let html = `<div class="activity-item">
-                    <div class="${activity.type==='GENIUS' ? 'activity-card-cabri-genius': activity.activity.type === 'IFRAME' ? 'activity-card-cabri-iframe' :  ''} activity-card activity-card-` + ide + ` ` + status + `">
+                    <div class="${activity.activity.type==='GENIUS' ? 'activity-card-cabri-genius': activity.activity.type === 'IFRAME' ? 'activity-card-cabri-iframe' :  ''} activity-card activity-card-` + ide + ` ` + status + `">
                         <div class="activity-card-top">
                         </div>
                         <div class="activity-card-mid"></div>
@@ -484,17 +484,30 @@ function loadActivity(isDoable) {
         content = content
     }
     let correction = ''
-    if (UserManager.getUser().isRegular && Activity.correction == 1) {
-        correction += `<div class="activity-correction-header d-flex justify-content-between"><h3>` + i18next.t('classroom.activities.bilan.results') + `</h3><i class="fas fa-chevron-right fa-2x" ></i></div><div id='giveNote' ><div onclick="setNote(3,'givenote-3')" id="givenote-3" class="note-choice"><i class="fas fa-check"></i>` + i18next.t('classroom.activities.accept') + ` </div><div onclick="setNote(2,'givenote-2')" id="givenote-2" class="note-choice" ><i class="fas fa-check"></i>` + i18next.t('classroom.activities.vgood') + ` </div><div onclick="setNote(1,'givenote-1')" id="givenote-1" class="note-choice" ><i class="fas fa-check"></i>` + i18next.t('classroom.activities.good') + ` </div><div onclick="setNote(0,'givenote-0')" id="givenote-0" class="note-choice" ><i class="fas fa-check"></i>` + i18next.t('classroom.activities.refuse') + ` </div></div>`
-
+    if (UserManager.getUser().isRegular && (Activity.correction === 1 || Activity.correction === 2 || Activity.correction === 3)) {
+        correction += `<div class="activity-correction-header d-flex justify-content-between"><h3>` + i18next.t('classroom.activities.bilan.results') + `</h3><i class="fas fa-chevron-right fa-2x" ></i></div><div id='giveNote' ><div onclick="setNote(3,'givenote-3')" id="givenote-3" class="note-choice ${Activity.note===3 ? 'selectNote' : ''}"><i class="fas fa-check"></i>` + i18next.t('classroom.activities.accept') + ` </div><div onclick="setNote(2,'givenote-2')" id="givenote-2" class="note-choice  ${Activity.note===2 ? 'selectNote' : ''}" ><i class="fas fa-check"></i>` + i18next.t('classroom.activities.vgood') + ` </div><div onclick="setNote(1,'givenote-1')" id="givenote-1" class="note-choice  ${Activity.note===1 ? 'selectNote' : ''}" ><i class="fas fa-check"></i>` + i18next.t('classroom.activities.good') + ` </div><div onclick="setNote(0,'givenote-0')" id="givenote-0" class="note-choice ${Activity.note===0 ? 'selectNote' : ''}" ><i class="fas fa-check"></i>` + i18next.t('classroom.activities.refuse') + ` </div></div>`
+    }
+    // Display given note (score) to student and teacher
+    else if (!UserManager.getUser().isRegular && (Activity.correction === 2 || Activity.correction === 3)) {
+          correction += `<div class="activity-correction-header d-flex justify-content-between"><h5>${ i18next.t('classroom.activities.bilan.grade')}</h5></div>`
+          if(Activity.note===3)
+            correction += `<div id='giveNote' ><div id="givenote-3" class="note-choice"><i class="fas fa-check"></i>${i18next.t('classroom.activities.accept')}</div></div>`
+          else if(Activity.note===2)
+            correction += `<div id='giveNote' ><div id="givenote-2" class="note-choice"><i class="fas fa-check"></i>${i18next.t('classroom.activities.vgood')}</div></div>`
+          else if(Activity.note===1)
+            correction += `<div id='giveNote' ><div id="givenote-1" class="note-choice"><i class="fas fa-check"></i>${i18next.t('classroom.activities.good')}</div></div>`
+          else if(Activity.note===0)
+            correction += `<div id='giveNote' ><div id="givenote-0" class="note-choice"><i class="fas fa-check"></i>${i18next.t('classroom.activities.refuse')}</div></div>`
     }
 
+    //const formatedCommentary = Activity.commentary.replace(/<\/br>/g, 'XX');
     if (UserManager.getUser().isRegular && Activity.correction > 0) {
-        correction += '<div id="commentary-panel" class="c-primary-form"><label>' + i18next.t("classroom.activities.comments") + '</label><textarea id="commentary-textarea" style="width:90%" rows="8">' + Activity.commentary + '</textarea></div>'
+        correction += '<div id="commentary-panel" class="c-primary-form" style="margin-top: 50px;"><h5>' + i18next.t("classroom.activities.comments") + '</h5><textarea id="commentary-textarea" style="width:90%" rows="8">' + Activity.commentary + '</textarea></div>'
     }
 
-   if (!UserManager.getUser().isRegular && Activity.correction > 0) {
-        correction += '<div id="commentary-panel">' + Activity.commentary + '</div>'
+   if (!UserManager.getUser().isRegular && Activity.correction > 0 && Activity.commentary!=='') {
+     correction += '<div id="commentary-panel" class="c-primary-form" style="margin-top: 50px;"><h5>' + i18next.t("classroom.activities.teacherComments") + '</h5><textarea id="commentary-textarea" style="width:90%" rows="8" disabled>'  + Activity.commentary +  '</textarea></div>'
+
     }
 
     if (UserManager.getUser().isRegular && Activity.correction > 0) {
@@ -542,7 +555,7 @@ function loadActivity(isDoable) {
       activityContent.html(bbcodeToHtml(content))
     }
 
-  $('#activity-correction').html(bbcodeToHtml(correction)).show()
+  $('#activity-correction').html(correction).show()
     if (isDoable == false) {
         $('#activity-validate').hide()
         $('#activity-save').hide()
