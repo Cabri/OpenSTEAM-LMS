@@ -463,7 +463,9 @@ function loadActivity(isDoable) {
     activityTitle.html(Activity.activity.title)
     if (UserManager.getUser().isRegular) {
         if (Activity.correction >= 1) {
-            activityDetails.html("Activité de " + Activity.user.pseudo + " rendue le " + formatHour(Activity.dateSend))
+            activityDetails.html(i18next.t('classroom.activities.activitySubmited')
+              .replace('$1', Activity.user.pseudo)
+              .replace('$2',formatHour(Activity.dateSend)))
         } else {
             activityDetails.html(i18next.t("classroom.activities.noSend"))
         }

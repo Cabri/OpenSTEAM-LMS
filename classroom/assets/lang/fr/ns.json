@@ -253,6 +253,7 @@
       "noSend": "Cette activité n'a pas été rendue",
       "comments": "Entrez ici vos remarques",
       "teacherComments": "Remarques de l'enseignant",
+      "activitySubmited": "Activité de $1 rendue le $2",
       "bilan": {
         "title": "Bilan",
         "results": "Résultats",
@@ -358,7 +359,7 @@
           "title": "Créer une nouvelle activité",
           "button": "Créer une activité "
         },
-        "continue": "Continue",
+        "continue": "Continuer",
         "limitTitle": "Limite dépassée",
         "limitDescription": "La limite du nombre d'activités liée à ce compte est atteinte."
       },

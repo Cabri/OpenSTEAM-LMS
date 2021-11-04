@@ -220,6 +220,7 @@
             "noSend": "Ésta actividad no ha sido retroalimentada",
             "comments": "Ingrese sus observaciones",
             "teacherComments": "Comentarios del profesor",
+            "activitySubmited": "La actividad de $1 entregada el $2",
             "bilan": {
                 "title": "Balance",
                 "results": "Resultados",

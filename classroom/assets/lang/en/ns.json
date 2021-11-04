@@ -255,6 +255,7 @@
 			"noSend": "This activity hasn't been returned",
 			"comments": "Write your comments there",
       "teacherComments": "Teacher's comments",
+      "activitySubmited": "Activity of $1 submited on $2",
       "bilan": {
 				"title": "Bilan",
 				"results": "Results",
