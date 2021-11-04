@@ -227,14 +227,15 @@
 				"isBlockedButton": "Limit to these learners, no one else will be able to join the classroom.",
 				"save": "Save the classroom",
 				"return": "Return to the classroom"
-			}
-		},
+			},
+      "copyDirectLink": "Copy direct link"
+    },
 		"activities": {
 			"title": "Activities",
 			"save": "Save the draft ",
 			"add": "Create an activity",
       "addCabriExpress": "Create Express activity",
-      "addCabriGenius": "Créer Smart activity",
+      "addCabriGenius": "Create Smart activity",
       "addOther": "Other type of activity",
       "new": "New",
 			"current": "In progress",
@@ -253,10 +254,13 @@
 			"sendResults": "Send the comment to the learner ",
 			"noSend": "This activity hasn't been returned",
 			"comments": "Write your comments there",
-			"bilan": {
+      "teacherComments": "Teacher's comments",
+      "activitySubmited": "Activity of $1 submited on $2",
+      "bilan": {
 				"title": "Bilan",
-				"results": "Results"
-			},
+				"results": "Results",
+        "grade": "Grade"
+      },
 			"form": {
 				"1": "Activity creation",
 				"2": "Attribution",
@@ -291,7 +295,11 @@
 			"weakProficiency": "Weak proficiency",
 			"insufficientProficiency": "Insufficient proficiency",
 			"addLearner": "Add a learner",
-			"exportCsv": "Export csv"
+			"exportCsv": "Export csv",
+      "displayActivity": "Display activity",
+      "modifyActivity": "Modify activity",
+      "modifyActivityAttribution": "Modify attribution",
+      "removeActivityAttribution": "Remove attribution "
 		},
 		"filter": {
 			"desc": "From oldest to newest",
@@ -353,7 +361,7 @@
 					"title": "Create a new activity",
 					"button": "Create an activity "
 				},
-        "continue": "Continue",
+        "next": "Next",
         "limitTitle": "Exceeded limit",
         "limitDescription": "The limit of the number of activities linked to this account has been reached."
       },
@@ -901,7 +909,7 @@
 			"search": "Search",
 			"restart": "Restart",
 			"copyLink": "Copy link",
-			"show": "Show",
+      "show": "Show",
 			"manage": "Manage",
 			"user": {
 				"add": "Add user",

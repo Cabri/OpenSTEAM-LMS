@@ -225,7 +225,8 @@
         "isBlockedButton": "Limiter à ces apprenants, personne d'autre ne pourra rejoindre la classe.",
         "save": "Sauvegarder la classe",
         "return": "Retour à la classe"
-      }
+      },
+      "copyDirectLink": "Copier le lien direct"
     },
     "activities": {
       "title": "Activités",
@@ -251,9 +252,12 @@
       "sendResults": "Envoyer le commentaire à l'apprenant ",
       "noSend": "Cette activité n'a pas été rendue",
       "comments": "Entrez ici vos remarques",
+      "teacherComments": "Remarques de l'enseignant",
+      "activitySubmited": "Activité de $1 rendue le $2",
       "bilan": {
         "title": "Bilan",
-        "results": "Résultats"
+        "results": "Résultats",
+        "grade": "Note"
       },
       "form": {
         "1": "Création de l'activité",
@@ -289,7 +293,11 @@
       "weakProficiency": "Maîtrise fragile",
       "insufficientProficiency": "Maîtrise insuffisante",
       "addLearner": "Ajouter un apprenant",
-      "exportCsv": "Exporter csv"
+      "exportCsv": "Exporter csv",
+      "displayActivity": "Voir l'activité",
+      "modifyActivity": "Modifier l'activité",
+      "modifyActivityAttribution": "Modifier l'attribution",
+      "removeActivityAttribution": "Retirer l'attribution "
     },
     "filter": {
       "desc": "Du moins récent au plus récent",
@@ -351,7 +359,7 @@
           "title": "Créer une nouvelle activité",
           "button": "Créer une activité "
         },
-        "continue": "Continue",
+        "next": "Suivant",
         "limitTitle": "Limite dépassée",
         "limitDescription": "La limite du nombre d'activités liée à ce compte est atteinte."
       },
@@ -359,8 +367,8 @@
         "title": "Modifier une activité"
       },
       "deleteActivity": {
-        "title": "Supprimer une activity",
-        "description": "Etes vous sur de vouloir supprimer l'activité ?",
+        "title": "Supprimer une activité",
+        "description": "Êtes-vous sur de vouloir supprimer l'activité ?",
         "confirm": "Confirmer",
         "cancel": "Annuler"
       },
