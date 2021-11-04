@@ -359,7 +359,7 @@
           "title": "Créer une nouvelle activité",
           "button": "Créer une activité "
         },
-        "continue": "Continuer",
+        "next": "Suivant",
         "limitTitle": "Limite dépassée",
         "limitDescription": "La limite du nombre d'activités liée à ce compte est atteinte."
       },
