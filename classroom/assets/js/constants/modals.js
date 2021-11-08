@@ -133,10 +133,9 @@ const classroomModals = {
         selector: '',
         header: {
             icon: '',
-            title: 'modals.classroom.attributeActivity.title'
+            title: 'classroom.modals.addActivity.attributeActivity.title'
         },
         content: `
-    <h4>Sélectionner des apprenants</h4>
     <p><span class="student-number">0</span> apprenants sélectionnés</p>
     <div id="list-student-attribute-modal" class="row"></div>
     <button id="attribute-activity-to-students-close" class="btn btn-lg c-btn-secondary">Valider</button>

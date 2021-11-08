@@ -352,7 +352,7 @@
         },
         "orSeparator": "OU",
         "attributeActivity": {
-          "title": "Consulter mes activités existantes",
+          "title": "Sélectionner des apprenants",
           "button": "Mes activités "
         },
         "createActivity": {
