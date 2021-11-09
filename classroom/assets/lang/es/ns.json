@@ -110,7 +110,7 @@
             "usersAdded": "Las cuentas han sido creadas",
             "usersAddedFromCsv": "Las cuentas han sido creadas por medio del archivo csv",
             "activityDeleted": "La actividad {{activityName}} ha sido suprimida",
-            "mustAttributeToStudent": "Debe asignar la actividad a sus estudiantes",
+            "mustAttributeToStudent": "Debes seleccionar a los alumnos",
             "activityAttributed": "La actividad {{activityTitle}} ha sido asignada a los alumnos inscriptos",
             "activityAttributionChanged": "La asignación de la actividad {{activityTitle}} se ha modificado para los alumnos inscriptos",
             "activityCreated": "La actividad  {{activityTitle}} ha sido creada",
