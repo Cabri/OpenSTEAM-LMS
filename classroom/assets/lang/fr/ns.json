@@ -135,7 +135,7 @@
       "usersAdded": "Les comptes ont été créés",
       "usersAddedFromCsv": "Les comptes ont été créés d'après le fichier csv",
       "activityDeleted": "L'activité {{activityName}} a été supprimée",
-      "mustAttributeToStudent": "Vous devez attribuer l'activité à des étudiants",
+      "mustAttributeToStudent": "Vous devez attribuer l'activité à des apprenants",
       "activityAttributed": "L'activité {{activityTitle}} a été attribuée aux apprenants listés",
       "activityAttributionChanged": "L'attribution de l'activité {{activityTitle}} a été modifiée pour les apprenants listés",
       "activityCreated": "L'activité {{activityTitle}} a été créée",
@@ -352,7 +352,7 @@
         },
         "orSeparator": "OU",
         "attributeActivity": {
-          "title": "Consulter mes activités existantes",
+          "title": "Sélectionner des apprenants",
           "button": "Mes activités "
         },
         "createActivity": {
@@ -382,13 +382,13 @@
         "resetPassword": "Réinitialiser"
       },
       "addStudent": {
-        "title": "Ajouter des étudiants",
+        "title": "Ajouter des apprenants",
         "pseudo": "Pseudonyme",
         "addStudentButton": "Ajouter l'apprenant",
         "addStudentByCsvButton": "Ajouter un fichier d'apprenants (.csv)"
       },
       "addStudentByCsv": {
-        "title": "Ajouter des étudiants avec un fichier .csv",
+        "title": "Ajouter des apprenants avec un fichier .csv",
         "description": "Vous pouvez ajouter un ou plusieurs apprenants d'un seul coup en les important depuis un fichier .csv. Il est facultativement possible de définir le mot de passe pour chacun d'entre eux. Voici les fichiers .csv modèles : ",
         "csvTemplate": "fichier modèle avec mot de passe",
         "csvTemplateNoPassword": "fichier modèle sans mot de passe",
@@ -599,7 +599,7 @@
         },
         "2": {
           "title": "Qu’est-ce qu’une activité ?",
-          "answer": "Une activité est un contenu interactif créé à partir de Cabri Express, Cabri Genius ou un cahier Cabri déjà existant."
+          "answer": "Une activité est un contenu interactif créé à partir de Cabri Express, Cabri Smart ou un cahier Cabri déjà existant."
         },
         "3": {
           "title": "Comment créer ou modifier une activité ?",
