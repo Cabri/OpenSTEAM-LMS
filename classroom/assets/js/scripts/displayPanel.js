@@ -384,10 +384,14 @@ function getTeacherActivity() {
     let activityContent = $('#activity-content');
 
     // TODO cabri replace with IF LTI
-    if(Activity.content.startsWith('http'))
+    // may be (Activity.type.toLowerCase() === "Genius" && Activity.type.toLowerCase() === "Express")
+    if(Activity.type.toLowerCase() !== "iframe")
       activityContent.html('<iframe style="width: 100%; height: 100%;" allowfullscreen="true" frameborder="0" src="https://cabricloud.com/ed/opensteam/express?isMobile&calculator=false&clmc=' + Activity.content + '" allowfullscreen></iframe>');
     else
-      activityContent.html(bbcodeToHtml(Activity.content));
+      activityContent.html('<iframe style="width: 100%; height: 100%;" allowfullscreen="true" frameborder="0" src="' + Activity.content + '" allowfullscreen></iframe>');
+
+    /*    else
+          activityContent.html(bbcodeToHtml(Activity.content));*/
 
     $('#activity-introduction').hide()
     $('#activity-validate').hide()

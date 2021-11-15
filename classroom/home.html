@@ -549,7 +549,7 @@
         <button onclick="createCabriLtiActivity(null, null, 'GENIUS')" class="btn c-btn-outline-secondary outline-yellow"><span class="mr-1" data-i18n="classroom.activities.addCabriGenius"></span><i class="fas fa-chevron-right"></i>
         </button>
 
-        <button onclick="createCabriIframeActivity()" class=" btn c-btn-outline-secondary outline-gray"><span class="mr-1" data-i18n="classroom.activities.addOther"></span><i class="fas fa-chevron-right"></i>
+        <button onclick="createActivity()" class=" btn c-btn-outline-secondary outline-gray"><span class="mr-1" data-i18n="classroom.activities.addOther"></span><i class="fas fa-chevron-right"></i>
         </button>
     </div>
 
@@ -628,6 +628,54 @@
     <button class="new-activity-panel2 c-btn-primary"><span data-i18n="classroom.activities.form.button"></span> <i
             class="fas fa-check"></i></button>
 </div>
+
+<!-- Cabri other button -->
+<div id="classroom-dashboard-other-activity-type-panel" style="display:none;margin-right:0px;"
+     class="activity-creation-form row dashboard-block full-dashboard-block">
+
+        <label for="activity-form-title">
+            <span class="activity-form-title" data-i18n="classroom.activities.form.title.labelCabri"></span>
+        </label>
+        <input data-i18n="[placeholder]classroom.activities.form.title.placeholderCabri" type="text"
+               id="activity-form-title-iframe" class="activity-form-input form-control part-title-input">
+
+    <div class="d-flex flex-column">
+        <button onclick="createActivityPlayer('standard')">Standard</button>
+        <button onclick="createActivityPlayer('imuscica')">iMuSciCA</button>
+        <button onclick="createActivityPlayer('others')">Autres</button>
+        <button onclick="createActivityIframe()" >Page internet</button>
+        <button onclick="createActivityIframe()">Vidéo</button>
+<!--        <div class="d-flex flex-row">
+            <span>Cahier d'activité</span>
+            <span>Vidéo et page internet</span>
+        </div>
+        <div id="tab-activity-book">
+            <i class="fas fa-question-circle" data-bs-toggle="tooltip" data-bs-placement="bottom" title="text help" style="float:left"></i>
+            <div class="icons-cards">
+                <div class="icons"></div>
+                <span></span>
+            </div>
+        </div>-->
+    </div>
+</div>
+
+<!-- Iframe activity -->
+<div id="classroom-dashboard-url-activity-panel" style="display:none;margin-right:0px;"
+     class="activity-creation-form row dashboard-block full-dashboard-block">
+
+    <label for="activity-form-content-iframe">
+        <span class="activity-form-title" data-i18n="classroom.activities.form.iframe.label"></span>
+    </label>
+    <input data-i18n="[placeholder]classroom.activities.form.iframe.placeholder" type="text"
+           id="activity-form-content-iframe" class="activity-form-input form-control part-title-input">
+    <button class="new-activity-iframe c-btn-primary">
+        <span data-i18n="classroom.activities.form.nextButton"></span>
+        <i class="fas fa-check"></i>
+    </button>
+
+</div>
+
+
 
 <div id="classroom-dashboard-new-activity-panel2" style="display:none;"
     class="row flex-column dashboard-block class-creation-form-step2">

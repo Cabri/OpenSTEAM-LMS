@@ -18,8 +18,32 @@ function createActivity(link = null, id = null, type) {
             $('.wysibb-text-editor').html(activity.content)
         })
     }
-    navigatePanel('classroom-dashboard-new-other-activity-panel', 'dashboard-activities-teacher')
+    navigatePanel('classroom-dashboard-other-activity-type-panel', 'dashboard-activities-teacher')
     ClassroomSettings.activityInWriting = true
+}
+
+// This is the first step to create an iframe activity
+function createActivityIframe() {
+    Main.getClassroomManager().canAddActivity({type: 'IFRAME'}).then( data => { // type others
+        if (!data.canAdd) {
+            pseudoModal.openModal('add-activity-limitation');
+            return;
+        }
+
+        const title = $('#activity-form-title-iframe').val();
+        if (title.length < 1) {
+            displayNotification('#notif-div', "classroom.notif.activityTitleMissing", "error");
+            $(this).attr('disabled', false);
+            return;
+        } else {
+            $('#activity-form-title-iframe').val("");
+            navigatePanel('classroom-dashboard-url-activity-panel', 'dashboard-activities-teacher')
+            ClassroomSettings.title = title;
+        }
+
+        ClassroomSettings.activityInWriting = true
+    });
+
 }
 
 function createCabriIframeActivity(link = null, id = null) {
@@ -43,7 +67,7 @@ function createCabriIframeActivity(link = null, id = null) {
     })
   }
 
-  Main.getClassroomManager().canAddActivity({type: 'IFRAME'}).then( data => { // type others
+  Main.getClassroomManager().canAddActivity({type: 'IFRAME'}).then( data => {
     if (!data.canAdd) {
       pseudoModal.openModal('add-activity-limitation');
       return;
@@ -290,6 +314,65 @@ $('body').on('click', '.student-list-button', function () {
     $(this).next().toggle()
     $(this).find('i').toggleClass('fa-arrow-right')
     $(this).find('i').toggleClass('fa-arrow-down')
+})
+
+//création/modification de l'activité
+$('.new-activity-iframe').click(function () {
+    $(this).attr('disabled', 'disabled');
+
+    let url = $('#activity-form-content-iframe').val();
+
+    const expression = /^(http:\/\/www\.|https:\/\/www\.|http:\/\/|https:\/\/)?[a-z0-9]+([\-\.]{1}[a-z0-9]+)*\.[a-z]{2,5}(:[0-9]{1,5})?(\/.*)?$/gm;
+    const regex = new RegExp(expression);
+    if (!regex.test(url)) {
+        displayNotification('#notif-div', "classroom.notif.invalidUrl", "error");
+        $(this).attr('disabled', false);
+        return;
+    }
+
+    if(url.startsWith("www"))
+        url = "http://" + url;
+
+
+    if (ClassroomSettings.status != 'edit') {
+        // Activity creation (not in edit status)
+        Main.getClassroomManager().addActivity({
+            'title': ClassroomSettings.title,
+            'content': url,
+            "isFromClassroom": true,
+            'type': 'IFRAME'
+        }).then(function (activity) {
+            $('.new-activity-iframe').attr('disabled', false)
+            if (activity.errors) {
+                for (let error in activity.errors) {
+                    displayNotification('#notif-div', `classroom.notif.${error}`, "error");
+                }
+            }else{
+                ClassroomSettings.activity = activity.id;
+                displayNotification('#notif-div', "classroom.notif.activityCreated", "success", `'{"activityTitle": "${activity.title}"}'`);
+                $('#activity-form-content-iframe').val("");
+                navigatePanel('classroom-dashboard-new-activity-panel2', 'dashboard-activities-teacher', ClassroomSettings.activity);
+                addTeacherActivityInList(activity);
+                teacherActivitiesDisplay();
+                ClassroomSettings.activityInWriting = false;
+            }
+        });
+    } else {
+        Main.getClassroomManager().editActivity({
+            'id': ClassroomSettings.activity,
+            'title': ClassroomSettings.title,
+            'content': $('#activity-form-content-iframe').val()
+        }).then(function (activity) {
+            displayNotification('#notif-div', "classroom.notif.activityChanged", "success", `'{"activityTitle": "${activity.title}"}'`);
+            $('.new-activity-iframe').attr('disabled', false)
+            navigatePanel('classroom-dashboard-new-activity-panel2', 'dashboard-activities-teacher', ClassroomSettings.activity)
+            Main.getClassroomManager().getTeacherActivities(Main.getClassroomManager()).then(function () {
+                teacherActivitiesDisplay()
+                ClassroomSettings.activityInWriting = false
+            })
+        })
+
+    }
 })
 
 //création/modification de l'activité

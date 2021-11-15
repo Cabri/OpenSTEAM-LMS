@@ -190,7 +190,8 @@
       "bothLimitationsReached": "Vous avez atteint les limitations d'apprenants que vous et votre groupe pouvez avoir.",
       "ClassroomNameInvalid": "Le nom de la classe est requis",
       "reservedNickname": "Le nom : \"{{reservedNickname}}\" ne peut être attribué.",
-      "invalidLink": "Le lien que vous avez entrer n'est pas valide"
+      "invalidLink": "Le lien que vous avez entrer n'est pas valide",
+      "invalidUrl": "Entrer le lien d'une page web ou d'une vidéo."
     },
     "ids": {
       "classroom-dashboard-help-panel-teacher": "Aide",
@@ -260,8 +261,15 @@
         "2": "Attribution",
         "title": {
           "label": "Titre de l'activité",
-          "placeholder": "Titre"
+          "labelCabri": "Quel est le titre de l'activité ?",
+          "placeholder": "Titre",
+          "placeholderCabri": "Titre de l'activité"
         },
+        "iframe": {
+          "label": "Voulez-vous entrer une url ?",
+          "placeholder": "Entrer une URL"
+        },
+        "nextButton": "Terminer",
         "content": {
           "label": "Contenu de l'activité"
         },
