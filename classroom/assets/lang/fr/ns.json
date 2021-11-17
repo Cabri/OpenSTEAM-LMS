@@ -269,7 +269,11 @@
           "label": "Voulez-vous entrer une url ?",
           "placeholder": "Entrer une URL"
         },
-        "nextButton": "Terminer",
+        "player": {
+          "labelFileChooser": "Choisir un fichier"
+        },
+        "nextButton": "Suivant",
+        "endButton": "Terminer",
         "content": {
           "label": "Contenu de l'activité"
         },

@@ -2018,6 +2018,14 @@ i.line_height34 {
     margin-top: 0em;
 }
 
+.form-container {
+    width: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
 .activity-form-title {
  color: #41729C;
  font-style: normal;
@@ -2026,8 +2034,23 @@ i.line_height34 {
  line-height: 24px;
 }
 
+.activity-form-chooser-file {
+    background: #41729C;
+    border-radius: 15px;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 20px;
+    line-height: 24px;
+    text-align: center;
+    color: #FFFFFF;
+    cursor: pointer;
+    margin: 0.5em;
+    padding: 0.5em;
+}
+
 .activity-form-input {
-    width: 35%;
+    width: 30vw;
+    min-width: 80px;
     margin-bottom: 0.5rem;
     font-style: normal;
     font-weight: 300;
@@ -2037,4 +2060,12 @@ i.line_height34 {
     border: 1px solid #F0F0F0;
     box-sizing: border-box;
     filter: drop-shadow(1px 1px 4px rgba(0, 0, 0, 0.25));
+}
+
+.or-separator {
+    color: #41729C;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 20px;
+    line-height: 24px;
 }

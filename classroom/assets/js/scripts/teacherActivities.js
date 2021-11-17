@@ -22,6 +22,33 @@ function createActivity(link = null, id = null, type) {
     ClassroomSettings.activityInWriting = true
 }
 
+function createActivityPlayer(player) {
+    Main.getClassroomManager().canAddActivity({type: 'PLAYER'}).then(data => {
+        if (!data.canAdd) {
+            pseudoModal.openModal('add-activity-limitation');
+            return;
+        }
+
+        const title = $('#activity-form-title-iframe').val();
+        if (title.length < 1) {
+            displayNotification('#notif-div', "classroom.notif.activityTitleMissing", "error");
+            $(this).attr('disabled', false);
+            return;
+        } else {
+            $('#activity-form-title-iframe').val("");
+            navigatePanel('classroom-dashboard-activity-player', 'dashboard-activities-teacher')
+            if(player === "others")
+                $("#activity-url-player-container").show();
+            else
+                $("#activity-url-player-container").hide();
+            ClassroomSettings.title = title;
+            ClassroomSettings.player = player;
+        }
+
+        ClassroomSettings.activityInWriting = true
+    });
+}
+
 // This is the first step to create an iframe activity
 function createActivityIframe() {
     Main.getClassroomManager().canAddActivity({type: 'IFRAME'}).then( data => { // type others
@@ -81,27 +108,29 @@ function createCabriIframeActivity(link = null, id = null) {
 function createCabriLtiActivity(link = null, id = null, type) {
   ClassroomSettings.status = "attribute"
   ClassroomSettings.isNew = true;
-  if (id == null) {
-    // creation
-    if (link) {
+  if(type === "player") type = ClassroomSettings.player;
 
-      $('.wysibb-text-editor').html('[iframe]' + URLServer + '' + link + '[/iframe]')
+    if (id == null) {
+        // creation
+        if (link) {
+
+            $('.wysibb-text-editor').html('[iframe]' + URLServer + '' + link + '[/iframe]')
+        } else {
+
+            $('.wysibb-text-editor').html('')
+        }
+
+        $('#activity-lti-form-title').val('')
+
     } else {
-
-      $('.wysibb-text-editor').html('')
+        // edition
+        ClassroomSettings.activity = id
+        ClassroomSettings.status = 'action';
+        Main.getClassroomManager().getActivity(ClassroomSettings.activity).then(function (activity) {
+            $('#activity-lti-form-title').val(activity.title)
+            $('.wysibb-text-editor').html(activity.content)
+        })
     }
-
-    $('#activity-lti-form-title').val('')
-
-  } else {
-    // edition
-    ClassroomSettings.activity = id
-    ClassroomSettings.status = 'action';
-    Main.getClassroomManager().getActivity(ClassroomSettings.activity).then(function (activity) {
-      $('#activity-lti-form-title').val(activity.title)
-      $('.wysibb-text-editor').html(activity.content)
-    })
-  }
 
   Main.getClassroomManager().canAddActivity({type}).then( data => {
     if(!data.canAdd) {
@@ -109,12 +138,44 @@ function createCabriLtiActivity(link = null, id = null, type) {
       return;
     }
 
+
+    let baseToolUrl;
+    let isNeedTitle = false;
+      switch (type) {
+          case "standard":
+              return; // TODO: to do later
+          case "imuscica":
+              baseToolUrl = "https://workbench-imuscica.cabricloud.com/lti";
+              break;
+          default:
+              baseToolUrl = "https://lti1p3.cabricloud.com";
+              isNeedTitle = true;
+              break;
+      }
+
+      $('#lti-loader-container').html(
+        `
+            <input id="activity-form-content-lti" type="text" hidden/>
+            <form name="lti_teacher_login_form" action="${baseToolUrl}/login" method="post" target="lti_teacher_iframe">
+              <input id="lti_teacher_iss" type="hidden" name="iss"/>
+              <input id="lti_teacher_login_hint" type="hidden" name="login_hint"/>
+              <input id="lti_teacher_client_id" type="hidden" name="client_id" value="client_id_php" />
+              <input id="lti_teacher_target_link_uri" type="hidden" name="target_link_uri" value="${baseToolUrl}/deeplink" />
+            </form>
+            <div style="width: 100%; height: 100%;">
+                <iframe id="lti_teacher_iframe" src="about:blank" name="lti_teacher_iframe" title="Tool Content" width="100%"  height="100%" allowfullscreen></iframe>
+            </div>`
+      );
+
     navigatePanel('classroom-dashboard-new-cabriexpress-activity-panel', 'dashboard-activities-teacher')
-    pseudoModal.openModal('add-lti-activity-name');
-    // todo cabri must remove previous exit events listeners before setting a new one !
-    pseudoModal.clickOnExit('add-lti-activity-name', ()=>{
-      navigatePanel('classroom-dashboard-activities-panel-teacher', 'dashboard-activities-teacher');
-    });
+
+      if(isNeedTitle) {
+          pseudoModal.openModal('add-lti-activity-name');
+          // todo cabri must remove previous exit events listeners before setting a new one !
+          pseudoModal.clickOnExit('add-lti-activity-name', ()=>{
+              navigatePanel('classroom-dashboard-activities-panel-teacher', 'dashboard-activities-teacher');
+          });
+      }
     ClassroomSettings.activityInWriting = true
 
     // Start LTI 1.3 tool launch
@@ -127,11 +188,65 @@ function createCabriLtiActivity(link = null, id = null, type) {
    // document.getElementsByName('lti_teacher_login_form')[0].style.display = 'none';
     $('#lti_teacher_login_hint').val(JSON.stringify(loginHint));
     $('#lti_teacher_iss').val(location.origin); // platform url
-    $('#lti_teacher_iframe').css({'filter': 'blur(5px)', 'pointer-events': 'none'})
     document.forms["lti_teacher_login_form"].submit();
 
   });
 }
+
+/*function createCabriLtiActivity(link = null, id = null, type) {
+    ClassroomSettings.status = "attribute"
+    ClassroomSettings.isNew = true;
+    if (id == null) {
+        // creation
+        if (link) {
+
+            $('.wysibb-text-editor').html('[iframe]' + URLServer + '' + link + '[/iframe]')
+        } else {
+
+            $('.wysibb-text-editor').html('')
+        }
+
+        $('#activity-lti-form-title').val('')
+
+    } else {
+        // edition
+        ClassroomSettings.activity = id
+        ClassroomSettings.status = 'action';
+        Main.getClassroomManager().getActivity(ClassroomSettings.activity).then(function (activity) {
+            $('#activity-lti-form-title').val(activity.title)
+            $('.wysibb-text-editor').html(activity.content)
+        })
+    }
+
+    Main.getClassroomManager().canAddActivity({type}).then( data => {
+        if(!data.canAdd) {
+            pseudoModal.openModal('add-activity-limitation');
+            return;
+        }
+
+        navigatePanel('classroom-dashboard-new-cabriexpress-activity-panel', 'dashboard-activities-teacher')
+        pseudoModal.openModal('add-lti-activity-name');
+        // todo cabri must remove previous exit events listeners before setting a new one !
+        pseudoModal.clickOnExit('add-lti-activity-name', ()=>{
+            navigatePanel('classroom-dashboard-activities-panel-teacher', 'dashboard-activities-teacher');
+        });
+        ClassroomSettings.activityInWriting = true
+
+        // Start LTI 1.3 tool launch
+        const loginHint = {
+            userId: UserManager.getUser().id,
+            isStudentLaunch: false,
+            activityType: type
+        };
+
+        // document.getElementsByName('lti_teacher_login_form')[0].style.display = 'none';
+        $('#lti_teacher_login_hint').val(JSON.stringify(loginHint));
+        $('#lti_teacher_iss').val(location.origin); // platform url
+        $('#lti_teacher_iframe').css({'filter': 'blur(5px)', 'pointer-events': 'none'})
+        document.forms["lti_teacher_login_form"].submit();
+
+    });
+}*/
 
 // Lorsque le stockage local change, regarder l'état de la correction.
 window.addEventListener('storage', () => {

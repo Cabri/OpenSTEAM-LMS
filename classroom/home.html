@@ -571,18 +571,8 @@
       <span data-i18n="classroom.activities.form.2"></span></div>
   </nav>
 
-  <div style="flex: 1 1; width: 95%; max-width: 100%;" >
-    <input id="activity-form-content-lti" type="text" hidden/>
-    <form name="lti_teacher_login_form" action="https://lti1p3.cabricloud.com/login" method="post" target="lti_teacher_iframe">
-      <input id="lti_teacher_iss" type="hidden" name="iss"/>
-      <input id="lti_teacher_login_hint" type="hidden" name="login_hint"/>
-      <input id="lti_teacher_client_id" type="hidden" name="client_id" value="client_id_php" />
-      <input id="lti_teacher_target_link_uri" type="hidden" name="target_link_uri" value="https://lti1p3.cabricloud.com/deeplink" />
-    </form>
+  <div id="lti-loader-container" style="flex: 1 1; width: 95%; max-width: 100%;" >
 
-    <div style="width: 100%; height: 100%;">
-      <iframe id="lti_teacher_iframe" src="about:blank" name="lti_teacher_iframe" title="Tool Content" width="100%"  height="100%" allowfullscreen></iframe>
-    </div>
   </div>
 
   <button class="new-activity-panel-lti c-btn-primary" hidden><span data-i18n="classroom.activities.form.button"></span> <i
@@ -659,6 +649,38 @@
     </div>
 </div>
 
+<!-- Player activity -->
+<div id="classroom-dashboard-activity-player" style="display:none;margin-right:0px;"
+     class="activity-creation-form row dashboard-block full-dashboard-block">
+    <!-- TODO : change and add ns.json langue-->
+    <div id="activity-url-player-container" class="form-container" style="display:none;">
+        <label for="activity-url-player">
+            <span class="activity-form-title" data-i18n="classroom.activities.form.iframe.label"></span>
+        </label>
+        <input data-i18n="[placeholder]classroom.activities.form.iframe.placeholder" type="text"
+               id="activity-url-player" class="activity-form-input form-control part-title-input">
+    </div>
+    <!-- TODO : change and add ns.json langue-->
+    <div class="form-container">
+        <label for="activity-url-notebook">
+            <span class="activity-form-title" data-i18n="classroom.activities.form.iframe.label"></span>
+        </label>
+        <input data-i18n="[placeholder]classroom.activities.form.iframe.placeholder" type="text"
+               id="activity-url-notebook" class="activity-form-input form-control part-title-input">
+    </div>
+    <span class="or-separator"> OU </span>
+    <div class='load-book'>
+        <label class="activity-form-chooser-file" for="notebook">
+            <span data-i18n="classroom.activities.form.player.labelFileChooser"></span>
+        </label>
+        <input type="file" id="notebook" name="notebook" accept=".clmc, .clmx" style="display: none;">
+    </div>
+    <button onclick="createCabriLtiActivity(null, null, 'player')" class="new-activity-player c-btn-primary">
+        <span data-i18n="classroom.activities.form.nextButton"></span>
+        <i class="fas fa-chevron-right"></i>
+    </button>
+</div>
+
 <!-- Iframe activity -->
 <div id="classroom-dashboard-url-activity-panel" style="display:none;margin-right:0px;"
      class="activity-creation-form row dashboard-block full-dashboard-block">
@@ -669,7 +691,7 @@
     <input data-i18n="[placeholder]classroom.activities.form.iframe.placeholder" type="text"
            id="activity-form-content-iframe" class="activity-form-input form-control part-title-input">
     <button class="new-activity-iframe c-btn-primary">
-        <span data-i18n="classroom.activities.form.nextButton"></span>
+        <span data-i18n="classroom.activities.form.endButton"></span>
         <i class="fas fa-check"></i>
     </button>
 
