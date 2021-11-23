@@ -1,7 +1,7 @@
 // Used to make direct communications between parent and child (iframe)
 window.addEventListener("message", (event) => {
   console.log('parent:' , event.origin, event.data)
-  const msg = JSON.parse(event.data);
+  const msg = event.data.type ? event.data.type : JSON.parse(event.data);
   switch(msg.type) {
     case 'end-lti-score':
         console.log('ENDING LTI SCORE');

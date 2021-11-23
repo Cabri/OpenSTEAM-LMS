@@ -120,7 +120,7 @@ function createCabriLtiActivity(link = null, id = null, type) {
   ClassroomSettings.status = "attribute"
   ClassroomSettings.isNew = true;
   if(type === "player") {
-/*      let file;
+      let file;
       let isUrl = false;
 
       let urlFile = document.getElementById("activity-url-notebook");
@@ -128,11 +128,13 @@ function createCabriLtiActivity(link = null, id = null, type) {
 
       if (urlFile && urlFile.value && urlFile !== "") {
         file = urlFile.value;
+          console.log("File : ", file);
         isUrl = true;
       }
       else {
           if (loadFile.files.length === 1) {
-              file = loadFile[0];
+              console.log("File : ", loadFile.files[0]);
+              file = loadFile.files[0];
               isUrl = false;
           } else {
               // TODO : notif remplir un des champs
@@ -143,18 +145,26 @@ function createCabriLtiActivity(link = null, id = null, type) {
       if(isUrl && !isValidUrl(urlFile.value)) return;
 
       let data = {
-          type: isUrl ? "cabriUrl" : "cabriFile",
-          data: file
+          type: isUrl ? "url" : "file",
+          value: file
       }
 
       window.addEventListener("message", (event) => {
           console.log("event origin : ", event.origin);
           console.log("event source : ", event.source);
           console.log("event data : ", event.data);
+
         if(event.data.type === "loaded") {
-            window.postMessage(data, event.origin);
+            let iframeTarget = document.getElementById("lti_teacher_iframe");
+            console.log("target : ", iframeTarget);
+
+            // to wait SceneUpdater load in player TODO : improve loading in iMuSciCA player
+            setTimeout(()=> {
+                iframeTarget.contentWindow.postMessage(data, event.origin);
+            }, 1000);
+
         }
-      })*/
+      });
 
       type = ClassroomSettings.player;
   }
