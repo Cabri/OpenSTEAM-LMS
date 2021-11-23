@@ -1,3 +1,14 @@
+function isValidUrl(url) {
+    const expression = /^(http:\/\/www\.|https:\/\/www\.|http:\/\/|https:\/\/)?[a-z0-9]+([\-\.]{1}[a-z0-9]+)*\.[a-z]{2,5}(:[0-9]{1,5})?(\/.*)?$/gm;
+    const regex = new RegExp(expression);
+    if (!regex.test(url)) {
+        displayNotification('#notif-div', "classroom.notif.invalidUrl", "error");
+        $(this).attr('disabled', false);
+        return false;
+    }
+    return true;
+}
+
 function createActivity(link = null, id = null, type) {
     ClassroomSettings.status = "attribute"
     ClassroomSettings.isNew = true;
@@ -108,7 +119,45 @@ function createCabriIframeActivity(link = null, id = null) {
 function createCabriLtiActivity(link = null, id = null, type) {
   ClassroomSettings.status = "attribute"
   ClassroomSettings.isNew = true;
-  if(type === "player") type = ClassroomSettings.player;
+  if(type === "player") {
+/*      let file;
+      let isUrl = false;
+
+      let urlFile = document.getElementById("activity-url-notebook");
+      let loadFile = document.getElementById("notebook");
+
+      if (urlFile && urlFile.value && urlFile !== "") {
+        file = urlFile.value;
+        isUrl = true;
+      }
+      else {
+          if (loadFile.files.length === 1) {
+              file = loadFile[0];
+              isUrl = false;
+          } else {
+              // TODO : notif remplir un des champs
+              return;
+          }
+      }
+
+      if(isUrl && !isValidUrl(urlFile.value)) return;
+
+      let data = {
+          type: isUrl ? "cabriUrl" : "cabriFile",
+          data: file
+      }
+
+      window.addEventListener("message", (event) => {
+          console.log("event origin : ", event.origin);
+          console.log("event source : ", event.source);
+          console.log("event data : ", event.data);
+        if(event.data.type === "loaded") {
+            window.postMessage(data, event.origin);
+        }
+      })*/
+
+      type = ClassroomSettings.player;
+  }
 
     if (id == null) {
         // creation
