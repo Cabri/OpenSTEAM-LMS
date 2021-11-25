@@ -2069,3 +2069,23 @@ i.line_height34 {
     font-size: 20px;
     line-height: 24px;
 }
+
+#selector-container {
+    width: 80%;
+    height: 60%;
+    border: 3px solid #F0F0F0;
+}
+
+.selector-other-activity {
+    background: #F5F5F5;
+    border: 3px solid #F0F0F0;
+    border-radius: 15px 15px 0px 0px;
+
+    font-style: normal;
+    font-weight: bold;
+    font-size: 20px;
+    line-height: 24px;
+    text-align: center;
+
+    color: #41729C;
+}

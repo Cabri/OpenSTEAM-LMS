@@ -119,6 +119,9 @@ function createCabriIframeActivity(link = null, id = null) {
 function createCabriLtiActivity(link = null, id = null, type) {
   ClassroomSettings.status = "attribute"
   ClassroomSettings.isNew = true;
+  const targetId = "classroom-dashboard-new-cabriexpress-activity-panel";
+
+
   if(type === "player") {
       let file;
       let isUrl = false;
@@ -149,21 +152,30 @@ function createCabriLtiActivity(link = null, id = null, type) {
           value: file
       }
 
-      window.addEventListener("message", (event) => {
-          console.log("event origin : ", event.origin);
+      let sendFile = (event) => {
+/*          console.log("event origin : ", event.origin);
           console.log("event source : ", event.source);
-          console.log("event data : ", event.data);
+          console.log("event data : ", event.data);*/
 
-        if(event.data.type === "loaded") {
-            let iframeTarget = document.getElementById("lti_teacher_iframe");
-            console.log("target : ", iframeTarget);
+          if(event.data.type === "loaded") {
+              let iframeTarget = document.getElementById("lti_teacher_iframe");
+              //console.log("target : ", iframeTarget);
 
-            // to wait SceneUpdater load in player TODO : improve loading in iMuSciCA player
-            setTimeout(()=> {
-                iframeTarget.contentWindow.postMessage(data, event.origin);
-            }, 1000);
+              // to wait SceneUpdater load in player TODO : improve loading in iMuSciCA player
+              setTimeout(()=> {
+                  iframeTarget.contentWindow.postMessage(data, event.origin);
+              }, 1000);
+          }
+      };
 
-        }
+      window.addEventListener("message", sendFile);
+
+      // to clear form and event
+      window.addEventListener("Navigate", (event) => {
+          $(urlFile).val("");
+          $(loadFile).val("");
+          if(!(event.detail.id === targetId))
+            window.removeEventListener("message", sendFile);
       });
 
       type = ClassroomSettings.player;
@@ -226,7 +238,7 @@ function createCabriLtiActivity(link = null, id = null, type) {
             </div>`
       );
 
-    navigatePanel('classroom-dashboard-new-cabriexpress-activity-panel', 'dashboard-activities-teacher')
+    navigatePanel(targetId, 'dashboard-activities-teacher')
 
       if(isNeedTitle) {
           pseudoModal.openModal('add-lti-activity-name');
@@ -601,6 +613,7 @@ $('.new-activity-panel2').click(function () {
 
 //création/modification de l'activité de type LTI
 $('.new-activity-panel-lti').click(function () {
+    console.log("ClassroomSettings.status : ", ClassroomSettings.status)
   $(this).attr('disabled', 'disabled')
   if (document.getElementById('activity-lti-form-title').value.length < 1) {
     displayNotification('#notif-div', "classroom.notif.activityTitleMissing", "error");

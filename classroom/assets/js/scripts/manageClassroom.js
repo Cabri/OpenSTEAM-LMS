@@ -10,6 +10,7 @@ window.addEventListener("message", (event) => {
         break;
     case 'end-lti-deeplink':
         console.log('ENDING LTI DEEPLINK');
+        console.log("msg : ", msg.content);
         $('#activity-form-content-lti').val(msg.content);
         $('.new-activity-panel-lti').click();
         break;

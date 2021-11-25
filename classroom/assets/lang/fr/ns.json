@@ -266,8 +266,8 @@
           "placeholderCabri": "Titre de l'activité"
         },
         "iframe": {
-          "label": "Voulez-vous entrer une url ?",
-          "placeholder": "Entrer une URL"
+          "label": "Voulez-vous entrer un url ?",
+          "placeholder": "Entrer un URL"
         },
         "player": {
           "labelFileChooser": "Choisir un fichier"
