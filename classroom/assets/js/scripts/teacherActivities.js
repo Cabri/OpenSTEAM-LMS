@@ -153,9 +153,9 @@ function createCabriLtiActivity(link = null, id = null, type) {
       }
 
       let sendFile = (event) => {
-/*          console.log("event origin : ", event.origin);
+          console.log("event origin : ", event.origin);
           console.log("event source : ", event.source);
-          console.log("event data : ", event.data);*/
+          console.log("event data : ", event.data);
 
           if(event.data.type === "loaded") {
               let iframeTarget = document.getElementById("lti_teacher_iframe");
@@ -216,7 +216,7 @@ function createCabriLtiActivity(link = null, id = null, type) {
           case "standard":
               return; // TODO: to do later
           case "imuscica":
-              baseToolUrl = "https://workbench-imuscica.cabricloud.com/lti";
+              baseToolUrl = "https://workbench-imuscica.cabricloud.com";
               break;
           default:
               baseToolUrl = "https://lti1p3.cabricloud.com";
