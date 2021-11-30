@@ -2078,18 +2078,10 @@ i.line_height34 {
     margin-top: 2vh;
 }
 
-#selector-container {
+#panel-container {
     width: 100%;
     height: 100%;
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: space-around;
     border: 3px solid #F0F0F0;
-}
-
-#choose-iframe {
-    margin-left: 5px;
 }
 
 .selector-other-activity {
@@ -2114,3 +2106,66 @@ i.line_height34 {
     border-bottom-color: #FFFFFF;
     color: #000000;
 }
+
+#tabs-container span:not(:first-child) {
+    margin-left: 5px;
+}
+
+.selector-container-other-activity {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.selector-container-other-activity .card-app {
+    width: 20%;
+    max-height: 90%;
+    max-width: 200px;
+    min-width: 120px;
+    margin: 20px;
+    padding: 10px;
+
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    word-wrap: break-word;
+    background-color: #FFFFFF;
+    background-clip: border-box;
+    border: 1px solid rgba(0,0,0,.125);
+    box-shadow: 0.5px 0.5px 3px rgba(0, 0, 0, 0.25);
+    border-radius: 17px;
+
+    cursor: pointer;
+}
+
+.selector-container-other-activity .card-app:hover {
+    filter: grayscale(0.70);
+}
+
+.selector-container-other-activity .card-app .card-img-top {
+    width: 60%;
+    height: 4em;
+    margin: 0 auto 5px auto;
+    object-fit: scale-down;
+}
+
+.card-body-app {
+    font-style: normal;
+    font-weight: bold;
+    font-size: 16px;
+    line-height: 20px;
+    text-align: center;
+
+    padding: 0 5px 0 5px;
+    color: #000000;
+}
+
+.card-body-app p {
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 17px;
+}
+

@@ -636,19 +636,44 @@
         <button onclick="createActivityIframe()" >Page internet</button>
         <button onclick="createActivityIframe()">Vidéo</button>
     </div>-->
+
     <div id="tools-selector">
-        <div id="select-tools-type" class="d-flex flex-row">
+        <div id="tabs-container" class="d-flex flex-row">
             <!-- TODO: use ns.json -->
-            <span id="choose-player" class="selector-other-activity selected-other-activity ">Cahier d'activité</span>
-            <span id="choose-iframe" class="selector-other-activity">Vidéo et page internet</span>
+            <!--
+            "data-id-panel" is useful for manage click event.
+            It allows to know what content must be print.
+            This allows you to add easly a new tabs and panel.s
+            -->
+            <span id="choose-player"
+                  class="selector-other-activity selected-other-activity"
+                  data-id-panel="player-panel"
+                  onclick="onClickTabActivity(this)"
+            >
+                Cahier d'activité
+            </span>
+            <span id="choose-iframe"
+                  class="selector-other-activity"
+                  data-id-panel="web-panel"
+                  onclick="onClickTabActivity(this)"
+            >
+                Vidéo et page internet
+            </span>
+<!--            <span id="choose-other"
+                  class="selector-other-activity"
+                  data-id-panel="other-panel"
+                  onclick="onClickTabActivity(this)"
+            >
+                Autres
+            </span>-->
         </div>
-        <div id="selector-container">
-            <div class="selector-container-other-activity">
+        <div id="panel-container">
+            <div id="player-panel" class="selector-container-other-activity">
                 <button onclick="createActivityPlayer('standard')">Standard</button>
                 <button onclick="createActivityPlayer('imuscica')">iMuSciCA</button>
                 <button onclick="createActivityPlayer('others')">Autres</button>
             </div>
-            <div class="selector-container-other-activity" style="display: none;">
+            <div id="web-panel" class="selector-container-other-activity" style="display: none;">
                 <button onclick="createActivityIframe()" >Page internet</button>
                 <button onclick="createActivityIframe()">Vidéo</button>
             </div>

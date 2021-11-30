@@ -9,6 +9,91 @@ function isValidUrl(url) {
     return true;
 }
 
+/**
+ * Manage the display content
+ */
+function onClickTabActivity(element) {
+    const tabClicked = $(element);
+    const currentSelectedTab = $(".selected-other-activity");
+
+    if(!tabClicked[0].isSameNode(currentSelectedTab[0])) {
+
+        const idOfCurrentPanel = currentSelectedTab.data("idPanel");
+        $('#' + idOfCurrentPanel).css("display", "none");
+
+        const idOfWantedPanel = tabClicked.data("idPanel");
+        $('#' + idOfWantedPanel).css("display", "flex");
+
+        currentSelectedTab.removeClass("selected-other-activity");
+        tabClicked.addClass("selected-other-activity");
+    }
+}
+
+const playersPanel = [
+    {
+        "type": "standard",
+        "img": "assets/media/logo_apps_cabri/standard.svg",
+    }, {
+        "type": "imuscica",
+        "img": "assets/media/logo_apps_cabri/imuscica.svg",
+    },
+    {
+        "type": "other",
+        "img": "assets/media/logo_apps_cabri/other.svg",
+    }
+];
+let playersPanelHtml = "";
+
+for(let playerCard of playersPanel){
+    playersPanelHtml += `
+            <div class='card-app' onclick="createOtherActivity('${playerCard['type']}')">
+                <img class='card-img-top interface-img' src='${playerCard['img']}' alt='${playerCard['type']}'>
+                <div class='card-body-app'>
+                    <h5 class='card-title' data-i18n='classroom.activities.players.${playerCard['type']}.title'></h5>
+                    <p class='interface-description' data-i18n='classroom.activities.players.${playerCard['type']}.description'></p>
+                </div>
+            </div>
+            `;
+}
+
+document.getElementById('player-panel').innerHTML = playersPanelHtml;
+
+const iframesPanel = [
+    {
+        "type": "video",
+        "img": "assets/media/logo_apps_cabri/video.svg",
+    }, {
+        "type": "web",
+        "img": "assets/media/logo_apps_cabri/web.svg",
+    }
+];
+let iframesPanelHtml = "";
+
+for(let iframeCard of iframesPanel){
+    iframesPanelHtml += `
+            <div class='card-app' onclick="createOtherActivity('${iframeCard['type']}')">
+                <img class='card-img-top interface-img' src='${iframeCard['img']}' alt='${iframeCard['type']}'>
+                <div class='card-body-app'>
+                    <h5 class='card-title' data-i18n='classroom.activities.iframes.${iframeCard['type']}.title'></h5>
+                    <p class='interface-description' data-i18n='classroom.activities.iframes.${iframeCard['type']}.description'></p>
+                </div>
+            </div>
+            `;
+}
+
+document.getElementById('web-panel').innerHTML = iframesPanelHtml;
+
+function createOtherActivity(type) {
+    if(type)
+        type = type.toLowerCase();
+
+    if(type === "standard" || type === "imuscica" || type === "other")
+        createActivityPlayer(type)
+    else
+        createActivityIframe()
+}
+
+
 function createActivity(link = null, id = null, type) {
     ClassroomSettings.status = "attribute"
     ClassroomSettings.isNew = true;
