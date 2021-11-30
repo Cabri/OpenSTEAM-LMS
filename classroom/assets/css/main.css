@@ -2015,7 +2015,7 @@ i.line_height34 {
 .full-dashboard-block {
     width: 100%;
     height: 100%;
-    margin-top: 0em;
+    margin: 0;
 }
 
 .form-container {
@@ -2070,10 +2070,26 @@ i.line_height34 {
     line-height: 24px;
 }
 
-#selector-container {
-    width: 80%;
+#tools-selector {
+    width: 90%;
     height: 60%;
+    max-width: 100%;
+    max-height: 100%;
+    margin-top: 2vh;
+}
+
+#selector-container {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
     border: 3px solid #F0F0F0;
+}
+
+#choose-iframe {
+    margin-left: 5px;
 }
 
 .selector-other-activity {
@@ -2086,6 +2102,15 @@ i.line_height34 {
     font-size: 20px;
     line-height: 24px;
     text-align: center;
-
+    padding: 0.5em;
     color: #41729C;
+
+    margin-bottom: -3px;
+    cursor: pointer;
+}
+
+.selected-other-activity {
+    background: #FFFFFF;
+    border-bottom-color: #FFFFFF;
+    color: #000000;
 }

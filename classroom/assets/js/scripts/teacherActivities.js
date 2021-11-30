@@ -246,6 +246,8 @@ function createCabriLtiActivity(link = null, id = null, type) {
           pseudoModal.clickOnExit('add-lti-activity-name', ()=>{
               navigatePanel('classroom-dashboard-activities-panel-teacher', 'dashboard-activities-teacher');
           });
+      } else {
+          $('#activity-lti-form-title').val(ClassroomSettings.title);
       }
     ClassroomSettings.activityInWriting = true
 

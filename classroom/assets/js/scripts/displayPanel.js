@@ -384,9 +384,12 @@ function getTeacherActivity() {
     let activityContent = $('#activity-content');
 
     // TODO cabri replace with IF LTI
-    // may be (Activity.type.toLowerCase() === "Genius" && Activity.type.toLowerCase() === "Express")
-    if(Activity.type.toLowerCase() !== "iframe")
+    // TODO create apps in db with (name, url, ...)
+    let activityType = Activity.type.toLowerCase();
+    if(activityType === "express" || activityType === "genius")
       activityContent.html('<iframe style="width: 100%; height: 100%;" allowfullscreen="true" frameborder="0" src="https://cabricloud.com/ed/opensteam/express?isMobile&calculator=false&clmc=' + Activity.content + '" allowfullscreen></iframe>');
+    else if (activityType === "imuscica")
+      activityContent.html('<iframe style="width: 100%; height: 100%;" allowfullscreen="true" frameborder="0" src="https://workbench-imuscica.cabricloud.com/?lesson=' + Activity.content + '" allowfullscreen></iframe>')
     else
       activityContent.html('<iframe style="width: 100%; height: 100%;" allowfullscreen="true" frameborder="0" src="' + Activity.content + '" allowfullscreen></iframe>');
 
