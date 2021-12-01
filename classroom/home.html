@@ -703,11 +703,17 @@
                id="activity-url-notebook" class="activity-form-input form-control part-title-input">
     </div>
     <span class="or-separator"> OU </span>
-    <div class='load-book'>
+    <div id="drop_zone" ondrop="dropHandler(event);" ondragover="dragOverHandler(event);" ondragleave="dragLeaveHandler(event);" class='load-book'>
+        <img class='img-drag-drop' src='assets/media/logo_apps_cabri/upload_drag_drop.svg' alt=''>
+        <span class="activity-form-title">Glissez-déposer</span>
+        <span class="or-separator"> OU </span>
         <label class="activity-form-chooser-file" for="notebook">
             <span data-i18n="classroom.activities.form.player.labelFileChooser"></span>
         </label>
-        <input type="file" id="notebook" name="notebook" accept=".clmc, .clmx" style="display: none;">
+        <input type="file" id="notebook" name="notebook" accept=".clmc, .clmx" onchange="onFileHasBeenChoose()" style="display: none;">
+        <div id="is_drop" style="display: none;">
+            <span data-i18n="classroom.activities.form.player.fileUpload"></span>
+        </div>
     </div>
     <button onclick="createCabriLtiActivity(null, null, 'player')" class="new-activity-player c-btn-primary">
         <span data-i18n="classroom.activities.form.nextButton"></span>

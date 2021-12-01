@@ -270,7 +270,8 @@
           "placeholder": "Entrer un URL"
         },
         "player": {
-          "labelFileChooser": "Choisir un fichier"
+          "labelFileChooser": "Choisir un fichier",
+          "fileUpload": "Le fichier a bien été chargé"
         },
         "nextButton": "Suivant",
         "endButton": "Terminer",

@@ -2062,12 +2062,47 @@ i.line_height34 {
     filter: drop-shadow(1px 1px 4px rgba(0, 0, 0, 0.25));
 }
 
+.load-book {
+    border: 3px #41729C dotted;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    margin: 0 20px 20px 20px;
+    position: relative;
+}
+
+#is_drop {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: #41729C;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 20px;
+    line-height: 24px;
+    text-align: center;
+    color: #FFFFFF;
+}
+
 .or-separator {
     color: #41729C;
     font-style: normal;
     font-weight: bold;
     font-size: 20px;
     line-height: 24px;
+    margin: 20px
+}
+.img-drag-drop {
+    width: 60%;
+    height: 4em;
+    margin: 0 auto 5px auto;
+    object-fit: scale-down;
 }
 
 #tools-selector {

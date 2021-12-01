@@ -1,3 +1,8 @@
+window.addEventListener("Navigate", function (event) {
+    $("#is_drop").hide();
+    console.log("hide is_drop");
+});
+
 function isValidUrl(url) {
     const expression = /^(http:\/\/www\.|https:\/\/www\.|http:\/\/|https:\/\/)?[a-z0-9]+([\-\.]{1}[a-z0-9]+)*\.[a-z]{2,5}(:[0-9]{1,5})?(\/.*)?$/gm;
     const regex = new RegExp(expression);
@@ -7,6 +12,51 @@ function isValidUrl(url) {
         return false;
     }
     return true;
+}
+
+function dropHandler(ev) {
+    console.log('File(s) dropped');
+    ev.preventDefault();
+
+    const dropZone = $("#drop_zone");
+
+    /* TODO : print error when file is not clmc */
+    if (ev.dataTransfer.items) {
+        if (ev.dataTransfer.items[0].kind === "file") {
+            let file = ev.dataTransfer.items[0].getAsFile();
+            dropZone.data("file", file);
+            console.log('... file[' + 0 + '].name = ' + file.name);
+            $("#is_drop").show();
+        }
+    } else {
+        if (ev.dataTransfer.files) {
+            let file = ev.dataTransfer.files[0];
+            dropZone.data("file", file);
+            console.log('... file[' + 0 + '].name = ' + ev.dataTransfer.files[0].name);
+            $("#is_drop").show();
+        } else {
+            // TODO : notif was not load
+        }
+    }
+    dropZone.css("filter", "");
+}
+
+function dragOverHandler(ev) {
+    ev.preventDefault();
+
+    let dropZone = $("#drop_zone");
+    dropZone.css("filter", "grayscale(0.70)");
+}
+
+function dragLeaveHandler(ev) {
+    ev.preventDefault();
+
+    let dropZone = $("#drop_zone");
+    dropZone.css("filter", "");
+}
+
+function onFileHasBeenChoose() {
+    $("#is_drop").show();
 }
 
 /**
@@ -29,6 +79,7 @@ function onClickTabActivity(element) {
     }
 }
 
+/* For panel players */
 const playersPanel = [
     {
         "type": "standard",
@@ -58,6 +109,7 @@ for(let playerCard of playersPanel){
 
 document.getElementById('player-panel').innerHTML = playersPanelHtml;
 
+/* For panel iframe */
 const iframesPanel = [
     {
         "type": "video",
@@ -67,6 +119,7 @@ const iframesPanel = [
         "img": "assets/media/logo_apps_cabri/web.svg",
     }
 ];
+
 let iframesPanelHtml = "";
 
 for(let iframeCard of iframesPanel){
@@ -213,6 +266,7 @@ function createCabriLtiActivity(link = null, id = null, type) {
 
       let urlFile = document.getElementById("activity-url-notebook");
       let loadFile = document.getElementById("notebook");
+      let dropFile = $("#drop_zone");
 
       if (urlFile && urlFile.value && urlFile !== "") {
         file = urlFile.value;
@@ -223,6 +277,9 @@ function createCabriLtiActivity(link = null, id = null, type) {
           if (loadFile.files.length === 1) {
               console.log("File : ", loadFile.files[0]);
               file = loadFile.files[0];
+              isUrl = false;
+          } else if (dropFile.data("file")) {
+              file = dropFile.data("file");
               isUrl = false;
           } else {
               // TODO : notif remplir un des champs
@@ -259,6 +316,7 @@ function createCabriLtiActivity(link = null, id = null, type) {
       window.addEventListener("Navigate", (event) => {
           $(urlFile).val("");
           $(loadFile).val("");
+          dropFile.data("file", null);
           if(!(event.detail.id === targetId))
             window.removeEventListener("message", sendFile);
       });
