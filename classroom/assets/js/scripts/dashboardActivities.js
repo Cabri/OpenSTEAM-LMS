@@ -523,8 +523,9 @@ function loadActivity(isDoable) {
         }
         console.log("basetoolurl : ", baseToolUrl);
 
+        let activityType = activity.type ? activity.type.toLowerCase() : activity.type;
         // Review student submission by teacher (and by student)
-        if(content.startsWith('http')) {  // TODO replace with "if content is LTI"
+        if(activityType !== "iframe") {  // TODO replace with "if content is LTI"
             if (!isDoable && Activity.correction > 0) {
                 if(activity.type === "imuscica")
                     activityContent.html('<iframe style="width: 100%; height: 100%;" allowfullscreen="true" frameborder="0" src="https://workbench-imuscica.cabricloud.com/?lesson=' + Activity.url + '" allowfullscreen></iframe>');
@@ -559,15 +560,15 @@ function loadActivity(isDoable) {
                 document.forms["lti_student_login_form"].submit();
             }
         }
-        else if(activity.type && activity.type.toLowerCase() === "iframe") {
-            activityContent.html('<iframe style="width: 100%; height: 100%;" allowfullscreen="true" frameborder="0" src="' + Activity.url + '" allowfullscreen></iframe>');
+        else {
+            activityContent.html('<iframe style="width: 100%; height: 100%;" allowfullscreen="true" frameborder="0" src="' + activity.content + '" allowfullscreen></iframe>');
         }
-        else if(content.startsWith('[iframe]') && isDoable) {
+/*        else if(content.startsWith('[iframe]') && isDoable) {
             activityContent.html(bbcodeToHtml(content))
         }
         else if(isDoable) {
             activityContent.html(bbcodeToHtml(content))
-        }
+        }*/
 
         $('#activity-correction').html(bbcodeToHtml(correction)).show()
         if (isDoable == false) {
