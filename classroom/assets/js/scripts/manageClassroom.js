@@ -781,7 +781,7 @@ function displayStudentsInClassroom(students) {
     $('#body-table-teach').html(''); //clean the display
     $('#add-student-container').html(''); //clean the display
     $('#export-class-container').html(''); //clean the display
-    $('#header-table-teach').html('<th class="table-title" style="max-width: 250px; font-size: 19pt; text-align: left; height: 3em;" data-i18n="classroom.activities.title">Activités</th>');
+    $('#header-table-teach').html('<th class="table-title" style="max-width: 250px; font-size: 19pt; text-align: left; height: 3em;" data-i18n="classroom.activities.title">'+i18next.t("classroom.activities.title")+'</th>');
     // get the current classroom index of activities
     let arrayIndexesActivities = listIndexesActivities(students);
 
@@ -854,10 +854,10 @@ function displayStudentsInClassroom(students) {
                             <span class="span-act">Act.</br>n°${ activityNumber }</span>
                             <i style="display:none;font-size:2em;" class="fa fa-cog i-act" aria-hidden="true"></i><div class="dropdown-menu" aria-labelledby="dropdown-act-${activityNumber}"  data-id="${activitiesIndexWithId[i].id}" style="text-transform: none;">
                             <li class="ml-5" style="border-bottom:solid 2px black;"><b>${ activitiesIndexWithId[i].title }</b></li>
-                            <li class="classroom-clickable col-12 dropdown-item " onclick="activityWatch(${activitiesIndexWithId[i].id})" ><i class="fas fa-eye"></i> Voir l'activité</li>
-                            <li class=" classroom-clickable col-12 dropdown-item" onclick="activityModify(${activitiesIndexWithId[i].id})"><i class="fas fa-pen"></i> Modifier l'activité</li>
-                            <li class="classroom-clickable col-12 dropdown-item" onclick="attributeActivity(${activitiesIndexWithId[i].id},${activitiesIndexWithId[i].reference})"><i class="fas fa-user-alt"></i> Modifier l'attribution</li>
-                            <li class="dropdown-item classroom-clickable col-12" onclick="undoAttributeActivity(${activitiesIndexWithId[i].reference},'${activitiesIndexWithId[i].title}')"><i class="fas fa-trash-alt"></i> Retirer l'attribution</li>
+                            <li class="classroom-clickable col-12 dropdown-item " onclick="activityWatch(${activitiesIndexWithId[i].id})" ><i class="fas fa-eye"></i> ${i18next.t('classroom.activities.displayActivity')}</li>
+                            <li class=" classroom-clickable col-12 dropdown-item" onclick="activityModify(${activitiesIndexWithId[i].id})"><i class="fas fa-pen"></i> ${i18next.t('classroom.activities.modifyActivity')}</li>
+                            <li class="classroom-clickable col-12 dropdown-item" onclick="attributeActivity(${activitiesIndexWithId[i].id},${activitiesIndexWithId[i].reference})"><i class="fas fa-user-alt"></i> ${i18next.t('classroom.activities.modifyActivityAttribution')}</li>
+                            <li class="dropdown-item classroom-clickable col-12" onclick="undoAttributeActivity(${activitiesIndexWithId[i].reference},'${activitiesIndexWithId[i].title}')"><i class="fas fa-trash-alt"></i> ${i18next.t('classroom.activities.removeActivityAttribution')}</li>
                         </div>
                     </div>
                 </th>`);
@@ -880,7 +880,7 @@ function displayStudentsInClassroom(students) {
         $('#body-table-teach').append(html);
     });
 
-    $('#add-student-container').append(`<button id="add-student-dashboard-panel" class="btn c-btn-primary"><span data-i18n="classroom.activities.addLearner">Ajouter des apprenants <i class="fas fa-plus"></i></span></button>`);
+    $('#add-student-container').append(`<button id="add-student-dashboard-panel" class="btn c-btn-primary"><span data-i18n="classroom.activities.addLearner">${i18next.t("classroom.activities.addLearner")} <i class="fas fa-plus"></i></span></button>`);
 
     $('#export-class-container').append(`<button id="download-csv" class="btn c-btn-tertiary ml-2" onclick="openDownloadCsvModal()"><i class="fa fa-download" aria-hidden="true"></i><span class="ml-1" data-i18n="classroom.activities.exportCsv">Exporter CSV</span></button>`);
 

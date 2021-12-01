@@ -110,7 +110,7 @@
             "usersAdded": "Las cuentas han sido creadas",
             "usersAddedFromCsv": "Las cuentas han sido creadas por medio del archivo csv",
             "activityDeleted": "La actividad {{activityName}} ha sido suprimida",
-            "mustAttributeToStudent": "Debe asignar la actividad a sus estudiantes",
+            "mustAttributeToStudent": "Debes seleccionar a los alumnos",
             "activityAttributed": "La actividad {{activityTitle}} ha sido asignada a los alumnos inscriptos",
             "activityAttributionChanged": "La asignación de la actividad {{activityTitle}} se ha modificado para los alumnos inscriptos",
             "activityCreated": "La actividad  {{activityTitle}} ha sido creada",
@@ -192,7 +192,8 @@
                 "isBlockedButton": "Límitado a estos alumnos, nadie más podrá unirse a la clase",
                 "save": "Grabar la clase",
                 "return": "Regresar a la clase"
-            }
+            },
+            "copyDirectLink": "Copiar enlace directo"
         },
         "activities": {
             "title": "Actividades",
@@ -218,9 +219,12 @@
             "sendResults": "Enviar el comentario al alumno",
             "noSend": "Ésta actividad no ha sido retroalimentada",
             "comments": "Ingrese sus observaciones",
+            "teacherComments": "Comentarios del profesor",
+            "activitySubmited": "La actividad de $1 entregada el $2",
             "bilan": {
                 "title": "Balance",
-                "results": "Resultados"
+                "results": "Resultados",
+                "grade": "Calificación"
             },
             "form": {
                 "1": "Creación de la actividad",
@@ -256,11 +260,18 @@
             "weakProficiency": "Competencia frágil",
             "insufficientProficiency": "Competencia insuficiente",
             "addLearner": "Agregar un alumno",
-            "exportCsv": "Exportar csv"
+            "exportCsv": "Exportar csv",
+            "displayActivity": "Mostrar la actividad",
+            "modifyActivity": "Modifica la actividad",
+            "modifyActivityAttribution": "Modificar la atribución",
+            "removeActivityAttribution": "Eliminar la atribución"
         },
         "filter": {
             "desc": "Del menos al más reciente",
             "asc": "Del más al menos reciente",
+            "cabriExpress": "Sólo actividades de Cabri Express",
+            "cabriGenius": "Sólo actividades de Cabri Smart",
+            "iframe": "Sólo otros tipos de actividades",
             "placeholder": "Buscar..."
         },
         "sandbox": {
@@ -302,7 +313,7 @@
                     "title": "Crear una nueva actividad",
                     "button": "Crear una actividad"
                 },
-                "continue": "Continuar",
+                "next": "Siguiente",
                 "limitTitle": "Límite excedido",
                 "limitDescription": "Se alcanzó el límite de la cantidad de actividades vinculadas a esta cuenta."
             },

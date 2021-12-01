@@ -3,7 +3,7 @@ i18next.use(window.i18nextXHRBackend)
     .init({
         debug: false,
         lng: getCookie('lng'),
-        whitelist: ['fr', 'en', 'es'],
+        whitelist: ['fr', 'en', 'es', 'it'],
         fallbackLng: 'fr',
         backend: {
             loadPath: _PATH + 'assets/lang/{{lng}}/ns.json'

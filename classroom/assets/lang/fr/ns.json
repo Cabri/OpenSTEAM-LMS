@@ -135,7 +135,7 @@
       "usersAdded": "Les comptes ont été créés",
       "usersAddedFromCsv": "Les comptes ont été créés d'après le fichier csv",
       "activityDeleted": "L'activité {{activityName}} a été supprimée",
-      "mustAttributeToStudent": "Vous devez attribuer l'activité à des étudiants",
+      "mustAttributeToStudent": "Vous devez sélectionner des apprenants",
       "activityAttributed": "L'activité {{activityTitle}} a été attribuée aux apprenants listés",
       "activityAttributionChanged": "L'attribution de l'activité {{activityTitle}} a été modifiée pour les apprenants listés",
       "activityCreated": "L'activité {{activityTitle}} a été créée",
@@ -226,7 +226,8 @@
         "isBlockedButton": "Limiter à ces apprenants, personne d'autre ne pourra rejoindre la classe.",
         "save": "Sauvegarder la classe",
         "return": "Retour à la classe"
-      }
+      },
+      "copyDirectLink": "Copier le lien direct"
     },
     "activities": {
       "title": "Activités",
@@ -252,9 +253,12 @@
       "sendResults": "Envoyer le commentaire à l'apprenant ",
       "noSend": "Cette activité n'a pas été rendue",
       "comments": "Entrez ici vos remarques",
+      "teacherComments": "Remarques de l'enseignant",
+      "activitySubmited": "Activité de $1 rendue le $2",
       "bilan": {
         "title": "Bilan",
-        "results": "Résultats"
+        "results": "Résultats",
+        "grade": "Note"
       },
       "form": {
         "1": "Création de l'activité",
@@ -326,7 +330,11 @@
           "title": "Page internet",
           "description": "Entrez l’URL de la page internet."
         }
-      }
+      },
+      "displayActivity": "Voir l'activité",
+      "modifyActivity": "Modifier l'activité",
+      "modifyActivityAttribution": "Modifier l'attribution",
+      "removeActivityAttribution": "Retirer l'attribution "
     },
     "filter": {
       "desc": "Du moins récent au plus récent",
@@ -381,14 +389,14 @@
         },
         "orSeparator": "OU",
         "attributeActivity": {
-          "title": "Consulter mes activités existantes",
+          "title": "Sélectionner des apprenants",
           "button": "Mes activités "
         },
         "createActivity": {
           "title": "Créer une nouvelle activité",
           "button": "Créer une activité "
         },
-        "continue": "Continue",
+        "next": "Suivant",
         "limitTitle": "Limite dépassée",
         "limitDescription": "La limite du nombre d'activités liée à ce compte est atteinte."
       },
@@ -396,8 +404,8 @@
         "title": "Modifier une activité"
       },
       "deleteActivity": {
-        "title": "Supprimer une activity",
-        "description": "Etes vous sur de vouloir supprimer l'activité ?",
+        "title": "Supprimer une activité",
+        "description": "Êtes-vous sur de vouloir supprimer l'activité ?",
         "confirm": "Confirmer",
         "cancel": "Annuler"
       },
@@ -411,13 +419,13 @@
         "resetPassword": "Réinitialiser"
       },
       "addStudent": {
-        "title": "Ajouter des étudiants",
+        "title": "Ajouter des apprenants",
         "pseudo": "Pseudonyme",
         "addStudentButton": "Ajouter l'apprenant",
         "addStudentByCsvButton": "Ajouter un fichier d'apprenants (.csv)"
       },
       "addStudentByCsv": {
-        "title": "Ajouter des étudiants avec un fichier .csv",
+        "title": "Ajouter des apprenants avec un fichier .csv",
         "description": "Vous pouvez ajouter un ou plusieurs apprenants d'un seul coup en les important depuis un fichier .csv. Il est facultativement possible de définir le mot de passe pour chacun d'entre eux. Voici les fichiers .csv modèles : ",
         "csvTemplate": "fichier modèle avec mot de passe",
         "csvTemplateNoPassword": "fichier modèle sans mot de passe",
@@ -628,7 +636,7 @@
         },
         "2": {
           "title": "Qu’est-ce qu’une activité ?",
-          "answer": "Une activité est un contenu interactif créé à partir de Cabri Express, Cabri Genius ou un cahier Cabri déjà existant."
+          "answer": "Une activité est un contenu interactif créé à partir de Cabri Express, Cabri Smart ou un cahier Cabri déjà existant."
         },
         "3": {
           "title": "Comment créer ou modifier une activité ?",
