@@ -27,7 +27,7 @@ function activityItem(activity, state) {
         var status = "new-exercise"
     }
     let html = `<div class="activity-item">
-                    <div class="${activity.activity.type==='GENIUS' ? 'activity-card-cabri-genius': activity.activity.type === 'IFRAME' ? 'activity-card-cabri-iframe' :  ''} activity-card activity-card-` + ide + ` ` + status + `">
+                    <div class="${activity.type === 'GENIUS' ? 'activity-card-cabri-genius': activity.type === 'EXPRESS' ? '' : 'activity-card-cabri-iframe'} activity-card activity-card-` + ide + ` ` + status + `">
                         <div class="activity-card-top">
                         </div>
                         <div class="activity-card-mid"></div>
@@ -518,16 +518,6 @@ function loadActivity(isDoable) {
 
    if (!UserManager.getUser().isRegular && Activity.correction > 0 && Activity.commentary!=='') {
      correction += '<div id="commentary-panel" class="c-primary-form" style="margin-top: 50px;"><h5>' + i18next.t("classroom.activities.teacherComments") + '</h5><textarea id="commentary-textarea" style="width:90%" rows="8" disabled>'  + Activity.commentary +  '</textarea></div>'
-
-    }
-
-
-    if (UserManager.getUser().isRegular && Activity.correction > 0) {
-        correction += '<div id="commentary-panel" class="c-primary-form"><label>' + i18next.t("classroom.activities.comments") + '</label><textarea id="commentary-textarea" style="width:90%" rows="8">' + Activity.commentary + '</textarea></div>'
-    }
-
-    if (!UserManager.getUser().isRegular && Activity.correction > 0) {
-        correction += '<div id="commentary-panel">' + Activity.commentary + '</div>'
     }
 
     if (UserManager.getUser().isRegular && Activity.correction > 0) {
@@ -536,7 +526,7 @@ function loadActivity(isDoable) {
 
         console.log("Activity.correction : ", Activity.correction);
         console.log("Correction : ", correction);
-        console.log("isRegularUser : ", isRegularUser);
+        console.log("isRegularUser : ", UserManager.getUser().isRegular);
 
         // TODO : define global tabs with tabs["name_app"] = "url_app" (to use also in teacher code)
         switch (activity.type) {
