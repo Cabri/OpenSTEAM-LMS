@@ -1,6 +1,5 @@
 window.addEventListener("Navigate", function (event) {
     $("#is_drop").hide();
-    console.log("hide is_drop");
 });
 
 function isValidUrl(url) {
@@ -15,7 +14,6 @@ function isValidUrl(url) {
 }
 
 function dropHandler(ev) {
-    console.log('File(s) dropped');
     ev.preventDefault();
 
     const dropZone = $("#drop_zone");
@@ -68,7 +66,6 @@ function onClickTabActivity(element) {
     const currentSelectedTab = $(".selected-other-activity");
 
     if(!tabClicked[0].isSameNode(currentSelectedTab[0])) {
-
         const idOfCurrentPanel = currentSelectedTab.data("idPanel");
         $('#' + idOfCurrentPanel).css("display", "none");
 
@@ -168,6 +165,8 @@ function createActivity(link = null, id = null, type) {
             $('.wysibb-text-editor').html(activity.content)
         })
     }
+    $('#activity-form-title-others').val("");
+    $("#choose-player").click(); // active first tabs
     navigatePanel('classroom-dashboard-other-activity-type-panel', 'dashboard-activities-teacher')
     ClassroomSettings.activityInWriting = true
 }
@@ -218,10 +217,10 @@ function createActivityIframe() {
             $(this).attr('disabled', false);
             return;
         } else {
-            $('#activity-form-title-others').val("");
             navigatePanel('classroom-dashboard-url-activity-panel', 'dashboard-activities-teacher')
             ClassroomSettings.title = title;
         }
+        $('#activity-form-title-others').val("");
 
         ClassroomSettings.activityInWriting = true
     });
@@ -513,7 +512,7 @@ function activityModify(id) {
     Main.getClassroomManager().getActivity(ClassroomSettings.activity).then(function (activity) {
         ClassroomSettings.status = 'edit';
         let activityType = activity.type ? activity.type.toLowerCase() : activity.type;
-        if(!activityType || activityType === 'iframe') {
+        if(!activityType) {
           // Other Activity type
           $('#activity-form-title').val(activity.title)
           $('.wysibb-text-editor').html(activity.content)
@@ -548,19 +547,25 @@ function activityModify(id) {
 
           document.forms["lti_teacher_login_form"].submit();
         } else {
-            // Start LTI 1.3 tool launch
-            const loginHint = {
-                userId: UserManager.getUser().id,
-                isStudentLaunch: false,
-                isUpdate: true,
-                updateURL: activity.content,
-                activityType: activity.type
-            };
-            ClassroomSettings.loginHint = loginHint;
+            if(activityType === "iframe") {
+                $("#choose-iframe").click();
+                $("#activity-form-content-iframe").val(activity.content);
+            } else {
+                $("#choose-player").click();
+                // Start LTI 1.3 tool launch
+                const loginHint = {
+                    userId: UserManager.getUser().id,
+                    isStudentLaunch: false,
+                    isUpdate: true,
+                    updateURL: activity.content,
+                    activityType: activity.type
+                };
+                ClassroomSettings.loginHint = loginHint;
+                $("#activity-url-notebook").val(activity.content);
+            }
 
           $("#activity-form-title-others").val(activity.title);
-          console.log("activity.content : ", activity.content);
-          $("#activity-url-notebook").val(activity.content);
+
 
           navigatePanel('classroom-dashboard-other-activity-type-panel', 'dashboard-activities-teacher')
         }
@@ -668,9 +673,6 @@ $('.new-activity-iframe').click(function () {
     $(this).attr('disabled', 'disabled');
 
     let url = $('#activity-form-content-iframe').val();
-
-    const expression = /^(http:\/\/www\.|https:\/\/www\.|http:\/\/|https:\/\/)?[a-z0-9]+([\-\.]{1}[a-z0-9]+)*\.[a-z]{2,5}(:[0-9]{1,5})?(\/.*)?$/gm;
-    const regex = new RegExp(expression);
 
     if (!isValidUrl(url)) {
         return;
