@@ -352,7 +352,7 @@
         },
         "orSeparator": "OU",
         "attributeActivity": {
-          "title": "Consulter mes activités existantes",
+          "title": "Sélectionner des apprenants",
           "button": "Mes activités "
         },
         "createActivity": {
@@ -382,13 +382,13 @@
         "resetPassword": "Réinitialiser"
       },
       "addStudent": {
-        "title": "Ajouter des étudiants",
+        "title": "Ajouter des apprenants",
         "pseudo": "Pseudonyme",
         "addStudentButton": "Ajouter l'apprenant",
         "addStudentByCsvButton": "Ajouter un fichier d'apprenants (.csv)"
       },
       "addStudentByCsv": {
-        "title": "Ajouter des étudiants avec un fichier .csv",
+        "title": "Ajouter des apprenants avec un fichier .csv",
         "description": "Vous pouvez ajouter un ou plusieurs apprenants d'un seul coup en les important depuis un fichier .csv. Il est facultativement possible de définir le mot de passe pour chacun d'entre eux. Voici les fichiers .csv modèles : ",
         "csvTemplate": "fichier modèle avec mot de passe",
         "csvTemplateNoPassword": "fichier modèle sans mot de passe",

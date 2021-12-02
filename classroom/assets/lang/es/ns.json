@@ -269,6 +269,9 @@
         "filter": {
             "desc": "Del menos al más reciente",
             "asc": "Del más al menos reciente",
+            "cabriExpress": "Sólo actividades de Cabri Express",
+            "cabriGenius": "Sólo actividades de Cabri Smart",
+            "iframe": "Sólo otros tipos de actividades",
             "placeholder": "Buscar..."
         },
         "sandbox": {

@@ -59,7 +59,8 @@ const classroomModals = {
         <div id="switch-lang-list" class="d-flex justify-content-center">
             <img class="flags-item mr-2" alt="flag" src="assets/media/flags/fr.png" onclick="changeLang('fr')">
             <img class="flags-item mr-2" alt="flag" src="assets/media/flags/en.png" onclick="changeLang('en')">
-            <img class="flags-item" alt="flag" src="assets/media/flags/es.png" onclick="changeLang('es')">
+            <img class="flags-item mr-2" alt="flag" src="assets/media/flags/es.png" onclick="changeLang('es')">
+            <img class="flags-item mr-2" alt="flag" src="assets/media/flags/it.png" onclick="changeLang('it')">
         </div>
         <h4 data-i18n="classroom.modals.settingsTeacher.password">Mot de passe</h4>
         <p class="text-center" data-i18n="classroom.modals.settingsTeacher.passwordDescription"></p>
@@ -89,9 +90,10 @@ const classroomModals = {
         content: `<div>
                     <h4 data-i18n="classroom.modals.settingsTeacher.lang">Langue</h4>
                     <div id="switch-lang-list" class="d-flex justify-content-center">
-                    <img class="flags-item  mr-2" alt="flag" src="assets/media/flags/fr.png" onclick="changeLang('fr')">
-                    <img class="flags-item  mr-2" alt="flag" src="assets/media/flags/en.png" onclick="changeLang('en')">
-                    <img class="flags-item" alt="flag" src="assets/media/flags/es.png" onclick="changeLang('es')">
+                    <img class="flags-item mr-2" alt="flag" src="assets/media/flags/fr.png" onclick="changeLang('fr')">
+                    <img class="flags-item mr-2" alt="flag" src="assets/media/flags/en.png" onclick="changeLang('en')">
+                    <img class="flags-item mr-2" alt="flag" src="assets/media/flags/es.png" onclick="changeLang('es')">
+                    <img class="flags-item mr-2" alt="flag" src="assets/media/flags/it.png" onclick="changeLang('it')">
                     </div>
                     <h4 data-i18n="classroom.modals.settingsTeacher.description">Pour modifier votre mot de passe ou d'autres paramètres de votre compte</h4>
                     <div class="d-flex flex-column align-items-center" style="gap: 0.5rem;">
@@ -133,10 +135,9 @@ const classroomModals = {
         selector: '',
         header: {
             icon: '',
-            title: 'modals.classroom.attributeActivity.title'
+            title: 'classroom.modals.addActivity.attributeActivity.title'
         },
         content: `
-    <h4>Sélectionner des apprenants</h4>
     <p><span class="student-number">0</span> apprenants sélectionnés</p>
     <div id="list-student-attribute-modal" class="row"></div>
     <button id="attribute-activity-to-students-close" class="btn btn-lg c-btn-secondary">Valider</button>
