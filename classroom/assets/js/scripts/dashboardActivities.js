@@ -4,7 +4,6 @@ $(document).ready(function () {
 });
 
 function activityItem(activity, state) {
-    console.log("activityItem !");
     let ide = 'vittascience'
     if (activity.activity.content.match(/vittascience\.com\/microbit/)) {
         ide = "microbit"
@@ -80,7 +79,7 @@ function teacherActivityItem(activity) {
     if (activity.content.match(/vittascience\.com\/arduino/)) {
         ide = "arduino"
     }
-    console.log("teacherActivityItem");
+
     let html = `<div class="activity-item activity-teacher">
                 <div class="${activity.type === 'GENIUS' ? 'activity-card-cabri-genius': activity.type === 'EXPRESS' ? '' : 'activity-card-cabri-iframe'} activity-card activity-card-` + ide + `">
                     <div class="activity-card-top">
@@ -88,7 +87,7 @@ function teacherActivityItem(activity) {
                     <div class="dropdown-menu" aria-labelledby="dropdown-activityItem-${activity.id}" data-id="${activity.id}">
                 <li class="classroom-clickable col-12 dropdown-item" href="#" onclick="attributeActivity(${activity.id})" style="border-bottom:2px solid rgba(0,0,0,.15">` + capitalizeFirstLetter(i18next.t('words.attribute')) + `</li>
 
-                <li style="display: ${activity.type==='GENIUS' || activity.type==='EXPRESS' ? 'none' : 'block'}" class="dropdown-item classroom-clickable col-12" href="#" onclick="createActivity(null,${activity.id})">` + capitalizeFirstLetter(i18next.t('words.duplicate')) + `</li>
+                <li style="display: ${activity.type==='GENIUS' || activity.type==='EXPRESS' ? 'none' : 'none'}" class="dropdown-item classroom-clickable col-12" href="#" onclick="createActivity(null,${activity.id})">` + capitalizeFirstLetter(i18next.t('words.duplicate')) + `</li>
 
                 <li class=" classroom-clickable col-12 dropdown-item" onclick="activityModify(${activity.id})" href="#">` + capitalizeFirstLetter(i18next.t('words.modify')) + `</li>
                 <li class="dropdown-item modal-activity-delete classroom-clickable col-12" href="#">` + capitalizeFirstLetter(i18next.t('words.delete')) + `</li>
@@ -524,10 +523,6 @@ function loadActivity(isDoable) {
         correction += '<button onclick="giveNote()" class="btn c-btn-primary">' + i18next.t('classroom.activities.sendResults') + '<i class="fas fa-chevron-right"> </i></button>'
     }
 
-        console.log("Activity.correction : ", Activity.correction);
-        console.log("Correction : ", correction);
-        console.log("isRegularUser : ", UserManager.getUser().isRegular);
-
         // TODO : define global tabs with tabs["name_app"] = "url_app" (to use also in teacher code)
         switch (activity.type) {
             case "standard":
@@ -539,7 +534,6 @@ function loadActivity(isDoable) {
                 baseToolUrl = "https://lti1p3.cabricloud.com";
                 break;
         }
-        console.log("basetoolurl : ", baseToolUrl);
 
         let activityType = activity.type ? activity.type.toLowerCase() : activity.type;
         // Review student submission by teacher (and by student)

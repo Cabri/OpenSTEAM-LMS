@@ -620,26 +620,25 @@
 </div>
 
 <!-- Cabri other button -->
-<div id="classroom-dashboard-other-activity-type-panel" style="display:none;margin-right:0px;"
-     class="activity-creation-form row dashboard-block full-dashboard-block">
+<div id="classroom-dashboard-other-activity-type-panel"
+     class="activity-creation-form row dashboard-block full-dashboard-block"
+     style="display:none;margin-right:0;">
 
         <label for="activity-form-title">
-            <span class="activity-form-title" data-i18n="classroom.activities.form.title.labelCabri"></span>
-        </label>
-        <input data-i18n="[placeholder]classroom.activities.form.title.placeholderCabri" type="text"
-               id="activity-form-title-others" class="activity-form-input form-control part-title-input">
+            <span class="activity-form-title"
+                  data-i18n="classroom.activities.form.title.labelCabri">
 
-<!--    <div class="d-flex flex-column">
-        <button onclick="createActivityPlayer('standard')">Standard</button>
-        <button onclick="createActivityPlayer('imuscica')">iMuSciCA</button>
-        <button onclick="createActivityPlayer('others')">Autres</button>
-        <button onclick="createActivityIframe()" >Page internet</button>
-        <button onclick="createActivityIframe()">Vidéo</button>
-    </div>-->
+            </span>
+        </label>
+
+        <input id="activity-form-title-others"
+               class="activity-form-input form-control part-title-input"
+               type="text"
+               data-i18n="[placeholder]classroom.activities.form.title.placeholderCabri"/>
 
     <div id="tools-selector">
-        <div id="tabs-container" class="d-flex flex-row">
-            <!-- TODO: use ns.json -->
+        <div id="tabs-container"
+             class="d-flex flex-row">
             <!--
             "data-id-panel" is useful for manage click event.
             It allows to know what content must be print.
@@ -647,35 +646,36 @@
             -->
             <span id="choose-player"
                   class="selector-other-activity selected-other-activity"
+                  data-i18n="classroom.activities.tabs.players"
                   data-id-panel="player-panel"
-                  onclick="onClickTabActivity(this)"
-            >
-                Cahier d'activité
+                  onclick="onClickTabActivity(this)">
+
             </span>
             <span id="choose-iframe"
                   class="selector-other-activity"
+                  data-i18n="classroom.activities.tabs.iframes"
                   data-id-panel="web-panel"
-                  onclick="onClickTabActivity(this)"
-            >
-                Vidéo et page internet
+                  onclick="onClickTabActivity(this)">
+
             </span>
-<!--            <span id="choose-other"
+<!--        Add example
+            <span id="choose-other"
                   class="selector-other-activity"
+                  data-i18n="classroom.activities.tabs.iframes"
                   data-id-panel="other-panel"
-                  onclick="onClickTabActivity(this)"
-            >
+                  onclick="onClickTabActivity(this)">
                 Autres
             </span>-->
         </div>
         <div id="panel-container">
-            <div id="player-panel" class="selector-container-other-activity">
-                <button onclick="createActivityPlayer('standard')">Standard</button>
-                <button onclick="createActivityPlayer('imuscica')">iMuSciCA</button>
-                <button onclick="createActivityPlayer('others')">Autres</button>
+            <div id="player-panel"
+                 class="selector-container-other-activity">
+
             </div>
-            <div id="web-panel" class="selector-container-other-activity" style="display: none;">
-                <button onclick="createActivityIframe()" >Page internet</button>
-                <button onclick="createActivityIframe()">Vidéo</button>
+            <div id="web-panel"
+                 class="selector-container-other-activity"
+                 style="display: none;">
+
             </div>
         </div>
     </div>
@@ -684,60 +684,123 @@
 <!-- Player activity -->
 <div id="classroom-dashboard-activity-player" style="display:none;margin-right:0px;"
      class="activity-creation-form row dashboard-block full-dashboard-block">
-    <!-- TODO : change and add ns.json langue
-    for other player
-    -->
-    <div id="activity-url-player-container" class="form-container" style="display:none;">
+
+    <div id="activity-url-player-container"
+         class="form-container"
+         style="display:none;">
+
         <label for="activity-url-player">
-            <span class="activity-form-title" data-i18n="classroom.activities.form.iframe.label"></span>
+            <span class="activity-form-title"
+                  data-i18n="classroom.activities.form.playerUrl.label"></span>
         </label>
-        <input data-i18n="[placeholder]classroom.activities.form.iframe.placeholder" type="text"
-               id="activity-url-player" class="activity-form-input form-control part-title-input">
+
+        <input id="activity-url-player"
+               class="activity-form-input form-control part-title-input"
+               type="text"
+               data-i18n="[placeholder]classroom.activities.form.playerUrl.placeholder"/>
     </div>
-    <!-- TODO : change and add ns.json langue-->
+
     <div class="form-container">
+
         <label for="activity-url-notebook">
-            <span class="activity-form-title" data-i18n="classroom.activities.form.iframe.label"></span>
+            <span class="activity-form-title"
+                  data-i18n="classroom.activities.form.notebookUrl.label">
+
+            </span>
         </label>
-        <input data-i18n="[placeholder]classroom.activities.form.iframe.placeholder" type="text"
-               id="activity-url-notebook" class="activity-form-input form-control part-title-input">
+
+        <input id="activity-url-notebook"
+               class="activity-form-input form-control part-title-input"
+               type="text"
+               data-i18n="[placeholder]classroom.activities.form.notebookUrl.placeholder"/>
     </div>
-    <span class="or-separator"> OU </span>
-    <div id="drop_zone" ondrop="dropHandler(event);" ondragover="dragOverHandler(event);" ondragleave="dragLeaveHandler(event);" class='load-book'>
-        <img class='img-drag-drop' src='assets/media/logo_apps_cabri/upload_drag_drop.svg' alt=''>
-        <span class="activity-form-title">Glissez-déposer</span>
-        <span class="or-separator"> OU </span>
-        <label class="activity-form-chooser-file" for="notebook">
-            <span data-i18n="classroom.activities.form.player.labelFileChooser"></span>
+
+    <span class="or-separator">
+        OU
+    </span>
+
+    <div id="drop_zone"
+         class='load-book'
+         ondrop="dropHandler(event);"
+         ondragover="dragOverHandler(event);"
+         ondragleave="dragLeaveHandler(event);">
+
+        <img class='img-drag-drop'
+             src='assets/media/logo_apps_cabri/upload_drag_drop.svg'
+             alt=''/>
+
+        <span class="activity-form-title"
+              data-i18n="classroom.activities.form.player.dragDrop">
+
+        </span>
+
+        <span class="or-separator">
+            OU
+        </span>
+
+        <label for="notebook"
+               class="activity-form-chooser-file">
+
+            <span data-i18n="classroom.activities.form.player.labelFileChooser">
+
+            </span>
+
         </label>
-        <input type="file" id="notebook" name="notebook" accept=".clmc, .clmx" onchange="onFileHasBeenChoose()" style="display: none;">
-        <div id="is_drop" style="display: none;">
-            <span data-i18n="classroom.activities.form.player.fileUpload"></span>
+
+        <input type="file"
+               id="notebook"
+               name="notebook"
+               accept=".clmc, .clmx"
+               onchange="onFileHasBeenChoose()"
+               style="display: none;"/>
+
+        <div id="is_drop"
+             style="display: none;">
+            <span data-i18n="classroom.activities.form.player.fileUpload">
+
+            </span>
         </div>
     </div>
-    <button onclick="createCabriLtiActivity(null, null, 'player')" class="new-activity-player c-btn-primary">
-        <span data-i18n="classroom.activities.form.nextButton"></span>
-        <i class="fas fa-chevron-right"></i>
+
+    <button class="new-activity-player c-btn-primary"
+            onclick="createCabriLtiActivity(null, null, 'player')">
+
+        <span data-i18n="classroom.activities.form.nextButton">
+
+        </span>
+        <i class="fas fa-chevron-right">
+
+        </i>
     </button>
 </div>
 
 <!-- Iframe activity -->
-<div id="classroom-dashboard-url-activity-panel" style="display:none;margin-right:0px;"
-     class="activity-creation-form row dashboard-block full-dashboard-block">
+<div id="classroom-dashboard-url-activity-panel"
+     class="activity-creation-form row dashboard-block full-dashboard-block"
+     style="display:none;margin-right:0px;">
 
     <label for="activity-form-content-iframe">
-        <span class="activity-form-title" data-i18n="classroom.activities.form.iframe.label"></span>
+        <span class="activity-form-title"
+              data-i18n="classroom.activities.form.iframe.label">
+
+        </span>
     </label>
-    <input data-i18n="[placeholder]classroom.activities.form.iframe.placeholder" type="text"
-           id="activity-form-content-iframe" class="activity-form-input form-control part-title-input">
+
+    <input id="activity-form-content-iframe"
+           class="activity-form-input form-control part-title-input"
+           type="text"
+           data-i18n="[placeholder]classroom.activities.form.iframe.placeholder"/>
+
     <button class="new-activity-iframe c-btn-primary">
-        <span data-i18n="classroom.activities.form.endButton"></span>
-        <i class="fas fa-check"></i>
+        <span data-i18n="classroom.activities.form.endButton">
+
+        </span>
+        <i class="fas fa-check">
+
+        </i>
     </button>
 
 </div>
-
-
 
 <div id="classroom-dashboard-new-activity-panel2" style="display:none;"
     class="row flex-column dashboard-block class-creation-form-step2">

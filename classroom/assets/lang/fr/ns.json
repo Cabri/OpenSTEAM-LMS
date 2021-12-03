@@ -273,9 +273,18 @@
           "label": "Voulez-vous entrer un url ?",
           "placeholder": "Entrer un URL"
         },
+        "notebookUrl": {
+          "label": "Voulez-vous entrer un url de cahier ?",
+          "placeholder": "Entrer un URL de cahier"
+        },
+        "playerUrl": {
+          "label": "Voulez-vous entrer un url de player ?",
+          "placeholder": "Entrer un URL de player"
+        },
         "player": {
           "labelFileChooser": "Choisir un fichier",
-          "fileUpload": "Le fichier a bien été chargé"
+          "fileUpload": "Le fichier a bien été chargé",
+          "dragDrop": "Glissez-déposer"
         },
         "nextButton": "Suivant",
         "endButton": "Terminer",
@@ -320,6 +329,10 @@
           "title": "Autre",
           "description": "Sélectionnez vous-même le lecteur de cahiers d’activités réalisés grâce à l’outil auteur Cabri."
         }
+      },
+      "tabs": {
+        "players": "Cahier d'activité",
+        "iframes": "Vidéo et page internet"
       },
       "iframes": {
         "video": {
