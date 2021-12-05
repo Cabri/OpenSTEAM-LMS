@@ -105,7 +105,7 @@ for(let playerCard of playersPanel){
             `;
 }
 
-document.getElementById('player-panel').innerHTML = playersPanelHtml;
+//document.getElementById('player-panel').innerHTML = playersPanelHtml;
 
 /* For panel iframe */
 const iframesPanel = [
