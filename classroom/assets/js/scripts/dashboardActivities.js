@@ -26,7 +26,7 @@ function activityItem(activity, state) {
         var status = "new-exercise"
     }
     let html = `<div class="activity-item">
-                    <div class="${activity.activity.type==='GENIUS' ? 'activity-card-cabri-genius': activity.activity.type === 'IFRAME' ? 'activity-card-cabri-iframe' :  ''} activity-card activity-card-` + ide + ` ` + status + `">
+                    <div class="${activity.type === 'GENIUS' ? 'activity-card-cabri-genius': activity.type === 'EXPRESS' ? '' : 'activity-card-cabri-iframe'} activity-card activity-card-` + ide + ` ` + status + `">
                         <div class="activity-card-top">
                         </div>
                         <div class="activity-card-mid"></div>
@@ -80,14 +80,14 @@ function teacherActivityItem(activity) {
         ide = "arduino"
     }
 
-    let html = `<div class="activity-item activity-teacher" >
-                <div class="${activity.type==='GENIUS' ? 'activity-card-cabri-genius': activity.type === 'IFRAME' ? 'activity-card-cabri-iframe' :  ''} activity-card activity-card-` + ide + `">
+    let html = `<div class="activity-item activity-teacher">
+                <div class="${activity.type === 'GENIUS' ? 'activity-card-cabri-genius': activity.type === 'EXPRESS' ? '' : 'activity-card-cabri-iframe'} activity-card activity-card-` + ide + `">
                     <div class="activity-card-top">
                     <div class="dropdown"><i class="fas fa-cog fa-2x" type="button" id="dropdown-activityItem-${activity.id}" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></i>
                     <div class="dropdown-menu" aria-labelledby="dropdown-activityItem-${activity.id}" data-id="${activity.id}">
                 <li class="classroom-clickable col-12 dropdown-item" href="#" onclick="attributeActivity(${activity.id})" style="border-bottom:2px solid rgba(0,0,0,.15">` + capitalizeFirstLetter(i18next.t('words.attribute')) + `</li>
 
-                <li style="display: ${activity.type==='GENIUS' || activity.type==='EXPRESS' ? 'none' : 'block'}" class="dropdown-item classroom-clickable col-12" href="#" onclick="createActivity(null,${activity.id})">` + capitalizeFirstLetter(i18next.t('words.duplicate')) + `</li>
+                <li style="display: ${activity.type==='GENIUS' || activity.type==='EXPRESS' ? 'none' : 'none'}" class="dropdown-item classroom-clickable col-12" href="#" onclick="createActivity(null,${activity.id})">` + capitalizeFirstLetter(i18next.t('words.duplicate')) + `</li>
 
                 <li class=" classroom-clickable col-12 dropdown-item" onclick="activityModify(${activity.id})" href="#">` + capitalizeFirstLetter(i18next.t('words.modify')) + `</li>
                 <li class="dropdown-item modal-activity-delete classroom-clickable col-12" href="#">` + capitalizeFirstLetter(i18next.t('words.delete')) + `</li>
@@ -456,35 +456,39 @@ function loadActivity(isDoable) {
     activityContent.html('')
     activityIntroduction.html('')
 
-    if (Activity.introduction != null && Activity.introduction !== "") {
-        $('#text-introduction').html(bbcodeToHtml(Activity.introduction))
-        $('#activity-introduction').show()
-    }
-    activityTitle.html(Activity.activity.title)
-    if (UserManager.getUser().isRegular) {
-        if (Activity.correction >= 1) {
-            activityDetails.html(i18next.t('classroom.activities.activitySubmited')
-              .replace('$1', Activity.user.pseudo)
-              .replace('$2',formatHour(Activity.dateSend)))
-        } else {
-            activityDetails.html(i18next.t("classroom.activities.noSend"))
-        }
-    } else {
-        if (Activity.correction >= 1) {
-            activityDetails.html("Cette activité a été rendue le " + formatHour(Activity.dateSend))
-        } else {
-            activityDetails.html("Activité à rendre pour le " + formatDay(Activity.dateEnd))
-        }
-    }
 
-    var content = Activity.activity.content.replace(/(\[iframe\].*?link=[a-f0-9]{13})/gm, '$1&use=classroom')
-    if (Activity.project != null) {
-        if (LINK_REGEX.test(Activity.activity.content)) {
-            content = content.replace(LINK_REGEX, '$1' + Activity.project.link)
+    let baseToolUrl;
+    Main.getClassroomManager().getActivity(Activity.activity.id).then((activity) => {
+        if (Activity.introduction != null && Activity.introduction !== "") {
+            $('#text-introduction').html(bbcodeToHtml(Activity.introduction))
+            $('#activity-introduction').show()
         }
-    } else {
-        content = content
-    }
+        activityTitle.html(Activity.activity.title)
+        if (UserManager.getUser().isRegular) {
+            if (Activity.correction >= 1) {
+                activityDetails.html(i18next.t('classroom.activities.activitySubmited')
+                    .replace('$1', Activity.user.pseudo)
+                    .replace('$2',formatHour(Activity.dateSend)))
+            } else {
+                activityDetails.html(i18next.t("classroom.activities.noSend"))
+            }
+        } else {
+            if (Activity.correction >= 1) {
+                activityDetails.html("Cette activité a été rendue le " + formatHour(Activity.dateSend))
+            } else {
+                activityDetails.html("Activité à rendre pour le " + formatDay(Activity.dateEnd))
+            }
+        }
+
+        var content = Activity.activity.content.replace(/(\[iframe\].*?link=[a-f0-9]{13})/gm, '$1&use=classroom')
+        if (Activity.project != null) {
+            if (LINK_REGEX.test(Activity.activity.content)) {
+                content = content.replace(LINK_REGEX, '$1' + Activity.project.link)
+            }
+        } else {
+            content = content
+        }
+
     let correction = ''
     if (UserManager.getUser().isRegular && (Activity.correction === 1)) {
         correction += `<div class="activity-correction-header d-flex justify-content-between"><h3>` + i18next.t('classroom.activities.bilan.results') + `</h3><i class="fas fa-chevron-right fa-2x" ></i></div><div id='giveNote' ><div onclick="setNote(3,'givenote-3')" id="givenote-3" class="note-choice"><i class="fas fa-check"></i>` + i18next.t('classroom.activities.accept') + ` </div><div onclick="setNote(2,'givenote-2')" id="givenote-2" class="note-choice" ><i class="fas fa-check"></i>` + i18next.t('classroom.activities.vgood') + ` </div><div onclick="setNote(1,'givenote-1')" id="givenote-1" class="note-choice" ><i class="fas fa-check"></i>` + i18next.t('classroom.activities.good') + ` </div><div onclick="setNote(0,'givenote-0')" id="givenote-0" class="note-choice" ><i class="fas fa-check"></i>` + i18next.t('classroom.activities.refuse') + ` </div></div>`
@@ -513,65 +517,82 @@ function loadActivity(isDoable) {
 
    if (!UserManager.getUser().isRegular && Activity.correction > 0 && Activity.commentary!=='') {
      correction += '<div id="commentary-panel" class="c-primary-form" style="margin-top: 50px;"><h5>' + i18next.t("classroom.activities.teacherComments") + '</h5><textarea id="commentary-textarea" style="width:90%" rows="8" disabled>'  + Activity.commentary +  '</textarea></div>'
-
     }
 
     if (UserManager.getUser().isRegular && Activity.correction > 0) {
-
         correction += '<button onclick="giveNote()" class="btn c-btn-primary">' + i18next.t('classroom.activities.sendResults') + '<i class="fas fa-chevron-right"> </i></button>'
     }
 
-    // Review student submission by teacher (and by student)
-    if(content.startsWith('http')) {  // TODO replace with "if content is LTI"
-      if (!isDoable && Activity.correction > 0) {
-        // TODO cabri: for review, better use the same player version as the one used to create the activity and used by student
-        activityContent.html('<iframe style="width: 100%; height: 100%;" allowfullscreen="true" frameborder="0" src="https://cabricloud.com/ed/opensteam/player?isMobile&calculator=false&clmc=' + Activity.url + '" allowfullscreen></iframe>');
-      }
-      else if(isDoable) {
-          const loginHint = {
-            lineitemId: content,
-            userId: UserManager.getUser().id,
-            isStudentLaunch: true,
-            isDoable: isDoable,
-            activitiesLinkUser: Activity.id
-          };
+        // TODO : define global tabs with tabs["name_app"] = "url_app" (to use also in teacher code)
+        switch (activity.type) {
+            case "standard":
+                return; // TODO: to do later
+            case "imuscica":
+                baseToolUrl = "https://workbench-imuscica.cabricloud.com";
+                break;
+            default:
+                baseToolUrl = "https://lti1p3.cabricloud.com";
+                break;
+        }
 
-          const ltiStudentLaunch = `
+        let activityType = activity.type ? activity.type.toLowerCase() : activity.type;
+        // Review student submission by teacher (and by student)
+        if(activityType !== "iframe") {  // TODO replace with "if content is LTI"
+            if (!isDoable && Activity.correction > 0) {
+                if (activity.type === "imuscica")
+                    activityContent.html('<iframe style="width: 100%; height: 100%;" allowfullscreen="true" frameborder="0" src="https://workbench-imuscica.cabricloud.com/?lesson=' + Activity.url + '" allowfullscreen></iframe>');
+                else
+                    activityContent.html('<iframe style="width: 100%; height: 100%;" allowfullscreen="true" frameborder="0" src="https://cabricloud.com/ed/opensteam/player?isMobile&calculator=false&clmc=' + Activity.url + '" allowfullscreen></iframe>');
+                // TODO cabri: for review, better use the same player version as the one used to create the activity and used by student
+            } else if (isDoable) {
+                const loginHint = {
+                    lineitemId: content,
+                    userId: UserManager.getUser().id,
+                    isStudentLaunch: true,
+                    isDoable: isDoable,
+                    activitiesLinkUser: Activity.id
+                };
+
+                const ltiStudentLaunch = `
           <input id="activity-score" type="text" hidden/>
-          <form name="lti_student_login_form" action="https://lti1p3.cabricloud.com/login" method="post" target="lti_student_iframe">
+          <form name="lti_student_login_form" action="${baseToolUrl}/login" method="post" target="lti_student_iframe">
             <input id="lti_student_iss" type="hidden" name="iss" value="${location.origin}" />
             <input id="lti_student_login_hint" type="hidden" name="login_hint"/>
             <input id="lti_student_client_id" type="hidden" name="client_id" value="client_id_php" />
-            <input id="lti_student_target_link_uri" type="hidden" name="target_link_uri" value="https://lti1p3.cabricloud.com" />
+            <input id="lti_student_target_link_uri" type="hidden" name="target_link_uri" value="${baseToolUrl}/lti" />
           </form>
 
           <iframe src="about:blank" name="lti_student_iframe" title="Tool Content" width="100%" height="100%" allowfullscreen></iframe>`;
 
 
-          activityContent.html(ltiStudentLaunch);
-          $('#lti_student_login_hint').val(JSON.stringify(loginHint));
+                activityContent.html(ltiStudentLaunch);
+                $('#lti_student_login_hint').val(JSON.stringify(loginHint));
 
-          document.forms["lti_student_login_form"].submit();
-      }
-    }
-    else if(content.startsWith('[iframe]') && isDoable) {
-      activityContent.html(bbcodeToHtml(content))
-    }
-    else if(isDoable) {
-      activityContent.html(bbcodeToHtml(content))
-    }
-
-  $('#activity-correction').html(correction).show()
-    if (isDoable == false) {
-        $('#activity-validate').hide()
-        $('#activity-save').hide()
-    } else {
-        let interface = /\[iframe\].*?vittascience(|.com)\/([a-z]{5,12})\/?/gm.exec(Activity.activity.content)
-        $('#activity-validate').show()
-        if (interface != undefined && interface != null) {
-            $('#activity-save').show()
+                document.forms["lti_student_login_form"].submit();
+            }
         }
-    }
+        else {
+            activityContent.html('<iframe style="width: 100%; height: 100%;" allowfullscreen="true" frameborder="0" src="' + activity.content + '" allowfullscreen></iframe>');
+        }
+/*        else if(content.startsWith('[iframe]') && isDoable) {
+            activityContent.html(bbcodeToHtml(content))
+        }
+        else if(isDoable) {
+            activityContent.html(bbcodeToHtml(content))
+        }*/
+
+        $('#activity-correction').html(bbcodeToHtml(correction)).show()
+        if (isDoable == false) {
+            $('#activity-validate').hide()
+            $('#activity-save').hide()
+        } else {
+            let interface = /\[iframe\].*?vittascience(|.com)\/([a-z]{5,12})\/?/gm.exec(Activity.activity.content)
+            $('#activity-validate').show()
+            if (interface != undefined && interface != null) {
+                $('#activity-save').show()
+            }
+        }
+    });
 }
 
 function setActivityPlural(number) {

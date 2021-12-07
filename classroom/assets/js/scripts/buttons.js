@@ -73,7 +73,8 @@ let ClassroomSettings = {
         },
         "classroom-dashboard-profil-panel": {},
         "classroom-dashboard-help-panel": {}
-    }
+    },
+
 }
 let Breadcrumb = {
     "dashboard-activities": "classroom-dashboard-activities-panel",
@@ -177,6 +178,7 @@ function backToClassroomFromCode() {
     }
 }
 
+
 /**
  * Navigate trough panels
  * @param {string} id - The destination panel
@@ -240,6 +242,13 @@ function navigatePanel(id, idNav, option = "", interface = '', skipConfirm = fal
     $(function () {
         $('[data-toggle="tooltip"]').tooltip()
     })
+
+    const navigate = new CustomEvent("Navigate", {
+            detail: {
+                id
+            },
+        });
+    window.dispatchEvent(navigate);
 }
 
 /**
