@@ -864,7 +864,8 @@ function displayStudentsInClassroom(students) {
             // Display the current student activities in the dashboard
             let currentActivity = arrayActivities[i];
             if (currentActivity) {
-                html += '<td class="' + statusActivity(currentActivity) + ' bilan-cell classroom-clickable" data-state="' + statusActivity(currentActivity, false) + '" data-id="' + currentActivity.id + '" title="A rendre avant le ' + formatDay(currentActivity.dateEnd) + '"></td>';
+              html +=  `<td class="${statusActivity(currentActivity)} bilan-cell ${currentActivity.correction ? 'classroom-clickable' : 'no-activity'}" data-state="${statusActivity(currentActivity, false)}" data-id="${currentActivity.id}" title="A rendre avant le ${formatDay(currentActivity.dateEnd)}"></td>`;
+              //html += '<td class="' + statusActivity(currentActivity) + ' bilan-cell classroom-clickable" data-state="' + statusActivity(currentActivity, false) + '" data-id="' + currentActivity.id + '" title="A rendre avant le ' + formatDay(currentActivity.dateEnd) + '"></td>';
             } else {
                 html += '<td class="no-activity bilan-cell" "></td>';
             }
