@@ -2011,3 +2011,197 @@ i.line_height34 {
 #activity-title{
   padding-left: 10px;
 }
+
+/* CABRI CSS */
+.full-dashboard-block {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+}
+
+.form-container {
+    width: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.activity-form-title {
+ color: #41729C;
+ font-style: normal;
+ font-weight: bold;
+ font-size: 20px;
+ line-height: 24px;
+}
+
+.activity-form-chooser-file {
+    background: #41729C;
+    border-radius: 15px;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 20px;
+    line-height: 24px;
+    text-align: center;
+    color: #FFFFFF;
+    cursor: pointer;
+    margin: 0.5em;
+    padding: 0.5em;
+}
+
+.activity-form-input {
+    width: 30vw;
+    min-width: 80px;
+    margin-bottom: 0.5rem;
+    font-style: normal;
+    font-weight: 300;
+    font-size: 20px;
+    line-height: 24px;
+    color: #9A9A9A;
+    border: 1px solid #F0F0F0;
+    box-sizing: border-box;
+    filter: drop-shadow(1px 1px 4px rgba(0, 0, 0, 0.25));
+}
+
+.load-book {
+    border: 3px #41729C dotted;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    margin: 0 20px 20px 20px;
+    position: relative;
+}
+
+#is_drop {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: #41729C;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 20px;
+    line-height: 24px;
+    text-align: center;
+    color: #FFFFFF;
+}
+
+.or-separator {
+    color: #41729C;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 20px;
+    line-height: 24px;
+    margin: 20px
+}
+.img-drag-drop {
+    width: 60%;
+    height: 4em;
+    margin: 0 auto 5px auto;
+    object-fit: scale-down;
+}
+
+#tools-selector {
+    width: 90%;
+    height: 60%;
+    max-width: 100%;
+    max-height: 100%;
+    margin-top: 2vh;
+}
+
+#panel-container {
+    width: 100%;
+    height: 100%;
+    border: 3px solid #F0F0F0;
+}
+
+.selector-other-activity {
+    background: #F5F5F5;
+    border: 3px solid #F0F0F0;
+    border-radius: 15px 15px 0px 0px;
+
+    font-style: normal;
+    font-weight: bold;
+    font-size: 20px;
+    line-height: 24px;
+    text-align: center;
+    padding: 0.5em;
+    color: #41729C;
+
+    margin-bottom: -3px;
+    cursor: pointer;
+}
+
+.selected-other-activity {
+    background: #FFFFFF;
+    border-bottom-color: #FFFFFF;
+    color: #000000;
+}
+
+#tabs-container span:not(:first-child) {
+    margin-left: 5px;
+}
+
+.selector-container-other-activity {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.selector-container-other-activity .card-app {
+    width: 20%;
+    max-height: 90%;
+    max-width: 200px;
+    min-width: 120px;
+    margin: 20px;
+    padding: 10px;
+
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    word-wrap: break-word;
+    background-color: #FFFFFF;
+    background-clip: border-box;
+    border: 1px solid rgba(0,0,0,.125);
+    box-shadow: 0.5px 0.5px 3px rgba(0, 0, 0, 0.25);
+    border-radius: 17px;
+
+    cursor: pointer;
+}
+
+.selector-container-other-activity .card-app:hover {
+    filter: grayscale(0.70);
+}
+
+.selector-container-other-activity .card-app .card-img-top {
+    width: 60%;
+    height: 4em;
+    margin: 0 auto 5px auto;
+    object-fit: scale-down;
+}
+
+.card-body-app {
+    font-style: normal;
+    font-weight: bold;
+    font-size: 16px;
+    line-height: 20px;
+    text-align: center;
+
+    padding: 0 5px 0 5px;
+    color: #000000;
+}
+
+.card-body-app p {
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 17px;
+}
+

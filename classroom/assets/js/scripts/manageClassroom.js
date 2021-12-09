@@ -1,7 +1,6 @@
 // Used to make direct communications between parent and child (iframe)
 window.addEventListener("message", (event) => {
-  console.log('parent:' , event.origin, event.data)
-  const msg = JSON.parse(event.data);
+  const msg = event.data.type ? event.data.type : JSON.parse(event.data);
   switch(msg.type) {
     case 'end-lti-score':
         console.log('ENDING LTI SCORE');
@@ -10,6 +9,7 @@ window.addEventListener("message", (event) => {
         break;
     case 'end-lti-deeplink':
         console.log('ENDING LTI DEEPLINK');
+        console.log("msg : ", msg.content);
         $('#activity-form-content-lti').val(msg.content);
         $('.new-activity-panel-lti').click();
         break;
@@ -126,7 +126,6 @@ function setNote(note, el) {
 
 function giveNote() {
     let comment = $('#commentary-textarea').val()
-    console.log(comment)
     Main.getClassroomManager().setActivityCorrection(Activity, Activity.correction, Activity.note, comment).then(function (exercise) {
         Main.getClassroomManager().getClasses(Main.getClassroomManager()).then(function () {
             Activity = exercise

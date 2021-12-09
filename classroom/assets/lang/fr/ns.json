@@ -190,7 +190,8 @@
       "bothLimitationsReached": "Vous avez atteint les limitations d'apprenants que vous et votre groupe pouvez avoir.",
       "ClassroomNameInvalid": "Le nom de la classe est requis",
       "reservedNickname": "Le nom : \"{{reservedNickname}}\" ne peut être attribué.",
-      "invalidLink": "Le lien que vous avez entrer n'est pas valide"
+      "invalidLink": "Le lien que vous avez entrer n'est pas valide",
+      "invalidUrl": "Entrer le lien d'une page web ou d'une vidéo."
     },
     "ids": {
       "classroom-dashboard-help-panel-teacher": "Aide",
@@ -264,8 +265,29 @@
         "2": "Attribution",
         "title": {
           "label": "Titre de l'activité",
-          "placeholder": "Titre"
+          "labelCabri": "Quel est le titre de l'activité ?",
+          "placeholder": "Titre",
+          "placeholderCabri": "Titre de l'activité"
         },
+        "iframe": {
+          "label": "Voulez-vous entrer un url ?",
+          "placeholder": "Entrer un URL"
+        },
+        "notebookUrl": {
+          "label": "Voulez-vous entrer un url de cahier ?",
+          "placeholder": "Entrer un URL de cahier"
+        },
+        "playerUrl": {
+          "label": "Voulez-vous entrer un url de player ?",
+          "placeholder": "Entrer un URL de player"
+        },
+        "player": {
+          "labelFileChooser": "Choisir un fichier",
+          "fileUpload": "Le fichier a bien été chargé",
+          "dragDrop": "Glissez-déposer"
+        },
+        "nextButton": "Suivant",
+        "endButton": "Terminer",
         "content": {
           "label": "Contenu de l'activité"
         },
@@ -294,6 +316,34 @@
       "insufficientProficiency": "Maîtrise insuffisante",
       "addLearner": "Ajouter un apprenant",
       "exportCsv": "Exporter csv",
+      "players": {
+        "standard": {
+          "title": "Standard",
+          "description": "Le lecteur standard vous permettra de lire en ligne tous les cahiers d'activités réalisés grâce à l'outil auteur Cabri."
+        },
+        "imuscica": {
+          "title": "iMuSciCA",
+          "description": "Le lecteur iMuSciCA permet de lire dans le workbench musical toutes les activités réalisées grâce à l’outil auteur Cabri."
+        },
+        "other": {
+          "title": "Autre",
+          "description": "Sélectionnez vous-même le lecteur de cahiers d’activités réalisés grâce à l’outil auteur Cabri."
+        }
+      },
+      "tabs": {
+        "players": "Cahier d'activité",
+        "iframes": "Vidéo et page internet"
+      },
+      "iframes": {
+        "video": {
+          "title": "Vidéo",
+          "description": "Entrez l’URL d’une vidéo publiée sur une plateforme d'hébergement."
+        },
+        "web": {
+          "title": "Page internet",
+          "description": "Entrez l’URL de la page internet."
+        }
+      },
       "displayActivity": "Voir l'activité",
       "modifyActivity": "Modifier l'activité",
       "modifyActivityAttribution": "Modifier l'attribution",
