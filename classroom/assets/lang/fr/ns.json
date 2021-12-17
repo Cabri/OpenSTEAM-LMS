@@ -191,7 +191,8 @@
       "ClassroomNameInvalid": "Le nom de la classe est requis",
       "reservedNickname": "Le nom : \"{{reservedNickname}}\" ne peut être attribué.",
       "invalidLink": "Le lien que vous avez entrer n'est pas valide",
-      "invalidUrl": "Entrer le lien d'une page web ou d'une vidéo."
+      "invalidUrl": "Entrer le lien d'une page web ou d'une vidéo.",
+      "addFile": "Ajouter un lien de cahier ou un fichier est nécessaire."
     },
     "ids": {
       "classroom-dashboard-help-panel-teacher": "Aide",

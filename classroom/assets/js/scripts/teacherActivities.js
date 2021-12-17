@@ -299,7 +299,7 @@ function createCabriLtiActivity(link = null, id = null, type) {
               file = dropFile.data("file");
               isUrl = false;
           } else {
-              // TODO : notif remplir un des champs
+              displayNotification('#notif-div', "classroom.notif.addFile", "error");
               return;
           }
       }
