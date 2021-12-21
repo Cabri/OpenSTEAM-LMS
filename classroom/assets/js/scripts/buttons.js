@@ -2294,7 +2294,8 @@ function startActivityCreation() {
 
   if(!title || title.trim()==='') {
     // display form errors
-    alert('Veuillez remplir tous les champs obligatoires !')
+    //alert('Veuillez remplir tous les champs obligatoires !')
+    displayNotification('#notif-div', `classroom.notif.activityTitleInvalid`, "error")
   }
   else {
     // hide modal and show cabri activity creation
