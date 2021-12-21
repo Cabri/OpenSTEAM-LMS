@@ -526,7 +526,8 @@ function loadActivity(isDoable) {
         // TODO : define global tabs with tabs["name_app"] = "url_app" (to use also in teacher code)
         switch (activity.type) {
             case "standard":
-                return; // TODO: to do later
+                baseToolUrl = "https://baptiste-cabri.cabricloud.com";
+                break;
             case "imuscica":
                 baseToolUrl = "https://workbench-imuscica.cabricloud.com";
                 break;

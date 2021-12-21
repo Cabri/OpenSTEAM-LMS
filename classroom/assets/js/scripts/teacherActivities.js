@@ -358,7 +358,8 @@ function createCabriLtiActivity(link = null, id = null, type) {
     let isNeedTitle = false;
       switch (type) {
           case "standard":
-              return; // TODO: to do later
+              baseToolUrl = "https://baptiste-cabri.cabricloud.com";
+              break;
           case "imuscica":
               baseToolUrl = "https://workbench-imuscica.cabricloud.com";
               break;
