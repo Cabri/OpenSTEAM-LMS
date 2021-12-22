@@ -315,8 +315,9 @@
                 },
                 "next": "Siguiente",
                 "limitTitle": "Límite excedido",
-                "limitDescription": "Se alcanzó el límite de la cantidad de actividades vinculadas a esta cuenta."
-            },
+                "limitDescription": "Se alcanzó el límite de la cantidad de actividades vinculadas a esta cuenta.",
+                "upgradePlan": "Aumentar el límite"
+          },
             "updateActivity": {
               "title": "Modificar una actividad"
             },

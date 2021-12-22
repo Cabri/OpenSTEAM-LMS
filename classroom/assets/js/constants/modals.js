@@ -920,7 +920,8 @@ const classroomModals = {
               </div>
 
               <div class="row  justify-content-md-center"">
-                    <button class="c-btn-primary m-3" onclick="window.pseudoModal.closeModal('add-activity-limitation')"><i class="fas fa-check"></i> <span class="ml-1">Ok</span></button>
+                    <button class="c-btn-primary m-3" onclick="window.pseudoModal.closeModal('add-activity-limitation')"> <i class="fas fa-angle-left"></i> <span data-i18n="words.return" class="ml-1 mr-1"  style="text-transform:capitalize;"></span></button>
+                    <button class="c-btn-primary m-3" onclick="window.open('https://cabri.com/fr/la-plateforme/','_blank')"> <span data-i18n="classroom.modals.addActivity.upgradePlan"></span></button>
               </div>
           </div>
       `,

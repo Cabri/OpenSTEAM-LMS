@@ -307,8 +307,9 @@
 				},
 				"next": "Next",
 				"limitTitle": "Exceeded limit",
-				"limitDescription": "The limit of the number of activities linked to this account has been reached."
-			},
+				"limitDescription": "The limit of the number of activities linked to this account has been reached.",
+        "upgradePlan": "Increase limit"
+      },
 			"updateActivity": {
 				"title": "Update an activity"
 			},

@@ -411,7 +411,8 @@
         },
         "next": "Suivant",
         "limitTitle": "Limite dépassée",
-        "limitDescription": "La limite du nombre d'activités liée à ce compte est atteinte."
+        "limitDescription": "Limite du nombre d'activités, atteinte pour ce compte.",
+        "upgradePlan": "Augmenter la limite"
       },
       "updateActivity": {
         "title": "Modifier une activité"
