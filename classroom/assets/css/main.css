@@ -1666,6 +1666,7 @@ i.line_height34 {
     flex-wrap: nowrap;
     overflow-x: auto;
     overflow-y: hidden;
+    flex: 0 0 80px;
 }
 
 #classroom-panel-legend ul {

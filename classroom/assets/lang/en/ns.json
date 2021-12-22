@@ -307,8 +307,9 @@
 				},
 				"next": "Next",
 				"limitTitle": "Exceeded limit",
-				"limitDescription": "The limit of the number of activities linked to this account has been reached."
-			},
+				"limitDescription": "The limit of the number of activities linked to this account has been reached.",
+        "upgradePlan": "Increase limit"
+      },
 			"updateActivity": {
 				"title": "Update an activity"
 			},
@@ -349,7 +350,7 @@
 			},
 			"listClass": {
 				"title": "Switch to learner mode",
-				"description": "You can easily test the interface as a learner and return to your teacher profile at any time. Your progress as a learner will be saved in your Vittademo account.",
+				"description": "You can easily test the interface as a learner and return to your teacher profile at any time. Your progress as a learner will be saved in your demostudent account.",
 				"switchButton": "Switch to learner mode"
 			},
 			"changePseudo": {
@@ -493,7 +494,7 @@
 				},
 				"5": {
 					"title": "How to test an activity?",
-					"answer": "To test an activity, you have two options:<ol><li>Either go to <b>Profile</b> and click on the \"Switch to Learner Mode\" button and then select the class you want to be in. You will find yourself on the fictitious account of a learner called \"Vittademo\", you will be able to discover the \"Learner\" interface and perform the activities you have assigned.</li><li>Or go to <b>My classes</b> in the dashboard of a class, you will then be able to place yourself in the skin of the learner Vittademo. To do this, click on the <i class=\"fas fa-exchange-alt\"></i> icon, you will have the opportunity to become a learner in the class and try out the activities.</li></ol>To return to the \"Teacher\" mode, simply go to the <b>Profile</b> tab of the Vittademo account and click on \"Return to Teacher Mode.\""
+					"answer": "To test an activity, you have two options:<ol><li>Either go to <b>Profile</b> and click on the \"Switch to Learner Mode\" button and then select the class you want to be in. You will find yourself on the fictitious account of a learner called \"demostudent\", you will be able to discover the \"Learner\" interface and perform the activities you have assigned.</li><li>Or go to <b>My classes</b> in the dashboard of a class, you will then be able to place yourself in the skin of the learner demostudent. To do this, click on the <i class=\"fas fa-exchange-alt\"></i> icon, you will have the opportunity to become a learner in the class and try out the activities.</li></ol>To return to the \"Teacher\" mode, simply go to the <b>Profile</b> tab of the demostudent account and click on \"Return to Teacher Mode.\""
 				},
 				"6": {
 					"title": "How do you remove an activity allocation without removing the activity?",
@@ -567,7 +568,7 @@
 				},
 				"4": {
 					"title": "What is learner mode?",
-					"answer": "<p>In your profile, you can click the \"Switch to Learner Mode\" button. After choosing a class, you will be taken to a fictitious learner's account called \"Vittademo\", where you can discover the Learner interface and perform the activities you have assigned.</p><p>To return to the \"Teacher\" mode, just go to the <b>Profile</b> tab of the Vittademo account and click on \"Return to Teacher Mode\".</p>"
+					"answer": "<p>In your profile, you can click the \"Switch to Learner Mode\" button. After choosing a class, you will be taken to a fictitious learner's account called \"demostudent\", where you can discover the Learner interface and perform the activities you have assigned.</p><p>To return to the \"Teacher\" mode, just go to the <b>Profile</b> tab of the demostudent account and click on \"Return to Teacher Mode\".</p>"
 				}
 			}
 		},

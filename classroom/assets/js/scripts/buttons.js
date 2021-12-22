@@ -2291,9 +2291,11 @@ function getSubjects(grade) {
 function startActivityCreation() {
   // check if all modal elements are given
   const title = $('#activity-lti-form-title').val();
-  if(!title || title==='') {
+
+  if(!title || title.trim()==='') {
     // display form errors
-    alert('Veuillez remplir tous les champs obligatoires !')
+    //alert('Veuillez remplir tous les champs obligatoires !')
+    displayNotification('#notif-div', `classroom.notif.activityTitleInvalid`, "error")
   }
   else {
     // hide modal and show cabri activity creation

@@ -307,7 +307,8 @@
                 },
                 "next": "Prossimo",
                 "limitTitle": "Limite superato",
-                "limitDescription": "Il limite del numero di attività legate a questo conto è stato raggiunto."
+                "limitDescription": "Il limite del numero di attività legate a questo conto è stato raggiunto.",
+                "upgradePlan": "Aumenta limite"
             },
             "updateActivity": {
                 "title": "Aggiornare un'attività"
@@ -349,7 +350,7 @@
             },
             "listClass": {
                 "title": "Passare alla modalità studente",
-                "description": "Puoi facilmente testare l'interfaccia come studente e tornare al tuo profilo di insegnante in qualsiasi momento. I tuoi progressi come studente saranno salvati nel tuo account Vittademo.",
+                "description": "Puoi facilmente testare l'interfaccia come studente e tornare al tuo profilo di insegnante in qualsiasi momento. I tuoi progressi come studente saranno salvati nel tuo account demostudent.",
                 "switchButton": "Passare alla modalità studente"
             },
             "changePseudo": {
@@ -493,7 +494,7 @@
                 },
                 "5": {
                     "title": "Come testare un'attività?",
-                    "answer": "Per testare un'attività, hai due opzioni:<ol><li>O vai su <b>Profilo</b> e clicca sul pulsante \"Passa alla modalità studente\" e poi seleziona la classe in cui vuoi stare. Vi troverete sull'account fittizio di un allievo chiamato \"Vittademo\", potrete scoprire l'interfaccia \"Learner\" e svolgere le attività che avete assegnato.</li><li>Oppure andate su <b>Le mie classi</b> nella dashboard di una classe, potrete allora mettervi nella pelle dell'allievo Vittademo. Per fare questo, clicca sull'icona <i class=\"fas fa-exchange-alt\"></i>, avrai l'opportunità di diventare uno studente della classe e provare le attività.</li></ol>Per tornare alla modalità \"Insegnante\", basta andare nella scheda <b>Profilo</b> dell'account Vittademo e cliccare su \"Torna alla modalità insegnante\"."
+                    "answer": "Per testare un'attività, hai due opzioni:<ol><li>O vai su <b>Profilo</b> e clicca sul pulsante \"Passa alla modalità studente\" e poi seleziona la classe in cui vuoi stare. Vi troverete sull'account fittizio di un allievo chiamato \"demostudent\", potrete scoprire l'interfaccia \"Learner\" e svolgere le attività che avete assegnato.</li><li>Oppure andate su <b>Le mie classi</b> nella dashboard di una classe, potrete allora mettervi nella pelle dell'allievo demostudent. Per fare questo, clicca sull'icona <i class=\"fas fa-exchange-alt\"></i>, avrai l'opportunità di diventare uno studente della classe e provare le attività.</li></ol>Per tornare alla modalità \"Insegnante\", basta andare nella scheda <b>Profilo</b> dell'account demostudent e cliccare su \"Torna alla modalità insegnante\"."
                 },
                 "6": {
                     "title": "Come rimuovere l'assegnazione di un'attività senza rimuovere l'attività?",
@@ -567,7 +568,7 @@
                 },
                 "4": {
                     "title": "Cos'è la modalità studente?",
-                    "answer": "<p>Nel tuo profilo, puoi cliccare sul pulsante \"Passa alla modalità studente\". Dopo aver scelto una classe, sarete portati a un account fittizio dello studente chiamato \"Vittademo\", dove potrete scoprire l'interfaccia dello studente e svolgere le attività che avete assegnato</p><p>Per ritornare alla modalità \"Insegnante\", basta andare al menu<b>Profilo</b>dell'account Vittademo e clicca su \"Ritorno alla modalità insegnante\".</p>"
+                    "answer": "<p>Nel tuo profilo, puoi cliccare sul pulsante \"Passa alla modalità studente\". Dopo aver scelto una classe, sarete portati a un account fittizio dello studente chiamato \"demostudent\", dove potrete scoprire l'interfaccia dello studente e svolgere le attività che avete assegnato</p><p>Per ritornare alla modalità \"Insegnante\", basta andare al menu<b>Profilo</b>dell'account demostudent e clicca su \"Ritorno alla modalità insegnante\".</p>"
                 }
             }
         },

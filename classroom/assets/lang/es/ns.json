@@ -315,8 +315,9 @@
                 },
                 "next": "Siguiente",
                 "limitTitle": "Límite excedido",
-                "limitDescription": "Se alcanzó el límite de la cantidad de actividades vinculadas a esta cuenta."
-            },
+                "limitDescription": "Se alcanzó el límite de la cantidad de actividades vinculadas a esta cuenta.",
+                "upgradePlan": "Aumentar el límite"
+          },
             "updateActivity": {
               "title": "Modificar una actividad"
             },
@@ -357,7 +358,7 @@
             },
             "listClass": {
                 "title": "Cambiar a modo alumno",
-                "description": "Puede probar fácilmente la interfaz como alumno y volver a su perfil de profesor en cualquier momento. El progreso como alumno se guardará en la cuenta de Vittademo.\n\n",
+                "description": "Puede probar fácilmente la interfaz como alumno y volver a su perfil de profesor en cualquier momento. El progreso como alumno se guardará en la cuenta de demostudent.\n\n",
                 "switchButton": "Cambiar a modo alumno"
             },
             "changePseudo": {
@@ -501,7 +502,7 @@
                 },
                 "5": {
                     "title": "¿Cómo probar una actividad?",
-                    "answer": "Para probar una actividad, tiene dos opciones: <ol> <li> Vaya a <b> Perfil </b> y haga clic en el botón \"Cambiar al modo de alumno\" y luego seleccione la clase en la que se desea colocar. Termina en la cuenta ficticia de un alumno llamado \"Vittademo\", donde puede descubrir la interfaz \"Alumno\" y llevar a cabo las actividades que ha asignado.</li> <li> Vaya a <b> Mis clases </b> en el panel de control de la clase, luego podrá ponerse en el papel del alumno Vittademo. Para hacer esto, haga clic en el ícono <i class = \"fas fa-exchange-alt\"> </i>, tendrá la oportunidad de convertirse en un alumno de la clase y probar las actividades.</li> </ol> Para volver al modo \"Profesor\", simplemente vaya a la pestaña <b> Perfil </b> de la cuenta de Vittademo y haga clic en \"Volver al modo profesor\"."
+                    "answer": "Para probar una actividad, tiene dos opciones: <ol> <li> Vaya a <b> Perfil </b> y haga clic en el botón \"Cambiar al modo de alumno\" y luego seleccione la clase en la que se desea colocar. Termina en la cuenta ficticia de un alumno llamado \"demostudent\", donde puede descubrir la interfaz \"Alumno\" y llevar a cabo las actividades que ha asignado.</li> <li> Vaya a <b> Mis clases </b> en el panel de control de la clase, luego podrá ponerse en el papel del alumno demostudent. Para hacer esto, haga clic en el ícono <i class = \"fas fa-exchange-alt\"> </i>, tendrá la oportunidad de convertirse en un alumno de la clase y probar las actividades.</li> </ol> Para volver al modo \"Profesor\", simplemente vaya a la pestaña <b> Perfil </b> de la cuenta de demostudent y haga clic en \"Volver al modo profesor\"."
                 },
                 "6": {
                     "title": "¿Como eliminar la asignación de una actividad sin eliminar la actividad?",
@@ -575,7 +576,7 @@
                 },
                 "4": {
                     "title": "¿Qué significa el modo alumno?",
-                    "answer": "<p> En su perfil, usted puede hacer un clic sobre el botón \"Pasar al modo alumno\". Después de haber elegido una clase, se encontrará en la cuenta ficticia de un alumno llamado \"Vittademo\", donde puede descubrir la interface Alumno y realizar las actividades que usted ha asignado.</p><p>Para volver al modo \"Profesor\", es suficiente ir a la pestaña <b>Perfil</b> de la cuenta Vittademo y hacer un clic sobre \"Volver al modo profesor\".</p>"
+                    "answer": "<p> En su perfil, usted puede hacer un clic sobre el botón \"Pasar al modo alumno\". Después de haber elegido una clase, se encontrará en la cuenta ficticia de un alumno llamado \"demostudent\", donde puede descubrir la interface Alumno y realizar las actividades que usted ha asignado.</p><p>Para volver al modo \"Profesor\", es suficiente ir a la pestaña <b>Perfil</b> de la cuenta demostudent y hacer un clic sobre \"Volver al modo profesor\".</p>"
                 }
             }
         },
