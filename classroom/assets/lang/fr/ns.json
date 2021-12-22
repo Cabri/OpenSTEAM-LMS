@@ -661,7 +661,7 @@
         },
         "5": {
           "title": "Comment tester une activité ?",
-          "answer": "Pour tester une activité, vous avez deux options :<ol><li>Soit aller dans <b>Profil</b> et cliquer sur le bouton “Passer en mode apprenant” puis sélectionner la classe dans laquelle vous souhaitez vous placer. Vous vous retrouvez sur le compte fictif d’un apprenant appelé “Vittademo”, vous pourrez y découvrir l’interface “Apprenant” et réaliser les activités que vous avez attribuées.</li><li>Soit aller sur <b>Mes classes</b> dans le tableau de bord d’une classe, vous pourrez alors vous placer dans la peau de l’apprenant Vittademo. Pour cela, cliquer sur l’icône <i class=\"fas fa-exchange-alt\"></i>, vous aurez la possibilité de devenir un apprenant de la classe et d’essayer les activités.</li></ol>Pour revenir au mode “Enseignant”, il suffit d’aller dans l’onglet <b>Profil</b> du compte Vittademo et de cliquer sur “Retourner au mode enseignant”"
+          "answer": "Pour tester une activité, vous avez deux options :<ol><li>Soit aller dans <b>Profil</b> et cliquer sur le bouton “Passer en mode apprenant” puis sélectionner la classe dans laquelle vous souhaitez vous placer. Vous vous retrouvez sur le compte fictif d’un apprenant appelé “demostudent”, vous pourrez y découvrir l’interface “Apprenant” et réaliser les activités que vous avez attribuées.</li><li>Soit aller sur <b>Mes classes</b> dans le tableau de bord d’une classe, vous pourrez alors vous placer dans la peau de l’apprenant demostudent. Pour cela, cliquer sur l’icône <i class=\"fas fa-exchange-alt\"></i>, vous aurez la possibilité de devenir un apprenant de la classe et d’essayer les activités.</li></ol>Pour revenir au mode “Enseignant”, il suffit d’aller dans l’onglet <b>Profil</b> du compte demostudent et de cliquer sur “Retourner au mode enseignant”"
         },
         "6": {
           "title": "Comment supprimer l’attribution d’une activité sans supprimer l’activité ?",
@@ -735,7 +735,7 @@
         },
         "4": {
           "title": "Qu’est-ce que le mode apprenant ?",
-          "answer": "<p>Dans votre profil, vous pouvez cliquer sur le bouton “Passer en mode apprenant”. Après avoir choisi une classe, vous vous retrouvez sur le compte fictif d’un apprenant appelé “Vittademo”, dans lequel vous pourrez découvrir l’interface Apprenant et réaliser les activités que vous avez attribuées.</p><p>Pour revenir au mode “Enseignant”, il suffit d’aller dans l’onglet <b>Profil</b> du compte Vittademo et de cliquer sur “Retourner au mode enseignant”.</p>"
+          "answer": "<p>Dans votre profil, vous pouvez cliquer sur le bouton “Passer en mode apprenant”. Après avoir choisi une classe, vous vous retrouvez sur le compte fictif d’un apprenant appelé “demostudent”, dans lequel vous pourrez découvrir l’interface Apprenant et réaliser les activités que vous avez attribuées.</p><p>Pour revenir au mode “Enseignant”, il suffit d’aller dans l’onglet <b>Profil</b> du compte demostudent et de cliquer sur “Retourner au mode enseignant”.</p>"
         }
       }
     },
