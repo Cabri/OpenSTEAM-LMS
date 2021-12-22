@@ -26,7 +26,7 @@ function activityItem(activity, state) {
         var status = "new-exercise"
     }
     let html = `<div class="activity-item">
-                    <div class="${activity.type === 'GENIUS' ? 'activity-card-cabri-genius': activity.type === 'EXPRESS' ? '' : 'activity-card-cabri-iframe'} activity-card activity-card-` + ide + ` ` + status + `">
+                    <div class="${activity.activity.type === 'GENIUS' ? 'activity-card-cabri-genius': activity.activity.type === 'EXPRESS' ? '' : 'activity-card-cabri-iframe'} activity-card activity-card-` + ide + ` ` + status + `">
                         <div class="activity-card-top">
                         </div>
                         <div class="activity-card-mid"></div>
