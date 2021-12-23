@@ -632,7 +632,7 @@
         },
         "2": {
           "title": "Où peut-on trouver le code source du module Classe ?",
-          "answer": "Le code source du module Classe Open STEAM LMS est disponible <a href=\"https://github.com/vittascience/OpenSTEAM-LMS\">sur le repo git associé</a>, n'hésitez pas à contribuer !"
+          "answer": "Le code source du module Classe Open STEAM LMS est disponible <a href=\"https://github.com/Cabri/OpenSTEAM-LMS/\">sur le repo git associé</a>, n'hésitez pas à contribuer !"
         }
       }
     },
@@ -775,7 +775,7 @@
         },
         "2": {
           "title": "Où peut-on trouver le code source du module Classe ?",
-          "answer": "Le code source du module Classe est disponible sur le <a href=\"https://github.com/vittascience/OpenSTEAM-LMS\" target=\"_href\">repository git OpenSTEAM-LMS</a>, n'hésitez pas à contribuer !"
+          "answer": "Le code source du module Classe est disponible sur le <a href=\"https://github.com/Cabri/OpenSTEAM-LMS/\" target=\"_href\">repository git OpenSTEAM-LMS</a>, n'hésitez pas à contribuer !"
         }
       }
     }
@@ -856,7 +856,7 @@
       "question_list": {
         "1": {
           "title": "Où peut-on trouver le code source du module Classe ?",
-          "answer": "Le code source du module Classe est disponible sur <a href=\"https://github.com/vittascience/OpenSTEAM-LMS\" target=\"_href\">le repository git OpenSTEAM-LMS</a>, n'hésites pas à contribuer !"
+          "answer": "Le code source du module Classe est disponible sur <a href=\"https://github.com/Cabri/OpenSTEAM-LMS/\" target=\"_href\">le repository git OpenSTEAM-LMS</a>, n'hésites pas à contribuer !"
         }
       }
     }

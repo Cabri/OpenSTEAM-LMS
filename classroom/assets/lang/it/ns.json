@@ -607,7 +607,7 @@
                 },
                 "2": {
                     "title": "Dove posso trovare il codice sorgente del modulo Class?",
-                    "answer": "Il codice sorgente del modulo Class è disponibile sul repository git <a href=\"https://github.com/vittascience/OpenSTEAM-LMS\" target=\"_href\">OpenSTEAM-LMS</a>, sentiti libero di contribuire!"
+                    "answer": "Il codice sorgente del modulo Class è disponibile sul repository git <a href=\"https://github.com/Cabri/OpenSTEAM-LMS/\" target=\"_href\">OpenSTEAM-LMS</a>, sentiti libero di contribuire!"
                 }
             }
         }
@@ -688,7 +688,7 @@
             "question_list": {
                 "1": {
                     "title": "Dove posso trovare il codice sorgente del modulo Class?",
-                    "answer": "Il codice sorgente del modulo Class è disponibile su <a href=\"https://github.com/vittascience/OpenSTEAM-LMS\" target=\"_href\">il repository git di OpenSTEAM-LMS</a>, sentiti libero di contribuire!"
+                    "answer": "Il codice sorgente del modulo Class è disponibile su <a href=\"https://github.com/Cabri/OpenSTEAM-LMS/\" target=\"_href\">il repository git di OpenSTEAM-LMS</a>, sentiti libero di contribuire!"
                 }
             }
         }
