@@ -190,7 +190,7 @@ function backToClassroomFromCode() {
  */
 function navigatePanel(id, idNav, option = "", interface = '', skipConfirm = false, isOnpopstate = false) {
     let confirmExit = true;
-    if ($_GET('interface') == "newActivities" && !Activity.project && !skipConfirm) {
+    if ($_GET('interface') == "newActivities" && !Activity.project && !skipConfirm && Activity.activity.type!=='IFRAME') {
         confirmExit = confirm(i18next.t("classroom.notif.saveProject"));
     }
     if (confirmExit) {
