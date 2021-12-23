@@ -324,7 +324,7 @@ $('body').on('change', '#is-anonymised', function () {
     let index = 1
     if ($(this).is(':checked')) {
         $('.username').each(function (el) {
-            $('.username')[el].children[0].setAttribute('src', '/public/content/img/alphabet/A.png')
+            $('.username')[el].children[0].setAttribute('src', '/classroom/assets/media/alphabet/A.png')
             $('.username')[el].children[1].innerHTML = "Elève n° " + index
             $('.username')[el].children[1].setAttribute('title', '')
             index++
