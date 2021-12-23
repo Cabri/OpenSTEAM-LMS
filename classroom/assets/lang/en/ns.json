@@ -607,7 +607,7 @@
 				},
 				"2": {
 					"title": "Where can I find the source code of the Class module?",
-					"answer": "The source code of the Class module is available on the <a href=\"https://github.com/vittascience/OpenSTEAM-LMS\" target=\"_href\">OpenSTEAM-LMS git repository</a>, feel free to contribute!"
+					"answer": "The source code of the Class module is available on the <a href=\"https://github.com/Cabri/OpenSTEAM-LMS/\" target=\"_href\">OpenSTEAM-LMS git repository</a>, feel free to contribute!"
 				}
 			}
 		}
@@ -688,7 +688,7 @@
 			"question_list": {
 				"1": {
 					"title": "Where can I find the source code of the Class module?",
-					"answer": "The source code of the Class module is available on <a href=\"https://github.com/vittascience/OpenSTEAM-LMS\" target=\"_href\">the OpenSTEAM-LMS git repository</a>, feel free to contribute!"
+					"answer": "The source code of the Class module is available on <a href=\"https://github.com/Cabri/OpenSTEAM-LMS/\" target=\"_href\">the OpenSTEAM-LMS git repository</a>, feel free to contribute!"
 				}
 			}
 		}

@@ -476,7 +476,9 @@ function loadActivity(isDoable) {
             if (Activity.correction >= 1) {
                 activityDetails.html("Cette activité a été rendue le " + formatHour(Activity.dateSend))
             } else {
-                activityDetails.html("Activité à rendre pour le " + formatDay(Activity.dateEnd))
+                // do not show the message in case of cabri iframe activities (because we student has nothing to submit)
+                if(Activity.activity.type!=='IFRAME')
+                  activityDetails.html("Activité à rendre pour le " + formatDay(Activity.dateEnd))
             }
         }
 

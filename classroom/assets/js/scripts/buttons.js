@@ -190,7 +190,7 @@ function backToClassroomFromCode() {
  */
 function navigatePanel(id, idNav, option = "", interface = '', skipConfirm = false, isOnpopstate = false) {
     let confirmExit = true;
-    if ($_GET('interface') == "newActivities" && !Activity.project && !skipConfirm) {
+    if ($_GET('interface') == "newActivities" && !Activity.project && !skipConfirm && Activity.activity.type!=='IFRAME') {
         confirmExit = confirm(i18next.t("classroom.notif.saveProject"));
     }
     if (confirmExit) {
@@ -324,7 +324,7 @@ $('body').on('change', '#is-anonymised', function () {
     let index = 1
     if ($(this).is(':checked')) {
         $('.username').each(function (el) {
-            $('.username')[el].children[0].setAttribute('src', '/public/content/img/alphabet/A.png')
+            $('.username')[el].children[0].setAttribute('src', '/classroom/assets/media/alphabet/A.png')
             $('.username')[el].children[1].innerHTML = "Elève n° " + index
             $('.username')[el].children[1].setAttribute('title', '')
             index++

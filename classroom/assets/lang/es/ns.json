@@ -615,7 +615,7 @@
                 },
                 "2": {
                     "title": "¿Dónde se puede encontrar el código fuente del módulo Clase?",
-                    "answer": "El código fuente del módulo Clase está disponible en href=\"https://github.com/vittascience/OpenSTEAM-LMS\" target=\"_href\">repository git OpenSTEAM-LMS</a>.¡No dude en contribuir!"
+                    "answer": "El código fuente del módulo Clase está disponible en href=\"https://github.com/Cabri/OpenSTEAM-LMS/\" target=\"_href\">repository git OpenSTEAM-LMS</a>.¡No dude en contribuir!"
                 }
             }
         }
@@ -696,7 +696,7 @@
             "question_list": {
                 "1": {
                     "title": "¿Dónde puedo encontrar el código fuente del módulo Clase?",
-                    "answer": "El código fuente del módulo Clase está disponible en <a href=\"https://github.com/vittascience/OpenSTEAM-LMS\" target=\"_href\">le repository git OpenSTEAM-LMS</a>¡No dudes en contribuir!"
+                    "answer": "El código fuente del módulo Clase está disponible en <a href=\"https://github.com/Cabri/OpenSTEAM-LMS/\" target=\"_href\">le repository git OpenSTEAM-LMS</a>¡No dudes en contribuir!"
                 }
             }
         }
