@@ -453,7 +453,7 @@ $('body').on('click', '.modal-activity-delete', function () {
 })
 
 //activité modal-->modifier
-function activityModify(id) {
+function activityModify(id, type) {
     ClassroomSettings.activity = id
     $('#activity-form-title').val('')
     $('.wysibb-text-editor').html('')
@@ -479,6 +479,35 @@ function activityModify(id) {
           pseudoModal.clickOnExit('add-lti-activity-name', ()=>{
             navigatePanel('classroom-dashboard-activities-panel-teacher', 'dashboard-activities-teacher');
           });
+
+
+          let baseToolUrl;
+          let isNeedTitle = false;
+          switch (type) {
+            case "standard":
+              return; // TODO: to do later
+            case "imuscica":
+              baseToolUrl = "https://workbench-imuscica.cabricloud.com";
+              break;
+            default:
+              baseToolUrl = "https://8315-92-154-2-113.ngrok.io";
+              isNeedTitle = true;
+              break;
+          }
+
+          $('#lti-loader-container').html(
+            `
+            <input id="activity-form-content-lti" type="text" hidden/>
+            <form name="lti_teacher_login_form" action="${baseToolUrl}/login" method="post" target="lti_teacher_iframe">
+              <input id="lti_teacher_iss" type="hidden" name="iss"/>
+              <input id="lti_teacher_login_hint" type="hidden" name="login_hint"/>
+              <input id="lti_teacher_client_id" type="hidden" name="client_id" value="client_id_php" />
+              <input id="lti_teacher_target_link_uri" type="hidden" name="target_link_uri" value="${baseToolUrl}/deeplink" />
+            </form>
+            <div style="width: 100%; height: 100%;">
+                <iframe id="lti_teacher_iframe" src="about:blank" name="lti_teacher_iframe" title="Tool Content" width="100%"  height="100%" allowfullscreen></iframe>
+            </div>`
+          );
 
           // Start LTI 1.3 tool launch
           const loginHint = {
@@ -583,7 +612,7 @@ $('body').on('click', '#attribute-activity-to-students', function () {
             /* if (ClassroomSettings.ref != null) {
                 Main.getClassroomManager().undoAttributeActivity(ClassroomSettings.ref)
             } */
-            
+
             // get the checkbox value then set it by default for the next time
             retroAttribution = $('#retro-attribution').prop('checked')
             $('#retro-attribution').prop('checked',false)

@@ -99,7 +99,7 @@ function teacherActivityItem(activity) {
 
                 <li style="display: ${activity.type==='GENIUS' || activity.type==='EXPRESS' ? 'none' : 'none'}" class="dropdown-item classroom-clickable col-12" href="#" onclick="createActivity(null,${activity.id})">` + capitalizeFirstLetter(i18next.t('words.duplicate')) + `</li>
 
-                <li class=" classroom-clickable col-12 dropdown-item" onclick="activityModify(${activity.id})" href="#">` + capitalizeFirstLetter(i18next.t('words.modify')) + `</li>
+                <li class=" classroom-clickable col-12 dropdown-item" onclick="activityModify(${activity.id}, '${activity.type}')" href="#">` + capitalizeFirstLetter(i18next.t('words.modify')) + `</li>
                 <li class="dropdown-item modal-activity-delete classroom-clickable col-12" href="#">` + capitalizeFirstLetter(i18next.t('words.delete')) + `</li>
               </div>
               </div>
