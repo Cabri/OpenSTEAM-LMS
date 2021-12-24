@@ -2559,3 +2559,19 @@ i.line_height34 {
     line-height: 17px;
 }
 
+.selectNote {
+  background-color: var(--classroom-primary);
+  color: white;
+}
+
+.note-choice {
+  border-radius: 25px;
+  width: 100%;
+  cursor: pointer;
+  margin: 10px 0px;
+}
+
+.note-choice i {
+  color: var(--classroom-background);
+  margin: 0px 5px;
+}

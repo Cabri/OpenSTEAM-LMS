@@ -113,14 +113,16 @@ $('body').on('click', '.class-card', function () {
     }
 })
 
-function setNote(note) {
-    alert(note)
+function setNote(note, el) {
     Activity.note = note
     if (note > 1) {
         Activity.correction = 2
     } else {
         Activity.correction = 3
     }
+
+    $('.note-choice').removeClass('selectNote')
+    $('#' + el).addClass('selectNote')
 }
 
 function giveNote() {
