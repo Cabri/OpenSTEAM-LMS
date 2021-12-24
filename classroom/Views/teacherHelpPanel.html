@@ -1,37 +1,40 @@
 <div id="classroom-dashboard-help-panel-teacher" style="display:none;" class="dashboard-block help-panel">
-    <div class="teacher-contact-panel">
+    <div class="contact-panel">
 
         <h3 data-i18n="classroom.teacherHelpPanel.contactForm.title">Contacter Vittascience</h3>
-        <div id="about-contact-info"></div>
-        <form id="about-contact-form" class="c-primary-form">
-            <input type="text" name="subject" class="form-control" id="contact-subject-input"
-                data-i18n="[placeholder]classroom.teacherHelpPanel.contactForm.objectPlaceholder" placeholder="Objet"
-                style="width: 70%;">
 
-            <textarea name="message" id="contact-message-input" rows="8" cols="25" style="resize: none; width: 100%;"
-                data-i18n="[placeholder]classroom.teacherHelpPanel.contactForm.messagePlaceholder"
-                placeholder="Écrivez votre message ici. (Maximum 800 caractères)"></textarea>
+        <div id="about-contact-info">
 
-            <input type="submit" data-i18n="[value]classroom.teacherHelpPanel.contactForm.sendButton"
-                disabled="disabled" style="cursor:not-allowed;" class="btn btn-lg login-button c-btn-primary">
-        </form>
+            <form id="about-contact-form" class="c-primary-form">
+                <div class="form-group">
+                    <input type="text" name="subject" class="form-control" id="contact-subject-input" data-i18n="[placeholder]classroom.teacherHelpPanel.contactForm.objectPlaceholder" placeholder="Objet">
+                </div>
 
-        <div id="footer-content" class="row" style="justify-content: space-around;width: 70%;flex-wrap: wrap;">
-            <div class="col">
-                <a class="footer-link text-uppercase d-block" href="/classroom/privacy.php" target="_blank" data-i18n="[html]classroom.footer.privacy"></a>
-            </div>
-            <div class="col">
-                <a class="footer-link text-uppercase d-block" href="/classroom/cgu.php" target="_blank" data-i18n="[html]classroom.footer.cgu"></a>
-            </div>
-            <div class="col">
-                <a class="footer-link text-uppercase d-block" href="/classroom/legal.php" target="_blank" data-i18n="[html]classroom.footer.legal"></a>
-            </div>
-            <div class="col" data-i18n="classroom.footer.copyright">
-            </div>
+                <div class="form-group">
+                    <textarea name="message" id="contact-message-input" class="form-control" rows="8" cols="25" style="resize: none;" data-i18n="[placeholder]classroom.teacherHelpPanel.contactForm.messagePlaceholder" placeholder="Écrivez votre message ici. (Maximum 800 caractères)"></textarea>
+                </div>
+
+                <input type="submit" class="btn c-btn-primary" data-i18n="[value]classroom.teacherHelpPanel.contactForm.sendButton" disabled="disabled" style="cursor:not-allowed;float: right;">
+            </form>
+        </div>
+        <br>
+        <div id="footer-content">
+            <p>
+                <a class="footer-link text-uppercase" href="/classroom/privacy.php" target="_blank" data-i18n="[html]classroom.footer.privacy"></a>
+            </p>
+            <p>
+                <a class="footer-link text-uppercase" href="/classroom/cgu.php" target="_blank" data-i18n="[html]classroom.footer.cgu"></a>
+            </p>
+            <p>
+                <a class="footer-link text-uppercase" href="/classroom/legal.php" target="_blank" data-i18n="[html]classroom.footer.legal"></a>
+            </p>
+            <p data-i18n="classroom.footer.copyright">
+            </p>
         </div>
     </div>
+    
     <div class="faq-panel">
-        <h2 class="c-text-secondary font-weight-bold text-center mt-5">FAQ</h2>
+        <h2 class="c-text-secondary font-weight-bold text-center mt-3">FAQ</h2>
         <div id="teacher-faq-container"></div>
     </div>
 

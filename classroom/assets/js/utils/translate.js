@@ -1,4 +1,3 @@
-console.log(getCookie('lng'))
 i18next.use(window.i18nextXHRBackend)
     .init({
         debug: false,
@@ -15,7 +14,6 @@ i18next.use(window.i18nextXHRBackend)
             useDataAttrOptions: true,
             parseDefaultValueFromContent: true
         });
-        console.log('localize')
         $(document).localize();
         if($("[data-toggle='tooltip']")[0]){
             $("[data-toggle='tooltip']").tooltip('dispose');

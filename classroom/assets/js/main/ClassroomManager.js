@@ -461,28 +461,31 @@ class ClassroomManager {
         })
     }
     /**
+     * @ToBeRemoved
+     * Last check October 2021
+     * 
      * Get students list in the classroom
      * @public
      * @returns {Array}
      */
-    getUsersInClassroom(link) {
-        return new Promise(function (resolve, reject) {
-            $.ajax({
-                type: "POST",
-                url: "/routing/Routing.php?controller=classroom_link_user&action=get_by_classroom",
-                data: {
-                    "classroom": link
-                },
-                success: function (response) {
-                    resolve(JSON.parse(response))
+    // getUsersInClassroom(link) {
+    //     return new Promise(function (resolve, reject) {
+    //         $.ajax({
+    //             type: "POST",
+    //             url: "/routing/Routing.php?controller=classroom_link_user&action=get_by_classroom",
+    //             data: {
+    //                 "classroom": link
+    //             },
+    //             success: function (response) {
+    //                 resolve(JSON.parse(response))
 
-                },
-                error: function () {
-                    reject();
-                }
-            });
-        })
-    }
+    //             },
+    //             error: function () {
+    //                 reject();
+    //             }
+    //         });
+    //     })
+    // }
 
     /**
      * Get general data about the user (activities to do, activities done, courses todo, courses done)
@@ -609,13 +612,14 @@ class ClassroomManager {
      * @public
      * @returns {Array}
      */
-    undoAttributeActivity(ref) {
+    undoAttributeActivity(ref,classroomId) {
         return new Promise(function (resolve, reject) {
             $.ajax({
                 type: "POST",
                 url: "/routing/Routing.php?controller=activity_link_user&action=remove_by_reference",
                 data: {
-                    "reference": ref
+                    "reference": ref,
+                    "classroomId" : classroomId
                 },
                 success: function (response) {
                     resolve(JSON.parse(response));
@@ -849,23 +853,30 @@ class ClassroomManager {
      * @public
      * @returns {Array}
      */
-    attributeActivity(data) {
-        return new Promise(function (resolve, reject) {
-            $.ajax({
-                type: "POST",
-                url: "/routing/Routing.php?controller=activity_link_user&action=add_users",
-                data: data,
-                success: function (response) {
-                    resolve(JSON.parse(response))
-
-                },
-                error: function () {
-                    reject();
-                }
-            });
+    attributeActivity(data,container) {
+        return new Promise((resolve, reject) =>{
+            // Wrap the current action into a task function
+            let currentTask = onEnd => {  
+                $.ajax({
+                    type: "POST",
+                    url: "/routing/Routing.php?controller=activity_link_user&action=add_users",
+                    data: data,
+                    success: function (response) {                        
+                        if (JSON.parse(response).error_message && JSON.parse(response).error_message !== undefined) {
+                            container.errors.push(GET_PUBLIC_PROJECTS_ERROR);
+                        }
+                        onEnd()
+                        resolve(JSON.parse(response));
+                    },
+                    error: function () {
+                        onEnd()
+                    }
+                });
+            }
+            // Add the current task to the tasks queue
+            this._addTaskToQueue(currentTask);
         })
     }
-
     /**
      * Update a student's exercise with his project
      * */
@@ -930,7 +941,6 @@ class ClassroomManager {
                         'timePassed': chrono,
                         'classroomLink': ClassroomSettings.classroom,
                         'note': note
-
                     },
                     success: function (r) {
                         resolve(JSON.parse(r))
@@ -1171,5 +1181,11 @@ class ClassroomManager {
                 }
             });
         });
+    }
+
+    getClassroomIdByLink(link){
+        for(let classroom of this._myClasses){
+            if(classroom.classroom.link == link) return classroom.classroom.id
+        }
     }
 }

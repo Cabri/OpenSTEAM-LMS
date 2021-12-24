@@ -12,6 +12,7 @@ if (is_dir($openClassroomDir)) {
 
 use Dotenv\Dotenv;
 use User\Entity\Regular;
+use Utils\ConnectionManager;
 
 // Load env variables 
 $dotenv = Dotenv::createImmutable(__DIR__ . "/../");
@@ -25,7 +26,12 @@ $urlhome = (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? "https" : "
 setcookie("token", $token, time() + 3600);
 
 if (isset($_SESSION['id'])) {
-    return header("Location: $urlhome");
+    $sessionUserId = intval($_SESSION["id"]);
+    $sessionToken = htmlspecialchars(strip_tags(trim($_SESSION["token"])));
+
+    $manager = ConnectionManager::getSharedInstance();
+    $user = $manager->checkConnected();
+    $res = $manager->deleteToken($sessionUserId, $sessionToken);
 }
 
 $redirect = "";
@@ -49,6 +55,6 @@ require_once(__DIR__ . "/header.html");
 </head>
 
 <body>
-    <?php
-    require_once(__DIR__ . "/registration.html");
-    require_once(__DIR__ . "/footer.html");
+<?php
+require_once(__DIR__ . "/registration.html");
+require_once(__DIR__ . "/footer.html");

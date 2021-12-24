@@ -12,7 +12,7 @@
     z-index: 1000;
     overflow-y: auto;
     flex-direction: column;
-    position: absolute;
+    position: fixed;
     top: 0;
     left: 0;
     right: 0;
@@ -39,16 +39,22 @@
 
 @media (min-width: 1000px) {
     .vitta-modal {
-        width: 65%
+        width: 50%
     }
 }
 @media (max-width: 1000px) {
     .vitta-modal {
-        width: 70%
+        width: 60%
     }
 }
 
 @media (max-width: 800px) {
+    .vitta-modal {
+        width: 70%;
+    }
+}
+
+@media (max-width: 900px) {
     .vitta-modal {
         width: 80%;
     }

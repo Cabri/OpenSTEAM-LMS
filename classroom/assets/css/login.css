@@ -96,7 +96,6 @@
     font-weight: 800;
     color: var(--text-0);
     font-size: 1.2em;
-    text-transform: uppercase;
     width: 50%;
 }
 
@@ -358,7 +357,7 @@ a.forgot-password {
     width: 80%;
     height: 450px;
     margin: 10vh auto;
-    box-shadow: 0px 0px 10px #00000029;
+    box-shadow: 0px 0px 10px var(--classroom-shadow-1);
     border-radius: 1em;
     overflow: hidden;
     flex-wrap: wrap;
@@ -368,7 +367,7 @@ a.forgot-password {
     position: relative;
     width: 80%;
     margin: 10vh auto;
-    box-shadow: 0px 0px 10px #00000029;
+    box-shadow: 0px 0px 10px var(--classroom-shadow-1);
     border-radius: 1em;
     padding: 20px;
 }
@@ -554,4 +553,8 @@ a.forgot-password {
         line-height: 0px;
 
     }
+}
+
+.filter-color-green {
+    filter: invert(49%) sepia(89%) saturate(366%) hue-rotate(101deg) brightness(98%) contrast(92%);
 }

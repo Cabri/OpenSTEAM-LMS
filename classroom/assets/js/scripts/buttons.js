@@ -47,6 +47,8 @@ let ClassroomSettings = {
 
     ],
     mixPanels: ['classroom-dashboard-ide-panel', 'classroom-dashboard-sandbox-panel', 'classroom-dashboard-sandbox-creation', 'classroom-dashboard-activity-panel'],
+    managerPanels: ['manager-dashboard-main', 'manager-apps-main', 'classroom-dashboard-profil-panel-manager'],
+    groupAdminPanels: ['groupadmin-dashboard-users', 'groupadmin-apps-main', 'classroom-dashboard-profil-panel-groupadmin', 'groupadmin-dashboard-help'],
     treeStructure: {
         "classroom-dashboard-activities-panel-teacher": {
             "classroom-dashboard-new-activity-panel": {},
@@ -238,17 +240,15 @@ function navigatePanel(id, idNav, option = "", interface = '', skipConfirm = fal
         breadcrumbElt.innerHTML = innerBreadCrumbHtml;
         $('#breadcrumb').localize();
     }
-
-    $(function () {
+        $('.leader-line').remove()
         $('[data-toggle="tooltip"]').tooltip()
-    })
 
-    const navigate = new CustomEvent("Navigate", {
-            detail: {
-                id
-            },
+        const navigate = new CustomEvent("Navigate", {
+          detail: {
+            id
+          },
         });
-    window.dispatchEvent(navigate);
+        window.dispatchEvent(navigate);
 }
 
 /**
@@ -320,19 +320,24 @@ $('body').on('change', '#list-classes input', function () {
     ClassroomSettings.classroom = $(this).val()
 })
 
-$('body').on('change', '#is-anonymised', function () {
-    let index = 1
-    if ($(this).is(':checked')) {
+$('body').on('change', '#is-anonymised', anonymizeStudents);
+
+function anonymizeStudents() {
+    let index = 1;
+    if ($('#is-anonymised').is(':checked')) {
         $('.username').each(function (el) {
-            $('.username')[el].children[0].setAttribute('src', '/classroom/assets/media/alphabet/A.png')
+            $('.username')[el].children[0].setAttribute('src', _PATH + 'assets/media/alphabet/A.png')
+            $('.username')[el].children[0].setAttribute('alt', '')
+            $('.username')[el].children[0].setAttribute('anonymized', 'true')
             $('.username')[el].children[1].innerHTML = "Elève n° " + index
             $('.username')[el].children[1].setAttribute('title', '')
             index++
         })
     } else {
-        navigatePanel('classroom-table-panel-teacher', 'dashboard-classes-teacher', ClassroomSettings.classroom)
+        let students = getClassroomInListByLink(ClassroomSettings.classroom)[0].students;
+        displayStudentsInClassroom(students);
     }
-})
+}
 
 function listeModeApprenant() {
     pseudoModal.openModal('list-classes-modal')
@@ -483,6 +488,11 @@ $('body').on('change', '.student-id', function () {
         ClassroomSettings.studentCount--
     }
     $('.student-number').html(ClassroomSettings.studentCount)
+    if(document.querySelector('.student-number').textContent != '0') {
+        document.getElementById('attribute-activity-to-students').removeAttribute('disabled');
+    } else {
+        document.getElementById('attribute-activity-to-students').setAttribute('disabled', '');
+    }
 })
 
 $('body').on('change', '.list-students-classroom', function () {
@@ -494,6 +504,11 @@ $('body').on('change', '.list-students-classroom', function () {
         ClassroomSettings.studentCount -= nbStudent
     }
     $('.student-number').html(ClassroomSettings.studentCount)
+    if(document.querySelector('.student-number').textContent != '0') {
+        document.getElementById('attribute-activity-to-students').removeAttribute('disabled');
+    } else {
+        document.getElementById('attribute-activity-to-students').setAttribute('disabled', '');
+    }
 })
 
 
@@ -534,7 +549,7 @@ $('#dashboard-activities, .activity-panel-link').click(function () {
 //activity-->validate
 function validateActivity() {
     $("#activity-validate").attr("disabled", "disabled");
-    let interface = /\[iframe\].*?vittascience(|.com)\/([a-z]{5,12})\/?/gm.exec(Activity.activity.content)
+    let interface = /\[iframe\].*?vittascience(|.com)\/([a-z0-9]{5,12})\/?/gm.exec(Activity.activity.content)
     if (interface == undefined || interface == null) {
         correction = 2
         Main.getClassroomManager().saveStudentActivity(false, false, Activity.id, correction, 3).then(function (activity) {
@@ -545,7 +560,7 @@ function validateActivity() {
         window.localStorage.classroomActivity = null
     } else if (Activity.autocorrection == false) {
         correction = 1
-        let interface = /\[iframe\].*?vittascience(|.com)\/([a-z]{5,12})\/?/gm.exec(Activity.activity.content)[2]
+        let interface = /\[iframe\].*?vittascience(|.com)\/([a-z0-9]{5,12})\/?/gm.exec(Activity.activity.content)[2]
         let project = window.localStorage[interface + 'CurrentProject']
         let note = Number($('#activity-score').val());
         Main.getClassroomManager().saveStudentActivity(JSON.parse(project), interface, Activity.id, undefined, note).then(function (activity) {
@@ -564,7 +579,7 @@ function validateActivity() {
 function saveActivity() {
     $("#activity-save").attr("disabled", true);
     correction = 0
-    let interface = /\[iframe\].*?vittascience(|.com)\/([a-z]{5,12})\/?/gm.exec(Activity.activity.content)[2]
+    let interface = /\[iframe\].*?vittascience(|.com)\/([a-z0-9]{5,12})\/?/gm.exec(Activity.activity.content)[2]
     let project = window.localStorage[interface + 'CurrentProject']
     Main.getClassroomManager().saveStudentActivity(JSON.parse(project), interface, Activity.id, correction).then(function (activity) {
         actualizeStudentActivities(activity, correction)
@@ -648,6 +663,9 @@ function studentActivitiesDisplay() {
         $('#bilan-student').show()
     }
 
+    $('[data-toggle="tooltip"]').tooltip()
+
+
 }
 
 function sandboxDisplay(projects = Main.getClassroomManager()._myProjects) {
@@ -678,24 +696,64 @@ function sandboxDisplay(projects = Main.getClassroomManager()._myProjects) {
 }
 
 function classroomsDisplay() {
+    let noContentDiv = `
+    <p class="no-content-div">
+        <img src="assets/media/my_classes.svg" alt="Icône classe" class="hue-rotate-teacher">
+        <b data-i18n="classroom.classes.noClasses">Vous n'avez pas encore de classe</b>
+        <span id="no-content-div__bottom-text"  data-i18n="classroom.classes.createClassNow">Commencez par créer une classe dès maintenant !</span>
+    </p>`
+
     // Hide the "add a class" button in the gar user context
     if (UserManager.getUser().isFromGar) {
         document.querySelector('.buttons-interactions button.teacher-new-classe').style.display = 'none';
+        noContentDiv = `
+        <p class="no-content-div">
+            <img src="assets/media/my_classes.svg" alt="Icône classe" class="hue-rotate-teacher">
+            <b data-i18n="classroom.classes.noClasses">Vous n'avez pas encore de classe</b>
+        </p>`
     }
 
     // Display the classes from cached data
     $('.list-classes').html(``);
     let classes = Main.getClassroomManager()._myClasses;
-    classes.forEach(classroom => {
-        $('.list-classes').append(classeItem(classroom.classroom, classroom.students.length, classroom.students));
-    });
+    if (classes.length) {
+        classes.forEach(classroom => {
+            $('.list-classes').append(classeItem(classroom.classroom, classroom.students.length, classroom.students));
+        });
+    } else {
+        $('.list-classes').append(noContentDiv).localize();
+    }
     // Get the classes from the database and refresh the panel it there are differences
     Main.getClassroomManager().getClasses(Main.getClassroomManager()).then(() => {
         $('.list-classes').html(``);
         let classes = Main.getClassroomManager()._myClasses;
-        classes.forEach(classroom => {
-            $('.list-classes').append(classeItem(classroom.classroom, classroom.students.length, classroom.students));
-        });
+        if (classes.length) {
+            classes.forEach(classroom => {
+                $('.list-classes').append(classeItem(classroom.classroom, classroom.students.length, classroom.students));
+            });
+        } else {
+            $('.list-classes').append(noContentDiv).localize();
+
+            startAttachment = LeaderLine.pointAnchor({
+                element: document.getElementById('no-content-div__bottom-text'),
+                x: -10,
+            })
+            endAttachment = LeaderLine.pointAnchor({
+                element: document.getElementById('teacher-new-classroom-btn'),
+                y: "110%"
+            })
+
+            new LeaderLine(
+                startAttachment,
+                endAttachment, {
+                color: 'var(--classroom-primary)',
+                path: "arc",
+                startSocket: "left",
+                endSocket: "bottom",
+                endPlug: "arrow2",
+                startSocketGravity: [50, -100]
+            });
+        }
     });
 }
 
@@ -704,6 +762,8 @@ function teacherActivitiesDisplay(list = Main.getClassroomManager()._myTeacherAc
     list.forEach(element => {
         $('#list-activities-teacher').append(teacherActivityItem(element))
     });
+    $('[data-toggle="tooltip"]').tooltip()
+
 }
 $('body').on('change', '#action-teach-setting', function () {
     console.log('check')
@@ -717,13 +777,11 @@ function toggleBlockClass() {
     let classroom = getClassroomInListByLink(currentClassroomLink)[0].classroom;
     if (classroom.isBlocked == true) {
         classroom.isBlocked = false;
-        $('#classroom-info').removeClass('greyscale');
-        $('#classroom-info > *:not(:first-child)').css('display', 'unset');
+        $('#classroom-info > button:first-child').removeClass('greyscale');
         $('#classroom-info > button:first-child > i.fa').removeClass('fa-lock').addClass('fa-lock-open');
     } else {
         classroom.isBlocked = true;
-        $('#classroom-info').addClass('greyscale');
-        $('#classroom-info > *:not(:first-child)').css('display', 'none');
+        $('#classroom-info > button:first-child').addClass('greyscale');
         $('#classroom-info > button:first-child > i.fa').removeClass('fa-lock-open').addClass('fa-lock');
 
     }
@@ -894,7 +952,14 @@ function createGroupWithModal() {
         ApplicationsData = [];
 
     $("input:checkbox.form-check-input.app").each(function (element) {
-        const ApplicationTemp = [$(this).val(), $(this).is(':checked'), $('#begin_date_' + $(this).val()).val(), $('#end_date_' + $(this).val()).val()]
+        const ApplicationTemp = [$(this).val(),
+            $(this).is(':checked'),
+            $('#begin_date_' + $(this).val()).val(),
+            $('#end_date_' + $(this).val()).val(),
+            $('#max_students_per_teachers_' + $(this).val()).val(),
+            $('#max_students_per_groups_' + $(this).val()).val(),
+            $('#max_teachers_per_groups_' + $(this).val()).val()
+        ]
         ApplicationsData.push(ApplicationTemp);
     });
 
@@ -932,7 +997,9 @@ function updateGroupWithModal() {
             $('#end_date_' + $(this).val()).val(),
             $('#max_students_per_teachers_' + $(this).val()).val(),
             $('#max_students_per_groups_' + $(this).val()).val(),
-            $('#max_teachers_per_groups_' + $(this).val()).val()
+            $('#max_teachers_per_groups_' + $(this).val()).val(),
+            $('#max_activities_per_groups_' + $(this).val()).val(),
+            $('#max_activities_per_teachers_' + $(this).val()).val()
         ]
         ApplicationsData.push(ApplicationTemp);
     });
@@ -946,6 +1013,8 @@ function updateGroupWithModal() {
             displayNotification('#notif-div', "manager.group.groupUpdated", "success");
         } else if (response.message == "missing data") {
             displayNotification('#notif-div', "manager.account.missingData", "error");
+        } else if (response.message == "missing data date") {
+            displayNotification('#notif-div', "manager.account.missingDataDate", "error");
         }
     })
     pseudoModal.closeAllModal()
@@ -971,10 +1040,14 @@ $('#table_back_to_users_groupadmin').click(function () {
 })
 
 $('#dashboard-manager-groups').click(() => {
-    let sort = $('#sort_groups_filter').val(),
-        groupsperpage = $('#groups_per_page').val();
-    mainManager.getmanagerManager().getAllGroupsInfos(sort, 1, groupsperpage);
+    getGroupsManagerInfo();
 })
+
+function getGroupsManagerInfo() {
+    let sort = $('#sort_groups_filter').val(),
+    groupsperpage = $('#groups_per_page').val();
+mainManager.getmanagerManager().getAllGroupsInfos(sort, 1, groupsperpage);
+}
 
 $('#sort_users_filter, #users_per_page').on('change', () => {
     let $sort = $('#sort_users_filter').val(),
@@ -1046,8 +1119,9 @@ $('#create_user_link_to_group_manager').click(function () {
     $('#user_teacher_subjects').prop('selectedIndex', 0);
     $('#u_is_group_admin').prop("checked", false);
 
-    updateAppForUser(0);
+    updateAppForUser("create");
     pseudoModal.openModal('manager-create-user');
+
     // Bind function to select
     $("#u_is_teacher").change(() => {
         if ($('#u_is_teacher').is(':checked')) {
@@ -1142,37 +1216,40 @@ function updateAppForUser(methodName = "update") {
     const process = (data) => {
         // Get the actual user's information
         let user = mainManager.getmanagerManager()._actualUserDetails;
-        if (methodName == "update") {
-            $('#update_personal_apps_sa').html("");
-        } else {
-            $('#create_update_personal_apps_sa').html("");
-        }
+        $('#update_personal_apps_sa').html("");
+        $('#create_update_personal_apps_sa').html("");
+
         let stringhtml = `<label>${i18next.t('manager.profil.personalApps')}</label>`;
         data.forEach(element => {
 
             let infoapp = "";
 
-            if (user[0].hasOwnProperty('applications')) {
-                user[0].applications.some(function (item) {
-                    if (element.id == item.id)
-                        infoapp = item;
-                })
+            if (user[0]) {
+                if (user[0].hasOwnProperty('applications')) {
+                    user[0].applications.some(function (item) {
+                        if (element.id == item.id)
+                            infoapp = item;
+                    })
+                }
             }
 
             if (!infoapp) {
                 stringhtml += `<div class="form-check">
-                <input class="form-check-input appuser" type="checkbox" value="${element.id}" id="application_${element.id}">
-                <label class="form-check-label font-weight-bold mb-2" style="color: var(--classroom-primary)" for="application_${element.id}" >
+                <input class="form-check-input appuser" type="checkbox" value="${element.id}" id="${methodName}_application_${element.id}">
+                <label class="form-check-label font-weight-bold mb-2" style="color: var(--classroom-primary)" for="${methodName}_application_${element.id}" >
                     ${element.name}
                 </label>
                 <br>
-                <div class="activity-add-form c-secondary-form">
-                    <label class="form-check-label" for="begin_date_${element.id}">${i18next.t('classroom.activities.form.dateBegin')}</label>
-                    <input type="date" id="begin_date_${element.id}" name="trip-start" value="${new Date()}" min="${new Date()}" max="2023-12-31">
-                    <label class="form-check-label" for="end_date_${element.id}">${i18next.t('classroom.activities.form.dateEnd')}</label>
-                    <input type="date" id="end_date_${element.id}" name="trip-start" min="0" max="2025-12-31">
-                    <label class="form-check-label" for="max_teacher_${element.id}">${i18next.t('manager.group.maxStudents')}</label>
-                    <input type="number" id="max_teacher_${element.id}" value="0">
+                <div class="activity-add-form c-secondary-form" id="${methodName}_personal_apps_${element.id}" style="display:none;">
+                    <label class="form-check-label" for="${methodName}_begin_date_${element.id}">${i18next.t('classroom.activities.form.dateBegin')}</label>
+                    <input type="date" id="${methodName}_begin_date_${element.id}" name="trip-start" value="${new Date()}" min="${new Date()}" max="2023-12-31">
+                    <label class="form-check-label" for="${methodName}_end_date_${element.id}">${i18next.t('classroom.activities.form.dateEnd')}</label>
+                    <input type="date" id="${methodName}_end_date_${element.id}" name="trip-start" min="0" max="2025-12-31">
+                    <label class="form-check-label" for="${methodName}_max_teacher_${element.id}">${i18next.t('manager.group.maxStudents')}</label>
+                    <input type="number" id="${methodName}_max_teacher_${element.id}" value="0">
+
+                    <label class="form-check-label" for="${methodName}_max_activities_${element.id}">${i18next.t('manager.group.maxActivities')}</label>
+                    <input type="number" id="${methodName}_max_activities_${element.id}" value="0">
                 </div>
                 </div>`;
             } else {
@@ -1180,18 +1257,21 @@ function updateAppForUser(methodName = "update") {
                     dateEnd = new Date(infoapp.date_end).toISOString().split('T')[0];
 
                 stringhtml += `<div class="form-check">
-                <input class="form-check-input appuser" type="checkbox" checked value="${element.id}" id="application_${element.id}">
-                <label class="form-check-label font-weight-bold mb-2" style="color: var(--classroom-primary)" for="application_${element.id}">
+                <input class="form-check-input appuser" type="checkbox" checked value="${element.id}" id="${methodName}_application_${element.id}">
+                <label class="form-check-label font-weight-bold mb-2" style="color: var(--classroom-primary)" for="${methodName}_application_${element.id}">
                     ${element.name}
                 </label>
                 <br>
-                <div class="activity-add-form c-secondary-form">
-                    <label class="form-check-label" for="begin_date_${element.id}">${i18next.t('classroom.activities.form.dateBegin')}</label>
-                    <input type="date" id="begin_date_${element.id}" name="trip-start" value="${dateBegin}" max="2023-12-31">
-                    <label class="form-check-label" for="end_date_${element.id}">${i18next.t('classroom.activities.form.dateEnd')}</label>
-                    <input type="date" id="end_date_${element.id}" name="trip-start" value="${dateEnd}" max="2025-12-31">
-                    <label class="form-check-label" for="max_teacher_${element.id}">${i18next.t('manager.group.maxStudents')}</label>
-                    <input type="number" id="max_teacher_${element.id}" value="${infoapp.max_students}">
+                <div class="activity-add-form c-secondary-form" id="${methodName}_personal_apps_${element.id}">
+                    <label class="form-check-label" for="${methodName}_begin_date_${element.id}">${i18next.t('classroom.activities.form.dateBegin')}</label>
+                    <input type="date" id="${methodName}_begin_date_${element.id}" name="trip-start" value="${dateBegin}" max="2023-12-31">
+                    <label class="form-check-label" for="${methodName}_end_date_${element.id}">${i18next.t('classroom.activities.form.dateEnd')}</label>
+                    <input type="date" id="${methodName}_end_date_${element.id}" name="trip-start" value="${dateEnd}" max="2025-12-31">
+                    <label class="form-check-label" for="${methodName}_max_teacher_${element.id}">${i18next.t('manager.group.maxStudents')}</label>
+                    <input type="number" id="${methodName}_max_teacher_${element.id}" value="${infoapp.max_students}">
+
+                    <label class="form-check-label" for="${methodName}_max_activities_${element.id}">${i18next.t('manager.group.maxActivities')}</label>
+                    <input type="number" id="${methodName}_max_activities_${element.id}" value="${infoapp.max_activities}">
                 </div>
                 </div>`;
             }
@@ -1202,6 +1282,12 @@ function updateAppForUser(methodName = "update") {
         } else {
             $('#create_update_personal_apps_sa').html(stringhtml);
         }
+
+        data.forEach(element => {
+            $(`#${methodName}_application_${element.id}`).change(function () {
+                $(`#${methodName}_personal_apps_${element.id}`).toggle();
+            })
+        });
     }
 
     mainManager.getmanagerManager().getAllApplications().then((res) => {
@@ -1217,23 +1303,25 @@ function updateAppForUser(methodName = "update") {
 } */
 
 
-
+// ICI
 function persistUpdateUserApp(user = 0) {
     if (user == 0) {
         user = mainManager.getmanagerManager()._actualUserDetails[0].id;
-
     }
+
     let ApplicationsData = [];
     $("input:checkbox.form-check-input.appuser").each(function (element) {
         const ApplicationTemp = [
             $(this).val(),
             $(this).is(':checked'),
-            $('#begin_date_' + $(this).val()).val(),
-            $('#end_date_' + $(this).val()).val(),
-            $('#max_teacher_' + $(this).val()).val()
+            $('#update_begin_date_' + $(this).val()).val(),
+            $('#update_end_date_' + $(this).val()).val(),
+            $('#update_max_teacher_' + $(this).val()).val(),
+            $('#update_max_activities_' + $(this).val()).val()
         ]
         ApplicationsData.push(ApplicationTemp);
     });
+
     mainManager.getmanagerManager().updateUserApps(user, JSON.stringify(ApplicationsData)).then((res) => {
         if (res.message == "success") {
             displayNotification('#notif-div', "manager.users.appsUpdated", "success");
@@ -1252,12 +1340,14 @@ function showupdateUserModal(id) {
     let $groups = mainManager.getmanagerManager()._comboGroups;
     mainManager.getmanagerManager()._updatedUserGroup = 0;
     mainManager.getmanagerManager().getUserInfoWithHisGroups(id).then(function (res) {
-        //get the personal apps 
+        //get the personal apps
         updateAppForUser();
         mainManager.getmanagerManager()._actualUserDetails = res;
         $("#update_actualgroup_sa").html("");
         $('#update_applications_sa').html("");
+        $('#update_personal_apps_sa').html('');
         pseudoModal.openModal('manager-update-user');
+
         $('#update_u_firstname').val(res[0].firstname);
         $('#update_u_surname').val(res[0].surname);
         $('#update_u_pseudo').val(res[0].pseudo);
@@ -1389,7 +1479,7 @@ function showupdateUserModal(id) {
                                         </label>
                                     </div>
                                 </div>
-                                
+
                             </div>
                         </div>`;
             $("#update_actualgroup_sa").append(group);
@@ -1449,8 +1539,8 @@ function updateUserModal() {
         $is_active = $('#update_u_is_active').is(':checked'),
         $is_admin = $('#update_u_is_admin').is(':checked'),
         $is_teacher = $('#update_u_is_teacher').is(':checked'),
-        $teacher_grade = $('#update_user_teacher_grade').val(),
-        $teacher_suject = $('#update_user_teacher_subjects').val(),
+        $teacher_grade = $('#update_user_teacher_grade').length ? $('#update_user_teacher_grade').val() + 1 : null,
+        $teacher_suject = $('#update_user_teacher_subjects').length ? $('#update_user_teacher_subjects').val() + 1 : null,
         $groups = [$('#update_u_is_group_admin0').is(':checked'), $('#update_u_group0').val()];
 
     $ApplicationFromGroup = [];
@@ -1502,8 +1592,8 @@ function createUserAndLinkToGroup() {
         $school = $('#u_school').val(),
         $is_admin = $('#u_is_admin').is(':checked'),
         $is_teacher = $('#u_is_teacher').is(':checked'),
-        $teacher_grade = $('#user_teacher_grade').val(),
-        $teacher_suject = $('#user_teacher_subjects').val(),
+        $teacher_grade = $('#user_teacher_grade').length ? $('#user_teacher_grade').val() : null,
+        $teacher_suject = $('#user_teacher_subjects').length ? $('#user_teacher_subjects').val() : null,
         $groups = [];
 
     $groups.push([$('#u_is_group_admin').is(':checked'), $('#u_group').val()])
@@ -1576,7 +1666,7 @@ function tempoAndShowGroupTableGroupAdmin() {
 function switchTomanager() {
     //mainManager.init();
     $('body').addClass('theme-super-admin').removeClass("theme-group-admin theme-teacher")
-    navigatePanel('classroom-dashboard-profil-panel-manager', 'dashboard-profil-manager');
+    //navigatePanel('classroom-dashboard-profil-panel-manager', 'dashboard-profil-manager');
     $('#classroom-dashboard-sidebar-teacher').hide();
     $('#groupadmin-dashboard-sidebar').hide();
     $('#manager-dashboard-sidebar').show();
@@ -1586,7 +1676,7 @@ function switchTomanager() {
 function switchToGroupAdmin() {
     //mainGroupAdmin.init();
     $('body').addClass('theme-group-admin').removeClass("theme-super-admin theme-teacher")
-    navigatePanel('classroom-dashboard-profil-panel-groupadmin', 'dashboard-profil-groupadmin');
+    //navigatePanel('classroom-dashboard-profil-panel-groupadmin', 'dashboard-profil-groupadmin');
     $('#classroom-dashboard-sidebar-teacher').hide();
     $('#manager-dashboard-sidebar').hide();
     $('#groupadmin-dashboard-sidebar').show();
@@ -1650,6 +1740,29 @@ function deleteUser(id, name) {
 
 }
 
+/**
+ *
+ * @param {*} id
+ * @param {*} name
+ */
+function deleteUserGroupAdmin(id, name) {
+    mainGroupAdmin.getGroupAdminManager()._actualUser = id;
+    $('#validation_deleteGroupAdmin').val("");
+    pseudoModal.openModal('groupadmin-delete-user');
+    $('#md_firstnameGA').text(name);
+}
+
+function activateUserGroupAdmin(id) {
+    mainGroupAdmin.getGroupAdminManager().activateUser(id).then((response) => {
+        if (response.message == "success") {
+            displayNotification('#notif-div', "manager.users.activated", "success");
+            mainGroupAdmin.getGroupAdminManager().getUsersFromGroup(mainGroupAdmin.getGroupAdminManager()._actualGroup, 1);
+        } else if (response.message == "missing data") {
+            displayNotification('#notif-div', "manager.users.errorActivation", "error");
+        }
+    })
+}
+
 function disableUser(id, name) {
     mainManager.getmanagerManager()._actualUser = id;
     $('#validation_disable').val("");
@@ -1660,7 +1773,14 @@ function disableUser(id, name) {
 function disableUserGroupAdmin(id, name) {
     mainGroupAdmin.getGroupAdminManager()._actualUser = id;
     $('#validation_deleteGroupAdmin').val("");
-    pseudoModal.openModal('groupadmin-delete-user');
+    pseudoModal.openModal('groupadmin-disable-user');
+    $('#md_firstnameGA').text(name);
+}
+
+function activeUserGroupAdmin(id, name) {
+    mainGroupAdmin.getGroupAdminManager()._actualUser = id;
+    $('#validation_activeGroupAdmin').val("");
+    pseudoModal.openModal('groupadmin-active-user');
     $('#md_firstnameGA').text(name);
 }
 
@@ -1704,12 +1824,34 @@ function persistDelete() {
     }
 }
 
+function persistDisableGroupAdmin() {
+    let validation = $('#validation_disableGroupAdmin').val(),
+        placeholderWord = $('#validation_disableGroupAdmin').attr('placeholder');
+    const user = mainGroupAdmin.getGroupAdminManager()._actualUser;
+    if (validation == placeholderWord) {
+        mainGroupAdmin.getGroupAdminManager().disableUser(user).then((response) => {
+            if (response.message == "not_allowed") {
+                displayNotification('#notif-div', "manager.account.notAllowedDeleteUser", "error");
+            } else if (response.message == "success") {
+                displayNotification('#notif-div', "manager.users.userDeleted", "success");
+                mainGroupAdmin.getGroupAdminManager()._actualUser = 0;
+                pseudoModal.closeAllModal();
+                tempoAndShowUsersTableGroupAdmin()
+            } else {
+                displayNotification('#notif-div', "manager.account.missingData", "error");
+            }
+        })
+    } else {
+        displayNotification('#notif-div', "manager.input.writeDelete", "error");
+    }
+}
+
 function persistDeleteGroupAdmin() {
     let validation = $('#validation_deleteGroupAdmin').val(),
         placeholderWord = $('#validation_deleteGroupAdmin').attr('placeholder');
     const user = mainGroupAdmin.getGroupAdminManager()._actualUser;
     if (validation == placeholderWord) {
-        mainGroupAdmin.getGroupAdminManager().disableUser(user).then((response) => {
+        mainGroupAdmin.getGroupAdminManager().deleteUser(user).then((response) => {
             if (response.message == "not_allowed") {
                 displayNotification('#notif-div', "manager.account.notAllowedDeleteUser", "error");
             } else if (response.message == "success") {
@@ -1807,10 +1949,10 @@ function optionsGroupApplications($type) {
                     ${element.name}
                 </label>
                 <br>
-                <div class="activity-add-form c-secondary-form">
+                <div class="activity-add-form c-secondary-form" id="apps_restriction_${element.id}" style="display:none;">
                     <label class="form-check-label" for="begin_date_${element.id}">${i18next.t('classroom.activities.form.dateBegin')}</label>
                     <input type="date" id="begin_date_${element.id}" name="trip-start" value="${new Date()}" min="${new Date()}" max="2023-12-31">
-                    
+
                     <label class="form-check-label" for="end_date_${element.id}">${i18next.t('classroom.activities.form.dateEnd')}</label>
                     <input type="date" id="end_date_${element.id}" name="trip-start" min="0" max="2025-12-31">
 
@@ -1822,6 +1964,13 @@ function optionsGroupApplications($type) {
 
                     <label class="form-check-label" data-toggle="tooltip" title="${i18next.t('manager.apps.infoMaxTeachers')}" for="max_teachers_per_groups_${element.id}"><i class="fas fa-info mx-1"></i>${i18next.t('manager.group.teachersPerGroup')}</label>
                     <input type="number" id="max_teachers_per_groups_${element.id}">
+
+                    <label class="form-check-label" for="max_activities_per_groups_${element.id}">${i18next.t('manager.group.activitiesPerGroup')}</label>
+                    <input type="number" id="max_activities_per_groups_${element.id}">
+
+                    <label class="form-check-label" for="max_activities_per_teachers_${element.id}">${i18next.t('manager.group.activitiesPerTeacher')}</label>
+                    <input type="number" id="max_activities_per_teachers_${element.id}">
+
                 </div>
                 </div><hr>`;
             } else {
@@ -1834,7 +1983,7 @@ function optionsGroupApplications($type) {
                     ${element.name}
                 </label>
                 <br>
-                <div class="activity-add-form c-secondary-form">
+                <div class="activity-add-form c-secondary-form" id="apps_restriction_${element.id}">
                     <label class="form-check-label" for="begin_date_${element.id}">${i18next.t('classroom.activities.form.dateBegin')}</label>
                     <input type="date" id="begin_date_${element.id}" name="trip-start" value="${dateBegin}"
                         max="2023-12-31">
@@ -1851,6 +2000,12 @@ function optionsGroupApplications($type) {
 
                     <label class="form-check-label" for="max_teachers_per_groups_${element.id}">${i18next.t('manager.group.teachersPerGroup')}</label>
                     <input type="number" id="max_teachers_per_groups_${element.id}" value="${$infoapp.max_teachers_per_groups}">
+
+                    <label class="form-check-label" for="max_activities_per_groups_${element.id}">${i18next.t('manager.group.activitiesPerGroup')}</label>
+                    <input type="number" id="max_activities_per_groups_${element.id}" value="${$infoapp.max_activities_per_groups}">
+
+                    <label class="form-check-label" for="max_activities_per_teachers_${element.id}">${i18next.t('manager.group.activitiesPerTeacher')}</label>
+                    <input type="number" id="max_activities_per_teachers_${element.id}" value="${$infoapp.max_activities_per_teachers}">
                 </div>
                 </div><hr>`;
             }
@@ -1861,6 +2016,13 @@ function optionsGroupApplications($type) {
             $('#group_upd_apps_options').html(stringhtml);
         else if ($type == "create")
             $('#group_apps_options').html(stringhtml);
+
+        // toggle the description if the checkbox is checked
+        data.forEach(element => {
+            $(`#application_${element.id}`).change(function () {
+                $(`#apps_restriction_${element.id}`).toggle();
+            })
+        });
 
     }
     if (mainManager.getmanagerManager()._allApplications == "") {
@@ -1901,8 +2063,12 @@ function createSubjectSelect(array, type) {
 
 $('#dashboard-groupadmin-users-side').click(() => {
     //let actualGroup = mainGroupAdmin.getGroupAdminManager()._actualGroup;
-    mainGroupAdmin.getGroupAdminManager().getGroupsUserAdmin();
+    getTheGroupOftheAdmin();
 })
+
+function getTheGroupOftheAdmin() {
+    mainGroupAdmin.getGroupAdminManager().getGroupsUserAdmin();
+}
 
 $('#dashboard-groupadmin-apps').click(() => {
     getGroupMonitoring();
@@ -1995,7 +2161,7 @@ function showupdateUserModal_groupadmin(user_id) {
                                         </div>
                                     </div>
                                 </div>`;
-                                //flag
+                    //flag
                     $("#update_actualgroup_ga").append(group);
                     if (res[0].groups[i].rights == 1) {
                         $('#update_u_is_group_admin_ga' + i).prop("checked", true);
@@ -2027,8 +2193,8 @@ function updateUserModalGroupAdmin() {
         $pseudo = $('#update_u_pseudo_ga').val(),
         $phone = $('#update_u_phone_ga').val(),
         $school = $('#update_u_school_ga').val(),
-        $teacher_grade = $('#update_user_teacher_grade_ga').val(),
-        $teacher_suject = $('#update_user_teacher_subjects_ga').val(),
+        $teacher_grade = $('#update_user_teacher_grade_ga').lenght ? $('#update_user_teacher_grade_ga').val() : null,
+        $teacher_suject = $('#update_user_teacher_subjects_ga').length ? $('#update_user_teacher_subjects_ga').val() : null,
         $groups = [$('#update_u_is_group_admin_ga0').is(':checked'), $('#update_u_group_ga0').val()];
 
 
@@ -2097,11 +2263,10 @@ $('#create_user_link_to_group_groupadmin').click(function () {
         } else {
             pseudoModal.openModal('groupeadmin-create-user');
             // Bind functions to the selects who has been created
-
             $saved_groups = mainGroupAdmin.getGroupAdminManager()._comboGroups;
             let radioHTML = "";
 
-            
+
             $saved_groups.forEach(element => {
                 radioHTML += `<div class="form-group c-secondary-form">
                                 <label for="create_u_group_ga" data-i18n="manager.profil.group">Groupe</label>
@@ -2155,12 +2320,13 @@ function createUserAndLinkToGroup_groupAdmin() {
         $pseudo = $('#u_pseudo_ga').val(),
         $phone = $('#u_phone_ga').val(),
         $school = $('#u_school_ga').val(),
-        $teacher_grade = $('#user_teacher_grade_ga').val(),
-        $teacher_suject = $('#user_teacher_subjects_ga').val(),
         $groups = [
             $('#checkboxAdmin').is(':checked'),
             $('#create_u_group_ga').val()
-        ];
+        ],
+        $teacher_grade = $('#user_teacher_grade_ga').length ? $('#user_teacher_grade_ga').val() + 1 : null,
+        $teacher_suject = $('#user_teacher_subjects_ga').length ? $('#user_teacher_subjects_ga').val() + 1 : null;
+
 
     mainGroupAdmin.getGroupAdminManager().createUserAndLinkToGroup($firstname,
         $surname,
@@ -2192,8 +2358,8 @@ function createUserAndLinkToGroup_groupAdmin() {
             displayNotification('#notif-div', "manager.account.notAllowedToCreateUserInThisGroup", "error");
         }
     });
-/*     pseudoModal.closeAllModal();
-    tempoAndShowGroupTableGroupAdmin(); */
+    /*     pseudoModal.closeAllModal();
+        tempoAndShowGroupTableGroupAdmin(); */
 }
 
 function resetUserPassword(id) {
@@ -2239,6 +2405,8 @@ $('#search_user_groupadmin').click(() => {
         usersperpage = $('#users_per_page_groupadmin').val();
     if (name != "") {
         mainGroupAdmin.getGroupAdminManager().globalSearchUser(name, 1, usersperpage);
+    } else {
+        tempoAndShowGroupTableGroupAdmin();
     }
 })
 
@@ -2310,7 +2478,7 @@ function startActivityCreation() {
 const Grade = getGrades();
 
 
-// Applications management 
+// Applications management
 function isUserAppsOutDated() {
     mainGroupAdmin.getGroupAdminManager().isUserApplicationsOutDated().then((response) => {
         if (response.message == true) {
@@ -2390,7 +2558,7 @@ $('#dashboard-manager-apps').click(() => {
 
 // Close all the crud views
 function closeCrudAppViews() {
-    const CRUD_APP_VIEWS = ['#update-app-manager','#delete-app-manager', '#create-app-manager'];
+    const CRUD_APP_VIEWS = ['#update-app-manager', '#delete-app-manager', '#create-app-manager'];
     CRUD_APP_VIEWS.forEach(view => {
         $(view).hide();
     });
@@ -2403,7 +2571,7 @@ function openModalInState(state) {
     $(state).show();
 }
 
-// Close modal, reset input, close view and if true refresh the table of 
+// Close modal, reset input, close view and if true refresh the table of
 function closeModalAndCleanInput(refresh = false) {
     if (refresh) {
         getAndShowApps();
@@ -2424,6 +2592,8 @@ function resetInputApplications() {
     $('#app_create_image').val("");
     $('#validation_delete_application_id').val("");
     $('#validation_delete_application').val("");
+    $('#app_update_activity_restriction_value').val("");
+    $('#app_update_activity_restriction_type').val("");
 }
 
 function getAndShowApps() {
@@ -2442,21 +2612,29 @@ function getAndShowApps() {
                             <td>
                                 <a class="c-link-red" href="javascript:void(0)" onclick="deleteApp(${application.id}, '${application.name}')"><i class="fas fa-trash-alt fa-2x"></i></a>
                             </td>
-                            <td>
-                                <a class="c-link-tertiary" href="javascript:void(0)" onclick="activitiesRestrictionsCrud(${application.id})"><i class="fas fa-key fa-2x"></i></a>
-                            </td>
                         </tr>`;
         });
         $('#all-applications-crud').html(htmlApps);
     })
 }
 
+/*
+<td>
+    <a class="c-link-tertiary" href="javascript:void(0)" onclick="activitiesRestrictionsCrud(${application.id})"><i class="fas fa-key fa-2x"></i></a>
+</td>
+*/
+
 function createApp() {
     openModalInState('#create-app-manager');
 }
 
 function updateApp(app_id) {
+    resetInputApplications();
     mainManager.getmanagerManager().getApplicationById(app_id).then((response) => {
+        mainManager.getmanagerManager().getActivityRestrictionFromApp(app_id).then((restriction) => {
+            $('#app_update_activity_restriction_value').val(restriction.max_per_teachers);
+            $('#app_update_activity_restriction_type').val(restriction.activity_type);
+        })
         $('#app_update_name').val(response.name);
         $('#app_update_description').val(response.description);
         $('#app_update_image').val(response.image);
@@ -2476,22 +2654,30 @@ function persistUpdateApp() {
     let $application_id = $('#app_update_id').val(),
         $application_name = $('#app_update_name').val(),
         $application_description = $('#app_update_description').val(),
-        $application_image = $('#app_update_image').val();
+        $application_image = $('#app_update_image').val(),
+        $application_restrictions_type = $('#app_update_activity_restriction_type').val(),
+        $application_restrictions_value = $('#app_update_activity_restriction_value').val();
+
+
+    mainManager.getmanagerManager().updateOneActivityRestriction($application_id, $application_restrictions_type, $application_restrictions_value).then((response) => {
+
+    })
+
+    //console.log($application_restrictions_type , $application_restrictions_value);
 
     mainManager.getmanagerManager().updateApplication(
-        $application_id, 
-        $application_name, 
-        $application_description, 
+        $application_id,
+        $application_name,
+        $application_description,
         $application_image).then((response) => {
-            if (response.message == "success") {
-                displayNotification('#notif-div', "manager.apps.updateSuccess", "success");
-                closeModalAndCleanInput(true)
-            } else {
-                displayNotification('#notif-div', "manager.account.missingData", "error");
-            }
+        if (response.message == "success") {
+            displayNotification('#notif-div', "manager.apps.updateSuccess", "success");
+            closeModalAndCleanInput(true)
+        } else {
+            displayNotification('#notif-div', "manager.account.missingData", "error");
+        }
     })
 }
-
 
 
 function persistDeleteApp() {
@@ -2518,41 +2704,27 @@ function persistCreateApp() {
         $application_description = $('#app_create_description').val(),
         $application_image = $('#app_create_image').val();
 
-    mainManager.getmanagerManager().createApplication(
-        $application_name, 
-        $application_description, 
-        $application_image).then((response) => {
-            if (response.message == "success") {
-                displayNotification('#notif-div', "manager.apps.createSuccess", "success");
-                closeModalAndCleanInput(true)
-            } else {
-                displayNotification('#notif-div', "manager.account.missingData", "error");
-            }
+    mainManager.getmanagerManager().createApplication($application_name, $application_description, $application_image).then((response) => {
+        if (response.message == "success") {
+            displayNotification('#notif-div', "manager.apps.createSuccess", "success");
+            closeModalAndCleanInput(true)
+        } else {
+            displayNotification('#notif-div', "manager.account.missingData", "error");
+        }
+        updateStoredApps();
+    })
+}
+
+function updateStoredApps() {
+    mainManager.getmanagerManager().getAllApplications().then((res) => {
+        mainManager.getmanagerManager()._allApplications = res;
     })
 }
 
 /**
- * Activities restrictions per applications WIP
+ * Activities restrictions per applications
  */
 
-
-function activitiesRestrictionsCrud(application_id) {
-    mainManager.getmanagerManager().getAllActivitiesRestrictions(application_id).then((response) => {
-        $('#application-id-for-restriction').val(application_id);
-        $('#all-restrictions-from-app').show();
-        let html = "";
-        $('#all-activities-restrictions-crud').html("");
-        response.forEach(restriction => {
-            html += `<tr>
-                        <td>${restriction.activity_type}</td>
-                        <td>${restriction.max_per_teachers}</td>
-                        <td><button class="btn btn-warning btn-sm" onclick="updateRestriction(${restriction.id})">${i18next.t('manager.buttons.update')}</button></td>
-                        <td><button class="btn btn-danger btn-sm" onclick="deleteRestriction(${restriction.id}, '${restriction.activity_type}')">${i18next.t('manager.buttons.delete')}</button></td>
-                    </tr>`;
-        });
-        $('#all-activities-restrictions-crud').html(html);
-    })
-}
 
 function updateRestriction(id) {
     crudActivityCloseViews();
@@ -2614,16 +2786,16 @@ function persistUpdateRestriction() {
         $restriction_type = $('#activity_restrictions_update_type').val();
 
     mainManager.getmanagerManager().updateOneActivityRestriction(
-        $restriction_id, 
-        $application_id, 
-        $restriction_type, 
+        $restriction_id,
+        $application_id,
+        $restriction_type,
         $restriction_max).then((response) => {
-            if (response.success == true) {
-                displayNotification('#notif-div', "manager.activitiesRestrictions.updateSuccess", "success");
-                closeModalAndCleanInputActivityRestrictions()
-            } else {
-                displayNotification('#notif-div', "manager.account.missingData", "error");
-            }
+        if (response.success == true) {
+            displayNotification('#notif-div', "manager.activitiesRestrictions.updateSuccess", "success");
+            closeModalAndCleanInputActivityRestrictions()
+        } else {
+            displayNotification('#notif-div', "manager.account.missingData", "error");
+        }
     })
 }
 
@@ -2633,15 +2805,15 @@ function persistCreateRestriction() {
         $restriction_type = $('#activity_restrictions_create_type').val();
 
     mainManager.getmanagerManager().createOneActivityRestriction(
-        $application_id, 
-        $restriction_type, 
+        $application_id,
+        $restriction_type,
         $restriction_max).then((response) => {
-            if (response.success == true) {
-                displayNotification('#notif-div', "manager.activitiesRestrictions.createSuccess", "success");
-                closeModalAndCleanInputActivityRestrictions()
-            } else {
-                displayNotification('#notif-div', "manager.account.missingData", "error");
-            }
+        if (response.success == true) {
+            displayNotification('#notif-div', "manager.activitiesRestrictions.createSuccess", "success");
+            closeModalAndCleanInputActivityRestrictions()
+        } else {
+            displayNotification('#notif-div', "manager.account.missingData", "error");
+        }
     })
 }
 
@@ -2654,7 +2826,7 @@ function closeModalAndCleanInputActivityRestrictions() {
     // Create fields
     $('#activity_restrictions_create_type').val("");
     $('#activity_restrictions_create_maximum').val("");
-    
+
     crudActivityCloseViews();
     pseudoModal.closeAllModal();
 
@@ -2667,16 +2839,18 @@ function closeRestrictionDetail() {
 
 function getAllrestrictions() {
     mainManager.getmanagerManager().getDefaultRestrictions().then((response) => {
-        //console.log(res);
+
         let html = "";
         $('#all-default-restrictions').html("");
         response.forEach(restriction => {
-            let name = "", limitation = "", update = "";
+            let name = "",
+                limitation = "",
+                update = "";
             switch(restriction.name) {
                 case 'userDefaultRestrictions':
                     name = i18next.t(`manager.apps.usersLimitation`);
                     limitation = `<ul class="m-0">`;
-                    Object.keys(restriction.restrictions).forEach(function(key){   
+                    Object.keys(restriction.restrictions).forEach(function (key) {
                         limitation += `<li> <span class="font-weight-bold">${i18next.t(`manager.table.${key}`)}</span> : ${restriction.restrictions[key]}</li>`;
                     });
                     limitation += `</ul>`;
@@ -2685,20 +2859,11 @@ function getAllrestrictions() {
                 case 'groupDefaultRestrictions':
                     name = i18next.t(`manager.apps.groupsLimitation`);
                     limitation = `<ul class="m-0">`;
-                    Object.keys(restriction.restrictions).forEach(function(key){   
+                    Object.keys(restriction.restrictions).forEach(function (key) {
                         limitation += `<li> <span class="font-weight-bold">${i18next.t(`manager.table.${key}`)}</span> : ${restriction.restrictions[key]}</li>`;
                     });
                     limitation += `</ul>`;
                     update = `<a class="c-link-secondary d-inline-block" href="javascript:void(0)" onclick="updateDefaultGroupsLimitation()"><i class="fas fa-pencil-alt fa-2x"></i></a>`;
-                    break;
-                case 'activitiesDefaultRestrictions':
-                    name = i18next.t(`manager.apps.activitiesLimitation`);
-                    limitation = `<ul class="m-0">`;
-                    Object.keys(restriction.restrictions).forEach(function(key){   
-                        limitation += `<li><span class="font-weight-bold">${key}</span> : ${restriction.restrictions[key]}</li>`;
-                    });
-                    limitation += `</ul>`;
-                    update = `<a class="c-link-secondary d-inline-block" href="javascript:void(0)" onclick="updateDefaultActivitiesLimitation()"><i class="fas fa-pencil-alt fa-2x"></i></a>`;
                     break;
                 default:
                     break;
@@ -2719,7 +2884,7 @@ function updateDefaultUsersLimitation() {
     $('#update-default-restrictions').html("");
     mainManager.getmanagerManager().getDefaultUsersRestrictions().then((response) => {
         pseudoModal.openModal('update-default-restrictions-manager');
-        Object.keys(response.restrictions).forEach(function(key){ 
+        Object.keys(response.restrictions).forEach(function (key) {
             html += `<div class="form-row mt-1 c-secondary-form">`
             html += `<div class="col-md">`
             html += `<label for="default-users-restrictions-value">${i18next.t(`manager.table.${key}`)}</label>`;
@@ -2730,7 +2895,7 @@ function updateDefaultUsersLimitation() {
         html += `<button class="btn c-btn-secondary my-3 btn" onclick="persistUpdateDefaultUsersRestriction()">${i18next.t(`manager.buttons.update`)}</button>`;
         html += `<button class="btn c-btn-light my-3 btn" onclick="closeDefault()">${i18next.t(`manager.buttons.cancel`)}</button>`;
         $('#update-default-restrictions').html(html);
-    }) 
+    })
 }
 
 function updateDefaultGroupsLimitation() {
@@ -2738,7 +2903,7 @@ function updateDefaultGroupsLimitation() {
     $('#update-default-restrictions').html("");
     mainManager.getmanagerManager().getDefaultGroupsRestrictions().then((response) => {
         pseudoModal.openModal('update-default-restrictions-manager');
-        Object.keys(response.restrictions).forEach(function(key){ 
+        Object.keys(response.restrictions).forEach(function (key) {
             html += `<div class="form-row mt-1 c-secondary-form">`
             html += `<div class="col-md">`
             html += `<label for="default-groups-restrictions-value-${key}">${i18next.t(`manager.table.${key}`)}</label>`;
@@ -2749,18 +2914,19 @@ function updateDefaultGroupsLimitation() {
         html += `<button class="btn c-btn-secondary my-3 btn" onclick="persistUpdateDefaultGroupsRestriction()">${i18next.t(`manager.buttons.update`)}</button>`;
         html += `<button class="btn c-btn-light my-3 btn" onclick="closeDefault()">${i18next.t(`manager.buttons.cancel`)}</button>`;
         $('#update-default-restrictions').html(html);
-    }) 
+    })
 }
 
 let allActualType = [];
+
 function updateDefaultActivitiesLimitation() {
     let html = "";
-    allActualType= [];
+    allActualType = [];
     $('#update-default-restrictions').html("");
     mainManager.getmanagerManager().getDefaultActivitiesRestrictions().then((response) => {
         pseudoModal.openModal('update-default-restrictions-manager');
         html += `<button class="btn c-btn-primary my-3 btn" onclick="addDefaultActivitiesRestriction()">${i18next.t(`manager.defaultRestrictions.add`)}</button>`;
-        Object.keys(response.restrictions).forEach(function(key){ 
+        Object.keys(response.restrictions).forEach(function (key) {
             allActualType.push(key);
             html += `<div class="form-row mt-1 c-secondary-form">`
             html += `<div class="col-md">`
@@ -2777,7 +2943,7 @@ function updateDefaultActivitiesLimitation() {
         html += `<button class="btn c-btn-secondary my-3 btn" onclick="persistUpdateDefaultActivitiesRestriction()">${i18next.t(`manager.buttons.update`)}</button>`;
         html += `<button class="btn c-btn-light my-3 btn" onclick="closeDefault()">${i18next.t(`manager.buttons.cancel`)}</button>`;
         $('#update-default-restrictions').html(html);
-    }) 
+    })
 }
 
 function persistUpdateDefaultUsersRestriction() {
@@ -2793,7 +2959,7 @@ function persistUpdateDefaultUsersRestriction() {
 
 function persistUpdateDefaultGroupsRestriction() {
     let maxStudentsValue = $('#default-groups-restrictions-value-maxStudents').val(),
-    maxTeachersValue = $('#default-groups-restrictions-value-maxTeachers').val(),
+        maxTeachersValue = $('#default-groups-restrictions-value-maxTeachers').val(),
         maxStudentsPerTeacherValue = $('#default-groups-restrictions-value-maxStudentsPerTeacher').val();
     mainManager.getmanagerManager().updateDefaultGroupsRestrictions(maxStudentsValue, maxTeachersValue, maxStudentsPerTeacherValue).then((response) => {
         if (response.message == "success") {
@@ -2804,67 +2970,108 @@ function persistUpdateDefaultGroupsRestriction() {
     })
 }
 
-function persistUpdateDefaultActivitiesRestriction() {
-    const restrictionsData = [];
-    allActualType.forEach((type) => {
-        restrictionsData.push([$('#default-activity-restriction-type-'+type).val(),$('#default-activity-restriction-value-'+type).val()])
-    })
-    mainManager.getmanagerManager().updateDefaultActivitiesRestrictions(JSON.stringify(restrictionsData)).then((response) => {
-        if (response.message == "success") {
-            displayNotification('#notif-div', "manager.defaultRestrictions.updateActivitiesRestrictionsSuccess", "success");
-            pseudoModal.closeAllModal();
-            getAllrestrictions();
-        }
-    })
-}
-
-function addDefaultActivitiesRestriction() {
-    let html = "";
-    html += `<div class="form-row mt-1 c-secondary-form">`
-    html += `<div class="col-md">`
-    html += `<label for="default-activity-restriction-type">${i18next.t('manager.defaultRestrictions.type')}</label>`;
-    html += `<input type="text" class="form-control" id="default-activity-restriction-type">`;
-    html += `</div>`;
-    html += `<div class="col-md">`
-    html += `<label for="default-activity-restriction-value">${i18next.t('manager.defaultRestrictions.max')}</label>`;
-    html += `<input type="number" class="form-control" id="default-activity-restriction-value">`;
-    html += `</div>`;
-    html += `</div>`;
-    html += `<button class="btn c-btn-secondary my-3 btn" onclick="persistAddDefaultActivitiesRestriction()">${i18next.t(`manager.buttons.validate`)}</button>`;
-    html += `<button class="btn c-btn-light my-3 btn" onclick="closeDefault()">${i18next.t(`manager.buttons.cancel`)}</button>`;
-    $('#update-default-restrictions').html(html);
-}
-
-
-
-function persistAddDefaultActivitiesRestriction() {
-    let restrictions = [$('#default-activity-restriction-type').val(),$('#default-activity-restriction-value').val()];
-    mainManager.getmanagerManager().addDefaultActivitiesRestrictions(JSON.stringify(restrictions)).then((response) => {
-        if (response.message == "success") {
-            displayNotification('#notif-div', "manager.defaultRestrictions.updateActivitiesRestrictionsSuccess", "success");
-            pseudoModal.closeAllModal();
-            getAllrestrictions();
-        } else if (response.message == "alreadyexist") {
-            displayNotification('#notif-div', "manager.defaultRestrictions.restrictionAlreadyExist", "error");
-            pseudoModal.closeAllModal();
-            getAllrestrictions();
-        }
-    })
-}
-
-function persistdeleteDefaultActivitiesRestriction(type) {
-    mainManager.getmanagerManager().deleteDefaultActivitiesRestrictions(type).then((response) => {
-        if (response.message == "success") {
-            displayNotification('#notif-div', "manager.defaultRestrictions.deleteActivitiesRestrictionsSuccess", "success");
-            pseudoModal.closeAllModal();
-            getAllrestrictions();
-        }
-    })
-}
-
 function closeDefault() {
     pseudoModal.closeAllModal();
 }
+
+// Adjust the registrations forms from the configuration in the .env file
+function createRegistrationTemplate() {
+
+    // Get the registration template configuration from the .env file
+    getRegistrationTemplate().then((res) => {
+
+        // List all the views who are adjustable
+        const   usernameViews = ['#manager_username', '#manager_update_username', '#group_admin_username', '#group_admin_username_update'],
+                phoneViews = ['#manager_phone', '#manager_update_phone', '#group_admin_phone', '#group_admin_phone_update'],
+                userBioViews = ['#manager_bio', '#manager_update_bio', '#group_admin_bio', '#group_admin_bio_update'],
+                userTeacherSectionViews = ['#user_teacher_infos', '#update_user_teacher_infos', '#user_teacher_infos_ga', '#update_user_teacher_infos_ga'],
+                userTeacherSchoolViews = ['#section_teacher_school', '#section_teacher_school_ga', '#section_teacher_school_update_ga', '#section_teacher_update_school'],
+                userTeacherGradeViews = ['#section_teacher_grade', '#section_teacher_grade_ga', '#section_teacher_grade_update_ga', '#section_teacher_update_grade'],
+                userTeacherSubjectsViews = ['#section_teacher_subjects', '#section_teacher_subjects_ga', '#section_teacher_subjects_update_ga', '#section_teacher_update_subjects'];
+
+        // If the registration template does not need an element to be displayed, we remove it
+        const deleteInputs = (array) => {
+            array.forEach(element => {
+                if ($(element).length) {
+                    $(element).remove();
+                }
+            });
+        }
+
+
+        if (res.USER_TEACHER_GRADE == "false" && res.USER_TEACHER_SUBJECTS == "false" && res.USER_TEACHER_SCHOOL == "false") {
+            deleteInputs(userTeacherSectionViews);
+        } else {
+            if (res.USER_TEACHER_GRADE == "false") {
+                deleteInputs(userTeacherGradeViews);
+            }
+            if (res.USER_TEACHER_SUBJECT == "false") {
+                deleteInputs(userTeacherSubjectsViews);
+            }
+            if (res.USER_TEACHER_SCHOOL == "false") {
+                deleteInputs(userTeacherSchoolViews);
+            }
+        }
+
+        // Check for every configuration if it is needed to display the element
+        if (res.USER_USERNAME == "false") {
+            deleteInputs(usernameViews);
+        }
+
+        if (res.USER_PHONE == "false") {
+            deleteInputs(phoneViews);
+        }
+
+        if (res.USER_BIO == "false") {
+            deleteInputs(userBioViews);
+        }
+
+    })
+}
+
+
+// Check if the actual activity type is limited for the user by id or type
+/**
+ * WORK IN PROGRESS
+ * @param {*} type
+ * @param {*} id
+ */
+function isActivitiesRestricted(id = null, type = null) {
+    // Only one check can be done at the same time
+    if (id != null && type != null) {
+        return false;
+    }
+    return new Promise(function (resolve, reject) {
+        $.ajax({
+            type: "POST",
+            url: "/routing/Routing.php?controller=activity&action=isActivitiesLimited",
+            data: {
+                activityId: id,
+                activityType: type
+            },
+            success: function (response) {
+                resolve(JSON.parse(response));
+            },
+            error: function () {
+                reject();
+            }
+        });
+    })
+}
+
+
+$('#btn-help-for-groupAdmin').click(function () {
+    let message = $('#groupadmin-contact-message-input').val(),
+        subject = $('#groupadmin-contact-subject-input').val();
+    mainGroupAdmin.getGroupAdminManager().helpRequestGroupAdmin(subject, message).then((response) => {
+        if (response.emailSent == true) {
+            displayNotification('#notif-div', "classroom.notif.helpRequestFromTeacherSent", "success");
+        } else if (response.emailSent == false) {
+            displayNotification('#notif-div', "manager.account.errorSending", "error");
+        }
+    })
+})
+
 
 function deleteActivity() {
   Main.getClassroomManager().deleteActivity(ClassroomSettings.activity).then(function (activity) {
@@ -2875,18 +3082,3 @@ function deleteActivity() {
   })
   ClassroomSettings.activity = null;
 }
-
-/* <div class="form-row mt-1 c-secondary-form">
-<div class="col-md">
-<label for="activity_restrictions_update_type">Type activity</label>
-<input type="text" class="form-control" id="activity_restrictions_update_type">
-</div>
-<div class="col-md">
-<label for="activity_restrictions_update_maximum">Maximum</label>
-<input type="text" class="form-control" id="activity_restrictions_update_maximum">
-</div>
-<input type="hidden" class="form-control" id="activity_restrictions_id">
-</div>
-<button class="btn c-btn-secondary my-3 btn" onclick="persistUpdateRestriction()" data-i18n="manager.buttons.update">Modifier</button>
-<button class="btn c-btn-light my-3 btn" onclick="closeModalAndCleanInputActivityRestrictions()" data-i18n="manager.buttons.cancel">Annuler</button>
- */

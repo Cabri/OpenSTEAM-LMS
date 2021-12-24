@@ -74,7 +74,7 @@ function displayNotification(div, message, status, options = '{}') {
 function delayDivUpdate(div, message) {
     setTimeout(() => {
         $(div).text(message);
-    }, 150);
+    }, 250);
 }
 
 function loginTeacher(payload) {
@@ -182,12 +182,12 @@ function createTeacherAccountv2(formData) {
                 'email': formData.get('email'),
                 'password': formData.get('password'),
                 'password_confirm': formData.get('confirm-password'),
-                'bio': formData.get('mini-bio'),
-                'pseudo': formData.get('pseudo'),
-                'phone': formData.get('phone-number'),
-                'school': formData.get('school'),
-                'grade': parseInt(formData.get('grade')) + 1,
-                'subject': parseInt(formData.get('subject')) + 1,
+                'bio': $('#profile-form-bio-group-invitation').length ? $('#profile-form-bio-group-invitation').val() : null,
+                'pseudo': $('#profile-form-pseudo-group-invitation').length ? $('#profile-form-pseudo-group-invitation').val() : null,
+                'phone': $('#profile-form-phone-group-invitation').length ? $('#profile-form-phone-group-invitation').val() : null,
+                'school': $('#profile-form-grade-group-invitation').length ? $('#profile-form-school-group-invitation').val() : null,
+                'grade': $('#profile-form-grade-group-invitation').length ? $('#profile-form-grade-group-invitation').val() + 1 : null,
+                'subject': $('#profile-form-subject-group-invitation').length ? $('#profile-form-subject-group-invitation').val() + 1 : null,
                 'newsletter': $('#cb_newsletter').is(':checked'),
                 'private': $('#cb_name_public').is(':checked'),
                 'mailmessage': $('#cb_alert_mail').is(':checked'),
@@ -218,7 +218,7 @@ function linkTeacherToGroup(user, group) {
                 'group_id': group
             },
             success: function (response) {
-                resolve(JSON.parse(response));
+                resolve(response);
             },
             error: function () {
                 reject();
@@ -262,26 +262,6 @@ function teacherAccountCreateFormCheckv2(formData) {
                 value: formData.get('confirm-password'),
                 id: 'profile-form-confirm-password'
             },
-            'bio': {
-                value: formData.get('mini-bio'),
-                id: 'profile-form-bio'
-            },
-            'phone': {
-                value: formData.get('phone-number'),
-                id: 'profile-form-phone'
-            },
-            'school': {
-                value: formData.get('school'),
-                id: 'profile-form-school'
-            },
-            'grade': {
-                value: formData.get('grade'),
-                id: 'profile-form-grade'
-            },
-            'subject': {
-                value: formData.get('subject'),
-                id: 'profile-form-subject'
-            }
         },
         errors = [];
 
@@ -388,3 +368,36 @@ function goToSuccess() {
 function goToConfirm() {
     document.location = Informations.urlWithCode + "&page=confirm";
 }
+
+
+function createRegistrationTemplateForLoginWhileJoiningGroup() {
+    getRegistrationTemplate().then((res) => {
+
+        if (res.USER_USERNAME == "false") {
+            $('#registration_pseudo_group_invitation').remove();
+        }
+        
+        if (res.USER_PHONE == "false") {
+            $('#registration_phone_group_invitation').remove();
+        }
+        
+        if (res.USER_BIO == "false") {
+            $('#registration_bio_group_invitation').remove();
+        }
+
+        if (res.USER_TEACHER_GRADE == "false") {
+            $('#registration_grade_group_invitation').remove();
+        }
+        
+        if (res.USER_TEACHER_SUBJECT == "false") {
+            $('#registration_subject_group_invitation').remove();
+        }
+
+        if (res.USER_TEACHER_SCHOOL == "false") {
+            $('#registration_school_group_invitation').remove();
+        }
+    })
+}
+createRegistrationTemplateForLoginWhileJoiningGroup();
+
+

@@ -35,9 +35,16 @@ $config = Setup::createAnnotationMetadataConfiguration(
 );
 
 // Load env variables 
-$dotenv = Dotenv::createImmutable(__DIR__);
-$dotenv->load();
+/* $dotenv = Dotenv::createImmutable(__DIR__);
+$dotenv->load(); */
 
+$dataLines = file(__DIR__.'/.env', FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES);
+
+foreach($dataLines as $line){
+    if(strpos(trim($line),'#') === 0) continue;
+    list($key,$value) = explode('=',$line,2);
+    $_ENV[trim($key)] = trim($value);
+}
 
 // Database configuration parameters
 $connectionParams = array(
@@ -48,6 +55,7 @@ $connectionParams = array(
     'host' => $_ENV['VS_DB_HOST'],
     'driver' => 'pdo_mysql'
 );
+
 $conn = DriverManager::getConnection($connectionParams);
 // obtaining the entity manager
 $entityManager = EntityManager::create($conn, $config);

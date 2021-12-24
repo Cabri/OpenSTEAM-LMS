@@ -1,35 +1,47 @@
 <div id="classroom-dashboard-help-panel" style="display:none;" class="dashboard-block help-panel-student">
-    <div class="teacher-contact-panel">
+    <div class="contact-panel">
 
-    <h3 data-i18n="classroom.help.student.label"></h3>
-    <div id="about-contact-info-student"></div>
-    <form class="c-primary-form" id="about-contact-form-student">
-        <select id="help-student-select" style="width: 70%;">
-        </select>
+        <h3 data-i18n="classroom.help.student.label"></h3>
 
-        <input type="text" name="subject" class="form-control" id="learner-contact-subject-input"  data-i18n="[placeholder]classroom.help.student.title" placeholder="Objet" style="width: 70%;">
+        <div id="about-contact-info-student">
+            <form class="c-primary-form" id="about-contact-form-student">
+                <div class="form-row">
+                    <div class="form-group col-md-9">
+                        <select id="help-student-select" class="form-control form-control-lg">
+                        </select>
+                    </div>
+                </div>
 
-        <textarea name="message" id="learner-contact-message-input" rows="15" cols="25" style="resize: none; width: 100%;" data-i18n="[placeholder]classroom.teacherHelpPanel.contactForm.messagePlaceholder" placeholder="Écrivez votre message ici. (Maximum 800 caractères)"></textarea>
+                <div class="form-row">
+                    <div class="form-group col-md-9">
+                        <input type="text" name="subject" class="form-control" id="learner-contact-subject-input" data-i18n="[placeholder]classroom.help.student.title" placeholder="Objet">
+                    </div>
+                </div>
 
-        <input type="submit" data-i18n="[value]classroom.teacherHelpPanel.contactForm.sendButton" disabled="disabled" style="cursor:not-allowed;" class="btn btn-lg login-button c-btn-primary" >
-    </form>
+                <div class="form-group">
+                    <textarea name="message" class="form-control" id="learner-contact-message-input" rows="15" cols="25" style="resize: none; width: 100%;" data-i18n="[placeholder]classroom.teacherHelpPanel.contactForm.messagePlaceholder" placeholder="Écrivez votre message ici. (Maximum 800 caractères)"></textarea>
+                </div>
 
-    <div id="footer-content" style="justify-content: space-around;width: 70%;flex-wrap: wrap;">
-        <div class="col">
-            <a class="footer-link text-uppercase d-block" href="/classroom/privacy.php" target="_blank" data-i18n="[html]classroom.footer.privacy"></a>
+                <input type="submit" class="btn c-btn-primary" data-i18n="[value]classroom.teacherHelpPanel.contactForm.sendButton" disabled="disabled" style="cursor:not-allowed;float: right;">
+            </form>
         </div>
-        <div class="col">
-            <a class="footer-link text-uppercase d-block" href="/classroom/cgu.php" target="_blank" data-i18n="[html]classroom.footer.cgu"></a>
-        </div>
-        <div class="col">
-            <a class="footer-link text-uppercase d-block" href="/classroom/legal.php" target="_blank" data-i18n="[html]classroom.footer.legal"></a>
-        </div>
-        <div class="col" data-i18n="classroom.footer.copyright">
+        <br>
+        <div id="footer-content">
+            <p>
+                <a class="footer-link text-uppercase" href="/classroom/privacy.php" target="_blank" data-i18n="[html]classroom.footer.privacy"></a>
+            </p>
+            <p>
+                <a class="footer-link text-uppercase" href="/classroom/cgu.php" target="_blank" data-i18n="[html]classroom.footer.cgu"></a>
+            </p>
+            <p>
+                <a class="footer-link text-uppercase" href="/classroom/legal.php" target="_blank" data-i18n="[html]classroom.footer.legal"></a>
+            </p>
+            <p data-i18n="classroom.footer.copyright">
+            </p>
         </div>
     </div>
-</div>
-<div class="faq-panel">
-    <h2 class="c-text-secondary font-weight-bold text-center mt-5">FAQ</h2>
-    <div id="student-faq-container"></div>
-</div>
+    <div class="faq-panel">
+        <h2 class="c-text-secondary font-weight-bold text-center mt-3">FAQ</h2>
+        <div id="student-faq-container"></div>
+    </div>
 </div>

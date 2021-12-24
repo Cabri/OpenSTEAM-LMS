@@ -15,18 +15,28 @@ function activityItem(activity, state) {
         ide = "arduino"
     }
 
-
-    if (activity.correction == 2) {
-        var status = "green-border"
-    } else if (activity.correction == 3) {
-        var status = "red-border"
-    } else if (activity.correction == 1) {
-        var status = "blue-border"
-    } else {
-        var status = "new-exercise"
+    if (state == "doneActivities") {
+        if (activity.note == 3) {
+            var activityStatus = "ribbon ribbon_accept"
+            var activityStatusTitle = i18next.t('classroom.activities.veryGoodProficiency')
+        } else if (activity.note == 2) {
+            var activityStatus = "ribbon ribbon_vgood"
+            var activityStatusTitle = i18next.t('classroom.activities.goodProficiency')
+        } else if (activity.note == 1) {
+            var activityStatus = "ribbon ribbon_good"
+            var activityStatusTitle = i18next.t('classroom.activities.weakProficiency')
+        } else if (activity.note == 0) {
+            var activityStatus = "ribbon ribbon_refuse"
+            var activityStatusTitle = i18next.t('classroom.activities.insufficientProficiency')
+        } else {
+            var activityStatus = ""
+            var activityStatusTitle = "?"
+        }
     }
+
     let html = `<div class="activity-item">
-                    <div class="${activity.activity.type === 'GENIUS' ? 'activity-card-cabri-genius': activity.activity.type === 'EXPRESS' ? '' : 'activity-card-cabri-iframe'} activity-card activity-card-` + ide + ` ` + status + `">
+                    <div class="${activity.activity.type === 'GENIUS' ? 'activity-card-cabri-genius': activity.activity.type === 'EXPRESS' ? '' : 'activity-card-cabri-iframe'}  activity-card activity-card-` + ide + `">
+                        <div class="${activityStatus}" data-toggle="tooltip" title="${activityStatusTitle}"><div class="ribbon__content"></div></div>
                         <div class="activity-card-top">
                         </div>
                         <div class="activity-card-mid"></div>
@@ -38,7 +48,7 @@ function activityItem(activity, state) {
     }
 
     html += `</div></div></div>`
-    html += `<h3 class="activity-item-title">${activity.activity.title}</h3>`
+    html += `<h3 data-toggle="tooltip" title="${activity.activity.title}" class="activity-item-title">${activity.activity.title}</h3>`
     html += `</div>`
 
     return html;
@@ -99,7 +109,7 @@ function teacherActivityItem(activity) {
                         <div class="info-tutorials" data-id="${activity.id}">
                     </div>
                 </div></div>`
-    html += `<h3 class="activity-item-title">${activity.title}</h3></div>`
+    html += `<h3 data-toggle="tooltip" title="${activity.title}" class="activity-item-title">${activity.title}</h3></div>`
 
     return html;
 }
@@ -144,7 +154,7 @@ function getRemainingCorrections(students) {
     let remainingCorrectionCount = 0;
     for (let student of students) {
         for (let activity of student.activities) {
-            if (activity.correction == 1){
+            if (activity.correction == 1) {
                 remainingCorrectionCount++;
             }
         }
@@ -176,9 +186,9 @@ function classeList(classe, ref = null) {
     if (fullClassHasAttribution(classe, ref) == true) {
         checkedClass = "checked"
     }
-    let html = `<div class="col-12"><input type="checkbox" value="` + classe.classroom.id + `" ` + checkedClass + ` class ="list-students-classroom" >` + classe.classroom.name
-    html += `<button class="student-list-button" data-id="` + classe.classroom.id + `"><i class="fas fa-arrow-right"></i></button>`
-    html += `<div class="student-list" id="student-list-` + classe.classroom.id + `" style="display:none;">
+    let html = `<div class="col-10"><label><input type="checkbox" value="${classe.classroom.id}"${checkedClass} class ="list-students-classroom">${classe.classroom.name}</label>`
+    html += `<button class="student-list-button" data-id="${classe.classroom.id}"><i class="fas fa-chevron-right"></i></button>`
+    html += `<div class="student-list" id="student-list-${classe.classroom.id}" style="display:none;">
     `
     classe.students.forEach(student => {
         let checked = ""
@@ -187,7 +197,9 @@ function classeList(classe, ref = null) {
             ClassroomSettings.studentCount++
         }
 
-        html += '<p class="ml-3 student-attribute-form-row"><input type="checkbox" value="' + student.user.id + '" class="student-id" ' + checked + ' >' + student.user.pseudo + '</p>'
+        html += '<label class="ml-3 student-attribute-form-row"><input type="checkbox" value="' + student.user.id + '" class="student-id" ' + checked + ' >'
+        html += `<img src="${_PATH}assets/media/alphabet/${student.user.pseudo.slice(0, 1).toUpperCase()}.png" alt="Photo de profil"></img>`
+        html += student.user.pseudo + '</label>'
     });
     html += `</div></div>`
     $('.student-number').html(ClassroomSettings.studentCount)
@@ -295,12 +307,12 @@ $(document).on('keyup', function (e) {
 });
 $('body').on('click', '.list-students-classroom', function () {
     let isChecked = $(this).is(':checked')
-    let studentCheckbox = $(this).parent().find('.student-list input')
+    let studentCheckbox = $(this).parent().parent().find('.student-list input')
     studentCheckbox.each(function () {
         if (isChecked) {
-            $(this).prop('checked', true);
+            $(this).prop('checked', true).change();;
         } else {
-            $(this).prop('checked', false);
+            $(this).prop('checked', false).change();;
         }
     });
 })
@@ -366,7 +378,7 @@ function statusActivity(activity, state = true) {
     if (activity.correction == 0 || activity.correction == null) {
         if (state == true)
             return "fas fa-stopwatch"
-        if (state == "csv"){
+        if (state == "csv") {
             switch (activity.correction) {
                 case 0:
                     return "Pas encore réalisé"
@@ -421,30 +433,35 @@ function statusActivity(activity, state = true) {
 
 }
 
-function displayStudentsActivities(link, activitiesList) {
-    Main.getClassroomManager().getUsersInClassroom(link).then(function (students) {
-        students.forEach(student => {
+/**
+ * @ToBeRemoved
+ * Last check October 2021
+ */
+// function displayStudentsActivities(link, activitiesList) {
+//     Main.getClassroomManager().getUsersInClassroom(link).then(function (students) {
+//         students.forEach(student => {
 
-            activitiesList.forEach(activity => {
-                if (searchActivity(activity.id, students)) {
-                    switch (statusActivityForStudent(activity.id, student)) {
-                        case "success":
-                            break;
-                        case "failed":
-                            break;
-                        case "in process":
-                            break;
-                        default:
-                    }
+//             activitiesList.forEach(activity => {
+//                 if (searchActivity(activity.id, students)) {
+//                     switch (statusActivityForStudent(activity.id, student)) {
+//                         case "success":
+//                             break;
+//                         case "failed":
+//                             break;
+//                         case "in process":
+//                             break;
+//                         default:
+//                     }
 
-                }
-            });
+//                 }
+//             });
 
-        })
-    })
-}
+//         })
+//     })
+// }
 
 function loadActivity(isDoable) {
+
     ClassroomSettings.chrono = Date.now()
     const activityIntroduction = $('#activity-introduction')
     const activityContent = $('#activity-content')
@@ -517,25 +534,29 @@ function loadActivity(isDoable) {
         correction += '<div id="commentary-panel" class="c-primary-form" style="margin-top: 50px;"><h5>' + i18next.t("classroom.activities.comments") + '</h5><textarea id="commentary-textarea" style="width:90%" rows="8">' + Activity.commentary + '</textarea></div>'
     }
 
-   if (!UserManager.getUser().isRegular && Activity.correction > 0 && Activity.commentary!=='') {
-     correction += '<div id="commentary-panel" class="c-primary-form" style="margin-top: 50px;"><h5>' + i18next.t("classroom.activities.teacherComments") + '</h5><textarea id="commentary-textarea" style="width:90%" rows="8" disabled>'  + Activity.commentary +  '</textarea></div>'
+    if (!UserManager.getUser().isRegular && Activity.correction > 0) {
+        if (Activity.commentary != null && Activity.commentary != "") {
+            correction += '<div id="commentary-panel">' + Activity.commentary + '</div>'
+        } else {
+            correction += '<div id="commentary-panel">' + i18next.t("classroom.activities.bilan.noComment") + '</div>'
+        }
     }
 
     if (UserManager.getUser().isRegular && Activity.correction > 0) {
         correction += '<button onclick="giveNote()" class="btn c-btn-primary">' + i18next.t('classroom.activities.sendResults') + '<i class="fas fa-chevron-right"> </i></button>'
     }
 
-        // TODO : define global tabs with tabs["name_app"] = "url_app" (to use also in teacher code)
-        switch (activity.type) {
-            case "standard":
-                return; // TODO: to do later
-            case "imuscica":
-                baseToolUrl = "https://workbench-imuscica.cabricloud.com";
-                break;
-            default:
-                baseToolUrl = "https://lti1p3.cabricloud.com";
-                break;
-        }
+      // TODO : define global tabs with tabs["name_app"] = "url_app" (to use also in teacher code)
+      switch (activity.type) {
+        case "standard":
+          return; // TODO: to do later
+        case "imuscica":
+          baseToolUrl = "https://workbench-imuscica.cabricloud.com";
+          break;
+        default:
+          baseToolUrl = "https://lti1p3.cabricloud.com";
+          break;
+      }
 
         let activityType = activity.type ? activity.type.toLowerCase() : activity.type;
         // Review student submission by teacher (and by student)

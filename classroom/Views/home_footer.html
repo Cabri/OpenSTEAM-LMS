@@ -32,6 +32,7 @@
 <script src="assets/js/utils/text.js"></script>
 <script src="assets/js/lib/rotate.js"></script>
 <script src="assets/js/utils/bbcodeToHtml.js"></script>
+<script src="assets/js/utils/registrationTemplate.js"></script>
 <script src="assets/js/scripts/disconnect.js"></script>
 <script src="assets/js/scripts/dashboardActivities.js"></script>
 <script src="assets/js/scripts/teacherActivities.js"></script>
@@ -71,33 +72,22 @@
 
                             if (user.isRegular) {
                                 $('body').addClass('theme-teacher')
-                                $('.user-picture').attr('src',
-                                    '/classroom/assets/media/alphabet/' +
-                                    UserManager.getUser().firstname.slice(0, 1)
-                                    .toUpperCase() + '.png')
+                                $('.user-picture').attr('src',`/classroom/assets/media/alphabet/${UserManager.getUser().firstname.slice(0, 1).toUpperCase()}.png`)
 
-                                if ($_GET('panel') &&
-                                    (ClassroomSettings.mixPanels.includes($_GET('panel')) ||
-                                        ClassroomSettings.teacherPanels.includes($_GET('panel'))
-                                    )) {
-                                    $('#classroom-dashboard-sidebar-teacher').show()
-                                    navigatePanel($_GET('panel'), $_GET('nav'), $_GET('option'),
-                                        $_GET('interface'))
-                                } else {
-                                    $('#classroom-dashboard-sidebar-teacher').show()
-                                    navigatePanel('classroom-dashboard-profil-panel-teacher',
-                                        'dashboard-profil-teacher', $_GET('option'), $_GET(
-                                            'interface'))
-                                }
-
+                                let administration = [];
                                 // Init the super and group admin
                                 let currentTask = (onEnd) => {
                                     mainGroupAdmin.init().then((resolve) => {
+                                        administration[1] = resolve;
                                         mainManager.init().then((resolve) => {
+                                            administration[0] = resolve;
+                                            createRegistrationTemplate();
+                                            goBackToThePreviousView(administration);
                                             onEnd();
                                         })
                                     })
                                 }
+
                                 Main.getClassroomManager()._addTaskToQueue(currentTask);
                             } else {
                                 $('#classroom-dashboard-sidebar').show()
@@ -142,6 +132,41 @@
             }
         );
     })
+
+    // Update Rémi, allow to return in the manager or groupadmin mode after a refresh
+    function goBackToThePreviousView(administration = []) {
+        if ($_GET('panel') && 
+        (ClassroomSettings.mixPanels.includes($_GET('panel')) || 
+        ClassroomSettings.teacherPanels.includes($_GET('panel')) || 
+        ClassroomSettings.managerPanels.includes($_GET('panel')) ||
+        ClassroomSettings.groupAdminPanels.includes($_GET('panel')))) {
+            if (administration[0] === true && $_GET('panel').includes("manager") && $_GET('nav').includes("manager")) {
+                switchTomanager();
+                navigatePanel($_GET('panel'), $_GET('nav'), $_GET('option'), $_GET('interface'));
+                if ($_GET('panel') === "manager-dashboard-main") {
+                    getGroupsManagerInfo();
+                } else if ($_GET('panel') === "manager-apps-main") {
+                    getAndShowApps();
+                }
+            } else if (administration[1] === true && $_GET('panel').includes("groupadmin") && $_GET('nav').includes("groupadmin")) {
+                switchToGroupAdmin();
+                navigatePanel($_GET('panel'), $_GET('nav'), $_GET('option'), $_GET('interface'));
+                if ($_GET('panel') === "groupadmin-dashboard-users") {
+                    getTheGroupOftheAdmin();
+                } else if ($_GET('panel') === "groupadmin-apps-main") {
+                    setTimeout(() => {
+                        getGroupMonitoring();
+                    }, 500);
+                }
+            } else {
+                $('#classroom-dashboard-sidebar-teacher').show()
+                navigatePanel($_GET('panel'), $_GET('nav'), $_GET('option'), $_GET('interface'));
+            }
+        } else {
+            $('#classroom-dashboard-sidebar-teacher').show()
+            navigatePanel('classroom-dashboard-profil-panel-teacher', 'dashboard-profil-teacher', $_GET('option'), $_GET('interface'));
+        }
+    }
 </script>
 <script src="assets/js/utils/translate.js"></script>
 <!-- PLUGIN SCRIPTS-->

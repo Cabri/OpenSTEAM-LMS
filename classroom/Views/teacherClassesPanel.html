@@ -3,7 +3,7 @@
     </select>
 
     <div class="buttons-interactions">
-        <button class="btn c-btn-outline-primary teacher-new-classe">
+        <button id="teacher-new-classroom-btn" class="btn c-btn-outline-primary teacher-new-classe">
             <span data-i18n="classroom.classes.add"></span> <i class="fas fa-chevron-right"></i>
         </button>
     </div>
@@ -67,24 +67,27 @@
 
             </div>
         </div>
-        <div id="export-class-container"></div>
+        
 
     </div>
 
     <div id="classroom-panel-table-container">
         <table>
-            <tr id="header-table-teach">
-            </tr>
+            <thead>
+                <tr id="header-table-teach">
+                </tr>
+            </thead>
             <tbody id="body-table-teach">
 
             </tbody>
         </table>
     </div>
 
-    <div id="classroom-panel-legend" class="row">
-        <div id="add-student-container" class="col ml-3">
-        </div>
-        <div class="col-auto">
+    <div id="classroom-panel-legend">
+        <div id="add-student-container" class="ml-3"></div>
+        <div id="export-class-container" class="ml-3"></div>
+
+        <div id="legend-container">
             <ul class="row legend" style="list-style:none;">
                 <li class="ml-3">
                     <div class="bilan-legend bilan-3"></div>

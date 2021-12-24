@@ -48,7 +48,8 @@
 }
 
 /* Change the hue-rotate to make the icon color match your primary color */
-.sidebar-classroom div img:not(.user-picture) {
+.sidebar-classroom div img:not(.user-picture),
+.hue-rotate-base {
     filter: hue-rotate(320deg);
 }
 
@@ -66,7 +67,8 @@ Used when the insterface is used by a teacher */
     --classroom-dashboard-dark: #1260ad;
 }
 
-.theme-teacher .sidebar-classroom div img:not(.user-picture) {
+.theme-teacher .sidebar-classroom div img:not(.user-picture),
+.hue-rotate-teacher {
     /* Change the hue-rotate to make the icon color match your theme color */
     filter: hue-rotate(45deg);
 }
@@ -79,14 +81,16 @@ Used when the insterface is used by a group administrator */
     --classroom-dashboard-dark: #DEB421;
 }
 
-.theme-group-admin .sidebar-classroom div img:not(.user-picture) {
+.theme-group-admin .sidebar-classroom div img:not(.user-picture),
+.hue-rotate-group-admin {
     /* Change the hue-rotate to make the icon color match your theme color */
     filter: hue-rotate(260deg) brightness(1.2);
 }
 
 /* SUPER ADMIN THEMING
 Used when the insterface is used by a super administrator */
-.theme-super-admin {
+.theme-super-admin,
+.hue-rotate-super-admin {
     --classroom-dashboard: #BB5D5D;
     --classroom-dashboard-dark: #A84D4D;
 }

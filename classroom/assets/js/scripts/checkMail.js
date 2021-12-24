@@ -13,6 +13,9 @@ class CheckMail {
         this._learnerFormElt = document.getElementById('about-contact-form-student');
         this._learnerMessageInputElt = document.getElementById('learner-contact-message-input');
         this._learnerSubjectInputElt = document.getElementById('learner-contact-subject-input');
+        this._groupAdminFormElt = document.getElementById('groupadmin-about-contact-form');
+        this._groupAdminSubjectInputElt = document.getElementById('groupadmin-contact-subject-input');
+        this._groupAdminMessageInputElt = document.getElementById('groupadmin-contact-message-input');
         this._init();
     }
 
@@ -45,6 +48,18 @@ class CheckMail {
         });
 
         this._learnerFormElt.addEventListener('submit', (e) => { this._submitForm(e) });
+
+
+        // Group admin help
+        this._groupAdminMessageInputElt.addEventListener('input', (e) => {
+            this._checkText(e.target, this._MIN_MESSAGE_SIZE, this._MAX_MESSAGE_SIZE);
+            this._checkContactForm(this._groupAdminFormElt);
+        });
+
+        this._groupAdminSubjectInputElt.addEventListener('input', (e) => {
+            this._checkText(e.target, this._MIN_SUBJECT_SIZE, this._MAX_SUBJECT_SIZE);
+            this._checkContactForm(this._groupAdminFormElt);
+        });
     }
 
     /**
@@ -76,10 +91,21 @@ class CheckMail {
         let btn = document.querySelector(`#${form.id} input[type='submit']`);
         let subjectInput = document.querySelector(`#${form.id} input[name='subject']`);
         let messageInput = document.querySelector(`#${form.id} textarea[name='message']`);
-        if (subjectInput.classList.contains('is-valid') && messageInput.classList.contains('is-valid')) {
-            this._enableButton(btn, true);
+        if (form.id != "groupadmin-about-contact-form") {
+            if (subjectInput.classList.contains('is-valid') && messageInput.classList.contains('is-valid')) {
+                this._enableButton(btn, true);
+            } else {
+                this._disableButton(btn, i18next.t('classroom.teacherHelpPanel.contactForm.fillInAllTheFields'));
+            }
         } else {
-            this._disableButton(btn, i18next.t('classroom.teacherHelpPanel.contactForm.fillInAllTheFields'));
+            // Update @Rémi 
+            if (subjectInput.classList.contains('is-valid') && messageInput.classList.contains('is-valid')) {
+                $('#btn-help-for-groupAdmin').prop( "disabled", false );
+                $('#btn-help-for-groupAdmin').css('cursor','pointer');
+            } else {
+                $('#btn-help-for-groupAdmin').prop( "disabled", true );
+                $('#btn-help-for-groupAdmin').css('cursor','not-allowed');
+            }
         }
     }
 
@@ -103,7 +129,7 @@ class CheckMail {
      */
     _disableButton(btn, title = false) {
         btn.setAttribute("disabled", "disabled");
-        btn.style.cursor = "not-allowed";
+        btn.style.cursor = "not-allowed";   
         if (title != false) {
             btn.setAttribute('title', title)
         }

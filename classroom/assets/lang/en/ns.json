@@ -9,6 +9,7 @@
 			"subtitle": "Discover - Learn - Share",
 			"cabriSubtitle": "The platform to succeed in math and science",
 			"login": "Log in",
+			"helpers": " By our side to <span>accompany you.</span>",
 			"activities": "create easily </br> your activities",
 			"cabriActivities": "Create exercises</br> automatically in</br> a few minutes",
 			"attribute": "assign them </br> to your learners",
@@ -29,6 +30,25 @@
 			"error": {
 				"used": "This username is already in use, please choose another",
 				"badInput": "Your username or password is wrong."
+			},
+			"suscribe": {
+				"title": "subscribe",
+				"content": "The Classroom management module is available for free as a trial version. Benefit from all the features with the Vittascience Premium subscription. Find all the advantages and details of the Vittascience Premium offer using the button below.",
+				"premium": "Discover Vittascience Premium"
+			},
+			"carousel": {
+				"activities": {
+					"title": "Easily create your activities",
+					"content": "The activity editor makes it easy to create instructional content by including text, images, videos, Vittascience APIs, Genially presentations, and more.</br></br>Browse the Vittascience collaborative resource bank, which includes several hundred free and reusable activities. If the author of a resource allows it, you can even make changes to adapt the content to your students."
+				},
+				"attribute": {
+					"title": "Assign them to your students",
+					"content": "Once your activities have been created, you can assign them to your students. They can be assigned individually or to entire groups, such as a class or science club.</br></br>Students can securely log in using a Classroom code, link, QR code, or GAR, and complete their assigned activities."
+				},
+				"visualize": {
+					"title": "Visualize their results",
+					"content": "The dashboard allows you to track students' progress as they move through the activities and courses. Find your students' work in one click and leave comments.</br></br>Thanks to the automatic validation/correction system for blocks and Python, the dashboard fills up automatically with your students' results. Rapidly identify struggling students, gaining valuable time to accompany them."
+				}
 			},
 			"register": {
 				"title": "Registration",
@@ -158,6 +178,19 @@
 			"activityTitleInvalid": "Activity could not be created: invalid title",
 			"activityContentInvalid": "Activity could not be created: invalid content",
 			"activityIsFromClassroomInvalid": "Activity could not be created: context error",
+			"activityUserIdInvalid": "Activity could not be created: invalid user",
+			"personalLimitationsReached": "You have reached your maximum number of students.",
+			"groupLimitationsGroup": "Your group can no longer accommodate learners",
+			"groupLimitationsTeacher": "You have reached the learner limit that your group grants you",
+			"bothLimitationsReached": "You have reached the student limitations that you and your group may have.",
+			"ClassroomNameInvalid": "The classroom name is required",
+			"reservedNickname": "The name : \"{{reservedNickname}}\" can not be attributed.",
+			"invalidLink": "The link you entered is not valid",
+			"noUser" : "You have to add a student",
+			"noUserUsername" : "You have to enter a username",
+			"pseudoMissingInCsvFile" : "Some students couldn't be added as their pseudo was missing",
+			"backendReplyPseudoMissingInCsv" : "Check the CSV file : empty line or pseudo missing",
+			"backendReplyPseudoMissingInUsersArray" : "There is one or more error(s) in the student(s) name(s)"
 			"activityUserIdInvalid": "Activity could not be created: invalid user"
 		},
 		"ids": {
@@ -182,12 +215,29 @@
 			"activities": "Activities"
 		},
 		"classes": {
+			"noClasses": "You don't have a class yet.",
+			"createClassNow": "Start by creating a class now!",
 			"add": "Add a class",
 			"form": {
 				"title": "Create a class",
 				"name": "Name of the class",
 				"school": "Name of the establishment",
 				"addStudent": "Add a learner",
+			},
+			"panel": {
+				"seeActivity":"Open the activity",
+				"editActivity":"Edit the activity",
+				"editAttribution":"Edit the attribution",
+				"removeAttribution":"Remove the attribution",
+				"password": "Your password :",
+				"resetPassword" : "Reset password",
+				"editNickname": "Edit your nickname",
+				"delete": "Delete",
+				"copyLink": "Copy the direct link",
+				"learnerMode": "Learner mode",
+
+				"dueBy":"Due by"
+			}	
 				"noStudent": "No learners in this class yet",
 				"isBlockedButton": "Restrict to these learners, no one else will be able to join the class.",
 				"save": "Save the class",
@@ -220,6 +270,9 @@
 			"comments": "Enter your comments here",
 			"bilan": {
 				"title": "Balance sheet",
+				"results": "Results",
+                "noComment": "No comment yet"
+				"title": "Balance sheet",
 				"results": "Results"
 			},
 			"form": {
@@ -242,6 +295,8 @@
 				"select1": "Selecting learners",
 				"select2": " selected.",
 				"instructions": "Specific instructions for these learners",
+				"dateEnd": "End date :",
+				"retroAttribution" : "This activity will be added for every new students"
 				"autocorrect": "This activity has auto-correction, do you want to activate it?",
 				"nature": "Can the student submit the activity more than once?",
 				"dateBegin": "Start Date:",
@@ -256,9 +311,17 @@
 			"weakProficiency": "Fragile control",
 			"insufficientProficiency": "Insufficient mastery",
 			"addLearner": "Add a learner",
+			"addLearners": "Add learners",
+			"addActivity": "Add an activity",
 			"exportCsv": "Export csv"
 		},
 		"filter": {
+			"desc": "Oldest to newest",
+			"asc": "Newest to oldest",
+			"placeholder": "Search...",
+			"cabriExpress": "Express only",
+			"cabriGenius": "Smart only",
+			"iframe": "Others only",
 			"desc": "From the least recent to the most recent",
 			"asc": "From most recent to least recent",
 			"cabriExpress": "Only Cabri Express activities",
@@ -357,6 +420,9 @@
 				"title": "Change nickname",
 				"description": "Change nickname",
 				"validateButton": "Validate"
+			},
+			"attributeActivity": {
+				"title": "Assign activity"
 			}
 		}
 	},
@@ -371,6 +437,14 @@
 			"forgot_password": "I forgot my password.",
 			"btn_connect": "Log in"
 		},
+		"success": "Authentication was successful. Redirection...",
+		"error": "Error. Please verify your login details.",
+		"mailSuccess": "An activation email has been sent to your email address.",
+		"mailError": "An error has occurred. Please verify your email address.",
+		"userNotFound": "No linked user found with this mail.",
+		"inactiveAccount": "Your account is not active, click on the button just below to send a new validation mail.",
+		"accountDeactivated": "Your account has been deactivated, contact an administrator if the problem persists.",
+		"errorBeta": "You must be a beta tester to access this functionality.<a href='https://fr.vittascience.com/about#contact'>Contact the Vittascience team</a> to find out more."
 		"success": "The authentication was successful. Redirection...",
 		"error": "Error. Please check your login details.",
 		"errorBeta": "You must be a beta tester to access this feature. <a href='https://fr.vittascience.com/about#contact'>Contact the Vittascience team</a> to learn more."

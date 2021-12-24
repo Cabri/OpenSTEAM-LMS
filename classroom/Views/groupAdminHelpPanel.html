@@ -1,38 +1,39 @@
 <div id="groupadmin-dashboard-help" style="display:none;" class="dashboard-block help-panel">
-    <div class="groupadmin-contact-panel">
 
-        <h3 data-i18n="classroom.teacherHelpPanel.contactForm.title">Contacter Vittascience</h3>
-        <div id="groupadmin-about-contact-info"></div>
-        <form id="groupadmin-about-contact-form" class="c-primary-form">
-            <input type="text" name="subject" class="form-control" id="groupadmin-contact-subject-input"
-                data-i18n="[placeholder]classroom.teacherHelpPanel.contactForm.objectPlaceholder" placeholder="Objet"
-                style="width: 70%;">
+    <div class="contact-panel">
+        <h3 data-i18n="classroom.teacherHelpPanel.contactForm.title"></h3>
 
-            <textarea name="message" id="groupadmin-contact-message-input" rows="8" cols="25" style="resize: none; width: 100%;"
-                data-i18n="[placeholder]classroom.teacherHelpPanel.contactForm.messagePlaceholder"
-                placeholder="Écrivez votre message ici. (Maximum 800 caractères)"></textarea>
+        <div id="groupadmin-about-contact-info">
+            <form id="groupadmin-about-contact-form" class="c-primary-form">
+                <div class="form-group">
 
-            <input type="submit" data-i18n="[value]classroom.teacherHelpPanel.contactForm.sendButton"
-                disabled="disabled" style="cursor:not-allowed;" class="btn btn-lg login-button c-btn-primary">
-        </form>
+                    <input type="text" name="subject" class="form-control" id="groupadmin-contact-subject-input" data-i18n="[placeholder]classroom.teacherHelpPanel.contactForm.objectPlaceholder" placeholder="Objet">
+                </div>
+                <div class="form-group">
 
+                    <textarea name="message" class="form-control" id="groupadmin-contact-message-input" rows="8" cols="25" style="resize: none; width: 100%;" data-i18n="[placeholder]classroom.teacherHelpPanel.contactForm.messagePlaceholder" placeholder="Écrivez votre message ici. (Maximum 800 caractères)"></textarea>
+                </div>
 
-        <div id="groupadmin-footer-content" class="row" style="justify-content: space-around;width: 70%;flex-wrap: wrap;">
-            <div class="col">
-                <a class="footer-link text-uppercase d-block" href="/classroom/privacy.php" target="_blank" data-i18n="[html]classroom.footer.privacy"></a>
-            </div>
-            <div class="col">
-                <a class="footer-link text-uppercase d-block" href="/classroom/cgu.php" target="_blank" data-i18n="[html]classroom.footer.cgu"></a>
-            </div>
-            <div class="col">
-                <a class="footer-link text-uppercase d-block" href="/classroom/legal.php" target="_blank" data-i18n="[html]classroom.footer.legal"></a>
-            </div>
-            <div class="col" data-i18n="classroom.footer.copyright">
-            </div>
+                <input type="button" data-i18n="[value]classroom.teacherHelpPanel.contactForm.sendButton" style="cursor:not-allowed;" id="btn-help-for-groupAdmin" disabled class="btn btn-lg login-button c-btn-primary">
+            </form>
+        </div>
+        <br>
+        <div id="footer-content">
+            <p>
+                <a class="footer-link text-uppercase" href="/classroom/privacy.php" target="_blank" data-i18n="[html]classroom.footer.privacy"></a>
+            </p>
+            <p>
+                <a class="footer-link text-uppercase" href="/classroom/cgu.php" target="_blank" data-i18n="[html]classroom.footer.cgu"></a>
+            </p>
+            <p>
+                <a class="footer-link text-uppercase" href="/classroom/legal.php" target="_blank" data-i18n="[html]classroom.footer.legal"></a>
+            </p>
+            <p data-i18n="classroom.footer.copyright">
+            </p>
         </div>
     </div>
-    <div class="faq-panel">
+    <!-- <div class="faq-panel">
         <h2 class="c-text-secondary font-weight-bold text-center mt-5">FAQ</h2>
         <div id="groupadmin-faq-container"></div>
-    </div>
+    </div> -->
 </div>

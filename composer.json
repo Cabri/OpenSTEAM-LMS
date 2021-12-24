@@ -1,11 +1,11 @@
 {
   "require-dev": {
         "phpunit/phpunit": "8.0.0",
-        "vittascience/vtuser": "1.2.1",
+        "vittascience/vtuser": "1.2.3",
         "vittascience/vtinterfaces": "1.2.1",
-        "vittascience/vtclassroom": "1.2.1",
-        "vittascience/vtlearn": "1.2.2",
-        "vittascience/vutils": "1.2.1",
+        "vittascience/vtclassroom": "1.2.4",
+        "vittascience/vtlearn": "1.2.6",
+        "vittascience/vutils": "1.2.3",
         "symfony/var-dumper": "^5.3"
     },
     "require": {

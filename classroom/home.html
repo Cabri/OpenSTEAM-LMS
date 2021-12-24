@@ -162,93 +162,97 @@
 
         <div class="d-flex flex-column" style="gap: 1.5em;">
                 <button class="btn mb-2 c-btn-outline-primary" id="settings-student"><span data-i18n="words.settings" class="text-capitalize mr-1 text-span-initial"></span><i class="fas fa-cog"></i></button>
-                <button id="teacherSwitchButton" class="btn  mb-2 c-btn-outline-primary" onclick="modeProf()"><span class="text-span-initial mr-1" data-i18n="[html]classroom.profil.switchModeTeacher"></span><i class="fas fa-cog"></i></button>
+                <button id="teacherSwitchButton" class="btn  mb-2 c-btn-outline-primary" onclick="modeProf()"><span class="text-span-initial mr-1" data-i18n="[html]classroom.profil.switchModeTeacher"></span><i class="fas fa-exchange-alt"></i></button>
                 <button class="btn mb-2 c-btn-red" onclick="goToDisconnect('classroom');"><span
                                 data-i18n="words.disconnect" class="text-capitalize text-span-initial"></span>
                         <i class="fas fa-power-off"></i></button>
         </div>
 </div>
 <div id="classroom-dashboard-help-panel" style="display:none;" class="dashboard-block help-panel-student">
-    <div class="teacher-contact-panel">
+    <div class="contact-panel">
 
-    <h3 data-i18n="classroom.help.student.label"></h3>
-    <div id="about-contact-info-student"></div>
-    <form class="c-primary-form" id="about-contact-form-student">
-        <select id="help-student-select" style="width: 70%;">
-        </select>
+        <h3 data-i18n="classroom.help.student.label"></h3>
 
-        <input type="text" name="subject" class="form-control" id="learner-contact-subject-input"  data-i18n="[placeholder]classroom.help.student.title" placeholder="Objet" style="width: 70%;">
+        <div id="about-contact-info-student">
+            <form class="c-primary-form" id="about-contact-form-student">
+                <div class="form-row">
+                    <div class="form-group col-md-9">
+                        <select id="help-student-select" class="form-control form-control-lg">
+                        </select>
+                    </div>
+                </div>
 
-        <textarea name="message" id="learner-contact-message-input" rows="15" cols="25" style="resize: none; width: 100%;" data-i18n="[placeholder]classroom.teacherHelpPanel.contactForm.messagePlaceholder" placeholder="Écrivez votre message ici. (Maximum 800 caractères)"></textarea>
+                <div class="form-row">
+                    <div class="form-group col-md-9">
+                        <input type="text" name="subject" class="form-control" id="learner-contact-subject-input" data-i18n="[placeholder]classroom.help.student.title" placeholder="Objet">
+                    </div>
+                </div>
 
-        <input type="submit" data-i18n="[value]classroom.teacherHelpPanel.contactForm.sendButton" disabled="disabled" style="cursor:not-allowed;" class="btn btn-lg login-button c-btn-primary" >
-    </form>
+                <div class="form-group">
+                    <textarea name="message" class="form-control" id="learner-contact-message-input" rows="15" cols="25" style="resize: none; width: 100%;" data-i18n="[placeholder]classroom.teacherHelpPanel.contactForm.messagePlaceholder" placeholder="Écrivez votre message ici. (Maximum 800 caractères)"></textarea>
+                </div>
 
-    <div id="footer-content" style="justify-content: space-around;width: 70%;flex-wrap: wrap;">
-        <div class="col">
-            <a class="footer-link text-uppercase d-block" href="/classroom/privacy.php" target="_blank" data-i18n="[html]classroom.footer.privacy"></a>
+                <input type="submit" class="btn c-btn-primary" data-i18n="[value]classroom.teacherHelpPanel.contactForm.sendButton" disabled="disabled" style="cursor:not-allowed;float: right;">
+            </form>
         </div>
-        <div class="col">
-            <a class="footer-link text-uppercase d-block" href="/classroom/cgu.php" target="_blank" data-i18n="[html]classroom.footer.cgu"></a>
-        </div>
-        <div class="col">
-            <a class="footer-link text-uppercase d-block" href="/classroom/legal.php" target="_blank" data-i18n="[html]classroom.footer.legal"></a>
-        </div>
-        <div class="col" data-i18n="classroom.footer.copyright">
+        <br>
+        <div id="footer-content">
+            <p>
+                <a class="footer-link text-uppercase" href="/classroom/privacy.php" target="_blank" data-i18n="[html]classroom.footer.privacy"></a>
+            </p>
+            <p>
+                <a class="footer-link text-uppercase" href="/classroom/cgu.php" target="_blank" data-i18n="[html]classroom.footer.cgu"></a>
+            </p>
+            <p>
+                <a class="footer-link text-uppercase" href="/classroom/legal.php" target="_blank" data-i18n="[html]classroom.footer.legal"></a>
+            </p>
+            <p data-i18n="classroom.footer.copyright">
+            </p>
         </div>
     </div>
-</div>
-<div class="faq-panel">
-    <h2 class="c-text-secondary font-weight-bold text-center mt-5">FAQ</h2>
-    <div id="student-faq-container"></div>
-</div>
+    <div class="faq-panel">
+        <h2 class="c-text-secondary font-weight-bold text-center mt-3">FAQ</h2>
+        <div id="student-faq-container"></div>
+    </div>
 </div>
 <div id="classroom-dashboard-sandbox-panel" style="display:none;" class="dashboard-block ">
     
 </div>
 <div id="classroom-dashboard-activities-panel" style="display:none;" class="dashboard-block">
-    <h3 class="section-title section-new" onclick="sectionToggle('new')" data-i18n="classroom.activities.new"><i
-            id="i-new" class="ml-2 fas fa-chevron-down"></i></h3>
+    <h3 class="section-title section-new" onclick="sectionToggle('new')" data-i18n="classroom.activities.new"><i id="i-new" class="ml-2 fas fa-chevron-down"></i></h3>
     <div id="new-activities"></div>
 
-    <h3 class="section-title section-saved" onclick="sectionToggle('saved')">Brouillons<i id="i-saved"
-            class="ml-2 fas fa-chevron-down"></i></h3>
+    <h3 class="section-title section-saved" onclick="sectionToggle('saved')">Brouillons<i id="i-saved" class="ml-2 fas fa-chevron-down"></i></h3>
     <div id="saved-activities"></div>
-    <h3 class="section-title section-current" onclick="sectionToggle('current')"
-        data-i18n="classroom.activities.current"><i id="i-current" class="ml-2 fas fa-chevron-down"></i>
+    <h3 class="section-title section-current" onclick="sectionToggle('current')" data-i18n="classroom.activities.current"><i id="i-current" class="ml-2 fas fa-chevron-down"></i>
     </h3>
     <div id="current-activities"></div>
-    <h3 class="section-title section-done" onclick="sectionToggle('done')" data-i18n="classroom.activities.done"><i
-            id="i-done" class="ml-2 fas fa-chevron-down"></i></h3>
+    <h3 class="section-title section-done" onclick="sectionToggle('done')" data-i18n="classroom.activities.done"><i id="i-done" class="ml-2 fas fa-chevron-down"></i></h3>
     <div id="done-activities-list"></div>
 
 </div>
 
 
 <div id="classroom-dashboard-activity-panel" class="dashboard-block" style="display:none;">
-  <div class="classroom-dashboard-activity-parent" style="display: flex;">
-    <div id="main-div" style="margin: 0 auto; flex: 1 0 50vw; height: 85vh; display: flex; flex-direction: column;">
-      <h3 id="activity-title"></h3>
+    <div class="container-fluid" >
+        <div class="row">
+            <div id="main-div" class="col-12 col-lg-8" style="margin: 0 auto;overflow-wrap: break-word;">
+                <h3 id="activity-title"></h3>
+                <p id="activity-details"></p>
+                <p id="activity-introduction">
+                    <span id="text-introduction"></span>
+                </p>
+                <p id="activity-content"> </p>
+                <button class="btn c-btn-primary" id="activity-validate" data-i18n="classroom.activities.validate" onclick="validateActivity()"> <i class="fas fa-chevron-right"></i></button>
+                <button class="btn c-btn-primary" id="activity-save" style="display:none;" onclick="saveActivity()" data-i18n="classroom.activities.save-draft"><i class="fas fa-chevron-right"></i></button>
+                <div class="btn" id="activity-instruction" style="display:none"><span data-i18n="classroom.activities.instruction"></span> <i class="fas fa-pen"></i></div>
+            </div>
+            <div id="activity-correction-container" class="col-12 col-lg-4" style="display:none">
+                <div id="activity-correction"></div>
+            </div>
+        </div>
 
-<!--  <div id="lti-activity-submission" style="height: calc(50vw * 3/4); border: 0 none; display: none;"></div>-->
-      <h4 id="activity-details"></h4>
-
-      <!-- TODO CABRI move changes of lti to a separate plugin -->
-        <div id="activity-content"></div>
-
-      <!--
-      TODO disabled for cabri lti
-      <button class="btn c-btn-primary" id="activity-validate" data-i18n="classroom.activities.validate"
-              onclick="validateActivity()"> <i class="fas fa-chevron-right"></i></button>
-      -->
-      <button class="btn c-btn-primary" id="activity-save" style="display:none;" onclick="saveActivity()"
-              data-i18n="classroom.activities.save-draft"><i class="fas fa-chevron-right"></i></button>
-      <div class="btn" id="activity-instruction" style="display:none"><span
-        data-i18n="classroom.activities.instruction"></span> <i class="fas fa-pen"></i></div>
     </div>
-    <div id="activity-correction" style="display:none; align-self: center;">
-    </div>
-  </div>
 </div>
 
 <div id="classroom-dashboard-activity-panel-success" class="dashboard-block" style="display:none;">
@@ -308,7 +312,7 @@
 
         <button class="btn c-btn-outline-primary" onclick="listeModeApprenant()">
             <span data-i18n="classroom.profil.switchMode" class="text-span-initial mr-1"></span>
-            <i class="fas fa-cog"></i></button>
+            <i class="fas fa-exchange-alt"></i></button>
 
         <button class="btn c-btn-red" onclick="goToDisconnect('classroom');">
             <span data-i18n="words.disconnect" class="text-capitalize text-span-initial"></span>
@@ -370,7 +374,7 @@
     </select>
 
     <div class="buttons-interactions">
-        <button class="btn c-btn-outline-primary teacher-new-classe">
+        <button id="teacher-new-classroom-btn" class="btn c-btn-outline-primary teacher-new-classe">
             <span data-i18n="classroom.classes.add"></span> <i class="fas fa-chevron-right"></i>
         </button>
     </div>
@@ -434,24 +438,27 @@
 
             </div>
         </div>
-        <div id="export-class-container"></div>
+        
 
     </div>
 
     <div id="classroom-panel-table-container">
         <table>
-            <tr id="header-table-teach">
-            </tr>
+            <thead>
+                <tr id="header-table-teach">
+                </tr>
+            </thead>
             <tbody id="body-table-teach">
 
             </tbody>
         </table>
     </div>
 
-    <div id="classroom-panel-legend" class="row">
-        <div id="add-student-container" class="col ml-3">
-        </div>
-        <div class="col-auto">
+    <div id="classroom-panel-legend">
+        <div id="add-student-container" class="ml-3"></div>
+        <div id="export-class-container" class="ml-3"></div>
+
+        <div id="legend-container">
             <ul class="row legend" style="list-style:none;">
                 <li class="ml-3">
                     <div class="bilan-legend bilan-3"></div>
@@ -529,7 +536,7 @@
             </div>
         </div>
 
-        <div class="col-auto">
+        <div class="col-auto vertical-align-center">
             <select name="filter-activity-select" id="filter-activity-select" class="c-primary-form">
                 <option value="desc" data-i18n="classroom.filter.desc"></option>
                 <option value="asc" data-i18n="classroom.filter.asc"></option>
@@ -561,38 +568,17 @@
 <div id="classroom-dashboard-activities-panel-library-teacher" style="display:none;" class="dashboard-block">
 </div>
 
-<div id="classroom-dashboard-new-cabriexpress-activity-panel" style="height:85vh; display:none;justify-content: normal;"
-     class="activity-creation-form row dashboard-block">
-  <nav class="row w-50" style="margin: 0 auto;">
-    <div class="col-4 text-center"><span class="form-activity form-activity-activate"><b>1</b></span><span
-      data-i18n="classroom.activities.form.1"></span></div>
-    <div class="col-4">__________________________</div>
-    <div class=" col-4 text-center"><span class="form-activity form-activity-desactivate"><b>2</b></span>
-      <span data-i18n="classroom.activities.form.2"></span></div>
-  </nav>
-
-  <div id="lti-loader-container" style="flex: 1 1; width: 95%; max-width: 100%;" >
-
-  </div>
-
-  <button class="new-activity-panel-lti c-btn-primary" hidden><span data-i18n="classroom.activities.form.button"></span> <i
-    class="fas fa-check"></i></button>
-
-</div>
-
-<div id="classroom-dashboard-new-activity-panel" style="display:none;margin-right:0px;"
-    class="activity-creation-form row dashboard-block">
-  <!-- Disabled by Cabri for LTI -->
-    <nav class="row" style="margin: 0 auto;">
-        <div class="col-4 text-center">
-            <span class="form-activity form-activity-activate"><b>1</b></span>
+<div id="classroom-dashboard-new-activity-panel" style="display:none;" class="activity-creation-form dashboard-block">
+    <nav class="row form-activity-container" style="margin: 0 auto;">
+        <div class="col text-center">
+            <span class="form-activity form-activity-activate">1</span>
             <span data-i18n="classroom.activities.form.1"></span>
         </div>
 
         <div class="col-4"></div>
 
-        <div class=" col-4 text-center">
-            <span class="form-activity form-activity-desactivate"><b>2</b></span>
+        <div class=" col text-center">
+            <span class="form-activity form-activity-desactivate">2</span>
             <span data-i18n="classroom.activities.form.2"></span>
         </div>
     </nav>
@@ -601,9 +587,7 @@
             <label for="part-content-input" class="tutorial-label">
                 <span data-i18n="classroom.activities.form.title.label"></span>
             </label>
-          <!-- Disabled by Cabri for LTI -->
-          <input data-i18n="[placeholder]classroom.activities.form.title.placeholder" type="text"
-                id="activity-form-title" class="form-control part-title-input">
+            <input data-i18n="[placeholder]classroom.activities.form.title.placeholder" type="text" id="activity-form-title" class="form-control part-title-input">
         </div>
         <div class="form-row mt-1">
             <label for="part-content-input" class="tutorial-label">
@@ -615,8 +599,7 @@
         <div class="form-row mt-1">
         </div>
     </div>
-    <button class="new-activity-panel2 c-btn-primary"><span data-i18n="classroom.activities.form.button"></span> <i
-            class="fas fa-check"></i></button>
+    <button class="new-activity-panel2 c-btn-primary"><span data-i18n="classroom.activities.form.button"></span> <i class="fas fa-check"></i></button>
 </div>
 
 <!-- Cabri other button -->
@@ -801,32 +784,43 @@
 
 </div>
 
-<div id="classroom-dashboard-new-activity-panel2" style="display:none;"
-    class="row flex-column dashboard-block class-creation-form-step2">
-    <nav class="row" style="margin: 0 auto;">
-        <div class="col-4 text-center">
-            <span class="form-activity form-activity-activate"><b>1</b></span>
+<div id="classroom-dashboard-new-activity-panel2" style="display:none;" class="dashboard-block class-creation-form-step2">
+
+    <nav class="row form-activity-container" style="margin: 0 auto;">
+        <div class="col text-center">
+            <span class="form-activity form-activity-secondary"><i class="fas fa-check"></i></span>
             <span data-i18n="classroom.activities.form.1"></span>
         </div>
 
         <div class="col-4"></div>
 
-        <div class=" col-4 text-center">
-            <span class="form-activity form-activity-desactivate"><b>2</b></span>
+        <div class="col text-center">
+            <span class="form-activity form-activity-activate">2</span>
             <span data-i18n="classroom.activities.form.2"></span>
         </div>
     </nav>
 
-    <h1 data-i18n="classroom.activities.form.success"></h1>
-    <div class="buttons">
-        <button id="new-activity-panel3" class="new-activity-panel3 c-btn-primary"><span
-                data-i18n="classroom.activities.form.attribute"></span> <i class="fas fa-chevron-right"></i></button>
-        <button onclick="navigatePanel('classroom-dashboard-activities-panel-teacher', 'dashboard-activities-teacher')"
-            class="c-btn-primary"><span data-i18n="classroom.activities.form.return"></span><i
-                class="fas fa-chevron-right"></i></button>
+    <div class="text-center px-1">
+        <h3 class="c-text-primary text-uppercase font-weight-bold" data-i18n="classroom.activities.form.success"></h3>
     </div>
-    <p data-i18n="classroom.activities.form.hint"></p>
-<!--    <button class="c-btn-primary" onclick="createActivity()" data-i18n="classroom.activities.form.modify"></button>-->
+
+    <div class="container text-center">
+        <div class="row my-2">
+            <div class="col-sm mb-2">
+                <button id="new-activity-panel3" class="new-activity-panel3 btn c-btn-primary">
+                    <span data-i18n="classroom.activities.form.attribute"></span> <i class="fas fa-chevron-right"></i>
+                </button>
+            </div>
+            <div class="col-sm mb-2">
+                <button onclick="navigatePanel('classroom-dashboard-activities-panel-teacher', 'dashboard-activities-teacher')" class="btn c-btn-primary">
+                    <span data-i18n="classroom.activities.form.return"></span> <i class="fas fa-chevron-right"></i>
+                </button>
+            </div>
+
+        </div>
+        <p data-i18n="classroom.activities.form.hint"></p>
+        <button class="btn c-btn-outline-primary" onclick="createActivity()" data-i18n="classroom.activities.form.modify"></button>
+    </div>
 </div>
 <!-- <div id="classroom-dashboard-new-course-panel2" style="display:none;" class=" row dashboard-block">
     <h1>Bravo, vous avez crée un parcours</h1>
@@ -834,55 +828,64 @@
     <button id="new-course-check2">Sauvegarder et fermer le parcours </button>
     <p>Vous pourrez toujours plus tard attribuer ce parcours depuis le tableau de bord</p>
 </div> -->
-<div id="classroom-dashboard-new-activity-panel3" style="display:none;" class="dashboard-block">
-    <nav class="row mb-3" style="margin: 0 auto;">
-        <div class="col-4 text-center">
-            <span class="form-activity form-activity-activate"><b>1</b></span>
+<div id="classroom-dashboard-new-activity-panel3" style="display:none;" class="dashboard-block container">
+    <nav class="row form-activity-container mb-3" style="margin: 0 auto;">
+        <div class="col text-center">
+            <span class="form-activity form-activity-secondary"><i class="fas fa-check"></i></span>
             <span data-i18n="classroom.activities.form.1"></span>
         </div>
+
         <div class="col-4"></div>
-        <div class=" col-4 text-center">
-            <span class="form-activity form-activity-desactivate"><b>2</b></span>
+
+        <div class="col text-center">
+            <span class="form-activity form-activity-activate">2</span>
             <span data-i18n="classroom.activities.form.2"></span>
         </div>
     </nav>
-    <div class="row w-50" style="margin: 0 auto;">
+    <div class="assign-activity-container" style="margin: 0 auto;">
 
-        <div class="col-12 mb-5 text-center">
-            <button id="new-activity-attribute" class="btn btn-lg login-button c-btn-primary">
-                <span data-i18n="classroom.activities.form.select1"></span> (<span class="student-number">0</span> <span
-                    data-i18n="classroom.activities.form.select2"></span>)
-            </button>
+        <div class="row">
+            <div class="col-12 mb-5 text-center">
+                <button id="new-activity-attribute" class="btn c-btn-primary">
+                    <span data-i18n="classroom.activities.form.select1"></span> <i class="fas fa-plus"></i>
+                </button>
+                <div class="mt-2">
+                    (<span class="student-number">0</span> <span data-i18n="classroom.activities.form.select2"></span>)
+                </div>
+            </div>
         </div>
 
-        <div class="col-12 mb-5 text-center c-primary-form">
-            <label for="introduction-activity-form"><span data-i18n="classroom.activities.form.instructions"></span>
-                <i data-i18n="words.optional"></i></label></br>
-            <textarea rows="3" class="col-12" id="introduction-activity-form"></textarea>
+        <!-- Instructions -->
+        <div class="row">
+            <div class="col-12 mb-5 text-center c-primary-form">
+                <label for="introduction-activity-form">
+                    <b data-i18n="classroom.activities.form.instructions"></b>
+                    <i data-i18n="words.optional"></i>
+                </label></br>
+                <textarea rows="4" id="introduction-activity-form"></textarea>
+            </div>
         </div>
 
-        <div class="col-12 mb-5 text-center c-primary-form">
-            <div id="form-autocorrect">
-                <label for="isAutocorrection-activity-form"
-                    data-i18n="classroom.activities.form.autocorrect"></label></br>
-                <label class="switch-mini"><input type="checkbox" id="isAutocorrection-activity-form"
-                        onclick="autocorrectSwitch()">
+        <!-- Autocorrect activation -->
+        <div class="row" id="form-autocorrect">
+            <div class="col mb-5 text-center c-primary-form">
+                <label for="isAutocorrection-activity-form" data-i18n="classroom.activities.form.autocorrect"></label></br>
+                <label class="switch-mini"><input type="checkbox" id="isAutocorrection-activity-form" onclick="autocorrectSwitch()">
                     <span class="slider-mini round"></span>
-
                 </label>
             </div>
-            <div class="d-flex">
+        </div>
+
+        <!-- Submit multiple times -->
+        <div class="row">
+            <div class="col mb-5 text-center c-primary-form">
                 <label for="isEval-activity-form" data-i18n="classroom.activities.form.nature"></label></br>
                 <div class="switcher">
-                    <input type="radio" name="isEval-activity-form" value="true" id="isEval-activity-form"
-                        class="switcher__input switcher__input--yin" checked="">
-                    <label for="isEval-activity-form" class="switcher__label text-capitalize"
-                        data-i18n="words.no"></label>
+                    <input type="radio" name="isEval-activity-form" value="true" id="isEval-activity-form" checked="">
+                    <label for="isEval-activity-form" class="switcher__label text-capitalize" data-i18n="words.no"></label>
 
-                    <input type="radio" name="isEval-activity-form" value="false" id="isExo-activity-form"
-                        class="switcher__input switcher__input--right">
-                    <label for="isExo-activity-form" class="switcher__label text-capitalize"
-                        data-i18n="words.yes"></label>
+                    <input type="radio" name="isEval-activity-form" value="false" id="isExo-activity-form">
+                    <label for="isExo-activity-form" class="switcher__label text-capitalize" data-i18n="words.yes"></label>
 
                     <span class="switcher__toggle"></span>
                 </div>
@@ -890,105 +893,130 @@
         </div>
 
 
-        <div class="col-6 c-primary-form">
-            <label for="date-begin-activity-form" data-i18n="classroom.activities.form.dateBegin"></label>
-            <input type="date" id="date-begin-activity-form">
+        <!-- Form time span -->
+        <div class="container">
+            <div class="row">
+                <div class="col-12 col-xl-6 c-primary-form assign-activity-calendar">
+                    <div class="row">
+                        <div class="col-6 text-right align-middle">
+                            <label for="date-begin-activity-form" data-i18n="classroom.activities.form.dateBegin"></label>
+                        </div>
+                        <div class="col-6 text-left">
+                            <input type="date" id="date-begin-activity-form">
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-12 col-xl-6 c-primary-form assign-activity-calendar">
+                    <div class="row">
+                        <div class="col-6 text-right align-middle">
+                            <label for="date-end-activity-form" data-i18n="classroom.activities.form.dateEnd"></label>
+                        </div>
+                        <div class="col-6 text-left">
+                            <input type="date" id="date-end-activity-form">
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
+            
 
-        <div class="col-6 text-right">
-            <label for="date-end-activity-form" data-i18n="classroom.activities.form.dateEnd"></label>
-            <input type="date" id="date-end-activity-form">
-        </div>
 
-        <div class="col-6 d-flex justify-content-start mt-5">
-            <button class="btn login-button c-btn-grey"
-                onclick="navigatePanel('classroom-dashboard-activities-panel-teacher', 'dashboard-activities-teacher')"><i
-                    class="fas fa-angle-left"></i> <span class="text-capitalize"
-                    data-i18n="words.return"></span></button>
-        </div>
+        <div class="row text-center my-2 mt-5">
+            <div class="col-sm mb-2">
+                <button class="btn c-btn-grey" onclick="navigatePanel('classroom-dashboard-activities-panel-teacher', 'dashboard-activities-teacher')">
+                    <i class="fas fa-angle-left"></i> <span class="text-capitalize" data-i18n="words.return"></span>
+                </button>
+            </div>
 
-        <div class="col-6 d-flex justify-content-end mt-5">
-            <button id="attribute-activity-to-students" class="btn login-button c-btn-primary"><span
-                    data-i18n="classroom.activities.form.attribute2"></span><i class="fas fa-angle-right"></i></button>
+            <div class="col-sm order-first order-sm-last mb-2">
+                <button id="attribute-activity-to-students" class="btn c-btn-primary" disabled>
+                    <span data-i18n="classroom.activities.form.attribute2"></span><i class="fas fa-angle-right"></i>
+                </button>
+            </div>
         </div>
     </div>
 </div>
 
 <div id="classroom-dashboard-help-panel-teacher" style="display:none;" class="dashboard-block help-panel">
-    <div class="teacher-contact-panel">
+    <div class="contact-panel">
 
         <h3 data-i18n="classroom.teacherHelpPanel.contactForm.title">Contacter Vittascience</h3>
-        <div id="about-contact-info"></div>
-        <form id="about-contact-form" class="c-primary-form">
-            <input type="text" name="subject" class="form-control" id="contact-subject-input"
-                data-i18n="[placeholder]classroom.teacherHelpPanel.contactForm.objectPlaceholder" placeholder="Objet"
-                style="width: 70%;">
 
-            <textarea name="message" id="contact-message-input" rows="8" cols="25" style="resize: none; width: 100%;"
-                data-i18n="[placeholder]classroom.teacherHelpPanel.contactForm.messagePlaceholder"
-                placeholder="Écrivez votre message ici. (Maximum 800 caractères)"></textarea>
+        <div id="about-contact-info">
 
-            <input type="submit" data-i18n="[value]classroom.teacherHelpPanel.contactForm.sendButton"
-                disabled="disabled" style="cursor:not-allowed;" class="btn btn-lg login-button c-btn-primary">
-        </form>
+            <form id="about-contact-form" class="c-primary-form">
+                <div class="form-group">
+                    <input type="text" name="subject" class="form-control" id="contact-subject-input" data-i18n="[placeholder]classroom.teacherHelpPanel.contactForm.objectPlaceholder" placeholder="Objet">
+                </div>
 
-        <div id="footer-content" class="row" style="justify-content: space-around;width: 70%;flex-wrap: wrap;">
-            <div class="col">
-                <a class="footer-link text-uppercase d-block" href="/classroom/privacy.php" target="_blank" data-i18n="[html]classroom.footer.privacy"></a>
-            </div>
-            <div class="col">
-                <a class="footer-link text-uppercase d-block" href="/classroom/cgu.php" target="_blank" data-i18n="[html]classroom.footer.cgu"></a>
-            </div>
-            <div class="col">
-                <a class="footer-link text-uppercase d-block" href="/classroom/legal.php" target="_blank" data-i18n="[html]classroom.footer.legal"></a>
-            </div>
-            <div class="col" data-i18n="classroom.footer.copyright">
-            </div>
+                <div class="form-group">
+                    <textarea name="message" id="contact-message-input" class="form-control" rows="8" cols="25" style="resize: none;" data-i18n="[placeholder]classroom.teacherHelpPanel.contactForm.messagePlaceholder" placeholder="Écrivez votre message ici. (Maximum 800 caractères)"></textarea>
+                </div>
+
+                <input type="submit" class="btn c-btn-primary" data-i18n="[value]classroom.teacherHelpPanel.contactForm.sendButton" disabled="disabled" style="cursor:not-allowed;float: right;">
+            </form>
+        </div>
+        <br>
+        <div id="footer-content">
+            <p>
+                <a class="footer-link text-uppercase" href="/classroom/privacy.php" target="_blank" data-i18n="[html]classroom.footer.privacy"></a>
+            </p>
+            <p>
+                <a class="footer-link text-uppercase" href="/classroom/cgu.php" target="_blank" data-i18n="[html]classroom.footer.cgu"></a>
+            </p>
+            <p>
+                <a class="footer-link text-uppercase" href="/classroom/legal.php" target="_blank" data-i18n="[html]classroom.footer.legal"></a>
+            </p>
+            <p data-i18n="classroom.footer.copyright">
+            </p>
         </div>
     </div>
+    
     <div class="faq-panel">
-        <h2 class="c-text-secondary font-weight-bold text-center mt-5">FAQ</h2>
+        <h2 class="c-text-secondary font-weight-bold text-center mt-3">FAQ</h2>
         <div id="teacher-faq-container"></div>
     </div>
 
 </div>
 <div id="groupadmin-dashboard-help" style="display:none;" class="dashboard-block help-panel">
-    <div class="groupadmin-contact-panel">
 
-        <h3 data-i18n="classroom.teacherHelpPanel.contactForm.title">Contacter Vittascience</h3>
-        <div id="groupadmin-about-contact-info"></div>
-        <form id="groupadmin-about-contact-form" class="c-primary-form">
-            <input type="text" name="subject" class="form-control" id="groupadmin-contact-subject-input"
-                data-i18n="[placeholder]classroom.teacherHelpPanel.contactForm.objectPlaceholder" placeholder="Objet"
-                style="width: 70%;">
+    <div class="contact-panel">
+        <h3 data-i18n="classroom.teacherHelpPanel.contactForm.title"></h3>
 
-            <textarea name="message" id="groupadmin-contact-message-input" rows="8" cols="25" style="resize: none; width: 100%;"
-                data-i18n="[placeholder]classroom.teacherHelpPanel.contactForm.messagePlaceholder"
-                placeholder="Écrivez votre message ici. (Maximum 800 caractères)"></textarea>
+        <div id="groupadmin-about-contact-info">
+            <form id="groupadmin-about-contact-form" class="c-primary-form">
+                <div class="form-group">
 
-            <input type="submit" data-i18n="[value]classroom.teacherHelpPanel.contactForm.sendButton"
-                disabled="disabled" style="cursor:not-allowed;" class="btn btn-lg login-button c-btn-primary">
-        </form>
+                    <input type="text" name="subject" class="form-control" id="groupadmin-contact-subject-input" data-i18n="[placeholder]classroom.teacherHelpPanel.contactForm.objectPlaceholder" placeholder="Objet">
+                </div>
+                <div class="form-group">
 
+                    <textarea name="message" class="form-control" id="groupadmin-contact-message-input" rows="8" cols="25" style="resize: none; width: 100%;" data-i18n="[placeholder]classroom.teacherHelpPanel.contactForm.messagePlaceholder" placeholder="Écrivez votre message ici. (Maximum 800 caractères)"></textarea>
+                </div>
 
-        <div id="groupadmin-footer-content" class="row" style="justify-content: space-around;width: 70%;flex-wrap: wrap;">
-            <div class="col">
-                <a class="footer-link text-uppercase d-block" href="/classroom/privacy.php" target="_blank" data-i18n="[html]classroom.footer.privacy"></a>
-            </div>
-            <div class="col">
-                <a class="footer-link text-uppercase d-block" href="/classroom/cgu.php" target="_blank" data-i18n="[html]classroom.footer.cgu"></a>
-            </div>
-            <div class="col">
-                <a class="footer-link text-uppercase d-block" href="/classroom/legal.php" target="_blank" data-i18n="[html]classroom.footer.legal"></a>
-            </div>
-            <div class="col" data-i18n="classroom.footer.copyright">
-            </div>
+                <input type="button" data-i18n="[value]classroom.teacherHelpPanel.contactForm.sendButton" style="cursor:not-allowed;" id="btn-help-for-groupAdmin" disabled class="btn btn-lg login-button c-btn-primary">
+            </form>
+        </div>
+        <br>
+        <div id="footer-content">
+            <p>
+                <a class="footer-link text-uppercase" href="/classroom/privacy.php" target="_blank" data-i18n="[html]classroom.footer.privacy"></a>
+            </p>
+            <p>
+                <a class="footer-link text-uppercase" href="/classroom/cgu.php" target="_blank" data-i18n="[html]classroom.footer.cgu"></a>
+            </p>
+            <p>
+                <a class="footer-link text-uppercase" href="/classroom/legal.php" target="_blank" data-i18n="[html]classroom.footer.legal"></a>
+            </p>
+            <p data-i18n="classroom.footer.copyright">
+            </p>
         </div>
     </div>
-    <div class="faq-panel">
+    <!-- <div class="faq-panel">
         <h2 class="c-text-secondary font-weight-bold text-center mt-5">FAQ</h2>
         <div id="groupadmin-faq-container"></div>
-    </div>
+    </div> -->
 </div>
 <div id="classroom-dashboard-profil-panel-groupadmin" class="dashboard-block profile-panel" style="display:none;">
 
@@ -1001,8 +1029,7 @@
         <button class="btn c-btn-outline-primary" id="settings-groupadmin"><span class="text-capitalize text-span-initial" data-i18n="words.settings" class="text-capitalize"></span> <i class="fas fa-cog"></i>
         </button>
 
-        <button class="btn c-btn-outline-primary" onclick="switchToProf()"><span data-i18n="classroom.profil.switchModeTeacher" class="text-span-initial mr-1"></span><i class="fas fa-cog"></i>
-        </button>
+        <button class="btn c-btn-outline-primary" onclick="switchToProf()"><span data-i18n="classroom.profil.switchModeTeacher" class="text-span-initial mr-1"></span><i class="fas fa-exchange-alt"></i></button>
 
         <button class="btn c-btn-red" onclick="goToDisconnect('classroom');"><span data-i18n="words.disconnect" class="text-capitalize text-span-initial"></span>
             <i class="fas fa-power-off"></i>
@@ -1013,7 +1040,7 @@
     <div class="d-flex justify-content-center c-primary-form " style="margin: 0 auto;">
         <div class="container-fluid px-5">
             <div class="row">
-                <div class="row mb-2" id="btn-create-manager">
+                <div class="row mb-2" id="btn-create-groupadmin">
                     <button class="btn c-btn-outline-secondary mx-1" id="create_user_link_to_group_groupadmin">
                         <span data-i18n="manager.buttons.user.createA">Créer un utilisateur</span>
                         <i class="fas fa-chevron-right"></i>
@@ -1071,6 +1098,7 @@
                     <h2 id="group_name_from_table_groupadmin"></h2>
                 </div>
 
+                <p data-i18n="manager.title.activeUsers" class="font-weight-bold">PH Inactive users table PH</p>
                 <table class="table c-table">
                     <thead>
                         <tr>
@@ -1080,12 +1108,30 @@
                             <th scope="col" data-i18n="manager.table.applications">Applications</th>
                             <th scope="col" data-i18n="manager.table.resetPassword">Régénérer le mot de passe</th>
                             <th scope="col" data-i18n="manager.buttons.update">Modifier</th>
-                            <th scope="col" data-i18n="manager.buttons.delete">Supprimer</th>
+                            <th scope="col" data-i18n="manager.buttons.disable">Supprimer</th>
                         </tr>
                     </thead>
                     <tbody id="table_info_group_data_groupadmin">
                     </tbody>
                 </table>
+
+                <p data-i18n="manager.title.inactiveUsers" class="font-weight-bold">PH Inactive users table PH</p>
+                <table class="table c-table">
+                    <thead>
+                        <tr>
+                            <th scope="col" data-i18n="manager.table.lastname">Nom</th>
+                            <th scope="col" data-i18n="manager.table.firstname">Prénom</th>
+                            <th scope="col" data-i18n="manager.table.right">Rôle</th>
+                            <th scope="col" data-i18n="manager.table.applications">Applications</th>
+                            <th scope="col" data-i18n="manager.table.resetPassword">Régénérer le mot de passe</th>
+                            <th scope="col" data-i18n="manager.buttons.update">Modifier</th>
+                            <th scope="col" data-i18n="manager.buttons.activate">Activer</th>
+                        </tr>
+                    </thead>
+                    <tbody id="table_info_group_data_groupadmin_inactive">
+                    </tbody>
+                </table>
+
 
                 <nav id="paginationButtons_users_groupadmin" class="m-auto">
 
@@ -1133,8 +1179,7 @@
         <button class="btn c-btn-outline-primary" id="settings-manager"><span class="text-capitalize text-span-initial" data-i18n="words.settings" class="text-capitalize"></span> <i class="fas fa-cog"></i>
         </button>
 
-        <button class="btn c-btn-outline-primary" onclick="switchToProf()"><span data-i18n="classroom.profil.switchModeTeacher" class="text-span-initial mr-1"></span><i class="fas fa-cog"></i>
-        </button>
+        <button class="btn c-btn-outline-primary" onclick="switchToProf()"><span data-i18n="classroom.profil.switchModeTeacher" class="text-span-initial mr-1"></span><i class="fas fa-exchange-alt"></i></button>
 
         <button class="btn c-btn-red" onclick="goToDisconnect('classroom');"><span data-i18n="words.disconnect" class="text-capitalize text-span-initial"></span>
             <i class="fas fa-power-off"></i>
@@ -1147,12 +1192,6 @@
             <div id="update-applications-modal">
 
                 <div class="col-12" id="default-restrictions">
-<!--                     <div class="row">
-                        <button class="btn c-btn-outline-primary mx-1" data-i18n="manager.defaultRestrictions.getDefaultRestrictions" onclick="getAllrestrictions()">
-                            <span data-i18n="manager.apps.confirm"></span>
-                            <i class="fas fa-chevron-right"></i>
-                        </button>
-                    </div> -->
                     <h3 data-i18n="manager.apps.defaultRestrictions">Restrictions par defaut</h3>
                     <table class="table c-table">
                         <thead>
@@ -1183,37 +1222,9 @@
                                 <th scope="col" data-i18n="manager.table.image">Image</th>
                                 <th scope="col" data-i18n="manager.buttons.update">Modifier</th>
                                 <th scope="col" data-i18n="manager.buttons.delete">Supprimer</th>
-                                <th scope="col" data-i18n="manager.activitiesRestrictions.restrictions">Activities Restrictions</th>
                             </tr>
                         </thead>
                         <tbody id="all-applications-crud">
-                        </tbody>
-                    </table>
-                </div>
-
-                <div class="col-12" id="all-restrictions-from-app" style="display: none;">
-                    <input type="hidden" id="application-id-for-restriction">
-                    <div class="row">
-                        <button class="btn c-btn-outline-tertiary mx-1" onclick="createRestriction()">
-                            <span data-i18n="manager.activitiesRestrictions.create">Créer une restriction</span>
-                            <i class="fas fa-chevron-right"></i>
-                        </button>
-
-                        <button class="btn c-btn-outline-grey mx-1" onclick="closeRestrictionDetail()">
-                            <span data-i18n="manager.activitiesRestrictions.closeDetail">Fermer le détail</span>
-                            <i class="fas fa-times"></i>
-                        </button>
-                    </div>
-                    <table class="table c-table">
-                        <thead>
-                            <tr>
-                                <th scope="col" data-i18n="manager.activitiesRestrictions.restrictionType">Activity Type</th>
-                                <th scope="col" data-i18n="manager.activitiesRestrictions.maxActivity">Maximum Activity</th>
-                                <th scope="col" data-i18n="manager.buttons.update">Modifier</th>
-                                <th scope="col" data-i18n="manager.buttons.delete">Supprimer</th>
-                            </tr>
-                        </thead>
-                        <tbody id="all-activities-restrictions-crud">
                         </tbody>
                     </table>
                 </div>
@@ -1316,6 +1327,26 @@
                     </button>
                     <h2 id="group_name_from_table"></h2>
                 </div>
+
+                <p data-i18n="manager.title.activeUsers" class="font-weight-bold">PH Inactive users table PH</p>
+                <table class="table c-table">
+                    <thead>
+                        <tr>
+                            <th scope="col" data-i18n="manager.table.lastname">Nom</th>
+                            <th scope="col" data-i18n="manager.table.firstname">Prénom</th>
+                            <th scope="col" data-i18n="manager.table.right">Rôle</th>
+                            <th scope="col" data-i18n="manager.table.applications">Applications</th>
+                            <th scope="col" data-i18n="manager.table.resetPassword">Régénérer le mot de passe</th>
+                            <th scope="col" data-i18n="manager.buttons.update">Modifier</th>
+                            <th scope="col" data-i18n="manager.buttons.disable">Supprimer</th>
+                        </tr>
+                    </thead>
+                    <tbody id="table_info_group_data">
+
+                    </tbody>
+                </table>
+
+                <p data-i18n="manager.title.inactiveUsers" class="font-weight-bold">PH Inactive users table PH</p>
                 <table class="table c-table">
                     <thead>
                         <tr>
@@ -1328,7 +1359,8 @@
                             <th scope="col" data-i18n="manager.buttons.delete">Supprimer</th>
                         </tr>
                     </thead>
-                    <tbody id="table_info_group_data">
+                    <tbody id="table_info_group_data_inactive">
+
                     </tbody>
                 </table>
 

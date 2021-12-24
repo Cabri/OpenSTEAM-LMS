@@ -13,9 +13,9 @@ const mainManager = (function () {
                     if (res.Admin === true) {
                         $('#manager-switch-button').show();
                         $('#manager_options').show();
-                        resolve("loaded");
+                        resolve(true);
                     } else {
-                        resolve("loaded");
+                        resolve(false);
                     }
                 })
             }
@@ -52,9 +52,9 @@ const mainGroupAdmin = (function () {
                     if (res.GroupAdmin === true) {
                         $('#groupadmin-switch-button').show();
                         $('#groupAdmin_options').show();
-                        resolve("loaded");
+                        resolve(true);
                     } else {
-                        resolve("loaded");
+                        resolve(false);
                     }
                 })
             }

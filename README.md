@@ -87,7 +87,17 @@ VS_LOG_PATHH=/logs/log.log
 ADMIN_PSEUDO=PSEUDO
 ADMIN_PASSWORD=PASSWORD
 ADMIN_EMAIL=EMAIL
+
+# registration's fields options
+USER_USERNAME=false
+USER_BIO=false
+USER_PHONE=false
+# Subject can not be true if grade is not true 
+USER_TEACHER_GRADE=false
+USER_TEACHER_SUBJECT=false
+USER_TEACHER_SCHOOL=false
 ```
+
 
 Don't forget to fill/change these constants with relevant information (at least all the VS_DB)
 
@@ -207,11 +217,11 @@ This $body variable will be injected inside your html emails before sending each
 
 The current repository only contains front elements of the LMS. The back end is mainly located in the dependencies (in the vendor folder) :
 
-- [vuser](https://github.com/vittascience/vuser)
-- [vclassroom](https://github.com/vittascience/vclassroom)
-- [vutils](https://github.com/vittascience/vutils)
-- vinterfaces (not public yet)
-- vlearn (not public yet
+- [vuser](https://github.com/vittascience/vuser) : current version (1.2.3)
+- [vclassroom](https://github.com/vittascience/vclassroom) : current version (1.2.4)
+- [vutils](https://github.com/vittascience/vutils) : current version (1.2.3)
+- vinterfaces (not public yet) : current version (1.2.1)
+- vlearn (not public yet) : current version (1.2.6)
 
 ## Build integration tests
 

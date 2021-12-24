@@ -19,18 +19,7 @@ $demoStudent = !empty($_ENV['VS_DEMOSTUDENT'])
                 : 'demoStudent';
 
 $user = ConnectionManager::getSharedInstance()->checkConnected();
-if ($user) {
-    $tester = RegularDAO::getSharedInstance()->isTester($_SESSION['id']);
-    $admin = RegularDAO::getSharedInstance()->isAdmin($_SESSION['id']);
-    $testerProf = false;
-    $adminProf = false;
-    if (isset($_SESSION['idProf'])) {
-        $testerProf = RegularDAO::getSharedInstance()->isTester($_SESSION['idProf']);
-        $adminProf = RegularDAO::getSharedInstance()->isAdmin($_SESSION['idProf']);
-    }
-}
-// Pourquoi cette ligne ? 
-//&& (!$user instanceof Regular || ($tester || $admin || $testerProf || $adminProf))
+
 if ($user) {
     header("Location: /classroom/home.php");
     die();

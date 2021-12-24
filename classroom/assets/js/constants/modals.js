@@ -108,8 +108,8 @@ const classroomModals = {
                                 <span data-i18n="manager.profil.onlyVisibleGroupAdmin">Uniquement visible par vous en tant qu'administrateur de groupe :</span>
                             </legend>
                             <button class="theme-group-admin btn mb-2 c-btn-outline-primary c-btn-dashboard" onclick="switchToGroupAdmin()" id="groupadmin-switch-button" style="display:none;"><span
-                                    data-i18n="manager.profil.groupAdmin" class="text-span-initial mr-1"></span><i
-                                    class="fas fa-cog"></i>
+                                    data-i18n="manager.profil.groupAdmin" class="text-span-initial mr-1"></span>
+                                    <i class="fas fa-chevron-right"></i>
                             </button>
                             </fieldset>
 
@@ -123,7 +123,7 @@ const classroomModals = {
                                     </legend>
                                     <button class="theme-super-admin btn mb-2 c-btn-outline-primary c-btn-dashboard" onclick="switchTomanager()" id="manager-switch-button" style="display:none;">
                                         <span data-i18n="manager.profil.manager" class="text-span-initial mr-1"></span>
-                                        <i class="fas fa-cog"></i>
+                                        <i class="fas fa-chevron-right"></i>
                                 </button>
                             </fieldset>
                         </div>
@@ -135,12 +135,13 @@ const classroomModals = {
         selector: '',
         header: {
             icon: '',
-            title: 'classroom.modals.addActivity.attributeActivity.title'
+            title: 'classroom.modals.attributeActivity.title'
         },
         content: `
-    <p><span class="student-number">0</span> apprenants sélectionnés</p>
-    <div id="list-student-attribute-modal" class="row"></div>
-    <button id="attribute-activity-to-students-close" class="btn btn-lg c-btn-secondary">Valider</button>
+    <h4 class="c-text-primary font-weight-bold text-uppercase">Sélectionner des apprenants</h4>
+    <p class='text-center'><span class="student-number">0</span> apprenants sélectionnés</p>
+    <div id="list-student-attribute-modal" class="row justify-content-center c-primary-form"></div>
+    <button id="attribute-activity-to-students-close" class="btn btn-lg c-btn-primary">Valider</button>
                 `,
         footer: ``
     },
@@ -231,17 +232,17 @@ const classroomModals = {
             title: 'manager.buttons.group.createA'
         },
         content: ` <div class="form-group c-secondary-form">
-                        <label for="group_name" data-i18n="manager.group.name">Group name</label>
+                        <label for="group_name" data-i18n="[html]manager.group.name">Group name</label>
                         <input type="text" class="form-control m-0" id="group_name" data-i18n="[placeholder]manager.group.academy">
                     </div>
                     <div class="form-group c-secondary-form">
-                        <label for="group_desc" data-i18n="manager.group.description">Group description</label>
+                        <label for="group_desc" data-i18n="[html]manager.group.description">Group description</label>
                         <textarea rows="2" class="form-control m-0" id="group_desc"></textarea>
                     </div>
                     <label for="group_apps_options" data-i18n="manager.group.applications">Application(s) du groupe</label>
                     <div class="form-group" id="group_apps_options">
                     </div>
-                    <button class="btn c-btn-secondary" data-i18n="manager.buttons.create" onclick="createGroupWithModal()">Create</button>`,
+                    <button class="btn c-btn-secondary" data-i18n="manager.buttons.group.create" onclick="createGroupWithModal()">Create</button>`,
         footer: ``
     },
     'manager-update-group': {
@@ -251,11 +252,11 @@ const classroomModals = {
             title: 'manager.buttons.group.updateA'
         },
         content: `  <div class="form-group c-secondary-form">
-                        <label for="group_name" data-i18n="manager.group.name">Group name</label>
+                        <label for="group_name" data-i18n="[html]manager.group.name">Group name</label>
                         <input type="text" class="form-control" id="upd_group_name" data-i18n="[placeholder]manager.group.academy">
                     </div>
                     <div class="form-group c-secondary-form">
-                        <label for="upd_group_desc" data-i18n="manager.group.description">Group description</label>
+                        <label for="upd_group_desc" data-i18n="[html]manager.group.description">Group description<span class="c-text-red">*</span></label>
                         <textarea rows="2" class="form-control" id="upd_group_desc"></textarea>
                     </div>
                     <div class="form-group c-secondary-form">
@@ -278,32 +279,32 @@ const classroomModals = {
         content: `<div class="container-fluid">
 
         <div class="form-row c-secondary-form">
-            <div class="form-group col-md-4">
+            <div class="form-group col-md">
                 <label for="u_firstname" data-i18n="[html]manager.profil.firstname">Prénom <span class="c-text-red">*</span></label>
                 <input type="text" class="form-control" id="u_firstname">
             </div>
-            <div class="form-group col-md-4">
+            <div class="form-group col-md">
                 <label for="u_surname" data-i18n="[html]manager.profil.lastname">Nom <span class="c-text-red">*</span></label>
                 <input type="text" class="form-control" id="u_surname">
             </div>
-            <div class="form-group col-md-4">
+            <div class="form-group col-md" id="manager_username">
                 <label for="u_pseudo" data-i18n="[html]manager.profil.nickname">Pseudonyme</label>
                 <input type="text" class="form-control" id="u_pseudo">
             </div>
         </div>
 
         <div class="form-row c-secondary-form">
-            <div class="form-group col-md-6">
+            <div class="form-group col-md">
                 <label for="u_mail" data-i18n="[html]manager.profil.email">Adresse E-mail <span class="c-text-red">*</span></label>
                 <input type="email" class="form-control" id="u_mail">
             </div>
-            <div class="form-group col-md-6">
+            <div class="form-group col-md" id="manager_phone">
                 <label for="u_phone" data-i18n="manager.profil.phone">Numéro de telephone</label>
                 <input type="text" class="form-control" id="u_phone">
             </div>
         </div>
-
-        <div class="form-row c-secondary-form mb-2">
+    
+        <div class="form-row c-secondary-form mb-2" id="manager_bio">
             <label for="u_bio" data-i18n="[html]manager.profil.bio">Bio <span class="c-text-red">*</span></label>
             <textarea class="form-control" id="u_bio" rows="3"></textarea>
         </div>
@@ -325,9 +326,9 @@ const classroomModals = {
                 </label>
             </div>
         </div>
-
-        <div class="form-row c-secondary-form" id="user_teacher_infos" style="display: none;">
-            <div class="form-group col-md-6">
+    
+        <div class="form-row c-secondary-form" id="user_teacher_infos" style="display: none;" >
+            <div class="form-group col-md" id="section_teacher_grade">
                 <select class="form-control" id="user_teacher_grade">
                     <option selected value="0" data-i18n="manager.users.teacherGrades.0">Primaire</option>
                     <option value="1" data-i18n="manager.users.teacherGrades.1">Collège</option>
@@ -336,15 +337,16 @@ const classroomModals = {
                     <option value="4" data-i18n="manager.users.teacherGrades.4">POST-BAC</option>
                 </select>
             </div>
-            <div class="form-group col-md-6">
+            <div class="form-group col-md" id="section_teacher_subjects">
                 <select class="form-control" id="user_teacher_subjects">
                 </select>
             </div>
-            <div class="form-group col-md-12">
+            <div class="form-group col-md-12" id="section_teacher_school">
                 <label for="u_school" data-i18n="[html]manager.profil.school">School</label>
                 <input type="text" class="form-control" id="u_school">
             </div>
         </div>
+    
     </div>
 
     <hr>
@@ -369,7 +371,7 @@ const classroomModals = {
 
     <div id="group_add_sa">
     </div>
-
+    
     <div id="create_update_personal_apps_sa">
 
     </div>
@@ -387,32 +389,32 @@ const classroomModals = {
         content: `<div class="container-fluid">
         <input type="hidden" class="form-control" id="update_u_id">
         <div class="form-row c-secondary-form">
-            <div class="form-group col-md-4">
+            <div class="form-group col-md">
                 <label for="update_u_firstname" data-i18n="[html]manager.profil.firstname">Prénom <span class="c-text-red">*</span></label>
                 <input type="text" class="form-control" id="update_u_firstname">
             </div>
-            <div class="form-group col-md-4">
+            <div class="form-group col-md">
                 <label for="update_u_surname" data-i18n="[html]manager.profil.lastname">Nom <span class="c-text-red">*</span></label>
                 <input type="text" class="form-control" id="update_u_surname">
             </div>
-            <div class="form-group col-md-4">
+            <div class="form-group col-md" id="manager_update_username">
                 <label for="update_u_pseudo" data-i18n="[html]manager.profil.nickname">Pseudonyme</label>
                 <input type="text" class="form-control" id="update_u_pseudo">
             </div>
         </div>
 
         <div class="form-row c-secondary-form">
-            <div class="form-group col-md-6">
+            <div class="form-group col-md">
                 <label for="update_u_mail" data-i18n="[html]manager.profil.email">Adresse E-mail <span class="c-text-red">*</span></label>
                 <input type="email" class="form-control" id="update_u_mail">
             </div>
-            <div class="form-group col-md-6">
+            <div class="form-group col-md" id="manager_update_phone">
                 <label for="update_u_phone" data-i18n="manager.profil.phone">Numéro de telephone</label>
                 <input type="text" class="form-control" id="update_u_phone">
             </div>
         </div>
-
-        <div class="form-row c-secondary-form mb-2">
+    
+        <div class="form-row c-secondary-form mb-2" id="manager_update_bio">
             <label for="update_u_bio" data-i18n="[html]manager.profil.bio">Bio <span class="c-text-red">*</span></label>
             <textarea class="form-control" id="update_u_bio" rows="3"></textarea>
         </div>
@@ -443,7 +445,7 @@ const classroomModals = {
         </div>
 
         <div class="form-row c-secondary-form" id="update_user_teacher_infos" style="display: none;">
-            <div class="form-group col-md-6">
+            <div class="form-group col-md" id="section_teacher_update_grade">
                 <select class="form-control" id="update_user_teacher_grade">
                     <option selected value="0" data-i18n="manager.users.teacherGrades.0">Primaire</option>
                     <option value="1" data-i18n="manager.users.teacherGrades.1">Collège</option>
@@ -452,11 +454,11 @@ const classroomModals = {
                     <option value="4" data-i18n="manager.users.teacherGrades.4">POST-BAC</option>
                 </select>
             </div>
-            <div class="form-group col-md-6">
+            <div class="form-group col-md" id="section_teacher_update_subjects">
                 <select class="form-control" id="update_user_teacher_subjects">
                 </select>
             </div>
-            <div class="form-group col-md-12">
+            <div class="form-group col-md-12" id="section_teacher_update_school">
                 <label for="update_u_school" data-i18n="[html]manager.profil.school">School</label>
                 <input type="text" class="form-control" id="update_u_school">
             </div>
@@ -491,38 +493,38 @@ const classroomModals = {
         },
         content: `<div class="container-fluid">
         <div class="form-row c-secondary-form">
-            <div class="form-group col-md-6">
+            <div class="form-group col-md">
                 <label for="u_firstname_ga" data-i18n="[html]manager.profil.firstname">Prénom <span class="c-text-red">*</span></label>
                 <input type="text" class="form-control" id="u_firstname_ga">
             </div>
-            <div class="form-group col-md-6">
+            <div class="form-group col-md">
                 <label for="u_surname_ga" data-i18n="[html]manager.profil.lastname">Nom <span class="c-text-red">*</span></label>
                 <input type="text" class="form-control" id="u_surname_ga">
             </div>
         </div>
 
         <div class="form-row c-secondary-form">
-            <div class="form-group col-md-4">
+            <div class="form-group col-md">
                 <label for="u_mail_ga" data-i18n="[html]manager.profil.email">Adresse E-mail <span class="c-text-red">*</span></label>
                 <input type="email" class="form-control" id="u_mail_ga">
             </div>
-            <div class="form-group col-md-4">
+            <div class="form-group col-md" id="group_admin_phone">
                 <label for="u_phone_ga" data-i18n="manager.profil.phone">Numéro de telephone</label>
                 <input type="text" class="form-control" id="u_phone_ga">
             </div>
-            <div class="form-group col-md-4">
+            <div class="form-group col-md" id="group_admin_username">
                 <label for="u_pseudo_ga" data-i18n="[html]manager.profil.nickname">Pseudonyme</label>
                 <input type="text" class="form-control" id="u_pseudo_ga">
             </div>
         </div>
-
-        <div class="form-group c-secondary-form">
+    
+        <div class="form-group c-secondary-form" id="group_admin_bio">
             <label for="u_bio_ga" data-i18n="[html]manager.profil.bio">Bio <span class="c-text-red">*</span></label>
             <textarea class="form-control" id="u_bio_ga" rows="3"></textarea>
         </div>
 
         <div class="form-row c-secondary-form" id="user_teacher_infos_ga">
-            <div class="form-group col-md-6">
+            <div class="form-group col-md" id="section_teacher_grade_ga">
                 <label for="user_teacher_grade_ga" data-i18n="[html]manager.profil.grade">Grade <span class="c-text-red">*</span></label>
                 <select class="form-control" id="user_teacher_grade_ga">
                     <option selected value="0" data-i18n="manager.users.teacherGrades.0">Primaire</option>
@@ -532,18 +534,18 @@ const classroomModals = {
                     <option value="4" data-i18n="manager.users.teacherGrades.4">POST-BAC</option>
                 </select>
             </div>
-            <div class="form-group col-md-6">
+            <div class="form-group col-md" id="section_teacher_subjects_ga">
                 <label for="user_teacher_subjects_ga" data-i18n="[html]manager.profil.subject">Subject <span class="c-text-red">*</span></label>
                 <select class="form-control" id="user_teacher_subjects_ga">
                 </select>
             </div>
-            <div class="form-group col-md-12">
+            <div class="form-group col-md-12" id="section_teacher_school_ga">
                 <label for="u_school" data-i18n="[html]manager.profil.school">School</label>
                 <input type="text" class="form-control" id="u_school_ga">
             </div>
-
-            <div class="form-group col-md-12" id="allGroupsGA">
-            </div>
+    
+        </div>
+        <div class="form-group col-md-12" id="allGroupsGA">
         </div>
     </div>
 
@@ -559,38 +561,38 @@ const classroomModals = {
         content: `<div class="container-fluid">
         <input type="hidden" class="form-control" id="update_u_id_ga">
         <div class="form-row c-secondary-form">
-            <div class="form-group col-md-4">
+            <div class="form-group col-md">
                 <label for="update_u_firstname_ga" data-i18n="[html]manager.profil.firstname">Prénom <span class="c-text-red">*</span></label>
                 <input type="text" class="form-control" id="update_u_firstname_ga">
             </div>
-            <div class="form-group col-md-4">
+            <div class="form-group col-md">
                 <label for="update_u_surname_ga" data-i18n="[html]manager.profil.lastname">Nom <span class="c-text-red">*</span></label>
                 <input type="text" class="form-control" id="update_u_surname_ga">
             </div>
-            <div class="form-group col-md-4">
-                <label for="update_u_pseudo_ga" data-i18n="[html]manager.profil.nickname">Pseudonyme</label>
+            <div class="form-group col-md" id="group_admin_username_update">
+                <label for="update_u_pseudo_ga" data-i18n="[html]manager.profil.nickname" >Pseudonyme</label>
                 <input type="text" class="form-control" id="update_u_pseudo_ga">
             </div>
         </div>
 
         <div class="form-row c-secondary-form">
-            <div class="form-group col-md-6">
+            <div class="form-group col-md">
                 <label for="update_u_mail_ga" data-i18n="[html]manager.profil.email">Adresse E-mail <span class="c-text-red">*</span></label>
                 <input type="email" class="form-control" id="update_u_mail_ga">
             </div>
-            <div class="form-group col-md-6">
+            <div class="form-group col-md" id="group_admin_phone_update">
                 <label for="update_u_phone_ga" data-i18n="manager.profil.phone">Numéro de telephone</label>
                 <input type="text" class="form-control" id="update_u_phone_ga">
             </div>
         </div>
-
-        <div class="form-group c-secondary-form mb-2">
+    
+        <div class="form-group c-secondary-form mb-2" id="group_admin_bio_update">
             <label for="update_u_bio_ga" data-i18n="[html]manager.profil.bio">Bio <span class="c-text-red">*</span></label>
             <textarea class="form-control" id="update_u_bio_ga" rows="3"></textarea>
         </div>
 
         <div class="form-row c-secondary-form" id="update_user_teacher_infos_ga">
-            <div class="form-group col-md-6">
+            <div class="form-group col-md" id="section_teacher_grade_update_ga">
                 <select class="form-control" id="update_user_teacher_grade_ga">
                     <option selected value="0" data-i18n="manager.users.teacherGrades.0">Primaire</option>
                     <option value="1" data-i18n="manager.users.teacherGrades.1">Collège</option>
@@ -599,11 +601,11 @@ const classroomModals = {
                     <option value="4" data-i18n="manager.users.teacherGrades.4">POST-BAC</option>
                 </select>
             </div>
-            <div class="form-group col-md-6">
+            <div class="form-group col-md" id="section_teacher_subjects_update_ga">
                 <select class="form-control" id="update_user_teacher_subjects_ga">
                 </select>
             </div>
-            <div class="form-group col-md-12">
+            <div class="form-group col-md-12" id="section_teacher_school_update_ga">
                 <label for="update_u_school" data-i18n="[html]manager.profil.school">School</label>
                 <input type="text" class="form-control" id="update_u_school_ga">
             </div>
@@ -615,12 +617,35 @@ const classroomModals = {
         </div>
 
         <hr>
-
+    
         <div id="update_applications_ga">
         </div>
     </div>
 
     <button class="btn c-btn-secondary" onclick="updateUserModalGroupAdmin()" data-i18n="manager.buttons.user.update">Update user</button>`,
+        footer: ``
+    },
+    'groupadmin-disable-user': {
+        selector: '',
+        header: {
+            icon: '',
+            title: 'manager.users.delete'
+        },
+        content: `  <div id="delete-user-modal">
+                        <div class="col-12">
+                            <div class="alert" id="alertDisableUserGA" role="alert" style="display:none;"></div>
+                            <h3 class="font-weight-bold c-text-red m-auto text-center" data-i18n="manager.users.disableConfirmationTitle">Confirmer la désactivation</h3>
+                            <p class="text-center" data-i18n="[html]manager.users.disableIntention">Vous vous apprêtez à désactiver l'utilisateur : <span id="mde_firstnameSA"></span></p>
+                            <div class="text-center c-secondary-form">
+                                <p class="text-center" data-i18n="manager.users.deleteConfirmation">Veuillez écrire "supprimer" dans le champ si dessous pour valider l'action.</p>
+                                <input type="text" name="validation_disableGroupAdmin" id="validation_disableGroupAdmin" data-i18n="[placeholder]manager.input.placeholder.delete" placeholder="supprimer">
+                            </div>
+                            <div class="text-center">
+                                <button class="btn c-btn-light mx-auto mt-3 btn-lg" onclick="cancelDisableGroupAdmin()" data-i18n="manager.buttons.cancel">Annuler</button>
+                                <button class="btn c-btn-secondary mx-auto mt-3 btn-lg" onclick="persistDisableGroupAdmin()" data-i18n="manager.buttons.validate">Valider</button>
+                            </div>
+                        </div>
+                    </div>`,
         footer: ``
     },
     'groupadmin-delete-user': {
@@ -763,17 +788,18 @@ const classroomModals = {
         selector: '',
         header: {
             icon: '',
-            title: 'manager.users.updateApps'
+            title: 'manager.users.updateAppModalTitle'
         },
         content: `  <div id="update-applications-modal">
                         <div class="container-fluid" id="update-app-manager" style="display:none;">
+                            <p class="mt-4 mb-1 vitta-modal-title" data-i18n="manager.group.generalInfo"> Restriction d'activité </p>
                             <div class="form-row mt-1 c-secondary-form">
                                 <div class="col-md">
-                                    <label for="app_update_name" data-i18n="manager.table.name">Name</label>
+                                    <label for="app_update_name" data-i18n="[html]manager.table.nameMandatory">Name</label>
                                     <input type="text" class="form-control" id="app_update_name">
                                 </div>
                                 <div class="col-md">
-                                    <label for="app_update_description" data-i18n="manager.table.description">Description</label>
+                                    <label for="app_update_description" data-i18n="[html]manager.table.descriptionMandatory">Description</label>
                                     <input type="text" class="form-control" id="app_update_description">
                                 </div>
                                 <div class="col-md">
@@ -781,6 +807,17 @@ const classroomModals = {
                                     <input type="text" class="form-control" id="app_update_image">
                                 </div>
                                 <input type="hidden" class="form-control" id="app_update_id">
+                            </div>
+                            <p class="mt-4 mb-1 vitta-modal-title" data-i18n="manager.activitiesRestrictions.restrictions"> Restriction d'activité </p>
+                            <div class="form-row mt-1 c-secondary-form">
+                                <div class="col-md">
+                                    <label for="app_update_activity_restriction_type" data-i18n="manager.activitiesRestrictions.type">Type</label>
+                                    <input type="text" class="form-control" id="app_update_activity_restriction_type">
+                                </div>
+                                <div class="col-md">
+                                    <label for="app_update_activity_restriction_value" data-i18n="manager.activitiesRestrictions.max">Nombre</label>
+                                    <input type="number" class="form-control" id="app_update_activity_restriction_value">
+                                </div>
                             </div>
                             <button class="btn c-btn-secondary my-3 btn" onclick="persistUpdateApp()" data-i18n="manager.buttons.update">Modifier</button>
                             <button class="btn c-btn-light my-3 btn" onclick="closeModalAndCleanInput()" data-i18n="manager.buttons.cancel">Annuler</button>
@@ -801,11 +838,11 @@ const classroomModals = {
                         <div class="container-fluid" id="create-app-manager" style="display:none;">
                             <div class="form-row mt-1 c-secondary-form">
                                 <div class="col-md">
-                                    <label for="app_create_name" data-i18n="manager.table.name">Name</label>
+                                    <label for="app_create_name" data-i18n="[html]manager.table.nameMandatory">Name</label>
                                     <input type="text" class="form-control" id="app_create_name">
                                 </div>
                                 <div class="col-md">
-                                    <label for="app_create_description" data-i18n="manager.table.description">Description</label>
+                                    <label for="app_create_description" data-i18n="[html]manager.table.descriptionMandatory">Description</label>
                                     <input type="text" class="form-control" id="app_create_description">
                                 </div>
                                 <div class="col-md">
@@ -816,60 +853,6 @@ const classroomModals = {
                             </div>
                             <button class="btn c-btn-secondary mx-auto mt-3 btn-lg" onclick="persistCreateApp()" data-i18n="manager.buttons.validate">Valider</button>
                             <button class="btn c-btn-light mx-auto mt-3 btn-lg" onclick="closeModalAndCleanInput()" data-i18n="manager.buttons.cancel">Annuler</button>
-                        </div>
-                    </div>`,
-        footer: ``
-    },
-    'update-activities-restrictions-manager': {
-        selector: '',
-        header: {
-            icon: '',
-            title: 'manager.activitiesRestrictions.updateAll'
-        },
-        content: `  <div id="update-activities-restrictions-modal">
-                        <div class="container-fluid" id="update-activity-restrictions-manager" style="display:none;">
-                            <div class="form-row mt-1 c-secondary-form">
-                                <div class="col-md">
-                                    <label for="activity_restrictions_update_type">Type activity</label>
-                                    <input type="text" class="form-control" id="activity_restrictions_update_type">
-                                </div>
-                                <div class="col-md">
-                                    <label for="activity_restrictions_update_maximum">Maximum</label>
-                                    <input type="text" class="form-control" id="activity_restrictions_update_maximum">
-                                </div>
-                                <input type="hidden" class="form-control" id="activity_restrictions_id">
-                            </div>
-                            <button class="btn c-btn-secondary my-3 btn" onclick="persistUpdateRestriction()" data-i18n="manager.buttons.update">Modifier</button>
-                            <button class="btn c-btn-light my-3 btn" onclick="closeModalAndCleanInputActivityRestrictions()" data-i18n="manager.buttons.cancel">Annuler</button>
-                        </div>
-
-                        <div class="col-12" id="delete-activity-restrictions-manager" style="display:none;">
-                            <h3 class="font-weight-bold text-danger m-auto text-center" data-i18n="manager.users.deleteConfirmationTitle">Confirmer la suppression</h3>
-                            <p class="text-center" data-i18n="[html]manager.activitiesRestrictions.deleteIntention"></p>
-                            <p class="text-center" data-i18n="manager.users.deleteConfirmation">Veuillez écrire "supprimer" dans le champ si dessous pour valider l'action.</p>
-                            <div class="text-center c-secondary-form">
-                                <input type="hidden" name="validation_delete_restriction_id" id="validation_delete_restriction_id">
-                                <input type="text" name="validation_delete_restriction" id="validation_delete_restriction" data-i18n="[placeholder]manager.input.placeholder.delete" placeholder="supprimer">
-                            </div>
-                            <div class="text-center">
-                                <button class="btn c-btn-red mx-auto mt-3 btn-lg" onclick="persistDeleteRestriction()" data-i18n="manager.buttons.validate">Valider</button>
-                                <button class="btn c-btn-light mx-auto mt-3 btn-lg" onclick="closeModalAndCleanInputActivityRestrictions()" data-i18n="manager.buttons.cancel">Annuler</button>
-                            </div>
-                        </div>
-
-                        <div class="container-fluid" id="create-activity-restrictions-manager" style="display:none;">
-                            <div class="form-row mt-1 c-secondary-form">
-                                <div class="col-md">
-                                    <label for="activity_restrictions_create_type">Type activity</label>
-                                    <input type="text" class="form-control" id="activity_restrictions_create_type">
-                                </div>
-                                <div class="col-md">
-                                    <label for="activity_restrictions_create_maximum">Maximum</label>
-                                    <input type="text" class="form-control" id="activity_restrictions_create_maximum">
-                                </div>
-                            </div>
-                            <button class="btn c-btn-secondary mx-auto mt-3 btn-lg" onclick="persistCreateRestriction()" data-i18n="manager.buttons.validate">Valider</button>
-                            <button class="btn c-btn-light mx-auto mt-3 btn-lg" onclick="closeModalAndCleanInputActivityRestrictions()" data-i18n="manager.buttons.cancel">Annuler</button>
                         </div>
                     </div>`,
         footer: ``
@@ -952,3 +935,59 @@ const classroomModals = {
     footer: ``
   },
 }
+
+/* 
+'update-activities-restrictions-manager': {
+    selector: '',
+    header: {
+        icon: '',
+        title: 'manager.activitiesRestrictions.updateAll'
+    },
+    content: `  <div id="update-activities-restrictions-modal">
+                    <div class="container-fluid" id="update-activity-restrictions-manager" style="display:none;">
+                        <div class="form-row mt-1 c-secondary-form">
+                            <div class="col-md">
+                                <label for="activity_restrictions_update_type">Type activity</label>
+                                <input type="text" class="form-control" id="activity_restrictions_update_type">
+                            </div>
+                            <div class="col-md">
+                                <label for="activity_restrictions_update_maximum">Maximum</label>
+                                <input type="text" class="form-control" id="activity_restrictions_update_maximum">
+                            </div>
+                            <input type="hidden" class="form-control" id="activity_restrictions_id">
+                        </div>
+                        <button class="btn c-btn-secondary my-3 btn" onclick="persistUpdateRestriction()" data-i18n="manager.buttons.update">Modifier</button>
+                        <button class="btn c-btn-light my-3 btn" onclick="closeModalAndCleanInputActivityRestrictions()" data-i18n="manager.buttons.cancel">Annuler</button>
+                    </div>
+
+                    <div class="col-12" id="delete-activity-restrictions-manager" style="display:none;">
+                        <h3 class="font-weight-bold text-danger m-auto text-center" data-i18n="manager.users.deleteConfirmationTitle">Confirmer la suppression</h3>
+                        <p class="text-center" data-i18n="[html]manager.activitiesRestrictions.deleteIntention"></p>
+                        <p class="text-center" data-i18n="manager.users.deleteConfirmation">Veuillez écrire "supprimer" dans le champ si dessous pour valider l'action.</p>
+                        <div class="text-center c-secondary-form">
+                            <input type="hidden" name="validation_delete_restriction_id" id="validation_delete_restriction_id">
+                            <input type="text" name="validation_delete_restriction" id="validation_delete_restriction" data-i18n="[placeholder]manager.input.placeholder.delete" placeholder="supprimer">
+                        </div>
+                        <div class="text-center">
+                            <button class="btn c-btn-red mx-auto mt-3 btn-lg" onclick="persistDeleteRestriction()" data-i18n="manager.buttons.validate">Valider</button>
+                            <button class="btn c-btn-light mx-auto mt-3 btn-lg" onclick="closeModalAndCleanInputActivityRestrictions()" data-i18n="manager.buttons.cancel">Annuler</button>
+                        </div>
+                    </div>
+
+                    <div class="container-fluid" id="create-activity-restrictions-manager" style="display:none;">
+                        <div class="form-row mt-1 c-secondary-form">
+                            <div class="col-md">
+                                <label for="activity_restrictions_create_type">Type activity</label>
+                                <input type="text" class="form-control" id="activity_restrictions_create_type">
+                            </div>
+                            <div class="col-md">
+                                <label for="activity_restrictions_create_maximum">Maximum</label>
+                                <input type="text" class="form-control" id="activity_restrictions_create_maximum">
+                            </div>
+                        </div>
+                        <button class="btn c-btn-secondary mx-auto mt-3 btn-lg" onclick="persistCreateRestriction()" data-i18n="manager.buttons.validate">Valider</button>
+                        <button class="btn c-btn-light mx-auto mt-3 btn-lg" onclick="closeModalAndCleanInputActivityRestrictions()" data-i18n="manager.buttons.cancel">Annuler</button>
+                    </div>
+                </div>`,
+    footer: ``
+}, */

@@ -69,25 +69,61 @@ function checkLogin() {
         } else {
             button.removeAttribute("disabled");
             button.style.cursor = "pointer";
-            infoBox = document.createElement("div");
-            infoBox.className = "alert alert-danger";
-            console.log(response)
-            if(response.success == false && response.error == 'badInput'){
-                infoBox.innerHTML = i18next.t('login_popup.error');
+
+            if (response.error === "wrong_credentials") {
+                displayNotification('#notif-div', "login_popup.error", "error");
+            } else if (response.error === "user_not_found") {
+                displayNotification('#notif-div', "login_popup.userNotFound", "error");
+            } else if (response.error === "user_not_active") {
+                displayNotification('#notif-div', "login_popup.inactiveAccount", "error");
+                $('#btn-activate-account-classroom').show();
             }
-            if(response.success == false) {
-                infoBox.innerHTML = i18next.t('login_popup.error');
-            }
-            else {
-                infoBox.innerHTML = i18next.t('login_popup.errorBeta');
-            }
-            document.getElementById("info-div").innerHTML = "";
-            document.getElementById("info-div").style.display = "none";
-            document.getElementById("info-div").appendChild(infoBox);
-            $("#info-div").fadeIn("slow");
-            setTimeout(() => {
-                $("#info-div").fadeOut("slow");
-            }, 5000);
+
         }
     })
+}
+
+/* function setUpInfoDivNav(type, messageID) {
+    let infoBox = "";
+    if (document.getElementById("info-div") === undefined || document.getElementById("info-div") === null) {
+        infoBox = document.createElement("div");
+    } else {
+        infoBox = document.getElementById("info-div");
+    }
+    // Create the info box and the message with the right class
+    infoBox.className = `alert alert-${type}`;
+    infoBox.innerHTML = i18next.t(messageID);
+    // Fade in the info div
+    $("#info-div").fadeIn("slow");
+} */
+
+function getNewValidationMail() {
+    let mail = $('#login-mail-input').val();
+    // Disable the button for 45s 
+    $('#btn-activate-account-classroom').attr("disabled", true);
+    setTimeout(() => {
+        $('#btn-activate-account-classroom').attr("disabled", false);
+    }, 45000);
+    $.ajax({
+        type: "POST",
+        url: "/routing/Routing.php?controller=groupadmin&action=get_new_validation_mail",
+        data: {
+            email: mail,
+        },
+        success: function (res) {
+            let response = JSON.parse(res);
+            if (response.success === true) {
+                displayNotification('#notif-div', "login_popup.mailSuccess", "success");
+            } else if (response.message === "mail_not_sent") {
+                displayNotification('#notif-div', "login_popup.mailError", "error");
+            } else if (response.message === "no_token") {
+                displayNotification('#notif-div', "login_popup.accountDeactivated", "error");
+            } else if (response.message === "user_not_found") {
+                displayNotification('#notif-div', "login_popup.userNotFound", "error");
+            }
+        },
+        error: function () {
+            displayNotification('#notif-div', "login_popup.mailError", "error");
+        }
+    });
 }

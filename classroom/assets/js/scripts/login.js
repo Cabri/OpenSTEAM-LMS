@@ -2,6 +2,7 @@ const AllViews = ['#classroom-login-container', '#login-container', '#classroom-
 
 // Global param who check if it's the first request of class
 let firstRequestClass = true;
+let firstRegisterLoad = true;
 function onUrlChange() {
     // Close all views
     closeAllViews();
@@ -15,7 +16,10 @@ function onUrlChange() {
                 $('#login-container').show();
                 break;
             case 'register':
-                $('#classroom-register-container').show();
+                // if the register form is already setup, we don't need to do it again and we can show it already
+                if (!firstRegisterLoad) {
+                    $('#classroom-register-container').show();
+                }
                 break;
             default:
                 $('#home-container').show();
@@ -285,7 +289,6 @@ $('#connect-nongar-user').click(function () {
         if (response == true) {
             window.open('/classroom/login.php', "_self")
         } else {
-            console.log("error")
             $('.mismatched-login').show()
         }
     }).catch(error => {});
@@ -301,7 +304,6 @@ $(document).on('keydown', function (e) {
             if (response == true) {
                 window.open('/classroom/login.php', "_self")
             } else {
-                console.log("error")
                 $('.mismatched-login').show()
             }
         }).catch(error => {});
@@ -376,12 +378,12 @@ function createTeacherAccount(formData) {
                 'email': formData.get('email'),
                 'password': formData.get('password'),
                 'password_confirm': formData.get('confirm-password'),
-                'bio': formData.get('mini-bio'),
-                'pseudo': formData.get('pseudo'),
-                'phone': formData.get('phone-number'),
-                'school': formData.get('school'),
-                'grade': parseInt(formData.get('grade')) + 1,
-                'subject': parseInt(formData.get('subject')) + 1,
+                'bio': $('#profile-form-bio').length ? $('#profile-form-bio').val() : null,
+                'pseudo': $('#profile-form-pseudo').length ? $('#profile-form-pseudo').val() : null,
+                'phone': $('#profile-form-phone').length ? $('#profile-form-phone').val() : null,
+                'school': $('#profile-form-grade').length ? $('#profile-form-school').val() : null,
+                'grade': $('#profile-form-grade').length ? $('#profile-form-grade').val() + 1 : null,
+                'subject': $('#profile-form-subject').length ? $('#profile-form-subject').val() + 1 : null,
                 'newsletter': $('#cb_newsletter').is(':checked'),
                 'private': $('#cb_name_public').is(':checked'),
                 'mailmessage': $('#cb_alert_mail').is(':checked'),
@@ -426,26 +428,6 @@ function teacherAccountCreateFormCheck(formData) {
             'confirmPassword': {
                 value: formData.get('confirm-password'),
                 id: 'profile-form-confirm-password'
-            },
-            'bio': {
-                value: formData.get('mini-bio'),
-                id: 'profile-form-bio'
-            },
-            'phone': {
-                value: formData.get('phone-number'),
-                id: 'profile-form-phone'
-            },
-            'school': {
-                value: formData.get('school'),
-                id: 'profile-form-school'
-            },
-            'grade': {
-                value: formData.get('grade'),
-                id: 'profile-form-grade'
-            },
-            'subject': {
-                value: formData.get('subject'),
-                id: 'profile-form-subject'
             }
         },
         errors = [];
@@ -536,8 +518,38 @@ function createSubjectSelectTeacherForm(array) {
         $("#profile-form-subject").append(o);
     }
 }
-setTimeout(() => {
-    createSubjectSelectTeacherForm(getSubjects(0));
-}, 2000);
 
+function createRegistrationTemplateForLogin() {
+    getRegistrationTemplate().then((res) => {
+
+        if (res.USER_USERNAME == "false") {
+            $('#registration_pseudo').remove();
+        }
+        
+        if (res.USER_PHONE == "false") {
+            $('#registration_phone').remove();
+        }
+        
+        if (res.USER_BIO == "false") {
+            $('#registration_bio').remove();
+        }
+
+        if (res.USER_TEACHER_GRADE == "false") {
+            $('#registration_grade').remove();
+        }
+        
+        if (res.USER_TEACHER_SUBJECT == "false") {
+            $('#registration_subject').remove();
+        }
+
+        if (res.USER_TEACHER_SCHOOL == "false") {
+            $('#registration_school').remove();
+        }
+        
+        if ($_GET('p') == "register") {
+            $('#classroom-register-container').show();
+        }
+    
+    })
+}
 

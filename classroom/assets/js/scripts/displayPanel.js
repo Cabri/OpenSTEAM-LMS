@@ -35,7 +35,7 @@ DisplayPanel.prototype.classroom_dashboard_profil_panel = function () {
     })
 }
 DisplayPanel.prototype.classroom_dashboard_ide_panel = function (option) {
-    if (option == "python" || option == "microbit" || option == "arduino" || option == "esp32" || option == "quickpi") {
+    if (option == "python" || option == "microbit" || option == "arduino" || option == "esp32" || option == "quickpi" || option == "adacraft" || option == "stm32" || option == "innovatorhub"){
         $('#classroom-dashboard-ide-panel').html('<iframe width="100%" style="height:85vh;" frameborder="0" allowfullscreen="" style="border:1px #d6d6d6 solid;" src="' + URLServer + '/' + option + '/?console=bottom&use=classroom&embed=1&action=new"></iframe>')
     } else if (option == "texas-instruments") {
         $('#classroom-dashboard-ide-panel').html('<iframe width="100%" style="height:85vh;" frameborder="0" allowfullscreen="" style="border:1px #d6d6d6 solid;" src="' + URLServer + '/microbit/?toolbox=texas-instruments&console=bottom&use=classroom&embed=1&action=new"></iframe>');
@@ -285,31 +285,35 @@ DisplayPanel.prototype.classroom_table_panel_teacher = function (link) {
             $('.classroom-link').html(ClassroomSettings.classroom)
             // Block classroom feature
             if (getClassroomInListByLink(link)[0].classroom.isBlocked == false) {
-                $('#classroom-info').removeClass('greyscale')
-                $('#classroom-info > *:not(:first-child)').css('display','unset');
+                $('#classroom-info > button:first-child').removeClass('greyscale')
                 $('#classroom-info > button:first-child > i.fa').removeClass('fa-lock').addClass('fa-lock-open');
 
             } else {
-                $('#classroom-info').addClass('greyscale')
-                $('#classroom-info > *:not(:first-child)').css('display','none');
+                $('#classroom-info > button:first-child').addClass('greyscale')
                 $('#classroom-info > button:first-child > i.fa').removeClass('fa-lock-open').addClass('fa-lock');
 
 
             }
             // Get the classes from database and refresh the dashboard
+            if (document.getElementById('is-anonymised').checked) {
+                anonymizeStudents();
+            }
             Main.getClassroomManager().getClasses(Main.getClassroomManager()).then(() => {
                 let students = getClassroomInListByLink(link)[0].students
-                displayStudentsInClassroom(students)
+                displayStudentsInClassroom(students, link);
+                if (document.getElementById('is-anonymised').checked) {
+                    anonymizeStudents();
+                }
             });
         }
-
-        setTimeout(dashboardAutoRefresh, 15000);
+        dashboardAutoRefresh.refreshLater();
     } else {
         navigatePanel('classroom-dashboard-classes-panel-teacher', 'dashboard-classes-teacher', 'WK' + id, '')
         displayNotification('#notif-div', "classroom.login.noClass", "warning")
     }
 }
 DisplayPanel.prototype.classroom_dashboard_new_activity_panel3 = function (ref) {
+    document.getElementById('attribute-activity-to-students').setAttribute('disabled', '');
     if (ref != null && ref != 'null') {
         let attribution = getAttributionByRef(ref)
         $('#introduction-activity-form').val(attribution.introduction)

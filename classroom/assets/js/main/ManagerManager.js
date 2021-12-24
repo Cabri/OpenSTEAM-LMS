@@ -156,13 +156,13 @@ class managerManager {
      * @param {*} $restriction_id 
      * @returns promise
      */
-    getOneActivityRestriction($restriction_id) {
+    getActivityRestrictionFromApp($application_id) {
         return new Promise(function (resolve, reject) {
             $.ajax({
                 type: "POST",
-                url: "/routing/Routing.php?controller=superadmin&action=get_one_restriction_activity",
+                url: "/routing/Routing.php?controller=superadmin&action=get_restriction_activity_applications",
                 data: {
-                    restriction_id: $restriction_id
+                    application_id: $application_id
                 },
                 success: function (response) {
                     resolve(JSON.parse(response))
@@ -292,69 +292,6 @@ class managerManager {
     }
 
     /**
-     * @returns promise
-     */
-     updateDefaultActivitiesRestrictions($typeRestrictionsArray) {
-        return new Promise(function (resolve, reject) {
-            $.ajax({
-                type: "POST",
-                url: "/routing/Routing.php?controller=superadmin&action=update_default_activities_restrictions",
-                data: {
-                    restrictions: $typeRestrictionsArray
-                },
-                success: function (response) {
-                    resolve(JSON.parse(response))
-                },
-                error: function () {
-                    reject();
-                }
-            });
-        })
-    }
-
-    /**
-     * @returns promise
-     */
-     addDefaultActivitiesRestrictions($restriction) {
-        return new Promise(function (resolve, reject) {
-            $.ajax({
-                type: "POST",
-                url: "/routing/Routing.php?controller=superadmin&action=add_default_activities_restrictions",
-                data: {
-                    restrictions: $restriction
-                },
-                success: function (response) {
-                    resolve(JSON.parse(response))
-                },
-                error: function () {
-                    reject();
-                }
-            });
-        })
-    }
-
-    /**
-     * @returns promise
-     */
-    deleteDefaultActivitiesRestrictions($restriction_type) {
-        return new Promise(function (resolve, reject) {
-            $.ajax({
-                type: "POST",
-                url: "/routing/Routing.php?controller=superadmin&action=delete_default_activities_restrictions",
-                data: {
-                    restrictions: $restriction_type
-                },
-                success: function (response) {
-                    resolve(JSON.parse(response))
-                },
-                error: function () {
-                    reject();
-                }
-            });
-        })
-    }
-
-    /**
      * @param {*} $restriction_id 
      * @returns promise
      */
@@ -383,13 +320,12 @@ class managerManager {
      * @param {*} $restriction_max 
      * @returns promise
      */
-    updateOneActivityRestriction($restriction_id, $application_id, $restriction_type, $restriction_max) {
+    updateOneActivityRestriction($application_id, $restriction_type, $restriction_max) {
         return new Promise(function (resolve, reject) {
             $.ajax({
                 type: "POST",
                 url: "/routing/Routing.php?controller=superadmin&action=update_one_restriction_activity",
                 data: {
-                    restriction_id: $restriction_id,
                     application_id: $application_id,
                     restriction_type: $restriction_type,
                     restriction_max: $restriction_max
@@ -664,8 +600,8 @@ class managerManager {
                     bio: $bio,
                     admin: $is_admin,
                     teacher: $is_teacher,
-                    grade: parseInt($teacher_grade) + 1,
-                    subject: parseInt($teacher_suject) + 1,
+                    grade: $teacher_grade,
+                    subject: $teacher_suject,
                     mail: $mail,
                     school: $school
                 },
@@ -694,8 +630,8 @@ class managerManager {
                     bio: $bio,
                     admin: $is_admin,
                     teacher: $is_teacher,
-                    grade: parseInt($teacher_grade) + 1,
-                    subject: parseInt($teacher_suject) + 1,
+                    grade: $teacher_grade,
+                    subject: $teacher_suject,
                     mail: $mail,
                     school: $school,
                     isactive: $is_active,
@@ -787,6 +723,7 @@ class managerManager {
         mainManager.getmanagerManager()._actualGroup = $group_id;
         const process = (data) => {
             let $data_table = "",
+                $data_table_inactive ="",
                 group = "";
 
             mainManager.getmanagerManager()._allActualUsers = [];
@@ -842,21 +779,33 @@ class managerManager {
                     let div_img = ""
                     if (element.hasOwnProperty('applications')) {
                         element.applications.forEach(element_2 => {
-                            if (element_2.image != null) {
-                                div_img += `<img src="assets/media/${element_2.image}" data-toggle="tooltip" alt="${element_2.name}" title="${element_2.name}" style="max-height: 24px;" class="mx-1">`;
+                            if (element_2.image != null && element_2.image != "") {
+                                div_img += `<img src="assets/plugins/images/${element_2.image}" data-toggle="tooltip" alt="${element_2.name}" title="${element_2.name}" style="max-height: 24px;" class="mx-1">`;
                             } else {
-                                div_img += `<img src="assets/media/nologo.jpg" data-toggle="tooltip" alt="${element_2.name}" title="${element_2.name}" style="max-height: 24px;" class="mx-1">`;
+                                div_img += `<img src="assets/media/no-app-icon.svg" data-toggle="tooltip" alt="${element_2.name}" title="${element_2.name}" style="max-height: 24px;" class="mx-1">`;
                             }
                         });
                     }
 
                     let rowDelete = "";
-                    if ($group_id == -2)
+                    if (element.hasOwnProperty('active')) {
+                        if (element.active == "1" ) {
+                            rowDelete = `<button class = "btn c-btn-red btn-sm" data-i18n="manager.buttons.disable" onclick="disableUser(${element.id})">${i18next.t('manager.buttons.disable')} <i class="fas fa-user-lock"></i></button>`;
+                        } else {
+                            rowDelete = `<button class = "btn c-btn-red btn-sm" data-i18n="manager.buttons.delete" onclick="deleteUser(${element.id})">${i18next.t('manager.buttons.delete')} <i class="fas fa-user-minus"></i></button>`;
+                        }
+                    } else {
                         rowDelete = `<button class = "btn c-btn-red btn-sm" data-i18n="manager.buttons.delete" onclick="deleteUser(${element.id})">${i18next.t('manager.buttons.delete')} <i class="fas fa-user-minus"></i></button>`;
-                    else
-                        rowDelete = `<button class = "btn c-btn-red btn-sm" data-i18n="manager.buttons.disable" onclick="disableUser(${element.id})">${i18next.t('manager.buttons.disable')} <i class="fas fa-user-lock"></i></button>`;
+                    }
 
-                    $data_table +=
+                    let activeFlag = true;
+                    if (element.hasOwnProperty('active')) {
+                        if (element.active != "1" && $group_id != -2) {
+                            activeFlag = false;
+                        }
+                    } 
+                    if (activeFlag) {
+                        $data_table +=
                         `<tr>
                             <td>${element.surname}</td>
                             <td>${element.firstname}</td>
@@ -876,9 +825,32 @@ class managerManager {
                                 ${rowDelete}
                             </td>
                         </tr>`;
+                    } else {
+                        $data_table_inactive += 
+                        `<tr>
+                            <td>${element.surname}</td>
+                            <td>${element.firstname}</td>
+                            <td>${$droits}</td>
+                            <td>${div_img}</td>
+                            <td>
+                                <a class="c-link-primary d-inline-block" href="javascript:void(0)" onclick="resetUserPassword(${element.id})">
+                                    <i class="fas fa-redo-alt fa-2x"></i>
+                                </a>
+                            </td>
+                            <td>
+                                <a class="c-link-secondary" href="javascript:void(0)" onclick="showupdateUserModal(${element.id})">
+                                    <i class="fas fa-pencil-alt fa-2x"></i>
+                                </a>
+                            </td>
+                            <td>
+                                ${rowDelete}
+                            </td>
+                        </tr>`;
+                    }
                 }
             });
             $('#table_info_group_data').html($data_table);
+            $('#table_info_group_data_inactive').html($data_table_inactive);
             $('[data-toggle="tooltip"]').tooltip()
 
         }
@@ -903,7 +875,8 @@ class managerManager {
     globalSearchUser($name, $page, $usersperpage) {
         const process = (res) => {
             mainManager.getmanagerManager()._allActualUsers = [];
-            let $data_table = "";
+            let $data_table = "", 
+                $data_table_inactive = "";
 
             $('#group_name_from_table').text(i18next.t('manager.group.searchResult'));
             res.forEach(element => {
@@ -943,10 +916,10 @@ class managerManager {
                     let div_img = ""
                     if (element.hasOwnProperty('applications')) {
                         element.applications.forEach(element_2 => {
-                            if (element_2.image != null) {
-                                div_img += `<img src="assets/media/${element_2.image}" data-toggle="tooltip" alt="${element_2.name}" title="${element_2.name}" style="max-height: 24px;" class="mx-1">`;
+                            if (element_2.image != null && element_2.image != "") {
+                                div_img += `<img src="assets/plugins/images/${element_2.image}" data-toggle="tooltip" alt="${element_2.name}" title="${element_2.name}" style="max-height: 24px;" class="mx-1">`;
                             } else {
-                                div_img += `<img src="assets/media/nologo.jpg" data-toggle="tooltip" alt="${element_2.name}" title="${element_2.name}" style="max-height: 24px;" class="mx-1">`;
+                                div_img += `<img src="assets/media/no-app-icon.svg" data-toggle="tooltip" alt="${element_2.name}" title="${element_2.name}" style="max-height: 24px;" class="mx-1">`;
                             }
                         });
                     }
@@ -958,7 +931,14 @@ class managerManager {
                         rowDelete = `<button class = "btn c-btn-red btn-sm" data-i18n="manager.buttons.disable" onclick="disableUser(${element.id})">${i18next.t('manager.buttons.disable')} <i class="fas fa-user-lock"></i></button>`;
                     }
 
-                    $data_table +=
+                    let activeFlag = true;
+                    if (element.hasOwnProperty('active')) {
+                        if (element.active != "1" && $group_id != -2) {
+                            activeFlag = false;
+                        }
+                    } 
+                    if (activeFlag) {
+                        $data_table +=
                         `<tr>
                             <td>${element.surname}</td>
                             <td>${element.firstname}</td>
@@ -978,9 +958,32 @@ class managerManager {
                                 ${rowDelete}
                             </td>
                         </tr>`;
+                    } else {
+                        $data_table_inactive += 
+                        `<tr>
+                            <td>${element.surname}</td>
+                            <td>${element.firstname}</td>
+                            <td>${$droits}</td>
+                            <td>${div_img}</td>
+                            <td>
+                                <a class="c-link-primary d-inline-block" href="javascript:void(0)" onclick="resetUserPassword(${element.id})">
+                                    <i class="fas fa-redo-alt fa-2x"></i>
+                                </a>
+                            </td>
+                            <td>
+                                <a class="c-link-secondary" href="javascript:void(0)" onclick="showupdateUserModal(${element.id})">
+                                    <i class="fas fa-pencil-alt fa-2x"></i>
+                                </a>
+                            </td>
+                            <td>
+                                ${rowDelete}
+                            </td>
+                        </tr>`;
+                    }
                 }
             });
             $('#table_info_group_data').html($data_table);
+            $('#table_info_group_data_inactive').html($data_table_inactive);
             $('[data-toggle="tooltip"]').tooltip()
 
         }
@@ -1064,10 +1067,10 @@ class managerManager {
                 let div_img = ""
                 if (element.hasOwnProperty('applications')) {
                     element.applications.forEach(element_2 => {
-                        if (element_2.image != null) {
-                            div_img += `<img src="assets/media/${element_2.image}" data-toggle="tooltip" alt="${element_2.name}" title="${element_2.name}" style="max-height: 24px;" class="mx-1">`;
+                        if (element_2.image != null && element_2.image != "") {
+                            div_img += `<img src="assets/plugins/images/${element_2.image}" data-toggle="tooltip" alt="${element_2.name}" title="${element_2.name}" style="max-height: 24px;" class="mx-1">`;
                         } else {
-                            div_img += `<img src="assets/media/nologo.jpg" data-toggle="tooltip" alt="${element_2.name}" title="${element_2.name}" style="max-height: 24px;" class="mx-1">`;
+                            div_img += `<img src="assets/media/no-app-icon.svg" data-toggle="tooltip" alt="${element_2.name}" title="${element_2.name}" style="max-height: 24px;" class="mx-1">`;
                         }
                     });
                 }
@@ -1126,10 +1129,10 @@ class managerManager {
                     let div_img = ""
                     if (element.hasOwnProperty('applications')) {
                         element.applications.forEach(element_2 => {
-                            if (element_2.image != null) {
-                                div_img += `<img src="assets/media/${element_2.image}" data-toggle="tooltip" alt="${element_2.name}" title="${element_2.name}" style="max-height: 24px;" class="mx-1">`;
+                            if (element_2.image != null && element_2.image != "") {
+                                div_img += `<img src="assets/plugins/images/${element_2.image}" data-toggle="tooltip" alt="${element_2.name}" title="${element_2.name}" style="max-height: 24px;" class="mx-1">`;
                             } else {
-                                div_img += `<img src="assets/media/nologo.jpg" data-toggle="tooltip" alt="${element_2.name}" title="${element_2.name}" style="max-height: 24px;" class="mx-1">`;
+                                div_img += `<img src="assets/media/no-app-icon.svg" data-toggle="tooltip" alt="${element_2.name}" title="${element_2.name}" style="max-height: 24px;" class="mx-1">`;
                             }
                         });
                     }

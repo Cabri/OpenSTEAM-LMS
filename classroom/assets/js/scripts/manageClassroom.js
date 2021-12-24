@@ -113,15 +113,14 @@ $('body').on('click', '.class-card', function () {
     }
 })
 
-function setNote(note, el) {
+function setNote(note) {
+    alert(note)
     Activity.note = note
     if (note > 1) {
         Activity.correction = 2
     } else {
         Activity.correction = 3
     }
-    $('.note-choice').removeClass('selectNote')
-    $('#' + el).addClass('selectNote')
 }
 
 function giveNote() {
@@ -188,8 +187,17 @@ $('.new-classroom-form').click(function () {
                 if(students.length){
                     Main.getClassroomManager().addUsersToGroup(students, existingStudents, classroom.link).then(function (response) {
                         if(!response.isUsersAdded){
-                            displayNotification('#notif-div', "classroom.notif.classCreatedButNotUsers", "error", `'{"classroomName": "${classroom.name}", "learnerNumber": "${response.currentLearnerCount+response.addedLearnerNumber}"}'`);
-                           $('.new-classroom-form').attr('disabled', false);
+                            if(response.errorType){
+                                 displayNotification('#notif-div', `classroom.notif.${response.errorType}`, "error");
+                            }
+                            else{
+                                 displayNotification('#notif-div', "classroom.notif.classCreatedButNotUsers", "error", `'{"classroomName": "${classroom.name}", "learnerNumber": "${response.currentLearnerCount+response.addedLearnerNumber}"}'`);
+                            }
+                           
+                            Main.getClassroomManager().getClasses(Main.getClassroomManager()).then(() => {
+                                $('.new-classroom-form').attr('disabled', false);
+                                navigatePanel('classroom-table-panel-teacher', 'dashboard-classes-teacher', classroom.link)
+                           })
                         }
                         else{
                             Main.getClassroomManager().getClasses(Main.getClassroomManager()).then(function () {
@@ -262,10 +270,7 @@ $('body').on('click', '.save-student-in-classroom', function () {
         $('.student-form-name').each(function (index) {
             if ($(this).val() != "") {
                 if (parseInt($(this).attr('data-id')) > 0) {
-                    existingStudents.push({
-                        'pseudo': $(this).val(),
-                        'id': $(this).attr('data-id')
-                    })
+                    existingStudents.push({'pseudo': $(this).val(), 'id': $(this).attr('data-id')})
                 } else {
                     students.push($(this).val())
                 }
@@ -274,7 +279,7 @@ $('body').on('click', '.save-student-in-classroom', function () {
         Main.getClassroomManager().addUsersToGroup(students, existingStudents, ClassroomSettings.classroom).then(function (response) {
             if(!response.isUsersAdded){
                 if(response.noUser){
-                    displayNotification('#notif-div', "classroom.notif.noUser", "error");
+                    displayNotification('#notif-div', "classroom.notif.noUserUsername", "error");
                     return;
                 }
                 /**
@@ -302,8 +307,10 @@ $('body').on('click', '.save-student-in-classroom', function () {
             $('#no-student-label').remove()
             $('#table-students ul').append(addStudentRow($('.student-form-name').val()))
             pseudoModal.closeModal('add-student-modal')
+            // Reset the input field
+            $('.student-form-name').val('');
         } else {
-            displayNotification('#notif-div', "classroom.notif.noUser", "error");
+            displayNotification('#notif-div', "classroom.notif.noUserUsername", "error");
         }
     }
 
@@ -380,14 +387,30 @@ function importLearnerCsv(){
                     let csv = event.target.result;
                     let lines = csv.split("\n");
                     let headers = lines[0].split(/[,;]/);
+
                     for(let i = 0; i < headers.length; i++) {
                         headers[i] = headers[i].replace("\r","");
                     }
                     
+                    let missingPseudoError = false
                     for (let i = 1; i < lines.length; i++) {
+                        // sanitize the current line
+                        lines[i] = lines[i].replace(/(\r\n|\n|\r)/gm, "")
+                        // ignore current empty line
+                        // NOTE : EXCEL return a single character for an empty line when we use the "pseudo;password" example file
+                         if(lines[i] == '' || lines[i] ==';') continue 
+
                         let currentline = lines[i].split(/[,;]/);
-                        $('#table-students ul').append(addStudentRow(currentline[0]));
+                        
+                        // set the error flag to true if the pseudo is missing in the csv
+                        if(currentline[0].trim() == '') missingPseudoError = true;
+
+                        // add the student into the students table
+                        else $('#table-students ul').append(addStudentRow(currentline[0]));
                     }
+
+                    // display the missing pseudo error
+                    if(missingPseudoError == true) displayNotification('#notif-div', "classroom.notif.pseudoMissingInCsvFile", "error");
 
                     if ($('#table-students ul li .col').length > 1) {
                         $('#no-student-label').remove();
@@ -461,15 +484,24 @@ function csvJSON(csv) {
     }
     
     for (let i = 1; i < lines.length; i++) {
+        // sanitize the current line
+        lines[i] = lines[i].replace(/(\r\n|\n|\r)/gm, "")
+        // ignore current empty line
+        // NOTE : EXCEL return a single character for an empty line when we use the "pseudo;password" example file
+        if(lines[i] == '' || lines[i] ==';') continue 
+
+        // create empty object to fill and split line data
         let obj = {};
         let currentline = lines[i].split(/[,;]/);
 
         for (let j = 0; j < headers.length; j++) {
-            obj[headers[j]] = currentline[j].replace("\r","");
+            if(typeof currentline[j] != 'undefined' ){
+                // fill the object with data 
+                obj[headers[j]] = currentline[j].replace("\r","").trim();
+            }
         }
         result.push(obj);
     }
-    
     // remove the previous filename uploaded on open 
     $('#importcsv-fileinput').val("");
     return JSON.stringify(result); //JSON
@@ -507,7 +539,7 @@ function exportDashboardCsv(){
  * @param {string} link - link of the classroom
  */
 function classroomToCsv(link) {
-    let html = "apprenant;mot de passe \n"
+    let html = "apprenant;mot_de_passe \n"
     let classroom = getClassroomInListByLink(link)[0]
     for (let i = 0; i < classroom.students.length; i++) {
         if(classroom.students[i].user.pseudo != demoStudentName){
@@ -574,7 +606,7 @@ function reorderActivities(activities, indexes) {
     let orderedActivities = [];
     for(let i=0; i<indexes.length; i++){
         for(activity of activities){
-            if(activity.reference == indexes[i].id){
+            if(activity.reference == indexes[i].reference){
                 orderedActivities[i] = activity;
                 break;
             }else{
@@ -596,8 +628,9 @@ function listIndexesActivities(students) {
             if (!indexArray.includes(element.reference)) {
                 indexArray.push(element.reference)
                 indexArraybis.push({
-                    id: element.reference,
-                    title: element.activity.title
+                    id: element.activity.id,
+                    title: element.activity.title,
+                    reference: element.reference
                 })
                 ClassroomSettings.indexRef.push(element)
 
@@ -606,7 +639,7 @@ function listIndexesActivities(students) {
     });
     // sorting the index array by date
     indexArraybis.sort((a, b) => {
-        return (a.id > b.id) ? 1 : -1;
+        return (a.reference > b.reference) ? 1 : -1;
     });
     return indexArraybis;
 }
@@ -718,7 +751,7 @@ function filterTeacherActivityInList(keywords = [], orderBy = 'id', asc = true) 
 
     }
     regExp = new RegExp(expression)
-    let list = Main.getClassroomManager()._myTeacherActivities.filter(x => regExp.test(x.title.toUpperCase()) || regExp.test(x.content.toUpperCase()))
+    let list = Main.getClassroomManager()._myTeacherActivities.filter(x => regExp.test(x.title.toUpperCase()))
     if (asc) {
         return list.sort(function (a, b) {
             return a[orderBy] - b[orderBy];
@@ -775,42 +808,16 @@ function filterSandboxInList(keywords = [], orderBy = 'id', asc = true) {
  * Display the teacher dashboard in the classroom tab
  * @param {array} students - Array of students in a classroom
  */
-function displayStudentsInClassroom(students) {
+function displayStudentsInClassroom(students, link=false) {
+    if (link && link != $_GET('option')) {
+        return;
+    }
     $('#body-table-teach').html(''); //clean the display
     $('#add-student-container').html(''); //clean the display
     $('#export-class-container').html(''); //clean the display
-    $('#header-table-teach').html('<th class="table-title" style="max-width: 250px; font-size: 19pt; text-align: left; height: 3em;" data-i18n="classroom.activities.title">'+i18next.t("classroom.activities.title")+'</th>');
+    $('#header-table-teach').html('<th class="table-title" style="max-width: 250px; font-size: 19pt; text-align: left; height: 3em;" data-i18n="classroom.activities.title"></th>').localize();
     // get the current classroom index of activities
     let arrayIndexesActivities = listIndexesActivities(students);
-
-    // create the current classroom index of activities with the activities id
-    let activitiesIndexWithId = [];
-    for(let i=0; i<arrayIndexesActivities.length; i++){
-        for(let student of students){
-            if(activitiesIndexWithId[i]){
-                break;
-            }else{
-                for(let activity of student.activities){
-                    if(activity.reference == arrayIndexesActivities[i].id){
-                        activitiesIndexWithId.push({
-                            "title": activity.activity.title,
-                            "id": activity.activity.id,
-                            "reference": activity.reference
-                        });
-                        break;
-                    }
-                }
-            }
-        }
-    }
-
-    // sort the students by their name (it doesn't seem to work yet)
-    if (students[0].user.pseudo == demoStudentName) {
-        students.sort(function (a, b) {
-            return (a.pseudo > b.pseudo) ? 1 : -1;
-        })
-    }
-
 
     students.forEach(element => {
         // reorder the current student activities to fit to the classroom index of activities
@@ -825,37 +832,44 @@ function displayStudentsInClassroom(students) {
         if (element.user.pseudo == demoStudentName) {
             html = `<tr><td class="username row" data-student-id="` + element.user.id + `"><img class="col-2 propic" src="${_PATH}assets/media/alphabet/` + element.user.pseudo.slice(0, 1).toUpperCase() + `.png" alt="Photo de profil"><div class="col-7 line_height34" title="` + element.user.pseudo + `">` + pseudo + ` </div> <div class="dropdown col "><i class="classroom-clickable line_height34 fas fa-exchange-alt" type="button" id="dropdown-studentItem-${element.user.id}" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></i>
             <div class="dropdown-menu" aria-labelledby="dropdown-studentItem-${element.user.id}">
-        <li id="mode-apprenant" class="dropdown-item classroom-clickable col-12" href="#" onclick="modeApprenant()">Mode apprenant</li>
+        <li id="mode-apprenant" class="dropdown-item classroom-clickable col-12" href="#" onclick="modeApprenant()" data-i18n="classroom.classes.panel.learnerMode">Mode apprenant</li>
         </div>
         </div></td>`;
         // Add the current student head table cell
         } else {
-            html = `<tr><td class="username row" data-student-id="` + element.user.id + `"><img class="col-2 propic" src="${_PATH}assets/media/alphabet/` + element.user.pseudo.slice(0, 1).toUpperCase() + `.png" alt="Photo de profil"><div class="col-7 line_height34" title="` + element.user.pseudo + `">` + pseudo + ` </div><div class="dropdown col"><i class="classroom-clickable line_height34 fas fa-cog" type="button" id="dropdown-studentItem-${element.user.id}" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></i>
-            <div class="dropdown-menu" aria-labelledby="dropdown-studentItem-${element.user.id}">
-            <li class="col-12 pwd-display-stud" href="#">Votre mot de passe : <span class="masked">${element.pwd}  </span><i class="classroom-clickable fas fa-low-vision switch-pwd ml-2"></i></li>
-            <li class="modal-student-password classroom-clickable col-12 dropdown-item" href="#">Régenérer le mot de passe</li>
-        <li class="classroom-clickable col-12 dropdown-item" href="#"><span class="classroom-clickable" onclick="changePseudoModal('${element.user.pseudo}',${element.user.id})">Modifier le pseudo</span></li>
-        <li class="dropdown-item modal-student-delete classroom-clickable col-12" href="#">Supprimer</li>
-        </div>
-        </div></td>`;
+            html = `<tr><td class="username row" data-student-id="` + element.user.id + `"><img class="col-2 propic" src="${_PATH}assets/media/alphabet/` + element.user.pseudo.slice(0, 1).toUpperCase() + `.png" alt="Photo de profil"><div class="col-7 line_height34" title="` + element.user.pseudo + `">` + pseudo + ` </div>`
+            if (!UserManager.getUser().isFromGar) {
+                html += `<div class="dropdown col"><i class="classroom-clickable line_height34 fas fa-cog" type="button" id="dropdown-studentItem-${element.user.id}" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></i>
+                <div class="dropdown-menu" aria-labelledby="dropdown-studentItem-${element.user.id}">
+                <li class="col-12 pwd-display-stud" href="#"><div data-i18n="classroom.classes.panel.password">Votre mot de passe :</div> <span class="masked">${element.pwd}</span><i class="classroom-clickable fas fa-low-vision switch-pwd ml-2"></i></li>
+                <li class="modal-student-password classroom-clickable col-12 dropdown-item" href="#" data-i18n="classroom.classes.panel.resetPassword">Régenérer le mot de passe</li>
+                <li class="classroom-clickable col-12 dropdown-item" href="#"><span class="classroom-clickable" data-i18n="classroom.classes.panel.editNickname" onclick="changePseudoModal('${element.user.pseudo}',${element.user.id})">Modifier le pseudo</span></li>
+                <li class="dropdown-item modal-student-delete classroom-clickable col-12" href="#" data-i18n="classroom.classes.panel.delete">Supprimer</li>
+                </div>
+                </div>`;
+            }
+            html += `</td>`;
         }
         let activityNumber = 1;
         // Display the current student activities in the dashboard
 
         // Loop in the classroom activities index (with ids) to generate the dashboard table header and body
-        for(let i=0; i<activitiesIndexWithId.length; i++){
+        for(let i=0; i<arrayIndexesActivities.length; i++){
             if (element.user.pseudo == demoStudentName) {
                 $('#header-table-teach').append(`
-                <th>
+                <th data-toggle="tooltip" data-placement="top" title="${ arrayIndexesActivities[i].title }">
                     <div class="dropdown dropdown-act" style="width:30px;">
                         <div id="dropdown-act-${activityNumber}" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             <span class="span-act">Act.</br>n°${ activityNumber }</span>
-                            <i style="display:none;font-size:2em;" class="fa fa-cog i-act" aria-hidden="true"></i><div class="dropdown-menu" aria-labelledby="dropdown-act-${activityNumber}"  data-id="${activitiesIndexWithId[i].id}" style="text-transform: none;">
-                            <li class="ml-5" style="border-bottom:solid 2px black;"><b>${ activitiesIndexWithId[i].title }</b></li>
-                            <li class="classroom-clickable col-12 dropdown-item " onclick="activityWatch(${activitiesIndexWithId[i].id})" ><i class="fas fa-eye"></i> ${i18next.t('classroom.activities.displayActivity')}</li>
-                            <li class=" classroom-clickable col-12 dropdown-item" onclick="activityModify(${activitiesIndexWithId[i].id})"><i class="fas fa-pen"></i> ${i18next.t('classroom.activities.modifyActivity')}</li>
-                            <li class="classroom-clickable col-12 dropdown-item" onclick="attributeActivity(${activitiesIndexWithId[i].id},${activitiesIndexWithId[i].reference})"><i class="fas fa-user-alt"></i> ${i18next.t('classroom.activities.modifyActivityAttribution')}</li>
-                            <li class="dropdown-item classroom-clickable col-12" onclick="undoAttributeActivity(${activitiesIndexWithId[i].reference},'${activitiesIndexWithId[i].title}')"><i class="fas fa-trash-alt"></i> ${i18next.t('classroom.activities.removeActivityAttribution')}</li>
+                            <i style="display:none;font-size:2em;" class="fa fa-cog i-act" aria-hidden="true"></i>
+                            <div class="dropdown-menu" aria-labelledby="dropdown-act-${activityNumber}" data-id="${arrayIndexesActivities[i].id}" style="text-transform: none;">
+                            <li class="ml-5" style="border-bottom:solid 2px black;">
+                                <b>${ arrayIndexesActivities[i].title }</b>
+                            </li>
+                            <li class="classroom-clickable col-12 dropdown-item " onclick="activityWatch(${arrayIndexesActivities[i].id})" ><i class="fas fa-eye"></i> <span data-i18n="classroom.classes.panel.seeActivity">Voir l'activité</span></li>
+                            <li class=" classroom-clickable col-12 dropdown-item" onclick="activityModify(${arrayIndexesActivities[i].id})"><i class="fas fa-pen"></i> <span data-i18n="classroom.classes.panel.editActivity">Modifier l'activité</span></li>
+                            <li class="classroom-clickable col-12 dropdown-item" onclick="attributeActivity(${arrayIndexesActivities[i].id},${arrayIndexesActivities[i].reference})"><i class="fas fa-user-alt"></i> <span data-i18n="classroom.classes.panel.editAttribution">Modifier l'attribution</span></li>
+                            <li class="dropdown-item classroom-clickable col-12" onclick="undoAttributeActivity(${arrayIndexesActivities[i].reference},'${arrayIndexesActivities[i].title}','${Main.getClassroomManager().getClassroomIdByLink(ClassroomSettings.classroom)}')"><i class="fas fa-trash-alt"></i> <span data-i18n="classroom.classes.panel.removeAttribution">Retirer l'attribution</span></li>
                         </div>
                     </div>
                 </th>`);
@@ -864,27 +878,27 @@ function displayStudentsInClassroom(students) {
             // Display the current student activities in the dashboard
             let currentActivity = arrayActivities[i];
             if (currentActivity) {
-              html +=  `<td class="${statusActivity(currentActivity)} bilan-cell ${currentActivity.correction ? 'classroom-clickable' : 'no-activity'}" data-state="${statusActivity(currentActivity, false)}" data-id="${currentActivity.id}" title="A rendre avant le ${formatDay(currentActivity.dateEnd)}"></td>`;
-              //html += '<td class="' + statusActivity(currentActivity) + ' bilan-cell classroom-clickable" data-state="' + statusActivity(currentActivity, false) + '" data-id="' + currentActivity.id + '" title="A rendre avant le ' + formatDay(currentActivity.dateEnd) + '"></td>';
+                html += `<td class=" ${statusActivity(currentActivity)} bilan-cell  ${currentActivity.correction ? 'classroom-clickable' : 'no-activity'}" data-state=" ${statusActivity(currentActivity, false)}" data-id="${ currentActivity.id}" data-toggle="tooltip" data-html="true" data-placement="top" title="<b>${currentActivity.activity.title}</b><br><em>${i18next.t("classroom.classes.panel.dueBy") + " " + formatDay(currentActivity.dateEnd)}</em>"></td>`;
             } else {
-                html += '<td class="no-activity bilan-cell" "></td>';
+                html += `<td class="no-activity bilan-cell" "></td>`;
             }
         }
         // addition of 6 "empty" cells at the end of the current table row
         for (let i = 0; i < 6; i++) {
-            html += '<td class="no-activity bilan-cell"></td>';
+            // html += '<td class="no-activity bilan-cell"></td>';
         }
         // end of the current table row
         html += '</tr>';
-        $('#body-table-teach').append(html);
+        $('#body-table-teach').append(html).localize();
+        $('[data-toggle="tooltip"]').tooltip()
     });
+    
+    $('#add-student-container').append(`<button id="add-student-dashboard-panel" class="btn c-btn-primary"><span data-i18n="classroom.activities.addLearners">Ajouter des apprenants</span> <i class="fas fa-plus"></i></button>`).localize();
 
-    $('#add-student-container').append(`<button id="add-student-dashboard-panel" class="btn c-btn-primary"><span data-i18n="classroom.activities.addLearner">${i18next.t("classroom.activities.addLearner")} <i class="fas fa-plus"></i></span></button>`);
-
-    $('#export-class-container').append(`<button id="download-csv" class="btn c-btn-tertiary ml-2" onclick="openDownloadCsvModal()"><i class="fa fa-download" aria-hidden="true"></i><span class="ml-1" data-i18n="classroom.activities.exportCsv">Exporter CSV</span></button>`);
+    $('#export-class-container').append(`<button id="download-csv" class="btn c-btn-tertiary ml-2" onclick="openDownloadCsvModal()"><i class="fa fa-download" aria-hidden="true"></i><span class="ml-1" data-i18n="classroom.activities.exportCsv">Exporter CSV</span></button>`).localize();
 
     // todo replace by plugin, disabled by cabri for lti release purposes
-    //$('#header-table-teach').append(`<th class="add-activity-th" colspan="7"> <button class="btn c-btn-primary dashboard-activities-teacher" onclick="pseudoModal.openModal('add-activity-modal')">Ajouter une activité</button></th>`)
+    //$('#header-table-teach').append(`<th class="add-activity-th" colspan="7"> <button class="btn c-btn-primary dashboard-activities-teacher" onclick="pseudoModal.openModal('add-activity-modal')" data-i18n="classroom.activities.addActivity">Ajouter une activité</button></th>`).localize();
 }
 
 $('body').on('click', '.switch-pwd', function (event) {
@@ -1127,14 +1141,54 @@ function showFormInputError(id){
     document.getElementById(id).classList.add('form-input-error');
 }
 
-function dashboardAutoRefresh(){
-    if($_GET('panel') == 'classroom-table-panel-teacher' && $_GET('option')){
-        Main.getClassroomManager().getClasses(Main.getClassroomManager()).then(() => {
+/**
+ * Refresh the current classroom every 15 seconds if we are in the classroom dashboard
+ */
+class DashboardAutoRefresh {
+    constructor(refreshInterval) {
+        this.isRefreshing = false;
+        this.refreshInterval = refreshInterval;
+    }
+
+    refresh() {
+        if($_GET('panel') == 'classroom-table-panel-teacher' && $_GET('option')){
+            this.isRefreshing = true;
+            let previousClassroomState, newClassroomState;
             if (getClassroomInListByLink($_GET('option'))[0]) {
-                let students = getClassroomInListByLink($_GET('option'))[0].students;
-                displayStudentsInClassroom(students);
+                previousClassroomState = {
+                    data: JSON.stringify(getClassroomInListByLink($_GET('option'))[0].students),
+                    link: $_GET('option')
+                };
             }
-        });
-        setTimeout(dashboardAutoRefresh, 15000);
+            Main.getClassroomManager().getClasses(Main.getClassroomManager()).then(() => {
+                if ($_GET('option') == previousClassroomState.link) {
+                    if (getClassroomInListByLink($_GET('option'))[0]) {
+                        newClassroomState = JSON.stringify(getClassroomInListByLink($_GET('option'))[0].students);
+                    }
+                    // Only refresh the classroom if it has changed
+                    if (previousClassroomState.data != newClassroomState){
+                        if (getClassroomInListByLink($_GET('option'))[0]) {
+                            let students = getClassroomInListByLink($_GET('option'))[0].students;
+                            displayStudentsInClassroom(students);
+                            if (document.getElementById('is-anonymised').checked) {
+                                anonymizeStudents();
+                            }
+                        }
+                    }
+                }
+            });
+            setTimeout(() => { this.refresh() }, this.refreshInterval);
+        } else {
+            this.isRefreshing = false;
+        }
+    }
+
+    refreshLater() {
+        if (!this.isRefreshing){
+            this.isRefreshing = true;
+            setTimeout(() => { this.refresh() }, this.refreshInterval);
+        }
     }
 }
+
+const dashboardAutoRefresh = new DashboardAutoRefresh(15000);
