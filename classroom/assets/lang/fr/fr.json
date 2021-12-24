@@ -192,6 +192,11 @@
       "reservedNickname": "Le nom : \"{{reservedNickname}}\" ne peut être attribué.",
       "invalidLink": "Le lien que vous avez entrer n'est pas valide",
       "invalidUrl": "Entrer le lien d'une page web ou d'une vidéo."
+      "noUser" : "Vous devez renseigner un élève",
+      "noUserUsername" : "Vous devez rentrer un nom d'utilisateur",
+      "pseudoMissingInCsvFile" : "Certains élèves n'ont pu être ajouter car leur pseudo était manquant",
+      "backendReplyPseudoMissingInCsv" : "Vérifier le fichier CSV : ligne vide ou pseudo manquant",
+      "backendReplyPseudoMissingInUsersArray" : "Il y a une erreur dans un ou plusieurs nom d'apprenant(s)"
     },
     "ids": {
       "classroom-dashboard-help-panel-teacher": "Aide",
@@ -217,6 +222,8 @@
     },
     "classes": {
       "add": "Ajouter une classe",
+			"noClasses": "Vous n'avez pas encore de classe.",
+			"createClassNow": "Commencez par créer une classe dès maintenant !",
       "form": {
         "title": "Créer une classe",
         "name": "Nom de la classe",
@@ -227,7 +234,20 @@
         "save": "Sauvegarder la classe",
         "return": "Retour à la classe"
       },
-      "copyDirectLink": "Copier le lien direct"
+			"panel": {
+				"seeActivity":"Voir l'activité",
+				"editActivity":"Modifier l'activité",
+				"editAttribution":"Modifier l'attribution",
+				"removeAttribution":"Retirer l'attribution",
+				"password": "Votre mot de passe :",
+				"resetPassword" : "Regénérer le mot de passe",
+				"editNickname": "Modifier le pseudonyme",
+				"delete": "Supprimer",
+				"copyLink": "Copier le lien direct",
+				"learnerMode": "Mode apprenant",
+				"dueBy":"À rendre avant le"
+			},
+			"copyDirectLink": "Copier le lien direct"	
     },
     "activities": {
       "title": "Activités",
@@ -258,7 +278,8 @@
       "bilan": {
         "title": "Bilan",
         "results": "Résultats",
-        "grade": "Note"
+				"noComment": "Aucun commentaire",
+				   "grade": "Note"
       },
       "form": {
         "1": "Création de l'activité",
@@ -304,7 +325,8 @@
         "autocorrect": "Cette activité dispose de correction automatique, souhaitez-vous l'activer ?",
         "nature": "L’élève peut-il soumettre plusieurs fois l’activité ?",
         "dateBegin": "Date de début :",
-        "dateEnd": "Date de fin :"
+        "dateEnd": "Date de fin :",
+				"retroAttribution" : "Cette activité sera attribuée aux nouveaux apprenants"
       },
       "toCopy": "Ce code permet de rejoindre en toute simplicité votre classe",
       "copyLink": "Le lien vers votre classe a été ajouté au presse-papier",
@@ -350,11 +372,12 @@
       "removeActivityAttribution": "Retirer l'attribution "
     },
     "filter": {
-      "desc": "Du moins récent au plus récent",
-      "asc": "Du plus récent au moins récent",
-      "cabriExpress": "Uniquement les activités Cabri Express",
-      "cabriGenius": "Uniquement les activités Cabri Smart",
-      "iframe": "Uniquement les autres types d'activités",
+	"desc": "Date croissante",
+	"asc": "Date décroissante",
+
+      "cabriExpress": "Activité Express",
+      "cabriGenius": "Activité Smart",
+      "iframe": "Autres activités",
       "placeholder": "Recherche..."
     },
     "sandbox": {
@@ -461,7 +484,10 @@
         "title": "Modifier le pseudo",
         "description": "Modifier le pseudo",
         "validateButton": "Valider"
-      }
+			},
+			"attributeActivity": {
+				"title": "Attribuer l'activité"
+			}
     }
   },
   "faqInfo": {
@@ -874,6 +900,11 @@
     },
     "success": "L'authentification a réussi. Redirection...",
     "error": "Erreur. Veuillez vérifier vos identifiants.",
+		"mailSuccess": "Un mail d'activation a été envoyé à votre adresse mail.",
+		"mailError": "Une erreur est survenue. Veuillez vérifier votre adresse mail.",
+		"userNotFound": "Aucun utilisateur trouvé avec ces identifiants.",
+		"accountDeactivated": "Votre compte a été désactivé, contactez un administrateur si le problème persiste.",
+		"inactiveAccount": "Votre compte n'est pas encore actif, cliquez sur le bouton ci dessous pour envoyer l'email de validation.",
     "errorBeta": "Vous devez être bêta testeur pour accéder à cette fonctionalité. <a href='https://fr.vittascience.com/about#contact'>Contacter l'équipe Vittascience</a> pour en savoir plus."
   },
   "signup-popup": {
@@ -1029,6 +1060,7 @@
       "noUserFound": "Aucun utilisateur utilisant cette adresse n'a été trouvé.",
       "noUserFoundToken": "Ce token ne correspond à aucun utilisateur.",
       "missingData": "Il manque des informations pour finaliser l'opération.",
+			"missingDataDate": "Il manque des informations de date pour finaliser l'opération.",
       "errorSending": "Une erreur est survenue lors de l'envoie de l'e-mail",
       "userNotFound": "Utilisateur introuvable et / ou déjà actif",
       "userNotFoundId": "Utilisateur introuvable",
@@ -1039,6 +1071,8 @@
     "users": {
       "users": "Utilisateurs",
       "add": "Ajouter un utilisateur",
+			"activated": "Le compte a été activé avec succès.",
+			"errorActivation": "Une erreur est survenue lors de l'activation du compte.",
       "create": "Créer un utilisateur",
       "delete": "Supprimer un utilisateur",
       "deleteConfirmation": "Veuillez écrire \"supprimer\" dans le champ si dessous pour valider l'action.",
@@ -1089,6 +1123,7 @@
       "mailNotSentToUserReset": "l'e-mail de changement de mot de passe n'a pas pu être envoyé à l'utilisateur",
       "appsUpdated": "Les applications de l'utilisateur ont été mise à jour",
       "updateApps": "Modifier les applications",
+      	"updateAppModalTitle": "Application",
       "teacherGrades": {
         "0": "Primaire",
         "1": "Collège",
@@ -1175,6 +1210,7 @@
       }
     },
     "group": {
+			"generalInfo": "Informations générales",
       "add": "Ajouter un groupe",
       "create": "Créer un groupe",
       "delete": "Supprimer un groupe",
@@ -1229,14 +1265,22 @@
       "toManyStudentsFromTheTeacher": "Le professeur que vous souhaitez ajouter au groupe possède trop d'élève",
       "toManyStudentsInGroup": "Le groupe ne peut pas accueillir autant d'apprenants, le professeur possède trop d'apprenants.",
       "teachersPerGroup": "Enseignant par groupe",
+			"activitiesPerGroup": "Activité(s) par groupe",
+			"activitiesPerTeacher": "Activité(s) par enseignant",
       "studentsPerGroup": "Apprenants par groupe",
       "studentsPerTeacher": "Apprenants par enseignant",
-      "maxStudents": "Maximum d'apprenants"
-    },
+			"maxStudents": "Maximum d'apprenants",
+			"maxActivities": "Maximum d'activités"
+		},
+		"title": {
+			"activeUsers": "Utilisateurs actifs",
+			"inactiveUsers": "Utilisateurs inactifs"
+		},
     "buttons": {
       "continue": "Continuer",
       "validate": "Valider",
       "cancel": "Annuler",
+			"activate": "Activer",
       "finalize": "Finaliser",
       "send": "Envoyer",
       "login": "Se connecter",
@@ -1295,10 +1339,12 @@
       "applications": "Applications",
       "group": "Groupe",
       "description": "Description",
+			"descriptionMandatory": "Description <span class=\"c-text-red\">*</span>",
       "right": "Rôle",
       "resetPassword": "Réinitialiser le mot de passe",
       "link": "Lien",
       "name": "Nom",
+			"nameMandatory": "Nom <span class=\"c-text-red\">*</span>",
       "dateBegin": "Date début",
       "dateEnd": "Date de fin",
       "outDated": "Périmé",
