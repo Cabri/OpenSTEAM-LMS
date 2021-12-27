@@ -363,7 +363,7 @@ function createCabriLtiActivity(link = null, id = null, type) {
               baseToolUrl = "https://workbench-imuscica.cabricloud.com";
               break;
           default:
-              baseToolUrl = "https://8315-92-154-2-113.ngrok.io";
+              baseToolUrl = "https://lti1p3.cabricloud.com";
               isNeedTitle = true;
               break;
       }
@@ -490,7 +490,7 @@ function activityModify(id, type) {
               baseToolUrl = "https://workbench-imuscica.cabricloud.com";
               break;
             default:
-              baseToolUrl = "https://8315-92-154-2-113.ngrok.io";
+              baseToolUrl = "https://lti1p3.cabricloud.com";
               isNeedTitle = true;
               break;
           }

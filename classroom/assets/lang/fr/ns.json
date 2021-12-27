@@ -191,7 +191,7 @@
       "ClassroomNameInvalid": "Le nom de la classe est requis",
       "reservedNickname": "Le nom : \"{{reservedNickname}}\" ne peut être attribué.",
       "invalidLink": "Le lien que vous avez entrer n'est pas valide",
-      "invalidUrl": "Entrer le lien d'une page web ou d'une vidéo."
+      "invalidUrl": "Entrer le lien d'une page web ou d'une vidéo.",
       "noUser" : "Vous devez renseigner un élève",
       "noUserUsername" : "Vous devez rentrer un nom d'utilisateur",
       "pseudoMissingInCsvFile" : "Certains élèves n'ont pu être ajouter car leur pseudo était manquant",
@@ -247,7 +247,7 @@
 				"learnerMode": "Mode apprenant",
 				"dueBy":"À rendre avant le"
 			},
-			"copyDirectLink": "Copier le lien direct"	
+			"copyDirectLink": "Copier le lien direct"
     },
     "activities": {
       "title": "Activités",
@@ -375,8 +375,8 @@
 	"desc": "Date croissante",
 	"asc": "Date décroissante",
 
-      "cabriExpress": "Activité Express",
-      "cabriGenius": "Activité Smart",
+      "cabriExpress": "Activités Express",
+      "cabriGenius": "Activités Smart",
       "iframe": "Autres activités",
       "placeholder": "Recherche..."
     },

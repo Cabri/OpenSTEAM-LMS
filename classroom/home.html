@@ -1,12 +1,8 @@
     <link rel="stylesheet" href="assets/css/checkboxes.css">
     <link rel="stylesheet" href="assets/css/modal.css">
-    <!-- PLUGIN CSS-->
+    <link rel="stylesheet" href="assets/plugins/css/cabri.theme.css">
 
-    <!-- END PLUGIN CSS -->
     <script src="assets/js/scripts/classroom-lang.js"></script>
-</head>
-
-<body>pt>
 </head>
 
 <body>
@@ -530,6 +526,442 @@
             </p>
         </div>
     </div>
+</div>
+<div id="classroom-dashboard-activities-panel-teacher" style="display:none;" class="dashboard-block">
+  <div class="d-flex justify-content-center c-primary-form row" style="margin: 0 auto;">
+    <div class="col-12 col-md-7">
+      <div class="d-flex flex-fill">
+        <input type="search" id="filter-activity-input" placeholder="Recherche..." class="flex-fill">
+
+        <button id="filter-activity" class="c-btn-primary" style="width: 3em;height: 3em;">
+          <i class="fas fa-search"></i>
+        </button>
+      </div>
+    </div>
+
+    <div class="col-auto">
+      <select name="filter-activity-select" id="filter-activity-select" class="c-primary-form">
+        <option value="desc" data-i18n="classroom.filter.desc"></option>
+        <option value="asc" data-i18n="classroom.filter.asc"></option>
+        <!-- TODO cabri Move to a separate plugin -->
+        <option value="typeGenius" data-i18n="classroom.filter.cabriGenius"></option>
+        <option value="typeExpress" data-i18n="classroom.filter.cabriExpress"></option>
+        <option value="typeIframe" data-i18n="classroom.filter.iframe"></option>
+      </select>
+    </div>
+  </div>
+  </br>
+
+  <div class="buttons-interactions flex-wrap">
+    <button onclick="createCabriLtiActivity(null, null, 'EXPRESS')" class="btn c-btn-outline-secondary outline-green"><span class="mr-1" data-i18n="classroom.activities.addCabriExpress"></span><i class="fas fa-chevron-right"></i>
+    </button>
+
+    <button onclick="createCabriLtiActivity(null, null, 'GENIUS')" class="btn c-btn-outline-secondary outline-yellow"><span class="mr-1" data-i18n="classroom.activities.addCabriGenius"></span><i class="fas fa-chevron-right"></i>
+    </button>
+
+    <button onclick="createActivity()" class=" btn c-btn-outline-secondary outline-gray"><span class="mr-1" data-i18n="classroom.activities.addOther"></span><i class="fas fa-chevron-right"></i>
+    </button>
+  </div>
+
+  <div id="list-activities-teacher">
+
+  </div>
+</div>
+
+<div id="classroom-dashboard-activities-panel-library-teacher" style="display:none;" class="dashboard-block">
+</div>
+
+<div id="classroom-dashboard-new-cabriexpress-activity-panel" style="height:85vh; display:none;justify-content: normal;"
+     class="activity-creation-form row dashboard-block">
+  <nav class="row w-50" style="margin: 0 auto;">
+    <div class="col-4 text-center"><span class="form-activity form-activity-activate"><b>1</b></span><span
+      data-i18n="classroom.activities.form.1"></span></div>
+    <div class="col-4">__________________________</div>
+    <div class=" col-4 text-center"><span class="form-activity form-activity-desactivate"><b>2</b></span>
+      <span data-i18n="classroom.activities.form.2"></span></div>
+  </nav>
+
+  <div id="lti-loader-container" style="flex: 1 1; width: 95%; max-width: 100%;" >
+
+  </div>
+
+  <button class="new-activity-panel-lti c-btn-primary" hidden><span data-i18n="classroom.activities.form.button"></span> <i
+    class="fas fa-check"></i></button>
+
+</div>
+
+<div id="classroom-dashboard-new-activity-panel" style="display:none;margin-right:0px;"
+     class="activity-creation-form row dashboard-block">
+  <!-- Disabled by Cabri for LTI -->
+  <nav class="row" style="margin: 0 auto;">
+    <div class="col-4 text-center">
+      <span class="form-activity form-activity-activate"><b>1</b></span>
+      <span data-i18n="classroom.activities.form.1"></span>
+    </div>
+
+    <div class="col-4"></div>
+
+    <div class=" col-4 text-center">
+      <span class="form-activity form-activity-desactivate"><b>2</b></span>
+      <span data-i18n="classroom.activities.form.2"></span>
+    </div>
+  </nav>
+  <div class="form-group mb-2 part-content-index part-row c-primary-form">
+    <div class="form-row mt-1">
+      <label for="part-content-input" class="tutorial-label">
+        <span data-i18n="classroom.activities.form.title.label"></span>
+      </label>
+      <!-- Disabled by Cabri for LTI -->
+      <input data-i18n="[placeholder]classroom.activities.form.title.placeholder" type="text"
+             id="activity-form-title" class="form-control part-title-input">
+    </div>
+    <div class="form-row mt-1">
+      <label for="part-content-input" class="tutorial-label">
+        <span data-i18n='classroom.activities.form.content.label'></span>
+      </label>
+      <!-- Disabled by Cabri for LTI -->
+      <textarea id="activity-form-content" class='part-content' width='100%' style='min-height: 60vh;'></textarea>
+    </div>
+    <div class="form-row mt-1">
+    </div>
+  </div>
+  <button class="new-activity-panel2 c-btn-primary"><span data-i18n="classroom.activities.form.button"></span> <i
+    class="fas fa-check"></i></button>
+</div>
+
+<!-- Cabri other button -->
+<div id="classroom-dashboard-other-activity-type-panel"
+     class="activity-creation-form row dashboard-block full-dashboard-block"
+     style="display:none;margin-right:0;">
+
+  <label for="activity-form-title">
+            <span class="activity-form-title"
+                  data-i18n="classroom.activities.form.title.labelCabri">
+
+            </span>
+  </label>
+
+  <input id="activity-form-title-others"
+         class="activity-form-input form-control part-title-input"
+         type="text"
+         data-i18n="[placeholder]classroom.activities.form.title.placeholderCabri"/>
+
+  <div id="tools-selector">
+    <div id="tabs-container"
+         class="d-flex flex-row">
+      <!--
+      "data-id-panel" is useful for manage click event.
+      It allows to know what content must be print.
+      This allows you to add easly a new tabs and panel.s
+      -->
+      <!--            <span id="choose-player"
+                        class="selector-other-activity selected-other-activity"
+                        data-i18n="classroom.activities.tabs.players"
+                        data-id-panel="player-panel"
+                        onclick="onClickTabActivity(this)">
+
+                  </span>-->
+      <span id="choose-iframe"
+            class="selector-other-activity selected-other-activity"
+            data-i18n="classroom.activities.tabs.iframes"
+            data-id-panel="web-panel"
+            onclick="onClickTabActivity(this)">
+
+            </span>
+      <!--        Add example
+                  <span id="choose-other"
+                        class="selector-other-activity"
+                        data-i18n="classroom.activities.tabs.iframes"
+                        data-id-panel="other-panel"
+                        onclick="onClickTabActivity(this)">
+                      Autres
+                  </span>-->
+    </div>
+    <div id="panel-container">
+      <!--            <div id="player-panel"
+                       class="selector-container-other-activity">
+
+                  </div>-->
+      <div id="web-panel"
+           class="selector-container-other-activity">
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Player activity -->
+<div id="classroom-dashboard-activity-player" style="display:none;margin-right:0px;"
+     class="activity-creation-form row dashboard-block full-dashboard-block">
+
+  <div id="activity-url-player-container"
+       class="form-container"
+       style="display:none;">
+
+    <label for="activity-url-player">
+            <span class="activity-form-title"
+                  data-i18n="classroom.activities.form.playerUrl.label"></span>
+    </label>
+
+    <input id="activity-url-player"
+           class="activity-form-input form-control part-title-input"
+           type="text"
+           data-i18n="[placeholder]classroom.activities.form.playerUrl.placeholder"/>
+  </div>
+
+  <div class="form-container">
+
+    <label for="activity-url-notebook">
+            <span class="activity-form-title"
+                  data-i18n="classroom.activities.form.notebookUrl.label">
+
+            </span>
+    </label>
+
+    <input id="activity-url-notebook"
+           class="activity-form-input form-control part-title-input"
+           type="text"
+           data-i18n="[placeholder]classroom.activities.form.notebookUrl.placeholder"/>
+  </div>
+
+  <span class="or-separator">
+        OU
+    </span>
+
+  <div id="drop_zone"
+       class='load-book'
+       ondrop="dropHandler(event);"
+       ondragover="dragOverHandler(event);"
+       ondragleave="dragLeaveHandler(event);">
+
+    <img class='img-drag-drop'
+         src='assets/media/logo_apps_cabri/upload_drag_drop.svg'
+         alt=''/>
+
+    <span class="activity-form-title"
+          data-i18n="classroom.activities.form.player.dragDrop">
+
+        </span>
+
+    <span class="or-separator">
+            OU
+        </span>
+
+    <label for="notebook"
+           class="activity-form-chooser-file">
+
+            <span data-i18n="classroom.activities.form.player.labelFileChooser">
+
+            </span>
+
+    </label>
+
+    <input type="file"
+           id="notebook"
+           name="notebook"
+           accept=".clmc, .clmx"
+           onchange="onFileHasBeenChoose()"
+           style="display: none;"/>
+
+    <div id="is_drop"
+         style="display: none;">
+            <span data-i18n="classroom.activities.form.player.fileUpload">
+
+            </span>
+    </div>
+  </div>
+
+  <button class="new-activity-player c-btn-primary"
+          onclick="createCabriLtiActivity(null, null, 'player')">
+
+        <span data-i18n="classroom.activities.form.nextButton">
+
+        </span>
+    <i class="fas fa-chevron-right">
+
+    </i>
+  </button>
+</div>
+
+<!-- Iframe activity -->
+<div id="classroom-dashboard-url-activity-panel"
+     class="activity-creation-form row dashboard-block full-dashboard-block"
+     style="display:none;margin-right:0px;">
+
+  <label for="activity-form-content-iframe">
+        <span class="activity-form-title"
+              data-i18n="classroom.activities.form.iframe.label">
+
+        </span>
+  </label>
+
+  <input id="activity-form-content-iframe"
+         class="activity-form-input form-control part-title-input"
+         type="text"
+         data-i18n="[placeholder]classroom.activities.form.iframe.placeholder"/>
+
+  <button class="new-activity-iframe c-btn-primary">
+        <span data-i18n="classroom.activities.form.endButton">
+
+        </span>
+    <i class="fas fa-check">
+
+    </i>
+  </button>
+
+</div>
+<div id="classroom-dashboard-new-activity-panel2" style="display:none;" class="dashboard-block class-creation-form-step2">
+
+  <nav class="row form-activity-container" style="margin: 0 auto;">
+    <div class="col text-center">
+      <span class="form-activity form-activity-secondary"><i class="fas fa-check"></i></span>
+      <span data-i18n="classroom.activities.form.1"></span>
+    </div>
+
+    <div class="col-4"></div>
+
+    <div class="col text-center">
+      <span class="form-activity form-activity-activate">2</span>
+      <span data-i18n="classroom.activities.form.2"></span>
+    </div>
+  </nav>
+
+  <div class="text-center px-1">
+    <h3 class="c-text-primary text-uppercase font-weight-bold" data-i18n="classroom.activities.form.success"></h3>
+  </div>
+
+  <div class="container text-center">
+    <div class="row my-2">
+      <div class="col-sm mb-2">
+        <button id="new-activity-panel3" class="new-activity-panel3 btn c-btn-primary">
+          <span data-i18n="classroom.activities.form.attribute"></span> <i class="fas fa-chevron-right"></i>
+        </button>
+      </div>
+      <div class="col-sm mb-2">
+        <button onclick="navigatePanel('classroom-dashboard-activities-panel-teacher', 'dashboard-activities-teacher')" class="btn c-btn-primary">
+          <span data-i18n="classroom.activities.form.return"></span> <i class="fas fa-chevron-right"></i>
+        </button>
+      </div>
+
+    </div>
+    <p data-i18n="classroom.activities.form.hint"></p>
+    <button class="btn c-btn-outline-primary" onclick="createActivity()" data-i18n="classroom.activities.form.modify"></button>
+  </div>
+</div>
+<!-- <div id="classroom-dashboard-new-course-panel2" style="display:none;" class=" row dashboard-block">
+    <h1>Bravo, vous avez crée un parcours</h1>
+    <button id="new-course-attribute">Attribuer le parcours dès maintenant</button>
+    <button id="new-course-check2">Sauvegarder et fermer le parcours </button>
+    <p>Vous pourrez toujours plus tard attribuer ce parcours depuis le tableau de bord</p>
+</div> -->
+<div id="classroom-dashboard-new-activity-panel3" style="display:none;" class="dashboard-block container">
+  <nav class="row form-activity-container mb-3" style="margin: 0 auto;">
+    <div class="col text-center">
+      <span class="form-activity form-activity-secondary"><i class="fas fa-check"></i></span>
+      <span data-i18n="classroom.activities.form.1"></span>
+    </div>
+
+    <div class="col-4"></div>
+
+    <div class="col text-center">
+      <span class="form-activity form-activity-activate">2</span>
+      <span data-i18n="classroom.activities.form.2"></span>
+    </div>
+  </nav>
+  <div class="assign-activity-container" style="margin: 0 auto;">
+
+    <div class="row">
+      <div class="col-12 mb-5 text-center">
+        <button id="new-activity-attribute" class="btn c-btn-primary">
+          <span data-i18n="classroom.activities.form.select1"></span> <i class="fas fa-plus"></i>
+        </button>
+        <div class="mt-2">
+          (<span class="student-number">0</span> <span data-i18n="classroom.activities.form.select2"></span>)
+        </div>
+      </div>
+    </div>
+
+    <!-- Instructions -->
+    <div class="row">
+      <div class="col-12 mb-5 text-center c-primary-form">
+        <label for="introduction-activity-form">
+          <b data-i18n="classroom.activities.form.instructions"></b>
+          <i data-i18n="words.optional"></i>
+        </label></br>
+        <textarea rows="4" id="introduction-activity-form"></textarea>
+      </div>
+    </div>
+
+    <!-- Autocorrect activation -->
+    <div class="row" id="form-autocorrect">
+      <div class="col mb-5 text-center c-primary-form">
+        <label for="isAutocorrection-activity-form" data-i18n="classroom.activities.form.autocorrect"></label></br>
+        <label class="switch-mini"><input type="checkbox" id="isAutocorrection-activity-form" onclick="autocorrectSwitch()">
+          <span class="slider-mini round"></span>
+        </label>
+      </div>
+    </div>
+
+    <!-- Submit multiple times -->
+    <div class="row">
+      <div class="col mb-5 text-center c-primary-form">
+        <label for="isEval-activity-form" data-i18n="classroom.activities.form.nature"></label></br>
+        <div class="switcher">
+          <input type="radio" name="isEval-activity-form" value="true" id="isEval-activity-form" checked="">
+          <label for="isEval-activity-form" class="switcher__label text-capitalize" data-i18n="words.no"></label>
+
+          <input type="radio" name="isEval-activity-form" value="false" id="isExo-activity-form">
+          <label for="isExo-activity-form" class="switcher__label text-capitalize" data-i18n="words.yes"></label>
+
+          <span class="switcher__toggle"></span>
+        </div>
+      </div>
+    </div>
+
+
+    <!-- Form time span -->
+    <div class="container">
+      <div class="row">
+        <div class="col-12 col-xl-6 c-primary-form assign-activity-calendar">
+          <div class="row">
+            <div class="col-6 text-right align-middle">
+              <label for="date-begin-activity-form" data-i18n="classroom.activities.form.dateBegin"></label>
+            </div>
+            <div class="col-6 text-left">
+              <input type="date" id="date-begin-activity-form">
+            </div>
+          </div>
+        </div>
+
+        <div class="col-12 col-xl-6 c-primary-form assign-activity-calendar">
+          <div class="row">
+            <div class="col-6 text-right align-middle">
+              <label for="date-end-activity-form" data-i18n="classroom.activities.form.dateEnd"></label>
+            </div>
+            <div class="col-6 text-left">
+              <input type="date" id="date-end-activity-form">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+
+    <div class="row text-center my-2 mt-5">
+      <div class="col-sm mb-2">
+        <button class="btn c-btn-grey" onclick="navigatePanel('classroom-dashboard-activities-panel-teacher', 'dashboard-activities-teacher')">
+          <i class="fas fa-angle-left"></i> <span class="text-capitalize" data-i18n="words.return"></span>
+        </button>
+      </div>
+
+      <div class="col-sm order-first order-sm-last mb-2">
+        <button id="attribute-activity-to-students" class="btn c-btn-primary" disabled>
+          <span data-i18n="classroom.activities.form.attribute2"></span><i class="fas fa-angle-right"></i>
+        </button>
+      </div>
+    </div>
+  </div>
 </div>
 
 <div id="classroom-dashboard-help-panel-teacher" style="display:none;" class="dashboard-block help-panel">

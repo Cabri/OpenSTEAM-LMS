@@ -2,14 +2,16 @@
 	"classroom": {
 		"login": {
 			"noClass": "The code entered does not correspond to any classroom.",
+			"countdown1": "The Classroom management module is currently in its beta stage. If you wish to try it out, please <a href=\"/about?contact=1\">contact the Vittascience team</a>.",
+			"countdown2": "Official release in",
 			"hello1": "'Hello!'",
 			"hello2": "Hello!",
+			"title": "Manage your Classrooms</br>with Vittascience",
 			"neutralTitle": "Open STEAM LMS",
 			"cabriTitle": "Cabri.com",
 			"subtitle": "Discover - Learn - Share",
 			"cabriSubtitle": "The platform to succeed in math and science",
 			"login": "Log in",
-			"helpers": " By our side to <span>accompany you.</span>",
 			"activities": "create easily </br> your activities",
 			"cabriActivities": "Create exercises</br> automatically in</br> a few minutes",
 			"attribute": "assign them </br> to your learners",
@@ -74,6 +76,9 @@
 		"successPanel": "Well done, you did it!",
 		"failPanel": "The answer is not correct",
 		"toCorrectPanel": "The activity has been passed on to your teacher,</br> who will get back to you soon! <i class=\"fas fa-pen\"></i>",
+		"bank": {
+			"helpTooltip": "The resource center contains numerous activities that you can use freely! Your teacher won't have access to your activities results"
+		},
 		"help": {
 			"student": {
 				"label": "Contact your teacher",
@@ -191,7 +196,6 @@
 			"pseudoMissingInCsvFile" : "Some students couldn't be added as their pseudo was missing",
 			"backendReplyPseudoMissingInCsv" : "Check the CSV file : empty line or pseudo missing",
 			"backendReplyPseudoMissingInUsersArray" : "There is one or more error(s) in the student(s) name(s)"
-			"activityUserIdInvalid": "Activity could not be created: invalid user"
 		},
 		"ids": {
 			"classroom-dashboard-help-panel-teacher": "Help",
@@ -211,18 +215,23 @@
 			"classroom-dashboard-ide-panel": "Sandbox {{interface}}",
 			"classroom-dashboard-activity-panel": "Activity {{name}}"
 		},
+		"displayCode": "Display the code",
 		"navbar": {
 			"activities": "Activities"
 		},
 		"classes": {
+			"add": "Add a class",
 			"noClasses": "You don't have a class yet.",
 			"createClassNow": "Start by creating a class now!",
-			"add": "Add a class",
 			"form": {
 				"title": "Create a class",
 				"name": "Name of the class",
 				"school": "Name of the establishment",
 				"addStudent": "Add a learner",
+				"noStudent": "No learners in this class yet",
+				"isBlockedButton": "Restrict to these learners, no one else will be able to join the class.",
+				"save": "Save the class",
+				"return": "Back to the classroom"
 			},
 			"panel": {
 				"seeActivity":"Open the activity",
@@ -235,13 +244,8 @@
 				"delete": "Delete",
 				"copyLink": "Copy the direct link",
 				"learnerMode": "Learner mode",
-
 				"dueBy":"Due by"
-			}	
-				"noStudent": "No learners in this class yet",
-				"isBlockedButton": "Restrict to these learners, no one else will be able to join the class.",
-				"save": "Save the class",
-				"return": "Back to the classroom"
+
 			}
 		},
 		"activities": {
@@ -271,9 +275,7 @@
 			"bilan": {
 				"title": "Balance sheet",
 				"results": "Results",
-                "noComment": "No comment yet"
-				"title": "Balance sheet",
-				"results": "Results"
+				"noComment": "No comment yet"
 			},
 			"form": {
 				"1": "Creation of the activity",
@@ -295,12 +297,11 @@
 				"select1": "Selecting learners",
 				"select2": " selected.",
 				"instructions": "Specific instructions for these learners",
-				"dateEnd": "End date :",
-				"retroAttribution" : "This activity will be added for every new students"
 				"autocorrect": "This activity has auto-correction, do you want to activate it?",
 				"nature": "Can the student submit the activity more than once?",
 				"dateBegin": "Start Date:",
-				"dateEnd": "End date :"
+				"dateEnd": "End date :",
+				"retroAttribution" : "This activity will be added for every new students"
 			},
 			"toCopy": "This code allows you to easily join your class",
 			"copyLink": "The link to your class has been added to the clipboard",
@@ -316,17 +317,11 @@
 			"exportCsv": "Export csv"
 		},
 		"filter": {
-			"desc": "Oldest to newest",
-			"asc": "Newest to oldest",
-			"placeholder": "Search...",
-			"cabriExpress": "Express only",
-			"cabriGenius": "Smart only",
-			"iframe": "Others only",
 			"desc": "From the least recent to the most recent",
 			"asc": "From most recent to least recent",
-			"cabriExpress": "Only Cabri Express activities",
-			"cabriGenius": "Only Cabri Smart activities",
-			"iframe": "Only other types of activities",
+			"cabriExpress": "Express activities",
+			"cabriGenius": "Smart activities",
+			"iframe": "Other activities",
 			"placeholder": "Search for..."
 		},
 		"sandbox": {
@@ -349,6 +344,18 @@
 				"messagePlaceholder": "Write your message here. (Maximum 800 characters)",
 				"sendButton": "Send the message",
 				"fillInAllTheFields": "Fill in all fields"
+			}
+		},
+		"sandBoxCreationPanel": {
+			"title": "Select the interface on which you want to create a program",
+			"knowMoreButton": "Learn more about interfaces",
+			"interfacesDescription": {
+				"arduino": "Programming interface for the Arduino board",
+				"microbit": "Programming interface for the Micro:bit board",
+				"python": "Programming interface for Python 3 thought for education",
+				"texas-instruments": "Programming interface for calculator with the micro:bit board",
+				"esp32": "Programming interface for the ESP32 boards (Wemos D1R32, NodeMCU, Huzzah32, …)",
+				"quickpi": "Programming interface for the Quick-Pi board"
 			}
 		},
 		"modals": {
@@ -437,16 +444,13 @@
 			"forgot_password": "I forgot my password.",
 			"btn_connect": "Log in"
 		},
-		"success": "Authentication was successful. Redirection...",
-		"error": "Error. Please verify your login details.",
+		"success": "The authentication was successful. Redirection...",
+		"error": "Error. Please check your login details.",
 		"mailSuccess": "An activation email has been sent to your email address.",
 		"mailError": "An error has occurred. Please verify your email address.",
 		"userNotFound": "No linked user found with this mail.",
 		"inactiveAccount": "Your account is not active, click on the button just below to send a new validation mail.",
 		"accountDeactivated": "Your account has been deactivated, contact an administrator if the problem persists.",
-		"errorBeta": "You must be a beta tester to access this functionality.<a href='https://fr.vittascience.com/about#contact'>Contact the Vittascience team</a> to find out more."
-		"success": "The authentication was successful. Redirection...",
-		"error": "Error. Please check your login details.",
 		"errorBeta": "You must be a beta tester to access this feature. <a href='https://fr.vittascience.com/about#contact'>Contact the Vittascience team</a> to learn more."
 	},
 	"signup-popup": {
@@ -545,225 +549,664 @@
 		"yes": "Yes",
 		"no": "No"
 	},
-	"faqTeacherNeutral": {
-		"title": "FAQ",
-		"1": {
-			"section_title": "Activities",
-			"question_list": {
+  "faqTeacherNeutral": {
+    "title": "FAQ",
+    "1": {
+      "section_title": "Activities",
+      "question_list": {
+        "1": {
+          "title": "What is the purpose of the My Activities tab?",
+          "answer": "In the <b>My Activities</b> tab, you will be able to:<ol><li>Create your own activities.</li><li>Then assign them to your learners!</li></ol>"
+        },
+        "2": {
+          "title": "What is an activity?",
+          "answer": "An activity is interactive content created from Cabri Express, Cabri Smart or an existing Cabri notebook."
+        },
+        "3": {
+          "title": "How to create or modify an activity?",
+          "answer": "<p>You can easily create or edit activities.</p><p>To edit an activity, go to the <b>My Activities</b> tab and click on the <i class=\"fas fa-cog\"></i> icon for your activity and then click Edit. Don't forget to save your changes.</p>"
+        },
+        "4": {
+          "title": "How do I assign an activity?",
+          "answer": "To assign an activity, you have three options:<ol><li>Either go to the <b>My Activities</b> tab and click on the <i class=\"fas fa-cog\"></i> icon for your activity and then click on Assign. Then, all you have to do is follow the steps.</li><li>This Assign option is also available in the activity itself once opened.</li><li>Then, you go to the <b>My Classes</b> tab and click on a class. Once you get to the class dashboard, you simply click the \"Add Activity\" button.</li></ol>"
+        },
+        "5": {
+          "title": "How to test an activity?",
+          "answer": "To test an activity, you have two options:<ol><li>Either go to <b>Profile</b> and click on the \"Switch to Learner Mode\" button and then select the class you want to be in. You will find yourself on the fictitious account of a learner called \"demostudent\", you will be able to discover the \"Learner\" interface and perform the activities you have assigned.</li><li>Or go to <b>My classes</b> in the dashboard of a class, you will then be able to place yourself in the skin of the learner demostudent. To do this, click on the <i class=\"fas fa-exchange-alt\"></i> icon, you will have the opportunity to become a learner in the class and try out the activities.</li></ol>To return to the \"Teacher\" mode, simply go to the <b>Profile</b> tab of the demostudent account and click on \"Return to Teacher Mode.\""
+        },
+        "6": {
+          "title": "How do you remove an activity allocation without removing the activity?",
+          "answer": "To remove an activity's assignment, go to the <b>Class</b> tab, open the dashboard for one of the classes, then click on the activity (the icon becomes <i class=\"fas fa-cog\"></i> when you hover over it) and then on Edit Assignment. All you have to do now is change the settings, select or deselect learners."
+        }
+      }
+    },
+    "2": {
+      "section_title": "Class",
+      "question_list": {
+        "1": {
+          "title": "What is the purpose of the My Classes tab?",
+          "answer": "In the My Classes tab, you will be able to:<ol><li>Create your own classes and add learners</li><li>Correct your learners' responses to activities,</li><li>and track their progress.</li></ol>"
+        },
+        "2": {
+          "title": "How do I add my learners to my class?",
+          "answer": "You have several options:<ol><li>In class, you can <b>project the code to the board</b>. To do this, go to your classroom and click on the button to enlarge the code below:<br><img class=\"faq-img-center img-fluid\" src=\"assets/media/faq/image1.png\">Your learners will just have to register or log into the site by entering the code. They will also be able to write down this code to log in at home.</li><li>You can also create learners with the \"Add Learner\" button and then <b>send them their password individually</b>, this is visible on the Classroom Dashboard below:<br><img class=\"faq-img-center img-fluid\" src=\"assets/media/faq/image2.png\"></li></ol>"
+        },
+        "3": {
+          "title": "Can a learner be in two different classes?",
+          "answer": "No, this is not currently possible."
+        },
+        "4": {
+          "title": "How do you block other learners from entering a class?",
+          "answer": "This option will be available soon! This will prevent learners from registering several times in the same class by mistake, and also prevent outsiders from entering the class without authorization."
+        },
+        "5": {
+          "title": "How do I assign an activity?",
+          "answer": "<p>You can assign an activity to all the classes you've created or just to a specific learner.</p><p>To assign an activity, you have three options:</p><ol><li>Either go to the <b>My Activities</b> tab and click on the <i class=\"fas fa-cog\"></i> icon for your activity and then click Assign. Then, all you have to do is follow the steps.</li><li>This Assign option is also available in the activity itself once opened.</li><li>Then, you go to the <b>My Classes</b> tab and click on a class. Once you get to the class dashboard, you simply click the \"Add Activity\" button.</li></ol>"
+        },
+        "6": {
+          "title": "Can we go back on the allocation of an activity?",
+          "answer": "To go back to assigning an activity, go to the <b>Class</b> tab, open the dashboard for one of the classes, then click on the activity (the icon becomes <i class=\"fas fa-cog\"></i> when you hover over it) and then on Edit Assignment. All you have to do now is change the settings, select or deselect learners."
+        },
+        "7": {
+          "title": "How are activities evaluated?",
+          "answer": "The assessments are:<ul><li>either manually on 4 levels: Very good mastery; Sufficient mastery; Weak mastery and Insufficient mastery</li><li>Or automatically on 2 levels: Very good mastery and Weak mastery.<br>This type of assessment allows the learner to get his correction immediately and for the teacher to benefit from a significant time saving.</li></ul><p>Once the learner has completed his activity, he has the possibility to start it again if the teacher has selected the \"Exercise\" mode when assigning. In the \"Assessment\" mode, the student cannot restart once the activity has been validated.</p><p>To view the results, simply go to the Class Dashboard.</p><p>An uncorrected activity is symbolized by a pencil in the Dashboard. To correct it, click on the pencil, then simply assess and comment on the learner's work.</p>"
+        },
+        "8": {
+          "title": "How do we know when learners have completed their activities?",
+          "answer": "When a learner has completed their activity, you will receive an email notification.<br>This setting will be adjustable in the future, for now it is not configurable."
+        },
+        "9": {
+          "title": "How to change the name of a class?",
+          "answer": "To change the name of your class, you'll need to click on the <i class=\"fas fa-cog\"></i> icon from the My Classes tab, and then on edit. You will then just have to change its name."
+        },
+        "10": {
+          "title": "How do I remove a learner from a class?",
+          "answer": "<p>To delete a learner, simply click the <i class=\"fas fa-cog\"></i> icon next to the learner's name on the Class Dashboard.</p><p>Beware, this action is irreversible and closes the learner's account.</p>"
+        },
+        "11": {
+          "title": "What is the purpose of the anonymize button in the Dashboard?",
+          "answer": "This button replaces learners' names with numbers. This allows you to project students' results on the board anonymously so as not to stigmatize certain students."
+        }
+      }
+    },
+    "3": {
+      "section_title": "Profile",
+      "question_list": {
+        "1": {
+          "title": "What is the purpose of the Profile tab?",
+          "answer": "In the Profile tab, you will be able to:<ol><li>Manage your account settings,</li><li>View your statistics,</li><li>and exchange messages with your learners as well as the Cabrilog team if you need help.</li></ol>"
+        },
+        "2": {
+          "title": "How do I change my password or other account settings?",
+          "answer": "To change your password or other settings, go to the Profile tab. In the case of GAR, the settings are those of your ENT."
+        },
+        "3": {
+          "title": "How do you change the language?",
+          "answer": "The Classroom module is currently available in English and French. To change the language, go to the profile tab, click on the \"Settings\" button, then select the language you want."
+        },
+        "4": {
+          "title": "What is learner mode?",
+          "answer": "<p>In your profile, you can click the \"Switch to Learner Mode\" button. After choosing a class, you will be taken to a fictitious learner's account called \"demostudent\", where you can discover the Learner interface and perform the activities you have assigned.</p><p>To return to the \"Teacher\" mode, just go to the <b>Profile</b> tab of the demostudent account and click on \"Return to Teacher Mode\".</p>"
+        }
+      }
+    },
+    "4": {
+      "section_title": "General Questions",
+      "question_list": {
+        "1": {
+          "title": "On which media is the class module compatible?",
+          "answer": "<p>The interfaces work without installation, on computer, tablet and smartphone! Updates are automatic and your programs are backed up in the cloud.</p><p>To take full advantage of all the features, we recommend using Chrome or Firefox.</p>"
+        },
+        "2": {
+          "title": "How to create a shortcut to access the Classroom module?",
+          "answer": "<p>You have the option of putting an icon on the computer desktop to quickly access the Classroom module. To do this:</p><p>On Windows and Mac:</p><ol><li>Open the page: <a href=\"/classroom\" target=\"_blank\">classroom/</a>, then reduce the size of the browser window so that you can see the desktop next to it.</li><li>In your web browser, use your mouse to select the symbol to the left of the address and, without releasing your click, drag the pointer to the Desktop. Release to create the shortcut.</li><li>The shortcut is created. You'll just have to double-click it to open the linked web page.</li></ol><p>On Android with Chrome:</p><ol><li>Open the page:<a href=\"/classroom\" target=\"_blank\">classroom/</a>, then press the menu button, then select \"Add to Home Screen\".</li><li>Name the page and press \"Add\".</li><li>The shortcut is created. You will only have to double-click on it to open the linked web page.</li></ol><p>On Android with Firefox:</p><ol><li>Open the page:<a href=\"/classroom\" target=\"_blank\">classroom/</a>, then press the menu button, then press Page.</li><li>Tap Add shortcut to page.</li><li>The shortcut is created on the home screen. You'll just have to click on it to open the linked web page.</li></ol><p>On iOS with Safari:</p><ol><li>Open the page:<a href=\"/classroom\" target=\"_blank\">classroom/</a>, then tap the Share icon.</li><li>Select on the home screen, then tap Add.</li><li>The shortcut is created on the home screen. You will just have to click on it to open the linked web page.</li></ol><p>You can find more tutorials on the internet to create a desktop shortcut.</p>"
+        }
+      }
+    },
+    "5": {
+      "section_title": "Technical problem",
+      "question_list": {
+        "1": {
+          "title": "I have a bug, what can I do?",
+          "answer": "When a bug occurs, the first thing to do is to try to refresh the page. If the bug persists, you can contact us in the Profile tab with the \"Help\" button."
+        },
+        "2": {
+          "title": "How do I report bugs and give feedback?",
+          "answer": "If the bug persists, you can contact us in the profile tab with the \"Help\" button.<br>To give us feedback, you can also contact us in the Profile tab with the \"Help\" button."
+        }
+      }
+    },
+    "6": {
+      "section_title": "Licences and permits",
+      "question_list": {
+        "1": {
+          "title": "Can we make a description or presentation of the Class module?",
+          "answer": "Yes, you can reuse the visuals for the Classroom module to create a description, presentation, training, tutorial, course or other. If you want to include images or activity content, please mention the author (see next question)."
+        },
+        "2": {
+          "title": "Where can I find the source code of the Class module?",
+          "answer": "The source code of the Class module is available on the <a href=\"https://github.com/Cabri/OpenSTEAM-LMS/\" target=\"_href\">OpenSTEAM-LMS git repository</a>, feel free to contribute!"
+        }
+      }
+    }
+  },
+  "faqStudentNeutral": {
+    "title": "FAQ",
+    "1": {
+      "section_title": "Activities",
+      "question_list": {
+        "1": {
+          "title": "What is the purpose of the My Activities tab?",
+          "answer": "In the My Activities tab, you'll be able to:<ol><li>Complete new activities from your teachers.</li><li>Save the ones you haven't finished yet.</li><li>And review the ones you've done!\"</li></ol>"
+        },
+        "2": {
+          "title": "What is an activity?",
+          "answer": "An activity is interactive content created with Cabri Express or Cabri Author."
+        }
+      }
+    },
+    "2": {
+      "section_title": "Call for help",
+      "question_list": {
+        "1": {
+          "title": "What is the purpose of the Call for Help tab?",
+          "answer": "In the Call for Help tab, you'll be able to:<ol><li>Request help from your teachers at any time,</li><li>Consult frequently asked questions.</li></ol>You'll be able to track your message exchange in the Profile tab."
+        }
+      }
+    },
+    "3": {
+      "section_title": "Profile",
+      "question_list": {
+        "1": {
+          "title": "What is the purpose of the Profile tab?",
+          "answer": "In the Profile tab, you'll be able to:<ol><li>Manage your account settings,</li><li>View your statistics,</li><li>and exchange messages with your teachers.</li></ol>"
+        },
+        "2": {
+          "title": "How do I change my password or other account settings?",
+          "answer": "To change your password or other settings, go to the Profile tab."
+        },
+        "3": {
+          "title": "How do you change the language?",
+          "answer": "The Classroom module is currently available in English and French. To change the language, go to the profile tab, click on the \"Settings\" button, and then select the language you want."
+        }
+      }
+    },
+    "4": {
+      "section_title": "General Questions",
+      "question_list": {
+        "1": {
+          "title": "How do I get started with the Classroom module?",
+          "answer": "At any time, you can access general help by clicking on the <i class=\"fas fa-question\"></i> icon in the upper right to get a handle on the Class module."
+        },
+        "2": {
+          "title": "On which media is the class module compatible?",
+          "answer": "<p>The interfaces work without installation, on computer, tablet and smartphone! Updates are automatic and your programs are saved in the cloud.</p><p>To take full advantage of all the features, we recommend using Chrome or Firefox.</p>"
+        },
+        "3": {
+          "title": "How to create a shortcut to access the Classroom module?",
+          "answer": "<p>You have the option of putting an icon on the computer desktop to quickly access the Classroom module. To do this:</p><p>On Windows and Mac:</p><ol><li>Open the page: <a href=\"/classroom\" target=\"_blank\">/classroom/</a>, then reduce the size of the browser window so that you can see the desktop next to it.</li><li>In your web browser, select the symbol to the left of the address with your mouse and, without releasing your click, drag the pointer to the Desktop. Release to create the shortcut.</li><li>The shortcut is created. You'll just have to double-click it to open the linked web page.</li></ol><p>On Android with Chrome:</p><ol><li>Open the page: <a href=\"/classroom\" target=\"_blank\">/classroom/</a>, then press the menu button, then select \"Add to Home Screen\".</li><li>Name the page and press \"Add\".</li><li>The shortcut is created. You'll just have to double-click it to open the linked web page.</li></ol><p>On Android with Firefox:</p><ol><li>Open the page: <a href=\"/classroom\" target=\"_blank\">/classroom/</a>, then tap the menu button, then tap Page.</li><li>Tap Add shortcut to page.</li><li>The shortcut is created on the home screen. You'll just have to click on it to open the linked web page.</li></ol><p>On iOS with Safari:</p><ol><li>Open the page:<a href=\"/classroom\" target=\"_blank\">/classroom/</a>, then tap the Share icon.</li><li>Select on the home screen, then tap Add.</li><li>The shortcut is created on the home screen. You'll just have to click on it to open the linked web page.</li></ol><p>You can find more tutorials on the Internet to create a desktop shortcut.</p>"
+        }
+      }
+    },
+    "5": {
+      "section_title": "Technical problem",
+      "question_list": {
+        "1": {
+          "title": "I have a bug, what can I do?",
+          "answer": "When a bug occurs, the first thing to do is to try to refresh the page. If the bug persists, you can contact your teacher in the Call for help tab."
+        },
+        "2": {
+          "title": "How do I report bugs and give feedback?",
+          "answer": "<p>If the bug persists, you can contact your teacher in the Help tab.</p><p>To give feedback to your teaching, you can also contact him/her in the Help tab.</p>"
+        }
+      }
+    },
+    "6": {
+      "section_title": "Licences and permits",
+      "question_list": {
+        "1": {
+          "title": "Where can I find the source code of the Class module?",
+          "answer": "The source code of the Class module is available on <a href=\"https://github.com/Cabri/OpenSTEAM-LMS/\" target=\"_href\">the OpenSTEAM-LMS git repository</a>, feel free to contribute!"
+        }
+      }
+    }
+  },
+  "manager": {
+		"profil": {
+			"manager": "Switch to manager",
+			"groupAdmin": "Switch to group administrator",
+			"bio": "Bio",
+			"group": "Group",
+			"apps": "Apps",
+			"personalApps": "Personal apps",
+			"email": "E-mail <span class=\"c-text-red\">*</span>",
+			"nickname": "Username",
+			"lastname": "Lastname <span class=\"c-text-red\">*</span>",
+			"firstname": "Firstname <span class=\"c-text-red\">*</span>",
+			"phone": "Phone number",
+			"grade": "Niveau de formation <span class=\"c-text-red\">*</span>",
+			"subject": "Taught subject <span class=\"c-text-red\">*</span>",
+			"school": "School <span class=\"c-text-red\">*</span>",
+			"password": "Password <span class=\"c-text-red\">*</span>",
+			"confirmPassword": "Confirm password <span class=\"c-text-red\">*</span>",
+			"help": "Help",
+			"onlyVisibleGroupAdmin": "Only visible to you as a group administrator:",
+			"onlyVisiblemanager": "Only visible to you as a manager:"
+		},
+		"account": {
+			"activate": {
+				"success": "Your account has been activated !",
+				"alreadyactive": "Your account is already active.",
+				"noToken": "No token is attached to this link."
+			},
+			"active": "Active account",
+			"registration": {
+				"success": "Successful registration !",
+				"emailSent": "An email has just been sent to you, follow the link in it to activate your account and continue your link to the group \"<span id=\"gourpName2\"></span>\"",
+				"accountPublic": "Do you agree that your first and last name are public on the site ?",
+				"newsletter": "Would you like to receive our newsletter by email ?",
+				"mailAlert": "Would you like to receive email alerts when receiving new messages on the site ?",
+				"allowContact": "Would you like to be able to be contacted by other users of the site ?",
+				"confirmAdult": "I confirm that I am over 18 years old (article 1124 du code civil)*",
+				"disclaimerVittascience": "Vittascience places the security and confidentiality of its users' personal data at the heart of its concerns. Discover<a href=\"http://vittascience.com/privacy\"> our personal data protection policy</a> ",
+				"mandatory": "Fields marked with <span class=\"c-text-red\">*</span> are mandatory.",
+				"cguVittascience": "By validating this form, you accept the <a href=\"http://vittascience.com/\"> Terms of Service</a>.",
+				"cguOpenSteam": "By validating this form, you accept the <a target=\"_blank\" href=\"/classroom/cgu.php\"> Terms of Service</a>.",
+				"description": "Please complete the following fields to create your account.",
+				"title": "Registration",
+				"registrationFinalizationSuccess": "Your registration has been finalized, you can now connect",
+				"registrationFinalization": "Finalize your registration",
+				"descriptionFinalization": "Please complete the following fields to complete your registration.",
+				"noTokenOrUserActive": "Invalid token or user already active",
+				"noToken": "Missing token"
+			},
+			"notAllowedUpdateUser": "You do not have the rights to update this user.",
+			"notAllowedDeleteGroup": "You do not have the rights to delete this group.",
+			"notAllowedDisableUser": "You do not have the rights to disable this user.",
+			"notAllowedDeleteUser": "You do not have the rights to delete this user.",
+			"passwordUpdatedMessage": "Your password has been successfully changed",
+			"noUserFound": "No user using this address was found.",
+			"noUserFoundToken": "This token does not correspond to any user.",
+			"missingData": "Information is missing to finalize the operation.",
+			"missingDataDate": "Date information is missing to finalize the operation.",
+			"errorSending": "An error occurred while sending the email",
+			"userNotFound": "User not found and / or already active",
+			"userNotFoundId": "User not found",
+			"errorActivation": "An error occurred during activation.",
+			"notAllowedToCreateUserInThisGroup": "You are not authorized to create a user in this group.",
+			"subscriptionOudated": "Your APPNAME app has expired on DATE. For more information contact an administrator."
+		},
+		"users": {
+			"users": "Users",
+			"add": "Add user",
+			"activated": "The account has been activated.",
+			"errorActivation": "An error occurred during activation.",
+			"create": "Create user",
+			"delete": "Delete user",
+			"deleteConfirmation": "Please write \"delete\" in the field below to validate the action.",
+			"deleteIntentionSA": "You are about to delete the user : <span id=\"mdi_firstnameSA\"></span>",
+			"disableIntention": "You are about to disable the user : <span id=\"mde_firstnameSA\"></span>",
+			"deleteConfirmationTitle": "Confirm deletion",
+			"disableConfirmationTitle": "Confirm deactivation",
+			"update": "Update user",
+			"updateAppUser": "Update user apps",
+			"updateApp": "Update apps",
+			"disable": {
+				"message": "Please write \"delete\" in the field below to validate the action.",
+				"intention": "You are about to delete the user : <span id=\"md_firstnameGA\"></span>"
+			},
+			"mail": {
+				"resetPassword": {
+					"subject": "Resetting your password.",
+					"bodyTitle": "Reset password.",
+					"textBeforeLink": "If the button above does not work, copy and paste into your browser the following link :"
+				},
+				"finalizeAccount": {
+					"title": "Registration finalization",
+					"subject": "Registration finalization",
+					"bodyTitle": "Finalize your registration.",
+					"textBeforeLink": "If the button above does not work, copy and paste into your browser the following link :"
+				}
+			},
+			"showResetLinkTitle": "Reset password.",
+			"showResetLink": "Password reset link.",
+			"groupAdmin": "Group administrator",
+			"admin": "Manager",
+			"teacher": "Teacher",
+			"usersPerPage": "Users per page",
+			"userDeleted": "User deleted.",
+			"userDisabled": "User disabled.",
+			"userCreated": "User successfully created",
+			"userUpdated": "User successfully updated",
+			"chooseNewPassword": "Choose your new password",
+			"passwordUpdate": "Your password has been changed",
+			"enterYourEmail": "Enter your e-mail address",
+			"sendResetMailDescription": "By clicking on send an email containing a link to change your password will be sent to you.",
+			"yourMail": "Your email",
+			"emailSended": "An E-mail containing the procedure to follow has just been sent to you",
+			"emailNotReceived": "If you have not received the email, click on start over (the email may take a little while to arrive)",
+			"mailSentToUser": "An email has been sent to the user to complete their registration",
+			"mailNotSentToUser": "the registration finalization email could not be sent to the user",
+			"mailSentToUserReset": "An email has been sent to the user to change their password",
+			"mailNotSentToUserReset": "The password change email could not be sent to the user",
+			"appsUpdated": "User apps have been updated",
+			"updateAppModalTitle": "Application",
+			"teacherGrades": {
+				"0": "Elementary School",
+				"1": "Middle School",
+				"2": "High school",
+				"3": "Technical College",
+				"4": "POST-BAC"
+			},
+			"teacherSubjects": {
+				"0": {
+					"0": "Elementary School",
+					"1": "Other (specify in biography)"
+				},
 				"1": {
-					"title": "What is the purpose of the My Activities tab?",
-					"answer": "In the <b>My Activities</b> tab, you will be able to:<ol><li>Create your own activities.</li><li>Then assign them to your learners!</li></ol>"
+					"0": "Physical and sports education",
+					"1": "Moral and civic education",
+					"2": "Artistic teaching",
+					"3": "French",
+					"4": "History geography",
+					"5": "Living language",
+					"6": "Mathematics",
+					"7": "Chemical Physics",
+					"8": "Life and earth sciences",
+					"9": "Technology",
+					"10": "Other (specify in bio)"
 				},
 				"2": {
-					"title": "What is an activity?",
-					"answer": "An activity is interactive content created from Cabri Express, Cabri Smart or an existing Cabri notebook."
+					"0": "Arts",
+					"1": "Circus arts",
+					"2": "Biology Ecology",
+					"3": "Biotechnologies",
+					"4": "Creation and design culture",
+					"5": "Technological creation and innovation",
+					"6": "Ecology-agronomy-territories-development durable",
+					"7": "Physical and sports education",
+					"8": "Moral and civic education",
+					"9": "Science education",
+					"10": "Transversal technological education",
+					"11": "French",
+					"12": "Hippology and horse riding",
+					"13": "History geography",
+					"14": "History geography, geopolitics and political science",
+					"15": "Humanities, literature and philosophy",
+					"16": "Languages and cultures of Antiquity: Latin or Greek",
+					"17": "Living language",
+					"18": "Foreign and regional languages, literatures and cultures",
+					"19": "Literature and languages and cultures of Antiquity",
+					"20": "Management",
+					"21": "Mathematics",
+					"22": "Digital and computer science",
+					"23": "Chemical Physics",
+					"24": "Fundamentals of economics and management",
+					"25": "Health and social",
+					"26": "Life and earth sciences",
+					"27": "Engineering Sciences",
+					"28": "Science and laboratory",
+					"29": "Sciences and techniques of theater, music and dance",
+					"30": "Laboratory science and technology",
+					"31": "Hotel and restaurant sciences and technologies",
+					"32": "Science and technology of industry and sustainable development",
+					"33": "Sciences and technologies of design and applied arts",
+					"34": "Management and sciences and technologies",
+					"35": "Digital science and technology",
+					"36": "Economic and social sciences",
+					"37": "Other (specify in biography)"
 				},
 				"3": {
-					"title": "How to create or modify an activity?",
-					"answer": "<p>You can easily create or edit activities.</p><p>To edit an activity, go to the <b>My Activities</b> tab and click on the <i class=\"fas fa-cog\"></i> icon for your activity and then click Edit. Don't forget to save your changes.</p>"
+					"0": "Applied arts and artistic cultures",
+					"1": "Right economy",
+					"2": "Economy Management",
+					"3": "Physical education and sport",
+					"4": "Moral and civic education",
+					"5": "Transversal technological education",
+					"6": "French",
+					"7": "History geography",
+					"8": "Modern foreign languages",
+					"9": "Mathematics Physics-Chemistry",
+					"10": "Environmental health prevention",
+					"11": "Other (specify in biography)"
 				},
 				"4": {
-					"title": "How do I assign an activity?",
-					"answer": "To assign an activity, you have three options:<ol><li>Either go to the <b>My Activities</b> tab and click on the <i class=\"fas fa-cog\"></i> icon for your activity and then click on Assign. Then, all you have to do is follow the steps.</li><li>This Assign option is also available in the activity itself once opened.</li><li>Then, you go to the <b>My Classes</b> tab and click on a class. Once you get to the class dashboard, you simply click the \"Add Activity\" button.</li></ol>"
-				},
-				"5": {
-					"title": "How to test an activity?",
-					"answer": "To test an activity, you have two options:<ol><li>Either go to <b>Profile</b> and click on the \"Switch to Learner Mode\" button and then select the class you want to be in. You will find yourself on the fictitious account of a learner called \"demostudent\", you will be able to discover the \"Learner\" interface and perform the activities you have assigned.</li><li>Or go to <b>My classes</b> in the dashboard of a class, you will then be able to place yourself in the skin of the learner demostudent. To do this, click on the <i class=\"fas fa-exchange-alt\"></i> icon, you will have the opportunity to become a learner in the class and try out the activities.</li></ol>To return to the \"Teacher\" mode, simply go to the <b>Profile</b> tab of the demostudent account and click on \"Return to Teacher Mode.\""
-				},
-				"6": {
-					"title": "How do you remove an activity allocation without removing the activity?",
-					"answer": "To remove an activity's assignment, go to the <b>Class</b> tab, open the dashboard for one of the classes, then click on the activity (the icon becomes <i class=\"fas fa-cog\"></i> when you hover over it) and then on Edit Assignment. All you have to do now is change the settings, select or deselect learners."
+					"0": "Higher education",
+					"1": "Other (specify in biography)"
 				}
 			}
 		},
-		"2": {
-			"section_title": "Class",
-			"question_list": {
-				"1": {
-					"title": "What is the purpose of the My Classes tab?",
-					"answer": "In the My Classes tab, you will be able to:<ol><li>Create your own classes and add learners</li><li>Correct your learners' responses to activities,</li><li>and track their progress.</li></ol>"
-				},
-				"2": {
-					"title": "How do I add my learners to my class?",
-					"answer": "You have several options:<ol><li>In class, you can <b>project the code to the board</b>. To do this, go to your classroom and click on the button to enlarge the code below:<br><img class=\"faq-img-center img-fluid\" src=\"assets/media/faq/image1.png\">Your learners will just have to register or log into the site by entering the code. They will also be able to write down this code to log in at home.</li><li>You can also create learners with the \"Add Learner\" button and then <b>send them their password individually</b>, this is visible on the Classroom Dashboard below:<br><img class=\"faq-img-center img-fluid\" src=\"assets/media/faq/image2.png\"></li></ol>"
-				},
-				"3": {
-					"title": "Can a learner be in two different classes?",
-					"answer": "No, this is not currently possible."
-				},
-				"4": {
-					"title": "How do you block other learners from entering a class?",
-					"answer": "This option will be available soon! This will prevent learners from registering several times in the same class by mistake, and also prevent outsiders from entering the class without authorization."
-				},
-				"5": {
-					"title": "How do I assign an activity?",
-					"answer": "<p>You can assign an activity to all the classes you've created or just to a specific learner.</p><p>To assign an activity, you have three options:</p><ol><li>Either go to the <b>My Activities</b> tab and click on the <i class=\"fas fa-cog\"></i> icon for your activity and then click Assign. Then, all you have to do is follow the steps.</li><li>This Assign option is also available in the activity itself once opened.</li><li>Then, you go to the <b>My Classes</b> tab and click on a class. Once you get to the class dashboard, you simply click the \"Add Activity\" button.</li></ol>"
-				},
-				"6": {
-					"title": "Can we go back on the allocation of an activity?",
-					"answer": "To go back to assigning an activity, go to the <b>Class</b> tab, open the dashboard for one of the classes, then click on the activity (the icon becomes <i class=\"fas fa-cog\"></i> when you hover over it) and then on Edit Assignment. All you have to do now is change the settings, select or deselect learners."
-				},
-				"7": {
-					"title": "How are activities evaluated?",
-					"answer": "The assessments are:<ul><li>either manually on 4 levels: Very good mastery; Sufficient mastery; Weak mastery and Insufficient mastery</li><li>Or automatically on 2 levels: Very good mastery and Weak mastery.<br>This type of assessment allows the learner to get his correction immediately and for the teacher to benefit from a significant time saving.</li></ul><p>Once the learner has completed his activity, he has the possibility to start it again if the teacher has selected the \"Exercise\" mode when assigning. In the \"Assessment\" mode, the student cannot restart once the activity has been validated.</p><p>To view the results, simply go to the Class Dashboard.</p><p>An uncorrected activity is symbolized by a pencil in the Dashboard. To correct it, click on the pencil, then simply assess and comment on the learner's work.</p>"
-				},
-				"8": {
-					"title": "How do we know when learners have completed their activities?",
-					"answer": "When a learner has completed their activity, you will receive an email notification.<br>This setting will be adjustable in the future, for now it is not configurable."
-				},
-				"9": {
-					"title": "How to change the name of a class?",
-					"answer": "To change the name of your class, you'll need to click on the <i class=\"fas fa-cog\"></i> icon from the My Classes tab, and then on edit. You will then just have to change its name."
-				},
-				"10": {
-					"title": "How do I remove a learner from a class?",
-					"answer": "<p>To delete a learner, simply click the <i class=\"fas fa-cog\"></i> icon next to the learner's name on the Class Dashboard.</p><p>Beware, this action is irreversible and closes the learner's account.</p>"
-				},
-				"11": {
-					"title": "What is the purpose of the anonymize button in the Dashboard?",
-					"answer": "This button replaces learners' names with numbers. This allows you to project students' results on the board anonymously so as not to stigmatize certain students."
+		"group": {
+			"generalInfo": "General information",
+			"add": "Add group",
+			"create": "Create group",
+			"delete": "Delete group",
+			"deleteIntention": "You are about to delete the group : <span id=\"md_group\"></span>",
+			"update": "Update group",
+			"academy": "Academy",
+			"join": {
+				"firstVisit": "First visit ?",
+				"signin": "Sign in",
+				"signinSubtitle": "Enter your login details to access your account",
+				"addressMail": "Mail address",
+				"disclaimer": "By joining this group, you authorize the group's admin to modify and / or deactivate your account. You will also have the applications that the group owns.",
+				"lastStep": "There is only one step left! Click on the button below to finalize the link.",
+				"joinGroup": "You are about to join the group : \"<span id='groupNameConfirmLink'></span>\"",
+				"notfound": "Group not found !",
+				"notfoundDetails": "We cannot find any groups linked to the code <span id='gourpName3'></span>.",
+				"clickToRedirectLogin": "Click on continue to be redirected to the login page.",
+				"clickToRedirectHome": "Click on continue to be redirected to the home page.",
+				"invalidLink": "Invalid link !",
+				"invalidFormatLink": "The format of the link you entered does not match.",
+				"success": "You joined the group : \"<span id=\"gourpName\"></span>\" !",
+				"alreadyLinked": "You are already part of this group.",
+				"error": "An error occurred while linking.",
+				"userNotFound": "The user was not found, you can click on continue to be redirected to the login page.",
+				"contactAdmin": "If the problem persists contact the administration.",
+				"groupFull": "The group you want to join is full.",
+				"onlyOneGroup": "You are already part of a group, you cannot join another",
+				"mail": {
+					"textBeforeName": "The user : ",
+					"textAfterName": "joined the group : ",
+					"emailSubject": "A user has joined the group"
 				}
+			},
+			"name": "Name of the group <span class=\"c-text-red\">*</span>",
+			"description": "Description of the group <span class=\"c-text-red\">*</span>",
+			"link": "Group link",
+			"applications": "Group applications",
+			"groupsPerPage": "Groups per page",
+			"groupDeleted": "Group deleted.",
+			"groupCreated": "Group successfully created",
+			"groupUpdated": "Group successfully updated",
+			"groupCreateFailed": "The group could not be created, missing data.",
+			"showLinkTitle": "Group's link",
+			"usersWithoutGroups": "Users without groups",
+			"searchResult": "Result of the research",
+			"usersInactiveOrNoRegular": "Inactive users or not regular",
+			"usersWithoutGroupsDescription": "User group not linked to any group",
+			"usersInactiveOrNoRegularDescription": "Group of non-regular users",
+			"groupDeleteError": "The group could not be deleted.",
+			"groupFull": "The group is full.",
+			"groupFullAdminMessage": "The group is full, you cannot add other users.",
+			"toManyStudentsFromTheTeacher": "The teacher you want to add to the group has too many students",
+			"toManyStudentsInGroup": "The group cannot accommodate so many students, the teacher has too many students.",
+			"teachersPerGroup": "Teacher per group",
+			"studentsPerGroup": "Students per group",
+			"activitiesPerGroup": "Activities per group",
+			"activitiesPerTeacher": "Activities per teacher",
+			"studentsPerTeacher": "Students per teacher",
+			"maxStudents": "Maximum students",
+			"maxActivities": "Maximum activities"
+		},
+		"title": {
+			"activeUsers": "Active users",
+			"inaactiveUsers": "Inactive users"
+		},
+		"buttons": {
+			"continue": "Continue",
+			"validate": "Validate",
+			"activate": "Activate",
+			"cancel": "Cancel",
+			"finalize": "Finalize",
+			"send": "Send",
+			"login": "Sign in",
+			"signup": "Register",
+			"join": "Join",
+			"save": "Save",
+			"close": "Close",
+			"disable": "Disable",
+			"delete": "Delete",
+			"reset": "Reset",
+			"update": "Update",
+			"search": "Search",
+			"restart": "Restart",
+			"copyLink": "Copy link",
+			"show": "Show",
+			"manage": "Manage",
+			"user": {
+				"add": "Add user",
+				"create": "Create user",
+				"delete": "Delete user",
+				"update": "Update user",
+				"addGroup": "Add group",
+				"createA": "Create user",
+				"updateA": "Update user",
+				"updateApp": "Update applications"
+			},
+			"group": {
+				"add": "Add group",
+				"create": "Create group",
+				"delete": "Delete group",
+				"update": "Update group",
+				"createA": "Create group",
+				"updateA": "Update group"
 			}
 		},
-		"3": {
-			"section_title": "Profile",
-			"question_list": {
-				"1": {
-					"title": "What is the purpose of the Profile tab?",
-					"answer": "In the Profile tab, you will be able to:<ol><li>Manage your account settings,</li><li>View your statistics,</li><li>and exchange messages with your learners as well as the Cabrilog team if you need help.</li></ol>"
-				},
-				"2": {
-					"title": "How do I change my password or other account settings?",
-					"answer": "To change your password or other settings, go to the Profile tab. In the case of GAR, the settings are those of your ENT."
-				},
-				"3": {
-					"title": "How do you change the language?",
-					"answer": "The Classroom module is currently available in English and French. To change the language, go to the profile tab, click on the \"Settings\" button, then select the language you want."
-				},
-				"4": {
-					"title": "What is learner mode?",
-					"answer": "<p>In your profile, you can click the \"Switch to Learner Mode\" button. After choosing a class, you will be taken to a fictitious learner's account called \"demostudent\", where you can discover the Learner interface and perform the activities you have assigned.</p><p>To return to the \"Teacher\" mode, just go to the <b>Profile</b> tab of the demostudent account and click on \"Return to Teacher Mode\".</p>"
-				}
+		"sort": {
+			"user": {
+				"bylastname": "Sort by lastname",
+				"byfirstname": "Sort by firstname"
+			},
+			"group": {
+				"byname": "Sort by name",
+				"bydesc": "Sort by description"
 			}
 		},
-		"4": {
-			"section_title": "General Questions",
-			"question_list": {
-				"1": {
-					"title": "On which media is the class module compatible?",
-					"answer": "<p>The interfaces work without installation, on computer, tablet and smartphone! Updates are automatic and your programs are backed up in the cloud.</p><p>To take full advantage of all the features, we recommend using Chrome or Firefox.</p>"
-				},
-				"2": {
-					"title": "How to create a shortcut to access the Classroom module?",
-					"answer": "<p>You have the option of putting an icon on the computer desktop to quickly access the Classroom module. To do this:</p><p>On Windows and Mac:</p><ol><li>Open the page: <a href=\"/classroom\" target=\"_blank\">classroom/</a>, then reduce the size of the browser window so that you can see the desktop next to it.</li><li>In your web browser, use your mouse to select the symbol to the left of the address and, without releasing your click, drag the pointer to the Desktop. Release to create the shortcut.</li><li>The shortcut is created. You'll just have to double-click it to open the linked web page.</li></ol><p>On Android with Chrome:</p><ol><li>Open the page:<a href=\"/classroom\" target=\"_blank\">classroom/</a>, then press the menu button, then select \"Add to Home Screen\".</li><li>Name the page and press \"Add\".</li><li>The shortcut is created. You will only have to double-click on it to open the linked web page.</li></ol><p>On Android with Firefox:</p><ol><li>Open the page:<a href=\"/classroom\" target=\"_blank\">classroom/</a>, then press the menu button, then press Page.</li><li>Tap Add shortcut to page.</li><li>The shortcut is created on the home screen. You'll just have to click on it to open the linked web page.</li></ol><p>On iOS with Safari:</p><ol><li>Open the page:<a href=\"/classroom\" target=\"_blank\">classroom/</a>, then tap the Share icon.</li><li>Select on the home screen, then tap Add.</li><li>The shortcut is created on the home screen. You will just have to click on it to open the linked web page.</li></ol><p>You can find more tutorials on the internet to create a desktop shortcut.</p>"
-				}
-			}
+		"input": {
+			"placeholder": {
+				"delete": "delete"
+			},
+			"writeDelete": "You must write delete to validate the action.",
+			"writeDisable": "You must write disable to validate the action."
 		},
-		"5": {
-			"section_title": "Technical problem",
-			"question_list": {
-				"1": {
-					"title": "I have a bug, what can I do?",
-					"answer": "When a bug occurs, the first thing to do is to try to refresh the page. If the bug persists, you can contact us in the Profile tab with the \"Help\" button."
-				},
-				"2": {
-					"title": "How do I report bugs and give feedback?",
-					"answer": "If the bug persists, you can contact us in the profile tab with the \"Help\" button.<br>To give us feedback, you can also contact us in the Profile tab with the \"Help\" button."
-				}
-			}
+		"table": {
+			"lastname": "Lastname",
+			"firstname": "Firstname",
+			"applications": "Applications",
+			"group": "Group",
+			"description": "Description",
+			"descriptionMandatory": "Description <span class=\"c-text-red\">*</span>",
+			"right": "Rights",
+			"resetPassword": "Reset password",
+			"link": "Link",
+			"name": "Name",
+			"nameMandatory": "Name <span class=\"c-text-red\">*</span>",
+			"dateBegin": "Begin date",
+			"dateEnd": "End date",
+			"outDated": "Out dated",
+			"maxStudents": "Maximum students",
+			"actualStudents": "Current students",
+			"maxTeachers": "Maximum teachers",
+			"actualTeachers": "Current teachers",
+			"maxStudentsPerTeachers": "Maximum students per teacher",
+			"maxStudentsPerTeacher": "Maximum students per teacher",
+			"monitoring": "Apps monitoring",
+			"image": "Image",
+			"userNoRights": "No rights assigned",
+			"userAdmin": "Administrator",
+			"userTeacher": "Teacher",
+			"restrictions": "Restrictions"
 		},
-		"6": {
-			"section_title": "Licences and permits",
-			"question_list": {
-				"1": {
-					"title": "Can we make a description or presentation of the Class module?",
-					"answer": "Yes, you can reuse the visuals for the Classroom module to create a description, presentation, training, tutorial, course or other. If you want to include images or activity content, please mention the author (see next question)."
-				},
-				"2": {
-					"title": "Where can I find the source code of the Class module?",
-					"answer": "The source code of the Class module is available on the <a href=\"https://github.com/Cabri/OpenSTEAM-LMS/\" target=\"_href\">OpenSTEAM-LMS git repository</a>, feel free to contribute!"
-				}
-			}
+		"apps": {
+			"apps": "Apps",
+			"create": "Add an app",
+			"updateSuccess": "App successfully updated",
+			"createSuccess": "App successfully created",
+			"deleteSuccess": "App successfully deleted",
+			"deleteIntention": "You are about to delete the app : <span id=\"application_delete_name\"></span>",
+			"outDatedApp": "The app you want to assign is outdated.",
+			"infoMaxStudentsPerTeachers": "Determine the maximum number of students that a teacher in the group can have.",
+			"infoMaxStudentsPerGroups": "Determines the maximum number of students that the group can have (By adding the total of students of teachers who have this application)",
+			"infoMaxTeachers": "Determines the maximum number of teachers who can have the application in this group",
+			"usersLimitation": "Users students limitation",
+			"groupsLimitation": "Groups limitations",
+			"activitiesLimitation": "Activities limitations",
+			"defaultRestrictions": "Default restrictions"
+		},
+		"activitiesRestrictions": {
+			"updateAll": "Update restrictions",
+			"update": "Update restriction",
+			"create": "Create restriction",
+			"delete": "Delete restriction",
+			"updateSuccess": "Restriction successfully updated",
+			"createSuccess": "Restriction successfully created",
+			"deleteSuccess": "Restriction successfully deleted",
+			"deleteIntention": "You are about to delete the restriction : <span id=\"restriction_delete_name\"></span>",
+			"restrictionType": "Activity type",
+			"maxActivity": "Activity maximum",
+			"closeDetail": "Close the detail",
+			"restrictions": "Activity restrictions"
+		},
+		"defaultRestrictions": {
+			"update": "Update default restrictions",
+			"type": "Activity type",
+			"max": "Maximum",
+			"add": "Add a restriction",
+			"updateUsersRestrictionsSuccess": "Default users restrictions updated successfuly",
+			"updateGroupsRestrictionsSuccess": "Default groups restrictions updated successfuly",
+			"updateActivitiesRestrictionsSuccess": "Default activities restrictions updated successfuly",
+			"deleteActivitiesRestrictionsSuccess": "Default activity restriction deleted successfuly",
+			"getDefaultRestrictions": "Show the default restrictions",
+			"restrictionAlreadyExist": "The restriction already exist"
 		}
 	},
-	"faqStudentNeutral": {
-		"title": "FAQ",
-		"1": {
-			"section_title": "Activities",
-			"question_list": {
-				"1": {
-					"title": "What is the purpose of the My Activities tab?",
-					"answer": "In the My Activities tab, you'll be able to:<ol><li>Complete new activities from your teachers.</li><li>Save the ones you haven't finished yet.</li><li>And review the ones you've done!\"</li></ol>"
-				},
-				"2": {
-					"title": "What is an activity?",
-					"answer": "An activity is interactive content created with Cabri Express or Cabri Author."
+	"navbar": {
+		"items": {
+			"kits": "Hardware",
+			"community": {
+				"title": "Community",
+				"dropdown": {
+					"vittamap": "Vittamap",
+					"blog": "Blog",
+					"gallery": "Gallery",
+					"about": "About"
 				}
-			}
-		},
-		"2": {
-			"section_title": "Call for help",
-			"question_list": {
-				"1": {
-					"title": "What is the purpose of the Call for Help tab?",
-					"answer": "In the Call for Help tab, you'll be able to:<ol><li>Request help from your teachers at any time,</li><li>Consult frequently asked questions.</li></ol>You'll be able to track your message exchange in the Profile tab."
-				}
-			}
-		},
-		"3": {
-			"section_title": "Profile",
-			"question_list": {
-				"1": {
-					"title": "What is the purpose of the Profile tab?",
-					"answer": "In the Profile tab, you'll be able to:<ol><li>Manage your account settings,</li><li>View your statistics,</li><li>and exchange messages with your teachers.</li></ol>"
-				},
-				"2": {
-					"title": "How do I change my password or other account settings?",
-					"answer": "To change your password or other settings, go to the Profile tab."
-				},
-				"3": {
-					"title": "How do you change the language?",
-					"answer": "The Classroom module is currently available in English and French. To change the language, go to the profile tab, click on the \"Settings\" button, and then select the language you want."
-				}
-			}
-		},
-		"4": {
-			"section_title": "General Questions",
-			"question_list": {
-				"1": {
-					"title": "How do I get started with the Classroom module?",
-					"answer": "At any time, you can access general help by clicking on the <i class=\"fas fa-question\"></i> icon in the upper right to get a handle on the Class module."
-				},
-				"2": {
-					"title": "On which media is the class module compatible?",
-					"answer": "<p>The interfaces work without installation, on computer, tablet and smartphone! Updates are automatic and your programs are saved in the cloud.</p><p>To take full advantage of all the features, we recommend using Chrome or Firefox.</p>"
-				},
-				"3": {
-					"title": "How to create a shortcut to access the Classroom module?",
-					"answer": "<p>You have the option of putting an icon on the computer desktop to quickly access the Classroom module. To do this:</p><p>On Windows and Mac:</p><ol><li>Open the page: <a href=\"/classroom\" target=\"_blank\">/classroom/</a>, then reduce the size of the browser window so that you can see the desktop next to it.</li><li>In your web browser, select the symbol to the left of the address with your mouse and, without releasing your click, drag the pointer to the Desktop. Release to create the shortcut.</li><li>The shortcut is created. You'll just have to double-click it to open the linked web page.</li></ol><p>On Android with Chrome:</p><ol><li>Open the page: <a href=\"/classroom\" target=\"_blank\">/classroom/</a>, then press the menu button, then select \"Add to Home Screen\".</li><li>Name the page and press \"Add\".</li><li>The shortcut is created. You'll just have to double-click it to open the linked web page.</li></ol><p>On Android with Firefox:</p><ol><li>Open the page: <a href=\"/classroom\" target=\"_blank\">/classroom/</a>, then tap the menu button, then tap Page.</li><li>Tap Add shortcut to page.</li><li>The shortcut is created on the home screen. You'll just have to click on it to open the linked web page.</li></ol><p>On iOS with Safari:</p><ol><li>Open the page:<a href=\"/classroom\" target=\"_blank\">/classroom/</a>, then tap the Share icon.</li><li>Select on the home screen, then tap Add.</li><li>The shortcut is created on the home screen. You'll just have to click on it to open the linked web page.</li></ol><p>You can find more tutorials on the Internet to create a desktop shortcut.</p>"
-				}
-			}
-		},
-		"5": {
-			"section_title": "Technical problem",
-			"question_list": {
-				"1": {
-					"title": "I have a bug, what can I do?",
-					"answer": "When a bug occurs, the first thing to do is to try to refresh the page. If the bug persists, you can contact your teacher in the Call for help tab."
-				},
-				"2": {
-					"title": "How do I report bugs and give feedback?",
-					"answer": "<p>If the bug persists, you can contact your teacher in the Help tab.</p><p>To give feedback to your teaching, you can also contact him/her in the Help tab.</p>"
-				}
-			}
-		},
-		"6": {
-			"section_title": "Licences and permits",
-			"question_list": {
-				"1": {
-					"title": "Where can I find the source code of the Class module?",
-					"answer": "The source code of the Class module is available on <a href=\"https://github.com/Cabri/OpenSTEAM-LMS/\" target=\"_href\">the OpenSTEAM-LMS git repository</a>, feel free to contribute!"
-				}
+			},
+			"tooltips": {
+				"backToHome": "Go back to the homepage",
+				"programming": "Coding with Vittascience",
+				"resources": "Educational resource center",
+				"classroom": "Manage your classes with Vittascience",
+				"hardware": "Discover our kits and products"
+			},
+			"programming": "Programming",
+			"classroom": "Classroom",
+			"arduino": "Arduino",
+			"microbit": "Microbit",
+			"microbit-tutorials": "Microbit Tutorials",
+			"ressources": "Resources",
+			"accessibility": "Change the theme and font of the site",
+			"lang": "Change language",
+			"user_shortcuts": {
+				"welcome": "Welcome!",
+				"signup": "Sign up",
+				"login": "Connect",
+				"hello": "Hello",
+				"account": "My account",
+				"disconnect": "Disconnect",
+				"willSignup": "sign in",
+				"willSignin": "Log in"
 			}
 		}
 	}
