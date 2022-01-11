@@ -474,7 +474,7 @@ function loadActivity(isDoable) {
     activityIntroduction.html('')
 
 
-    let baseToolUrl;
+    let baseToolUrl, deploymentId;
     Main.getClassroomManager().getActivity(Activity.activity.id).then((activity) => {
         if (Activity.introduction != null && Activity.introduction !== "") {
             $('#text-introduction').html(bbcodeToHtml(Activity.introduction))
@@ -552,9 +552,11 @@ function loadActivity(isDoable) {
           return; // TODO: to do later
         case "imuscica":
           baseToolUrl = "https://workbench-imuscica.cabricloud.com";
+          deploymentId = 'imuscica';
           break;
         default:
           baseToolUrl = "https://lti1p3.cabricloud.com";
+          deploymentId= 'express';
           break;
       }
 
@@ -573,7 +575,8 @@ function loadActivity(isDoable) {
                     userId: UserManager.getUser().id,
                     isStudentLaunch: true,
                     isDoable: isDoable,
-                    activitiesLinkUser: Activity.id
+                    activitiesLinkUser: Activity.id,
+                    deploymentId
                 };
 
                 const ltiStudentLaunch = `

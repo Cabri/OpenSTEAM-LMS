@@ -354,17 +354,19 @@ function createCabriLtiActivity(link = null, id = null, type) {
     }
 
 
-    let baseToolUrl;
+    let baseToolUrl, deploymentId;
     let isNeedTitle = false;
       switch (type) {
           case "standard":
               return; // TODO: to do later
           case "imuscica":
               baseToolUrl = "https://workbench-imuscica.cabricloud.com";
+              deploymentId = 'imuscica';
               break;
           default:
               baseToolUrl = "https://lti1p3.cabricloud.com";
               isNeedTitle = true;
+              deploymentId= 'express';
               break;
       }
 
@@ -399,7 +401,8 @@ function createCabriLtiActivity(link = null, id = null, type) {
     const loginHint = ClassroomSettings.status === "edit" ? ClassroomSettings.loginHint : {
           userId: UserManager.getUser().id,
           isStudentLaunch: false,
-          activityType: type
+          activityType: type,
+          deploymentId
         };
 
    // document.getElementsByName('lti_teacher_login_form')[0].style.display = 'none';
@@ -481,16 +484,18 @@ function activityModify(id, type) {
           });
 
 
-          let baseToolUrl;
+          let baseToolUrl, deploymentId;
           let isNeedTitle = false;
           switch (type) {
             case "standard":
               return; // TODO: to do later
             case "imuscica":
               baseToolUrl = "https://workbench-imuscica.cabricloud.com";
+              deploymentId = "imuscica";
               break;
             default:
               baseToolUrl = "https://lti1p3.cabricloud.com";
+              deploymentId = "express";
               isNeedTitle = true;
               break;
           }
@@ -515,7 +520,8 @@ function activityModify(id, type) {
             isStudentLaunch: false,
             isUpdate: true,
             updateURL: activity.content,
-            activityType: activity.type
+            activityType: activity.type,
+            deploymentId
           };
 
           // document.getElementsByName('lti_teacher_login_form')[0].style.display = 'none';
