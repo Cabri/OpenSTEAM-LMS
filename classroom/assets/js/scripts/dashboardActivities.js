@@ -549,6 +549,8 @@ function loadActivity(isDoable) {
       // TODO : define global tabs with tabs["name_app"] = "url_app" (to use also in teacher code)
       switch (activity.type) {
         case "standard":
+            baseToolUrl = "https://baptiste-cabri.cabricloud.com";
+            deploymentId= 'player';
           return; // TODO: to do later
         case "imuscica":
           baseToolUrl = "https://workbench-imuscica.cabricloud.com";
@@ -559,6 +561,7 @@ function loadActivity(isDoable) {
           deploymentId= 'express';
           break;
       }
+           
 
         let activityType = activity.type ? activity.type.toLowerCase() : activity.type;
         // Review student submission by teacher (and by student)
