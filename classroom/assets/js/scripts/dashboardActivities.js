@@ -549,9 +549,9 @@ function loadActivity(isDoable) {
       // TODO : define global tabs with tabs["name_app"] = "url_app" (to use also in teacher code)
       switch (activity.type) {
         case "standard":
-            //baseToolUrl = "https://lti1p3-player.cabricloud.com";
-            baseToolUrl = 'https://d52b-82-216-88-13.eu.ngrok.io';
-            deploymentId = 'cabri_player';
+            baseToolUrl = "https://lti1p3-player.cabricloud.com";
+            //baseToolUrl = 'https://d52b-82-216-88-13.eu.ngrok.io';
+            deploymentId = 'opensteam-lms_cabri-player';
             break;
         case "imuscica":
           baseToolUrl = "https://workbench-imuscica.cabricloud.com";
@@ -559,7 +559,7 @@ function loadActivity(isDoable) {
           break;
         default:
           baseToolUrl = "https://lti1p3.cabricloud.com";
-          deploymentId = 'cabri_express';
+          deploymentId = 'opensteam-lms_cabri-express';
           break;
       }
 
@@ -588,7 +588,7 @@ function loadActivity(isDoable) {
           <form name="lti_student_login_form" action="${baseToolUrl}/login" method="post" target="lti_student_iframe">
             <input id="lti_student_iss" type="hidden" name="iss" value="${location.origin}" />
             <input id="lti_student_login_hint" type="hidden" name="login_hint"/>
-            <input id="lti_student_client_id" type="hidden" name="client_id" value="opensteam_lms" />
+            <input id="lti_student_client_id" type="hidden" name="client_id" value="${deploymentId}" />
             <input id="lti_student_target_link_uri" type="hidden" name="target_link_uri" value="${baseToolUrl}/lti" />
           </form>
 

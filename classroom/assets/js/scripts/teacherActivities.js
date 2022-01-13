@@ -358,9 +358,9 @@ function createCabriLtiActivity(link = null, id = null, type) {
     let isNeedTitle = false;
       switch (type) {
           case "standard":
-             //baseToolUrl = "https://lti1p3-player.cabricloud.com";
-              baseToolUrl = "https://d52b-82-216-88-13.eu.ngrok.io";
-              deploymentId = 'cabri_player';
+             baseToolUrl = "https://lti1p3-player.cabricloud.com";
+              //baseToolUrl = "https://d52b-82-216-88-13.eu.ngrok.io";
+              deploymentId = 'opensteam-lms_cabri-player';
               break;
           case "imuscica":
               baseToolUrl = "https://workbench-imuscica.cabricloud.com";
@@ -370,7 +370,7 @@ function createCabriLtiActivity(link = null, id = null, type) {
           default:
               baseToolUrl = "https://lti1p3.cabricloud.com";
               isNeedTitle = true;
-              deploymentId= 'cabri_express';
+              deploymentId= 'opensteam-lms_cabri-express';
               disableIframe = true;
               break;
       }
@@ -381,7 +381,7 @@ function createCabriLtiActivity(link = null, id = null, type) {
             <form name="lti_teacher_login_form" action="${baseToolUrl}/login" method="post" target="lti_teacher_iframe">
               <input id="lti_teacher_iss" type="hidden" name="iss"/>
               <input id="lti_teacher_login_hint" type="hidden" name="login_hint"/>
-              <input id="lti_teacher_client_id" type="hidden" name="client_id" value="opensteam_lms" />
+              <input id="lti_teacher_client_id" type="hidden" name="client_id" value="${deploymentId}" />
               <input id="lti_teacher_target_link_uri" type="hidden" name="target_link_uri" value="${baseToolUrl}/deeplink" />
             </form>
             <div style="width: 100%; height: 100%;">
@@ -495,6 +495,7 @@ function activityModify(id, type) {
           let isNeedTitle = false;
           switch (type) {
             case "standard":
+              deploymentId = 'opensteam-lms_cabri-player';
               return; // TODO: to do later
             case "imuscica":
               baseToolUrl = "https://workbench-imuscica.cabricloud.com";
@@ -502,7 +503,7 @@ function activityModify(id, type) {
               break;
             default:
               baseToolUrl = "https://lti1p3.cabricloud.com";
-              deploymentId = "cabri_express";
+              deploymentId = "opensteam-lms_cabri-express";
               isNeedTitle = true;
               break;
           }
@@ -513,7 +514,7 @@ function activityModify(id, type) {
             <form name="lti_teacher_login_form" action="${baseToolUrl}/login" method="post" target="lti_teacher_iframe">
               <input id="lti_teacher_iss" type="hidden" name="iss"/>
               <input id="lti_teacher_login_hint" type="hidden" name="login_hint"/>
-              <input id="lti_teacher_client_id" type="hidden" name="client_id" value="opensteam_lms" />
+              <input id="lti_teacher_client_id" type="hidden" name="client_id" value="${deploymentId}" />
               <input id="lti_teacher_target_link_uri" type="hidden" name="target_link_uri" value="${baseToolUrl}/deeplink" />
             </form>
             <div style="width: 100%; height: 100%;">
