@@ -534,7 +534,22 @@ function loadActivity(isDoable) {
         correction += '<div id="commentary-panel" class="c-primary-form" style="margin-top: 50px;"><h5>' + i18next.t("classroom.activities.comments") + '</h5><textarea id="commentary-textarea" style="width:90%" rows="8">' + Activity.commentary + '</textarea></div>'
     }
 
+
+
+
     if (!UserManager.getUser().isRegular && Activity.correction > 0) {
+        if (Activity.note == 3) {
+            var activityResultString = i18next.t('classroom.activities.veryGoodProficiency')
+        } else if (Activity.note == 2) {
+            var activityResultString = i18next.t('classroom.activities.goodProficiency')
+        } else if (Activity.note == 1) {
+            var activityResultString = i18next.t('classroom.activities.weakProficiency')
+        } else if (Activity.note == 0) {
+            var activityResultString = i18next.t('classroom.activities.insufficientProficiency')
+        } 
+        correction += `<div class="results-string" style="background-color:var(--correction-${Activity.note})"">${activityResultString}</div>`
+
+        
         if (Activity.commentary != null && Activity.commentary != "") {
             correction += '<div id="commentary-panel">' + Activity.commentary + '</div>'
         } else {

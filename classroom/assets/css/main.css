@@ -291,6 +291,12 @@ input:checked+.slider-mini {
     overflow: hidden;
 }
 
+@media (max-width: 768px) {
+    .leader-line {
+        display: none;
+    }
+}
+
 /* THEMED ELEMENTS */
 
 body {
@@ -612,7 +618,8 @@ button {
 
     #classroom-dashboard-content {
         border-radius: 0px;
-        padding-bottom: 110px;
+        height: calc(100% - 110px);
+        padding-bottom: 50px; 
     }
 
 }
@@ -664,7 +671,7 @@ button {
 /* NOTIFICATIONS */
 
 #notif-div {
-/*     display: flex;
+    /*     display: flex;
     flex-direction: row-reverse; */
     /* Update Rémi, need review */
     position: fixed;
@@ -1484,6 +1491,16 @@ h3.section-done {
     top: 3.5em;
 }
 
+#activity-correction .results-string {
+    border-radius: 1em;
+    padding: 0.25em 0.5em;
+    margin: 0.5em auto;
+    background: var(--classroom-cell);
+    font-weight: 600;
+    color: var(--classroom-white);
+    width: fit-content;
+}
+
 .giveNote-container {
     padding: 0.5em;
     border-radius: 1em;
@@ -1526,6 +1543,8 @@ h3.section-done {
     text-transform: uppercase;
     font-weight: 600;
 }
+
+
 
 .results-fail i {
     color: var(--correction-fail);

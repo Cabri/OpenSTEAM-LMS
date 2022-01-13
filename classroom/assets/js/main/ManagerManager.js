@@ -441,6 +441,8 @@ class managerManager {
                 data: {
                     application_name: $application_name,
                     application_description: $application_description,
+                    application_image: $application_image,
+                    application_description: $application_description,
                     application_image: $application_image
                 },
                 success: function (response) {

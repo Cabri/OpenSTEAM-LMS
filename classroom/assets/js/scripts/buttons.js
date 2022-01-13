@@ -240,6 +240,8 @@ function navigatePanel(id, idNav, option = "", interface = '', skipConfirm = fal
         breadcrumbElt.innerHTML = innerBreadCrumbHtml;
         $('#breadcrumb').localize();
     }
+
+        $('.tooltip').remove()
         $('.leader-line').remove()
         $('[data-toggle="tooltip"]').tooltip()
 
@@ -460,7 +462,7 @@ $('.open-ide').click(function () {
 $('body').on('click', '.sandbox-card', function () {
     if (!$(this).find("i:hover").length && !$(this).find(".dropdown-menu:hover").length) {
         ClassroomSettings.project = $(this).attr('data-href').replace(/.+link=([0-9a-z]{13}).+/, '$1')
-        ClassroomSettings.interface = $(this).attr('data-href').replace(/.+(arduino|python|microbit).+/, '$1')
+        ClassroomSettings.interface = $(this).attr('data-href').replace(/.+(arduino|python|microbit|adacraft|stm32|esp32).+/, '$1')
         if (UserManager.getUser().isRegular) {
             navigatePanel('classroom-dashboard-ide-panel', 'dashboard-sandbox-teacher', ClassroomSettings.project, ClassroomSettings.interface)
         } else {
@@ -472,7 +474,7 @@ $('body').on('click', '.sandbox-card', function () {
 $('body').on('click', '.modal-teacherSandbox-delete', function () {
     let confirm = window.confirm("Etes vous sur de vouloir supprimer le projet?")
     if (confirm) {
-        let link = $(this).parent().parent().parent().parent().attr('data-href').replace(/\\(arduino|microbit|python)\\\?link=([0-9a-f]{13})/, "$2")
+        let link = $(this).parent().parent().parent().parent().attr('data-href').replace(/\\(arduino|microbit|python|adacraft|stm32|esp32)\\\?link=([0-9a-f]{13})/, "$2")
         Main.getClassroomManager().deleteProject(link).then(function (project) {
             deleteSandboxInList(project.link)
             sandboxDisplay()
@@ -516,7 +518,7 @@ $('body').on('change', '.list-students-classroom', function () {
 $('body').on('click', '.modal-teacherSandbox-duplicate', function () {
     let link = $(this).parent().parent().parent().parent().attr('data-href')
     link = link.replace(/.+link=([0-9a-f]{13}).+/, '$1')
-    ClassroomSettings.interface = $(this).parent().parent().parent().parent().attr('data-href').replace(/.+(arduino|python|microbit).+/, '$1')
+    ClassroomSettings.interface = $(this).parent().parent().parent().parent().attr('data-href').replace(/.+(arduino|python|microbit|adacraft|stm32|esp32).+/, '$1')
     Main.getClassroomManager().duplicateProject(link).then(function (project) {
         ClassroomSettings.project = project.link
         addSandboxInList(project)
@@ -650,6 +652,7 @@ function studentActivitiesDisplay() {
         $('#body-table-bilan').append('<td class="' + statusActivity(element) + ' bilan-cell classroom-clickable" ></td>')
         index++
     });
+    
     if (activities.doneActivities.length < 1) {
         $('#average-score').hide()
     } else {
@@ -657,6 +660,7 @@ function studentActivitiesDisplay() {
         $('#score-student').html($('#body-table-bilan .bilan-success').length)
         $('#average-score').show()
     }
+
     if (index == 1) {
         $('#bilan-student').hide()
     } else {
@@ -664,7 +668,6 @@ function studentActivitiesDisplay() {
     }
 
     $('[data-toggle="tooltip"]').tooltip()
-
 
 }
 
@@ -951,14 +954,16 @@ function createGroupWithModal() {
         $description = $('#group_desc').val(),
         ApplicationsData = [];
 
-    $("input:checkbox.form-check-input.app").each(function (element) {
+    $("input:checkbox.form-check-input.app").each(function () {
         const ApplicationTemp = [$(this).val(),
             $(this).is(':checked'),
             $('#begin_date_' + $(this).val()).val(),
             $('#end_date_' + $(this).val()).val(),
             $('#max_students_per_teachers_' + $(this).val()).val(),
             $('#max_students_per_groups_' + $(this).val()).val(),
-            $('#max_teachers_per_groups_' + $(this).val()).val()
+            $('#max_teachers_per_groups_' + $(this).val()).val(),
+            $('#max_activities_per_groups_' + $(this).val()).val(),
+            $('#max_activities_per_teachers_' + $(this).val()).val()
         ]
         ApplicationsData.push(ApplicationTemp);
     });
@@ -970,6 +975,7 @@ function createGroupWithModal() {
             displayNotification('#notif-div', "manager.group.groupCreateFailed", "error");
         }
     });
+    
     pseudoModal.closeAllModal();
     tempoAndShowGroupsTable()
 }
@@ -2659,9 +2665,7 @@ function persistUpdateApp() {
         $application_restrictions_value = $('#app_update_activity_restriction_value').val();
 
 
-    mainManager.getmanagerManager().updateOneActivityRestriction($application_id, $application_restrictions_type, $application_restrictions_value).then((response) => {
-
-    })
+    mainManager.getmanagerManager().updateOneActivityRestriction($application_id, $application_restrictions_type, $application_restrictions_value);
 
     //console.log($application_restrictions_type , $application_restrictions_value);
 
@@ -2702,17 +2706,22 @@ function persistDeleteApp() {
 function persistCreateApp() {
     let $application_name = $('#app_create_name').val(),
         $application_description = $('#app_create_description').val(),
-        $application_image = $('#app_create_image').val();
+        $application_image = $('#app_create_image').val(),
+        $application_restrictions_type = $('#app_create_activity_restriction_type').val(),
+        $application_restrictions_value = $('#app_create_activity_restriction_value').val();
 
     mainManager.getmanagerManager().createApplication($application_name, $application_description, $application_image).then((response) => {
         if (response.message == "success") {
             displayNotification('#notif-div', "manager.apps.createSuccess", "success");
             closeModalAndCleanInput(true)
+            mainManager.getmanagerManager().updateOneActivityRestriction(response.application_id, $application_restrictions_type, $application_restrictions_value);
         } else {
             displayNotification('#notif-div', "manager.account.missingData", "error");
         }
         updateStoredApps();
     })
+
+    
 }
 
 function updateStoredApps() {
@@ -3069,6 +3078,9 @@ $('#btn-help-for-groupAdmin').click(function () {
         } else if (response.emailSent == false) {
             displayNotification('#notif-div', "manager.account.errorSending", "error");
         }
+        // Add reset
+        $('#groupadmin-contact-message-input').val("");
+        $('#groupadmin-contact-subject-input').val("");
     })
 })
 
