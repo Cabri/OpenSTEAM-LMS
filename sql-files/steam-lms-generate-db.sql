@@ -35,7 +35,7 @@ CREATE TABLE `classrooms` (
   `link` varchar(5) COLLATE utf8mb3_unicode_ci NOT NULL,
   `is_changed` tinyint(1) DEFAULT NULL,
   `is_blocked` int(11) NOT NULL DEFAULT 0,
-  `uai` varchar(255) COLLATE utf8mb3_unicode_ci DEFAULT NULL
+  `uai` varchar(255) COLLATE utf8mb3_unicode_ci DEFAULT NULL,
   `gar_code` varchar(255) COLLATE utf8mb3_unicode_ci DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_unicode_ci;
 
