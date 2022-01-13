@@ -474,7 +474,7 @@ function loadActivity(isDoable) {
     activityIntroduction.html('')
 
 
-    let baseToolUrl;
+    let baseToolUrl, deploymentId;
     Main.getClassroomManager().getActivity(Activity.activity.id).then((activity) => {
         if (Activity.introduction != null && Activity.introduction !== "") {
             $('#text-introduction').html(bbcodeToHtml(Activity.introduction))
@@ -564,14 +564,20 @@ function loadActivity(isDoable) {
       // TODO : define global tabs with tabs["name_app"] = "url_app" (to use also in teacher code)
       switch (activity.type) {
         case "standard":
-          return; // TODO: to do later
+            baseToolUrl = "https://lti1p3-player.cabricloud.com";
+            //baseToolUrl = 'https://d52b-82-216-88-13.eu.ngrok.io';
+            deploymentId = 'opensteam-lms_cabri-player';
+            break;
         case "imuscica":
           baseToolUrl = "https://workbench-imuscica.cabricloud.com";
+          deploymentId = 'imuscica';
           break;
         default:
           baseToolUrl = "https://lti1p3.cabricloud.com";
+          deploymentId = 'opensteam-lms_cabri-express';
           break;
       }
+
 
         let activityType = activity.type ? activity.type.toLowerCase() : activity.type;
         // Review student submission by teacher (and by student)
@@ -588,7 +594,8 @@ function loadActivity(isDoable) {
                     userId: UserManager.getUser().id,
                     isStudentLaunch: true,
                     isDoable: isDoable,
-                    activitiesLinkUser: Activity.id
+                    activitiesLinkUser: Activity.id,
+                    deploymentId
                 };
 
                 const ltiStudentLaunch = `
@@ -596,7 +603,7 @@ function loadActivity(isDoable) {
           <form name="lti_student_login_form" action="${baseToolUrl}/login" method="post" target="lti_student_iframe">
             <input id="lti_student_iss" type="hidden" name="iss" value="${location.origin}" />
             <input id="lti_student_login_hint" type="hidden" name="login_hint"/>
-            <input id="lti_student_client_id" type="hidden" name="client_id" value="client_id_php" />
+            <input id="lti_student_client_id" type="hidden" name="client_id" value="${deploymentId}" />
             <input id="lti_student_target_link_uri" type="hidden" name="target_link_uri" value="${baseToolUrl}/lti" />
           </form>
 
