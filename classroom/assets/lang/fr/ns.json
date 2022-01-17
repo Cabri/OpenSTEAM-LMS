@@ -228,6 +228,7 @@
       "form": {
         "title": "Créer une classe",
         "name": "Nom de la classe",
+        "updateTitle": "Modifier une classe",
         "school": "Nom de l'établissement",
         "addStudent": "Ajouter un apprenant",
         "noStudent": "Pas encore d'apprenants dans cette classe",
