@@ -192,7 +192,7 @@ function backToClassroomFromCode() {
  */
 function navigatePanel(id, idNav, option = "", interface = '', skipConfirm = false, isOnpopstate = false) {
     let confirmExit = true;
-    if ($_GET('interface') == "newActivities" && !Activity.project && !skipConfirm && Activity.activity.type!=='IFRAME') {
+    if ($_GET('interface') == "newActivities" && !Activity.project && !skipConfirm && Activity.activity && Activity.activity.type!=='IFRAME') {
         confirmExit = confirm(i18next.t("classroom.notif.saveProject"));
     }
     if (confirmExit) {
@@ -652,7 +652,7 @@ function studentActivitiesDisplay() {
         $('#body-table-bilan').append('<td class="' + statusActivity(element) + ' bilan-cell classroom-clickable" ></td>')
         index++
     });
-    
+
     if (activities.doneActivities.length < 1) {
         $('#average-score').hide()
     } else {
@@ -975,7 +975,7 @@ function createGroupWithModal() {
             displayNotification('#notif-div', "manager.group.groupCreateFailed", "error");
         }
     });
-    
+
     pseudoModal.closeAllModal();
     tempoAndShowGroupsTable()
 }
@@ -2721,7 +2721,7 @@ function persistCreateApp() {
         updateStoredApps();
     })
 
-    
+
 }
 
 function updateStoredApps() {

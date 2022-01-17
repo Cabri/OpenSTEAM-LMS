@@ -546,10 +546,10 @@ function loadActivity(isDoable) {
             var activityResultString = i18next.t('classroom.activities.weakProficiency')
         } else if (Activity.note == 0) {
             var activityResultString = i18next.t('classroom.activities.insufficientProficiency')
-        } 
+        }
         correction += `<div class="results-string" style="background-color:var(--correction-${Activity.note})"">${activityResultString}</div>`
 
-        
+
         if (Activity.commentary != null && Activity.commentary != "") {
             correction += '<div id="commentary-panel">' + Activity.commentary + '</div>'
         } else {
@@ -626,7 +626,9 @@ function loadActivity(isDoable) {
             activityContent.html(bbcodeToHtml(content))
         }*/
 
-        $('#activity-correction').html(bbcodeToHtml(correction)).show()
+        if(correction && correction!=='')
+          $('#activity-correction').html(bbcodeToHtml(correction)).show()
+
         if (isDoable == false) {
             $('#activity-validate').hide()
             $('#activity-save').hide()
