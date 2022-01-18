@@ -365,7 +365,6 @@ function createCabriLtiActivity(link = null, id = null, type) {
           case "imuscica":
               baseToolUrl = "https://workbench-imuscica.cabricloud.com";
               deploymentId = 'opensteam-lms_imuscica';
-              disableIframe = true;
               break;
           default:
               baseToolUrl = "https://lti1p3.cabricloud.com";
