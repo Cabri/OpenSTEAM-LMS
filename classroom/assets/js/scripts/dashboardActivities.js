@@ -570,7 +570,7 @@ function loadActivity(isDoable) {
             break;
         case "imuscica":
           baseToolUrl = "https://workbench-imuscica.cabricloud.com";
-          deploymentId = 'imuscica';
+          deploymentId = 'opensteam-lms_imuscica';
           break;
         default:
           baseToolUrl = "https://lti1p3.cabricloud.com";

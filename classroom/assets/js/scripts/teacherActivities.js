@@ -364,7 +364,7 @@ function createCabriLtiActivity(link = null, id = null, type) {
               break;
           case "imuscica":
               baseToolUrl = "https://workbench-imuscica.cabricloud.com";
-              deploymentId = 'imuscica';
+              deploymentId = 'opensteam-lms_imuscica';
               disableIframe = true;
               break;
           default:
@@ -499,7 +499,7 @@ function activityModify(id, type) {
               return; // TODO: to do later
             case "imuscica":
               baseToolUrl = "https://workbench-imuscica.cabricloud.com";
-              deploymentId = "imuscica";
+              deploymentId = 'opensteam-lms_imuscica';
               break;
             default:
               baseToolUrl = "https://lti1p3.cabricloud.com";
