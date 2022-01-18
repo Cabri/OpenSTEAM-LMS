@@ -472,10 +472,7 @@ function loadActivity(isDoable) {
     activityTitle.html('')
     activityContent.html('')
     activityIntroduction.html('')
-
-
     let baseToolUrl, deploymentId;
-    Main.getClassroomManager().getActivity(Activity.activity.id).then((activity) => {
         if (Activity.introduction != null && Activity.introduction !== "") {
             $('#text-introduction').html(bbcodeToHtml(Activity.introduction))
             $('#activity-introduction').show()
@@ -562,7 +559,7 @@ function loadActivity(isDoable) {
     }
 
       // TODO : define global tabs with tabs["name_app"] = "url_app" (to use also in teacher code)
-      switch (activity.type) {
+      switch (Activity.activity.type) {
         case "standard":
             baseToolUrl = "https://lti1p3-player.cabricloud.com";
             //baseToolUrl = 'https://d52b-82-216-88-13.eu.ngrok.io';
@@ -579,11 +576,11 @@ function loadActivity(isDoable) {
       }
 
 
-        let activityType = activity.type ? activity.type.toLowerCase() : activity.type;
+        let activityType = Activity.activity.type ? Activity.activity.type.toLowerCase() : Activity.activity.type;
         // Review student submission by teacher (and by student)
         if(activityType !== "iframe") {  // TODO replace with "if content is LTI"
             if (!isDoable && Activity.correction > 0) {
-                if (activity.type === "imuscica")
+                if (activityType=== "imuscica")
                     activityContent.html('<iframe style="width: 100%; height: 100%;" allowfullscreen="true" frameborder="0" src="https://workbench-imuscica.cabricloud.com/?lesson=' + Activity.url + '" allowfullscreen></iframe>');
                 else
                     activityContent.html('<iframe style="width: 100%; height: 100%;" allowfullscreen="true" frameborder="0" src="https://cabricloud.com/ed/opensteam/player?isMobile&calculator=false&clmc=' + Activity.url + '" allowfullscreen></iframe>');
@@ -617,7 +614,7 @@ function loadActivity(isDoable) {
             }
         }
         else {
-            activityContent.html('<iframe style="width: 100%; height: 100%;" allowfullscreen="true" frameborder="0" src="' + activity.content + '" allowfullscreen></iframe>');
+            activityContent.html('<iframe style="width: 100%; height: 100%;" allowfullscreen="true" frameborder="0" src="' + Activity.activity.content + '" allowfullscreen></iframe>');
         }
 /*        else if(content.startsWith('[iframe]') && isDoable) {
             activityContent.html(bbcodeToHtml(content))
@@ -639,7 +636,6 @@ function loadActivity(isDoable) {
                 $('#activity-save').show()
             }
         }
-    });
 }
 
 function setActivityPlural(number) {
