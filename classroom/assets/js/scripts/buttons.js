@@ -191,6 +191,7 @@ function backToClassroomFromCode() {
  * @param {boolean} isOnpopstate - If set to true, the current navigation won't be saved in history (dedicated to onpopstate events)
  */
 function navigatePanel(id, idNav, option = "", interface = '', skipConfirm = false, isOnpopstate = false) {
+    const previousPanel = ClassroomSettings.lastPage[0] ? ClassroomSettings.lastPage[0].history : undefined;
     let confirmExit = true;
     if ($_GET('interface') == "newActivities" && !Activity.project && !skipConfirm && Activity.activity && Activity.activity.type!=='IFRAME') {
         confirmExit = confirm(i18next.t("classroom.notif.saveProject"));
@@ -247,7 +248,8 @@ function navigatePanel(id, idNav, option = "", interface = '', skipConfirm = fal
 
         const navigate = new CustomEvent("Navigate", {
           detail: {
-            id
+            previousPanel,
+            nextPanel: id
           },
         });
         window.dispatchEvent(navigate);

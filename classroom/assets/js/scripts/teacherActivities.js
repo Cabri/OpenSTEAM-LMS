@@ -2,6 +2,10 @@
      must move to a separate file or plugin */
 window.addEventListener("Navigate", function (event) {
     $("#is_drop").hide();
+    // Stop iframe connections once lti page is not active
+    const previousPanel = event.detail ? event.detail.previousPanel : undefined;
+    if(previousPanel==='classroom-dashboard-new-cabriexpress-activity-panel')
+      $('#lti-loader-container').empty();
 });
 
 function isValidUrl(url) {
