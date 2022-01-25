@@ -248,6 +248,8 @@ DisplayPanel.prototype.classroom_dashboard_form_classe_panel = function () {
 
 DisplayPanel.prototype.classroom_dashboard_activities_panel_teacher = function () {
     ClassroomSettings.activity = false;
+    // reset activities filter
+    $('#filter-activity-select').val('desc');
     // Refresh the activities
     Main.getClassroomManager().getTeacherActivities(Main.getClassroomManager())
     .then(() => {

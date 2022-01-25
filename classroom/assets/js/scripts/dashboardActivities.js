@@ -219,13 +219,13 @@ $('body').on('click', '#filter-activity', function () {
     }
     /* TODO cabri: move to separate plugin */
     else if(filterValue === 'typeGenius') {
-      teacherActivitiesDisplay(filterTeacherActivityInListByType(arrayKeywords, 'GENIUS'));
+      teacherActivitiesDisplay(filterTeacherActivityInListByType(arrayKeywords, ['GENIUS']));
     }
     else if(filterValue === 'typeExpress') {
-      teacherActivitiesDisplay(filterTeacherActivityInListByType(arrayKeywords, 'EXPRESS'));
+      teacherActivitiesDisplay(filterTeacherActivityInListByType(arrayKeywords, ['EXPRESS']));
     }
     else if(filterValue === 'typeIframe') {
-      teacherActivitiesDisplay(filterTeacherActivityInListByType(arrayKeywords, 'IFRAME'));
+      teacherActivitiesDisplay(filterTeacherActivityInListByType(arrayKeywords, ['iframe', 'standard', 'imuscica']));
     }
 })
 
@@ -241,13 +241,13 @@ $('body').on('change', '#filter-activity-select', function () {
     }
     /* TODO cabri: TODO cabri: move to separate plugin*/
     else if(filterValue === 'typeGenius') {
-        teacherActivitiesDisplay(filterTeacherActivityInListByType(arrayKeywords, 'GENIUS'));
+        teacherActivitiesDisplay(filterTeacherActivityInListByType(arrayKeywords, ['GENIUS']));
     }
     else if(filterValue === 'typeExpress') {
-        teacherActivitiesDisplay(filterTeacherActivityInListByType(arrayKeywords, 'EXPRESS'));
+        teacherActivitiesDisplay(filterTeacherActivityInListByType(arrayKeywords, ['EXPRESS']));
     }
     else if(filterValue === 'typeIframe') {
-      teacherActivitiesDisplay(filterTeacherActivityInListByType(arrayKeywords, 'IFRAME'));
+      teacherActivitiesDisplay(filterTeacherActivityInListByType(arrayKeywords, ['iframe', 'standard', 'imuscica']));
     }
 })
 
@@ -264,13 +264,13 @@ $(document).on('keyup', function (e) {
         }
         /*TODO cabri: move to separate plugin*/
         else if(filterValue === 'typeGenius') {
-          teacherActivitiesDisplay(filterTeacherActivityInListByType(arrayKeywords, 'GENIUS'));
+          teacherActivitiesDisplay(filterTeacherActivityInListByType(arrayKeywords, ['GENIUS']));
         }
         else if(filterValue === 'typeExpress') {
-          teacherActivitiesDisplay(filterTeacherActivityInListByType(arrayKeywords, 'EXPRESS'));
+          teacherActivitiesDisplay(filterTeacherActivityInListByType(arrayKeywords, ['EXPRESS']));
         }
         else if(filterValue === 'typeIframe') {
-          teacherActivitiesDisplay(filterTeacherActivityInListByType(arrayKeywords, 'IFRAME'));
+          teacherActivitiesDisplay(filterTeacherActivityInListByType(arrayKeywords,['iframe', 'standard', 'imuscica']));
         }
     }
 });
