@@ -334,7 +334,6 @@ button {
 
 #classroom-login-gar img {
     width: 128px;
-    height: 128px;
 }
 
 #classroom-dashboard-background {
@@ -1113,21 +1112,6 @@ img.btn-cabri {
 
 /* END SANDBOX CREATION */
 
-
-/* DASHBOARD RESULTS START */
-
-[type="checkbox"]:not(:checked),
-[type="checkbox"]:checked {
-    left: -10px;
-}
-
-.form-check [type="checkbox"]:not(:checked),
-[type="checkbox"]:checked {
-    left: -10000px;
-}
-
-/* DASHBOARD RESULTS END */
-
 /* ACTIVITY START */
 
 #activity-introduction {
@@ -1172,8 +1156,8 @@ img.btn-cabri {
 #list-activities-teacher,
 #mine-sandbox,
 #shared-sandbox,
-#new-activities,
-#current-activities,
+#new-activities-list,
+#current-activities-list,
 #done-activities,
 #done-activities-list,
 .list-classes {
@@ -1194,6 +1178,7 @@ img.btn-cabri {
     font-size: 1.2em;
     margin-top: 1em;
     overflow: hidden;
+    user-select: none;
     padding-left: 1.5em;
 
     display: flex;
@@ -1202,7 +1187,6 @@ img.btn-cabri {
 }
 
 #classroom-dashboard-sandbox-panel h3.section-title::after,
-#classroom-dashboard-activities-panel h3.section-title::after,
 #classroom-dashboard-activities-panel-teacher h3.section-title::after {
 
     content: '';
@@ -1215,21 +1199,53 @@ img.btn-cabri {
 
 }
 
+#classroom-dashboard-activities-panel .section-container {
+    background: var(--classroom-background-1);
+    box-shadow: 0px 0px 7px 0px var(--classroom-shadow-1);
+
+    border-radius: 1em;
+    padding: 0.1em 0;
+    margin: 1em;   
+}
+
+#classroom-dashboard-activities-panel .section-header {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-items: center;
+    margin: 0.5em;
+    user-select: none;
+    cursor: pointer;
+
+}
+
+#classroom-dashboard-activities-panel .section-header h3.section-title {
+    padding: 0px;
+    margin: 0px;
+}
+
+#classroom-dashboard-activities-panel .section-header i{
+    margin-right: 0.5em;
+    font-size: 1.5em;
+}
+
+.section-new,
 h3.section-new {
     color: var(--classroom-secondary);
     border-color: var(--classroom-secondary);
 }
 
+.section-current,
 h3.section-current {
     color: var(--classroom-text-1);
     border-color: var(--classroom-text-1);
 
 }
 
+.section-done,
 h3.section-done {
     color: var(--classroom-primary);
     border-color: var(--classroom-primary);
-
 }
 
 .sandbox-item,

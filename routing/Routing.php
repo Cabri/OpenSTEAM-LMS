@@ -103,13 +103,13 @@ try {
                     require_once "../plugins/$singlePlugin/Controller/" . $ControllerToInstanciate . ".php";
 
                     // instanciate the matching controller
-                    $class = "Plugins\\Controller\\" . $ControllerToInstanciate;
+                    $class = "Plugins\\$singlePlugin\\Controller\\" . $ControllerToInstanciate;
                     $controller = new $class($entityManager, $user);
 
                     // return data and exit the foreach loop with a break
                     echo (json_encode($controller->action($action, $_POST)));
                     $log->info($action, OK);
-                    break;
+                    exit;
                 }
             }
         }

@@ -286,6 +286,7 @@
     -moz-appearance: none;
     -webkit-appearance: none;
     appearance: none;
+    background-color: var(--classroom-white);
     background-image: url('../media/theme/dropdown_icon.svg');
     background-repeat: no-repeat, repeat;
     background-position: right .7em top 50%, 0 0;
@@ -305,10 +306,12 @@
     border-color: var(--classroom-primary);
     background: var(--classroom-primary);
 }
+
 .c-secondary-form .input-group-text {
     border-color: var(--classroom-secondary);
     background: var(--classroom-secondary);
 }
+
 .c-tertiary-form .input-group-text {
     border-color: var(--classroom-tertiary);
     background: var(--classroom-tertiary);
@@ -319,9 +322,11 @@
 .c-primary-form {
     accent-color: var(--classroom-primary);
 }
+
 .c-secondary-form {
     accent-color: var(--classroom-secondary);
 }
+
 .c-tertiary-form {
     accent-color: var(--classroom-tertiary);
 }
@@ -431,7 +436,7 @@ hr {
     font-size: 0.75rem;
 }
 
-/* Wysibb Theming  */ 
+/* Wysibb Theming  */
 .wysibb {
     border: 2px solid var(--classroom-primary) !important;
     border-radius: 0.5em;
@@ -448,8 +453,8 @@ hr {
 /* Vertical align center utility */
 
 .vertical-align-center {
-   display: flex;
-   align-items: center;
+    display: flex;
+    align-items: center;
 }
 
 /* Masked class to hide text */
@@ -462,4 +467,102 @@ hr {
 
 .masked {
     font-family: 'password';
+}
+
+/* CHECKBOXES */
+
+/* Base for label styling */
+.c-checkbox [type="checkbox"]:not(:checked),
+.c-checkbox [type="checkbox"]:checked {
+    position: absolute;
+    left: 0;
+    opacity: 0.01;
+}
+
+.c-checkbox [type="checkbox"]:not(:checked)+label,
+.c-checkbox [type="checkbox"]:checked+label {
+    position: relative;
+    padding-left: 1.5em;
+    cursor: pointer;
+    user-select: none;
+}
+
+/* checkbox aspect */
+.c-checkbox [type="checkbox"]:not(:checked)+label:before,
+.c-checkbox [type="checkbox"]:checked+label:before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: calc(50% - 0.6em);
+    width: 1.2em;
+    height: 1.2em;
+    border: 2px solid var(--classroom-text-1);
+    border-radius: .2em;
+    transition: all .1s;
+}
+.c-checkbox.c-checkbox-grey  [type="checkbox"]:not(:checked)+label:before,
+.c-checkbox.c-checkbox-grey  [type="checkbox"]:checked+label:before {
+    border: 2px solid var(--classroom-text-0);
+}
+
+/* checked mark aspect */
+.c-checkbox [type="checkbox"]:not(:checked)+label:after,
+.c-checkbox [type="checkbox"]:checked+label:after {
+    content: '✓';
+    position: absolute;
+    top: 35%;
+    left: 2px;
+    font-size: 1.65em;
+    color: var(--classroom-primary);
+    font-weight: 900;
+    line-height: 0;
+    font-style: initial;
+    transition: all .2s;
+}
+
+.c-secondary-form .c-checkbox [type="checkbox"]:not(:checked)+label:after,
+.c-secondary-form .c-checkbox [type="checkbox"]:checked+label:after {
+    color: var(--classroom-secondary);
+}
+
+.c-tertiary-form .c-checkbox [type="checkbox"]:not(:checked)+label:after,
+.c-tertiary-form .c-checkbox [type="checkbox"]:checked+label:after {
+    color: var(--classroom-tertiary);
+}
+
+.c-checkbox.c-checkbox-grey [type="checkbox"]:not(:checked)+label:after,
+.c-checkbox.c-checkbox-grey [type="checkbox"]:checked+label:after {
+    color: var(--classroom-text-0);
+}
+
+/* checked mark aspect changes */
+.c-checkbox [type="checkbox"]:not(:checked)+label:after {
+    opacity: 0;
+    transform: scale(0);
+}
+
+.c-checkbox [type="checkbox"]:checked+label:after {
+    opacity: 1;
+    transform: scale(1);
+}
+
+/* Disabled checkbox */
+.c-checkbox [type="checkbox"]:disabled:not(:checked)+label:before,
+.c-checkbox [type="checkbox"]:disabled:checked+label:before {
+    opacity: 0.5;
+}
+
+.c-checkbox [type="checkbox"]:disabled:checked+label:after {
+    filter: grayscale(1);
+}
+
+.c-checkbox [type="checkbox"]:disabled+label {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+/* Accessibility */
+.c-checkbox [type="checkbox"]:checked:focus+label:before,
+.c-checkbox [type="checkbox"]:not(:checked):focus+label:before {
+    box-shadow: 0 0 0 .2rem rgba(126, 126, 126, 0.25);
 }

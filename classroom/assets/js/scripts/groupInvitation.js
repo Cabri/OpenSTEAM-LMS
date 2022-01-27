@@ -320,8 +320,8 @@ function showFormInputError(id) {
 }
 
 // Grade select gestion
-$('#profile-form-grade').change(() => {
-    switch ($('#profile-form-grade').val()) {
+$('#profile-form-grade-group-invitation').change(() => {
+    switch ($('#profile-form-grade-group-invitation').val()) {
         case "0":
             createSubjectSelectTeacherForm(getSubjects(0));
             break;
@@ -343,14 +343,19 @@ $('#profile-form-grade').change(() => {
 })
 
 function createSubjectSelectTeacherForm(array) {
-    $("#profile-form-subject").empty();
+    $("#profile-form-subject-group-invitation").empty();
     for (let index = 0; index < array.length; index++) {
         const o = new Option(array[index], index);
         $(o).html(array[index]);
-        $("#profile-form-subject").append(o);
+        $("#profile-form-subject-group-invitation").append(o);
     }
 }
-createSubjectSelectTeacherForm(getSubjects(0));
+
+// fix the subject select
+$('#register-new-teacher').click(() => {
+    createSubjectSelectTeacherForm(getSubjects(0));
+})
+
 
 
 function goToHome() {

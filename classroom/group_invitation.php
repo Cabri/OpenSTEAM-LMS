@@ -26,9 +26,9 @@ $token = isset($_GET['token']) ? trim(htmlspecialchars(preg_replace('/<[^>]*>[^<
 $page = isset($_GET['page']) ? trim(htmlspecialchars(preg_replace('/<[^>]*>[^<]*<[^>]*>/', '',$_GET['page']))) : null;
 $uri_parts = explode('?', $_SERVER['REQUEST_URI'], 2);
 
-$url = (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? "https" : "http") . "://$_SERVER[HTTP_HOST]". $uri_parts[0];
-$urlgc = (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? "https" : "http") . "://$_SERVER[HTTP_HOST]". $uri_parts[0]."?gc=".$groupCode;
-$urlhome = (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? "https" : "http") . "://$_SERVER[HTTP_HOST]"."/classroom/home.php";
+$url = (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? "https" : "http") . "://" . $_SERVER['HTTP_HOST'] . $uri_parts[0];
+$urlgc = (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? "https" : "http") . "://" . $_SERVER['HTTP_HOST'] . $uri_parts[0] . "?gc=" . $groupCode;
+$urlhome = (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? "https" : "http") . "://" . $_SERVER['HTTP_HOST'] . "/classroom/home.php";
 
 $group = $entityManager->getRepository(Groups::class)->findOneBy(['link' => $groupCode]);
 

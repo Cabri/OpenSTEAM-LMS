@@ -21,7 +21,7 @@
 </div>
 
 <div id="classroom-dashboard-form-classe-panel" style="display:none;" class="mx-3 dashboard-block classes-panel class-creation-form">
-    <h3 data-i18n="classroom.classes.form.title"></h3>
+    <h3 data-i18n="classroom.classes.form.title" id="classroom-classes-title"></h3>
     <div class="form-group part-content-index part-row c-primary-form">
         <div class="form-row">
             <label for="classroom-form-name" class="tutorial-label" data-i18n="classroom.classes.form.name"></label>
@@ -33,17 +33,17 @@
             <input type="text" id="classroom-form-school" class="form-control form-control-lg">
         </div>
     </div>
-    <button class="new-student-modal c-btn-primary m-3"><i class="fas fa-user-plus"></i><span class="ml-1" data-i18n="classroom.classes.form.addStudent"></span></button>
+    <button class="new-student-modal btn c-btn-primary m-3"><i class="fas fa-user-plus"></i><span class="ml-1" data-i18n="classroom.classes.form.addStudent"></span></button>
     <div id="table-students">
         <ul>
             <li id="no-student-label" data-i18n="classroom.classes.form.noStudent"></li>
         </ul>
     </div>
-    <div>
+    <div class="c-checkbox mt-2">
         <input type="checkbox" name="classroom-form-is-blocked" id="classroom-form-is-blocked">
         <label for="classroom-form-is-blocked" data-i18n="classroom.classes.form.isBlockedButton"></label>
     </div>
-    <button class="new-classroom-form c-btn-primary m-3"><i class="fas fa-save"></i><span class="ml-1" data-i18n="classroom.classes.form.save"></span> </button>
+    <button class="new-classroom-form btn c-btn-primary m-3"><i class="fas fa-save"></i><span class="ml-1" data-i18n="classroom.classes.form.save"></span> </button>
 </div>
 
 <div id="classroom-table-panel-teacher" style="display:none;" class="dashboard-block classes-panel class-stats-panel">
@@ -106,7 +106,7 @@
                     <span data-i18n="classroom.activities.insufficientProficiency"></span>
                 </li>
             </ul>
-            <ul class="row legend" style="list-style:none;">
+            <ul class="row legend" style="list-style:none; align-items: flex-end">
                 <li class="ml-3">
                     <div class="bilan-legend fas fa-pen"></div>
                     <span data-i18n="classroom.activities.todo"></span>
@@ -116,8 +116,11 @@
                     <span data-i18n="classroom.activities.waiting"></span>
                 </li>
 
-                <li class="ml-3">
-                    <input type="checkbox" id="is-anonymised" title="" class="mr-2"><label><span class="text-capitalize mr-2" data-i18n="words.anonymize"></span><i data-i18n="[title]classroom.activities.anonymise" class="fas fa-question-circle"></i> </label>
+                <li class="ml-3 c-checkbox" style="height: 1.6em;">
+                    <input type="checkbox" id="is-anonymised" title="" class="mr-2">
+                    <label for="is-anonymised">
+                        <span class="text-capitalize mr-2" data-i18n="words.anonymize"></span><i data-i18n="[title]classroom.activities.anonymise" class="fas fa-question-circle"></i>
+                    </label>
                 </li>
             </ul>
         </div>

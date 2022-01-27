@@ -145,20 +145,22 @@ To do so, you just need to follow few steps:
 
 ## Plugins
 
-If you need to add some features and/or theme design which aren't relevant in the OpenSTEAM LMS core, you must create plugins. To do so you need to respect a certain directory structure for your plugin folder(s) and some recommendations.
+If you need to add some features and/or theme design which aren't relevant in the OpenSTEAM LMS core, you must create plugins. To do so you need to respect a certain directory structure for your plugin folder(s) and some recommendations.Also, your plugin directory has to be named using the PascalCase convention (ie. MyFirstPlugin)
 
 ### 1. Create your plugin(s) directory
 
 #### Plugin directory tree
 
 ```
-+---your-plugin-directory
++---YourPluginDirectory
 |   +---Controller
-|   +---Entities
+|   +---Entity
 |   +---public
 |   |   +---css
 |   |   +---images
 |   |   \---js
+|   +---Repository
+|   +---Traits
 |   \---Views
 ```
 

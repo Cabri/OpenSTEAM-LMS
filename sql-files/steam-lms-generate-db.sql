@@ -31,12 +31,11 @@ CREATE TABLE `classrooms` (
   `id` int(11) NOT NULL,
   `name` varchar(255) COLLATE utf8mb3_unicode_ci NOT NULL,
   `school` varchar(255) COLLATE utf8mb3_unicode_ci NOT NULL,
-  `groupe` varchar(255) COLLATE utf8mb3_unicode_ci DEFAULT NULL,
+  `gar_code` varchar(255) COLLATE utf8mb3_unicode_ci DEFAULT NULL,
   `link` varchar(5) COLLATE utf8mb3_unicode_ci NOT NULL,
   `is_changed` tinyint(1) DEFAULT NULL,
   `is_blocked` int(11) NOT NULL DEFAULT 0,
-  `uai` varchar(255) COLLATE utf8mb3_unicode_ci DEFAULT NULL,
-  `gar_code` varchar(255) COLLATE utf8mb3_unicode_ci DEFAULT NULL
+  `uai` varchar(255) COLLATE utf8mb3_unicode_ci DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_unicode_ci;
 
 -- --------------------------------------------------------
@@ -916,14 +915,14 @@ ALTER TABLE `learn_chapters`
 --
 ALTER TABLE `learn_chapters_link_tutorials`
   ADD CONSTRAINT `FK_3AAC0F58579F4768` FOREIGN KEY (`chapter_id`) REFERENCES `learn_chapters` (`id`),
-  ADD CONSTRAINT `FK_3AAC0F5889366B7B` FOREIGN KEY (`tutorial_id`) REFERENCES `learn_tutorials` (`id`);
+  ADD CONSTRAINT `FK_3AAC0F5889366B7B` FOREIGN KEY (`tutorial_id`) REFERENCES `learn_courses` (`id`);
 
 --
 -- Contraintes pour la table `learn_comments`
 --
 ALTER TABLE `learn_comments`
   ADD CONSTRAINT `FK_298F36FC7032E9EE` FOREIGN KEY (`comment_answered`) REFERENCES `learn_comments` (`id`) ON DELETE CASCADE,
-  ADD CONSTRAINT `FK_298F36FC89366B7B` FOREIGN KEY (`tutorial_id`) REFERENCES `learn_tutorials` (`id`),
+  ADD CONSTRAINT `FK_298F36FC89366B7B` FOREIGN KEY (`tutorial_id`) REFERENCES `learn_courses` (`id`),
   ADD CONSTRAINT `FK_298F36FC8D93D649` FOREIGN KEY (`user`) REFERENCES `users` (`id`) ON DELETE CASCADE;
 
 --
@@ -944,7 +943,7 @@ ALTER TABLE `learn_courses_link_activities`
 -- Contraintes pour la table `learn_favorites`
 --
 ALTER TABLE `learn_favorites`
-  ADD CONSTRAINT `FK_8BAF06B489366B7B` FOREIGN KEY (`tutorial_id`) REFERENCES `learn_tutorials` (`id`),
+  ADD CONSTRAINT `FK_8BAF06B489366B7B` FOREIGN KEY (`tutorial_id`) REFERENCES `learn_courses` (`id`),
   ADD CONSTRAINT `FK_8BAF06B4A76ED395` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`);
 
 --

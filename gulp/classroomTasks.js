@@ -351,9 +351,7 @@ class AutoBuildManager {
                                 views: [],
                                 css: [],
                                 js: [],
-                                images: [],
-                                controllers: [],
-                                entities: []
+                                images: []
                             };
                             this.pluginsList.push(currentPlugin);
                         });
@@ -370,8 +368,6 @@ class AutoBuildManager {
     async loadFilesList() {
         return new Promise(async (resolve, reject) => {
             await this.loadPluginsFilesList('Views', 'views');
-            await this.loadPluginsFilesList('Controller', 'controllers');
-            await this.loadPluginsFilesList('Entities', 'entities');
             await this.loadPluginsFilesList('public/css', 'css');
             await this.loadPluginsFilesList('public/js', 'js');
             await this.loadPluginsFilesList('public/images', 'images');
@@ -402,13 +398,19 @@ class AutoBuildManager {
     async readFolderForList(plugin, folder, list) {
         return new Promise((resolve, reject) => {
             fs.readdir(folder, (err, files) => {
-                try {
-                    files.forEach(file => {
-                        this.pluginsList[this.pluginsList.indexOf(plugin)][list].push(file);
-                    });
-                    resolve();
-                } catch (error) {
-                    reject(error);
+                if (files) {
+                    try {
+                        files.forEach(file => {
+                            if (file != '.gitkeep') {
+                                this.pluginsList[this.pluginsList.indexOf(plugin)][list].push(file);
+                            }
+                        });
+                        resolve();
+                    } catch (error) {
+                        reject(error);
+                    }
+                } else {
+                    console.error(`Folder ${folder} doesn't exist! Skipping!`);
                 }
             });
         }).catch((error) => {

@@ -1,40 +1,57 @@
 <div id="classroom-dashboard-activities-panel" style="display:none;" class="dashboard-block">
-    <h3 class="section-title section-new" onclick="sectionToggle('new')" data-i18n="classroom.activities.new"><i id="i-new" class="ml-2 fas fa-chevron-down"></i></h3>
-    <div id="new-activities"></div>
+    <div class="section-container section-new">
+        <div class="section-header">
+            <i id="i-new" class="ml-2 fas fa-lg fa-chevron-down"></i>
+            <h3 class="section-title" onclick="sectionToggle('new')" data-i18n="classroom.activities.new"></h3>
 
-    <h3 class="section-title section-saved" onclick="sectionToggle('saved')">Brouillons<i id="i-saved" class="ml-2 fas fa-chevron-down"></i></h3>
-    <div id="saved-activities"></div>
-    <h3 class="section-title section-current" onclick="sectionToggle('current')" data-i18n="classroom.activities.current"><i id="i-current" class="ml-2 fas fa-chevron-down"></i>
-    </h3>
-    <div id="current-activities"></div>
-    <h3 class="section-title section-done" onclick="sectionToggle('done')" data-i18n="classroom.activities.done"><i id="i-done" class="ml-2 fas fa-chevron-down"></i></h3>
-    <div id="done-activities-list"></div>
+        </div>
+        <div id="new-activities-list"></div>
+    </div>
+
+    <div class="section-container section-saved">
+        <div class="section-header">
+            <i id="i-saved" class="ml-2 fas fa-lg fa-chevron-down"></i>
+            <h3 class="section-title " onclick="sectionToggle('saved')">Brouillons</h3>
+        </div>
+        <div id="saved-activities-list"></div>
+    </div>
+
+    <div class="section-container section-current">
+        <div class="section-header">
+            <i id="i-current" class="ml-2 fas fa-lg fa-chevron-down"></i>
+            <h3 class="section-title" onclick="sectionToggle('current')" data-i18n="classroom.activities.current"></h3>
+        </div>
+        <div id="current-activities-list"></div>
+    </div>
+
+    <div class="section-container section-done">
+        <div class="section-header">
+            <i id="i-done" class="ml-2 fas fa-lg fa-chevron-down"></i>
+            <h3 class="section-title" onclick="sectionToggle('done')" data-i18n="classroom.activities.done"></h3>
+        </div>
+        <div id="done-activities-list"></div>
+    </div>
 
 </div>
 
 <div id="classroom-dashboard-activity-panel" class="dashboard-block" style="display:none;">
-  <div class="classroom-dashboard-activity-parent" style="display: flex;">
-    <div id="main-div" style="margin: 0 auto; flex: 1 0 50vw; height: 85vh; display: flex; flex-direction: column;">
-      <h3 id="activity-title"></h3>
-
-      <!--  <div id="lti-activity-submission" style="height: calc(50vw * 3/4); border: 0 none; display: none;"></div>-->
-      <h4 id="activity-details"></h4>
-
-      <!-- TODO CABRI move changes of lti to a separate plugin -->
-      <div id="activity-content"></div>
-
-      <!--
-      TODO disabled for cabri lti
-      <button class="btn c-btn-primary" id="activity-validate" data-i18n="classroom.activities.validate"
-              onclick="validateActivity()"> <i class="fas fa-chevron-right"></i></button>
-      -->
-      <button class="btn c-btn-primary" id="activity-save" style="display:none;" onclick="saveActivity()"
-              data-i18n="classroom.activities.save-draft"><i class="fas fa-chevron-right"></i></button>
-      <div class="btn" id="activity-instruction" style="display:none"><span
-        data-i18n="classroom.activities.instruction"></span> <i class="fas fa-pen"></i></div>
-    </div>
-    <div id="activity-correction" style="display:none; align-self: center;">
-    </div>
+    <div class="container-fluid">
+        <div class="row">
+            <div id="main-div" class="col-12 col-lg-8" style="margin: 0 auto;overflow-wrap: break-word;">
+                <h3 id="activity-title"></h3>
+                <p id="activity-details"></p>
+                <p id="activity-introduction">
+                    <span id="text-introduction"></span>
+                </p>
+                <p id="activity-content"> </p>
+                <button style="display: none;" class="btn c-btn-primary" id="activity-validate" data-i18n="classroom.activities.validate" onclick="validateActivity()"> <i class="fas fa-chevron-right"></i></button>
+                <button class="btn c-btn-primary" id="activity-save" style="display:none;" onclick="saveActivity()" data-i18n="classroom.activities.save-draft"><i class="fas fa-chevron-right"></i></button>
+                <div class="btn" id="activity-instruction" style="display:none"><span data-i18n="classroom.activities.instruction"></span> <i class="fas fa-pen"></i></div>
+            </div>
+            <div id="activity-correction-container" class="col-12 col-lg-4" style="display:none">
+                <div id="activity-correction"></div>
+            </div>
+        </div>
   </div>
 </div>
 
