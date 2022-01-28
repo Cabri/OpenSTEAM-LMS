@@ -2611,3 +2611,15 @@ i.line_height34 {
   color: var(--classroom-background);
   margin: 0px 5px;
 }
+
+#activity-notebook-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: auto;
+  align-items: center;
+  border: 2px solid #41729C;
+  border-radius: 40px 40px 40px 40px;
+  padding: 30px 50px 10px 50px;
+  margin-top: 30px;
+}

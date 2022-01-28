@@ -141,6 +141,7 @@
 			"activityCreated": "The activity {{activityTitle}} has been created",
 			"activityChanged": "The {{activityTitle}} activity has been modified",
 			"activityTitleMissing": "You must fill in the title of the activity",
+      "activityPlayerMissing": "You must fill in the player URL",
 			"CsvFileMissing": "You did not choose a csv file",
 			"errorWithCsv": "Error opening csv file : {{error}}",
 			"cantGetPassword": "Error, you can't see your password",
@@ -197,7 +198,8 @@
 			"backendReplyPseudoMissingInCsv" : "Check the CSV file : empty line or pseudo missing",
 			"backendReplyPseudoMissingInUsersArray" : "There is one or more error(s) in the student(s) name(s)",
 			"invalidActivityId": "Error submitting job: Invalid activity ID!",
-			"invalidCorrection": "Erreur submitting job: Invalid activity status!"
+			"invalidCorrection": "Erreur submitting job: Invalid activity status!",
+      "generalBackendError": "An error has occurred, please try again later"
 		},
 		"ids": {
 			"classroom-dashboard-help-panel-teacher": "Help",

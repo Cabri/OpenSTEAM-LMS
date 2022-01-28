@@ -93,10 +93,10 @@ const playersPanel = [
         "type": "imuscica",
         "img": "assets/media/logo_apps_cabri/imuscica.svg",
     },
-    // {
-    //     "type": "other",
-    //     "img": "assets/media/logo_apps_cabri/other.svg",
-    // }
+    {
+        "type": "other",
+        "img": "assets/media/logo_apps_cabri/other.svg",
+    }
 ];
 let playersPanelHtml = "";
 
@@ -188,7 +188,7 @@ function createActivity(link = null, id = null, type) {
             $('.wysibb-text-editor').html(activity.content)
         })
     }
-    $('#activity-form-title-others').val("");
+
     $("#choose-player").click(); // active first tabs
     navigatePanel('classroom-dashboard-other-activity-type-panel', 'dashboard-activities-teacher')
     ClassroomSettings.activityInWriting = true
@@ -201,26 +201,29 @@ function createActivityPlayer(player) {
             return;
         }
 
-        const title = $('#activity-form-title-others').val();
+        /*const title = $('#activity-form-title-others').val();
         if (title.length < 1) {
             displayNotification('#notif-div', "classroom.notif.activityTitleMissing", "error");
             $(this).attr('disabled', false);
             return;
         } else {
-            $('#activity-form-title-others').val("");
+            $('#activity-form-title-others').val("");*/
             if(ClassroomSettings.status !== "edit") {
+                $("#activity-form-title-others_player").val("");
+                $("#activity-url-player").val("");
                 $("#activity-url-notebook").val("");
                 $("#notebook").val("");
                 $("#drop_zone").data("file", null);
+                $("#activity-notebook-update-message").hide();
             }
             navigatePanel('classroom-dashboard-activity-player', 'dashboard-activities-teacher')
             if(player === "other")
                 $("#activity-url-player-container").show();
             else
                 $("#activity-url-player-container").hide();
-            ClassroomSettings.title = title;
+            //ClassroomSettings.title = title;
             ClassroomSettings.player = player;
-        }
+        //}
 
         ClassroomSettings.activityInWriting = true
     });
@@ -234,26 +237,44 @@ function createActivityIframe() {
             return;
         }
 
-        const title = $('#activity-form-title-others').val();
+        /*const title = $('#activity-form-title-others').val();
         if (title.length < 1) {
             displayNotification('#notif-div', "classroom.notif.activityTitleMissing", "error");
             $(this).attr('disabled', false);
             return;
-        } else {
+        } else {*/
             navigatePanel('classroom-dashboard-url-activity-panel', 'dashboard-activities-teacher')
-            ClassroomSettings.title = title;
-        }
-        $('#activity-form-title-others').val("");
+            //ClassroomSettings.title = title;
+        //}
+        $('#activity-form-title-others_iframe').val("");
 
         ClassroomSettings.activityInWriting = true
     });
 
 }
 
-function extractCabriPlayerData(type) {
-  if(type === 'player') {
+function extractCabriPlayerData(type, button) {
     let file;
     let isUrl = false;
+
+    const title = document.getElementById('activity-form-title-others_player');
+    if (title.value.length < 1) {
+      displayNotification('#notif-div', "classroom.notif.activityTitleMissing", "error");
+      $(button).attr('disabled', false);
+      return false;
+    }
+    ClassroomSettings.title = title.value;
+
+    if(type === 'other') {
+      const playerURL = $('#activity-url-player').val();
+      if(playerURL.length<1) {
+        displayNotification('#notif-div', "classroom.notif.activityPlayerMissing", "error");
+        $(button).attr('disabled', false);
+        return false;
+      }
+      ClassroomSettings.playerURL = playerURL;
+    }
+
 
     let urlFile = document.getElementById("activity-url-notebook");
     let loadFile = document.getElementById("notebook");
@@ -272,11 +293,11 @@ function extractCabriPlayerData(type) {
         isUrl = false;
       } else {
         displayNotification('#notif-div', "classroom.notif.addFile", "error");
-        return;
+        return false;
       }
     }
 
-    if(isUrl && !isValidUrl(urlFile.value)) return;
+    if(isUrl && !isValidUrl(urlFile.value)) return false;
 
     let data = {
       type: isUrl ? "url" : "file",
@@ -294,57 +315,39 @@ function extractCabriPlayerData(type) {
     // to clear form and event
     window.addEventListener("Navigate", onNavigate, {once: true});
 
+    return true;
     //type = ClassroomSettings.player;
-  }
 }
 
-function createCabriActivity(id, type) {
+async function createCabriActivity(id, type, button) {
+  $(button).attr('disabled', 'disabled'); // disable button
   ClassroomSettings.isNew = true;
-  const cabriActivityType = ClassroomSettings.player || type;
-
-  if(type==='player' && cabriActivityType!=='other')  //TODO temporary condition
-    extractCabriPlayerData(type);
-
-  if (id == null) {
-        // creation
-        /*
-        if (link) {
-
-            $('.wysibb-text-editor').html('[iframe]' + URLServer + '' + link + '[/iframe]')
-        } else {
-
-            $('.wysibb-text-editor').html('')
-        }
-        */
-
-        $('#activity-lti-form-title').val('')
-
-    } else {
-        // edition
-        ClassroomSettings.activity = id
-        ClassroomSettings.status = 'action';
-        Main.getClassroomManager().getActivity(ClassroomSettings.activity).then(function (activity) {
-            $('#activity-lti-form-title').val(activity.title)
-            $('.wysibb-text-editor').html(activity.content)
-        })
-    }
-
-  Main.getClassroomManager().canAddActivity({type: cabriActivityType}).then( data => {
-    if(!data.canAdd) {
-      pseudoModal.openModal('add-activity-limitation');
+  let cabriActivityType = type;
+  if(type==='player') {
+    cabriActivityType = ClassroomSettings.player;
+    if (!extractCabriPlayerData(cabriActivityType, button))
       return;
-    }
+  }
 
-    if(cabriActivityType === 'standard' || cabriActivityType === 'imuscica'
-      || cabriActivityType === 'EXPRESS' || cabriActivityType === 'GENIUS')
-      createCabriLtiActivity(cabriActivityType);
-    else if(cabriActivityType==='other')
-      createCabriIframeActivity();
+  if (id == null)
+    $('#activity-lti-form-title').val('')
 
-  });
+  if(cabriActivityType === 'standard' || cabriActivityType === 'imuscica'
+    || cabriActivityType === 'EXPRESS' || cabriActivityType === 'GENIUS')
+    createCabriLtiActivity(cabriActivityType, button);
+  else if(cabriActivityType==='other')
+    createCabriIframeActivity(button);
+
 }
 
-function createCabriLtiActivity(type) {
+async function createCabriLtiActivity(type, button) {
+  const data = await Main.getClassroomManager().canAddActivity({type});
+  if(!data.canAdd) {
+    pseudoModal.openModal('add-activity-limitation');
+    $(button).attr('disabled', null); // enable button
+    return;
+  }
+
   let baseToolUrl, deploymentId, disableIframe;
   let askForTitle = false;
   switch (type) {
@@ -398,9 +401,10 @@ function createCabriLtiActivity(type) {
   const loginHint = ClassroomSettings.status === "edit" ? ClassroomSettings.loginHint : {
     userId: UserManager.getUser().id,
     isStudentLaunch: false,
-    activityType: type,
-    deploymentId
+    activityType: type
   };
+
+  loginHint['deploymentId'] = deploymentId;
 
   // document.getElementsByName('lti_teacher_login_form')[0].style.display = 'none';
   $('#lti_teacher_login_hint').val(JSON.stringify(loginHint));
@@ -409,24 +413,93 @@ function createCabriLtiActivity(type) {
     $('#lti_teacher_iframe').css({'filter': 'blur(5px)', 'pointer-events': 'none'})
 
   document.forms["lti_teacher_login_form"].submit();
+  $(button).attr('disabled', null); // enable button
 }
 
-function createCabriIframeActivity() {
-  console.log('not yet implemented')
-  /*ClassroomSettings.isNew = true;
-  let fullURL =   $('#activity-url-player').val() + '?toolbar';
-  const activityURL = $('#activity-url-notebook').val();
-  // if activityURL is given
-  if(activityURL)
-    fullURL += `&clmc=${activityURL}`;
+async function createCabriIframeActivity(button) {
+  /*if(ClassroomSettings.status !== 'edit') {
+    const data = await Main.getClassroomManager().canAddActivity({type: 'other'});
+    if(!data.canAdd) {
+      pseudoModal.openModal('add-activity-limitation');
+      $(button).attr('disabled', null); // enable button
+      return;
+    }
+  }*/
 
-  navigatePanel("classroom-dashboard-new-cabriexpress-activity-panel", 'dashboard-activities-teacher')
+  $(button).attr('disabled', 'disabled'); // enable button
+  let activityURL;
+  // If file is given then, upload it to Azure
+  if(ClassroomSettings.message.type === 'file')
+    try {
+      // TODO In case of update, we must delete the previously stored file on Azure Storage
+      const data = await Main.getClassroomManager().uploadActivityFile(ClassroomSettings.message.value)
+      activityURL = data.url;
+    } catch(e) {
+      console.error('Error in : "ClassroomManager.uploadActivityFile()" => \n ', e);
+      displayNotification('#notif-div', `classroom.notif.generalBackendError`, "error");
+      $(button).attr('disabled', null);
+      return;
+    }
 
-  $('#lti-loader-container').html(`
-     <iframe id="lti_teacher_iframe" src="${fullURL}" name="lti_teacher_iframe" title="Tool Content" width="100%"
-          height="100%" allowFullScreen></iframe>`);
+  else if(ClassroomSettings.message.type === 'url')
+    activityURL = ClassroomSettings.message.value;
 
-  ClassroomSettings.activityInWriting = true*/
+  if (ClassroomSettings.status !== 'edit')
+    try {
+      const activity = await Main.getClassroomManager().addActivity({
+        'title': ClassroomSettings.title,
+        'content': `${ClassroomSettings.playerURL}?clmc=${activityURL}`,
+        "isFromClassroom": true,
+        'type': 'other'
+      })
+
+      $('.new-activity-iframe').attr('disabled', false)
+
+      if (activity.errors) {
+        for (let error in activity.errors)
+          displayNotification('#notif-div', `classroom.notif.${error}`, "error");
+      }
+      else {
+        ClassroomSettings.activity = activity.id;
+        displayNotification('#notif-div', "classroom.notif.activityCreated", "success", `'{"activityTitle": "${activity.title}"}'`);
+        $('#activity-form-content-iframe').val("");
+        navigatePanel('classroom-dashboard-new-activity-panel2', 'dashboard-activities-teacher', ClassroomSettings.activity);
+        addTeacherActivityInList(activity);
+        teacherActivitiesDisplay();
+        ClassroomSettings.activityInWriting = false;
+      }
+      $(button).attr('disabled', null); // enable button
+      //ClassroomSettings.activityInUpload = false;
+
+    } catch (e) {
+      console.log('Error in : "ClassroomManager.addActivity()" => \n ', e);
+      $(button).attr('disabled', null); // enable button
+      //ClassroomSettings.activityInUpload = false;
+    }
+
+  else {
+    try {
+      const activity = await Main.getClassroomManager().editActivity({
+        'id': ClassroomSettings.activity,
+        'title': ClassroomSettings.title,
+        'content': `${ClassroomSettings.playerURL}?clmc=${activityURL}`,
+      });
+
+      displayNotification('#notif-div', "classroom.notif.activityChanged", "success", `'{"activityTitle": "${activity.title}"}'`);
+      $('#activity-form-content-iframe').val("");
+      navigatePanel('classroom-dashboard-new-activity-panel2', 'dashboard-activities-teacher', ClassroomSettings.activity)
+      $(button).attr('disabled', null); // enable button
+
+      await Main.getClassroomManager().getTeacherActivities(Main.getClassroomManager());
+      teacherActivitiesDisplay()
+      ClassroomSettings.activityInWriting = false
+
+    } catch (e) {
+      console.log('Error in : "ClassroomManager.addActivity()" => \n ', e);
+      $(button).attr('disabled', null); // enable button
+      //ClassroomSettings.activityInUpload = false;
+    }
+  }
 }
 
 // Lorsque le stockage local change, regarder l'état de la correction.
@@ -484,7 +557,7 @@ function activityModify(id, type) {
           $('.wysibb-text-editor').html(activity.content)
           navigatePanel('classroom-dashboard-new-activity-panel', 'dashboard-activities-teacher')
         }
-        else if ((activityType === "express" || activityType === "genius")) {
+        else if (activityType === "express" || activityType === "genius") {
           // Cabri Activity
           $('#activity-lti-form-title').val(activity.title)
           navigatePanel('classroom-dashboard-new-cabriexpress-activity-panel', 'dashboard-activities-teacher')
@@ -545,11 +618,51 @@ function activityModify(id, type) {
           $('#lti_teacher_iss').val(location.origin); // platform url
 
           document.forms["lti_teacher_login_form"].submit();
-        } else {
+        }
+        else {
+            //createOtherActivity(activityType);
+            if(activityType === 'standard' || activityType === 'imuscica' || activityType === 'other') {
+              $("#activity-form-title-others_player").val(activity.title);
+
+              if(activityType === 'other') {
+                const playerURL = activity.content.split('?clmc')[0]; // extract playerURL from full url
+                $("#activity-url-player").val(playerURL);
+                $("#activity-url-player-container").show();
+              }
+              else {
+                $("#activity-url-player-container").hide();
+              }
+
+              if(activityType === 'standard' || activityType === 'imuscica') {
+                ClassroomSettings.loginHint = {
+                  userId: UserManager.getUser().id,
+                  isStudentLaunch: false,
+                  isUpdate: true,
+                  updateURL: activity.content,
+                  activityType: activity.type
+                };
+              }
+
+              ClassroomSettings.player = activityType;
+              $("#activity-notebook-update-message").show();
+              $("#activity-url-notebook").val("");
+              $("#notebook").val("");
+              $("#drop_zone").data("file", null);
+
+              navigatePanel('classroom-dashboard-activity-player', 'dashboard-activities-teacher')
+            }
+            else if (activityType === 'iframe'){
+              $("#activity-form-title-others_iframe").val(activity.title);
+              $("#activity-form-content-iframe").val(activity.content);
+
+              navigatePanel('classroom-dashboard-url-activity-panel', 'dashboard-activities-teacher')
+            }
+            /*
             if(activityType === "iframe") {
                 $("#choose-iframe").click();
                 $("#activity-form-content-iframe").val(activity.content);
             } else {
+
                 $("#choose-player").click();
                 // Start LTI 1.3 tool launch
                 const loginHint = {
@@ -567,6 +680,7 @@ function activityModify(id, type) {
 
 
           navigatePanel('classroom-dashboard-other-activity-type-panel', 'dashboard-activities-teacher')
+          */
         }
     })
 }
@@ -676,12 +790,19 @@ $('body').on('click', '.student-list-button', function () {
     $(this).find('i').toggleClass('fa-chevron-down')
 })
 
-//création/modification de l'activité
+// Etape finale de création d'une activité type iframe (video ou page-web)
 $('.new-activity-iframe').click(function () {
     $(this).attr('disabled', 'disabled');
 
-    let url = $('#activity-form-content-iframe').val();
+    const title = $('#activity-form-title-others_iframe').val();
+    if (title.length < 1) {
+      displayNotification('#notif-div', "classroom.notif.activityTitleMissing", "error");
+      $(this).attr('disabled', false);
+      return;
+    }
+    ClassroomSettings.title = title;
 
+    let url = $('#activity-form-content-iframe').val();
     if (!isValidUrl(url)) {
         return;
     }

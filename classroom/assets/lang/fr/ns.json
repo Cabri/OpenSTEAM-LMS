@@ -141,6 +141,7 @@
       "activityCreated": "L'activité {{activityTitle}} a été créée",
       "activityChanged": "L'activité {{activityTitle}} a été modifiée",
       "activityTitleMissing": "Vous devez renseigner le titre de l'activité",
+      "activityPlayerMissing": "Vous devez renseigner une URL player",
       "CsvFileMissing": "Vous n'avez pas choisi de fichier csv",
       "errorWithCsv": "Erreur lors de l'ouverture du fichier csv : {{error}}",
       "cantGetPassword": "Erreur, vous ne pouvez pas voir votre mot de passe",
@@ -197,7 +198,8 @@
       "noUserUsername" : "Vous devez rentrer un nom d'utilisateur",
       "pseudoMissingInCsvFile" : "Certains élèves n'ont pu être ajouter car leur pseudo était manquant",
       "backendReplyPseudoMissingInCsv" : "Vérifier le fichier CSV : ligne vide ou pseudo manquant",
-      "backendReplyPseudoMissingInUsersArray" : "Il y a une erreur dans un ou plusieurs nom d'apprenant(s)"
+      "backendReplyPseudoMissingInUsersArray" : "Il y a une erreur dans un ou plusieurs nom d'apprenant(s)",
+      "generalBackendError": "Une erreur s'est produite, veuillez réessayer ultérieurement"
     },
     "ids": {
       "classroom-dashboard-help-panel-teacher": "Aide",
@@ -296,13 +298,14 @@
           "label": "Voulez-vous entrer un url ?",
           "placeholder": "Entrer un URL"
         },
+        "notebookUpdateMessage": "Ne pas modifier cette sectionsi vous souhaitez garder l'ancien cahier d'activité",
         "notebookUrl": {
-          "label": "Voulez-vous entrer un url de cahier ?",
-          "placeholder": "Entrer un URL de cahier"
+          "label": "Ajouter une URL de cahier",
+          "placeholder": "URL de cahier"
         },
         "playerUrl": {
-          "label": "Voulez-vous entrer un url de player ?",
-          "placeholder": "Entrer un URL de player"
+          "label": "Ajouter une URL de player",
+          "placeholder": "URL de player"
         },
         "player": {
           "labelFileChooser": "Choisir un fichier",
