@@ -140,7 +140,9 @@ const classroomModals = {
         content: `
     <h4 class="c-text-primary font-weight-bold text-uppercase">Sélectionner des apprenants</h4>
     <p class='text-center'><span class="student-number">0</span> apprenants sélectionnés</p>
-    <div id="list-student-attribute-modal" class="row justify-content-center c-primary-form"></div>
+    <div class="container-fluid">
+        <div id="list-student-attribute-modal" class="row justify-content-center c-primary-form"></div>
+    </div>
     <button id="attribute-activity-to-students-close" class="btn btn-lg c-btn-primary">Valider</button>
                 `,
         footer: ``
@@ -310,7 +312,7 @@ const classroomModals = {
         </div>
 
         <div class="form-row c-secondary-form">
-            <div class="form-check form-check-inline">
+            <div class="form-check form-check-inline c-checkbox">
                 <input class="form-check-input" type="checkbox" id="u_is_admin">
                 <label class="form-check-label" for="u_is_admin" data-i18n="manager.users.admin">
                     Administrateur
@@ -319,7 +321,7 @@ const classroomModals = {
         </div>
 
         <div class="form-row form-group c-secondary-form">
-            <div class="form-check">
+            <div class="form-check form-check-inline c-checkbox">
                 <input class="form-check-input" type="checkbox" id="u_is_teacher">
                 <label class="form-check-label" for="u_is_teacher" data-i18n="manager.users.teacher">
                     Enseignant
@@ -357,7 +359,7 @@ const classroomModals = {
             <select class="form-control" id="u_group">
             </select>
             <div class="input-group-append">
-                <div class="input-group-text pl-5">
+                <div class="input-group-text c-checkbox c-checkbox-grey">
                     <input class="form-check-input" type="checkbox" id="u_is_group_admin">
                     <label class="form-check-label" for="u_is_group_admin" data-i18n="manager.users.groupAdmin">
                         Administrateur du groupe
@@ -420,14 +422,14 @@ const classroomModals = {
         </div>
 
         <div class="form-row c-secondary-form">
-            <div class="form-check form-check-inline">
+            <div class="form-check form-check-inline c-checkbox">
                 <input type="checkbox" id="update_u_is_active">
                 <label class="form-check-label" for="update_u_is_active" data-i18n="manager.account.active">
                     Compte actif
                 </label>
             </div>
-
-            <div class="form-check form-check-inline ml-3">
+    
+            <div class="form-check form-check-inline c-checkbox ml-3">
                 <input type="checkbox" id="update_u_is_admin">
                 <label class="form-check-label" for="update_u_is_admin" data-i18n="manager.users.admin">
                     Administrateur
@@ -436,7 +438,7 @@ const classroomModals = {
         </div>
 
         <div class="form-row form-group c-secondary-form">
-            <div class="form-check">
+            <div class="c-checkbox">
                 <input class="form-check-input" type="checkbox" id="update_u_is_teacher">
                 <label class="form-check-label" for="update_u_is_teacher" data-i18n="manager.users.teacher">
                     Enseignant
@@ -501,6 +503,10 @@ const classroomModals = {
                 <label for="u_surname_ga" data-i18n="[html]manager.profil.lastname">Nom <span class="c-text-red">*</span></label>
                 <input type="text" class="form-control" id="u_surname_ga">
             </div>
+            <div class="form-group col-md" id="group_admin_username">
+                <label for="u_pseudo_ga" data-i18n="[html]manager.profil.nickname">Pseudonyme</label>
+                <input type="text" class="form-control" id="u_pseudo_ga">
+            </div>
         </div>
 
         <div class="form-row c-secondary-form">
@@ -511,10 +517,6 @@ const classroomModals = {
             <div class="form-group col-md" id="group_admin_phone">
                 <label for="u_phone_ga" data-i18n="manager.profil.phone">Numéro de telephone</label>
                 <input type="text" class="form-control" id="u_phone_ga">
-            </div>
-            <div class="form-group col-md" id="group_admin_username">
-                <label for="u_pseudo_ga" data-i18n="[html]manager.profil.nickname">Pseudonyme</label>
-                <input type="text" class="form-control" id="u_pseudo_ga">
             </div>
         </div>
     
@@ -546,6 +548,9 @@ const classroomModals = {
     
         </div>
         <div class="form-group col-md-12" id="allGroupsGA">
+        </div>
+
+        <div id="create_applications_ga">
         </div>
     </div>
 

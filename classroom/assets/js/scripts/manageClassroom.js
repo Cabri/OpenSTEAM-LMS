@@ -328,16 +328,16 @@ $('body').on('click', '.save-student-in-classroom', function () {
  * @param {*} response 
  */
 function manageResponseOfAddUsers(response) {
-    if (response.hasOwnProperty('message')) {
+    if (response.hasOwnProperty('message')) { 
         if (response.message == "personalLimit") {
-            displayNotification('#notif-div', "classroom.notif.personalLimitationsReached", "error", `'{"learnerNumber": "${response.currentLearnerCount+response.addedLearnerNumber}"}'`);
+            displayNotification('#notif-div', "classroom.notif.personalLimitationsReached", "error", `'{"max": "${response.teacherInfo.maxStudents}"}'`);
             // Show upgrade modal
         } else if (response.message == "personalLimitAndGroupOutDated") {
             displayNotification('#notif-div', "classroom.notif.groupLimitationsTeacher", "error", `'{"learnerNumber": "${response.currentLearnerCount+response.addedLearnerNumber}"}'`);
            // Show upgrade modal
         } else if (response.message == "bothLimitReached") {
             // Teacher's and Group's limits reached
-            displayNotification('#notif-div', "classroom.notif.bothLimitationsReached", "error", `'{"learnerNumber": "${response.currentLearnerCount+response.addedLearnerNumber}"}'`);  
+            displayNotification('#notif-div', "classroom.notif.bothLimitationsReached", "error", `'{"maxP": "${response.teacherInfo.maxStudents}", "maxG": "${response.groupInfo.maxStudents}"}'`);;  
         }
     } else {
         displayNotification('#notif-div', "classroom.notif.usersNotAdded", "error", `'{"learnerNumber": "${response.currentLearnerCount+response.addedLearnerNumber}"}'`);

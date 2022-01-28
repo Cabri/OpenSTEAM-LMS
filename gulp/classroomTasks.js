@@ -64,14 +64,14 @@ class AutoBuildManager {
 
     /**
      * Tasks related to the views files
-     * 
+     *
      */
     pluginViews() {
         return new Promise(async (resolve, reject) => {
             if (this.pluginsList.length) {
                 // create the temporary Views folder
                 this.createTemporaryViewsFolder();
-                // check if there is no view plugin conflict 
+                // check if there is no view plugin conflict
                 if (this.checkViewConflict()) {
                     reject();
                 } else {
@@ -351,9 +351,7 @@ class AutoBuildManager {
                                 views: [],
                                 css: [],
                                 js: [],
-                                images: [],
-                                controllers: [],
-                                entities: []
+                                images: []
                             };
                             this.pluginsList.push(currentPlugin);
                         });
@@ -370,8 +368,6 @@ class AutoBuildManager {
     async loadFilesList() {
         return new Promise(async (resolve, reject) => {
             await this.loadPluginsFilesList('Views', 'views');
-            await this.loadPluginsFilesList('Controller', 'controllers');
-            await this.loadPluginsFilesList('Entities', 'entities');
             await this.loadPluginsFilesList('public/css', 'css');
             await this.loadPluginsFilesList('public/js', 'js');
             await this.loadPluginsFilesList('public/images', 'images');
@@ -395,20 +391,27 @@ class AutoBuildManager {
 
     /**
      * Method that returns a promise after reading a folder in a plugin and adding all filenames in the relevant list
-     * @param {*} plugin 
-     * @param {*} folder 
+     * @param {*} plugin
+     * @param {*} folder
      * @param {*} list
      */
     async readFolderForList(plugin, folder, list) {
         return new Promise((resolve, reject) => {
             fs.readdir(folder, (err, files) => {
-                try {
-                    files.forEach(file => {
-                        this.pluginsList[this.pluginsList.indexOf(plugin)][list].push(file);
-                    });
+                if (files) {
+                    try {
+                        files.forEach(file => {
+                            if (file != '.gitkeep') {
+                                this.pluginsList[this.pluginsList.indexOf(plugin)][list].push(file);
+                            }
+                        });
+                        resolve();
+                    } catch (error) {
+                        reject(error);
+                    }
+                } else {
+                    console.error(`Folder ${folder} doesn't exist! Skipping!`);
                     resolve();
-                } catch (error) {
-                    reject(error);
                 }
             });
         }).catch((error) => {

@@ -461,7 +461,6 @@ function statusActivity(activity, state = true) {
 // }
 
 function loadActivity(isDoable) {
-
     ClassroomSettings.chrono = Date.now()
     const activityIntroduction = $('#activity-introduction')
     const activityContent = $('#activity-content')

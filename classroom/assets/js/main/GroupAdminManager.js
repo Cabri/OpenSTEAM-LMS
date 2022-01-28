@@ -388,9 +388,10 @@ class GroupAdminManager {
      * @param {Int} $teacher_grade 
      * @param {Int} $teacher_suject 
      * @param {String} $school 
+     * @param {Array} $applications
      * @returns {Json}
      */
-    createUserAndLinkToGroup($firstname, $surname, $user_pseudo, $phone, $mail, $bio, $groups, $teacher_grade, $teacher_suject, $school) {
+    createUserAndLinkToGroup($firstname, $surname, $user_pseudo, $phone, $mail, $bio, $groups, $teacher_grade, $teacher_suject, $school, $application) {
         return new Promise(function (resolve, reject) {
             $.ajax({
                 type: "POST",
@@ -405,7 +406,8 @@ class GroupAdminManager {
                     grade: $teacher_grade,
                     subject: $teacher_suject,
                     mail: $mail,
-                    school: $school
+                    school: $school,
+                    application: JSON.stringify($application)
                 },
                 success: function (response) {
                     resolve(JSON.parse(response));

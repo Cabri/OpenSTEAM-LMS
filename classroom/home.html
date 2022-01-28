@@ -1,4 +1,3 @@
-    <link rel="stylesheet" href="assets/css/checkboxes.css">
     <link rel="stylesheet" href="assets/css/modal.css">
     <link rel="stylesheet" href="assets/plugins/css/cabri.theme.css">
 
@@ -219,42 +218,59 @@
     
 </div>
 <div id="classroom-dashboard-activities-panel" style="display:none;" class="dashboard-block">
-    <h3 class="section-title section-new" onclick="sectionToggle('new')" data-i18n="classroom.activities.new"><i id="i-new" class="ml-2 fas fa-chevron-down"></i></h3>
-    <div id="new-activities"></div>
+    <div class="section-container section-new">
+        <div class="section-header">
+            <i id="i-new" class="ml-2 fas fa-lg fa-chevron-down"></i>
+            <h3 class="section-title" onclick="sectionToggle('new')" data-i18n="classroom.activities.new"></h3>
 
-    <h3 class="section-title section-saved" onclick="sectionToggle('saved')">Brouillons<i id="i-saved" class="ml-2 fas fa-chevron-down"></i></h3>
-    <div id="saved-activities"></div>
-    <h3 class="section-title section-current" onclick="sectionToggle('current')" data-i18n="classroom.activities.current"><i id="i-current" class="ml-2 fas fa-chevron-down"></i>
-    </h3>
-    <div id="current-activities"></div>
-    <h3 class="section-title section-done" onclick="sectionToggle('done')" data-i18n="classroom.activities.done"><i id="i-done" class="ml-2 fas fa-chevron-down"></i></h3>
-    <div id="done-activities-list"></div>
+        </div>
+        <div id="new-activities-list"></div>
+    </div>
+
+    <div class="section-container section-saved">
+        <div class="section-header">
+            <i id="i-saved" class="ml-2 fas fa-lg fa-chevron-down"></i>
+            <h3 class="section-title " onclick="sectionToggle('saved')">Brouillons</h3>
+        </div>
+        <div id="saved-activities-list"></div>
+    </div>
+
+    <div class="section-container section-current">
+        <div class="section-header">
+            <i id="i-current" class="ml-2 fas fa-lg fa-chevron-down"></i>
+            <h3 class="section-title" onclick="sectionToggle('current')" data-i18n="classroom.activities.current"></h3>
+        </div>
+        <div id="current-activities-list"></div>
+    </div>
+
+    <div class="section-container section-done">
+        <div class="section-header">
+            <i id="i-done" class="ml-2 fas fa-lg fa-chevron-down"></i>
+            <h3 class="section-title" onclick="sectionToggle('done')" data-i18n="classroom.activities.done"></h3>
+        </div>
+        <div id="done-activities-list"></div>
+    </div>
 
 </div>
 
 <div id="classroom-dashboard-activity-panel" class="dashboard-block" style="display:none;">
-  <div class="classroom-dashboard-activity-parent" style="display: flex;">
-    <div id="main-div" style="margin: 0 auto; flex: 1 0 50vw; height: 85vh; display: flex; flex-direction: column;">
-      <h3 id="activity-title"></h3>
-
-      <!--  <div id="lti-activity-submission" style="height: calc(50vw * 3/4); border: 0 none; display: none;"></div>-->
-      <h4 id="activity-details"></h4>
-
-      <!-- TODO CABRI move changes of lti to a separate plugin -->
-      <div id="activity-content"></div>
-
-      <!--
-      TODO disabled for cabri lti
-      <button class="btn c-btn-primary" id="activity-validate" data-i18n="classroom.activities.validate"
-              onclick="validateActivity()"> <i class="fas fa-chevron-right"></i></button>
-      -->
-      <button class="btn c-btn-primary" id="activity-save" style="display:none;" onclick="saveActivity()"
-              data-i18n="classroom.activities.save-draft"><i class="fas fa-chevron-right"></i></button>
-      <div class="btn" id="activity-instruction" style="display:none"><span
-        data-i18n="classroom.activities.instruction"></span> <i class="fas fa-pen"></i></div>
-    </div>
-    <div id="activity-correction" style="display:none; align-self: center;">
-    </div>
+    <div class="container-fluid">
+        <div class="row">
+            <div id="main-div" class="col-12 col-lg-8" style="margin: 0 auto;overflow-wrap: break-word;">
+                <h3 id="activity-title"></h3>
+                <p id="activity-details"></p>
+                <p id="activity-introduction">
+                    <span id="text-introduction"></span>
+                </p>
+                <p id="activity-content"> </p>
+                <button style="display: none;" class="btn c-btn-primary" id="activity-validate" data-i18n="classroom.activities.validate" onclick="validateActivity()"> <i class="fas fa-chevron-right"></i></button>
+                <button class="btn c-btn-primary" id="activity-save" style="display:none;" onclick="saveActivity()" data-i18n="classroom.activities.save-draft"><i class="fas fa-chevron-right"></i></button>
+                <div class="btn" id="activity-instruction" style="display:none"><span data-i18n="classroom.activities.instruction"></span> <i class="fas fa-pen"></i></div>
+            </div>
+            <div id="activity-correction-container" class="col-12 col-lg-4" style="display:none">
+                <div id="activity-correction"></div>
+            </div>
+        </div>
   </div>
 </div>
 
@@ -395,7 +411,7 @@
 </div>
 
 <div id="classroom-dashboard-form-classe-panel" style="display:none;" class="mx-3 dashboard-block classes-panel class-creation-form">
-    <h3 data-i18n="classroom.classes.form.title"></h3>
+    <h3 data-i18n="classroom.classes.form.title" id="classroom-classes-title"></h3>
     <div class="form-group part-content-index part-row c-primary-form">
         <div class="form-row">
             <label for="classroom-form-name" class="tutorial-label" data-i18n="classroom.classes.form.name"></label>
@@ -407,17 +423,17 @@
             <input type="text" id="classroom-form-school" class="form-control form-control-lg">
         </div>
     </div>
-    <button class="new-student-modal c-btn-primary m-3"><i class="fas fa-user-plus"></i><span class="ml-1" data-i18n="classroom.classes.form.addStudent"></span></button>
+    <button class="new-student-modal btn c-btn-primary m-3"><i class="fas fa-user-plus"></i><span class="ml-1" data-i18n="classroom.classes.form.addStudent"></span></button>
     <div id="table-students">
         <ul>
             <li id="no-student-label" data-i18n="classroom.classes.form.noStudent"></li>
         </ul>
     </div>
-    <div>
+    <div class="c-checkbox mt-2">
         <input type="checkbox" name="classroom-form-is-blocked" id="classroom-form-is-blocked">
         <label for="classroom-form-is-blocked" data-i18n="classroom.classes.form.isBlockedButton"></label>
     </div>
-    <button class="new-classroom-form c-btn-primary m-3"><i class="fas fa-save"></i><span class="ml-1" data-i18n="classroom.classes.form.save"></span> </button>
+    <button class="new-classroom-form btn c-btn-primary m-3"><i class="fas fa-save"></i><span class="ml-1" data-i18n="classroom.classes.form.save"></span> </button>
 </div>
 
 <div id="classroom-table-panel-teacher" style="display:none;" class="dashboard-block classes-panel class-stats-panel">
@@ -480,7 +496,7 @@
                     <span data-i18n="classroom.activities.insufficientProficiency"></span>
                 </li>
             </ul>
-            <ul class="row legend" style="list-style:none;">
+            <ul class="row legend" style="list-style:none; align-items: flex-end">
                 <li class="ml-3">
                     <div class="bilan-legend fas fa-pen"></div>
                     <span data-i18n="classroom.activities.todo"></span>
@@ -490,8 +506,11 @@
                     <span data-i18n="classroom.activities.waiting"></span>
                 </li>
 
-                <li class="ml-3">
-                    <input type="checkbox" id="is-anonymised" title="" class="mr-2"><label><span class="text-capitalize mr-2" data-i18n="words.anonymize"></span><i data-i18n="[title]classroom.activities.anonymise" class="fas fa-question-circle"></i> </label>
+                <li class="ml-3 c-checkbox" style="height: 1.6em;">
+                    <input type="checkbox" id="is-anonymised" title="" class="mr-2">
+                    <label for="is-anonymised">
+                        <span class="text-capitalize mr-2" data-i18n="words.anonymize"></span><i data-i18n="[title]classroom.activities.anonymise" class="fas fa-question-circle"></i>
+                    </label>
                 </li>
             </ul>
         </div>
@@ -1185,6 +1204,9 @@
                                 <th scope="col" data-i18n="manager.table.maxTeachers">maxTeachers</th>
                                 <th scope="col" data-i18n="manager.table.actualTeachers">actualTeachers</th>
                                 <th scope="col" data-i18n="manager.table.maxStudentsPerTeachers">maxStudentsPerTeacher</th>
+                                <th scope="col" data-i18n="manager.table.activityType">Type d'activité</th>
+                                <th scope="col" data-i18n="manager.table.maxActivitiesPerGroup">Max par groupe</th>
+                                <th scope="col" data-i18n="manager.table.maxActivitiesPerTeacher">Max par enseignant</th>
                             </tr>
                         </thead>
                         <tbody id="group-monitoring-body">

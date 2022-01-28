@@ -26,7 +26,6 @@
     <link rel="stylesheet" href="assets/css/login.css">
     <!-- <link rel="stylesheet" href="public/css/style.css"> -->
     <link rel="stylesheet" href="assets/css/public.css">
-    <link rel="stylesheet" href="assets/css/checkboxes.css">
     <link rel="stylesheet" href="assets/css/main.css">
     <link rel="stylesheet" href="assets/css/modal.css">
     <link rel="stylesheet" href="assets/css/elements.css">

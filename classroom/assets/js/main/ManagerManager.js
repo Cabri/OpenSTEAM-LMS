@@ -29,6 +29,7 @@ class managerManager {
         this._actualUserDetails = []
         this._tasksQueue = [];
         this._isExecutingTaskInQueue = false;
+        this._defaultRestrictions = [];
     }
 
     /**
