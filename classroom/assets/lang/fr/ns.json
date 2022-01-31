@@ -298,7 +298,7 @@
           "label": "Voulez-vous entrer un url ?",
           "placeholder": "Entrer un URL"
         },
-        "notebookUpdateMessage": "Ne pas modifier cette sectionsi vous souhaitez garder l'ancien cahier d'activité",
+        "notebookUpdateMessage": "Ne pas modifier cette section si vous souhaitez garder l'ancien cahier d'activité !",
         "notebookUrl": {
           "label": "Ajouter une URL de cahier",
           "placeholder": "URL de cahier"

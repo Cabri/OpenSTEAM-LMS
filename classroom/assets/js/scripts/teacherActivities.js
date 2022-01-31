@@ -2,10 +2,12 @@
      must move to a separate file or plugin */
 window.addEventListener("Navigate", function (event) {
     $("#is_drop").hide();
-    // Stop iframe connections once lti page is not active
+    // Stop iframe connections after changing the page
     const previousPanel = event.detail ? event.detail.previousPanel : undefined;
-    if(previousPanel==='classroom-dashboard-new-cabriexpress-activity-panel')
+    if(previousPanel==='classroom-dashboard-new-lti-activity-panel')
       $('#lti-loader-container').empty();
+    else if(previousPanel==='classroom-dashboard-activity-panel')
+      $('#activity-content').empty();
 });
 
 function isValidUrl(url) {
@@ -384,7 +386,7 @@ async function createCabriLtiActivity(type, button) {
             </div>`
   );
 
-  navigatePanel("classroom-dashboard-new-cabriexpress-activity-panel", 'dashboard-activities-teacher')
+  navigatePanel("classroom-dashboard-new-lti-activity-panel", 'dashboard-activities-teacher')
 
   if(askForTitle) {
     pseudoModal.openModal('add-lti-activity-name');
@@ -560,7 +562,7 @@ function activityModify(id, type) {
         else if (activityType === "express" || activityType === "genius") {
           // Cabri Activity
           $('#activity-lti-form-title').val(activity.title)
-          navigatePanel('classroom-dashboard-new-cabriexpress-activity-panel', 'dashboard-activities-teacher')
+          navigatePanel('classroom-dashboard-new-lti-activity-panel', 'dashboard-activities-teacher')
 
           // update modal title
           $('#add-lti-activity-name .vitta-modal-header .vitta-modal-title').html();
