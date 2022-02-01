@@ -344,15 +344,15 @@
       "addLearner": "Ajouter un apprenant",
       "exportCsv": "Exporter csv",
       "players": {
-        "standard": {
+        "STANDARD": {
           "title": "Standard",
           "description": "Le lecteur standard vous permettra de lire en ligne tous les cahiers d'activités réalisés grâce à l'outil auteur Cabri."
         },
-        "imuscica": {
+        "IMUSCICA": {
           "title": "iMuSciCA",
           "description": "Le lecteur iMuSciCA permet de lire dans le workbench musical toutes les activités réalisées grâce à l’outil auteur Cabri."
         },
-        "other": {
+        "OTHER": {
           "title": "Autre",
           "description": "Sélectionnez vous-même le lecteur de cahiers d’activités réalisés grâce à l’outil auteur Cabri."
         }
@@ -362,11 +362,11 @@
         "iframes": "Vidéo et page internet"
       },
       "iframes": {
-        "video": {
+        "IFRAME-VIDEO": {
           "title": "Vidéo",
           "description": "Entrez l’URL d’une vidéo publiée sur une plateforme d'hébergement."
         },
-        "web": {
+        "IFRAME-PAGE": {
           "title": "Page internet",
           "description": "Entrez l’URL de la page internet."
         }

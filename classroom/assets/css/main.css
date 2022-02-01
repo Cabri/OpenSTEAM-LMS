@@ -2374,17 +2374,29 @@ i.line_height34 {
   background: transparent !important;
 }
 
-/*TODO CABRI must move to a seprate plugin */
-.activity-card-cabri-genius {
-  background: url("../media/cards/card-cabri-genius.jpeg") !important;
+.activity-card-lti-express {
+  background: url("../media/cards/card-express.png") !important;
   border-radius: 1.2em !important;
   background-clip: content-box !important;
   background-size: cover !important;
 }
 
-/*TODO CABRI must move to a seprate plugin */
-.activity-card-cabri-iframe {
-  background: url("../media/cards/card-cabri-iframe.jpeg") !important;
+.activity-card-lti-genius {
+  background: url("../media/cards/card-smart.png") !important;
+  border-radius: 1.2em !important;
+  background-clip: content-box !important;
+  background-size: cover !important;
+}
+
+.activity-card-iframe-video {
+  background: url("../media/cards/card-video.png") !important;
+  border-radius: 1.2em !important;
+  background-clip: content-box !important;
+  background-size: cover !important;
+}
+
+.activity-card-other {
+  background: url("../media/cards/card-other.png") !important;
   border-radius: 1.2em !important;
   background-clip: content-box !important;
   background-size: cover !important;
@@ -2622,4 +2634,11 @@ i.line_height34 {
   border-radius: 40px 40px 40px 40px;
   padding: 30px 50px 10px 50px;
   margin-top: 30px;
+}
+
+#main-div {
+  flex: 1 0 50vw;
+  height: 85vh;
+  display: flex;
+  flex-direction: column;
 }

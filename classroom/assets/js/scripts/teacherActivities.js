@@ -88,15 +88,15 @@ function onClickTabActivity(element) {
 /* TODO The code bellow must be inside a function */
 const playersPanel = [
     {
-        "type": "standard",
+        "type": "STANDARD",
         "img": "assets/media/logo_apps_cabri/standard.svg",
     },
     {
-        "type": "imuscica",
+        "type": "IMUSCICA",
         "img": "assets/media/logo_apps_cabri/imuscica.svg",
     },
     {
-        "type": "other",
+        "type": "OTHER",
         "img": "assets/media/logo_apps_cabri/other.svg",
     }
 ];
@@ -119,11 +119,11 @@ document.getElementById('player-panel').innerHTML = playersPanelHtml;
 /* For panel iframe */
 const iframesPanel = [
     {
-        "type": "video",
+        "type": "IFRAME-VIDEO",
         "img": "assets/media/logo_apps_cabri/video.svg",
     },
     {
-        "type": "web",
+        "type": "IFRAME-PAGE",
         "img": "assets/media/logo_apps_cabri/web.svg",
     }
 ];
@@ -160,13 +160,13 @@ window.addEventListener("message", sendFile);
 /* TODO Code too complicated
     Must refactor these functions: createActivity(), createOtherActivity(),  createActivityPlayer(), createActivityIframe()*/
 function createOtherActivity(type) {
-    if(type)
-        type = type.toLowerCase();
+    /*if(type)
+        type = type.toUpperCase();*/
 
-    if(type === "standard" || type === "imuscica" || type === "other")
+    if(type === "STANDARD" || type === "IMUSCICA" || type === "OTHER")
         createActivityPlayer(type)
     else
-        createActivityIframe()
+        createActivityIframe(type)
 }
 
 
@@ -219,7 +219,7 @@ function createActivityPlayer(player) {
                 $("#activity-notebook-update-message").hide();
             }
             navigatePanel('classroom-dashboard-activity-player', 'dashboard-activities-teacher')
-            if(player === "other")
+            if(player === "OTHER")
                 $("#activity-url-player-container").show();
             else
                 $("#activity-url-player-container").hide();
@@ -232,8 +232,8 @@ function createActivityPlayer(player) {
 }
 
 // This is the first step to create an iframe activity
-function createActivityIframe() {
-    Main.getClassroomManager().canAddActivity({type: 'IFRAME'}).then( data => { // type others
+function createActivityIframe(type) {
+    Main.getClassroomManager().canAddActivity({type}).then( data => { // type others
         if (!data.canAdd) {
             pseudoModal.openModal('add-activity-limitation');
             return;
@@ -251,6 +251,7 @@ function createActivityIframe() {
         $('#activity-form-title-others_iframe').val("");
 
         ClassroomSettings.activityInWriting = true
+        ClassroomSettings.iframeActivityType = type;
     });
 
 }
@@ -267,7 +268,7 @@ function extractCabriPlayerData(type, button) {
     }
     ClassroomSettings.title = title.value;
 
-    if(type === 'other') {
+    if(type === 'OTHER') {
       const playerURL = $('#activity-url-player').val();
       if(playerURL.length<1) {
         displayNotification('#notif-div', "classroom.notif.activityPlayerMissing", "error");
@@ -325,7 +326,7 @@ async function createCabriActivity(id, type, button) {
   $(button).attr('disabled', 'disabled'); // disable button
   ClassroomSettings.isNew = true;
   let cabriActivityType = type;
-  if(type==='player') {
+  if(type==='PLAYER') {
     cabriActivityType = ClassroomSettings.player;
     if (!extractCabriPlayerData(cabriActivityType, button))
       return;
@@ -334,10 +335,10 @@ async function createCabriActivity(id, type, button) {
   if (id == null)
     $('#activity-lti-form-title').val('')
 
-  if(cabriActivityType === 'standard' || cabriActivityType === 'imuscica'
+  if(cabriActivityType === 'STANDARD' || cabriActivityType === 'IMUSCICA'
     || cabriActivityType === 'EXPRESS' || cabriActivityType === 'GENIUS')
     createCabriLtiActivity(cabriActivityType, button);
-  else if(cabriActivityType==='other')
+  else if(cabriActivityType==='OTHER')
     createCabriIframeActivity(button);
 
 }
@@ -353,12 +354,12 @@ async function createCabriLtiActivity(type, button) {
   let baseToolUrl, deploymentId, disableIframe;
   let askForTitle = false;
   switch (type) {
-    case "standard":
+    case "STANDARD":
       baseToolUrl = "https://lti1p3-player.cabricloud.com";
       //baseToolUrl = "https://d52b-82-216-88-13.eu.ngrok.io";
       deploymentId = 'opensteam-lms_cabri-player';
       break;
-    case "imuscica":
+    case "IMUSCICA":
       baseToolUrl = "https://workbench-imuscica.cabricloud.com";
       deploymentId = 'opensteam-lms_imuscica';
       break;
@@ -452,7 +453,7 @@ async function createCabriIframeActivity(button) {
         'title': ClassroomSettings.title,
         'content': `${ClassroomSettings.playerURL}?clmc=${activityURL}`,
         "isFromClassroom": true,
-        'type': 'other'
+        'type': 'OTHER'
       })
 
       $('.new-activity-iframe').attr('disabled', false)
@@ -552,14 +553,15 @@ function activityModify(id, type) {
     $('.wysibb-text-editor').html('')
     Main.getClassroomManager().getActivity(ClassroomSettings.activity).then(function (activity) {
         ClassroomSettings.status = 'edit';
-        let activityType = activity.type ? activity.type.toLowerCase() : activity.type;
+        //let activityType = activity.type ? activity.type.toLowerCase() : activity.type;
+        let activityType = activity.type;
         if(!activityType) {
           // Other Activity type
           $('#activity-form-title').val(activity.title)
           $('.wysibb-text-editor').html(activity.content)
           navigatePanel('classroom-dashboard-new-activity-panel', 'dashboard-activities-teacher')
         }
-        else if (activityType === "express" || activityType === "genius") {
+        else if (activityType === "EXPRESS" || activityType === "GENIUS") {
           // Cabri Activity
           $('#activity-lti-form-title').val(activity.title)
           navigatePanel('classroom-dashboard-new-lti-activity-panel', 'dashboard-activities-teacher')
@@ -577,14 +579,15 @@ function activityModify(id, type) {
           let baseToolUrl, deploymentId;
           let isNeedTitle = false;
           switch (type) {
-            case "standard":
+            case "STANDARD":
               deploymentId = 'opensteam-lms_cabri-player';
               return; // TODO: to do later
-            case "imuscica":
+            case "IMUSCICA":
               baseToolUrl = "https://workbench-imuscica.cabricloud.com";
               deploymentId = 'opensteam-lms_imuscica';
               break;
-            default:
+            case "EXPRESS":
+            case "GENIUS":
               baseToolUrl = "https://lti1p3.cabricloud.com";
               deploymentId = "opensteam-lms_cabri-express";
               isNeedTitle = true;
@@ -623,10 +626,10 @@ function activityModify(id, type) {
         }
         else {
             //createOtherActivity(activityType);
-            if(activityType === 'standard' || activityType === 'imuscica' || activityType === 'other') {
+            if(activityType === 'STANDARD' || activityType === 'IMUSCICA' || activityType === 'OTHER') {
               $("#activity-form-title-others_player").val(activity.title);
 
-              if(activityType === 'other') {
+              if(activityType === 'OTHER') {
                 const playerURL = activity.content.split('?clmc')[0]; // extract playerURL from full url
                 $("#activity-url-player").val(playerURL);
                 $("#activity-url-player-container").show();
@@ -635,7 +638,7 @@ function activityModify(id, type) {
                 $("#activity-url-player-container").hide();
               }
 
-              if(activityType === 'standard' || activityType === 'imuscica') {
+              if(activityType === 'STANDARD' || activityType === 'IMUSCICA') {
                 ClassroomSettings.loginHint = {
                   userId: UserManager.getUser().id,
                   isStudentLaunch: false,
@@ -653,7 +656,7 @@ function activityModify(id, type) {
 
               navigatePanel('classroom-dashboard-activity-player', 'dashboard-activities-teacher')
             }
-            else if (activityType === 'iframe'){
+            else if (activityType === 'IFRAME-PAGE' || activityType === 'IFRAME-VIDEO'){
               $("#activity-form-title-others_iframe").val(activity.title);
               $("#activity-form-content-iframe").val(activity.content);
 
@@ -819,7 +822,7 @@ $('.new-activity-iframe').click(function () {
             'title': ClassroomSettings.title,
             'content': url,
             "isFromClassroom": true,
-            'type': 'IFRAME'
+            'type': ClassroomSettings.iframeActivityType
         }).then(function (activity) {
             $('.new-activity-iframe').attr('disabled', false)
             if (activity.errors) {
