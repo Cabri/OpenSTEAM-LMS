@@ -6,7 +6,7 @@ $(document).ready(function () {
 const cssClassByActivityType = {
   'EXPRESS': 'activity-card-lti-express',
   'GENIUS': 'activity-card-lti-genius',
-  'IMUSCICA': 'activity-card-other',
+  'IMUSCICA': 'activity-card-imuscica',
   'STANDARD': 'activity-card-other',
   'OTHER': 'activity-card-other',
   'IFRAME-VIDEO': 'activity-card-iframe-video',
@@ -45,7 +45,7 @@ function activityItem(activity, state) {
     }
 
     let html = `<div class="activity-item">
-                    <div class="${cssClassByActivityType[activity.type]} activity-card activity-card-` + ide + `">
+                    <div class="${cssClassByActivityType[activity.activity.type]} activity-card activity-card-` + ide + `">
                         <div class="${activityStatus}" data-toggle="tooltip" title="${activityStatusTitle}"><div class="ribbon__content"></div></div>
                         <div class="activity-card-top">
                         </div>
@@ -483,6 +483,7 @@ function loadActivity(isDoable) {
     activityTitle.html('')
     activityContent.html('')
     activityIntroduction.html('')
+    activityIntroduction.hide();
     let baseToolUrl, deploymentId;
         if (Activity.introduction != null && Activity.introduction !== "") {
             $('#text-introduction').html(bbcodeToHtml(Activity.introduction))
@@ -625,19 +626,21 @@ function loadActivity(isDoable) {
             activityContent.html(bbcodeToHtml(content))
         }*/
 
-        if(correction && correction!=='')
-          $('#activity-correction').html(bbcodeToHtml(correction)).show()
-
-        if (isDoable == false) {
-            $('#activity-validate').hide()
-            $('#activity-save').hide()
-        } else {
-            let interface = /\[iframe\].*?vittascience(|.com)\/([a-z]{5,12})\/?/gm.exec(Activity.activity.content)
-            $('#activity-validate').show()
-            if (interface != undefined && interface != null) {
-                $('#activity-save').show()
-            }
-        }
+       if(correction && correction!=='') {
+          $('#activity-correction').html(bbcodeToHtml(correction));
+          $('#activity-correction-container').show();
+       }
+  /*
+         if (isDoable == false) {
+             $('#activity-validate').hide()
+             $('#activity-save').hide()
+         } else {
+             let interface = /\[iframe\].*?vittascience(|.com)\/([a-z]{5,12})\/?/gm.exec(Activity.activity.content)
+             $('#activity-validate').show()
+             if (interface != undefined && interface != null) {
+                 $('#activity-save').show()
+             }
+         }*/
 }
 
 function setActivityPlural(number) {

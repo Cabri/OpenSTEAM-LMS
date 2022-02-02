@@ -411,7 +411,7 @@ function getTeacherActivity() {
 
     $('#activity-introduction').hide()
     $('#activity-validate').hide()
-    $('#activity-correction').hide();
+    $('#activity-correction-container').hide();
 }
 
 function getIntelFromClasses() {
