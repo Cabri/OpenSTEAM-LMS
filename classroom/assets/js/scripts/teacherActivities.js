@@ -88,6 +88,10 @@ function onClickTabActivity(element) {
 /* TODO The code bellow must be inside a function */
 const playersPanel = [
     {
+      "type": "GENIUS",
+      "img": "assets/media/logo_apps_cabri/smart.svg",
+    },
+    {
         "type": "STANDARD",
         "img": "assets/media/logo_apps_cabri/standard.svg",
     },
@@ -98,6 +102,10 @@ const playersPanel = [
     {
         "type": "OTHER",
         "img": "assets/media/logo_apps_cabri/other.svg",
+    },
+    {
+        "type": "EXPRESS",
+        "img": "assets/media/logo_apps_cabri/express.svg",
     }
 ];
 let playersPanelHtml = "";
@@ -163,7 +171,9 @@ function createOtherActivity(type) {
     /*if(type)
         type = type.toUpperCase();*/
 
-    if(type === "STANDARD" || type === "IMUSCICA" || type === "OTHER")
+    if(type==="EXPRESS" || type==='GENIUS')
+        createCabriActivity(null, type, null)
+    else if(type === "STANDARD" || type === "IMUSCICA" || type === "OTHER")
         createActivityPlayer(type)
     else
         createActivityIframe(type)

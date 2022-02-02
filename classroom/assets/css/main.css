@@ -2653,3 +2653,11 @@ i.line_height34 {
   display: flex;
   flex-direction: column;
 }
+
+#lti_teacher_iframe {
+  border-radius: 10px;
+}
+
+#lti_student_iframe {
+  border-radius: 10px;
+}
