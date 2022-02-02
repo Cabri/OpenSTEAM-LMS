@@ -4,7 +4,7 @@
             "noClass": "El código introducido no corresponde a ninguna clase",
             "hello1": "'¡Buen día!'",
             "hello2": "¡Buen día!",
-            "neutralTitle": "Abra STEAM LMS",
+            "neutralTitle": "OpenSTEAM LMS",
             "cabriTitle": "Cabri.com",
             "subtitle": "Descubrir-Aprender-Compartir",
             "cabriSubtitle": "La plataforma para tener éxito en matemática y ciencias",
@@ -116,6 +116,7 @@
             "activityCreated": "La actividad  {{activityTitle}} ha sido creada",
             "activityChanged": "La actividad  {{activityTitle}} ha sido modificada",
             "activityTitleMissing": "Debes ingresar el título de la actividad",
+            "activityPlayerMissing": "Debes completar la url del jugador",
             "CsvFileMissing": "No has elegido el archivo csv",
             "errorWithCsv": "Error al abrir el archivo csv : {{error}}",
             "cantGetPassword": "Error, no puede ver su contraseña",
@@ -158,7 +159,8 @@
             "activityTitleInvalid": "La actividad no pudo ser creada: título no válido",
             "activityContentInvalid": "La actividad no pudo ser creada: contenido no válido",
             "activityIsFromClassroomInvalid": "La actividad no pudo ser creada: error de contexto",
-            "activityUserIdInvalid": "La actividad no pudo ser creada: usuario no válido"
+            "activityUserIdInvalid": "La actividad no pudo ser creada: usuario no válido",
+            "generalBackendError": "Ha ocurrido un error, inténtalo de nuevo más tarde"
         },
         "ids": {
             "classroom-dashboard-help-panel-teacher": "Ayuda",

@@ -7,7 +7,7 @@
       "hello1": "'Bonjour!'",
       "hello2": "Bonjour!",
       "title": "Gérez vos classes</br>avec Vittascience",
-      "neutralTitle": "Open STEAM LMS",
+      "neutralTitle": "OpenSTEAM LMS",
       "cabriTitle": "Cabri.com",
       "subtitle": "Découvrir - Apprendre - Partager",
       "cabriSubtitle": "La plateforme pour réussir en maths et sciences",
@@ -141,6 +141,7 @@
       "activityCreated": "L'activité {{activityTitle}} a été créée",
       "activityChanged": "L'activité {{activityTitle}} a été modifiée",
       "activityTitleMissing": "Vous devez renseigner le titre de l'activité",
+      "activityPlayerMissing": "Vous devez renseigner une URL player",
       "CsvFileMissing": "Vous n'avez pas choisi de fichier csv",
       "errorWithCsv": "Erreur lors de l'ouverture du fichier csv : {{error}}",
       "cantGetPassword": "Erreur, vous ne pouvez pas voir votre mot de passe",
@@ -197,7 +198,8 @@
       "noUserUsername" : "Vous devez rentrer un nom d'utilisateur",
       "pseudoMissingInCsvFile" : "Certains élèves n'ont pu être ajouter car leur pseudo était manquant",
       "backendReplyPseudoMissingInCsv" : "Vérifier le fichier CSV : ligne vide ou pseudo manquant",
-      "backendReplyPseudoMissingInUsersArray" : "Il y a une erreur dans un ou plusieurs nom d'apprenant(s)"
+      "backendReplyPseudoMissingInUsersArray" : "Il y a une erreur dans un ou plusieurs nom d'apprenant(s)",
+      "generalBackendError": "Une erreur s'est produite, veuillez réessayer ultérieurement"
     },
     "ids": {
       "classroom-dashboard-help-panel-teacher": "Aide",
@@ -296,13 +298,14 @@
           "label": "Voulez-vous entrer un url ?",
           "placeholder": "Entrer un URL"
         },
+        "notebookUpdateMessage": "Ne pas modifier cette section si vous souhaitez garder l'ancien cahier d'activité !",
         "notebookUrl": {
-          "label": "Voulez-vous entrer un url de cahier ?",
-          "placeholder": "Entrer un URL de cahier"
+          "label": "Ajouter une URL de cahier",
+          "placeholder": "URL de cahier"
         },
         "playerUrl": {
-          "label": "Voulez-vous entrer un url de player ?",
-          "placeholder": "Entrer un URL de player"
+          "label": "Ajouter une URL de player",
+          "placeholder": "URL de player"
         },
         "player": {
           "labelFileChooser": "Choisir un fichier",
@@ -341,15 +344,15 @@
       "addLearner": "Ajouter un apprenant",
       "exportCsv": "Exporter csv",
       "players": {
-        "standard": {
+        "STANDARD": {
           "title": "Standard",
           "description": "Le lecteur standard vous permettra de lire en ligne tous les cahiers d'activités réalisés grâce à l'outil auteur Cabri."
         },
-        "imuscica": {
+        "IMUSCICA": {
           "title": "iMuSciCA",
           "description": "Le lecteur iMuSciCA permet de lire dans le workbench musical toutes les activités réalisées grâce à l’outil auteur Cabri."
         },
-        "other": {
+        "OTHER": {
           "title": "Autre",
           "description": "Sélectionnez vous-même le lecteur de cahiers d’activités réalisés grâce à l’outil auteur Cabri."
         }
@@ -359,11 +362,11 @@
         "iframes": "Vidéo et page internet"
       },
       "iframes": {
-        "video": {
+        "IFRAME-VIDEO": {
           "title": "Vidéo",
           "description": "Entrez l’URL d’une vidéo publiée sur une plateforme d'hébergement."
         },
-        "web": {
+        "IFRAME-PAGE": {
           "title": "Page internet",
           "description": "Entrez l’URL de la page internet."
         }

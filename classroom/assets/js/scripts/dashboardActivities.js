@@ -3,6 +3,16 @@ $(document).ready(function () {
 
 });
 
+const cssClassByActivityType = {
+  'EXPRESS': 'activity-card-lti-express',
+  'GENIUS': 'activity-card-lti-genius',
+  'IMUSCICA': 'activity-card-imuscica',
+  'STANDARD': 'activity-card-other',
+  'OTHER': 'activity-card-other',
+  'IFRAME-VIDEO': 'activity-card-iframe-video',
+  'IFRAME-PAGE': 'activity-card-other',
+}
+
 function activityItem(activity, state) {
     let ide = 'vittascience'
     if (activity.activity.content.match(/vittascience\.com\/microbit/)) {
@@ -35,7 +45,7 @@ function activityItem(activity, state) {
     }
 
     let html = `<div class="activity-item">
-                    <div class="${activity.activity.type === 'GENIUS' ? 'activity-card-cabri-genius': activity.activity.type === 'EXPRESS' ? '' : 'activity-card-cabri-iframe'}  activity-card activity-card-` + ide + `">
+                    <div class="${cssClassByActivityType[activity.activity.type]} activity-card activity-card-` + ide + `">
                         <div class="${activityStatus}" data-toggle="tooltip" title="${activityStatusTitle}"><div class="ribbon__content"></div></div>
                         <div class="activity-card-top">
                         </div>
@@ -91,7 +101,7 @@ function teacherActivityItem(activity) {
     }
 
     let html = `<div class="activity-item activity-teacher">
-                <div class="${activity.type === 'GENIUS' ? 'activity-card-cabri-genius': activity.type === 'EXPRESS' ? '' : 'activity-card-cabri-iframe'} activity-card activity-card-` + ide + `">
+                <div class="${cssClassByActivityType[activity.type]} activity-card activity-card-` + ide + `">
                     <div class="activity-card-top">
                     <div class="dropdown"><i class="fas fa-cog fa-2x" type="button" id="dropdown-activityItem-${activity.id}" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></i>
                     <div class="dropdown-menu" aria-labelledby="dropdown-activityItem-${activity.id}" data-id="${activity.id}">
@@ -219,13 +229,14 @@ $('body').on('click', '#filter-activity', function () {
     }
     /* TODO cabri: move to separate plugin */
     else if(filterValue === 'typeGenius') {
-      teacherActivitiesDisplay(filterTeacherActivityInListByType(arrayKeywords, 'GENIUS'));
+      teacherActivitiesDisplay(filterTeacherActivityInListByType(arrayKeywords, ['GENIUS']));
     }
     else if(filterValue === 'typeExpress') {
-      teacherActivitiesDisplay(filterTeacherActivityInListByType(arrayKeywords, 'EXPRESS'));
+      teacherActivitiesDisplay(filterTeacherActivityInListByType(arrayKeywords, ['EXPRESS']));
     }
     else if(filterValue === 'typeIframe') {
-      teacherActivitiesDisplay(filterTeacherActivityInListByType(arrayKeywords, 'IFRAME'));
+      teacherActivitiesDisplay(filterTeacherActivityInListByType(arrayKeywords,
+        ['IFRAME-PAGE', 'IFRAME-VIDEO', 'STANDARD', 'IMUSCICA', 'OTHER']));
     }
 })
 
@@ -241,13 +252,14 @@ $('body').on('change', '#filter-activity-select', function () {
     }
     /* TODO cabri: TODO cabri: move to separate plugin*/
     else if(filterValue === 'typeGenius') {
-        teacherActivitiesDisplay(filterTeacherActivityInListByType(arrayKeywords, 'GENIUS'));
+        teacherActivitiesDisplay(filterTeacherActivityInListByType(arrayKeywords, ['GENIUS']));
     }
     else if(filterValue === 'typeExpress') {
-        teacherActivitiesDisplay(filterTeacherActivityInListByType(arrayKeywords, 'EXPRESS'));
+        teacherActivitiesDisplay(filterTeacherActivityInListByType(arrayKeywords, ['EXPRESS']));
     }
     else if(filterValue === 'typeIframe') {
-      teacherActivitiesDisplay(filterTeacherActivityInListByType(arrayKeywords, 'IFRAME'));
+      teacherActivitiesDisplay(filterTeacherActivityInListByType(arrayKeywords,
+        ['IFRAME-PAGE','IFRAME-VIDEO', 'STANDARD', 'IMUSCICA', 'OTHER']));
     }
 })
 
@@ -264,13 +276,13 @@ $(document).on('keyup', function (e) {
         }
         /*TODO cabri: move to separate plugin*/
         else if(filterValue === 'typeGenius') {
-          teacherActivitiesDisplay(filterTeacherActivityInListByType(arrayKeywords, 'GENIUS'));
+          teacherActivitiesDisplay(filterTeacherActivityInListByType(arrayKeywords, ['GENIUS']));
         }
         else if(filterValue === 'typeExpress') {
-          teacherActivitiesDisplay(filterTeacherActivityInListByType(arrayKeywords, 'EXPRESS'));
+          teacherActivitiesDisplay(filterTeacherActivityInListByType(arrayKeywords, ['EXPRESS']));
         }
         else if(filterValue === 'typeIframe') {
-          teacherActivitiesDisplay(filterTeacherActivityInListByType(arrayKeywords, 'IFRAME'));
+          teacherActivitiesDisplay(filterTeacherActivityInListByType(arrayKeywords,['IFRAME-PAGE', 'IFRAME-VIDEO', 'STANDARD', 'IMUSCICA', 'OTHER']));
         }
     }
 });
@@ -471,6 +483,7 @@ function loadActivity(isDoable) {
     activityTitle.html('')
     activityContent.html('')
     activityIntroduction.html('')
+    activityIntroduction.hide();
     let baseToolUrl, deploymentId;
         if (Activity.introduction != null && Activity.introduction !== "") {
             $('#text-introduction').html(bbcodeToHtml(Activity.introduction))
@@ -547,27 +560,30 @@ function loadActivity(isDoable) {
 
       // TODO : define global tabs with tabs["name_app"] = "url_app" (to use also in teacher code)
       switch (Activity.activity.type) {
-        case "standard":
+        case "STANDARD":
             baseToolUrl = "https://lti1p3-player.cabricloud.com";
             //baseToolUrl = 'https://d52b-82-216-88-13.eu.ngrok.io';
             deploymentId = 'opensteam-lms_cabri-player';
             break;
-        case "imuscica":
+        case "IMUSCICA":
           baseToolUrl = "https://workbench-imuscica.cabricloud.com";
           deploymentId = 'opensteam-lms_imuscica';
           break;
-        default:
+        case "EXPRESS":
+        case "GENIUS":
           baseToolUrl = "https://lti1p3.cabricloud.com";
           deploymentId = 'opensteam-lms_cabri-express';
           break;
       }
 
 
-        let activityType = Activity.activity.type ? Activity.activity.type.toLowerCase() : Activity.activity.type;
+        //let activityType = Activity.activity.type ? Activity.activity.type.toLowerCase() : Activity.activity.type;
+        const activityType = Activity.activity.type;
         // Review student submission by teacher (and by student)
-        if(activityType !== "iframe") {  // TODO replace with "if content is LTI"
+        if(activityType === "EXPRESS" || activityType === "GENIUS"
+          || activityType === "STANDARD" || activityType === "IMUSCICA") {  // TODO replace with "if content is LTI"
             if (!isDoable && Activity.correction > 0) {
-                if (activityType=== "imuscica")
+                if (activityType === "IMUSCICA")
                     activityContent.html('<iframe style="width: 100%; height: 100%;" allowfullscreen="true" frameborder="0" src="https://workbench-imuscica.cabricloud.com/?lesson=' + Activity.url + '" allowfullscreen></iframe>');
                 else
                     activityContent.html('<iframe style="width: 100%; height: 100%;" allowfullscreen="true" frameborder="0" src="https://cabricloud.com/ed/opensteam/player?isMobile&calculator=false&clmc=' + Activity.url + '" allowfullscreen></iframe>');
@@ -610,19 +626,21 @@ function loadActivity(isDoable) {
             activityContent.html(bbcodeToHtml(content))
         }*/
 
-        if(correction && correction!=='')
-          $('#activity-correction').html(bbcodeToHtml(correction)).show()
-
-        if (isDoable == false) {
-            $('#activity-validate').hide()
-            $('#activity-save').hide()
-        } else {
-            let interface = /\[iframe\].*?vittascience(|.com)\/([a-z]{5,12})\/?/gm.exec(Activity.activity.content)
-            $('#activity-validate').show()
-            if (interface != undefined && interface != null) {
-                $('#activity-save').show()
-            }
-        }
+       if(correction && correction!=='') {
+          $('#activity-correction').html(bbcodeToHtml(correction));
+          $('#activity-correction-container').show();
+       }
+  /*
+         if (isDoable == false) {
+             $('#activity-validate').hide()
+             $('#activity-save').hide()
+         } else {
+             let interface = /\[iframe\].*?vittascience(|.com)\/([a-z]{5,12})\/?/gm.exec(Activity.activity.content)
+             $('#activity-validate').show()
+             if (interface != undefined && interface != null) {
+                 $('#activity-save').show()
+             }
+         }*/
 }
 
 function setActivityPlural(number) {
