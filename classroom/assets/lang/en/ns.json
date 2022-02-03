@@ -311,7 +311,8 @@
 			"toCopy": "This code allows you to easily join your class",
 			"copyLink": "The link to your class has been added to the clipboard",
 			"dateBefore": "To be returned before",
-			"integrate": "Integrate into an activity",
+      "dateBeforeAvailable": "Available until",
+      "integrate": "Integrate into an activity",
 			"veryGoodProficiency": "Very good control",
 			"goodProficiency": "Satisfactory control",
 			"weakProficiency": "Fragile control",
@@ -319,8 +320,44 @@
 			"addLearner": "Add a learner",
 			"addLearners": "Add learners",
 			"addActivity": "Add an activity",
-			"exportCsv": "Export csv"
-		},
+			"exportCsv": "Export csv",
+      "players": {
+        "STANDARD": {
+          "title": "Standard",
+          "description": "The standard player will allow you to read all the activity books created with the Cabri authoring tool."
+        },
+        "IMUSCICA": {
+          "title": "iMuSciCA",
+          "description": "The iMuSciCA player allows to read in the music studio all the activities realized with the Cabri authoring tool."
+        },
+        "OTHER": {
+          "title": "Autre",
+          "description": "Choose from a selection of readers to use in your activities with the Cabri authoring tool."
+        },
+        "EXPRESS": {
+          "title": "Express",
+          "description": "Create an activity using dynamic geometry and algebra tools, scientific and graphing calculator, etc."
+        },
+        "GENIUS": {
+          "title": "Smart",
+          "description": "Create an activity with the Express tools and add an automatic evaluation."
+        }
+      },
+      "tabs": {
+        "players": "Activity book",
+        "iframes": "Video and web page"
+      },
+      "iframes": {
+        "IFRAME-VIDEO": {
+          "title": "Video",
+          "description": "Enter the URL of a video published on a hosting platform."
+        },
+        "IFRAME-PAGE": {
+          "title": "Web page",
+          "description": "Enter the URL of the web page."
+        }
+      }
+    },
 		"filter": {
 			"desc": "From the least recent to the most recent",
 			"asc": "From most recent to least recent",

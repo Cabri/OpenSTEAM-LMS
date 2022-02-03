@@ -54,7 +54,12 @@ function activityItem(activity, state) {
                             <div class="info-tutorials"  data-id="${activity.activity.id}"  data-state="${state}">`
 
     if (activity.dateEnd != undefined) {
-        html += `<span> ` + i18next.t('classroom.activities.dateBefore') + ` ${formatDay(activity.dateEnd)}</span>`
+        const dateBeforeText = activity.activity.type === 'IFRAME-PAGE'
+        || activity.activity.type === 'IFRAME-VIDEO'
+        || activity.activity.type === 'OTHER'
+          ? i18next.t('classroom.activities.dateBeforeAvailable')
+          : i18next.t('classroom.activities.dateBefore')
+        html += `<span> ` + dateBeforeText + ` ${formatDay(activity.dateEnd)}</span>`
     }
 
     html += `</div></div></div>`
@@ -600,14 +605,14 @@ function loadActivity(isDoable) {
 
                 const ltiStudentLaunch = `
           <input id="activity-score" type="text" hidden/>
-          <form name="lti_student_login_form" action="${baseToolUrl}/login" method="post" target="lti_student_iframe">
+          <form id="lti_student_login_form" name="lti_student_login_form" action="${baseToolUrl}/login" method="post" target="lti_student_iframe">
             <input id="lti_student_iss" type="hidden" name="iss" value="${location.origin}" />
             <input id="lti_student_login_hint" type="hidden" name="login_hint"/>
             <input id="lti_student_client_id" type="hidden" name="client_id" value="${deploymentId}" />
             <input id="lti_student_target_link_uri" type="hidden" name="target_link_uri" value="${baseToolUrl}/lti" />
           </form>
 
-          <iframe src="about:blank" name="lti_student_iframe" title="Tool Content" width="100%" height="100%" allowfullscreen></iframe>`;
+          <iframe id="lti_student_iframe" src="about:blank" name="lti_student_iframe" title="Tool Content" width="100%" height="100%" allowfullscreen></iframe>`;
 
 
                 activityContent.html(ltiStudentLaunch);

@@ -274,7 +274,7 @@
       "refuse": "Maîtrise insuffisante",
       "instruction": "Consigne",
       "commentary": "Commentaire",
-      "sendResults": "Envoyer le commentaire à l'apprenant ",
+      "sendResults": "Envoyer",
       "noSend": "Cette activité n'a pas été rendue",
       "comments": "Entrez ici vos remarques",
       "teacherComments": "Remarques de l'enseignant",
@@ -336,6 +336,7 @@
       "toCopy": "Ce code permet de rejoindre en toute simplicité votre classe",
       "copyLink": "Le lien vers votre classe a été ajouté au presse-papier",
       "dateBefore": "A rendre avant le",
+      "dateBeforeAvailable": "Disponible jusqu'au",
       "integrate": "Intégrer dans une activité",
       "veryGoodProficiency": "Très bonne maîtrise",
       "goodProficiency": "Maîtrise satisfaisante",
@@ -346,15 +347,23 @@
       "players": {
         "STANDARD": {
           "title": "Standard",
-          "description": "Le lecteur standard vous permettra de lire en ligne tous les cahiers d'activités réalisés grâce à l'outil auteur Cabri."
+          "description": "Le lecteur standard vous permettra de lire en ligne tous les cahiers d’activités réalisés grâce à l’outil auteur Cabri."
         },
         "IMUSCICA": {
           "title": "iMuSciCA",
-          "description": "Le lecteur iMuSciCA permet de lire dans le workbench musical toutes les activités réalisées grâce à l’outil auteur Cabri."
+          "description": "Le lecteur iMuSciCA permet de lire dans le studio musical toutes les activités réalisées grâce à l’outil auteur Cabri."
         },
         "OTHER": {
           "title": "Autre",
-          "description": "Sélectionnez vous-même le lecteur de cahiers d’activités réalisés grâce à l’outil auteur Cabri."
+          "description": "Choisissez parmi une sélection de lecteurs pour utiliser vos activités réalisées avec l’outil auteur Cabri."
+        },
+        "EXPRESS": {
+          "title": "Express",
+          "description": "Créer une activité grâce aux outils de géométrie dynamique et d’algèbre, à la calculatrice scientifique et graphique, etc."
+        },
+        "GENIUS": {
+          "title": "Smart",
+          "description": "Créer une activité grâce aux outils Express et ajoutez une évaluation automatique."
         }
       },
       "tabs": {

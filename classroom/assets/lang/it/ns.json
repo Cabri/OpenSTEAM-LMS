@@ -252,13 +252,50 @@
             "toCopy": "Questo codice rende facile unirsi alla tua classe\n",
             "copyLink": "Il link alla tua classe è stato aggiunto negli appunti\n",
             "dateBefore": "Termine di scadenza della consegna",
+            "dateBeforeAvailable": "Disponibile fino a",
             "integrate": "Integrare in un'attività",
             "veryGoodProficiency": "Molto buono",
             "goodProficiency": "Soddisfacente",
             "weakProficiency": "Fragile",
             "insufficientProficiency": "Insufficiente",
             "addLearner": "Aggiungere uno studente",
-            "exportCsv": "Esportazione csv"
+            "exportCsv": "Esportazione csv",
+            "players": {
+              "STANDARD": {
+                "title": "Standard",
+                "description": "Il lettore standard vi permetterà di leggere online tutti i libri di attività prodotti con lo strumento di authoring Cabri."
+              },
+              "IMUSCICA": {
+                "title": "iMuSciCA",
+                "description": "Il lettore iMuSciCA permette di riprodurre nello studio musicale tutte le attività realizzate con lo strumento di authoring Cabri."
+              },
+              "OTHER": {
+                "title": "Autre",
+                "description": "Scegli tra una selezione di lettori da utilizzare nelle tue attività con lo strumento di authoring Cabri."
+              },
+              "EXPRESS": {
+                "title": "Express",
+                "description": "Creare un'attività utilizzando strumenti dinamici di geometria e algebra, calcolatrice scientifica e grafica, ecc."
+              },
+              "GENIUS": {
+                "title": "Smart",
+                "description": "Crea un'attività con gli strumenti Express e aggiungi una valutazione automatica."
+              }
+            },
+            "tabs": {
+              "players": "Libro di attività",
+              "iframes": "Video e pagina web"
+            },
+            "iframes": {
+              "IFRAME-VIDEO": {
+                "title": "Video",
+                "description": "Inserisci l'URL di un video pubblicato su una piattaforma di hosting."
+              },
+              "IFRAME-PAGE": {
+                "title": "Pagina web",
+                "description": "Inserisci l'URL della pagina web."
+              }
+            }
         },
         "filter": {
             "desc": "Dal meno recente al più recente",

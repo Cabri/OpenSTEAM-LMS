@@ -193,7 +193,12 @@ function backToClassroomFromCode() {
 function navigatePanel(id, idNav, option = "", interface = '', skipConfirm = false, isOnpopstate = false) {
     const previousPanel = ClassroomSettings.lastPage[0] ? ClassroomSettings.lastPage[0].history : undefined;
     let confirmExit = true;
-    if ($_GET('interface') == "newActivities" && !Activity.project && !skipConfirm && Activity.activity && Activity.activity.type!=='IFRAME') {
+    if(!skipConfirm && Activity.activity)
+      skipConfirm = Activity.activity.type === 'IFRAME-VIDEO'
+        || Activity.activity.type === 'IFRAME-PAGE'
+        || Activity.activity.type === 'OTHER';
+
+  if ($_GET('interface') == "newActivities" && !Activity.project && !skipConfirm) {
         confirmExit = confirm(i18next.t("classroom.notif.saveProject"));
     }
     if (confirmExit) {
@@ -633,9 +638,14 @@ function studentActivitiesDisplay() {
         } else {
             var dateEnd = "aucune"
         }
+        const dateBeforeText = element.activity.type === 'IFRAME-PAGE'
+          || element.activity.type === 'IFRAME-VIDEO'
+          || element.activity.type === 'OTHER'
+          ? i18next.t('classroom.activities.dateBeforeAvailable')
+          : i18next.t('classroom.activities.dateBefore')
         $('#new-activities-list').append(activityItem(element, "newActivities"))
         $('#header-table-bilan').append('<th data-toggle="tooltip" data-placement="top" title="' + element.activity.title + '"> Act.</br>n°' + index + '</th>')
-        $('#body-table-bilan').append('<td class="' + statusActivity(element) + ' classroom-clickable bilan-cell " title="' + i18next.t('classroom.activities.dateBefore') + ' ' + formatDay(dateEnd) + '"></td>')
+        $('#body-table-bilan').append('<td class="' + statusActivity(element) + ' classroom-clickable bilan-cell " title="' + dateBeforeText + ' ' + formatDay(dateEnd) + '"></td>')
         index++
     });
     activities.savedActivities.forEach(element => {
@@ -644,9 +654,16 @@ function studentActivitiesDisplay() {
         } else {
             var dateEnd = "aucune"
         }
+
+        const dateBeforeText = element.activity.type === 'IFRAME-PAGE'
+        || element.activity.type === 'IFRAME-VIDEO'
+        || element.activity.type === 'OTHER'
+          ? i18next.t('classroom.activities.dateBeforeAvailable')
+          : i18next.t('classroom.activities.dateBefore')
+
         $('#saved-activities-list').append(activityItem(element, "savedActivities"))
         $('#header-table-bilan').append('<th data-toggle="tooltip" data-placement="top" title="' + element.activity.title + '"> Act.</br>n°' + index + '</th>')
-        $('#body-table-bilan').append('<td class="' + statusActivity(element) + ' classroom-clickable bilan-cell " title="' + i18next.t('classroom.activities.dateBefore') + ' ' + formatDay(dateEnd) + '"></td>')
+        $('#body-table-bilan').append('<td class="' + statusActivity(element) + ' classroom-clickable bilan-cell " title="' + dateBeforeText + ' ' + formatDay(dateEnd) + '"></td>')
         index++
     });
 
@@ -656,9 +673,16 @@ function studentActivitiesDisplay() {
         } else {
             var dateEnd = "aucune"
         }
-        $('#current-activities-list').append(activityItem(element, "currentActivities"))
+
+        const dateBeforeText = element.activity.type === 'IFRAME-PAGE'
+        || element.activity.type === 'IFRAME-VIDEO'
+        || element.activity.type === 'OTHER'
+          ? i18next.t('classroom.activities.dateBeforeAvailable')
+          : i18next.t('classroom.activities.dateBefore')
+
+       $('#current-activities-list').append(activityItem(element, "currentActivities"))
         $('#header-table-bilan').append('<th data-toggle="tooltip" data-placement="top" title="' + element.activity.title + '"> Act.</br>n°' + index + '</th>')
-        $('#body-table-bilan').append('<td class="' + statusActivity(element) + ' classroom-clickable bilan-cell" title="' + i18next.t('classroom.activities.dateBefore') + ' ' + formatDay(dateEnd) + '"></td>')
+        $('#body-table-bilan').append('<td class="' + statusActivity(element) + ' classroom-clickable bilan-cell" title="' + dateBeforeText + ' ' + formatDay(dateEnd) + '"></td>')
         index++
     });
     activities.doneActivities.forEach(element => {
@@ -716,7 +740,7 @@ function sandboxDisplay(projects = Main.getClassroomManager()._myProjects) {
 function classroomsDisplay() {
     let noContentDiv = `
     <p class="no-content-div">
-        <img src="${_PATH}assets/media/my_classes.svg" alt="Icône classe" class="hue-rotate-teacher"> 
+        <img src="${_PATH}assets/media/my_classes.svg" alt="Icône classe" class="hue-rotate-teacher">
         <b data-i18n="classroom.classes.noClasses">Vous n'avez pas encore de classe</b>
         <span id="no-content-div__bottom-text"  data-i18n="classroom.classes.createClassNow">Commencez par créer une classe dès maintenant !</span>
     </p>`
@@ -726,7 +750,7 @@ function classroomsDisplay() {
         document.querySelector('.buttons-interactions button.teacher-new-classe').style.display = 'none';
         noContentDiv = `
         <p class="no-content-div">
-            <img src="${_PATH}assets/media/my_classes.svg" alt="Icône classe" class="hue-rotate-teacher"> 
+            <img src="${_PATH}assets/media/my_classes.svg" alt="Icône classe" class="hue-rotate-teacher">
             <b data-i18n="classroom.classes.noClasses">Vous n'avez pas encore de classe</b>
         </p>`
     }
