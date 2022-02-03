@@ -54,7 +54,12 @@ function activityItem(activity, state) {
                             <div class="info-tutorials"  data-id="${activity.activity.id}"  data-state="${state}">`
 
     if (activity.dateEnd != undefined) {
-        html += `<span> ` + i18next.t('classroom.activities.dateBefore') + ` ${formatDay(activity.dateEnd)}</span>`
+        const dateBeforeText = activity.activity.type === 'IFRAME-PAGE'
+        || activity.activity.type === 'IFRAME-VIDEO'
+        || activity.activity.type === 'OTHER'
+          ? i18next.t('classroom.activities.dateBeforeAvailable')
+          : i18next.t('classroom.activities.dateBefore')
+        html += `<span> ` + dateBeforeText + ` ${formatDay(activity.dateEnd)}</span>`
     }
 
     html += `</div></div></div>`

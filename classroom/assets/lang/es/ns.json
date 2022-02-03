@@ -256,6 +256,7 @@
             "toCopy": "Este código facilita unirse a su clase",
             "copyLink": "El enlace a su clase se ha agregado al portapapeles",
             "dateBefore": "Para ser devuelto antes de",
+            "dateBeforeAvailable": "Disponible hasta",
             "integrate": "Integrar dentro de una actividad",
             "veryGoodProficiency": "Alta competencia",
             "goodProficiency": "Competencia satisfactoria",
@@ -263,6 +264,42 @@
             "insufficientProficiency": "Competencia insuficiente",
             "addLearner": "Agregar un alumno",
             "exportCsv": "Exportar csv",
+            "players": {
+              "STANDARD": {
+                "title": "Standard",
+                "description": "El lector estándar le permitirá leer en línea todos los libros de actividades producidos con la herramienta de autoría Cabri."
+              },
+              "IMUSCICA": {
+                "title": "iMuSciCA",
+                "description": "El reproductor iMuSciCA permite reproducir en el estudio musical todas las actividades realizadas con la herramienta de autoría Cabri."
+              },
+              "OTHER": {
+                "title": "Autre",
+                "description": "Elija entre una selección de lectores para utilizar en sus actividades con la herramienta de autoría Cabri."
+              },
+              "EXPRESS": {
+                "title": "Express",
+                "description": "Crear una actividad utilizando herramientas de geometría dinámica y álgebra, calculadora científica y gráfica, etc."
+              },
+              "GENIUS": {
+                "title": "Smart",
+                "description": "Cree una actividad con las herramientas Express y añada una evaluación automática."
+              }
+            },
+            "tabs": {
+              "players": "Libro de actividades",
+              "iframes": "Vídeo y página web"
+            },
+            "iframes": {
+              "IFRAME-VIDEO": {
+                "title": "Vídeo",
+                "description": "Introduzca la URL de un vídeo publicado en una plataforma de alojamiento."
+              },
+              "IFRAME-PAGE": {
+                "title": "Página web",
+                "description": "Introduzca la URL de la página web."
+              }
+            },
             "displayActivity": "Mostrar la actividad",
             "modifyActivity": "Modifica la actividad",
             "modifyActivityAttribution": "Modificar la atribución",
