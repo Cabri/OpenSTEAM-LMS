@@ -104,7 +104,7 @@ const playersPanel = [
         "img": "assets/media/logo_apps_cabri/imuscica.svg",
     },
     {
-        "type": "OTHER",
+        "type": "IFRAME",
         "img": "assets/media/logo_apps_cabri/other.svg",
     }
 ];
@@ -173,7 +173,7 @@ function createOtherActivity(type) {
 
     if(type==="EXPRESS" || type==='GENIUS')
         createCabriActivity(null, type, null)
-    else if(type === "STANDARD" || type === "IMUSCICA" || type === "OTHER")
+    else if(type === "STANDARD" || type === "IMUSCICA" || type === "IFRAME")
         createActivityPlayer(type)
     else
         createActivityIframe(type)
@@ -229,7 +229,7 @@ function createActivityPlayer(player) {
                 $("#activity-notebook-update-message").hide();
             }
             navigatePanel('classroom-dashboard-activity-player', 'dashboard-activities-teacher')
-            if(player === "OTHER")
+            if(player === "IFRAME")
                 $("#activity-url-player-container").show();
             else
                 $("#activity-url-player-container").hide();
@@ -278,7 +278,7 @@ function extractCabriPlayerData(type, button) {
     }
     ClassroomSettings.title = title.value;
 
-    if(type === 'OTHER') {
+    if(type === 'IFRAME') {
       const playerURL = $('#activity-url-player').val();
       if(playerURL.length<1) {
         displayNotification('#notif-div', "classroom.notif.activityPlayerMissing", "error");
@@ -348,7 +348,7 @@ async function createCabriActivity(id, type, button) {
   if(cabriActivityType === 'STANDARD' || cabriActivityType === 'IMUSCICA'
     || cabriActivityType === 'EXPRESS' || cabriActivityType === 'GENIUS')
     createCabriLtiActivity(cabriActivityType, button);
-  else if(cabriActivityType==='OTHER')
+  else if(cabriActivityType==='IFRAME')
     createCabriIframeActivity(button);
 
 }
@@ -463,7 +463,7 @@ async function createCabriIframeActivity(button) {
         'title': ClassroomSettings.title,
         'content': `${ClassroomSettings.playerURL}?clmc=${activityURL}`,
         "isFromClassroom": true,
-        'type': 'OTHER'
+        'type': 'IFRAME'
       })
 
       $('.new-activity-iframe').attr('disabled', false)
@@ -636,10 +636,10 @@ function activityModify(id, type) {
         }
         else {
             //createOtherActivity(activityType);
-            if(activityType === 'STANDARD' || activityType === 'IMUSCICA' || activityType === 'OTHER') {
+            if(activityType === 'STANDARD' || activityType === 'IMUSCICA' || activityType === 'IFRAME') {
               $("#activity-form-title-others_player").val(activity.title);
 
-              if(activityType === 'OTHER') {
+              if(activityType === 'IFRAME') {
                 const playerURL = activity.content.split('?clmc')[0]; // extract playerURL from full url
                 $("#activity-url-player").val(playerURL);
                 $("#activity-url-player-container").show();

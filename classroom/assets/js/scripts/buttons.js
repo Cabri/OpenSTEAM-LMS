@@ -196,7 +196,7 @@ function navigatePanel(id, idNav, option = "", interface = '', skipConfirm = fal
     if(!skipConfirm && Activity.activity)
       skipConfirm = Activity.activity.type === 'IFRAME-VIDEO'
         || Activity.activity.type === 'IFRAME-PAGE'
-        || Activity.activity.type === 'OTHER';
+        || Activity.activity.type === 'IFRAME';
 
   if ($_GET('interface') == "newActivities" && !Activity.project && !skipConfirm) {
         confirmExit = confirm(i18next.t("classroom.notif.saveProject"));
@@ -640,7 +640,7 @@ function studentActivitiesDisplay() {
         }
         const dateBeforeText = element.activity.type === 'IFRAME-PAGE'
           || element.activity.type === 'IFRAME-VIDEO'
-          || element.activity.type === 'OTHER'
+          || element.activity.type === 'IFRAME'
           ? i18next.t('classroom.activities.dateBeforeAvailable')
           : i18next.t('classroom.activities.dateBefore')
         $('#new-activities-list').append(activityItem(element, "newActivities"))
@@ -657,7 +657,7 @@ function studentActivitiesDisplay() {
 
         const dateBeforeText = element.activity.type === 'IFRAME-PAGE'
         || element.activity.type === 'IFRAME-VIDEO'
-        || element.activity.type === 'OTHER'
+        || element.activity.type === 'IFRAME'
           ? i18next.t('classroom.activities.dateBeforeAvailable')
           : i18next.t('classroom.activities.dateBefore')
 
@@ -676,7 +676,7 @@ function studentActivitiesDisplay() {
 
         const dateBeforeText = element.activity.type === 'IFRAME-PAGE'
         || element.activity.type === 'IFRAME-VIDEO'
-        || element.activity.type === 'OTHER'
+        || element.activity.type === 'IFRAME'
           ? i18next.t('classroom.activities.dateBeforeAvailable')
           : i18next.t('classroom.activities.dateBefore')
 

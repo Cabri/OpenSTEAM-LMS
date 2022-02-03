@@ -330,7 +330,7 @@
           "title": "iMuSciCA",
           "description": "The iMuSciCA player allows to read in the music studio all the activities realized with the Cabri authoring tool."
         },
-        "OTHER": {
+        "IFRAME": {
           "title": "Autre",
           "description": "Choose from a selection of readers to use in your activities with the Cabri authoring tool."
         },

@@ -8,7 +8,7 @@ const cssClassByActivityType = {
   'GENIUS': 'activity-card-lti-genius',
   'IMUSCICA': 'activity-card-imuscica',
   'STANDARD': 'activity-card-other',
-  'OTHER': 'activity-card-other',
+  'IFRAME': 'activity-card-other',
   'IFRAME-VIDEO': 'activity-card-iframe-video',
   'IFRAME-PAGE': 'activity-card-other',
 }
@@ -56,7 +56,7 @@ function activityItem(activity, state) {
     if (activity.dateEnd != undefined) {
         const dateBeforeText = activity.activity.type === 'IFRAME-PAGE'
         || activity.activity.type === 'IFRAME-VIDEO'
-        || activity.activity.type === 'OTHER'
+        || activity.activity.type === 'IFRAME'
           ? i18next.t('classroom.activities.dateBeforeAvailable')
           : i18next.t('classroom.activities.dateBefore')
         html += `<span> ` + dateBeforeText + ` ${formatDay(activity.dateEnd)}</span>`
@@ -241,7 +241,7 @@ $('body').on('click', '#filter-activity', function () {
     }
     else if(filterValue === 'typeIframe') {
       teacherActivitiesDisplay(filterTeacherActivityInListByType(arrayKeywords,
-        ['IFRAME-PAGE', 'IFRAME-VIDEO', 'STANDARD', 'IMUSCICA', 'OTHER']));
+        ['IFRAME-PAGE', 'IFRAME-VIDEO', 'STANDARD', 'IMUSCICA', 'IFRAME']));
     }
 })
 
@@ -264,7 +264,7 @@ $('body').on('change', '#filter-activity-select', function () {
     }
     else if(filterValue === 'typeIframe') {
       teacherActivitiesDisplay(filterTeacherActivityInListByType(arrayKeywords,
-        ['IFRAME-PAGE','IFRAME-VIDEO', 'STANDARD', 'IMUSCICA', 'OTHER']));
+        ['IFRAME-PAGE','IFRAME-VIDEO', 'STANDARD', 'IMUSCICA', 'IFRAME']));
     }
 })
 
@@ -287,7 +287,7 @@ $(document).on('keyup', function (e) {
           teacherActivitiesDisplay(filterTeacherActivityInListByType(arrayKeywords, ['EXPRESS']));
         }
         else if(filterValue === 'typeIframe') {
-          teacherActivitiesDisplay(filterTeacherActivityInListByType(arrayKeywords,['IFRAME-PAGE', 'IFRAME-VIDEO', 'STANDARD', 'IMUSCICA', 'OTHER']));
+          teacherActivitiesDisplay(filterTeacherActivityInListByType(arrayKeywords,['IFRAME-PAGE', 'IFRAME-VIDEO', 'STANDARD', 'IMUSCICA', 'IFRAME']));
         }
     }
 });

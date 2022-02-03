@@ -353,7 +353,7 @@
           "title": "iMuSciCA",
           "description": "Le lecteur iMuSciCA permet de lire dans le studio musical toutes les activités réalisées grâce à l’outil auteur Cabri."
         },
-        "OTHER": {
+        "IFRAME": {
           "title": "Autre",
           "description": "Choisissez parmi une sélection de lecteurs pour utiliser vos activités réalisées avec l’outil auteur Cabri."
         },
