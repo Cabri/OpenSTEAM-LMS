@@ -226,7 +226,7 @@ function createActivityPlayer(player) {
                 $("#activity-url-notebook").val("");
                 $("#notebook").val("");
                 $("#drop_zone").data("file", null);
-                $("#activity-notebook-update-message").hide();
+                //$("#activity-notebook-update-message").hide();
             }
             navigatePanel('classroom-dashboard-activity-player', 'dashboard-activities-teacher')
             if(player === "IFRAME")
@@ -637,18 +637,20 @@ function activityModify(id, type) {
         else {
             //createOtherActivity(activityType);
             if(activityType === 'STANDARD' || activityType === 'IMUSCICA' || activityType === 'IFRAME') {
+              let notebookURL;
               $("#activity-form-title-others_player").val(activity.title);
 
               if(activityType === 'IFRAME') {
-                const playerURL = activity.content.split('?clmc')[0]; // extract playerURL from full url
+                const url = new URL(activity.content);
+                const playerURL = url.origin + url.pathname;
+                notebookURL = url.searchParams.get('clmc');
+
                 $("#activity-url-player").val(playerURL);
                 $("#activity-url-player-container").show();
               }
-              else {
+              else if(activityType === 'STANDARD' || activityType === 'IMUSCICA') {
+                notebookURL = activity.content;
                 $("#activity-url-player-container").hide();
-              }
-
-              if(activityType === 'STANDARD' || activityType === 'IMUSCICA') {
                 ClassroomSettings.loginHint = {
                   userId: UserManager.getUser().id,
                   isStudentLaunch: false,
@@ -659,8 +661,8 @@ function activityModify(id, type) {
               }
 
               ClassroomSettings.player = activityType;
-              $("#activity-notebook-update-message").show();
-              $("#activity-url-notebook").val("");
+              //$("#activity-notebook-update-message").show();
+              $("#activity-url-notebook").val(notebookURL);
               $("#notebook").val("");
               $("#drop_zone").data("file", null);
 
