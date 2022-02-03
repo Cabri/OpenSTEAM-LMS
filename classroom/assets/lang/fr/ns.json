@@ -355,6 +355,14 @@
         "OTHER": {
           "title": "Autre",
           "description": "Sélectionnez vous-même le lecteur de cahiers d’activités réalisés grâce à l’outil auteur Cabri."
+        },
+        "EXPRESS": {
+          "title": "Express",
+          "description": "Créer une question mathématique intéractive a l'aide des outils Cabri."
+        },
+        "GENIUS": {
+          "title": "Smart",
+          "description": "Créer une question mathématique autoevaluable."
         }
       },
       "tabs": {

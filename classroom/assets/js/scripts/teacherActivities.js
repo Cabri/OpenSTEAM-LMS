@@ -92,6 +92,10 @@ const playersPanel = [
       "img": "assets/media/logo_apps_cabri/smart.svg",
     },
     {
+      "type": "EXPRESS",
+      "img": "assets/media/logo_apps_cabri/express.svg",
+    },
+    {
         "type": "STANDARD",
         "img": "assets/media/logo_apps_cabri/standard.svg",
     },
@@ -102,10 +106,6 @@ const playersPanel = [
     {
         "type": "OTHER",
         "img": "assets/media/logo_apps_cabri/other.svg",
-    },
-    {
-        "type": "EXPRESS",
-        "img": "assets/media/logo_apps_cabri/express.svg",
     }
 ];
 let playersPanelHtml = "";
@@ -392,7 +392,7 @@ async function createCabriLtiActivity(type, button) {
               <input id="lti_teacher_client_id" type="hidden" name="client_id" value="${deploymentId}" />
               <input id="lti_teacher_target_link_uri" type="hidden" name="target_link_uri" value="${baseToolUrl}/deeplink" />
             </form>
-            <div style="width: 100%; height: 100%;">
+            <div style="width: 100%; height: 100%;" class="lti-iframe-holder">
                 <iframe id="lti_teacher_iframe" src="about:blank" name="lti_teacher_iframe" title="Tool Content" width="100%"  height="100%" allowfullscreen></iframe>
             </div>`
   );
@@ -403,7 +403,7 @@ async function createCabriLtiActivity(type, button) {
     pseudoModal.openModal('add-lti-activity-name');
     // todo cabri must remove previous exit events listeners before setting a new one !
     pseudoModal.clickOnExit('add-lti-activity-name', ()=>{
-      navigatePanel('classroom-dashboard-activities-panel-teacher', 'dashboard-activities-teacher');
+      navigatePanel('classroom-dashboard-other-activity-type-panel', 'dashboard-activities-teacher');
     });
   } else {
     $('#activity-lti-form-title').val(ClassroomSettings.title);
@@ -613,7 +613,7 @@ function activityModify(id, type) {
               <input id="lti_teacher_client_id" type="hidden" name="client_id" value="${deploymentId}" />
               <input id="lti_teacher_target_link_uri" type="hidden" name="target_link_uri" value="${baseToolUrl}/deeplink" />
             </form>
-            <div style="width: 100%; height: 100%;">
+            <div style="width: 100%; height: 100%;" class="lti-iframe-holder">
                 <iframe id="lti_teacher_iframe" src="about:blank" name="lti_teacher_iframe" title="Tool Content" width="100%"  height="100%" allowfullscreen></iframe>
             </div>`
           );

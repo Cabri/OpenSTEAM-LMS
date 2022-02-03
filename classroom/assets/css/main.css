@@ -2661,3 +2661,8 @@ i.line_height34 {
 #lti_student_iframe {
   border-radius: 10px;
 }
+
+.lti-iframe-holder {
+  background:url(../media/loading.gif) center center no-repeat;
+  background-size: 100px;
+}

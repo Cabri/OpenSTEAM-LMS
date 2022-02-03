@@ -262,7 +262,7 @@
                 <p id="activity-introduction">
                     <span id="text-introduction"></span>
                 </p>
-                <p id="activity-content"> </p>
+                <p id="activity-content" class="lti-iframe-holder"> </p>
                 <button style="display: none;" class="btn c-btn-primary" id="activity-validate" data-i18n="classroom.activities.validate" onclick="validateActivity()"> <i class="fas fa-chevron-right"></i></button>
                 <button class="btn c-btn-primary" id="activity-save" style="display:none;" onclick="saveActivity()" data-i18n="classroom.activities.save-draft"><i class="fas fa-chevron-right"></i></button>
                 <div class="btn" id="activity-instruction" style="display:none"><span data-i18n="classroom.activities.instruction"></span> <i class="fas fa-pen"></i></div>
@@ -572,15 +572,6 @@
   </br>
 
   <div class="buttons-interactions flex-wrap">
-    <!--<button onclick="createCabriActivity(null, 'EXPRESS', this)" class="btn c-btn-outline-secondary outline-green"><span class="mr-1" data-i18n="classroom.activities.addCabriExpress"></span><i class="fas fa-chevron-right"></i>
-    </button>
-
-    <button onclick="createCabriActivity(null, 'GENIUS', this)" class="btn c-btn-outline-secondary outline-yellow"><span class="mr-1" data-i18n="classroom.activities.addCabriGenius"></span><i class="fas fa-chevron-right"></i>
-    </button>
-
-    <button onclick="createActivity()" class=" btn c-btn-outline-secondary outline-gray"><span class="mr-1" data-i18n="classroom.activities.addOther"></span><i class="fas fa-chevron-right"></i>
-    </button>-->
-
     <button onclick="createActivity()" class="btn c-btn-outline-secondary outline-green"><span class="mr-1" data-i18n="classroom.activities.add"></span><i class="fas fa-chevron-right"></i>
     </button>
   </div>
@@ -857,7 +848,6 @@
 
   <div class="flex-fill"></div>
 </div>
-
 <div id="classroom-dashboard-new-activity-panel2" style="display:none;" class="dashboard-block class-creation-form-step2">
 
   <nav class="row form-activity-container" style="margin: 0 auto;">
