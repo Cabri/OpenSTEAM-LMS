@@ -106,6 +106,10 @@ const playersPanel = [
     {
         "type": "IFRAME",
         "img": "assets/media/logo_apps_cabri/other.svg",
+    },
+    {
+      "type": "IFRAME-CABRI3D",
+      "img": "assets/media/logo_apps_cabri/cabri3d.png"
     }
 ];
 let playersPanelHtml = "";
@@ -173,7 +177,7 @@ function createOtherActivity(type) {
 
     if(type==="EXPRESS" || type==='GENIUS')
         createCabriActivity(null, type, null)
-    else if(type === "STANDARD" || type === "IMUSCICA" || type === "IFRAME")
+    else if(type === "STANDARD" || type === "IMUSCICA" || type === "IFRAME" || type === "IFRAME-CABRI3D")
         createActivityPlayer(type)
     else
         createActivityIframe(type)
@@ -231,8 +235,11 @@ function createActivityPlayer(player) {
             navigatePanel('classroom-dashboard-activity-player', 'dashboard-activities-teacher')
             if(player === "IFRAME")
                 $("#activity-url-player-container").show();
-            else
-                $("#activity-url-player-container").hide();
+            else {
+              $("#activity-url-player-container").hide();
+              if(player==='IFRAME-CABRI3D')
+                $("#activity-url-player").val('https://gallery.cabri.com/player');
+            }
             //ClassroomSettings.title = title;
             ClassroomSettings.player = player;
         //}
@@ -278,7 +285,7 @@ function extractCabriPlayerData(type, button) {
     }
     ClassroomSettings.title = title.value;
 
-    if(type === 'IFRAME') {
+    if(type === 'IFRAME' || type === 'IFRAME-CABRI3D') {
       const playerURL = $('#activity-url-player').val();
       if(playerURL.length<1) {
         displayNotification('#notif-div', "classroom.notif.activityPlayerMissing", "error");
@@ -348,7 +355,7 @@ async function createCabriActivity(id, type, button) {
   if(cabriActivityType === 'STANDARD' || cabriActivityType === 'IMUSCICA'
     || cabriActivityType === 'EXPRESS' || cabriActivityType === 'GENIUS')
     createCabriLtiActivity(cabriActivityType, button);
-  else if(cabriActivityType==='IFRAME')
+  else if(cabriActivityType==='IFRAME' || cabriActivityType==='IFRAME-CABRI3D')
     createCabriIframeActivity(button);
 
 }
