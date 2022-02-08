@@ -382,13 +382,10 @@ async function createCabriLtiActivity(type, button) {
       break;
     case "EXPRESS":
     case "GENIUS":
-      //baseToolUrl = "https://lti1p3.cabricloud.com";
-      //askForTitle = true;
-      //deploymentId= 'opensteam-lms_cabri-express';
-      //disableIframe = true;
-      baseToolUrl = "https://vepsilon.vittascience.com/lti13";
-      //askForTitle = true;
-      deploymentId= 'opensteam-lms_vittasciences';
+      baseToolUrl = "https://lti1p3.cabricloud.com";
+      askForTitle = true;
+      deploymentId= 'opensteam-lms_cabri-express';
+      disableIframe = true;
       break;
 
   }
