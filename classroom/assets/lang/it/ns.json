@@ -280,6 +280,10 @@
               "GENIUS": {
                 "title": "Smart",
                 "description": "Crea un'attività con gli strumenti Express e aggiungi una valutazione automatica."
+              },
+              "IFRAME-CABRI3D": {
+                "title": "Cabri 3D",
+                "description": "Crea un'esplorazione dinamica della geometria dello spazio."
               }
             },
             "tabs": {
