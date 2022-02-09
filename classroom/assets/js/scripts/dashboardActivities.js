@@ -58,6 +58,7 @@ function activityItem(activity, state) {
         const dateBeforeText = activity.activity.type === 'IFRAME-PAGE'
         || activity.activity.type === 'IFRAME-VIDEO'
         || activity.activity.type === 'IFRAME'
+        || activity.activity.type === 'IFRAME-CABRI3D'
           ? i18next.t('classroom.activities.dateBeforeAvailable')
           : i18next.t('classroom.activities.dateBefore')
         html += `<span> ` + dateBeforeText + ` ${formatDay(activity.dateEnd)}</span>`
