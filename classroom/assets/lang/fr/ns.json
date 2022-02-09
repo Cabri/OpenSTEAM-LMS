@@ -279,6 +279,7 @@
       "comments": "Entrez ici vos remarques",
       "teacherComments": "Remarques de l'enseignant",
       "activitySubmited": "Activité de $1 rendue le $2",
+      "activitySubmited2": "Activité rendue le",
       "bilan": {
         "title": "Bilan",
         "results": "Résultats",
