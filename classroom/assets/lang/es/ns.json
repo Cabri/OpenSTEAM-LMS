@@ -233,8 +233,30 @@
                 "2": "Asignación",
                 "title": {
                     "label": "Título de la actividad",
-                    "placeholder": "Titulo del tema"
+                    "labelCabri": "¿Cuál es el título de la actividad?",
+                    "placeholder": "Titulo del tema",
+                    "placeholderCabri": "Título de la actividad"
                 },
+                "iframe": {
+                  "label": "¿Cuál es la URL de acceso?",
+                  "placeholder": "Introduzca una URL"
+                },
+                "notebookUpdateMessage": "No edite esta sección si desea conservar el antiguo libro de actividades.",
+                "notebookUrl": {
+                  "label": "Añadir la URL de un cuaderno ",
+                  "placeholder": "URL del cuaderno"
+                },
+                "playerUrl": {
+                  "label": "Añadir una URL de jugador",
+                  "placeholder": "URL del jugador"
+                },
+                "player": {
+                  "labelFileChooser": "Elija un archivo",
+                  "fileUpload": "El archivo se ha cargado correctamente",
+                  "dragDrop": "Arrastrar y soltar"
+                },
+                "nextButton": "Siguiente",
+                "endButton": "Acabado",
                 "content": {
                     "label": "Contenido de la actividad"
                 },

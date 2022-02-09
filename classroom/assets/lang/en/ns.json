@@ -287,8 +287,30 @@
 				"2": "Allocation",
 				"title": {
 					"label": "Title of the activity",
-					"placeholder": "Title of the game"
-				},
+          "labelCabri": "What is the title of the activity?",
+          "placeholder": "Title of the game",
+          "placeholderCabri": "Title of the activity"
+        },
+        "iframe": {
+          "label": "What is the access URL?",
+          "placeholder": "Enter a URL"
+        },
+        "notebookUpdateMessage": "Do not modify this section if you wish to keep the old activity book!",
+        "notebookUrl": {
+          "label": "Add a notebook URL",
+          "placeholder": "Notebook URL"
+        },
+        "playerUrl": {
+          "label": "Add a player URL",
+          "placeholder": "Player URL"
+        },
+        "player": {
+          "labelFileChooser": "Choose a file",
+          "fileUpload": "The file has been uploaded successfully",
+          "dragDrop": "Drag and drop"
+        },
+        "nextButton": "Next",
+        "endButton": "Finish",
 				"content": {
 					"label": "Content of the activity"
 				},

@@ -229,8 +229,30 @@
                 "2": "Assegnazione",
                 "title": {
                     "label": "Titolo dell'attività",
-                    "placeholder": "Titolo del gioco"
+                    "labelCabri": "Qual è il titolo dell'attività?",
+                    "placeholder": "Titolo del gioco",
+                    "placeholderCabri": "Titolo dell'attività"
                 },
+                "iframe": {
+                  "label": "Qual è l'URL di accesso?",
+                  "placeholder": "Inserisci un URL"
+                },
+                "notebookUpdateMessage": "Non modificare questa sezione se vuoi mantenere il vecchio libro delle attività!",
+                "notebookUrl": {
+                  "label": "Aggiungere l'URL di un notebook",
+                  "placeholder": "URL del taccuino"
+                },
+                "playerUrl": {
+                  "label": "Aggiungere un URL del giocatore",
+                  "placeholder": "URL del giocatore"
+                },
+                "player": {
+                  "labelFileChooser": "Scegliere un file",
+                  "fileUpload": "Il file è stato caricato con successo",
+                  "dragDrop": "Trascinare e rilasciare"
+                },
+                "nextButton": "Prossimo",
+                "endButton": "Finitura",
                 "content": {
                     "label": "Contenuto dell'attività"
                 },
