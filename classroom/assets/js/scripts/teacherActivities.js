@@ -356,7 +356,7 @@ async function createCabriActivity(id, type, button) {
     || cabriActivityType === 'EXPRESS' || cabriActivityType === 'GENIUS')
     createCabriLtiActivity(cabriActivityType, button);
   else if(cabriActivityType==='IFRAME' || cabriActivityType==='IFRAME-CABRI3D')
-    createCabriIframeActivity(button);
+    createCabriIframeActivity(cabriActivityType, button);
 
 }
 
@@ -436,7 +436,7 @@ async function createCabriLtiActivity(type, button) {
   $(button).attr('disabled', null); // enable button
 }
 
-async function createCabriIframeActivity(button) {
+async function createCabriIframeActivity(type, button) {
   /*if(ClassroomSettings.status !== 'edit') {
     const data = await Main.getClassroomManager().canAddActivity({type: 'other'});
     if(!data.canAdd) {
@@ -470,7 +470,7 @@ async function createCabriIframeActivity(button) {
         'title': ClassroomSettings.title,
         'content': `${ClassroomSettings.playerURL}?clmc=${activityURL}`,
         "isFromClassroom": true,
-        'type': 'IFRAME'
+        'type': type
       })
 
       $('.new-activity-iframe').attr('disabled', false)
@@ -643,17 +643,21 @@ function activityModify(id, type) {
         }
         else {
             //createOtherActivity(activityType);
-            if(activityType === 'STANDARD' || activityType === 'IMUSCICA' || activityType === 'IFRAME') {
+            if(activityType === 'STANDARD' || activityType === 'IMUSCICA' || activityType === 'IFRAME' || activityType === 'IFRAME-CABRI3D') {
               let notebookURL;
               $("#activity-form-title-others_player").val(activity.title);
 
-              if(activityType === 'IFRAME') {
+              if(activityType === 'IFRAME' || activityType === 'IFRAME-CABRI3D') {
                 const url = new URL(activity.content);
                 const playerURL = url.origin + url.pathname;
                 notebookURL = url.searchParams.get('clmc');
 
                 $("#activity-url-player").val(playerURL);
-                $("#activity-url-player-container").show();
+
+                if(activityType === 'IFRAME')
+                  $("#activity-url-player-container").show();
+                else
+                  $("#activity-url-player-container").hide();
               }
               else if(activityType === 'STANDARD' || activityType === 'IMUSCICA') {
                 notebookURL = activity.content;

@@ -295,8 +295,8 @@
           "placeholderCabri": "Titre de l'activité"
         },
         "iframe": {
-          "label": "Voulez-vous entrer un url ?",
-          "placeholder": "Entrer un URL"
+          "label": "Quelle est l'URL d'accès ?",
+          "placeholder": "Entrer une URL"
         },
         "notebookUpdateMessage": "Ne pas modifier cette section si vous souhaitez garder l'ancien cahier d'activité !",
         "notebookUrl": {
