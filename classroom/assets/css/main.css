@@ -2410,6 +2410,12 @@ i.line_height34 {
   background-size: cover !important;
 }
 
+.activity-card-cabri3d {
+  background: url("../media/cards/card-cabri3d.png") !important;
+  border-radius: 1.2em !important;
+  background-clip: content-box !important;
+  background-size: cover !important;
+}
 
 #activity-content {
   width: 100%;

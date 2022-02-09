@@ -11,6 +11,7 @@ const cssClassByActivityType = {
   'IFRAME': 'activity-card-other',
   'IFRAME-VIDEO': 'activity-card-iframe-video',
   'IFRAME-PAGE': 'activity-card-other',
+  'IFRAME-CABRI3D': 'activity-card-cabri3d',
 }
 
 function activityItem(activity, state) {
