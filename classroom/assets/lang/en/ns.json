@@ -277,6 +277,7 @@
 			"sendResults": "Send the comment to the learner ",
 			"noSend": "This activity has not been made",
 			"comments": "Enter your comments here",
+      "activitySubmited2": "Activity submitted on",
 			"bilan": {
 				"title": "Balance sheet",
 				"results": "Results",

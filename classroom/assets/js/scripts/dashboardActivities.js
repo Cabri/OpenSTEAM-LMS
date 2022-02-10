@@ -489,7 +489,7 @@ function loadActivity(isDoable) {
     activityDetails.html('')
     activityTitle.html('')
     activityContent.html('')
-    activityIntroduction.html('')
+    //activityIntroduction.html('')
     activityIntroduction.hide();
     let baseToolUrl, deploymentId;
         if (Activity.introduction != null && Activity.introduction !== "") {
@@ -507,11 +507,16 @@ function loadActivity(isDoable) {
             }
         } else {
             if (Activity.correction >= 1) {
-                activityDetails.html("Cette activité a été rendue le " + formatHour(Activity.dateSend))
+                activityDetails.html(i18next.t('classroom.activities.activitySubmited2') + " " + formatHour(Activity.dateSend))
             } else {
-                // do not show the message in case of cabri iframe activities (because we student has nothing to submit)
-                if(Activity.activity.type!=='IFRAME')
-                  activityDetails.html("Activité à rendre pour le " + formatDay(Activity.dateEnd))
+                const activitySubmitText = Activity.activity.type === 'IFRAME-PAGE'
+                || Activity.activity.type === 'IFRAME-VIDEO'
+                || Activity.activity.type === 'IFRAME'
+                || Activity.activity.type === 'IFRAME-CABRI3D'
+                  ? i18next.t('classroom.activities.dateBeforeAvailable')
+                  : i18next.t('classroom.activities.dateBefore')
+
+              activityDetails.html(activitySubmitText +" " +formatDay(Activity.dateEnd))
             }
         }
 
