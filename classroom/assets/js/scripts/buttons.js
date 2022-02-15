@@ -337,7 +337,7 @@ function anonymizeStudents() {
     let index = 1;
     if ($('#is-anonymised').is(':checked')) {
         $('.username').each(function (el) {
-            $('.username')[el].children[0].setAttribute('src', _PATH + 'assets/media/alphabet/A.png')
+            $('.username')[el].children[0].setAttribute('src', _PATH + 'assets/media/alphabet/A.png?version=1.1')
             $('.username')[el].children[0].setAttribute('alt', '')
             $('.username')[el].children[0].setAttribute('anonymized', 'true')
             $('.username')[el].children[1].innerHTML = "Elève n° " + index

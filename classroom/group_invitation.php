@@ -112,7 +112,7 @@ if (isset($_SESSION['id']) && ($page != "confirm" && $page != "success" && $page
 
 require_once(__DIR__ . "/header.html");
 ?>
-    <link rel="stylesheet" href="/classroom/assets/css/main.css">
+    <link rel="stylesheet" href="/classroom/assets/css/main.css?version=1.1">
     </head>
 
     <body>

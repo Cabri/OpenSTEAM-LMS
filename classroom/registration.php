@@ -49,9 +49,9 @@ if ($redirect != "") {
 
 require_once(__DIR__ . "/header.html");
 ?>
-<link rel="stylesheet" href="/classroom/assets/css/main.css">
-<script src="./assets/js/lib/rotate.js"></script>
-<link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css" />
+<link rel="stylesheet" href="/classroom/assets/css/main.css?version=1.1">
+<script src="./assets/js/lib/rotate.js?version=1.1"></script>
+<link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css?version=1.1" />
 </head>
 
 <body>

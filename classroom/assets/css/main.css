@@ -1,4 +1,4 @@
-@import url("./admin.css");
+@import url("./admin.css?version=1.1");
 
 /* FONTS */
 @font-face {
@@ -2376,49 +2376,49 @@ i.line_height34 {
 }
 
 .activity-card-lti-express {
-  background: url("../media/cards/card-express.png") !important;
+  background: url("../media/cards/card-express.png?version=1.1") !important;
   border-radius: 1.2em !important;
   background-clip: content-box !important;
   background-size: cover !important;
 }
 
 .activity-card-lti-genius {
-  background: url("../media/cards/card-smart.png") !important;
+  background: url("../media/cards/card-smart.png?version=1.1") !important;
   border-radius: 1.2em !important;
   background-clip: content-box !important;
   background-size: cover !important;
 }
 
 .activity-card-iframe-video {
-  background: url("../media/cards/card-video.png") !important;
+  background: url("../media/cards/card-video.png?version=1.1") !important;
   border-radius: 1.2em !important;
   background-clip: content-box !important;
   background-size: cover !important;
 }
 
 .activity-card-imuscica {
-  background: url("../media/cards/card-imuscica.png") !important;
+  background: url("../media/cards/card-imuscica.png?version=1.1") !important;
   border-radius: 1.2em !important;
   background-clip: content-box !important;
   background-size: cover !important;
 }
 
 .activity-card-other {
-  background: url("../media/cards/card-other.png") !important;
+  background: url("../media/cards/card-other.png?version=1.1") !important;
   border-radius: 1.2em !important;
   background-clip: content-box !important;
   background-size: cover !important;
 }
 
 .activity-card-cabri3d {
-  background: url("../media/cards/card-cabri3d.png") !important;
+  background: url("../media/cards/card-cabri3d.png?version=1.1") !important;
   border-radius: 1.2em !important;
   background-clip: content-box !important;
   background-size: cover !important;
 }
 
 .activity-card-lti-blockly {
-  background: url("../media/cards/card-blockly.png") !important;
+  background: url("../media/cards/card-blockly.png?version=1.1") !important;
   border-radius: 1.2em !important;
   background-clip: content-box !important;
   background-size: cover !important;
