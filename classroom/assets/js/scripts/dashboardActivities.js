@@ -6,6 +6,7 @@ $(document).ready(function () {
 const cssClassByActivityType = {
   'EXPRESS': 'activity-card-lti-express',
   'GENIUS': 'activity-card-lti-genius',
+  'LTI-BLOCKLY': 'activity-card-lti-blockly',
   'IMUSCICA': 'activity-card-imuscica',
   'STANDARD': 'activity-card-other',
   'IFRAME': 'activity-card-other',
@@ -114,9 +115,12 @@ function teacherActivityItem(activity) {
                     <div class="dropdown-menu" aria-labelledby="dropdown-activityItem-${activity.id}" data-id="${activity.id}">
                 <li class="classroom-clickable col-12 dropdown-item" href="#" onclick="attributeActivity(${activity.id})" style="border-bottom:2px solid rgba(0,0,0,.15">` + capitalizeFirstLetter(i18next.t('words.attribute')) + `</li>
 
-                <li style="display: ${activity.type==='GENIUS' || activity.type==='EXPRESS' ? 'none' : 'none'}" class="dropdown-item classroom-clickable col-12" href="#" onclick="createActivity(null,${activity.id})">` + capitalizeFirstLetter(i18next.t('words.duplicate')) + `</li>
+                <li style="display: none;"
+                 class="dropdown-item classroom-clickable col-12" href="#" onclick="createActivity(null,${activity.id})">` + capitalizeFirstLetter(i18next.t('words.duplicate')) + `</li>
 
-                <li class=" classroom-clickable col-12 dropdown-item" onclick="activityModify(${activity.id}, '${activity.type}')" href="#">` + capitalizeFirstLetter(i18next.t('words.modify')) + `</li>
+                <li
+                style="display: ${activity.type === 'LTI-BLOCKLY' ? 'none': 'default'}"
+                class=" classroom-clickable col-12 dropdown-item" onclick="activityModify(${activity.id}, '${activity.type}')" href="#">` + capitalizeFirstLetter(i18next.t('words.modify')) + `</li>
                 <li class="dropdown-item modal-activity-delete classroom-clickable col-12" href="#">` + capitalizeFirstLetter(i18next.t('words.delete')) + `</li>
               </div>
               </div>
@@ -243,7 +247,7 @@ $('body').on('click', '#filter-activity', function () {
     }
     else if(filterValue === 'typeIframe') {
       teacherActivitiesDisplay(filterTeacherActivityInListByType(arrayKeywords,
-        ['IFRAME-PAGE', 'IFRAME-VIDEO', 'STANDARD', 'IMUSCICA', 'IFRAME']));
+        ['IFRAME-PAGE', 'IFRAME-VIDEO', 'STANDARD', 'IMUSCICA', 'IFRAME', 'LTI-BLOCKLY']));
     }
 })
 
@@ -266,7 +270,7 @@ $('body').on('change', '#filter-activity-select', function () {
     }
     else if(filterValue === 'typeIframe') {
       teacherActivitiesDisplay(filterTeacherActivityInListByType(arrayKeywords,
-        ['IFRAME-PAGE','IFRAME-VIDEO', 'STANDARD', 'IMUSCICA', 'IFRAME']));
+        ['IFRAME-PAGE', 'IFRAME-VIDEO', 'STANDARD', 'IMUSCICA', 'IFRAME', 'LTI-BLOCKLY']));
     }
 })
 
@@ -289,7 +293,7 @@ $(document).on('keyup', function (e) {
           teacherActivitiesDisplay(filterTeacherActivityInListByType(arrayKeywords, ['EXPRESS']));
         }
         else if(filterValue === 'typeIframe') {
-          teacherActivitiesDisplay(filterTeacherActivityInListByType(arrayKeywords,['IFRAME-PAGE', 'IFRAME-VIDEO', 'STANDARD', 'IMUSCICA', 'IFRAME']));
+          teacherActivitiesDisplay(filterTeacherActivityInListByType(arrayKeywords,['IFRAME-PAGE', 'IFRAME-VIDEO', 'STANDARD', 'IMUSCICA', 'IFRAME', 'LTI-BLOCKLY']));
         }
     }
 });
@@ -583,6 +587,7 @@ function loadActivity(isDoable) {
           break;
         case "EXPRESS":
         case "GENIUS":
+        case "LTI-BLOCKLY":
           baseToolUrl = "https://lti1p3.cabricloud.com";
           deploymentId = 'opensteam-lms_cabri-express';
           break;
@@ -592,7 +597,7 @@ function loadActivity(isDoable) {
         //let activityType = Activity.activity.type ? Activity.activity.type.toLowerCase() : Activity.activity.type;
         const activityType = Activity.activity.type;
         // Review student submission by teacher (and by student)
-        if(activityType === "EXPRESS" || activityType === "GENIUS"
+        if(activityType === "EXPRESS" || activityType === "GENIUS" || activityType === "LTI-BLOCKLY"
           || activityType === "STANDARD" || activityType === "IMUSCICA") {  // TODO replace with "if content is LTI"
             if (!isDoable && Activity.correction > 0) {
                 if (activityType === "IMUSCICA")

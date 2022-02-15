@@ -368,6 +368,10 @@
         "IFRAME-CABRI3D": {
           "title": "Cabri 3D",
           "description": "Create a dynamic space geometry exploration."
+        },
+        "LTI-BLOCKLY": {
+          "title": "Cabri Blockly",
+          "description": "Add user actions to a Cabri activity, such as animations, locks,... visually programmed in the same spirit as with Scratch or Snap !"
         }
       },
       "tabs": {
