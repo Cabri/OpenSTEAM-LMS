@@ -397,9 +397,12 @@ function getTeacherActivity() {
     // TODO create apps in db with (name, url, ...)
     //let activityType = Activity.type.toLowerCase();
     let activityType = Activity.type;
-    if(activityType === "EXPRESS" || activityType === "GENIUS")
-      activityContent.html('<iframe style="width: 100%; height: 100%;" allowfullscreen="true" frameborder="0" src="https://cabricloud.com/ed/opensteam/express?isMobile&calculator=false&clmc=' + Activity.content + '" allowfullscreen></iframe>');
-    else if (activityType === "IMUSCICA")
+    if(activityType === "EXPRESS" || activityType === "GENIUS" || activityType === "LTI-BLOCKLY") {
+      let iframeURL = `https://cabricloud.com/ed/opensteam/express?isMobile&calculator=false&clmc=${Activity.content}`;
+      if(activityType === "LTI-BLOCKLY")
+        iframeURL += '&blockly';
+      activityContent.html(`<iframe style="width: 100%; height: 100%;" allowfullscreen="true" frameborder="0" src="${iframeURL}" allowfullscreen></iframe>`);
+    } else if (activityType === "IMUSCICA")
       activityContent.html('<iframe style="width: 100%; height: 100%;" allowfullscreen="true" frameborder="0" src="https://workbench-imuscica.cabricloud.com/?lesson=' + Activity.content + '" allowfullscreen></iframe>')
     else if (activityType === "STANDARD")
       activityContent.html('<iframe style="width: 100%; height: 100%;" allowfullscreen="true" frameborder="0" src="https://cabricloud.com/ed/opensteam/player?isMobile&calculator=false&clmc=' + Activity.content + '" allowfullscreen></iframe>');

@@ -96,6 +96,10 @@ const playersPanel = [
       "img": "assets/media/logo_apps_cabri/express.svg",
     },
     {
+      "type": "LTI-BLOCKLY",
+      "img": "assets/media/logo_apps_cabri/blockly.png",
+    },
+    {
         "type": "STANDARD",
         "img": "assets/media/logo_apps_cabri/standard.svg",
     },
@@ -175,7 +179,7 @@ function createOtherActivity(type) {
     /*if(type)
         type = type.toUpperCase();*/
 
-    if(type==="EXPRESS" || type==='GENIUS')
+    if(type==="EXPRESS" || type==="GENIUS" || type==='LTI-BLOCKLY')
         createCabriActivity(null, type, null)
     else if(type === "STANDARD" || type === "IMUSCICA" || type === "IFRAME" || type === "IFRAME-CABRI3D")
         createActivityPlayer(type)
@@ -353,7 +357,7 @@ async function createCabriActivity(id, type, button) {
     $('#activity-lti-form-title').val('')
 
   if(cabriActivityType === 'STANDARD' || cabriActivityType === 'IMUSCICA'
-    || cabriActivityType === 'EXPRESS' || cabriActivityType === 'GENIUS')
+    || cabriActivityType === 'EXPRESS' || cabriActivityType === 'GENIUS'|| cabriActivityType === 'LTI-BLOCKLY')
     createCabriLtiActivity(cabriActivityType, button);
   else if(cabriActivityType==='IFRAME' || cabriActivityType==='IFRAME-CABRI3D')
     createCabriIframeActivity(cabriActivityType, button);
@@ -382,6 +386,7 @@ async function createCabriLtiActivity(type, button) {
       break;
     case "EXPRESS":
     case "GENIUS":
+    case "LTI-BLOCKLY":
       baseToolUrl = "https://lti1p3.cabricloud.com";
       askForTitle = true;
       deploymentId= 'opensteam-lms_cabri-express';
@@ -578,7 +583,7 @@ function activityModify(id, type) {
           $('.wysibb-text-editor').html(activity.content)
           navigatePanel('classroom-dashboard-new-activity-panel', 'dashboard-activities-teacher')
         }
-        else if (activityType === "EXPRESS" || activityType === "GENIUS") {
+        else if (activityType === "EXPRESS" || activityType === "GENIUS" || activityType === "LTI-BLOCKLY") {
           // Cabri Activity
           $('#activity-lti-form-title').val(activity.title)
           navigatePanel('classroom-dashboard-new-lti-activity-panel', 'dashboard-activities-teacher')
@@ -605,6 +610,7 @@ function activityModify(id, type) {
               break;
             case "EXPRESS":
             case "GENIUS":
+            case "LTI-BLOCKLY":
               baseToolUrl = "https://lti1p3.cabricloud.com";
               deploymentId = "opensteam-lms_cabri-express";
               isNeedTitle = true;
