@@ -89,31 +89,31 @@ function onClickTabActivity(element) {
 const playersPanel = [
     {
       "type": "GENIUS",
-      "img": "assets/media/logo_apps_cabri/smart.svg",
+      "img": "assets/media/logo_apps_cabri/smart.svg?version=1.1",
     },
     {
       "type": "EXPRESS",
-      "img": "assets/media/logo_apps_cabri/express.svg",
+      "img": "assets/media/logo_apps_cabri/express.svg?version=1.1",
     },
     {
       "type": "LTI-BLOCKLY",
-      "img": "assets/media/logo_apps_cabri/blockly.png",
+      "img": "assets/media/logo_apps_cabri/blockly.png?version=1.1",
     },
     {
         "type": "STANDARD",
-        "img": "assets/media/logo_apps_cabri/standard.svg",
+        "img": "assets/media/logo_apps_cabri/standard.svg?version=1.1",
     },
     {
         "type": "IMUSCICA",
-        "img": "assets/media/logo_apps_cabri/imuscica.svg",
+        "img": "assets/media/logo_apps_cabri/imuscica.svg?version=1.1",
     },
     {
         "type": "IFRAME",
-        "img": "assets/media/logo_apps_cabri/other.svg",
+        "img": "assets/media/logo_apps_cabri/other.svg?version=1.1",
     },
     {
       "type": "IFRAME-CABRI3D",
-      "img": "assets/media/logo_apps_cabri/cabri3d.png"
+      "img": "assets/media/logo_apps_cabri/cabri3d.png?version=1.1"
     }
 ];
 let playersPanelHtml = "";
@@ -136,11 +136,11 @@ document.getElementById('player-panel').innerHTML = playersPanelHtml;
 const iframesPanel = [
     {
         "type": "IFRAME-VIDEO",
-        "img": "assets/media/logo_apps_cabri/video.svg",
+        "img": "assets/media/logo_apps_cabri/video.svg?version=1.1",
     },
     {
         "type": "IFRAME-PAGE",
-        "img": "assets/media/logo_apps_cabri/web.svg",
+        "img": "assets/media/logo_apps_cabri/web.svg?version=1.1",
     }
 ];
 

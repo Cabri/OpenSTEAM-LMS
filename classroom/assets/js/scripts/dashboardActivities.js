@@ -219,7 +219,7 @@ function classeList(classe, ref = null) {
         }
 
         html += '<label class="ml-3 student-attribute-form-row"><input type="checkbox" value="' + student.user.id + '" class="student-id" ' + checked + ' >'
-        html += `<img src="${_PATH}assets/media/alphabet/${student.user.pseudo.slice(0, 1).toUpperCase()}.png" alt="Photo de profil"></img>`
+        html += `<img src="${_PATH}assets/media/alphabet/${student.user.pseudo.slice(0, 1).toUpperCase()}.png?version=1.1" alt="Photo de profil"></img>`
         html += student.user.pseudo + '</label>'
     });
     html += `</div></div>`

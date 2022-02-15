@@ -276,7 +276,7 @@ wbbdebug = false;
 				},
 				cabriiframe: {
 					title: CURLANG.cabriiframe,
-					buttonHTML: '<span class="btn-inner btn-span-cabri"><img class="btn-cabri" src="/classroom/assets/media/cabri_logo.png"></span>',
+					buttonHTML: '<span class="btn-inner btn-span-cabri"><img class="btn-cabri" src="/classroom/assets/media/cabri_logo.png?version=1.1"></span>',
 					hotkey: '',
 					modal: {
 						title: CURLANG.modal_cabri_title,
