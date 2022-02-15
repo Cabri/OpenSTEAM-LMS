@@ -4,8 +4,8 @@
       "noClass": "Le code entré ne correspond à aucune classe.",
       "countdown1": "Le module de gestion de classe est actuellement en version bêta. Si vous souhaitez l’essayer, veuillez <a href=\"/about?contact=1\">contacter l’équipe Vittascience</a>.",
       "countdown2": "Sortie officielle dans",
-      "hello1": "'Bonjour!'",
-      "hello2": "Bonjour!",
+      "hello1": "'Bonjour !'",
+      "hello2": "Bonjour !",
       "title": "Gérez vos classes</br>avec Vittascience",
       "neutralTitle": "OpenSTEAM LMS",
       "cabriTitle": "Cabri.com",
@@ -14,7 +14,7 @@
       "login": "Se connecter",
       "activities": "créez facilement </br> vos activités",
       "cabriActivities": "Créez des exercices</br> automatiquement en</br> quelques minutes",
-      "attribute": "attribuez les </br> à vos apprenants",
+      "attribute": "attribuez-les </br> à vos apprenants",
       "cabriProgress": "Suivez les progrès </br> de vos élèves",
       "visualize": "visualisez </br> leurs résultats",
       "cabriRessources": "Accédez à une </br> banque d'activités <br> variées et partagez <br> vos créations",
@@ -22,7 +22,7 @@
       "codeInput": " Rentrez ici votre code classe",
       "teacher": "ENSEIGNANT",
       "hasAccount": "Vous avez déja un compte ?",
-      "gar": "Profitez du module classe en toute simplicité à l'aide du GAR.</br><i class=\"fas fa-exclamation-triangle\" style=\"color:var(--vitta-orange-light)\"></i> Le raccordement au GAR n’est pas encore finalisé, il sera prêt prochainement.",
+      "gar": "Profitez de la plateforme Cabri en toute simplicité à l'aide du GAR.</br><i class=\"fas fa-exclamation-triangle\" style=\"color:var(--vitta-orange-light)\"></i> Le raccordement au GAR n’est pas encore finalisé, il sera prêt prochainement.",
       "signup": "S'INSCRIRE",
       "firstVisit": "Première viste ? Veuillez choisir un identifiant.",
       "signin": "SE CONNECTER",
@@ -44,7 +44,7 @@
           "content": "L'éditeur d'activité permet de créer du contenu pédagogique en toute simplicité, en incluant du texte, des images, des vidéos, des interfaces de programmation Vittascience, des présentations Genially et bien d'autres outils.</br></br>Parcourez la banque de ressources collaboratives Vittascience, qui regroupe plusieurs centaines d'activités libres et réutilisables. Si l'auteur de la ressourcel'autorise, vous pouvez même apporter des modifications pour adapter le contenu à vos apprenants !"
         },
         "attribute": {
-          "title": "attribuez les à vos apprenants",
+          "title": "attribuez-les à vos apprenants",
           "content": "Une fois vos activités créées, vous pouvez les attribuer à vos apprenants. Il est possible d'attribuer individuellement ou bien à des groupes entiers, par exemple une classe ou un club scientifique.</br></br>Les apprenants peuvent se connecter en toute sécurité à l'aide d'un code classe, d'un lien, d'un QRcode ou du GAR, et réaliser les activités qui leurs ont été attribuées."
         },
         "visualize": {
@@ -63,14 +63,14 @@
       "accountConfirmationEmail": {
         "emailSubject": "Activer mon compte",
         "bodyTitle": "Activer mon compte",
-        "textBeforeLink": "Si le bouton ci-dessus ne fonctionne pas, copiez et collez dans votre navigateur, le lien suivant :"
+        "textBeforeLink": "Si le bouton ci-dessus ne fonctionne pas, copiez et collez le lien suivant dans votre navigateur :"
       }
     },
     "updateUserInfos": {
       "emailUpdateConfirmation": {
-        "emailSubject": "Confirmez ma nouvelle adresse email",
-        "bodyTitle": "Confirmez ma nouvelle adresse email",
-        "textBeforeLink": "Si le bouton ci-dessus ne fonctionne pas, copiez et collez dans votre navigateur, le lien suivant :"
+        "emailSubject": "Confirmez ma nouvelle adresse e-mail",
+        "bodyTitle": "Confirmez ma nouvelle adresse e-mail",
+        "textBeforeLink": "Si le bouton ci-dessus ne fonctionne pas, copiez et collez le lien suivant dans votre navigateur :"
       }
     },
     "successPanel": "Bravo, tu as réussi cette activité !",
@@ -113,15 +113,15 @@
       "shareProjectTeacher": "Le projet a été partagé avec votre enseignant",
       "addActivities": "Les activités sélectionnées ont été ajoutées à votre liste",
       "addActivity": "L'activité a été ajoutée à votre liste",
-      "saveProject": "Avez vous pensé à sauver votre activité?",
+      "saveProject": "Avez-vous pensé à sauver votre activité ?",
       "savedProject": "Le brouillon de votre activité a été sauvé.",
       "deleteProject": "Le projet a été supprimé.",
       "shareProject": "Le projet a été partagé",
       "corrections": "Un exercice a été rendu dans vos classes",
-      "deleteAccount": "Etes vous sur de vouloir supprimer le compte de l'apprenant?",
-      "accountIsDelete": "Le compte de l'apprenant  a été supprimé",
+      "deleteAccount": "Etes vous sûr de vouloir supprimer le compte de l'apprenant ?",
+      "accountIsDelete": "Le compte de l'apprenant a été supprimé",
       "newPwd": "Le nouveau mot de passe de l'apprenant {{pseudo}} est {{pwd}}",
-      "classCreatedButNotUsers": "La classe {{classroomName}} a bien été crée, mais pas les comptes associés (Votre compte ne vous permet pas d'avoir {{learnerNumber}} apprenants)",
+      "classCreatedButNotUsers": "La classe {{classroomName}} a bien été créée, mais pas les comptes associés (Votre compte ne vous permet pas d'avoir {{learnerNumber}} apprenants)",
       "classUpdatedButNotUsers": "La classe {{classroomName}} a bien été mise à jour, mais pas les comptes associés (Votre compte ne vous permet pas d'avoir {{learnerNumber}} apprenants)",
       "usersNotAdded": "L'apprenant n'a pas pu être ajouté (Votre compte ne vous permet pas d'avoir {{learnerNumber}} apprenants)",
       "cantLoginLimitLearners": "Vous ne pouvez pas rejoindre la classe. Votre professeur a atteint son nombre maximum d'apprenants.",
@@ -279,7 +279,6 @@
       "comments": "Entrez ici vos remarques",
       "teacherComments": "Remarques de l'enseignant",
       "activitySubmited": "Activité de $1 rendue le $2",
-      "activitySubmited2": "Activité rendue le",
       "bilan": {
         "title": "Bilan",
         "results": "Résultats",
@@ -332,7 +331,7 @@
         "nature": "L’élève peut-il soumettre plusieurs fois l’activité ?",
         "dateBegin": "Date de début :",
         "dateEnd": "Date de fin :",
-				"retroAttribution" : "Cette activité sera attribuée aux nouveaux apprenants"
+		"retroAttribution" : "Cette activité sera attribuée aux nouveaux apprenants"
       },
       "toCopy": "Ce code permet de rejoindre en toute simplicité votre classe",
       "copyLink": "Le lien vers votre classe a été ajouté au presse-papier",
@@ -348,15 +347,15 @@
       "players": {
         "STANDARD": {
           "title": "Standard",
-          "description": "Le lecteur standard vous permettra de lire en ligne tous les cahiers d’activités réalisés grâce à l’outil auteur Cabri."
+          "description": "Utiliser le lecteur standard permet de lire en ligne tous les cahiers d’activités réalisés grâce à l’outil auteur Cabri."
         },
         "IMUSCICA": {
           "title": "iMuSciCA",
-          "description": "Le lecteur iMuSciCA permet de lire dans le studio musical toutes les activités réalisées grâce à l’outil auteur Cabri."
+          "description": "Utiliser le lecteur iMuSciCA permet de lire dans le studio musical toutes les activités réalisées grâce à l’outil auteur Cabri."
         },
         "IFRAME": {
           "title": "Autre",
-          "description": "Choisissez parmi une sélection de lecteurs pour utiliser vos activités réalisées avec l’outil auteur Cabri."
+          "description": "Choisir parmi une sélection de lecteurs pour utiliser les activités réalisées avec l’outil auteur Cabri."
         },
         "EXPRESS": {
           "title": "Express",
@@ -369,10 +368,6 @@
         "IFRAME-CABRI3D": {
           "title": "Cabri 3D",
           "description": "Créer une exploration de géométrie dynamique dans l'espace."
-        },
-        "LTI-BLOCKLY": {
-          "title": "Cabri Blockly",
-          "description": "Ajouter à une activité Cabri des actions utilisateurs, comme des animations, des verrouillages,...programmées visuellement dans le même esprit qu'avec Scratch ou Snap!"
         }
       },
       "tabs": {
@@ -382,11 +377,11 @@
       "iframes": {
         "IFRAME-VIDEO": {
           "title": "Vidéo",
-          "description": "Entrez l’URL d’une vidéo publiée sur une plateforme d'hébergement."
+          "description": "Entrer l’URL d’une vidéo publiée sur une plateforme d'hébergement."
         },
         "IFRAME-PAGE": {
           "title": "Page internet",
-          "description": "Entrez l’URL de la page internet."
+          "description": "Entrer l’URL de la page internet."
         }
       },
       "displayActivity": "Voir l'activité",
@@ -409,7 +404,7 @@
       "add": "Créer un programme",
       "chooseInterface": "Sélectionnez l'interface sur laquelle vous souhaitez créer un programme : ",
       "teacherSharedDescription": "Retrouvez ici les programmes partagés par vos élèves.",
-      "studentSharedDescription": "Retrouvez ici les programmes partagés par votre enseignant"
+      "studentSharedDescription": "Retrouvez ici les programmes partagés par votre enseignant."
     },
     "footer": {
       "privacy": "Politique de confidentialité ",
@@ -421,7 +416,7 @@
       "contactForm": {
         "title": "Nous contacter",
         "objectPlaceholder": "Objet",
-        "messagePlaceholder": "Écrivez votre message ici. (Maximum 800 caractères)",
+        "messagePlaceholder": "Écrivez votre message ici (maximum 800 caractères).",
         "sendButton": "Envoyer le message",
         "fillInAllTheFields": "Complétez tous les champs"
       }
@@ -433,7 +428,7 @@
         "arduino": "Interface de programmation pour la carte Arduino",
         "microbit": "Interface de programmation pour la carte Micro:bit",
         "python": "Interface de programmation pour Python 3 pensée pour l’éducation",
-        "texas-instruments": "Interface de programmation pour la calculatrice avec la carte micro:bit",
+        "texas-instruments": "Interface de programmation pour la calculatrice avec la carte Micro:bit",
         "esp32": "Interface de programmation pour les cartes ESP32 (Wemos D1R32, NodeMCU, Huzzah32, …)",
         "quickpi": "Interface de programmation pour la carte Quick-Pi"
       }
@@ -457,7 +452,7 @@
         },
         "next": "Suivant",
         "limitTitle": "Limite dépassée",
-        "limitDescription": "Limite du nombre d'activités, atteinte pour ce compte.",
+        "limitDescription": "Limite du nombre d'activités atteinte pour ce compte.",
         "upgradePlan": "Augmenter la limite"
       },
       "updateActivity": {
@@ -465,15 +460,15 @@
       },
       "deleteActivity": {
         "title": "Supprimer une activité",
-        "description": "Êtes-vous sur de vouloir supprimer l'activité ?",
+        "description": "Êtes-vous sûr de vouloir supprimer l'activité ?",
         "confirm": "Confirmer",
         "cancel": "Annuler"
       },
       "settingsTeacher": {
         "title": "Paramètres du compte",
         "lang": "Langue",
-        "description": "Pour modifier votre mot de passe ou d'autres paramètres de votre compte",
-        "accessButton": "Accéder à votre profil",
+        "description": "Pour modifier son mot de passe ou d'autres paramètres de son compte",
+        "accessButton": "Accéder à son profil",
         "password": "Mot de passe",
         "passwordDescription": "Voici ton mot de passe. Pense à le mémoriser, autrement seul ton professeur pourra te le redonner.",
         "resetPassword": "Réinitialiser"
@@ -495,12 +490,12 @@
         "title": "Exporter au format csv",
         "exportLearnersDescription": "Télécharcher la liste des apprenants pour cette classe ainsi que leur mot de passe. Le fichier téléchargé est au format .csv.",
         "exportLearners": "Télécharger la liste des apprenants",
-        "exportDashboardDescription": "Télécharger la liste des apprenants pour cette classe ainsi que, pour chacun d'entre eux, leur activités attribuées ainsi que l'état de chaque activité (pas encore réalisée, à corriger, complétée). Le fichier téléchargé est au format .csv.",
+        "exportDashboardDescription": "Télécharger la liste des apprenants pour cette classe ainsi que, pour chacun d'entre eux, leurs activités attribuées ainsi que l'état de chaque activité (pas encore réalisée, à corriger, complétée). Le fichier téléchargé est au format .csv.",
         "exportDashboard": "Télécharger le tableau de bord"
       },
       "listClass": {
         "title": "Passer en mode apprenant",
-        "description": "Vous pouvez tester en toute simplicité l'interface en tant qu'apprenant, et revenir à tout moment à votre profil d'enseignant. La progression en tant qu'apprenant sera sauvegardée sur le compte \"{{demoStudent}}\".",
+        "description": "Vous pouvez tester en toute simplicité l'interface en tant qu'apprenant et revenir à tout moment à votre profil d'enseignant. La progression en tant qu'apprenant sera sauvegardée sur le compte \"{{demoStudent}}\".",
         "switchButton": "Passer en mode apprenant"
       },
       "changePseudo": {
@@ -518,32 +513,32 @@
       "section_title": "Questions générales",
       "question_list": {
         "1": {
-          "title": "Qu’est-ce que le module Classe ?",
-          "answer": "Le module Classe facilite l'attribution de contenus pédagogiques et le suivi des apprenants. Les enseignants peuvent utiliser les contenus de la communauté, ou bien créer leurs propres activités et les partager."
+          "title": "Qu’est-ce que la plateforme Cabri ?",
+          "answer": "La plateforme Cabri facilite l'attribution de contenus pédagogiques et le suivi des apprenants. Les enseignants peuvent utiliser les contenus de la communauté ou créer leurs propres activités et les partager."
         },
         "2": {
-          "title": "Qui utilise le module Classe ?",
-          "answer": "En cours comme à la maison ou en atelier périscolaire, le module classe est utilisé par des enseignants (professeurs, animateurs, formateurs, etc.) et leurs apprenants (élèves, étudiants, apprentis, etc.). Le module Classe a été pensé pour le niveau secondaire (~10 à 18 ans), mais peut s'adapter à d'autres contextes."
+          "title": "Qui utilise la plateforme Cabri ?",
+          "answer": "En cours comme à la maison ou en atelier périscolaire, la plateforme Cabri est utilisée par des enseignants (professeurs, animateurs, formateurs, etc.) et leurs apprenants (élèves, étudiants, apprentis, etc.). La plateforme Cabri a été pensée pour le niveau secondaire (~10 à 18 ans), mais elle peut s'adapter à d'autres contextes."
         },
         "3": {
-          "title": "Quelle est la nature du soutien du Ministère de l'Éducation Nationale ?",
+          "title": "Quelle est la nature du soutien du ministère de l'Éducation nationale ?",
           "answer": "Vittascience est lauréate du dispositif Édu-up de soutien à la production de ressources numériques innovantes. Plus de détails sont disponibles sur <a href=\"/eduUp\">la page dédiée à Édu-up</a>."
         },
         "4": {
-          "title": "Sur quels supports peut-on utiliser le module Classe ?",
-          "answer": "Le module classe fonctionne sur ordinateurs, tablettes et smartphones avec la plupart des navigateurs et une connexion internet."
+          "title": "Sur quels supports peut-on utiliser la plateforme Cabri ?",
+          "answer": "La plateforme Cabri fonctionne sur ordinateurs, tablettes et smartphones avec la plupart des navigateurs et une connexion internet."
         },
         "5": {
           "title": "Peut-on demander une démonstration ?",
-          "answer": "Nous organisons régulièrement des webinaires de présentation du module Classe, vous pouvez vous abonner à <a href=\"https://www.youtube.com/Vittascience\">la chaîne Youtube de Vittascience</a> pour visionner les replay et voir les prochains webinaires prévus. Pour réserver une démonstration en visioconférence avec l’un de nos délégués pédagogiques, <a href=\"/about?contact=1\">contactez-nous via ce formulaire</a>."
+          "answer": "Nous organisons régulièrement des webinaires de présentation de la plateforme Cabri, vous pouvez vous abonner à <a href=\"https://www.youtube.com/Vittascience\">la chaîne Youtube de Vittascience</a> pour visionner les replay et voir les prochains webinaires prévus. Pour réserver une démonstration en visioconférence avec l’un de nos délégués pédagogiques, <a href=\"/about?contact=1\">contactez-nous via ce formulaire</a>."
         },
         "6": {
-          "title": "Comment signaler des bugs et faire part de mes commentaires sur le module Classe ?",
-          "answer": "Vous pouvez nous contacter sur le module Classe dans l’onglet profil avec le bouton \"Aide\"."
+          "title": "Comment signaler des bugs et faire part de commentaires sur la plateforme Cabri ?",
+          "answer": "Vous pouvez nous contacter sur la plateforme Cabri dans l’onglet Profil avec le bouton \"Aide\"."
         },
         "7": {
-          "title": "Est-ce que le module Classe est disponible en plusieurs langues ?",
-          "answer": "Oui, le module Classe est actuellement disponible en français et en anglais. Pour changer de langue, allez dans l'onglet profil, cliquez sur le bouton Paramètres, puis sélectionnez la langue qui vous convient."
+          "title": "Est-ce que la plateforme Cabri est disponible en plusieurs langues ?",
+          "answer": "Oui, la plateforme Cabri est actuellement disponible en français et en anglais. Pour changer de langue, allez dans l'onglet Profil, cliquez sur le bouton Paramètres, puis sélectionnez la langue qui vous convient."
         }
       }
     },
@@ -552,36 +547,36 @@
         "section_title": "Licences et autorisations",
         "question_list": {
           "1": {
-            "title": "Peut-on faire une description ou présentation du module Classe ?",
-            "answer": "Oui, vous pouvez réutiliser les visuels pour module Classe pour créer une description, présentation, formation, tutoriel, cours ou autre. Si vous souhaitez inclure des images ou contenus d'activités, veuillez mentionner l'auteur (voir question suivante)."
+            "title": "Peut-on faire une description ou présentation de la plateforme Cabri ?",
+            "answer": "Oui, vous pouvez réutiliser les visuels pour plateforme Cabri pour créer une description, présentation, formation, tutoriel, cours ou autres. Si vous souhaitez inclure des images ou contenus d'activités, veuillez mentionner l'auteur (voir question suivante)."
           },
           "2": {
             "title": "Peut-on réutiliser les activités de la communauté Vittascience ?",
-            "answer": "Oui, toutes les activités visibles dans la banque de ressources Vittascience sont sous licence Creative Commons. Deux cas sont possibles :<ul><li>CC BY-NC-SA : l'auteur souhaite que le contenu soit partagé dans un usage non-commercial uniquement et à condition de mentionner son nom. Le contenu peut être modifié.</li><li>CC BY-NC-ND : l'auteur souhaite que le contenu soit partagé dans un usage non-commercial uniquement et à condition de mentionner son nom. Le contenu ne peut pas être modifié.</li></ul>"
+            "answer": "Oui, toutes les activités visibles dans la banque de ressources Vittascience sont sous licence Creative Commons. Deux cas sont possibles :<ul><li>CC BY-NC-SA : l'auteur souhaite que le contenu soit partagé dans un usage non commercial uniquement et à condition de mentionner son nom. Le contenu peut être modifié.</li><li>CC BY-NC-ND : l'auteur souhaite que le contenu soit partagé dans un usage non commercial uniquement et à condition de mentionner son nom. Le contenu ne peut pas être modifié.</li></ul>"
           },
           "3": {
-            "title": "Où peut-on trouver le code source du module Classe ?",
-            "answer": "Le code source du module Classe n'est pas disponible pour le moment. Vous pouvez retrouver de nombreux modules open-source de la plateforme Vittascience sur <a href=\"https://github.com/vittascience\">le dossier GitHub de Vittascience</a>, n'hésitez pas à contribuer !"
+            "title": "Où peut-on trouver le code source de la plateforme Cabri ?",
+            "answer": "Le code source de la plateforme Cabri n'est pas disponible pour le moment. Vous pouvez retrouver de nombreux modules open-source de la plateforme Vittascience sur <a href=\"https://github.com/vittascience\">le dossier GitHub de Vittascience</a>, n'hésitez pas à contribuer !"
           }
         }
       },
       "section_title": "Comptes",
       "question_list": {
         "1": {
-          "title": "Comment se connecter au module Classe ?",
-          "answer": "Il est possible de se connecter au module Classe de trois façons :<ul><li>Code classe : permet aux apprenants de s'inscrire ou se connecter rapidement avec seulement un pseudonyme (sans renseigner d'adresse courriel). Un code classe est généré automatiquement pour chaque classe créée par l'enseignant.</li><li>Compte Vittascience : permet à l'enseignant de se connecter grâce à un compte Vittascience (adresse courriel et mot de passe). Cette méthode est réservée aux enseignants et ne convient pas aux apprenants (RGPD).</li><li>Compte GAR : le gestionnaire d’accès aux ressources (« GAR ») a pour objectif de simplifier et sécuriser les accès authentifiés entre les usagers des ENT et leurs ressources numériques. Plus de renseignements sont disponibles sur la page <a href=\"/gar\">accéder à Vittascience par le GAR</a>.</li></ul>Le respect de la vie privée est primordial pour Vittascience, pour en savoir plus retrouvez la <a href=\"/privacy\">page dédiée à la protection des données personnelles</a>."
+          "title": "Comment se connecter à la plateforme Cabri ?",
+          "answer": "Il est possible de se connecter à la plateforme Cabri de trois façons :<ul><li>Code classe : permet aux apprenants de s'inscrire ou se connecter rapidement avec seulement un pseudonyme (sans renseigner d'adresse e-mail). Un code classe est généré automatiquement pour chaque classe créée par l'enseignant.</li><li>Compte Vittascience : permet à l'enseignant de se connecter grâce à un compte Vittascience (adresse e-mail et mot de passe). Cette méthode est réservée aux enseignants et ne convient pas aux apprenants (RGPD).</li><li>Compte GAR : le gestionnaire d’accès aux ressources (« GAR ») a pour objectif de simplifier et sécuriser les accès authentifiés entre les usagers des ENT et leurs ressources numériques. Plus de renseignements sont disponibles sur la page <a href=\"/gar\">accéder à Vittascience par le GAR</a>.</li></ul>Le respect de la vie privée est primordial pour Vittascience, pour en savoir plus, retrouvez la <a href=\"/privacy\">page dédiée à la protection des données personnelles</a>."
         },
         "2": {
           "title": "Peut-on utiliser Vittascience sans compte ?",
-          "answer": "Sans compte, il est possible d’utiliser la page Programmer et d'accéder aux Ressources pédagogiques de Vittascience. Cependant, vous aurez besoin d’un compte pour réaliser des activités de classe, sauvegarder vos réalisations et partager vos contenus. Vos apprenants n'ont pas besoin de créer de compte Vittascience si vous les invitez via le module Classe."
+          "answer": "Sans compte, il est possible d’utiliser la page Programmer et d'accéder aux Ressources pédagogiques de Vittascience. Cependant, vous aurez besoin d’un compte pour réaliser des activités de classe, sauvegarder vos réalisations et partager vos contenus. Vos apprenants n'ont pas besoin de créer de compte Vittascience si vous les invitez via la plateforme Cabri."
         },
         "3": {
           "title": "Comment créer un compte ?",
-          "answer": "Cliquez simplement sur « S’abonner » de la page d’accueil du module Classe. Vous devrez choisir l’offre qui vous correspond et fournir quelques informations.<ul><li>Si vous avez opté pour l’offre gratuite, un e-mail vous sera envoyé pour confirmer votre compte. Cliquez simplement sur le lien pour confirmer votre compte. Une fois votre compte confirmé, vous pourrez explorer l’interface, créer vos activités et les partager.</li><li>Si vous avez opté pour une offre payante, vous pourrez procéder à la création d’un devis pour votre établissement ou à son achat, puis votre compte sera activé.</li></ul>"
+          "answer": "Cliquez simplement sur « S’abonner » de la page d’accueil de la plateforme Cabri. Vous devrez choisir l’offre qui vous correspond et fournir quelques informations.<ul><li>Si vous avez opté pour l’offre gratuite, un e-mail vous sera envoyé pour confirmer votre compte. Cliquez simplement sur le lien pour confirmer votre compte. Une fois votre compte confirmé, vous pourrez explorer l’interface, créer vos activités et les partager.</li><li>Si vous avez opté pour une offre payante, vous pourrez procéder à la création d’un devis pour votre établissement ou à son achat, puis votre compte sera activé.</li></ul>"
         },
         "4": {
           "title": "Qu’est-ce qu’un compte enseignant ?",
-          "answer": "Tout compte Vittascience créé à partir d'une adresse courriel ou du GAR peut être utilisé comme compte enseignant. Un compte enseignant possède des fonctionnalités pour créer des comptes apprenants, organiser les activités et échanger des commentaires avec ses apprenants."
+          "answer": "Tout compte Vittascience créé à partir d'une adresse e-mail ou du GAR peut être utilisé comme compte enseignant. Un compte enseignant possède des fonctionnalités pour créer des comptes apprenants, organiser les activités et échanger des commentaires avec ses apprenants."
         },
         "5": {
           "title": "Qu’est-ce qu’un compte apprenant ?",
@@ -589,7 +584,7 @@
         },
         "6": {
           "title": "Nom d’utilisateur ou mot de passe oublié ?",
-          "answer": "Si vous avez un compte Vittascience (enseignant), vous pouvez recevoir un courriel de récupération de mot de passe via <a href=\"/passwordRecovery\">ce lien</a>. En tant qu'apprenant, vous devez demander à votre enseignant de réinitialiser votre code à 4 chiffres."
+          "answer": "Si vous avez un compte Vittascience (enseignant), vous pouvez recevoir un e-mail de récupération de mot de passe via <a href=\"/passwordRecovery\">ce lien</a>. En tant qu'apprenant, vous devez demander à votre enseignant de réinitialiser votre code à 4 chiffres."
         },
         "7": {
           "title": "Comment changer de mot de passe ou d’autres paramètres de compte ?",
@@ -601,16 +596,16 @@
       "section_title": "Licences et autorisations",
       "question_list": {
         "1": {
-          "title": "Peut-on faire une description ou présentation du module Classe ?",
-          "answer": "Oui, vous pouvez réutiliser les visuels pour module Classe pour créer une description, présentation, formation, tutoriel, cours ou autre. Si vous souhaitez inclure des images ou contenus d'activités, veuillez mentionner l'auteur (voir question suivante)."
+          "title": "Peut-on faire une description ou présentation de la plateforme Cabri ?",
+          "answer": "Oui, vous pouvez réutiliser les visuels de la plateforme Cabri pour créer une description, présentation, formation, tutoriel, cours ou autres. Si vous souhaitez inclure des images ou contenus d'activités, veuillez mentionner l'auteur (voir question suivante)."
         },
         "2": {
           "title": "Peut-on réutiliser les activités de la communauté Vittascience ?",
-          "answer": "Oui, toutes les activités visibles dans la banque de ressources Vittascience sont sous licence Creative Commons. Deux cas sont possibles :<ul><li>CC BY-NC-SA : l'auteur souhaite que le contenu soit partagé dans un usage non-commercial uniquement et à condition de mentionner son nom. Le contenu peut être modifié.</li><li>CC BY-NC-ND : l'auteur souhaite que le contenu soit partagé dans un usage non-commercial uniquement et à condition de mentionner son nom. Le contenu ne peut pas être modifié.</li></ul>"
+          "answer": "Oui, toutes les activités visibles dans la banque de ressources Vittascience sont sous licence Creative Commons. Deux cas sont possibles :<ul><li>CC BY-NC-SA : l'auteur souhaite que le contenu soit partagé dans un usage non commercial uniquement et à condition de mentionner son nom. Le contenu peut être modifié.</li><li>CC BY-NC-ND : l'auteur souhaite que le contenu soit partagé dans un usage non commercial uniquement et à condition de mentionner son nom. Le contenu ne peut pas être modifié.</li></ul>"
         },
         "3": {
-          "title": "Où peut-on trouver le code source du module Classe ?",
-          "answer": "Le code source du module Classe n'est pas disponible pour le moment. Vous pouvez retrouver de nombreux modules open-source de la plateforme Vittascience sur <a href=\"https://github.com/vittascience\">le dossier GitHub de Vittascience</a>, n'hésitez pas à contribuer !"
+          "title": "Où peut-on trouver le code source de la plateforme Cabri ?",
+          "answer": "Le code source de la plateforme Cabri n'est pas disponible pour le moment. Vous pouvez retrouver de nombreux modules open-source de la plateforme Vittascience sur <a href=\"https://github.com/vittascience\">le dossier GitHub de Vittascience</a>, n'hésitez pas à contribuer !"
         }
       }
     },
@@ -622,24 +617,24 @@
       "section_title": "Questions générales",
       "question_list": {
         "1": {
-          "title": "Qu’est-ce que le module Classe ?",
-          "answer": "Le module Classe facilite l'attribution de contenus pédagogiques et le suivi des apprenants. Les enseignants peuvent utiliser les contenus de la communauté, ou bien créer leurs propres activités et les partager."
+          "title": "Qu’est-ce que la plateforme Cabri ?",
+          "answer": "La plateforme Cabri facilite l'attribution de contenus pédagogiques et le suivi des apprenants. Les enseignants peuvent utiliser les contenus de la communauté ou créer leurs propres activités et les partager."
         },
         "2": {
-          "title": "Qui utilise le module Classe ?",
-          "answer": "En cours comme à la maison ou en atelier périscolaire, le module classe est utilisé par des enseignants (professeurs, animateurs, formateurs, etc.) et leurs apprenants (élèves, étudiants, apprentis, etc.). Le module Classe a été pensé pour le niveau secondaire (~10 à 18 ans), mais peut s'adapter à d'autres contextes."
+          "title": "Qui utilise la plateforme Cabri ?",
+          "answer": "En cours comme à la maison ou en atelier périscolaire, la plateforme Cabri est utilisée par des enseignants (professeurs, animateurs, formateurs, etc.) et leurs apprenants (élèves, étudiants, apprentis, etc.). La plateforme Cabri a été pensée pour le niveau secondaire (~10 à 18 ans), mais elle peut s'adapter à d'autres contextes."
         },
         "3": {
-          "title": "Sur quels supports peut-on utiliser le module Classe ?",
-          "answer": "Le module classe fonctionne sur ordinateurs, tablettes et smartphones avec la plupart des navigateurs et une connexion internet."
+          "title": "Sur quels supports peut-on utiliser la plateforme Cabri ?",
+          "answer": "La plateforme Cabri fonctionne sur ordinateurs, tablettes et smartphones avec la plupart des navigateurs et une connexion internet."
         },
         "4": {
-          "title": "Comment signaler des bugs et faire part de mes commentaires sur le module Classe ?",
-          "answer": "Vous pouvez nous contacter sur le module Classe dans l’onglet profil avec le bouton \"Aide\"."
+          "title": "Comment signaler des bugs et faire part de commentaires sur la plateforme Cabri ?",
+          "answer": "Vous pouvez nous contacter sur la plateforme Cabri dans l’onglet Profil avec le bouton \"Aide\"."
         },
         "5": {
-          "title": "Est-ce que le module Classe est disponible en plusieurs langues ?",
-          "answer": "Oui, le module Classe est actuellement disponible en français et en anglais. Pour changer de langue, allez dans l'onglet profil, cliquez sur le bouton Paramètres, puis sélectionnez la langue qui vous convient."
+          "title": "Est-ce que la plateforme Cabri est disponible en plusieurs langues ?",
+          "answer": "Oui, la plateforme Cabri est actuellement disponible en français et en anglais. Pour changer de langue, allez dans l'onglet Profil, cliquez sur le bouton Paramètres, puis sélectionnez la langue qui vous convient."
         }
       }
     },
@@ -647,16 +642,16 @@
       "section_title": "Comptes",
       "question_list": {
         "1": {
-          "title": "Comment se connecter au module Classe ?",
-          "answer": "Il est possible de se connecter au module Classe de trois façons :<ul><li>Code classe : permet aux apprenants de s'inscrire ou se connecter rapidement avec seulement un pseudonyme (sans renseigner d'adresse courriel). Un code classe est généré automatiquement pour chaque classe créée par l'enseignant.</li><li>Compte Open STEAM LMS : permet à l'enseignant de se connecter grâce à un compte Open STEAM LMS (adresse courriel et mot de passe). Cette méthode est réservée aux enseignants et ne convient pas aux apprenants (RGPD).</li><li>Compte GAR : le gestionnaire d’accès aux ressources (« GAR ») a pour objectif de simplifier et sécuriser les accès authentifiés entre les usagers des ENT et leurs ressources numériques. Plus de renseignements sont disponibles sur la page <a href=\"/gar\">accéder à Open STEAM LMS par le GAR</a>.</li></ul>Le respect de la vie privée est primordial pour Open STEAM LMS, pour en savoir plus retrouvez la <a href=\"/privacy\">page dédiée à la protection des données personnelles</a>."
+          "title": "Comment se connecter à la plateforme Cabri ?",
+          "answer": "Il est possible de se connecter à la plateforme Cabri de trois façons :<ul><li>Code classe : permet aux apprenants de s'inscrire ou se connecter rapidement avec seulement un pseudonyme (sans renseigner d'adresse e-mail). Un code classe est généré automatiquement pour chaque classe créée par l'enseignant.</li><li>Compte OpenSTEAM LMS : permet à l'enseignant de se connecter grâce à un compte OpenSTEAM LMS (adresse e-mail et mot de passe). Cette méthode est réservée aux enseignants et ne convient pas aux apprenants (RGPD).</li><li>Compte GAR : le gestionnaire d’accès aux ressources (« GAR ») a pour objectif de simplifier et sécuriser les accès authentifiés entre les usagers des ENT et leurs ressources numériques. Plus de renseignements sont disponibles sur la page <a href=\"/gar\">accéder à OpenSTEAM LMS par le GAR</a>.</li></ul>Le respect de la vie privée est primordial pour OpenSTEAM LMS, pour en savoir plus, retrouvez la <a href=\"/privacy\">page dédiée à la protection des données personnelles</a>."
         },
         "2": {
           "title": "Comment créer un compte ?",
-          "answer": "Cliquez simplement sur « Créer un compte » de la page d’accueil du module Classe. Vous devrez fournir quelques informations. Un e-mail vous sera envoyé pour confirmer votre compte. Cliquez simplement sur le lien pour confirmer votre compte. Une fois votre compte confirmé, vous pourrez explorer l’interface, créer vos activités et les partager."
+          "answer": "Cliquez simplement sur « Créer un compte » de la page d’accueil de la plateforme Cabri. Vous devrez fournir quelques informations. Un e-mail vous sera envoyé pour confirmer votre compte. Cliquez simplement sur le lien pour confirmer votre compte. Une fois votre compte confirmé, vous pourrez explorer l’interface, créer vos activités et les partager."
         },
         "3": {
           "title": "Qu’est-ce qu’un compte enseignant ?",
-          "answer": "Tout compte Open STEAM LMS créé à partir d'une adresse courriel ou du GAR peut être utilisé comme compte enseignant. Un compte enseignant possède des fonctionnalités pour créer des comptes apprenants, organiser les activités et échanger des commentaires avec ses apprenants."
+          "answer": "Tout compte OpenSTEAM LMS créé à partir d'une adresse e-mail ou du GAR peut être utilisé comme compte enseignant. Un compte enseignant possède des fonctionnalités pour créer des comptes apprenants, organiser les activités et échanger des commentaires avec ses apprenants."
         },
         "4": {
           "title": "Qu’est-ce qu’un compte apprenant ?",
@@ -664,11 +659,11 @@
         },
         "5": {
           "title": "Nom d’utilisateur ou mot de passe oublié ?",
-          "answer": "Si vous avez un compte Open STEAM LMS (enseignant), vous pouvez recevoir un courriel de récupération de mot de passe via <a href=\"/passwordRecovery\">ce lien</a>. En tant qu'apprenant, vous devez demander à votre enseignant de réinitialiser votre code à 4 chiffres."
+          "answer": "Si vous avez un compte OpenSTEAM LMS (enseignant), vous pouvez recevoir un e-mail de récupération de mot de passe via <a href=\"/passwordRecovery\">ce lien</a>. En tant qu'apprenant, vous devez demander à votre enseignant de réinitialiser votre code à 4 chiffres."
         },
         "6": {
           "title": "Comment changer de mot de passe ou d’autres paramètres de compte ?",
-          "answer": "Pour changer de mot de passe ou d’autres paramètres, allez sur votre panel \"profil\" puis cliquez sur \"paramètres\" et enfin sur \"Accéder à votre profil\". Dans le cas du GAR, les paramètres sont ceux de votre ENT."
+          "answer": "Pour changer de mot de passe ou d’autres paramètres, allez sur votre panel \"profil\" puis cliquez sur \"paramètres\" et enfin sur \"Accéder à son profil\". Dans le cas du GAR, les paramètres sont ceux de votre ENT."
         }
       }
     },
@@ -676,12 +671,12 @@
       "section_title": "Licences et autorisations",
       "question_list": {
         "1": {
-          "title": "Peut-on faire une description ou présentation du module Classe ?",
-          "answer": "Oui, vous pouvez réutiliser les visuels pour module Classe pour créer une description, présentation, formation, tutoriel, cours ou autre. Si vous souhaitez inclure des images ou contenus d'activités, veuillez mentionner l'auteur (voir question suivante)."
+          "title": "Peut-on faire une description ou présentation de la plateforme Cabri ?",
+          "answer": "Oui, vous pouvez réutiliser les visuels de la plateforme Cabri pour créer une description, présentation, formation, tutoriel, cours ou autres. Si vous souhaitez inclure des images ou contenus d'activités, veuillez mentionner l'auteur (voir question suivante)."
         },
         "2": {
-          "title": "Où peut-on trouver le code source du module Classe ?",
-          "answer": "Le code source du module Classe Open STEAM LMS est disponible <a href=\"https://github.com/Cabri/OpenSTEAM-LMS/\">sur le repo git associé</a>, n'hésitez pas à contribuer !"
+          "title": "Où peut-on trouver le code source de la plateforme Cabri ?",
+          "answer": "Le code source de la plateforme Cabri est disponible <a href=\"https://github.com/Cabri/OpenSTEAM-LMS/\">sur le repo git associé</a>, n'hésitez pas à contribuer !"
         }
       }
     },
@@ -695,7 +690,7 @@
       "question_list": {
         "1": {
           "title": "À quoi sert l’onglet Mes activités ?",
-          "answer": "Dans l’onglet <b>Mes activités</b>, vous allez pouvoir :<ol><li>Créer vos propres activités.</li><li>Puis les attribuer à vos apprenants !</li></ol>"
+          "answer": "Dans l’onglet <b>Mes activités</b>, vous allez pouvoir :<ol><li>créer vos propres activités,</li><li>puis les attribuer à vos apprenants !</li></ol>"
         },
         "2": {
           "title": "Qu’est-ce qu’une activité ?",
@@ -703,15 +698,15 @@
         },
         "3": {
           "title": "Comment créer ou modifier une activité ?",
-          "answer": "<p> Vous pouvez facilement créer ou modifier des activités.</p><p>Pour modifier une activité, rendez-vous dans l’onglet <b>Mes activités</b> et cliquez sur l’icône <i class=\"fas fa-cog\"></i> de votre activité puis cliquez sur Modifier. N’oubliez pas de sauvegarder vos modifications.</p>"
+          "answer": "<p> Vous pouvez facilement créer ou modifier des activités.</p><p>Pour <b>modifier</b> une activité, rendez-vous dans l’onglet <b>Mes activités</b> et cliquez sur l’icône <i class=\"fas fa-cog\"></i> de votre activité puis cliquez sur Modifier. N’oubliez pas de sauvegarder vos modifications.</p>"
         },
         "4": {
           "title": "Comment attribuer une activité ?",
-          "answer": "Pour attribuer une activité, vous avez trois options :<ol><li>Soit, vous vous rendez dans l’onglet <b>Mes activités</b> et cliquez sur l’icône <i class=\"fas fa-cog\"></i> de votre activité puis cliquez sur Attribuer. Ensuite, vous n’aurez plus qu’à suivre les étapes.</li><li>Cette option Attribuer est également disponible dans l’activité elle-même une fois ouverte.</li><li>Sinon, vous allez dans l’onglet <b>Mes classes</b> et cliquez sur une classe. Une fois arrivé sur le tableau de bord de la classe, vous n’avez plus qu’à cliquer sur le bouton “Ajouter une activité”.</li></ol>"
+          "answer": "Pour attribuer une activité, vous avez trois options :<ol><li>Soit vous vous rendez dans l’onglet <b>Mes activités</b> et cliquez sur l’icône <i class=\"fas fa-cog\"></i> de votre activité puis cliquez sur Attribuer. Ensuite, vous n’aurez plus qu’à suivre les étapes.</li><li>Cette option Attribuer est également disponible dans l’activité elle-même une fois ouverte.</li><li>Soit vous allez dans l’onglet <b>Mes classes</b> et cliquez sur une classe. Une fois arrivé sur le tableau de bord de la classe, vous n’avez plus qu’à cliquer sur le bouton “Ajouter une activité”.</li></ol>"
         },
         "5": {
           "title": "Comment tester une activité ?",
-          "answer": "Pour tester une activité, vous avez deux options :<ol><li>Soit aller dans <b>Profil</b> et cliquer sur le bouton “Passer en mode apprenant” puis sélectionner la classe dans laquelle vous souhaitez vous placer. Vous vous retrouvez sur le compte fictif d’un apprenant appelé “demostudent”, vous pourrez y découvrir l’interface “Apprenant” et réaliser les activités que vous avez attribuées.</li><li>Soit aller sur <b>Mes classes</b> dans le tableau de bord d’une classe, vous pourrez alors vous placer dans la peau de l’apprenant demostudent. Pour cela, cliquer sur l’icône <i class=\"fas fa-exchange-alt\"></i>, vous aurez la possibilité de devenir un apprenant de la classe et d’essayer les activités.</li></ol>Pour revenir au mode “Enseignant”, il suffit d’aller dans l’onglet <b>Profil</b> du compte demostudent et de cliquer sur “Retourner au mode enseignant”"
+          "answer": "Pour tester une activité, vous avez deux options :<ol><li>Soit aller dans <b>Profil</b> et cliquer sur le bouton “Passer en mode apprenant” puis sélectionner la classe dans laquelle vous souhaitez vous placer. Vous vous retrouvez sur le compte fictif d’un apprenant appelé “demostudent”, vous pourrez y découvrir l’interface “Apprenant” et réaliser les activités que vous avez attribuées.</li><li>Soit aller sur <b>Mes classes</b> dans le tableau de bord d’une classe, vous pourrez alors vous placer dans la peau de l’apprenant demostudent. Cliquez sur l’icône <i class=\"fas fa-exchange-alt\"></i>, vous aurez la possibilité de devenir un apprenant de la classe et d’essayer les activités.</li></ol>Pour revenir au mode “Enseignant”, il suffit d’aller dans l’onglet <b>Profil</b> du compte demostudent et de cliquer sur “Retourner au mode enseignant”"
         },
         "6": {
           "title": "Comment supprimer l’attribution d’une activité sans supprimer l’activité ?",
@@ -740,7 +735,7 @@
         },
         "5": {
           "title": "Comment attribuer une activité ?",
-          "answer": "<p>Vous pouvez attribuer une activité à toutes les classes que vous avez créées ou seulement à un apprenant en particulier.</p><p>Pour attribuer une activité, vous avez trois options :</p><ol><li>Soit, vous vous rendez dans l’onglet <b>Mes activités</b> et cliquez sur l’icône <i class=\"fas fa-cog\"></i> de votre activité puis cliquez sur Attribuer. Ensuite, vous n’aurez plus qu’à suivre les étapes.</li><li>Cette option Attribuer est également disponible dans l’activité elle-même une fois ouverte.</li><li>Sinon, vous allez dans l’onglet <b>Mes classes</b> et cliquez sur une classe. Une fois arrivé sur le tableau de bord de la classe, vous n’avez plus qu’à cliquer sur le bouton “Ajouter une activité”.</li></ol>"
+          "answer": "<p>Vous pouvez attribuer une activité à toutes les classes que vous avez créées ou seulement à un apprenant en particulier.</p><p>Pour attribuer une activité, vous avez trois options :</p><ol><li>Soit vous vous rendez dans l’onglet <b>Mes activités</b> et cliquez sur l’icône <i class=\"fas fa-cog\"></i> de votre activité puis cliquez sur Attribuer. Ensuite, vous n’aurez plus qu’à suivre les étapes.</li><li>Cette option Attribuer est également disponible dans l’activité elle-même une fois ouverte.</li><li>Soit vous allez dans l’onglet <b>Mes classes</b> et cliquez sur une classe. Une fois arrivé sur le tableau de bord de la classe, vous n’avez plus qu’à cliquer sur le bouton “Ajouter une activité”.</li></ol>"
         },
         "6": {
           "title": "Peut-on revenir sur l'attribution d’une activité ?",
@@ -748,22 +743,22 @@
         },
         "7": {
           "title": "Comment l’évaluation des activités se fait-elle ?",
-          "answer": "Les évaluations sont :<ul><li>soit manuellement sur 4 niveaux : Très bonne maîtrise ; Maîtrise suffisante ; Maîtrise faible et Maîtrise insuffisante</li><li>Soit automatique sur 2 niveaux : Très bonne maîtrise et Maîtrise faible.<br>Ce type d’évaluation permet à l’apprenant d’obtenir sa correction immédiatement et pour l’enseignant de bénéficier d’un gain de temps non négligeable.</li></ul><p>Une fois que l’apprenant a terminé son activité, il a la possibilité de la recommencer si l’enseignant a sélectionné le mode “Exercice” lors de l’attribution. Dans le mode “Évaluation”, l’élève ne peut pas recommencer une fois l’activité validée.</p><p>Pour visualiser les résultats, il vous suffit de vous rendre dans le Tableau de bord de la classe.</p><p>Une activité non corrigée est symbolisée par un crayon dans le Tableau de bord. Pour la corriger, cliquer sur le crayon, ensuite il vous suffit d’évaluer et commenter le travail de l’apprenant.</p>"
+          "answer": "Les évaluations sont :<ul><li>soit manuellement sur 4 niveaux : Très bonne maîtrise ; Maîtrise suffisante ; Maîtrise faible et Maîtrise insuffisante</li><li>Soit automatique sur 2 niveaux : Très bonne maîtrise et Maîtrise faible.<br>Ce type d’évaluation permet à l’apprenant d’obtenir sa correction immédiatement et à l’enseignant de bénéficier d’un gain de temps non négligeable.</li></ul><p>Une fois que l’apprenant a terminé son activité, il a la possibilité de la recommencer si l’enseignant a sélectionné le mode “Exercice” lors de l’attribution. Dans le mode “Évaluation”, l’élève ne peut pas recommencer une fois l’activité validée.</p><p>Pour visualiser les résultats, il vous suffit de vous rendre dans le tableau de bord de la classe.</p><p>Une activité non corrigée est symbolisée par un crayon dans le tableau de bord. Pour la corriger, cliquez sur le crayon, il vous suffit ensuite d’évaluer et commenter le travail de l’apprenant.</p>"
         },
         "8": {
           "title": "Comment sait-on lorsque les apprenants ont terminé leurs activités ?",
-          "answer": "Lorsqu’un apprenant a terminé son activité, vous recevrez une notification par e-mail.<br>Ce paramètre sera ajustable à l’avenir, pour l’instant ce n’est pas paramétrable."
+          "answer": "Lorsqu’un apprenant a terminé son activité, vous recevez une notification par e-mail.<br>Ce paramètre sera ajustable à l’avenir, pour le moment, ce n’est pas paramétrable."
         },
         "9": {
           "title": "Comment modifier le nom d’une classe ?",
-          "answer": "Pour changer le nom de votre classe, il faudra cliquer sur l’icône <i class=\"fas fa-cog\"></i> depuis l’onglet Mes classes, puis sur modifier. Vous n’aurez plus qu’à changer son nom."
+          "answer": "Pour changer le nom de votre classe, cliquez sur l’icône <i class=\"fas fa-cog\"></i> depuis l’onglet Mes classes, puis sur Modifier. Vous pouvez alors changer son nom."
         },
         "10": {
           "title": "Comment supprimer un apprenant d’une classe ?",
-          "answer": "<p>Pour supprimer un apprenant, il suffit de cliquer sur l’icône <i class=\"fas fa-cog\"></i> à côté du nom de l’apprenant sur le Tableau de bord de la classe.</p><p>Attention, cette action est irréversible et clôture le compte de l’apprenant.</p>"
+          "answer": "<p>Pour supprimer un apprenant, cliquez sur l’icône <i class=\"fas fa-cog\"></i> à côté du nom de l’apprenant sur le tableau de bord de la classe.</p><p>Attention, cette action est irréversible et clôture le compte de l’apprenant.</p>"
         },
         "11": {
-          "title": "À quoi sert le bouton anonymiser dans le Tableau de bord ?",
+          "title": "À quoi sert le bouton anonymiser dans le tableau de bord ?",
           "answer": "Ce bouton remplace le nom des apprenants par des numéros. Cela permet de projeter les résultats des élèves au tableau anonymement pour ne pas stigmatiser certains élèves."
         }
       }
@@ -773,19 +768,19 @@
       "question_list": {
         "1": {
           "title": "À quoi sert l’onglet Profil ?",
-          "answer": "Dans l’onglet Profil, vous allez pouvoir :<ol><li>Gérer vos paramètres de compte,</li><li>Visualiser vos statistiques,</li><li>et échanger des messages avec vos apprenants ainsi que l’équipe de Cabrilog si vous avez besoin d’aide.</li></ol>"
+          "answer": "Dans l’onglet Profil, vous pouvez :<ol><li>gérer vos paramètres de compte,</li><li>visualiser vos statistiques,</li><li>et échanger des messages avec vos apprenants ainsi que l’équipe de Cabrilog si vous avez besoin d’aide.</li></ol>"
         },
         "2": {
           "title": "Comment changer de mot de passe ou d’autres paramètres de compte ?",
           "answer": "Pour changer de mot de passe ou d’autres paramètres, allez sur l’onglet Profil. Dans le cas du GAR, les paramètres sont ceux de votre ENT."
         },
         "3": {
-          "title": "Comment change-t-on la langue ?",
-          "answer": "Le module Classe est actuellement disponible en français et en anglais. Pour changer de langue, allez dans l'onglet profil, cliquez sur le bouton “Paramètres”, puis sélectionnez la langue qui vous convient."
+          "title": "Comment changer la langue ?",
+          "answer": "La plateforme Cabri est actuellement disponible en français et en anglais. Pour changer de langue, allez dans l'onglet Profil, cliquez sur le bouton Paramètres, puis sélectionnez la langue qui vous convient."
         },
         "4": {
           "title": "Qu’est-ce que le mode apprenant ?",
-          "answer": "<p>Dans votre profil, vous pouvez cliquer sur le bouton “Passer en mode apprenant”. Après avoir choisi une classe, vous vous retrouvez sur le compte fictif d’un apprenant appelé “demostudent”, dans lequel vous pourrez découvrir l’interface Apprenant et réaliser les activités que vous avez attribuées.</p><p>Pour revenir au mode “Enseignant”, il suffit d’aller dans l’onglet <b>Profil</b> du compte demostudent et de cliquer sur “Retourner au mode enseignant”.</p>"
+          "answer": "<p>Dans votre profil, vous pouvez cliquer sur le bouton “Passer en mode apprenant”. Après avoir choisi une classe, vous vous retrouvez sur le compte fictif d’un apprenant appelé “demostudent”, dans lequel vous pouvez découvrir l’interface Apprenant et réaliser les activités que vous avez attribuées.</p><p>Pour revenir au mode “Enseignant”, allez dans l’onglet <b>Profil</b> du compte demostudent et cliquez sur “Retourner au mode enseignant”.</p>"
         }
       }
     },
@@ -793,12 +788,12 @@
       "section_title": "Questions générales",
       "question_list": {
         "1": {
-          "title": "Sur quel support le module classe est-il compatible ?",
+          "title": "Avec quel support la plateforme Cabri est-elle compatible ?",
           "answer": "<p>Les interfaces fonctionnent sans installation, sur ordinateur, tablette et smartphone ! Les mises à jour sont automatiques et vos programmes sont sauvegardés dans le cloud.</p><p>Pour profiter pleinement de toutes les fonctionnalités, nous vous conseillons d’utiliser Chrome ou Firefox.</p>"
         },
         "2": {
-          "title": "Comment créer un raccourci pour accéder au module Classe ?",
-          "answer": "<p>Vous avez la possibilité de mettre une icône sur le bureau de l'ordinateur pour accéder rapidement au module Classe. Pour cela :</p><p>Sur Windows et sur Mac:</p><ol><li>Ouvrez la page : <a href=\"/classroom\" target=\"_blank\">classroom/</a>, puis réduisez la taille de la fenêtre du navigateur afin de voir le bureau à côté.</li><li>Dans votre navigateur Web, sélectionnez à la souris le symbole situé à gauche de l'adresse et, sans relâcher votre clic, faites glisser le pointeur jusqu'au Bureau. Relâchez pour créer le raccourci.</li><li>Le raccourci est créé. Vous n’aurez plus qu’à double-cliquer dessus pour ouvrir la page web liée.</li></ol><p>Sur Android avec Chrome :</p><ol><li>Ouvrez la page : <a href=\"/classroom\" target=\"_blank\">classroom/</a>, puis appuyez sur le bouton de menu, puis sélectionnez \"Ajouter à l'écran d'accueil\".</li><li>Nommez la page et appuyez sur \"Ajouter\".</li><li>Le raccourci est créé. Vous n’aurez plus qu’à double-cliquer dessus pour ouvrir la page web liée.</li></ol><p>Sur Android avec Firefox :</p><ol><li>Ouvrez la page : <a href=\"/classroom\" target=\"_blank\">classroom/</a>, puis appuyez sur le bouton de menu, puis appuyez sur Page.</li><li>Appuyez sur Ajouter un raccourci vers la page.</li><li>Le raccourci est créé sur l’écran d’accueil. Vous n’aurez plus qu’à cliquer dessus pour ouvrir la page web liée.</li></ol><p>Sur iOS avec Safari :</p><ol><li>Ouvrez la page : <a href=\"/classroom\" target=\"_blank\">classroom/</a>, puis touchez l'icône Partage.</li><li>Sélectionnez sur l'écran d'accueil, puis appuyez sur Ajouter.</li><li>Le raccourci est créé sur l’écran d’accueil. Vous n’aurez plus qu’à cliquer dessus pour ouvrir la page web liée.</li></ol><p>Vous pourrez trouver d'autres tutoriels sur Internet pour créer un raccourci sur le bureau.</p>"
+          "title": "Comment créer un raccourci pour accéder à la plateforme Cabri ?",
+          "answer": "<p>Vous avez la possibilité de mettre une icône sur le bureau de l'ordinateur pour accéder rapidement à la plateforme Cabri. Pour cela :</p><p>Sur Windows et sur Mac:</p><ol><li>Ouvrez la page : <a href=\"/classroom\" target=\"_blank\">classroom/</a>, puis réduisez la taille de la fenêtre du navigateur afin de voir le bureau à côté.</li><li>Dans votre navigateur web, sélectionnez à la souris le symbole situé à gauche de l'adresse et, sans relâcher votre clic, faites glisser le pointeur jusqu'au bureau. Relâchez pour créer le raccourci.</li><li>Le raccourci est créé. Vous n’aurez plus qu’à double-cliquer dessus pour ouvrir la page web liée.</li></ol><p>Sur Android avec Chrome :</p><ol><li>Ouvrez la page : <a href=\"/classroom\" target=\"_blank\">classroom/</a>, appuyez sur le bouton de menu, puis sélectionnez \"Ajouter à l'écran d'accueil\".</li><li>Nommez la page et appuyez sur \"Ajouter\".</li><li>Le raccourci est créé. Vous n’aurez plus qu’à double-cliquer dessus pour ouvrir la page web liée.</li></ol><p>Sur Android avec Firefox :</p><ol><li>Ouvrez la page : <a href=\"/classroom\" target=\"_blank\">classroom/</a>, appuyez sur le bouton de menu, puis appuyez sur Page.</li><li>Appuyez sur Ajouter un raccourci vers la page.</li><li>Le raccourci est créé sur l’écran d’accueil. Vous n’aurez plus qu’à cliquer dessus pour ouvrir la page web liée.</li></ol><p>Sur iOS avec Safari :</p><ol><li>Ouvrez la page : <a href=\"/classroom\" target=\"_blank\">classroom/</a>, puis touchez l'icône Partage.</li><li>Sélectionnez sur l'écran d'accueil, puis appuyez sur Ajouter.</li><li>Le raccourci est créé sur l’écran d’accueil. Vous n’aurez plus qu’à cliquer dessus pour ouvrir la page web liée.</li></ol><p>Vous pourrez trouver d'autres tutoriels sur internet pour créer un raccourci sur le bureau.</p>"
         }
       }
     },
@@ -810,8 +805,8 @@
           "answer": "Lorsqu’un bug se produit, la première chose à faire est d'essayer de rafraîchir la page. Si le bug persiste, vous pouvez nous contacter dans l’onglet Profil avec le bouton “Aide”."
         },
         "2": {
-          "title": "Comment signaler des bugs et faire part de mes commentaires ?",
-          "answer": "Si le bug persiste, vous pouvez nous contacter dans l’onglet profil avec le bouton “Aide”.<br>Pour nous faire des commentaires, vous pouvez également nous contacter dans l’onglet Profil avec le bouton “Aide”."
+          "title": "Comment signaler des bugs et faire part de commentaires ?",
+          "answer": "Si le bug persiste, vous pouvez nous contacter dans l’onglet Profil avec le bouton “Aide”.<br>Pour nous faire des commentaires, vous pouvez également nous contacter dans l’onglet Profil avec le bouton “Aide”."
         }
       }
     },
@@ -819,12 +814,12 @@
       "section_title": "Licences et autorisations",
       "question_list": {
         "1": {
-          "title": "Peut-on faire une description ou présentation du module Classe ?",
-          "answer": "Oui, vous pouvez réutiliser les visuels pour module Classe pour créer une description, présentation, formation, tutoriel, cours ou autre. Si vous souhaitez inclure des images ou contenus d'activités, veuillez mentionner l'auteur (voir question suivante)."
+          "title": "Peut-on faire une description ou présentation de la plateforme Cabri ?",
+          "answer": "Oui, vous pouvez réutiliser les visuels pour plateforme Cabri pour créer une description, présentation, formation, tutoriel, cours ou autres. Si vous souhaitez inclure des images ou contenus d'activités, veuillez mentionner l'auteur (voir question suivante)."
         },
         "2": {
-          "title": "Où peut-on trouver le code source du module Classe ?",
-          "answer": "Le code source du module Classe est disponible sur le <a href=\"https://github.com/Cabri/OpenSTEAM-LMS/\" target=\"_href\">repository git OpenSTEAM-LMS</a>, n'hésitez pas à contribuer !"
+          "title": "Où peut-on trouver le code source de la plateforme Cabri ?",
+          "answer": "Le code source de la plateforme Cabri est disponible sur le <a href=\"https://github.com/Cabri/OpenSTEAM-LMS/\" target=\"_href\">repository git OpenSTEAM-LMS</a>, n'hésitez pas à contribuer !"
         }
       }
     }
@@ -836,11 +831,11 @@
       "question_list": {
         "1": {
           "title": "À quoi sert l’onglet Mes activités ?",
-          "answer": "Dans l’onglet Mes Activités, tu vas pouvoir :<ol><li>Réaliser les nouvelles activités de tes enseignants.</li><li>Sauvegarder celles que tu n’as pas encore terminées.</li><li>Et revoir celles que tu as faites !</li></ol>"
+          "answer": "Dans l’onglet Mes Activités, tu peux :<ol><li>réaliser les nouvelles activités de tes enseignants,</li><li>sauvegarder celles que tu n’as pas encore terminées,</li><li>et revoir celles que tu as faites !</li></ol>"
         },
         "2": {
           "title": "Qu’est-ce qu’une activité ?",
-          "answer": "Une activité est un contenu interactif qui peut mêler du texte, des images, des vidéos, des PDF ainsi que des outils externes comme Genially et bien d'autres.<br>Le format d'affichage est basé sur les technologies du Web (HTML), ce qui permet de s'adapter à toute taille d'écran et de profiter d'options d'accessibilité avancées (police, couleurs, taille...)."
+          "answer": "Une activité est un contenu interactif qui peut mêler du texte, des images, des vidéos, des PDF ainsi que des outils externes comme Genially et bien d'autres.<br>Le format d'affichage est basé sur les technologies du web (HTML), ce qui permet de s'adapter à toute taille d'écran et de profiter d'options d'accessibilité avancées (police, couleurs, taille...)."
         }
       }
     },
@@ -849,7 +844,7 @@
       "question_list": {
         "1": {
           "title": "À quoi sert l’onglet Appel à l’aide ?",
-          "answer": "Dans l’onglet Appel à l’aide, tu vas pouvoir :<ol><li>Demander de l’aide à tes enseignants à tout moment,</li><li>Consulter les questions fréquemment posées.</li></ol>Tu pourras suivre l’échange de tes messages dans l’onglet Profil."
+          "answer": "Dans l’onglet Appel à l’aide, tu peux :<ol><li>demander de l’aide à tes enseignants à tout moment,</li><li>consulter les questions fréquemment posées.</li></ol>Tu pourras suivre l’échange de tes messages dans l’onglet Profil."
         }
       }
     },
@@ -858,15 +853,15 @@
       "question_list": {
         "1": {
           "title": "À quoi sert l’onglet Profil ?",
-          "answer": "Dans l’onglet Profil, tu vas pouvoir :<ol><li>Gérer tes paramètres de compte,</li><li>Visualiser tes statistiques,</li><li>et échanger des messages avec tes enseignants.</li></ol>"
+          "answer": "Dans l’onglet Profil, tu peux :<ol><li>gérer tes paramètres de compte,</li><li>visualiser tes statistiques,</li><li>et échanger des messages avec tes enseignants.</li></ol>"
         },
         "2": {
           "title": "Comment changer de mot de passe ou d’autres paramètres de compte ?",
-          "answer": "Pour changer de mot de passe ou d’autres paramètres, vas sur l’onglet Profil."
+          "answer": "Pour changer de mot de passe ou d’autres paramètres, va sur l’onglet Profil."
         },
         "3": {
-          "title": "Comment change-t-on la langue ?",
-          "answer": "Le module Classe est actuellement disponible en français et en anglais. Pour changer de langue, allez dans l'onglet profil, cliques sur le bouton “Paramètres”, puis sélectionnes la langue qui te convient."
+          "title": "Comment changer la langue ?",
+          "answer": "La plateforme Cabri est actuellement disponible en français et en anglais. Pour changer de langue, va dans l'onglet Profil, clique sur le bouton Paramètres, puis sélectionne la langue qui te convient."
         }
       }
     },
@@ -874,16 +869,16 @@
       "section_title": "Questions générales",
       "question_list": {
         "1": {
-          "title": "Comment prendre en main le module Classe ?",
-          "answer": "À tout moment, tu peux accéder à l’aide générale en cliquant sur l’icône <i class=\"fas fa-question\"></i> en haut à droite pour prendre en main le module Classe."
+          "title": "Comment prendre en main la plateforme Cabri ?",
+          "answer": "À tout moment, tu peux accéder à l’aide générale en cliquant sur l’icône <i class=\"fas fa-question\"></i> en haut à droite pour prendre en main la plateforme Cabri."
         },
         "2": {
-          "title": "Sur quel support le module classe est-il compatible ?",
+          "title": "Avec quel support la plateforme Cabri est-elle compatible ?",
           "answer": "<p>Les interfaces fonctionnent sans installation, sur ordinateur, tablette et smartphone ! Les mises à jour sont automatiques et tes programmes sont sauvegardés dans le cloud.</p><p>Pour profiter pleinement de toutes les fonctionnalités, nous te conseillons d’utiliser Chrome ou Firefox.</p>"
         },
         "3": {
-          "title": "Comment créer un raccourci pour accéder au module Classe ?",
-          "answer": "<p>Tu as la possibilité de mettre une icône sur le bureau de l'ordinateur pour accéder rapidement au module Classe. Pour cela :</p><p>Sur Windows et sur Mac:</p><ol><li>Ouvre la page : <a href=\"/classroom\" target=\"_blank\">/classroom/</a>, puis réduis la taille de la fenêtre du navigateur afin de voir le bureau à côté.</li><li>Dans votre navigateur Web, sélectionne à la souris le symbole situé à gauche de l'adresse et, sans relâcher ton clic, faits glisser le pointeur jusqu'au Bureau. Relâche pour créer le raccourci.</li><li>Le raccourci est créé. Tu n’auras plus qu’à double-cliquer dessus pour ouvrir la page web liée.</li></ol><p>Sur Android avec Chrome :</p><ol><li>Ouvre la page : <a href=\"/classroom\" target=\"_blank\">/classroom/</a>, puis appuie sur le bouton de menu, puis sélectionne \"Ajouter à l'écran d'accueil\".</li><li>Nomme la page et appuie sur \"Ajouter\".</li><li>Le raccourci est créé. Tu n'auras plus qu’à double-cliquer dessus pour ouvrir la page web liée.</li></ol><p>Sur Android avec Firefox :</p><ol><li>Ouvre la page : <a href=\"/classroom\" target=\"_blank\">/classroom/</a>, puis appuie sur le bouton de menu, puis appuie sur Page.</li><li>Appuie sur Ajouter un raccourci vers la page.</li><li>Le raccourci est créé sur l’écran d’accueil. Tu n'auras plus qu’à cliquer dessus pour ouvrir la page web liée.</li></ol><p>Sur iOS avec Safari :</p><ol><li>Ouvre la page : <a href=\"/classroom\" target=\"_blank\">/classroom/</a>, puis touche l'icône Partage.</li><li>Sélectionne sur l'écran d'accueil, puis appuie sur Ajouter.</li><li>Le raccourci est créé sur l’écran d’accueil. Tu n'auras plus qu’à cliquer dessus pour ouvrir la page web liée.</li></ol><p>Tu pourras trouver d'autres tutoriels sur Internet pour créer un raccourci sur le bureau.</p>"
+          "title": "Comment créer un raccourci pour accéder à la plateforme Cabri ?",
+          "answer": "<p>Tu as la possibilité de mettre une icône sur le bureau de l'ordinateur pour accéder rapidement à la plateforme Cabri. Pour cela :</p><p>Sur Windows et sur Mac:</p><ol><li>Ouvre la page : <a href=\"/classroom\" target=\"_blank\">/classroom/</a>, puis réduis la taille de la fenêtre du navigateur afin de voir le bureau à côté.</li><li>Dans ton navigateur web, sélectionne à la souris le symbole situé à gauche de l'adresse et, sans relâcher ton clic, fais glisser le pointeur jusqu'au bureau. Relâche pour créer le raccourci.</li><li>Le raccourci est créé. Tu n’auras plus qu’à double-cliquer dessus pour ouvrir la page web liée.</li></ol><p>Sur Android avec Chrome :</p><ol><li>Ouvre la page : <a href=\"/classroom\" target=\"_blank\">/classroom/</a>, appuie sur le bouton de menu, puis sélectionne \"Ajouter à l'écran d'accueil\".</li><li>Nomme la page et appuie sur \"Ajouter\".</li><li>Le raccourci est créé. Tu n'auras plus qu’à double-cliquer dessus pour ouvrir la page web liée.</li></ol><p>Sur Android avec Firefox :</p><ol><li>Ouvre la page : <a href=\"/classroom\" target=\"_blank\">/classroom/</a>, appuie sur le bouton de menu, puis appuie sur Page.</li><li>Appuie sur Ajouter un raccourci vers la page.</li><li>Le raccourci est créé sur l’écran d’accueil. Tu n'auras plus qu’à cliquer dessus pour ouvrir la page web liée.</li></ol><p>Sur iOS avec Safari :</p><ol><li>Ouvre la page : <a href=\"/classroom\" target=\"_blank\">/classroom/</a>, puis touche l'icône Partage.</li><li>Sélectionne sur l'écran d'accueil, puis appuie sur Ajouter.</li><li>Le raccourci est créé sur l’écran d’accueil. Tu n'auras plus qu’à cliquer dessus pour ouvrir la page web liée.</li></ol><p>Tu pourras trouver d'autres tutoriels sur internet pour créer un raccourci sur le bureau.</p>"
         }
       }
     },
@@ -895,8 +890,8 @@
           "answer": "Lorsqu’un bug se produit, la première chose à faire est d'essayer de rafraîchir la page. Si le bug persiste, tu peux contacter ton enseignant dans l’onglet Appel à l’aide."
         },
         "2": {
-          "title": "Comment signaler des bugs et faire part de mes commentaires ?",
-          "answer": "<p>Si le bug persiste, vous pouvez contacter votre enseignant dans l’onglet Aide.</p><p>Pour faire des commentaires à ton enseignement, tu peux également le contacter dans l’onglet Aide.</p>"
+          "title": "Comment signaler des bugs et faire part de commentaires ?",
+          "answer": "<p>Si le bug persiste, tu peux contacter ton enseignant dans l’onglet Aide.</p><p>Pour faire des commentaires à ton enseignant, tu peux également le contacter dans l’onglet Aide.</p>"
         }
       }
     },
@@ -904,8 +899,8 @@
       "section_title": "Licences et autorisations",
       "question_list": {
         "1": {
-          "title": "Où peut-on trouver le code source du module Classe ?",
-          "answer": "Le code source du module Classe est disponible sur <a href=\"https://github.com/Cabri/OpenSTEAM-LMS/\" target=\"_href\">le repository git OpenSTEAM-LMS</a>, n'hésites pas à contribuer !"
+          "title": "Où peut-on trouver le code source de la plateforme Cabri ?",
+          "answer": "Le code source de la plateforme Cabri est disponible sur <a href=\"https://github.com/Cabri/OpenSTEAM-LMS/\" target=\"_href\">le repository git OpenSTEAM-LMS</a>, n'hésite pas à contribuer !"
         }
       }
     }
@@ -914,7 +909,7 @@
     "title": "Login",
     "details": "Entrez vos identifiants pour accéder à votre compte.",
     "form": {
-      "addressmail": "Adresse mail",
+      "addressmail": "Adresse e-mail",
       "addressmail_placeholder": "exemple@domaine.com",
       "password": "Mot de passe",
       "password_placeholder": "Votre mot de passe.",
@@ -923,11 +918,11 @@
     },
     "success": "L'authentification a réussi. Redirection...",
     "error": "Erreur. Veuillez vérifier vos identifiants.",
-		"mailSuccess": "Un mail d'activation a été envoyé à votre adresse mail.",
-		"mailError": "Une erreur est survenue. Veuillez vérifier votre adresse mail.",
+		"mailSuccess": "Un e-mail d'activation a été envoyé à votre adresse e-mail.",
+		"mailError": "Une erreur est survenue. Veuillez vérifier votre adresse e-mail.",
 		"userNotFound": "Aucun utilisateur trouvé avec ces identifiants.",
 		"accountDeactivated": "Votre compte a été désactivé, contactez un administrateur si le problème persiste.",
-		"inactiveAccount": "Votre compte n'est pas encore actif, cliquez sur le bouton ci dessous pour envoyer l'email de validation.",
+		"inactiveAccount": "Votre compte n'est pas encore actif, cliquez sur le bouton ci-dessous pour envoyer l'e-mail de validation.",
     "errorBeta": "Vous devez être bêta testeur pour accéder à cette fonctionalité. <a href='https://fr.vittascience.com/about#contact'>Contacter l'équipe Vittascience</a> pour en savoir plus."
   },
   "signup-popup": {
@@ -935,13 +930,13 @@
     "notice": "Merci de compléter les champs suivants pour créer votre compte Vittascience.",
     "firstName": "Prénom",
     "lastName": "Nom",
-    "mail": "Adresse mail",
+    "mail": "Adresse e-mail",
     "telephone": "Téléphone",
     "password": "Mot de passe",
     "passwordConfirmed": "Confirmation",
     "firstNamePlaceholder": "Votre prénom.",
     "lastNamePlaceholder": "Votre nom.",
-    "mailPlaceholder": "Un mail de confirmation vous sera envoyé.",
+    "mailPlaceholder": "Un e-mail de confirmation vous sera envoyé.",
     "telephonePlaceholder": "Votre numéro de téléphone (falcultatif).",
     "passwordPlaceholder": "Minimum 8 caractères. Majuscules, minuscules et chiffres.",
     "passwordConfirmedPlaceholder": "Répéter votre mot de passe une seconde fois.",
@@ -957,7 +952,7 @@
       "primary": "Primaire",
       "middle": "Collège",
       "high": "Lycée",
-      "highbis": "Lycée Professionel",
+      "highbis": "Lycée professionel",
       "higher": "Post-BAC"
     },
     "establishement": "Établissement",
@@ -967,19 +962,19 @@
     "bioPlaceholder": "Parlez-nous un peu de vous, les autres utilisateurs du site pourront ainsi en savoir un peu plus sur votre parcours :) Maximum 800 caractères.",
     "profilPicture": "Photo de profil (facultatif)",
     "allowPictures": "Formats acceptés: jpeg, jpg, png. Max. 10Mo",
-    "allowPublicName": "Acceptez-vous que votre nom et prénom soient publics sur le site ?",
-    "allowNewsletter": "Souhaitez-vous recevoir notre newsletter par mail ?",
-    "allowAlertMessage": "Souhaitez-vous recevoir des alertes par mail lors de la réception de nouveaux messages sur le site ?",
+    "allowPublicName": "Acceptez-vous que vos nom et prénom soient publics sur le site ?",
+    "allowNewsletter": "Souhaitez-vous recevoir notre newsletter par e-mail ?",
+    "allowAlertMessage": "Souhaitez-vous recevoir des alertes par e-mail lors de la réception de nouveaux messages sur le site ?",
     "allowMessageReceive": "Souhaitez-vous pouvoir être contacté par les autres utilisateurs du site ?",
-    "eighteenConfirm": "Je confirme avoir plus de 18 ans (article 1124 du code civil)",
+    "eighteenConfirm": "Je confirme avoir plus de 18 ans (art. 1124 du Code civil)",
     "confirmCGU": "En validant ce formulaire, vous acceptez les <a target=\"_blank\" href=\"/cgu\">conditions générales d'utilisation</a>.",
-    "concernedAboutPrivacy": "Vittascience place la sécurité et la confidentialité des données personnelles de ses utilisateurs au coeur de ses préoccupations. Découvrez <a target=\"_blank\" href=\"/privacy\">notre politique de protection des données personnelles</a>",
+    "concernedAboutPrivacy": "Vittascience place la sécurité et la confidentialité des données personnelles de ses utilisateurs au cœur de ses préoccupations. Découvrez <a target=\"_blank\" href=\"/privacy\">notre politique de protection des données personnelles</a>",
     "errors": {
-      "mailUsed": "Le mail {{ mail }} est déjà utilisé. Veuillez en choisir un autre.",
-      "mailUsedServer": "L'adresse email fournie existe déjà.",
+      "mailUsed": "L'e-mail {{ mail }} est déjà utilisé. Veuillez en choisir un autre.",
+      "mailUsedServer": "L'adresse e-mail fournie existe déjà.",
       "lastName": "Le nom fourni est incorrect.",
       "firstName": "Le prénom fourni est incorrect.",
-      "mailInvalid": "L'adresse email est invalide.",
+      "mailInvalid": "L'adresse e-mail est invalide.",
       "passwordInvalid": "Le mot de passe ne respecte pas les contraintes de sécurité.",
       "biographyInvalid": "La biographie est incorrecte.",
       "telephoneInvalid": "Le numéro de téléphone est incorrect.",
@@ -990,7 +985,7 @@
     },
     "success": {
       "main": "Votre inscription a été enregistrée avec succès ! Un lien de confirmation vous a été envoyé à l'adresse <b>{{ mail }}</b>",
-      "notice": "Vous devez obligatoirement accéder à ce lien avant de pouvoir vous connecter. Si vous ne trouvez pas le mail en question, veuillez vérifiez votre courrier indésirable."
+      "notice": "Vous devez obligatoirement accéder à ce lien avant de pouvoir vous connecter. Si vous ne trouvez pas l'e-mail en question, veuillez vérifiez votre courrier indésirable."
     }
   },
   "switchAccessibility": {
@@ -1059,8 +1054,8 @@
         "success": "Inscription réussie !",
         "emailSent": "Un e-mail vient de vous être envoyé, suivez le lien dans celui-ci pour activer votre compte et continuez votre liaison au groupe \"<span id=\"gourpName2\"></span>\"",
         "accountPublic": "Acceptez-vous que votre nom et prénom soient publics sur le site ?",
-        "newsletter": "Souhaitez-vous recevoir notre newsletter par mail ?",
-        "mailAlert": "Souhaitez-vous recevoir des alertes par mail lors de la réception de nouveaux messages sur le site ?",
+        "newsletter": "Souhaitez-vous recevoir notre newsletter par e-mail ?",
+        "mailAlert": "Souhaitez-vous recevoir des alertes par e-mail lors de la réception de nouveaux messages sur le site ?",
         "allowContact": "Souhaitez-vous pouvoir être contacté par les autres utilisateurs du site ?",
         "confirmAdult": "Je confirme avoir plus de 18 ans (article 1124 du code civil)*",
         "disclaimerVittascience": "Vittascience place la sécurité et la confidentialité des données personnelles de ses utilisateurs au coeur de ses préoccupations. Découvrez<a href=\"http://vittascience.com/privacy\"> notre politique de protection des données personnelles</a> ",
@@ -1136,15 +1131,15 @@
       "chooseNewPassword": "Choisissez votre nouveau mot de passe",
       "passwordUpdate": "Votre mot de passe à été modifié",
       "enterYourEmail": "Entrer votre adresse e-mail",
-      "sendResetMailDescription": "En cliquant sur envoyer un e-mail contenant un lien pour changer votre mot de passe vous sera envoyé.",
-      "yourMail": "Votre E-mail",
-      "emailSended": "Un E-mail contenant la procèdure à suivre vient de vous être envoyer",
-      "emailNotReceived": "Si vous n'avez pas reçu l'e-mail, cliquer sur recommencer (le mail peut mettre un petit peu de temps avant d'arriver)",
+      "sendResetMailDescription": "En cliquant sur Envoyer, un e-mail contenant un lien pour changer votre mot de passe vous sera envoyé.",
+      "yourMail": "Votre e-mail",
+      "emailSended": "Un e-mail contenant la procédure à suivre vient de vous être envoyé",
+      "emailNotReceived": "Si vous n'avez pas reçu l'e-mail, cliquez sur Recommencer (léger temps d'attente possible).",
       "mailSentToUser": "Un e-mail a été envoyé à l'utilisateur pour qu'il finalise son inscription",
       "mailNotSentToUser": "l'e-mail de finalisation d'inscription n'a pas pu être envoyé à l'utilisateur",
       "mailSentToUserReset": "Un e-mail a été envoyé à l'utilisateur pour qu'il change de mot de passe",
       "mailNotSentToUserReset": "l'e-mail de changement de mot de passe n'a pas pu être envoyé à l'utilisateur",
-      "appsUpdated": "Les applications de l'utilisateur ont été mise à jour",
+      "appsUpdated": "Les applications de l'utilisateur ont été mises à jour",
       "updateApps": "Modifier les applications",
       	"updateAppModalTitle": "Application",
       "teacherGrades": {
@@ -1244,20 +1239,20 @@
         "firstVisit": "Première visite ?",
         "signin": "Se connecter",
         "signinSubtitle": "Entrez vos identifiants pour accèder à votre compte",
-        "addressMail": "Adresse mail",
+        "addressMail": "Adresse e-mail",
         "disclaimer": "En rejoignant ce groupe, vous autorisez l'admin du groupe à mofidier et / ou désactiver votre compte. Vous disposerez aussi des applications que le groupe possède.",
         "lastStep": "Il ne reste plus qu'une étape ! Cliquez sur le bouton si dessous pour finaliser la liaison.",
         "joinGroup": "Vous vous apprêtez à rejoindre le groupe \"<span id='groupNameConfirmLink'></span>\"",
         "notfound": "Groupe introuvable !",
         "notfoundDetails": "Nous ne trouvons aucun groupe lié au code <span id='gourpName3'></span>.",
-        "clickToRedirectLogin": "Cliquez sur continuer pour être redirigé vers la page de connexion.",
-        "clickToRedirectHome": "Cliquez sur continuer pour être redirigé vers la page d'accueil.",
+        "clickToRedirectLogin": "Cliquez sur Continuer pour être redirigé vers la page de connexion.",
+        "clickToRedirectHome": "Cliquez sur Continuer pour être redirigé vers la page d'accueil.",
         "invalidLink": "Lien invalide !",
         "invalidFormatLink": "Le format du lien que vous avez entré ne correspond pas.",
         "success": "Vous avez rejoint le groupe \"<span id=\"gourpName\"></span>\" !",
         "alreadyLinked": "Vous faites déjà partie de ce groupe.",
         "error": "Une erreur est survenue lors de la liaison.",
-        "userNotFound": "L'utilisateur n'a pas été trouvé, vous pouvez cliquer sur continuer afin d'être redirigé vers la page de login.",
+        "userNotFound": "L'utilisateur n'a pas été trouvé, vous pouvez cliquer sur Continuer afin d'être redirigé vers la page de login.",
         "contactAdmin": "Si le problème persiste contactez l'administration.",
         "groupFull": "Le groupe que vous souhaitez rejoindre est complet.",
         "onlyOneGroup": "Vous faites déjà partie d'un groupe, vous ne pouvez pas en rejoindre un autre",
