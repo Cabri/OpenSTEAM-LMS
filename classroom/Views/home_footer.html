@@ -40,8 +40,6 @@
 <script src="assets/js/main/modal.js?version=1.1"></script>
 <script src="assets/js/constants/modals.js?version=1.1"></script>
 <script src="assets/js/scripts/buttons.js?version=1.1"></script>
-<script src="assets/js/utils/hello.js?version=1.1"></script>
-
 <!-- end build -->
 <script src="assets/js/main/Loader.js?version=1.1"></script>
 <script src="assets/js/main/UIManager.js?version=1.1"></script>
@@ -136,9 +134,9 @@
 
     // Update Rémi, allow to return in the manager or groupadmin mode after a refresh
     function goBackToThePreviousView(administration = []) {
-        if ($_GET('panel') && 
-        (ClassroomSettings.mixPanels.includes($_GET('panel')) || 
-        ClassroomSettings.teacherPanels.includes($_GET('panel')) || 
+        if ($_GET('panel') &&
+        (ClassroomSettings.mixPanels.includes($_GET('panel')) ||
+        ClassroomSettings.teacherPanels.includes($_GET('panel')) ||
         ClassroomSettings.managerPanels.includes($_GET('panel')) ||
         ClassroomSettings.groupAdminPanels.includes($_GET('panel')))) {
             if (administration[0] === true && $_GET('panel').includes("manager") && $_GET('nav').includes("manager")) {

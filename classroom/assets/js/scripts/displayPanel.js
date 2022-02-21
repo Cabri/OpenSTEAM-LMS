@@ -35,7 +35,7 @@ DisplayPanel.prototype.classroom_dashboard_profil_panel = function () {
     })
 }
 DisplayPanel.prototype.classroom_dashboard_ide_panel = function (option) {
-    if (option == "python" || option == "microbit" || option == "arduino" || option == "esp32" || option == "quickpi" || option == "adacraft" || option == "stm32" || option == "innovatorhub"){
+    if (option == "python" || option == "microbit" || option == "arduino" || option == "esp32" || option == "quickpi" || option == "adacraft" || option == "stm32" || option == "TI-83"){
         $('#classroom-dashboard-ide-panel').html('<iframe width="100%" style="height:85vh;" frameborder="0" allowfullscreen="" style="border:1px #d6d6d6 solid;" src="' + URLServer + '/' + option + '/?console=bottom&use=classroom&embed=1&action=new"></iframe>')
     } else if (option == "texas-instruments") {
         $('#classroom-dashboard-ide-panel').html('<iframe width="100%" style="height:85vh;" frameborder="0" allowfullscreen="" style="border:1px #d6d6d6 solid;" src="' + URLServer + '/microbit/?toolbox=texas-instruments&console=bottom&use=classroom&embed=1&action=new"></iframe>');
@@ -79,9 +79,8 @@ DisplayPanel.prototype.classroom_dashboard_activities_panel = function () {
     .then(() => {
         studentActivitiesDisplay();
     });
-
-
 }
+
 DisplayPanel.prototype.classroom_dashboard_activities_panel_library_teacher = function () {
     if (!$("#resource-center-classroom").length) {
         $('#classroom-dashboard-activities-panel-library-teacher').html('<iframe id="resource-center-classroom" src="/learn/?use=classroom" frameborder="0" style="height:80vh;width:80vw"></iframe>')
@@ -342,19 +341,21 @@ DisplayPanel.prototype.classroom_dashboard_new_activity_panel3 = function (ref) 
         $('#introduction-activity-form').val('')
     }
 }
+
 DisplayPanel.prototype.classroom_dashboard_activity_panel = function (id) {
     if (id != 'null') {
         if (UserManager.getUser().isRegular) {
             if (id.slice(0, 2) == "WK") {
+
                 ClassroomSettings.activity = id = Number(id.slice(2))
-                Activity = getActivity(id)
-                getTeacherActivity()
+                Activity = getActivity(id);
+                getTeacherActivity();
 
             } else {
                 ClassroomSettings.activity = id = Number(id.slice(2))
                 Main.getClassroomManager().getOneUserLinkActivity(id).then(function (result) {
-                    Activity = result
-                    loadActivity(false)
+                    Activity = result;
+                    loadActivityForTeacher();
                 })
             }
         } else {
@@ -365,8 +366,7 @@ DisplayPanel.prototype.classroom_dashboard_activity_panel = function (id) {
             }
             ClassroomSettings.activity = id = Number(id.slice(2))
             Activity = getActivity(id, $_GET('interface'))
-            loadActivity(isDoable)
-
+            loadActivityForStudents(isDoable)
         }
     }
 }
@@ -386,36 +386,36 @@ function formatDateInput(date) {
 }
 
 function getTeacherActivity() {
-    $('#activity-details').html('')
+    //
+    $('#activity-correction-container').hide();
+    $('#activity-details').html('');
+    //
+
     $('#activity-title').html(Activity.title + `<button class="btn btn-link" onclick="attributeActivity(` + Activity.id + `)">
-    <i class="fas fa-arrow-down"></i> ` + capitalizeFirstLetter(i18next.t('words.attribute')) + `
-</button>`)
+    <i class="fas fa-arrow-down"></i> ` + capitalizeFirstLetter(i18next.t('words.attribute')) + `</button>`);
 
-    let activityContent = $('#activity-content');
+    Activity.isAutocorrect ? $('#activity-auto-disclaimer').show() :  $('#activity-auto-disclaimer').hide();
 
-    // TODO cabri replace with IF LTI
-    // TODO create apps in db with (name, url, ...)
-    //let activityType = Activity.type.toLowerCase();
-    let activityType = Activity.type;
-    if(activityType === "EXPRESS" || activityType === "GENIUS" || activityType === "LTI-BLOCKLY") {
-      let iframeURL = `https://cabricloud.com/ed/opensteam/express?isMobile&calculator=false&clmc=${Activity.content}`;
-      if(activityType === "LTI-BLOCKLY")
-        iframeURL += '&blockly';
-      activityContent.html(`<iframe style="width: 100%; height: 100%;" allowfullscreen="true" frameborder="0" src="${iframeURL}" allowfullscreen></iframe>`);
-    } else if (activityType === "IMUSCICA")
-      activityContent.html('<iframe style="width: 100%; height: 100%;" allowfullscreen="true" frameborder="0" src="https://workbench-imuscica.cabricloud.com/?lesson=' + Activity.content + '" allowfullscreen></iframe>')
-    else if (activityType === "STANDARD")
-      activityContent.html('<iframe style="width: 100%; height: 100%;" allowfullscreen="true" frameborder="0" src="https://cabricloud.com/ed/opensteam/player?isMobile&calculator=false&clmc=' + Activity.content + '" allowfullscreen></iframe>');
-    else
-      activityContent.html('<iframe style="width: 100%; height: 100%;" allowfullscreen="true" frameborder="0" src="' + Activity.content + '" allowfullscreen></iframe>');
-
-    /*    else
-          activityContent.html(bbcodeToHtml(Activity.content));*/
+    if (IsJsonString(Activity.content)) {
+        if (Activity.type == 'free' || Activity.type == 'reading') {
+            const contentParsed = JSON.parse(Activity.content);
+            if (contentParsed.hasOwnProperty('description')) {
+                $('#activity-content').html(bbcodeToHtml(contentParsed.description))
+            } 
+        } else {
+            // activityId, activityType, activityContent
+            launchLtiResource(Activity.id, Activity.type, JSON.parse(Activity.content).description);
+        }
+        
+    } else{
+        $('#activity-content').html(bbcodeToHtml(Activity.content))
+    }
 
     $('#activity-introduction').hide()
     $('#activity-validate').hide()
     $('#activity-correction-container').hide();
 }
+
 
 function getIntelFromClasses() {
     $('#list-classes').html('')

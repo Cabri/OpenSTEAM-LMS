@@ -27,12 +27,12 @@ use Interfaces\Controller\ControllerProject;
 use Classroom\Controller\ControllerClassroom;
 use Utils\Exceptions\EntityOperatorException;
 
-/**
- * A modifier pour le namespace superadmin
- */
+
 
 use Classroom\Controller\ControllerGroupAdmin;
 use Classroom\Controller\ControllerSuperAdmin;
+
+use Learn\Controller\ControllerNewActivities;
 
 use Learn\Controller\ControllerCourseLinkCourse;
 use Utils\Exceptions\EntityDataIntegrityException;
@@ -91,14 +91,14 @@ try {
 
         // scan each single plugin folder
         foreach ($pluginsFound as $singlePlugin) {
-            $singlePluginFolders = array_diff(scandir("../plugins/$singlePlugin"), array('..', '.'));
+            $singlePluginFolders = array_diff(scandir("../plugins/$singlePlugin"), array('..', '.', '.DS_Store'));
 
             // convert snake_case from url param into PascalCase to find the right controller file to instanciate
             $ControllerToInstanciate = "Controller" . str_replace('_', '', ucwords($controller, '_'));
 
             // check if a Controller folder exists in the plugins list
             if (in_array("Controller", $singlePluginFolders)) {
-                // check if the required controller file exists and require it 
+                // check if the required controller file exists and require it
                 if (file_exists("../plugins/$singlePlugin/Controller/$ControllerToInstanciate.php")) {
                     require_once "../plugins/$singlePlugin/Controller/" . $ControllerToInstanciate . ".php";
 
@@ -198,6 +198,11 @@ try {
             break;
         case 'groupadmin':
             $controller = new ControllerGroupAdmin($entityManager, $user);
+            echo (json_encode($controller->action($action, $_POST)));
+            $log->info($action, OK);
+            break;
+        case 'newActivities':
+            $controller = new ControllerNewActivities($entityManager, $user);
             echo (json_encode($controller->action($action, $_POST)));
             $log->info($action, OK);
             break;

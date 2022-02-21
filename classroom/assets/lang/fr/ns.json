@@ -509,6 +509,9 @@
 			},
 			"attributeActivity": {
 				"title": "Attribuer l'activité"
+			},
+			"shareProject": {
+				"title": "Partager le projet"
 			}
     }
   },

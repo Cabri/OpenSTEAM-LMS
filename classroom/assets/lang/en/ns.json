@@ -110,6 +110,10 @@
 			}
 		},
 		"notif": {
+			"emptyContent": "The content can not be empty",
+			"emptyTitle": "The title can not be empty",
+			"activityRestricted": "You can not create more activities from this type",
+			"shareProjectTeacher": "The project has been shared with your teacher",
 			"shareProjectTeacher": "The project was shared with your teacher",
 			"addActivities": "The selected activities have been added to your list",
 			"addActivity": "The activity has been added to your list",
@@ -278,14 +282,26 @@
 			"noSend": "This activity has not been made",
 			"comments": "Enter your comments here",
       "activitySubmited2": "Activity submitted on",
+			"sentOn": "This activity was returned on ",
+			"activityOfUser": "Activity of ",
+			"userSentOn" : " sent on ",
+			"yourAnswer": "Your answer",
+			"studentAnswer": "Learner's answer",
+			"comments": "Write your comments there",
+			"return": "Return to the activities",
 			"bilan": {
 				"title": "Balance sheet",
 				"results": "Results",
 				"noComment": "No comment yet"
 			},
+			"applist":{
+				"selectApp":"Select the application that you wish to create an activity with"
+			},
 			"form": {
-				"1": "Creation of the activity",
-				"2": "Allocation",
+				"1": "Application",
+				"2": "Content",
+				"3": "Title",
+				"4": "Attribution",
 				"title": {
 					"label": "Title of the activity",
           "labelCabri": "What is the title of the activity?",
@@ -315,14 +331,17 @@
 				"content": {
 					"label": "Content of the activity"
 				},
-				"button": "Save and Validate",
-				"success": "Congratulations, you have created an activity!",
-				"attribute": "Assign the activity now",
-				"attribute2": "Assign the activity ",
-				"return": "Back to My Activities",
-				"hint": "You can always assign this activity later from the dashboard.",
-				"modify": "Change the activity",
-				"select1": "Selecting learners",
+				"back": "Back",
+				"validate": "Validate",
+				"buttonContinue": "Save and continue",
+				"button": "Save and approve",
+				"success": "Congratulations, you created an activity!",
+				"attribute": "Attribute the activity right now",
+				"attribute2": "Attribute the activity ",
+				"return": "Return to My activities",
+				"hint": "You can still attribute this activity later from your dashboard.",
+				"modify": "Modify the activity",
+				"select1": "Select the learners",
 				"select2": " selected.",
 				"instructions": "Specific instructions for these learners",
 				"autocorrect": "This activity has auto-correction, do you want to activate it?",
@@ -503,6 +522,9 @@
 			},
 			"attributeActivity": {
 				"title": "Assign activity"
+			},
+			"shareProject": {
+				"title": "Share project"
 			}
 		}
 	},
@@ -1285,5 +1307,20 @@
 				"willSignin": "Log in"
 			}
 		}
+	},
+	"newActivities": {
+		"create": "Create a new activity",
+		"delete": "Delete",
+		"addQuiz": "Add a suggestion",
+		"states": "Activity statement <span class=\"c-text-red\">*</span>",
+		"cancel": "Cancel",
+		"autocorrect": "Autocorrect",
+		"correction": "Activity correction",
+		"tolerance1": "Add an error tolerance of",
+		"tolerance2": "character(s) on the entire student response.",
+		"hint": "Hint *: displayed if the answer is wrong",
+		"title": "Activity title <span class=\"c-text-red\">*</span>",
+		"description": "Activity description <span class=\"c-text-red\">*</span>",
+		"content": "Activity content <span class=\"c-text-red\">*</span>"
 	}
 }

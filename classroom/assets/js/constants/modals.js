@@ -164,7 +164,7 @@ const classroomModals = {
         selector: '',
         header: {
             icon: '',
-            title: 'modals.classroom.shareProject.title'
+            title: 'classroom.modals.shareProject.title'
         },
         content: `
     <h4>Sélectionner des apprenants</h4>
