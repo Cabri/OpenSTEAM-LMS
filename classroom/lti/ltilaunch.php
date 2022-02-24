@@ -58,7 +58,7 @@ if ($activitiesLinkUser == null) {
 	exit;
 }
 
-$platform_url = $_SERVER["HTTP_HOST"] == 'localhost:7080' ? "http://{$_SERVER["HTTP_HOST"]}" : "https://{$_SERVER["HTTP_HOST"]}";
+$platform_url = getenv('VS_HOST');
 
 $activityRestriction = $entityManager->getRepository(ActivityRestrictions::class)->findOneByActivityType($applicationType);
 
