@@ -414,38 +414,37 @@ function loadActivityForStudents(isDoable) {
     $('#activity-details').html(i18next.t("classroom.activities.toSend") + formatDay(Activity.dateEnd))
   }
 
-    // Content management
-    let content = manageContentForActivity();
-    let correction = '';
-    if (!UserManager.getUser().isRegular && Activity.correction > 1) {
-        document.querySelector('#activity-correction').style.display = 'block';
-        let activityResultString;
-        switch (Activity.note) {
-            case 3:
-                activityResultString = i18next.t('classroom.activities.veryGoodProficiency')
-                break;
-            case 2:
-                activityResultString = i18next.t('classroom.activities.goodProficiency')
-                break;
-            case 1:
-                activityResultString = i18next.t('classroom.activities.weakProficiency')
-                break;
-            case 0:
-                activityResultString = i18next.t('classroom.activities.insufficientProficiency')
-                break;
-            default:
-                break;
-        }
-        correction += `<div class="results-string" style="background-color:var(--correction-${Activity.note})"">${activityResultString}</div>`
-        
-        if (Activity.commentary != null && Activity.commentary != "") {
-            correction += '<div id="commentary-panel">' + Activity.commentary + '</div>'
-        } else {
-            correction += '<div id="commentary-panel">' + i18next.t("classroom.activities.bilan.noComment") + '</div>'
-        }
-    } else {
-        document.querySelector('#activity-correction').style.display = 'none';
+  // Content management
+  let content = manageContentForActivity();
+  let correction = '';
+  if (!UserManager.getUser().isRegular && Activity.correction > 1) {
+    document.querySelector('#activity-correction').style.display = 'block';
+    let activityResultString;
+    switch (Activity.note) {
+      case 3:
+        activityResultString = i18next.t('classroom.activities.veryGoodProficiency')
+        break;
+      case 2:
+        activityResultString = i18next.t('classroom.activities.goodProficiency')
+        break;
+      case 1:
+        activityResultString = i18next.t('classroom.activities.weakProficiency')
+        break;
+      case 0:
+        activityResultString = i18next.t('classroom.activities.insufficientProficiency')
+        break;
+      default:
+        break;
     }
+    correction += `<div class="results-string" style="background-color:var(--correction-${Activity.note})"">${activityResultString}</div>`
+
+    if (Activity.commentary != null && Activity.commentary != "") {
+      correction += '<div id="commentary-panel">' + Activity.commentary + '</div>'
+    } else {
+      correction += '<div id="commentary-panel">' + i18next.t("classroom.activities.bilan.noComment") + '</div>'
+    }
+  } else {
+    document.querySelector('#activity-correction').style.display = 'none';
   }
 
   injectContentForActivity(content, Activity.correction, Activity.activity.type, correction, isDoable);
@@ -501,29 +500,29 @@ function injectContentForActivity(content, correction, type = null, correction_d
     $('#activity-correction').html(bbcodeToHtml(correction))
   }
 
-    switch(type) {
-        case 'free':
-            manageDisplayFree(correction, content, correction_div)
-            break;
-        case 'quiz':
-            
-            break;
-        case 'fillIn':
-            manageDispleyFillIn(correction, content, correction_div);
-            break;
-        case 'reading':
-            manageDisplayCustomAndReading(correction ,content, correction_div);
-            break;
-        case 'dragAndDrop':
-            
-            break;
-        case 'custom':
-            manageDisplayCustomAndReading(correction ,content, correction_div);
-            break;
-        default:
-            manageDisplayLti(correction, content, correction_div, isDoable, activityValidationButtonElt);
-            break;
-    }
+  switch(type) {
+    case 'free':
+      manageDisplayFree(correction, content, correction_div)
+      break;
+    case 'quiz':
+
+      break;
+    case 'fillIn':
+      manageDispleyFillIn(correction, content, correction_div);
+      break;
+    case 'reading':
+      manageDisplayCustomAndReading(correction ,content, correction_div);
+      break;
+    case 'dragAndDrop':
+
+      break;
+    case 'custom':
+      manageDisplayCustomAndReading(correction ,content, correction_div);
+      break;
+    default:
+      manageDisplayLti(correction, content, correction_div, isDoable, activityValidationButtonElt);
+      break;
+  }
 }
 
 let wbbOpt = {
@@ -532,38 +531,38 @@ let wbbOpt = {
 
 function manageDisplayCustomAndReading(correction, content, correction_div) {
 
-    setTextArea();
-    $('#activity-title').html(Activity.activity.title);
-    $('#activity-content').html(bbcodeToHtml(content));
-    if (correction == 0) {
-        $('#activity-input').wysibb(wbbOpt);
-        $('#activity-input-container').show();
-    } else if (correction > 0) {
-        $('#activity-correction').html(correction_div);
-        $('#activity-correction-container').show(); 
-    }
+  setTextArea();
+  $('#activity-title').html(Activity.activity.title);
+  $('#activity-content').html(bbcodeToHtml(content));
+  if (correction == 0) {
+    $('#activity-input').wysibb(wbbOpt);
+    $('#activity-input-container').show();
+  } else if (correction > 0) {
+    $('#activity-correction').html(correction_div);
+    $('#activity-correction-container').show();
+  }
 
-    // todo
-    if (!Activity.evaluation && correction < 2) {
-        $('#activity-validate').show();
-        $('#activity-save').show();
-    }
+  // todo
+  if (!Activity.evaluation && correction < 2) {
+    $('#activity-validate').show();
+    $('#activity-save').show();
+  }
 
 }
 
 function manageDisplayFree(correction, content, correction_div) {
 
-    setTextArea();
-    $('#activity-title').html(Activity.activity.title);
-    $('#activity-content').html(bbcodeToHtml(content));
-    if (correction == 0 || correction == null) {
-        if (!UserManager.getUser().isRegular) {
-            $('#activity-input').wysibb(wbbOpt);
-            $('#activity-input-container').show();
-        }
-    } else if (correction > 0) {
-        $('#activity-student-response').show();
-        $('#activity-student-response-content').html(bbcodeToHtml(Activity.response));
+  setTextArea();
+  $('#activity-title').html(Activity.activity.title);
+  $('#activity-content').html(bbcodeToHtml(content));
+  if (correction == 0 || correction == null) {
+    if (!UserManager.getUser().isRegular) {
+      $('#activity-input').wysibb(wbbOpt);
+      $('#activity-input-container').show();
+    }
+  } else if (correction > 0) {
+    $('#activity-student-response').show();
+    $('#activity-student-response-content').html(bbcodeToHtml(Activity.response));
 
     $('#activity-correction-container').show();
     $('#activity-correction').html(correction_div);
@@ -572,37 +571,38 @@ function manageDisplayFree(correction, content, correction_div) {
     } else {
       $('#label-activity-student-response').text(i18next.t("classroom.activities.yourAnswer"));
     }
-    
-    // todo
-    if (!Activity.evaluation && correction < 2) {
-        $('#activity-validate').show();
-        $('#activity-save').show();
-    }
+  }
+
+  // todo
+  if (!Activity.evaluation && correction < 2) {
+    $('#activity-validate').show();
+    $('#activity-save').show();
+  }
 
 }
 
 function manageDisplayLti(correction, content, correction_div, isDoable, activityValidationButtonElt) {
-    if (isDoable) {
-        activityValidationButtonElt.style.display = 'none';
-        launchLtiResource(Activity.id, Activity.activity.type, content, true);
-    } else {
-        document.querySelector('#activity-content').innerHTML = `
+  if (isDoable) {
+    activityValidationButtonElt.style.display = 'none';
+    launchLtiResource(Activity.id, Activity.activity.type, content, true);
+  } else {
+    document.querySelector('#activity-content').innerHTML = `
         <iframe src="${Activity.url}" width="100%" style="height: 60vh;" allowfullscreen=""></iframe>`;
-        if (!Activity.evaluation) {
-            document.querySelector('#activity-content').innerHTML += `
+    if (!Activity.evaluation) {
+      document.querySelector('#activity-content').innerHTML += `
             <button onclick="launchLtiResource(${Activity.id}, '${Activity.activity.type}', '${content}', true, '${Activity.url}')">Modifier le travail</button>`;
-        }
-        
-        if (correction != 1) {
-            document.querySelector('#activity-correction-container').style.display = 'block';
-            document.querySelector('#activity-correction').innerHTML = correction_div;
-        }
     }
+
+    if (correction != 1) {
+      document.querySelector('#activity-correction-container').style.display = 'block';
+      document.querySelector('#activity-correction').innerHTML = correction_div;
+    }
+  }
 }
 
 function manageDispleyFillIn(correction, content, correction_div) {
-    setTextArea();
-    
+  setTextArea();
+
 }
 
 
@@ -625,20 +625,20 @@ function resetInputsForActivity() {
 }
 
 function isTheActivityIsDoable(doable, hideValidationButton = false) {
-    if (doable == false) {
-        $('#activity-validate').hide();
-        $('#activity-save').hide();
-    } else {
-        let interface = /\[iframe\].*?vittascience(|.com)\/([a-z0-9]{5,12})\/?/gm.exec(Activity.activity.content)
-        if (!hideValidationButton) {
-            if (!Activity.activity.isLti) {
-                $('#activity-validate').show();
-            }
-        }
-        
-        if (interface != undefined && interface != null) {
-            $('#activity-save').show()
-        }
+  if (doable == false) {
+    $('#activity-validate').hide();
+    $('#activity-save').hide();
+  } else {
+    let interface = /\[iframe\].*?vittascience(|.com)\/([a-z0-9]{5,12})\/?/gm.exec(Activity.activity.content)
+    if (!hideValidationButton) {
+      if (!Activity.activity.isLti) {
+        $('#activity-validate').show();
+      }
+    }
+
+    if (interface != undefined && interface != null) {
+      $('#activity-save').show()
+    }
   }
 }
 
