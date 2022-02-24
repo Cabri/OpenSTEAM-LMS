@@ -35,8 +35,7 @@ if(!$ltiTool) return;
 $validatedToken = JWT::decode(
   $_REQUEST['client_assertion'], 
   JWK::parseKeySet(json_decode(file_get_contents($ltiTool->getPublicKeySet()), true)), 
-  array('RS256'),
-  $ltiTool->getKid()
+  array('RS256')
 );
 
 $contentItemsLabel = "https://purl.imsglobal.org/spec/lti-dl/claim/content_items";

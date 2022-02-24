@@ -38,7 +38,8 @@ $jwt_payload = [
       "activityType" => $loginHint['activityType'],
       "isUpdate" => isset($loginHint['isUpdate']) ? true : false,
       "updateUrl" => $loginHint['updateUrl'] ?? '',
-      "redirectionUrl"=> $platform_url . '/lti/redirection.html'
+      "redirectionUrl" => $platform_url . '/lti/redirection.html',
+      "studentResourceUrl" => isset($loginHint['studentResourceUrl']) ? $loginHint['studentResourceUrl'] : false
     ]
 ];
 

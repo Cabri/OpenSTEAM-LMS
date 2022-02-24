@@ -395,33 +395,6 @@ function statusActivity(activity, state = true) {
 
 }
 
-/**
- * @ToBeRemoved
- * Last check October 2021
- */
-// function displayStudentsActivities(link, activitiesList) {
-//     Main.getClassroomManager().getUsersInClassroom(link).then(function (students) {
-//         students.forEach(student => {
-
-//             activitiesList.forEach(activity => {
-//                 if (searchActivity(activity.id, students)) {
-//                     switch (statusActivityForStudent(activity.id, student)) {
-//                         case "success":
-//                             break;
-//                         case "failed":
-//                             break;
-//                         case "in process":
-//                             break;
-//                         default:
-//                     }
-
-//                 }
-//             });
-
-//         })
-//     })
-// }
-
 function loadActivityForStudents(isDoable) {
   // Reset the inputs
   resetInputsForActivity()
@@ -441,33 +414,37 @@ function loadActivityForStudents(isDoable) {
     $('#activity-details').html(i18next.t("classroom.activities.toSend") + formatDay(Activity.dateEnd))
   }
 
-  // Content management
-  let content = manageContentForActivity();
-
-
-  let correction = ''
-  correction += `<h4 class="c-text-primary text-center font-weight-bold">${i18next.t('classroom.activities.bilan.results')}</h4>`
-  if (Activity.correction == 1) {
-    correction += `<div class="giveNote-container c-primary-form"><label for="givenote-3" onclick="setNote(3)"><input type="radio" id="givenote-3" name="giveNote" value="3">${" " + i18next.t('classroom.activities.accept')}</label><label for="givenote-2" onclick="setNote(2)"><input type="radio" id="givenote-2" name="giveNote" value="2">${" " + i18next.t('classroom.activities.vgood')}</label><label for="givenote-1" onclick="setNote(1)"><input type="radio" id="givenote-1" name="giveNote" value="1">${" " + i18next.t('classroom.activities.good')}</label><label for="givenote-0" onclick="setNote(0)"><input type="radio" id="givenote-0" name="giveNote" value="0">${" " + i18next.t('classroom.activities.refuse')}</label></div>`
-  }
-
-  if (!UserManager.getUser().isRegular && Activity.correction > 0) {
-    if (Activity.note == 3) {
-      var activityResultString = i18next.t('classroom.activities.veryGoodProficiency')
-    } else if (Activity.note == 2) {
-      var activityResultString = i18next.t('classroom.activities.goodProficiency')
-    } else if (Activity.note == 1) {
-      var activityResultString = i18next.t('classroom.activities.weakProficiency')
-    } else if (Activity.note == 0) {
-      var activityResultString = i18next.t('classroom.activities.insufficientProficiency')
-    }
-    correction += `<div class="results-string" style="background-color:var(--correction-${Activity.note})"">${activityResultString}</div>`
-
-
-    if (Activity.commentary != null && Activity.commentary != "") {
-      correction += '<div id="commentary-panel">' + Activity.commentary + '</div>'
+    // Content management
+    let content = manageContentForActivity();
+    let correction = '';
+    if (!UserManager.getUser().isRegular && Activity.correction > 1) {
+        document.querySelector('#activity-correction').style.display = 'block';
+        let activityResultString;
+        switch (Activity.note) {
+            case 3:
+                activityResultString = i18next.t('classroom.activities.veryGoodProficiency')
+                break;
+            case 2:
+                activityResultString = i18next.t('classroom.activities.goodProficiency')
+                break;
+            case 1:
+                activityResultString = i18next.t('classroom.activities.weakProficiency')
+                break;
+            case 0:
+                activityResultString = i18next.t('classroom.activities.insufficientProficiency')
+                break;
+            default:
+                break;
+        }
+        correction += `<div class="results-string" style="background-color:var(--correction-${Activity.note})"">${activityResultString}</div>`
+        
+        if (Activity.commentary != null && Activity.commentary != "") {
+            correction += '<div id="commentary-panel">' + Activity.commentary + '</div>'
+        } else {
+            correction += '<div id="commentary-panel">' + i18next.t("classroom.activities.bilan.noComment") + '</div>'
+        }
     } else {
-      correction += '<div id="commentary-panel">' + i18next.t("classroom.activities.bilan.noComment") + '</div>'
+        document.querySelector('#activity-correction').style.display = 'none';
     }
   }
 
@@ -524,35 +501,29 @@ function injectContentForActivity(content, correction, type = null, correction_d
     $('#activity-correction').html(bbcodeToHtml(correction))
   }
 
-  switch(type) {
-    case 'free':
-      manageDisplayFree(correction, content, correction_div)
-      break;
-    case 'quiz':
-
-      break;
-    case 'fillIn':
-
-      break;
-    case 'reading':
-      manageDisplayCustomAndReading(correction ,content, correction_div);
-      break;
-    case 'dragAndDrop':
-
-      break;
-    case 'custom':
-      manageDisplayCustomAndReading(correction ,content, correction_div);
-      break;
-    default:
-      if (isDoable) {
-        activityValidationButtonElt.style.display = 'none';
-        launchLtiResource(Activity.id, Activity.activity.type, content, true);
-      } else {
-        document.querySelector('#activity-content').innerHTML = `
-                <iframe src="${Activity.url}" width="100%" style="height: 60vh;" allowfullscreen=""></iframe>`;
-      }
-      break;
-  }
+    switch(type) {
+        case 'free':
+            manageDisplayFree(correction, content, correction_div)
+            break;
+        case 'quiz':
+            
+            break;
+        case 'fillIn':
+            manageDispleyFillIn(correction, content, correction_div);
+            break;
+        case 'reading':
+            manageDisplayCustomAndReading(correction ,content, correction_div);
+            break;
+        case 'dragAndDrop':
+            
+            break;
+        case 'custom':
+            manageDisplayCustomAndReading(correction ,content, correction_div);
+            break;
+        default:
+            manageDisplayLti(correction, content, correction_div, isDoable, activityValidationButtonElt);
+            break;
+    }
 }
 
 let wbbOpt = {
@@ -561,32 +532,38 @@ let wbbOpt = {
 
 function manageDisplayCustomAndReading(correction, content, correction_div) {
 
-  setTextArea();
-  $('#activity-title').html(Activity.activity.title);
-  $('#activity-content').html(bbcodeToHtml(content));
-  if (correction == 0) {
-    $('#activity-input').wysibb(wbbOpt);
-    $('#activity-input-container').show();
-  } else if (correction > 0) {
-    $('#activity-correction').html(correction_div);
-    $('#activity-correction-container').show();
-  }
+    setTextArea();
+    $('#activity-title').html(Activity.activity.title);
+    $('#activity-content').html(bbcodeToHtml(content));
+    if (correction == 0) {
+        $('#activity-input').wysibb(wbbOpt);
+        $('#activity-input-container').show();
+    } else if (correction > 0) {
+        $('#activity-correction').html(correction_div);
+        $('#activity-correction-container').show(); 
+    }
+
+    // todo
+    if (!Activity.evaluation && correction < 2) {
+        $('#activity-validate').show();
+        $('#activity-save').show();
+    }
+
 }
 
 function manageDisplayFree(correction, content, correction_div) {
 
-
-  setTextArea();
-  $('#activity-title').html(Activity.activity.title);
-  $('#activity-content').html(bbcodeToHtml(content));
-  if (correction == 0 || correction == null) {
-    if (!UserManager.getUser().isRegular) {
-      $('#activity-input').wysibb(wbbOpt);
-      $('#activity-input-container').show();
-    }
-  } else if (correction > 0) {
-    $('#activity-student-response').show();
-    $('#activity-student-response-content').html(bbcodeToHtml(Activity.response));
+    setTextArea();
+    $('#activity-title').html(Activity.activity.title);
+    $('#activity-content').html(bbcodeToHtml(content));
+    if (correction == 0 || correction == null) {
+        if (!UserManager.getUser().isRegular) {
+            $('#activity-input').wysibb(wbbOpt);
+            $('#activity-input-container').show();
+        }
+    } else if (correction > 0) {
+        $('#activity-student-response').show();
+        $('#activity-student-response-content').html(bbcodeToHtml(Activity.response));
 
     $('#activity-correction-container').show();
     $('#activity-correction').html(correction_div);
@@ -595,7 +572,37 @@ function manageDisplayFree(correction, content, correction_div) {
     } else {
       $('#label-activity-student-response').text(i18next.t("classroom.activities.yourAnswer"));
     }
-  }
+    
+    // todo
+    if (!Activity.evaluation && correction < 2) {
+        $('#activity-validate').show();
+        $('#activity-save').show();
+    }
+
+}
+
+function manageDisplayLti(correction, content, correction_div, isDoable, activityValidationButtonElt) {
+    if (isDoable) {
+        activityValidationButtonElt.style.display = 'none';
+        launchLtiResource(Activity.id, Activity.activity.type, content, true);
+    } else {
+        document.querySelector('#activity-content').innerHTML = `
+        <iframe src="${Activity.url}" width="100%" style="height: 60vh;" allowfullscreen=""></iframe>`;
+        if (!Activity.evaluation) {
+            document.querySelector('#activity-content').innerHTML += `
+            <button onclick="launchLtiResource(${Activity.id}, '${Activity.activity.type}', '${content}', true, '${Activity.url}')">Modifier le travail</button>`;
+        }
+        
+        if (correction != 1) {
+            document.querySelector('#activity-correction-container').style.display = 'block';
+            document.querySelector('#activity-correction').innerHTML = correction_div;
+        }
+    }
+}
+
+function manageDispleyFillIn(correction, content, correction_div) {
+    setTextArea();
+    
 }
 
 
@@ -618,18 +625,20 @@ function resetInputsForActivity() {
 }
 
 function isTheActivityIsDoable(doable, hideValidationButton = false) {
-  if (doable == false) {
-    $('#activity-validate').hide();
-    $('#activity-save').hide();
-  } else {
-    let interface = /\[iframe\].*?vittascience(|.com)\/([a-z0-9]{5,12})\/?/gm.exec(Activity.activity.content)
-    if (!hideValidationButton) {
-      $('#activity-validate').show();
-    }
-
-    if (interface != undefined && interface != null) {
-      $('#activity-save').show()
-    }
+    if (doable == false) {
+        $('#activity-validate').hide();
+        $('#activity-save').hide();
+    } else {
+        let interface = /\[iframe\].*?vittascience(|.com)\/([a-z0-9]{5,12})\/?/gm.exec(Activity.activity.content)
+        if (!hideValidationButton) {
+            if (!Activity.activity.isLti) {
+                $('#activity-validate').show();
+            }
+        }
+        
+        if (interface != undefined && interface != null) {
+            $('#activity-save').show()
+        }
   }
 }
 

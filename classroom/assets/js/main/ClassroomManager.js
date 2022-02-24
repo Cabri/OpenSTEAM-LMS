@@ -1405,12 +1405,14 @@ class ClassroomManager {
             content: {
                 enonce: '',
                 description: '',
-                indice: ''
+                indice: '',
+                hint: ''
             }, 
             type: '', 
             solution: '',
             tolerance: ''
         }
+        document.querySelector('#global_title').value = '';
     }
 
 }

@@ -67,16 +67,17 @@ $('body').on('click', '.activity-card-top i', function (event) {
 
 //activité modal-->supprimer
 $('body').on('click', '.modal-activity-delete', function () {
-  let confirm = window.confirm("Etes vous sur de vouloir supprimer l'activité'?")
-  if (confirm) {
-    Main.getClassroomManager().deleteActivity(ClassroomSettings.activity).then(function (activity) {
-      displayNotification('#notif-div', "classroom.notif.activityDeleted", "success", `'{"activityName": "${activity.name}"}'`);
-      deleteTeacherActivityInList(activity.id);
-      teacherActivitiesDisplay();
-      DisplayActivities();
-    })
-    ClassroomSettings.activity = null;
-  }
+    let confirm = window.confirm("Etes vous sur de vouloir supprimer l'activité'?")
+    if (confirm) {
+        let activityTitle = getActivity(ClassroomSettings.activity).title;
+        Main.getClassroomManager().deleteActivity(ClassroomSettings.activity).then(function (activity) {
+            displayNotification('#notif-div', "classroom.notif.activityDeleted", "success", `'{"activityName": "${activityTitle}"}'`);
+            deleteTeacherActivityInList(activity.id);
+            teacherActivitiesDisplay();
+            DisplayActivities();
+        })
+        ClassroomSettings.activity = null;
+    }
 })
 
 //activité modal-->modifier

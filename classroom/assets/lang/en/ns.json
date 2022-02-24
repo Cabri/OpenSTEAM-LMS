@@ -1240,7 +1240,16 @@
 			"usersLimitation": "Users students limitation",
 			"groupsLimitation": "Groups limitations",
 			"activitiesLimitation": "Activities limitations",
-			"defaultRestrictions": "Default restrictions"
+			"defaultRestrictions": "Default restrictions",
+			"ltiApps": "LTI apps",
+			"clientId" : "Client Id <span class=\"c-text-red\">*</span>",
+			"deploymentId" : "Deployment Id <span class=\"c-text-red\">*</span>",
+			"toolUrl" : "Tool Url <span class=\"c-text-red\">*</span>",
+			"publicKeySet" : "Public key set <span class=\"c-text-red\">*</span>",
+			"loginUrl" : "Login Url <span class=\"c-text-red\">*</span>",
+			"redirectionUrl" : "Redirection url <span class=\"c-text-red\">*</span>",
+			"deepLinkUrl" : "Deeplink url <span class=\"c-text-red\">*</span>",
+			"privateKey" : "Private key <span class=\"c-text-red\">*</span>"
 		},
 		"activitiesRestrictions": {
 			"updateAll": "Update restrictions",
@@ -1254,7 +1263,14 @@
 			"restrictionType": "Activity type",
 			"maxActivity": "Activity maximum",
 			"closeDetail": "Close the detail",
-			"restrictions": "Activity restrictions"
+			"restrictions": "Activity restrictions",
+			"appRestricted" : "Create more activities !",
+			"appRestrictedUL1": "You have reached the limit of {{activities}} activities associated with your account.",
+			"appRestrictedUL2": "To add additional activities, please contact your administrator.",
+			"appRestrictedSubtitle2": "A problem with your subscription ?",
+			"appRestrictedSubtitle3": "Contact support",
+			"appRestrictedGarContent1": "You have reached the limit of {{activities}} activities associated with your account.",
+			"appRestrictedGarContent2": "To add additional activities, please contact the GAR assignment manager at your institution."
 		},
 		"defaultRestrictions": {
 			"update": "Update default restrictions",

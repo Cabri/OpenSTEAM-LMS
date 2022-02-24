@@ -1,24 +1,57 @@
-// Used to make direct communications between parent and child (iframe)
+/**
+ * Listener for direct communications from iframes in LTI application interoperability context
+ */
 window.addEventListener(
     "message", 
-    (event) => {
+    async (event) => {
         if(event.data.type === "" || event.data.type === "loaded") return; // ignore msg
         const msg = event.data.type ? event.data.type : JSON.parse(event.data);
         switch(msg.type) {
-        case 'end-lti-score':
-            console.log('ENDING LTI SCORE');
-            navigatePanel('classroom-dashboard-activities-panel','dashboard-activities', '', '', true);
-            location.reload();
-            break;
-        case 'end-lti-deeplink':
-            console.log('ENDING LTI DEEPLINK');
-            console.log("msg : ", msg.content);
-            Main.getClassroomManager()._createActivity.content.description = msg.content;
-            contentForward();
-            break;
-        default:
-            console.log('Other Action !');
-            console.log(event.data);
+            // Message received when an LTI resource launch has gone to submission
+            case 'end-lti-score':
+                // Update the activities from database
+                await Main.getClassroomManager().getStudentActivities(Main.getClassroomManager());
+                // Get the results of the current activity
+                for (let state in Main.getClassroomManager()._myActivities) {
+                    const currentSearch = Main.getClassroomManager()._myActivities[state].filter(x => x.id == Activity.id)[0];
+                    if (typeof currentSearch != 'undefined') {
+                        Activity = currentSearch;
+                        break;
+                    }
+                }
+                // If the current activity needs a manual review, display the relevant panel
+                if (Activity.correction == 1) {
+                    navigatePanel('classroom-dashboard-activity-panel-correcting', 'dashboard-activities', '', '', true);
+                } else {
+                    // Otherwise display the relevant panel for success or fail
+                    switch (Activity.note) {
+                        case 0:
+                            navigatePanel('classroom-dashboard-activity-panel-fail', 'dashboard-activities', '', '', true);
+                            break;
+                        case 3:
+                            navigatePanel('classroom-dashboard-activity-panel-success', 'dashboard-activities', '', '', true);
+                            break;
+                            
+                        default:
+                            navigatePanel('classroom-dashboard-activities-panel', 'dashboard-activities', '', '', true);
+                            break;
+                    }
+                }
+                // Clearing the LTI content div
+                document.querySelector('#lti-loader-container').innerHTML = '';
+                break;
+            // Message received when an LTI deep link has returned
+            case 'end-lti-deeplink':
+                // Saving the deeplink response into the activity creation data
+                Main.getClassroomManager()._createActivity.content.description = msg.content;
+                // Automatically stepping forward in the activity creation process
+                contentForward();
+                // Clear the activity content to close the LTI iframe
+                document.querySelector('#activity-content').innerHTML = '';
+                break;
+            default:
+                console.warn('The current message type isn\'t supported!');
+                console.log(event.data);
         }
     }, 
     false

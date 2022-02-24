@@ -29,6 +29,7 @@ $applicationType = $_POST["application_type"] ?? null;
 $targetLinkUri = $_POST["target_link_uri"] ?? null;
 $studentLaunch = $_POST["student_launch"] ?? null;
 $activitiesLinkUser = $_POST["activities_link_user"] ?? null;
+$studentResourceUrl = $_POST["student_resource_url"] ?? null;
 
 
 if ($applicationType == null) {
@@ -75,7 +76,8 @@ $loginHint = json_encode([
 	"activityType" => $applicationType,
 	"activitiesLinkUser" => $activitiesLinkUser,
 	"deploymentId" => $ltiTool->getDeploymentId(),
-	"deepLink" => false
+	"deepLink" => false,
+	"studentResourceUrl" => $studentResourceUrl
 ]);
 
 echo "

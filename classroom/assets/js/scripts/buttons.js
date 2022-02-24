@@ -215,6 +215,9 @@ function navigatePanel(id, idNav, option = "", interface = '', skipConfirm = fal
             history: id,
             navbar: idNav
         });
+        if ($_GET('panel') == 'classroom-dashboard-activity-panel') {
+            document.querySelector('#activity-content').innerHTML = '';
+        }
         let state = {};
         var title = '';
         let endUrl = idNav;
@@ -637,66 +640,27 @@ function studentActivitiesDisplay() {
 
     let activities = Main.getClassroomManager()._myActivities;
     let index = 1;
+    document.querySelector('#new-activities-list').innerHTML = '';
+    document.querySelector('#current-activities-list').innerHTML = '';
+    document.querySelector('#saved-activities-list').innerHTML = '';
+    document.querySelector('#done-activities-list').innerHTML = '';
+
     activities.newActivities.forEach(element => {
-        if (element.dateEnd) {
-            var dateEnd = element.dateEnd.date
-        } else {
-            var dateEnd = "aucune"
-        }
-        const dateBeforeText = element.activity.type === 'IFRAME-PAGE'
-          || element.activity.type === 'IFRAME-VIDEO'
-          || element.activity.type === 'IFRAME'
-          || element.activity.type === 'IFRAME-CABRI3D'
-          ? i18next.t('classroom.activities.dateBeforeAvailable')
-          : i18next.t('classroom.activities.dateBefore')
         $('#new-activities-list').append(activityItem(element, "newActivities"))
-        $('#header-table-bilan').append('<th data-toggle="tooltip" data-placement="top" title="' + element.activity.title + '"> Act.</br>n°' + index + '</th>')
-        $('#body-table-bilan').append('<td class="' + statusActivity(element) + ' classroom-clickable bilan-cell " title="' + dateBeforeText + ' ' + formatDay(dateEnd) + '"></td>')
         index++
     });
+
     activities.savedActivities.forEach(element => {
-        if (element.dateEnd) {
-            var dateEnd = element.dateEnd.date
-        } else {
-            var dateEnd = "aucune"
-        }
-
-        const dateBeforeText = element.activity.type === 'IFRAME-PAGE'
-        || element.activity.type === 'IFRAME-VIDEO'
-        || element.activity.type === 'IFRAME'
-        || element.activity.type === 'IFRAME-CABRI3D'
-          ? i18next.t('classroom.activities.dateBeforeAvailable')
-          : i18next.t('classroom.activities.dateBefore')
-
         $('#saved-activities-list').append(activityItem(element, "savedActivities"))
-        $('#header-table-bilan').append('<th data-toggle="tooltip" data-placement="top" title="' + element.activity.title + '"> Act.</br>n°' + index + '</th>')
-        $('#body-table-bilan').append('<td class="' + statusActivity(element) + ' classroom-clickable bilan-cell " title="' + dateBeforeText + ' ' + formatDay(dateEnd) + '"></td>')
         index++
     });
 
     activities.currentActivities.forEach(element => {
-        if (element.dateEnd) {
-            var dateEnd = element.dateEnd.date
-        } else {
-            var dateEnd = "aucune"
-        }
-
-        const dateBeforeText = element.activity.type === 'IFRAME-PAGE'
-        || element.activity.type === 'IFRAME-VIDEO'
-        || element.activity.type === 'IFRAME'
-        || element.activity.type === 'IFRAME-CABRI3D'
-          ? i18next.t('classroom.activities.dateBeforeAvailable')
-          : i18next.t('classroom.activities.dateBefore')
-
-       $('#current-activities-list').append(activityItem(element, "currentActivities"))
-        $('#header-table-bilan').append('<th data-toggle="tooltip" data-placement="top" title="' + element.activity.title + '"> Act.</br>n°' + index + '</th>')
-        $('#body-table-bilan').append('<td class="' + statusActivity(element) + ' classroom-clickable bilan-cell" title="' + dateBeforeText + ' ' + formatDay(dateEnd) + '"></td>')
+        $('#current-activities-list').append(activityItem(element, "currentActivities"))
         index++
     });
     activities.doneActivities.forEach(element => {
         $('#done-activities-list').append(activityItem(element, "doneActivities"))
-        $('#header-table-bilan').append('<th data-toggle="tooltip" data-placement="top" title="' + element.activity.title + '"> Act.</br>n°' + index + '</th>')
-        $('#body-table-bilan').append('<td class="' + statusActivity(element) + ' bilan-cell classroom-clickable" ></td>')
         index++
     });
 
@@ -2695,6 +2659,30 @@ function resetInputApplications() {
     $('#validation_delete_application').val("");
     $('#app_update_activity_restriction_value').val("");
     $('#app_update_activity_restriction_type').val("");
+
+    $('#isLti').prop('checked', false);
+    $('#update_isLti').prop('checked', false);
+
+    $('#inputs-lit').hide();
+    $('#update_inputs-lti').hide();
+
+    $('#clientId').val("");
+    $('#deploymentId').val("");
+    $('#toolUrl').val("");
+    $('#publicKeySet').val("");
+    $('#loginUrl').val("");
+    $('#redirectionUrl').val("");
+    $('#deepLinkUrl').val("");
+    $('#privateKey').val("");
+
+    $('#update_clientId').val("");
+    $('#update_deploymentId').val("");
+    $('#update_toolUrl').val("");
+    $('#update_publicKeySet').val("");
+    $('#update_loginUrl').val("");
+    $('#update_redirectionUrl').val("");
+    $('#update_deepLinkUrl').val("");
+    $('#update_privateKey').val("");
 }
 
 function getAndShowApps() {
@@ -2729,6 +2717,84 @@ function createApp() {
     openModalInState('#create-app-manager');
 }
 
+
+$('body').on('change', '#isLti', function () {
+    if ($(this).is(":checked")) {
+        $('#inputs-lti').show();
+    } else {
+        $('#inputs-lti').hide();
+    }
+})
+
+$('body').on('change', '#update_isLti', function () {
+    if ($(this).is(":checked")) {
+        $('#update_inputs-lti').show();
+    } else {
+        $('#update_inputs-lti').hide();
+    }
+})
+
+// Return false if the input is empty
+function checkLtiFields(type) {
+    if (type == 'create') {
+        if ($('#isLti').is(":checked")) {
+            if (
+                $('#clientId').val() == "" || 
+                $('#deploymentId').val() == "" || 
+                $('#toolUrl').val() == "" || 
+                $('#publicKeySet').val() == "" || 
+                $('#loginUrl').val() == "" || 
+                $('#redirectionUrl').val() == "" || 
+                $('#deepLinkUrl').val() == "" || 
+                $('#privateKey').val() == "") 
+            {
+                return {isLti : false};
+            } else {
+                return {
+                    isLti : true,
+                    clientId: $('#clientId').val(),
+                    deploymentId: $('#deploymentId').val(),
+                    toolUrl: $('#toolUrl').val(),
+                    publicKeySet: $('#publicKeySet').val(),
+                    loginUrl: $('#loginUrl').val(),
+                    redirectionUrl: $('#redirectionUrl').val(),
+                    deepLinkUrl: $('#deepLinkUrl').val(),
+                    privateKey: $('#privateKey').val()
+                };
+            }
+        }
+    } else if (type == 'update') {
+        if ($('#update_isLti').is(":checked")) {
+            if (
+                $('#update_clientId').val() == "" || 
+                $('#update_deploymentId').val() == "" || 
+                $('#update_toolUrl').val() == "" || 
+                $('#update_publicKeySet').val() == "" || 
+                $('#update_loginUrl').val() == "" || 
+                $('#update_redirectionUrl').val() == "" || 
+                $('#update_deepLinkUrl').val() == "" || 
+                $('#update_privateKey').val() == ""
+            ) {
+                return {isLti : false};
+            } else {
+                let lti = {
+                    isLti : true,
+                    clientId: $('#update_clientId').val(),
+                    deploymentId: $('#update_deploymentId').val(),
+                    toolUrl: $('#update_toolUrl').val(),
+                    publicKeySet: $('#update_publicKeySet').val(),
+                    loginUrl: $('#update_loginUrl').val(),
+                    redirectionUrl: $('#update_redirectionUrl').val(),
+                    deepLinkUrl: $('#update_deepLinkUrl').val(),
+                    privateKey: $('#update_privateKey').val()
+                }
+                return lti;
+            }
+        }
+    }
+    return {isLti : false};
+}
+
 function updateApp(app_id) {
     resetInputApplications();
     mainManager.getmanagerManager().getApplicationById(app_id).then((response) => {
@@ -2740,6 +2806,19 @@ function updateApp(app_id) {
         $('#app_update_description').val(response.description);
         $('#app_update_image').val(response.image);
         $('#app_update_id').val(response.id);
+
+        if (response.hasOwnProperty('lti')) {
+            $('#update_isLti').prop('checked', true);
+            $('#update_inputs-lti').show();
+            $('#update_clientId').val(response.lti.clientId);
+            $('#update_deploymentId').val(response.lti.deploymentId);
+            $('#update_toolUrl').val(response.lti.toolUrl);
+            $('#update_publicKeySet').val(response.lti.publicKeySet);
+            $('#update_loginUrl').val(response.lti.loginUrl);
+            $('#update_redirectionUrl').val(response.lti.redirectionUrl);
+            $('#update_deepLinkUrl').val(response.lti.deepLinkUrl);
+            $('#update_privateKey').val(response.lti.privateKey);
+        }
         openModalInState('#update-app-manager');
     })
 }
@@ -2751,31 +2830,33 @@ function deleteApp(app_id, app_name) {
 }
 
 function persistUpdateApp() {
-    $('#update-app-manager').hide();
     let $application_id = $('#app_update_id').val(),
         $application_name = $('#app_update_name').val(),
         $application_description = $('#app_update_description').val(),
         $application_image = $('#app_update_image').val(),
         $application_restrictions_type = $('#app_update_activity_restriction_type').val(),
-        $application_restrictions_value = $('#app_update_activity_restriction_value').val();
+        $application_restrictions_value = $('#app_update_activity_restriction_value').val(),
+        lti = checkLtiFields('update');
 
-
-    mainManager.getmanagerManager().updateOneActivityRestriction($application_id, $application_restrictions_type, $application_restrictions_value);
-
-    //console.log($application_restrictions_type , $application_restrictions_value);
-
-    mainManager.getmanagerManager().updateApplication(
-        $application_id,
-        $application_name,
-        $application_description,
-        $application_image).then((response) => {
-        if (response.message == "success") {
-            displayNotification('#notif-div', "manager.apps.updateSuccess", "success");
-            closeModalAndCleanInput(true)
-        } else {
-            displayNotification('#notif-div', "manager.account.missingData", "error");
-        }
-    })
+    console.log(lti);
+    if (!lti.isLti && $('#update_isLti').is(":checked")) {
+        displayNotification('#notif-div', "manager.account.missingData", "error");
+    } else {
+        mainManager.getmanagerManager().updateOneActivityRestriction($application_id, $application_restrictions_type, $application_restrictions_value);
+        mainManager.getmanagerManager().updateApplication(
+            $application_id,
+            $application_name,
+            $application_description,
+            $application_image,
+            lti).then((response) => {
+            if (response.message == "success") {
+                displayNotification('#notif-div', "manager.apps.updateSuccess", "success");
+                closeModalAndCleanInput(true);
+            } else {
+                displayNotification('#notif-div', "manager.account.missingData", "error");
+            }
+        })
+    }
 }
 
 
@@ -2803,20 +2884,24 @@ function persistCreateApp() {
         $application_description = $('#app_create_description').val(),
         $application_image = $('#app_create_image').val(),
         $application_restrictions_type = $('#app_create_activity_restriction_type').val(),
-        $application_restrictions_value = $('#app_create_activity_restriction_value').val();
+        $application_restrictions_value = $('#app_create_activity_restriction_value').val(),
+        lti = checkLtiFields('create');
 
-    mainManager.getmanagerManager().createApplication($application_name, $application_description, $application_image).then((response) => {
-        if (response.message == "success") {
-            displayNotification('#notif-div', "manager.apps.createSuccess", "success");
-            closeModalAndCleanInput(true)
-            mainManager.getmanagerManager().updateOneActivityRestriction(response.application_id, $application_restrictions_type, $application_restrictions_value);
-        } else {
-            displayNotification('#notif-div', "manager.account.missingData", "error");
-        }
-        updateStoredApps();
-    })
-
-
+    
+    if (!lti.isLti && $('#isLti').is(":checked")) {
+        displayNotification('#notif-div', "manager.account.missingData", "error");
+    } else {
+        mainManager.getmanagerManager().createApplication($application_name, $application_description, $application_image, lti).then((response) => {
+            if (response.message == "success") {
+                displayNotification('#notif-div', "manager.apps.createSuccess", "success");
+                closeModalAndCleanInput(true)
+                mainManager.getmanagerManager().updateOneActivityRestriction(response.application_id, $application_restrictions_type, $application_restrictions_value);
+            } else {
+                displayNotification('#notif-div', "manager.account.missingData", "error");
+            }
+            updateStoredApps();
+        })
+    }   
 }
 
 function updateStoredApps() {
@@ -3200,8 +3285,10 @@ function hideAllActivities() {
 function launchCustomActivity(activityType, isUpdate = false) {
     const contentForwardButtonElt = document.getElementById('content-forward-button');
     contentForwardButtonElt.style.display = 'inline-block';
-    // Reset and hide all activities input and fields
-    resetActivityInputs(activityType);
+    if(!isUpdate) {
+        // Reset and hide all activities input and fields
+        resetActivityInputs(activityType);
+    }
     hideAllActivities();
 
     Main.getClassroomManager()._createActivity.id = activityType;
@@ -3243,7 +3330,14 @@ function launchCustomActivity(activityType, isUpdate = false) {
             }
             navigatePanel('classroom-dashboard-classes-new-activity', 'dashboard-activities-teacher');
         } else {
-            displayNotification('#notif-div', "classroom.notif.activityRestricted", "error");
+            console.log(response.Restrictions);
+            if (UserManager.getUser().isFromGar) {
+                $('#app-restricted-number').attr('data-i18n-options', `{"activities": "${response.Restrictions[Object.keys(response.Restrictions)[0]]}"}`);
+                pseudoModal.openModal('activity-restricted-gar');
+                $('#app-restricted-number').localize();
+            } else {
+                pseudoModal.openModal('activity-restricted');
+            }
         }
     });
 }
@@ -3285,6 +3379,15 @@ function contentForward() {
         Main.getClassroomManager()._createActivity.autocorrect = $('#free_autocorrect').is(":checked");
     } else if (Main.getClassroomManager()._createActivity.id == 'reading'){
         Main.getClassroomManager()._createActivity.content.description = $('#reading_content').bbcode();
+    } else if (Main.getClassroomManager()._createActivity.id == 'fillIn') {
+
+        Main.getClassroomManager()._createActivity.content.description = $('#fillIn_content').bbcode();
+        Main.getClassroomManager()._createActivity.content.states = $('#fillIn_states').bbcode();
+        // WiP 
+        Main.getClassroomManager()._createActivity.content.hint = $('#fillIn_hint').val();
+        Main.getClassroomManager()._createActivity.content.tolerance = $('#fillIn_tolerance').val();
+
+
     } else {
         // By default using LTI, the button doesn't do anything specific
     }
@@ -3312,7 +3415,7 @@ function titleForward() {
     if (Main.getClassroomManager()._createActivity.title == '') {
         displayNotification('#notif-div', "classroom.notif.emptyTitle", "error");
     } else {
-        let titre = Main.getClassroomManager()._createActivity.title,
+        let title = Main.getClassroomManager()._createActivity.title,
             type = Main.getClassroomManager()._createActivity.id,
             content = JSON.stringify(Main.getClassroomManager()._createActivity.content),
             solution = Main.getClassroomManager()._createActivity.solution,
@@ -3320,20 +3423,20 @@ function titleForward() {
             autocorrect = Main.getClassroomManager()._createActivity.autocorrect;
 
         if (Main.getClassroomManager()._createActivity.function == "create") {  
-            Main.getClassroomManager().createNewActivity(titre, type, content, solution, tolerance, autocorrect).then((response) => {
+            Main.getClassroomManager().createNewActivity(title, type, content, solution, tolerance, autocorrect).then((response) => {
                 if (response.success == true) {
                     Main.getClassroomManager()._lastCreatedActivity = response.id;
-                    displayNotification('#notif-div', "classroom.notif.activityCreated", "success");
+                    displayNotification('#notif-div', "classroom.notif.activityCreated", "success", `'{"activityTitle": "${title}"}'`);
                     navigatePanel('classroom-dashboard-classes-new-activity-attribution', 'dashboard-proactivities-teacher');
                 } else {
                     displayNotification('#notif-div', "manager.account.errorSending", "error");
                 }
             });
         } else if (Main.getClassroomManager()._createActivity.function == "update") {
-            Main.getClassroomManager().updateActivity(ClassroomSettings.activity, titre, type, content, solution, tolerance, autocorrect).then((response) => {
+            Main.getClassroomManager().updateActivity(ClassroomSettings.activity, title, type, content, solution, tolerance, autocorrect).then((response) => {
                 if (response.success == true) {
                     Main.getClassroomManager()._lastCreatedActivity = response.id;
-                    displayNotification('#notif-div', "classroom.notif.activityCreated", "success");
+                    displayNotification('#notif-div', "classroom.notif.activityCreated", "success", `'{"activityTitle": "${title}"}'`);
                     navigatePanel('classroom-dashboard-classes-new-activity-attribution', 'dashboard-proactivities-teacher');
                 } else {
                     displayNotification('#notif-div', "manager.account.errorSending", "error");
@@ -3381,10 +3484,10 @@ function freeValidateActivity() {
     Main.getClassroomManager().saveNewStudentActivity(Activity.activity.id, null, null, studentResponse).then((response) => {
         if (response) {
             $("#activity-validate").attr("disabled", false);
-            if (response.note != null) {
+            if (response.note != null && response.correction > 1) {
                 if (response.note == 3) {
                     navigatePanel('classroom-dashboard-activity-panel-success', 'dashboard-activities', '', '', true)
-                } else {
+                } else if (response.note == 0) {
                     navigatePanel('classroom-dashboard-activity-panel-fail', 'dashboard-activities', '', '', true)
                 }
             } else {
@@ -3416,6 +3519,30 @@ function goBackToActivities() {
     navigatePanel('classroom-dashboard-activities-panel', 'dashboard-activities');
 }
 
+
+function fillInAddFIeld() {
+    let htmlContent = `<div class="form-group">
+        <label for="fillIn_states" data-i18n="classroom.activities.fillIn.states"></label>
+        <textarea class="form-control" id="fillIn_states" rows="3" data-i18n=""></textarea>
+    </div>`;
+    $('#fillIn_states').bbcode();
+    $('#fillIn_content').after(htmlContent);
+    $('#fillIn_states').bbcode();
+    $('#fillIn_states').localize();
+}
+
+let AllFields = [];
+$('#fillInTestAddInputs').click(() => {
+    let num = AllFields.length + 1;
+    let field = `<p id="fillInFIeld_${num}" style="border: solid; margin: 3px; padding: 10px;">En cliquant sur le bouton << ajouter un champs à compléter >>, un texte est ajouté avec deux caractères verticaux << | réponse | >>. Vous pouvez écrire la réponse correcte entre ces deux caractères. Les réponses alternatives sont séparées par une double barre vertical << || >></p>`;
+    AllFields.push(field);
+    $('#fillIn_content').htmlcode(AllFields.join(''));
+})
+
+$('#fillInTestRemoveInputs').click(() => {
+    AllFields.pop();
+    $('#fillIn_content').htmlcode(AllFields.join(''));
+})
 
 /* let proActivities = [{
         "name": "classroom.activities.applist.apps.reading.title",
@@ -3454,6 +3581,8 @@ function goBackToActivities() {
     }
 ]; */
 
+
+
 function launchLtiDeepLinkCreate(type, isUpdate) {
     let updateInput = '';
     if (isUpdate) {
@@ -3474,7 +3603,7 @@ function launchLtiDeepLinkCreate(type, isUpdate) {
     document.forms["contentitem_request_form"].submit();
 }
 
-function launchLtiResource(activityId, activityType, activityContent, isStudentLaunch = false) {
+function launchLtiResource(activityId, activityType, activityContent, isStudentLaunch = false, studentResourceUrl = false) {
     document.querySelector('#activity-content').innerHTML = 
         `<input id="activity-score" type="text" hidden/>
         <form name="resource_launch_form" action="${_PATH}lti/ltilaunch.php" method="post" target="lti_student_iframe">
@@ -3482,6 +3611,7 @@ function launchLtiResource(activityId, activityType, activityContent, isStudentL
             <input type="hidden" id="target_link_uri" name="target_link_uri" value="${activityContent.replace('&amp;', '&')}">
             <input type="hidden" id="student_launch" name="student_launch" value="${isStudentLaunch}">
             <input type="hidden" id="activities_link_user" name="activities_link_user" value="${activityId}">
+            <input type="hidden" id="student_resource_url" name="student_resource_url" value="${studentResourceUrl}">
         </form>
         <iframe id="lti_student_iframe" src="about:blank" name="lti_student_iframe" title="Tool Content" width="100%" style="
         height: 60vh;" allowfullscreen></iframe>
