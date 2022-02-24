@@ -32,17 +32,18 @@ $jwtToken = explode("Bearer ", $headers['Authorization'])[1];
 
     JWT::$leeway = 60; // $leeway in seconds
 
+    // check validity of access_token
     $validatedToken = JWT::decode(
-      $jwtToken,
-      JWK::parseKeySet($jwks), 
-      array('RS256'),
-      $ltiTool->getKid()
+      explode("Bearer ", $headers['Authorization'])[1],
+      file_get_contents(__DIR__ . "/keys/public.key"),
+      array('RS256')
     );
+
   } catch (\Exception $e) {
     echo json_encode(['Error:' => $e->getMessage()]);
     exit;
   }
- 
+
 // Read the input stream
 $body = file_get_contents("php://input");
 // Decode the JSON object
