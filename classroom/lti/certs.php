@@ -15,7 +15,7 @@ $ltiTools = $entityManager->getRepository(LtiTool::class)->findAll();
 
 $privateKeysArr = [];
 foreach($ltiTools as $ltiTool){
-    $privateKeysArr[$ltiTool->getKid()] = $ltiTool->getPrivateKey();
+    $privateKeysArr[$ltiTool->getKid()] = file_get_contents(__DIR__ . "/keys/private.key");
 }
 
 function create_public_jwks($privateKeysArr) {

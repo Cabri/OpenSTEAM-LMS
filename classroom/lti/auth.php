@@ -96,8 +96,8 @@ else  {
 
 $token = JWT::encode(
   $jwt_payload,
-  $ltiTool->getPrivateKey(),
-  // file_get_contents(__DIR__ . "/keys/private.key"),
+  //$ltiTool->getPrivateKey(),
+   file_get_contents(__DIR__ . "/keys/private.key"),
   'RS256',
   $ltiTool->getKid()
 );

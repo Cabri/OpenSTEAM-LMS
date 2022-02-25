@@ -33,8 +33,8 @@ if(!$ltiTool) return;
 
 // validate the jwt token using the tool public key (jwk)
 $validatedToken = JWT::decode(
-  $_REQUEST['client_assertion'], 
-  JWK::parseKeySet(json_decode(file_get_contents($ltiTool->getPublicKeySet()), true)), 
+  $_REQUEST['client_assertion'],
+  JWK::parseKeySet(json_decode(file_get_contents($ltiTool->getPublicKeySet()), true)),
   array('RS256')
 );
 
@@ -51,8 +51,8 @@ $payload = array(
 );
 
 $jwt = JWT::encode(
-  $payload, 
-  $ltiTool->getPrivateKey(), 
+  $payload,
+  file_get_contents(__DIR__ . "/keys/private.key"),
   'RS256',
   $ltiTool->getKid()
 );
