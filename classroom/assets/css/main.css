@@ -1340,6 +1340,21 @@ h3.section-done {
     background-image: url("../media/cards/card-quickpi.jpg");
 }
 
+.sandbox-card.sandbox-card-express,
+.activity-card.activity-card-express {
+  background-image: url("../media/cards/card-express.png");
+}
+
+.sandbox-card.sandbox-card-genius,
+.activity-card.activity-card-genius {
+  background-image: url("../media/cards/card-smart.png");
+}
+
+.sandbox-card.sandbox-card-imuscica,
+.activity-card.activity-card-imuscica {
+  background-image: url("../media/cards/card-imuscica.png");
+}
+
 .sandbox-card .sandbox-card-top,
 .sandbox-card .sandbox-card-bot,
 .activity-card .activity-card-top,

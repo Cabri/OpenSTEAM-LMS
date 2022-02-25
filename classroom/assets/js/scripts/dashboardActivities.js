@@ -15,6 +15,13 @@ function activityItem(activity, state) {
     ide = "arduino"
   }
 
+  if(activity.type === 'EXPRESS')
+    ide = "express";
+  else if(activity.type === 'GENIUS')
+    ide = "genius";
+  else if(activity.type === 'IMUSCICA')
+    ide = "imuscica";
+
   if (state == "doneActivities") {
     if (activity.note == 3) {
       var activityStatus = "ribbon ribbon_accept"
@@ -90,6 +97,13 @@ function teacherActivityItem(activity) {
   if (activity.content.match(/vittascience\.com\/arduino/)) {
     ide = "arduino"
   }
+
+  if(activity.type === 'EXPRESS')
+    ide = "express";
+  else if(activity.type === 'GENIUS')
+    ide = "genius";
+  else if(activity.type === 'IMUSCICA')
+    ide = "imuscica";
 
   let html = `<div class="activity-item activity-teacher " >
                 <div class="activity-card activity-card-` + ide + `">
