@@ -22,7 +22,7 @@
       "codeInput": " Rentrez ici votre code classe",
       "teacher": "ENSEIGNANT",
       "hasAccount": "Vous avez déja un compte ?",
-      "gar": "Profitez de la plateforme Cabri en toute simplicité à l'aide du GAR.</br><i class=\"fas fa-exclamation-triangle\" style=\"color:var(--vitta-orange-light)\"></i> Le raccordement au GAR n’est pas encore finalisé, il sera prêt prochainement.",
+      "gar": "Profitez du module classe en toute simplicité à l'aide du GAR.",
       "signup": "S'INSCRIRE",
       "firstVisit": "Première viste ? Veuillez choisir un identifiant.",
       "signin": "SE CONNECTER",
@@ -75,7 +75,7 @@
     },
     "successPanel": "Bravo, tu as réussi cette activité !",
     "failPanel": "La réponse n'est pas correcte",
-    "toCorrectPanel": "L'activité à été transmise à ton enseignant,</br>qui reviendra vers toi bientôt ! <i class=\"fas fa-pen\"></i>",
+    "toCorrectPanel": "L'activité à été transmise à ton enseignant,</br>qui reviendra vers toi bientôt !",
     "bank": {
       "helpTooltip": "La banque de ressource contient de nombreuses activités sur lesquelles tu peux t'entraîner en autonomie ! Ton enseignant n'aura pas accès aux résultats de ces activités."
     },
@@ -110,6 +110,9 @@
       }
     },
     "notif": {
+      "emptyContent": "Le contenu ne peut pas être vide.",
+      "emptyTitle": "Le titre ne peut pas être vide.",
+      "activityRestricted": "Vous ne pouvez pas créer plus d'activité de ce type.",
       "shareProjectTeacher": "Le projet a été partagé avec votre enseignant",
       "addActivities": "Les activités sélectionnées ont été ajoutées à votre liste",
       "addActivity": "L'activité a été ajoutée à votre liste",
@@ -185,10 +188,10 @@
       "activityContentInvalid": "L'activité n'a pas pu être créée : contenu invalide",
       "activityIsFromClassroomInvalid": "L'activité n'a pas pu être créée : erreur de contexte",
       "activityUserIdInvalid": "L'activité n'a pas pu être créée : utilisateur invalide",
-      "personalLimitationsReached": "Vous avez atteint votre nombre maximum d'apprenants.",
+      "personalLimitationsReached": "Vous avez atteint votre nombre maximum d'apprenants ({{max}} maximum)",
       "groupLimitationsGroup": "Votre groupe ne peut plus accueillir d'apprenants",
       "groupLimitationsTeacher": "Vous avez atteint la limite d'apprenants que votre groupe vous octroie",
-      "bothLimitationsReached": "Vous avez atteint les limitations d'apprenants que vous et votre groupe pouvez avoir.",
+      "bothLimitationsReached": "Vous avez atteint les limitations d'apprenants que vous et votre groupe pouvez avoir. ({{maxG}} maximum par groupe, {{maxP}} maximum personnel)",
       "ClassroomNameInvalid": "Le nom de la classe est requis",
       "reservedNickname": "Le nom : \"{{reservedNickname}}\" ne peut être attribué.",
       "invalidLink": "Le lien que vous avez entrer n'est pas valide",
@@ -197,9 +200,11 @@
       "noUser" : "Vous devez renseigner un élève",
       "noUserUsername" : "Vous devez rentrer un nom d'utilisateur",
       "pseudoMissingInCsvFile" : "Certains élèves n'ont pu être ajouter car leur pseudo était manquant",
+      "generalBackendError": "Une erreur s'est produite, veuillez réessayer ultérieurement",
       "backendReplyPseudoMissingInCsv" : "Vérifier le fichier CSV : ligne vide ou pseudo manquant",
       "backendReplyPseudoMissingInUsersArray" : "Il y a une erreur dans un ou plusieurs nom d'apprenant(s)",
-      "generalBackendError": "Une erreur s'est produite, veuillez réessayer ultérieurement"
+      "invalidActivityId": "Erreur lors de la soumission du travail : identifiant d'activité non valide !",
+      "invalidCorrection": "Erreur lors de la soumission du travail : statut d'activité non valide !"
     },
     "ids": {
       "classroom-dashboard-help-panel-teacher": "Aide",
@@ -276,18 +281,52 @@
       "commentary": "Commentaire",
       "sendResults": "Envoyer",
       "noSend": "Cette activité n'a pas été rendue",
+      "toSend": "Activité à rendre pour le ",
+      "sentOn": "Cette activité a été rendue le ",
+      "activityOfUser": "Activité de ",
+      "userSentOn" : " rendue le ",
+      "yourAnswer": "Votre réponse",
+      "studentAnswer": "Réponse de l'apprenant",
       "comments": "Entrez ici vos remarques",
+      "return": "Retour aux activités",
       "teacherComments": "Remarques de l'enseignant",
       "activitySubmited": "Activité de $1 rendue le $2",
       "bilan": {
         "title": "Bilan",
         "results": "Résultats",
 				"noComment": "Aucun commentaire",
-				   "grade": "Note"
+        "grade": "Note"
+      },
+      "applist":{
+        "selectApp":"Sélectionnez l'application avec laquelle vous souhaitez créer une activité",
+        "apps":{
+          "reading":{
+            "title": "Multimédia",
+            "desc": "Cette activité permet de visualiser des textes, images, vidéos, PDF, ainsi que des outils externes."
+          },
+          "quiz":{
+            "title": "QCM",
+            "desc": "Cette activité permet d'évaluer les connaissances à l'aide de question à choix multiples ou simples."
+          },
+          "free":{
+            "title": "Réponse libre",
+            "desc": "Cette activité permet aux élèves de répondre à un énoncé par écrit."
+          },
+          "fillIn":{
+            "title": "Texte à trous",
+            "desc": "Cette activité permet d'évaluer les connaissances en remplissant des cases vides."
+          },
+          "dragAndDrop":{
+            "title": "Glisser-Déposer",
+            "desc": "Cette activité permet de glisser et déposer des mots dans différents espaces vides."
+          }
+        }
       },
       "form": {
-        "1": "Création de l'activité",
-        "2": "Attribution",
+        "1": "Application",
+        "2": "Contenu",
+        "3": "Titre",
+        "4": "Attribution",
         "title": {
           "label": "Titre de l'activité",
           "labelCabri": "Quel est le titre de l'activité ?",
@@ -317,6 +356,9 @@
         "content": {
           "label": "Contenu de l'activité"
         },
+        "back": "Retour",
+        "validate": "Valider",
+        "buttonContinue": "Sauvegarder et continuer",
         "button": "Sauvegarder et Valider",
         "success": "Bravo, vous avez créé une activité !",
         "attribute": "Attribuer l'activité dès maintenant",
@@ -449,6 +491,9 @@
         "attributeActivity": {
           "title": "Sélectionner des apprenants",
           "button": "Mes activités "
+        },
+        "shareProject": {
+          "title": "Partager le projet"
         },
         "createActivity": {
           "title": "Créer une nouvelle activité",
@@ -1379,6 +1424,9 @@
       "actualTeachers": "Enseignants actuels",
       "maxStudentsPerTeachers": "Maximum d'apprenants par enseignant",
       "maxStudentsPerTeacher": "Maximum d'apprenants par enseignant",
+      "activityType": "Type d'activité",
+      "maxActivitiesPerGroup": "Maximum d'activités par groupe",
+      "maxActivitiesPerTeacher": "Maximum d'activités par enseignant",
       "monitoring": "Suveillance des applications",
       "image": "Image",
       "userNoRights": "Pas de droits assignés",
@@ -1400,7 +1448,16 @@
       "usersLimitation": "Limitation d'apprenants par utilisateur",
       "groupsLimitation": "Limitations de groupe",
       "activitiesLimitation": "Limitations d'activité",
-      "defaultRestrictions": "Restrictions par défaut"
+      "defaultRestrictions": "Restrictions par défaut",
+      "ltiApps": "Applications LTI",
+      "clientId" : "Id client <span class=\"c-text-red\">*</span>",
+      "deploymentId" : "Id déploiement <span class=\"c-text-red\">*</span>",
+      "toolUrl" : "Url de l'outil <span class=\"c-text-red\">*</span>",
+      "publicKeySet" : "Clé publique <span class=\"c-text-red\">*</span>",
+      "loginUrl" : "Url de login <span class=\"c-text-red\">*</span>",
+      "redirectionUrl" : "Url de redirection <span class=\"c-text-red\">*</span>",
+      "deepLinkUrl" : "Url de deep link <span class=\"c-text-red\">*</span>",
+      "privateKey" : "Clé privée <span class=\"c-text-red\">*</span>"
     },
     "activitiesRestrictions": {
       "updateAll": "Modifier les restrictions",
@@ -1414,7 +1471,14 @@
       "restrictionType": "Type d'activité",
       "maxActivity": "Maximum d'activité",
       "closeDetail": "Fermer le détail",
-      "restrictions": "Restrictions d'activité"
+      "restrictions": "Restrictions d'activité",
+      "appRestricted" : "Créez plus d'activités !",
+      "appRestrictedUL1": "Vous avez atteint la limite de {{activities}} activités associés à votre compte.",
+      "appRestrictedUL2": "Pour ajouter des activités sumpplémentaires, veuillez prendre contact avec votre administrateur.",
+      "appRestrictedSubtitle2": "Un problème avec votre abonnement ?",
+      "appRestrictedSubtitle3": "Contacter le support",
+      "appRestrictedGarContent1": "Vous avez atteint la limite de {{activities}} activités associés à votre compte.",
+      "appRestrictedGarContent2": "Pour ajouter des activités sumpplémentaires, veuillez prendre contact avec le.la responsable d'affectation GAR de votre établissement."
     },
     "defaultRestrictions": {
       "update": "Modifier les restrictions par défaut",
@@ -1464,5 +1528,20 @@
         "willSignin": "Je me connecte"
       }
     }
+  },
+  "newActivities": {
+    "create": "Créer une nouvelle activité",
+    "delete": "Supprimer",
+    "addQuiz": "Ajouter une proposition",
+    "states": "Énoncé de l'activité <span class=\"c-text-red\">*</span>",
+    "cancel": "Annuler",
+    "autocorrect": "Correction automatique",
+    "correction": "Correction de l'activité",
+    "tolerance1": "Ajouter une tolérance d'erreur de",
+    "tolerance2": "caractère(s) sur l'ensemble de la réponse de l'élève.",
+    "hint": "Indice * : s'affiche si la réponse est fausse",
+    "title": "Titre de l'activité <span class=\"c-text-red\">*</span>",
+    "description": "Description de l'activité <span class=\"c-text-red\">*</span>",
+    "content": "Contenu de l'activité <span class=\"c-text-red\">*</span>"
   }
 }
