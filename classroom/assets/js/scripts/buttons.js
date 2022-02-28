@@ -378,9 +378,21 @@ $('#code-copy').click(function () {
     docopy(self)
 })
 
-$('body').on('click', '#add-student-dashboard-panel, .new-student-modal', function () {
-    pseudoModal.openModal('add-student-modal')
-})
+// .new-student-modal removed
+$('body').on('click', '#add-student-dashboard-panel', function () {
+    pseudoModal.openModal('add-student-modal');
+});
+
+
+document.querySelector('#update-classroom-student-button').addEventListener('click', (e) => {
+    e.preventDefault();
+    pseudoModal.openModal('update-classroom-student-modal');
+});
+
+document.querySelector('#create-classroom-student-button').addEventListener('click', (e) => {
+    e.preventDefault();
+    pseudoModal.openModal('create-classroom-student-modal');
+});
 
 //banque de ressources-->copier une activité
 window.addEventListener('storage', () => {
@@ -3381,18 +3393,18 @@ function contentForward() {
         Main.getClassroomManager()._createActivity.content.description = $('#reading_content').bbcode();
     } else if (Main.getClassroomManager()._createActivity.id == 'fillIn') {
 
-        Main.getClassroomManager()._createActivity.content.description = $('#fillIn_content').bbcode();
         Main.getClassroomManager()._createActivity.content.states = $('#fillIn_states').bbcode();
-        // WiP 
-        Main.getClassroomManager()._createActivity.content.hint = $('#fillIn_hint').val();
         Main.getClassroomManager()._createActivity.content.tolerance = $('#fillIn_tolerance').val();
+        //Main.getClassroomManager()._createActivity.content.hint = $('#fillIn_hint').val();
+        // Manage fill in fields
+        parseFillInFieldsAndSaveThem();
 
 
     } else {
         // By default using LTI, the button doesn't do anything specific
     }
     // Check if the content if empty
-    if (Main.getClassroomManager()._createActivity.content.description == '') { 
+    if (Main.getClassroomManager()._createActivity.content.description == '' && Main.getClassroomManager()._createActivity.content.fillInFields.tempData.length == 0) { 
         displayNotification('#notif-div', "classroom.notif.emptyContent", "error");
     } else {
         navigatePanel('classroom-dashboard-classes-new-activity-title', 'dashboard-proactivities-teacher');
@@ -3531,18 +3543,66 @@ function fillInAddFIeld() {
     $('#fillIn_states').localize();
 }
 
-let AllFields = [];
-$('#fillInTestAddInputs').click(() => {
-    let num = AllFields.length + 1;
-    let field = `<p id="fillInFIeld_${num}" style="border: solid; margin: 3px; padding: 10px;">En cliquant sur le bouton << ajouter un champs à compléter >>, un texte est ajouté avec deux caractères verticaux << | réponse | >>. Vous pouvez écrire la réponse correcte entre ces deux caractères. Les réponses alternatives sont séparées par une double barre vertical << || >></p>`;
-    AllFields.push(field);
-    $('#fillIn_content').htmlcode(AllFields.join(''));
+/**
+ * Fill in activity
+ */
+
+$('#fillInAddInputs').click(() => {
+    let index = Main.getClassroomManager()._createActivity.content.fillInFields.tempData.length + 1;
+    let field = `<p id="fillInField_${index}" style="border: solid; margin: 3px; padding: 10px; border-radius: 3px;">En cliquant sur le bouton << ajouter un champs à compléter >>, un texte est ajouté avec deux caractères verticaux << | réponse | >>. Vous pouvez écrire la réponse correcte entre ces deux caractères. Les réponses alternatives sont séparées par une double barre vertical << || >></p>`;
+
+    Main.getClassroomManager()._createActivity.content.fillInFields.tempData.push(field);
+    $('#fillIn_content').htmlcode(Main.getClassroomManager()._createActivity.content.fillInFields.tempData.join(''));
+
+    $(`p[id^="fillInField_"]`).bind("DOMSubtreeModified", function() {
+        Main.getClassroomManager()._createActivity.content.fillInFields.tempData.forEach((e, i) => {
+            if (e.includes(this.id)) {
+                Main.getClassroomManager()._createActivity.content.fillInFields.tempData[i] = `<p id="${this.id}" style="border: solid; margin: 3px; padding: 10px; border-radius: 3px;">${$(this).text()}</p>`;
+            }
+        });
+    });
 })
 
-$('#fillInTestRemoveInputs').click(() => {
-    AllFields.pop();
-    $('#fillIn_content').htmlcode(AllFields.join(''));
+
+$('#fillInRemoveInputs').click(() => {
+    $(`#fillInField_${Main.getClassroomManager()._createActivity.content.fillInFields.tempData.length}`).unbind();
+    Main.getClassroomManager()._createActivity.content.fillInFields.tempData.pop();
+    $('#fillIn_content').htmlcode(Main.getClassroomManager()._createActivity.content.fillInFields.tempData.join(''));
 })
+
+
+/* let fillInFields = [    
+    'Le ciel est | bleu || vert |.', 
+    'Le soleil est | jaune || orange || rouge |.', 
+    'La lune est | bleue |.'
+]; */
+
+function parseFillInFieldsAndSaveThem() {
+    let fillInFields = [];
+    let lengthFill = Main.getClassroomManager()._createActivity.content.fillInFields.tempData.length;
+
+    for (let i = 0; i < lengthFill; i++) {
+        fillInFields.push($(`#fillInField_${i+1}`).text())
+    }
+
+    //Main.getClassroomManager()._createActivity.content.fillInFields = fillInFields;
+
+    const   regex = /\|(.*?)\|/gi,
+            regexMultipleAnswer = /([¤]+)/gi,
+            response = [],
+            stringWithOutAnswer = [];
+
+    fillInFields.forEach(field => {
+        response.push(field.match(regex).map(match => match.replace(regex, "$1")));
+        stringWithOutAnswer.push(field.replace(regex, '¤').replace(regexMultipleAnswer, '[Your answer]'));
+    });
+
+    Main.getClassroomManager()._createActivity.content.fillInFields.response = response;
+    Main.getClassroomManager()._createActivity.content.fillInFields.question = stringWithOutAnswer;
+
+
+}
+
 
 /* let proActivities = [{
         "name": "classroom.activities.applist.apps.reading.title",

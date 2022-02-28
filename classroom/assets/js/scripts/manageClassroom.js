@@ -59,12 +59,12 @@ window.addEventListener(
 
 //formulaire de création de classe
 $('body').on('click', '.teacher-new-classe', function (event) {
-    ClassroomSettings.classroom = null
-    $('#classroom-classes-title').text(`${i18next.t('classroom.classes.form.title')}`)
-    navigatePanel('classroom-dashboard-form-classe-panel', 'dashboard-classes-teacher')
-    $('#table-students ul').html("");
+    ClassroomSettings.classroom = null;
+    // $('#classroom-classes-title').text(`${i18next.t('classroom.classes.form.title')}`)
+    navigatePanel('classroom-dashboard-form-classe-panel', 'dashboard-classes-teacher');
+    $('#table-students ul').html('<li id="no-student-label" data-i18n="classroom.classes.form.noStudent"></li>').localize();
 
-})
+});
 
 
 //student modal-->supprimer
@@ -136,11 +136,11 @@ $('body').on('click', '.modal-classroom-delete', function (e) {
 
 //classroom modal-->modifier
 $('body').on('click', '.modal-classroom-modify', function (e) {
-    $('#classroom-classes-title').text(`${i18next.t('classroom.classes.form.updateTitle')}`);
+    // $('#classroom-classes-title').text(`${i18next.t('classroom.classes.form.updateTitle')}`);
     e.stopPropagation();
-    ClassroomSettings.classroom = $(this).parent().parent().parent().attr('data-link')
-    navigatePanel('classroom-dashboard-form-classe-panel', 'dashboard-classes-teacher')
-})
+    ClassroomSettings.classroom = $(this).parent().parent().parent().attr('data-link');
+    navigatePanel('classroom-dashboard-form-classe-panel-update', 'dashboard-classes-teacher');
+});
 
 //ouvre le dashboard d'une classe
 $('body').on('click', '.class-card', function () {
@@ -193,129 +193,119 @@ $('body').on('click', '.remove-student', function () {
     $(this).parent().remove()
 })
 
-//ajout d'une classe en bdd
-$('.new-classroom-form').click(function () {
-    $(this).attr('disabled', 'disabled')
-    $('#body-table-teach').html('')
-    $('#header-table-teach').html('<th style="max-width:250px;color:var(--text-1);">Activités</th>')
-    if (ClassroomSettings.classroom == null) {
-        Main.getClassroomManager().addClassroom({
-            'name': $('#classroom-form-name').val(),
-            'school': $('#classroom-form-school').val(),
-            'isBlocked': document.querySelector('#classroom-form-is-blocked').checked
-        }).then(function (classroom) {
-            // handle specific error
-            if(classroom.errorType){
-                displayNotification('#notif-div', `classroom.notif.${classroom.errorType}`, "error", `'{"ClassroomNameInvalid": "${classroom.errorType}"}'`)
-                $('.new-classroom-form').attr('disabled', false);
-                return
-            } 
-            // If the backend detects that the user is not a premium user and that he already has one classroom
-            else if(classroom.isClassroomAdded == false){
-                
-                displayNotification('#notif-div', "classroom.notif.classNotCreated", "error", `'{"classroomNumberLimit": "${classroom.classroomNumberLimit}"}'`);
-               $('.new-classroom-form').attr('disabled', false);
+// Classroom addition in database
+document.querySelector('#classroom-create-form').addEventListener('submit', (e) => {
+    e.preventDefault();
+    e.submitter.disabled = true;
+    Main.getClassroomManager().addClassroom({
+        'name': document.querySelector('#classroom-form-name').value,
+        'school': document.querySelector('#classroom-form-school').value,
+        'isBlocked': document.querySelector('#classroom-form-is-blocked').checked
+    }).then((classroom) => {
+        // handle specific error
+        if(classroom.errorType){
+            displayNotification('#notif-div', `classroom.notif.${classroom.errorType}`, "error", `'{"ClassroomNameInvalid": "${classroom.errorType}"}'`)
+            e.submitter.disabled = false;
+            return;
+        } 
+        // If the backend detects that the user is not a premium user and that he already has one classroom
+        else if(classroom.isClassroomAdded == false){
+            displayNotification('#notif-div', "classroom.notif.classNotCreated", "error", `'{"classroomNumberLimit": "${classroom.classroomNumberLimit}"}'`);
+            e.submitter.disabled = false;
+        }else{
+            const students = [];
+            const existingStudents = [];
+            for (let studentRowElt of document.querySelectorAll('#table-students ul li')){
+                if (studentRowElt.id != 'no-student-label') {
+                    students.push(studentRowElt.getAttribute('data-pseudo'));
+                }
+            }
+            if(students.length){
+                Main.getClassroomManager().addUsersToGroup(students, existingStudents, classroom.link).then((response) => {
+                    if(!response.isUsersAdded){
+                        if(response.errorType){
+                            displayNotification('#notif-div', `classroom.notif.${response.errorType}`, "error");
+                        } else{
+                            displayNotification('#notif-div', "classroom.notif.classCreatedButNotUsers", "error", `'{"classroomName": "${classroom.name}", "learnerNumber": "${response.currentLearnerCount+response.addedLearnerNumber}"}'`);
+                        }
+                        
+                        Main.getClassroomManager().getClasses(Main.getClassroomManager()).then(() => {
+                            e.submitter.disabled = false;
+                            navigatePanel('classroom-table-panel-teacher', 'dashboard-classes-teacher', classroom.link);
+                        });
+                    } else{
+                        Main.getClassroomManager().getClasses(Main.getClassroomManager()).then(() => {
+                            ClassroomSettings.classroom = classroom.link;
+                            addUserAndGetDashboard(classroom.link);
+                            displayNotification('#notif-div', "classroom.notif.classroomCreated", "success", `'{"classroomName": "${classroom.name}"}'`);
+                            e.submitter.disabled = false;
+                        });
+                    }
+                });
             }else{
-                let students = []
-                let existingStudents = []
-                $('#table-students ul li .col').each(function (index) {
-                    if ($(this).html() != "") {
-                        students.push($(this).html())
-                    }
-                })
-                if(students.length){
-                    Main.getClassroomManager().addUsersToGroup(students, existingStudents, classroom.link).then(function (response) {
-                        if(!response.isUsersAdded){
-                            if(response.errorType){
-                                 displayNotification('#notif-div', `classroom.notif.${response.errorType}`, "error");
-                            }
-                            else{
-                                 displayNotification('#notif-div', "classroom.notif.classCreatedButNotUsers", "error", `'{"classroomName": "${classroom.name}", "learnerNumber": "${response.currentLearnerCount+response.addedLearnerNumber}"}'`);
-                            }
-                           
-                            Main.getClassroomManager().getClasses(Main.getClassroomManager()).then(() => {
-                                $('.new-classroom-form').attr('disabled', false);
-                                navigatePanel('classroom-table-panel-teacher', 'dashboard-classes-teacher', classroom.link)
-                           })
-                        }
-                        else{
-                            Main.getClassroomManager().getClasses(Main.getClassroomManager()).then(function () {
-                                ClassroomSettings.classroom = classroom.link;
-                                addUserAndGetDashboard(classroom.link);
-                                displayNotification('#notif-div', "classroom.notif.classroomCreated", "success", `'{"classroomName": "${classroom.name}"}'`);
-                                $('.new-classroom-form').attr('disabled', false);
-                            });
-                        }
-                    });
-                }else{
-                    Main.getClassroomManager().getClasses(Main.getClassroomManager()).then(function () {
-                        ClassroomSettings.classroom = classroom.link;
-                        addUserAndGetDashboard(classroom.link);
-                        displayNotification('#notif-div', "classroom.notif.classroomCreated", "success", `'{"classroomName": "${classroom.name}"}'`);
-                        $('.new-classroom-form').attr('disabled', false);
-                    });
-                }
+                Main.getClassroomManager().getClasses(Main.getClassroomManager()).then(() => {
+                    ClassroomSettings.classroom = classroom.link;
+                    addUserAndGetDashboard(classroom.link);
+                    displayNotification('#notif-div', "classroom.notif.classroomCreated", "success", `'{"classroomName": "${classroom.name}"}'`);
+                    e.submitter.disabled = false;
+                });
             }
-        });
-    } else {
-        Main.getClassroomManager().updateClassroom({
-            'name': $('#classroom-form-name').val(),
-            'school': $('#classroom-form-school').val(),
-            'link': ClassroomSettings.classroom,
-            'isBlocked': document.querySelector('#classroom-form-is-blocked').checked
-        }).then(function (classroom) {
+        }
+    });
+});
 
-            if(classroom.errorType){
-                displayNotification('#notif-div', `classroom.notif.${classroom.errorType}`, "error", `'{"ClassroomNameInvalid": "${classroom.errorType}"}'`)
-               $('.new-classroom-form').attr('disabled', false);
-                return
+// Classroom update in database from classroom update panel
+document.querySelector('#classroom-update-form').addEventListener('submit', (e) => {
+    e.preventDefault();
+    e.submitter.disabled = true;
+    Main.getClassroomManager().updateClassroom({
+        'name': document.querySelector('#classroom-form-name-update').value,
+        'school': document.querySelector('#classroom-form-school-update').value,
+        'link': ClassroomSettings.classroom,
+        'isBlocked': document.querySelector('#classroom-form-is-blocked-update').checked
+    }).then((classroom) => {
+        if(classroom.errorType){
+            displayNotification('#notif-div', `classroom.notif.${classroom.errorType}`, "error", `'{"ClassroomNameInvalid": "${classroom.errorType}"}'`);
+            e.submitter.disabled = false;
+            return;
+        }
+        const students = [];
+        const existingStudents = [];
+        for (let studentRowElt of document.querySelectorAll('#table-students-update ul li')){
+            if (studentRowElt.getAttribute('data-id') != 'false') {
+                existingStudents.push({
+                    'pseudo': studentRowElt.getAttribute('data-pseudo'),
+                    'id': studentRowElt.getAttribute('data-id')
+                });
+            } else {
+                students.push(studentRowElt.getAttribute('data-pseudo'));
             }
-            let students = []
-            let existingStudents = []
-            $('.student-form-name').each(function (index) {
-                if ($(this).val() != "") {
-                    if (parseInt($(this).attr('data-id')) > 0) {
-                        existingStudents.push({
-                            'pseudo': $(this).val(),
-                            'id': $(this).attr('data-id')
-                        })
-                    } else {
-                        students.push($(this).val())
-                    }
-                }
-            })
-            Main.getClassroomManager().addUsersToGroup(students, existingStudents, classroom.link).then(function (response) {
-                let noAdditionError = response.isUsersAdded ? response.isUsersAdded : response.noUser;
-                if(!noAdditionError){
-                    displayNotification('#notif-div', "classroom.notif.classUpdatedButNotUsers", "error", `'{"classroomName": "${classroom.name}", "learnerNumber": "${response.currentLearnerCount+response.addedLearnerNumber}"}'`);
-                   $('.new-classroom-form').attr('disabled', false);
-                }
-                else{
-                    Main.getClassroomManager().getClasses(Main.getClassroomManager()).then(function () {
-                        addUserAndGetDashboard(classroom.link)
-                        displayNotification('#notif-div', "classroom.notif.classroomUpdated", "success", `'{"classroomName": "${classroom.name}"}'`)
-                       $('.new-classroom-form').attr('disabled', false);
-                    });
-                }
-            })
+        }
+        Main.getClassroomManager().addUsersToGroup(students, existingStudents, classroom.link).then((response) => {
+            let noAdditionError = response.isUsersAdded ? response.isUsersAdded : response.noUser;
+            if(!noAdditionError){
+                displayNotification('#notif-div', "classroom.notif.classUpdatedButNotUsers", "error", `'{"classroomName": "${classroom.name}", "learnerNumber": "${response.currentLearnerCount+response.addedLearnerNumber}"}'`);
+                e.submitter.disabled = false;
+            }
+            else{
+                Main.getClassroomManager().getClasses(Main.getClassroomManager()).then(() => {
+                    addUserAndGetDashboard(classroom.link)
+                    displayNotification('#notif-div', "classroom.notif.classroomUpdated", "success", `'{"classroomName": "${classroom.name}"}'`)
+                    e.submitter.disabled = false;
+                });
+            }
         });
-    }
-})
-//add students to a classroom
-$('body').on('click', '.save-student-in-classroom', function () {
-    if (ClassroomSettings.classroom != null) {
-        let students = []
-        let existingStudents = []
-        $('.student-form-name').each(function (index) {
-            if ($(this).val() != "") {
-                if (parseInt($(this).attr('data-id')) > 0) {
-                    existingStudents.push({'pseudo': $(this).val(), 'id': $(this).attr('data-id')})
-                } else {
-                    students.push($(this).val())
-                }
-            }
-        })
-        Main.getClassroomManager().addUsersToGroup(students, existingStudents, ClassroomSettings.classroom).then(function (response) {
+    });
+});
+
+//add students to an existing classroom on the classroom dashboard
+$('body').on('click', '#add-student-to-classroom', function () {
+    const studentName = document.querySelector('#classroom-dashboard-add-student-div .student-form-name').value;
+    if (studentName != ''){
+        let students = [studentName];
+        let existingStudents = [];
+
+        Main.getClassroomManager().addUsersToGroup(students, existingStudents, ClassroomSettings.classroom).then((response) => {
             if(!response.isUsersAdded){
                 if(response.noUser){
                     displayNotification('#notif-div', "classroom.notif.noUserUsername", "error");
@@ -335,25 +325,42 @@ $('body').on('click', '.save-student-in-classroom', function () {
             }else{
                 Main.getClassroomManager().getClasses(Main.getClassroomManager()).then(function () {
                     addUserAndGetDashboard(ClassroomSettings.classroom);
-                    $('#add-student-div').html(BASE_STUDENT_FORM);
-                    pseudoModal.closeModal('add-student-modal')
-                    displayNotification('#notif-div', "classroom.notif.usersAdded", "success")
+                    document.querySelector('#classroom-dashboard-add-student-div').innerHTML = BASE_STUDENT_FORM;
+                    pseudoModal.closeModal('add-student-modal');
+                    displayNotification('#notif-div', "classroom.notif.usersAdded", "success");
                 });
             }
-        })
+        });
     } else {
-        if ($('.student-form-name').val() != ''){
-            $('#no-student-label').remove()
-            $('#table-students ul').append(addStudentRow($('.student-form-name').val()))
-            pseudoModal.closeModal('add-student-modal')
-            // Reset the input field
-            $('.student-form-name').val('');
-        } else {
-            displayNotification('#notif-div', "classroom.notif.noUserUsername", "error");
-        }
+        displayNotification('#notif-div', "classroom.notif.noUserUsername", "error");
+    }
+});
+
+//add students to an existing classroom on the update classroom panel
+$('body').on('click', '#update-classroom-add-student-to-list', function () {
+    if ($('#update-classroom-add-student-div .student-form-name').val() != ''){
+        $('#table-students-update ul').append(addStudentRow($('#update-classroom-add-student-div .student-form-name').val()));
+        pseudoModal.closeModal('update-classroom-student-modal');
+        // Reset the input field
+        $('#update-classroom-add-student-div .student-form-name').val('');
+    } else {
+        displayNotification('#notif-div', "classroom.notif.noUserUsername", "error");
     }
 
-})
+});
+
+// Add students to a new classroom on the create classroom panel (select by ID -> add id to button in modal)
+$('body').on('click', '#create-classroom-add-student-to-list', () => {
+    if ($('#add-student-div .student-form-name').val() != ''){
+        $('#no-student-label').remove();
+        $('#table-students ul').append(addStudentRow($('#add-student-div .student-form-name').val()))
+        pseudoModal.closeModal('create-classroom-student-modal');
+        // Reset the input field
+        $('#add-student-div .student-form-name').val('');
+    } else {
+        displayNotification('#notif-div', "classroom.notif.noUserUsername", "error");
+    }
+});
 
 /**
  * Manage the display notification from the response
@@ -986,15 +993,15 @@ function actualizeStudentActivities(activity, correction) {
 
 }
 
-function addStudentRow(pseudo) {
+function addStudentRow(pseudo, studentId = false, isNotDeletable) {
     return `
-    <li class="row align-items-center my-1 ">
-        <img class="col-2 propic" src="${_PATH}assets/media/alphabet/` + pseudo.slice(0, 1).toUpperCase() + `.png?version=1.1" alt="Photo de profil">
+    <li data-pseudo="${pseudo}" data-id="${studentId}" class="row align-items-center my-1 ">
+        <img class="col-2 propic" src="${_PATH}assets/media/alphabet/` + pseudo.slice(0, 1).toUpperCase() + `.png" alt="Photo de profil">
         <div class="col">` + pseudo + `</div>
-        <button type=\"button\" class=\"btn btn-danger remove-student h-50\" data-toggle=\"tooltip\" data-placement=\"top\"  >
+        ${isNotDeletable ? '' : `<button type=\"button\" class=\"btn btn-danger remove-student h-50\" data-toggle=\"tooltip\" data-placement=\"top\"  >
             <i class=\"fas fa-times\"></i>
-        </button>
-    </li>`
+        </button>`}
+    </li>`;
 }
 
 /**

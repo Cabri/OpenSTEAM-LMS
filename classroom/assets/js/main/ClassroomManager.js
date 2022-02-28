@@ -1405,14 +1405,21 @@ class ClassroomManager {
             content: {
                 enonce: '',
                 description: '',
-                indice: '',
-                hint: ''
+                hint: '',
+                fillInFields: {
+                    tempData: [],
+                    answer: [],
+                    question: [],
+                }
             }, 
             type: '', 
             solution: '',
             tolerance: ''
         }
-        document.querySelector('#global_title').value = '';
+        const globalTitle = document.querySelector('#global_title');
+        if (globalTitle != null) {
+            document.querySelector('#global_title').value = '';
+        }
     }
 
 }

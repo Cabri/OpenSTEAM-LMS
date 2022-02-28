@@ -1807,7 +1807,7 @@ h3.section-done {
     color: var(--classroom-secondary);
 }
 
-#table-students {
+.table-students {
     border: solid 2px var(--classroom-primary);
     border-radius: 0.5em;
     padding: 1em;
@@ -1816,7 +1816,7 @@ h3.section-done {
 
 }
 
-#table-students ul {
+.table-students ul {
     list-style-type: none;
     margin: 0 2em;
     padding: 0;
@@ -2342,7 +2342,7 @@ i.line_height34 {
 }
 
 /* OTHERS */
-
+/* NOT USED -> MAYBE CAN WE DELETE THIS ? */
 .table-students {
     border: solid 2px var(--classroom-primary);
 }

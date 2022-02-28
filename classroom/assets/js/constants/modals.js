@@ -203,7 +203,7 @@ const classroomModals = {
                 `,
         footer: ``
     },
-    'add-student-modal': {
+    'create-classroom-student-modal': {
         selector: '',
         header: {
             icon: '',
@@ -216,7 +216,55 @@ const classroomModals = {
                 <input class="col-5 student-form-name" type="text">
             </div>
         </div>
-        <button class="save-student-in-classroom c-btn-primary m-3"><i class="fas fa-save"></i> <span class="ml-1" data-i18n="classroom.modals.addStudent.addStudentButton">Ajouter l'apprenant</span></button>
+        <button id="create-classroom-add-student-to-list" class="save-student-in-classroom c-btn-primary m-3"><i class="fas fa-save"></i> <span class="ml-1" data-i18n="clsave-student-in-classroomassroom.modals.addStudent.addStudentButton">Ajouter l'apprenant</span></button>
+        <div class="d-flex flex-column justify-content-center align-items-center">
+            <div class="d-flex justify-content-center modal-separator mt-4 mb-4">
+                <span data-i18n="classroom.modals.addActivity.orSeparator">OU</span>
+            </div>
+            <button class="btn c-btn-secondary" onclick="openCsvModal();">
+                <span data-i18n="classroom.modals.addStudent.addStudentByCsvButton">Ajouter un fichier d'apprenants (.csv)</span><i class="fas fa-chevron-right ml-1"></i>
+            </button>
+        </div>`,
+        footer: ``
+    },
+    'update-classroom-student-modal': {
+        selector: '',
+        header: {
+            icon: '',
+            title: 'classroom.modals.addStudent.title'
+        },
+        content: `
+        <div id="update-classroom-add-student-div">
+            <div class="c-primary-form row col-12">
+                <label class="col-5" data-i18n="classroom.modals.addStudent.pseudo">Pseudonyme</label>
+                <input class="col-5 student-form-name" type="text">
+            </div>
+        </div>
+        <button id="update-classroom-add-student-to-list" class="btn save-student-in-classroom c-btn-primary m-3"><i class="fas fa-save"></i> <span class="ml-1" data-i18n="classroom.modals.addStudent.addStudentButton">Ajouter l'apprenant</span></button>
+        <div class="d-flex flex-column justify-content-center align-items-center">
+            <div class="d-flex justify-content-center modal-separator mt-4 mb-4">
+                <span data-i18n="classroom.modals.addActivity.orSeparator">OU</span>
+            </div>
+            <button class="btn c-btn-secondary" onclick="openCsvModal();">
+                <span data-i18n="classroom.modals.addStudent.addStudentByCsvButton">Ajouter un fichier d'apprenants (.csv)</span><i class="fas fa-chevron-right ml-1"></i>
+            </button>
+        </div>`,
+        footer: ``
+    },
+    'add-student-modal': {
+        selector: '',
+        header: {
+            icon: '',
+            title: 'classroom.modals.addStudent.title'
+        },
+        content: `
+        <div id="classroom-dashboard-add-student-div">
+            <div class="c-primary-form row col-12">
+                <label class="col-5" data-i18n="classroom.modals.addStudent.pseudo">Pseudonyme</label>
+                <input class="col-5 student-form-name" type="text">
+            </div>
+        </div>
+        <button id="add-student-to-classroom" class="btn save-student-in-classroom c-btn-primary m-3"><i class="fas fa-save"></i> <span class="ml-1" data-i18n="classroom.modals.addStudent.addStudentButton">Ajouter l'apprenant</span></button>
         <div class="d-flex flex-column justify-content-center align-items-center">
             <div class="d-flex justify-content-center modal-separator mt-4 mb-4">
                 <span data-i18n="classroom.modals.addActivity.orSeparator">OU</span>

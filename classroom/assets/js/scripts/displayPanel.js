@@ -210,33 +210,26 @@ DisplayPanel.prototype.classroom_dashboard_sandbox_panel = function () {
 }
 
 DisplayPanel.prototype.classroom_dashboard_form_classe_panel = function () {
-    if (ClassroomSettings.classroom != null) {
-        let classroom = getClassroomInListByLink(ClassroomSettings.classroom)[0]
-        $('#classroom-form-name').val(classroom.classroom.name),
-            $('#classroom-form-school').val(classroom.classroom.school)
-        $('#add-student-div').html(BASE_STUDENT_FORM)
-        if (classroom.classroom.isBlocked) {
-            document.querySelector('#classroom-form-is-blocked').checked = true;
-        } else {
-            document.querySelector('#classroom-form-is-blocked').checked = false;
-        }
-        // ask thomas about that     
-        $('#table-students ul').html("");
-        classroom.students.forEach(function (student) {
-            /* let html = `<div class="c-primary-form row col-12">
-                            <label class="col-5" data-i18n="classroom.modals.addStudent.pseudo">Pseudonyme</label>
-                            <input class="col-5 student-form-name" type="text" value="` + student.user.pseudo + `" data-id="` + student.user.id + `">
-                        </div>`
-            $('#add-student-div').append(html) */
+    document.querySelector('#classroom-form-is-blocked').checked = false;
+    $('#classroom-form-name').val('');
+    $('#classroom-form-school').val('');
+    $('#add-student-div').html(BASE_STUDENT_FORM);
+}
 
-            $('#table-students ul').append(addStudentRow(student.user.pseudo))
-        }) 
+DisplayPanel.prototype.classroom_dashboard_form_classe_panel_update = function () {
+    let classroom = getClassroomInListByLink(ClassroomSettings.classroom)[0];
+    $('#classroom-form-name-update').val(classroom.classroom.name);
+    $('#classroom-form-school-update').val(classroom.classroom.school);
+    $('#add-student-div').html(BASE_STUDENT_FORM);
+    if (classroom.classroom.isBlocked) {
+        document.querySelector('#classroom-form-is-blocked-update').checked = true;
     } else {
-        document.querySelector('#classroom-form-is-blocked').checked = false;
-        $('#classroom-form-name').val(''),
-            $('#classroom-form-school').val('')
-        $('#add-student-div').html(BASE_STUDENT_FORM)
+        document.querySelector('#classroom-form-is-blocked-update').checked = false;
     }
+    $('#table-students-update ul').html("");
+    classroom.students.forEach(function (student) {
+        $('#table-students-update ul').append(addStudentRow(student.user.pseudo, student.user.id, true));
+    }) 
 }
 
 DisplayPanel.prototype.classroom_dashboard_activities_panel_teacher = function () {
