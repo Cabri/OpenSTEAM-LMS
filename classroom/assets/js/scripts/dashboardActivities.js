@@ -657,7 +657,7 @@ function manageDisplayLti(correction, content, correction_div, isDoable, activit
             <button onclick="launchLtiResource(${Activity.id}, '${Activity.activity.type}', '${content}', true, '${Activity.url}')">Modifier le travail</button>`;
     }
 
-    if (correction === 1) {
+    if (correction === 1 && UserManager.getUser().isRegular) {
       document.querySelector('#activity-correction-container').style.display = 'block';
       document.querySelector('#activity-correction').innerHTML = correction_div;
     }
