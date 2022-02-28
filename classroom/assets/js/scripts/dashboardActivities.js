@@ -15,11 +15,11 @@ function activityItem(activity, state) {
     ide = "arduino"
   }
 
-  if(activity.type === 'EXPRESS')
+  if(activity.activity.type === 'EXPRESS')
     ide = "express";
-  else if(activity.type === 'GENIUS')
+  else if(activity.activity.type === 'GENIUS')
     ide = "genius";
-  else if(activity.type === 'IMUSCICA')
+  else if(activity.activity.type === 'IMUSCICA')
     ide = "imuscica";
 
   if (state == "doneActivities") {
@@ -220,33 +220,83 @@ function classeList(classe, ref = null) {
 
   return html;
 }
+
 //filter activity
 $('body').on('click', '#filter-activity', function () {
   let arrayKeywords = $('#filter-activity-input').val().split(' ')
-  if ($('#filter-activity-select').val() == 'asc') {
+  let filterValue = $('#filter-activity-select').val();
+
+  if (filterValue === 'asc') {
     teacherActivitiesDisplay(filterTeacherActivityInList(arrayKeywords, "id", false))
-  } else {
+  }
+  else if(filterValue === 'desc') {
     teacherActivitiesDisplay(filterTeacherActivityInList(arrayKeywords, "id", true))
+  }
+  /* TODO cabri: move to separate plugin */
+  else if(filterValue === 'typeGenius') {
+    teacherActivitiesDisplay(filterTeacherActivityInListByType(arrayKeywords, ['GENIUS']));
+  }
+  else if(filterValue === 'typeExpress') {
+    teacherActivitiesDisplay(filterTeacherActivityInListByType(arrayKeywords, ['EXPRESS']));
+  }
+  else if(filterValue === 'typeVittascience') {
+    teacherActivitiesDisplay(filterTeacherActivityInListByType(arrayKeywords, ['VITTASCIENCE']));
+  }
+  else if(filterValue === 'typeIframe') {
+    teacherActivitiesDisplay(filterTeacherActivityInListByType(arrayKeywords,
+      ['IFRAME-PAGE', 'IFRAME-VIDEO', 'STANDARD', 'IMUSCICA', 'IFRAME', 'LTI-BLOCKLY']));
   }
 })
 
 $('body').on('change', '#filter-activity-select', function () {
   let arrayKeywords = $('#filter-activity-input').val().split(' ')
-  if ($('#filter-activity-select').val() == 'asc') {
+  let filterValue = $('#filter-activity-select').val();
+
+  if (filterValue === 'asc') {
     teacherActivitiesDisplay(filterTeacherActivityInList(arrayKeywords, "id", false))
-  } else {
+  }
+  else if(filterValue === 'desc') {
     teacherActivitiesDisplay(filterTeacherActivityInList(arrayKeywords, "id", true))
   }
-
+  /* TODO cabri: TODO cabri: move to separate plugin*/
+  else if(filterValue === 'typeGenius') {
+    teacherActivitiesDisplay(filterTeacherActivityInListByType(arrayKeywords, ['GENIUS']));
+  }
+  else if(filterValue === 'typeExpress') {
+    teacherActivitiesDisplay(filterTeacherActivityInListByType(arrayKeywords, ['EXPRESS']));
+  }
+  else if(filterValue === 'typeVittascience') {
+    teacherActivitiesDisplay(filterTeacherActivityInListByType(arrayKeywords, ['VITTASCIENCE']));
+  }
+  else if(filterValue === 'typeIframe') {
+    teacherActivitiesDisplay(filterTeacherActivityInListByType(arrayKeywords,
+      ['IFRAME-PAGE', 'IFRAME-VIDEO', 'STANDARD', 'IMUSCICA', 'IFRAME', 'LTI-BLOCKLY']));
+  }
 })
 
 $(document).on('keyup', function (e) {
   if ($("#filter-activity-input").is(":focus") || $("#filter-activity").is(":focus") || $("#filter-activity-select").is(":focus")) {
     let arrayKeywords = $('#filter-activity-input').val().split(' ')
-    if ($('#filter-activity-select').val() == 'asc') {
+    let filterValue = $('#filter-activity-select').val();
+
+    if (filterValue === 'asc') {
       teacherActivitiesDisplay(filterTeacherActivityInList(arrayKeywords, "id", false))
-    } else {
+    }
+    else if(filterValue === 'desc') {
       teacherActivitiesDisplay(filterTeacherActivityInList(arrayKeywords, "id", true))
+    }
+    /*TODO cabri: move to separate plugin*/
+    else if(filterValue === 'typeGenius') {
+      teacherActivitiesDisplay(filterTeacherActivityInListByType(arrayKeywords, ['GENIUS']));
+    }
+    else if(filterValue === 'typeExpress') {
+      teacherActivitiesDisplay(filterTeacherActivityInListByType(arrayKeywords, ['EXPRESS']));
+    }
+    else if(filterValue === 'typeVittascience') {
+      teacherActivitiesDisplay(filterTeacherActivityInListByType(arrayKeywords, ['VITTASCIENCE']));
+    }
+    else if(filterValue === 'typeIframe') {
+      teacherActivitiesDisplay(filterTeacherActivityInListByType(arrayKeywords,['IFRAME-PAGE', 'IFRAME-VIDEO', 'STANDARD', 'IMUSCICA', 'IFRAME', 'LTI-BLOCKLY']));
     }
   }
 });
@@ -607,7 +657,7 @@ function manageDisplayLti(correction, content, correction_div, isDoable, activit
             <button onclick="launchLtiResource(${Activity.id}, '${Activity.activity.type}', '${content}', true, '${Activity.url}')">Modifier le travail</button>`;
     }
 
-    if (correction != 1) {
+    if (correction === 1) {
       document.querySelector('#activity-correction-container').style.display = 'block';
       document.querySelector('#activity-correction').innerHTML = correction_div;
     }

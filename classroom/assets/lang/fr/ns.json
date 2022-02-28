@@ -394,11 +394,11 @@
       "removeActivityAttribution": "Retirer l'attribution "
     },
     "filter": {
-	"desc": "Date croissante",
-	"asc": "Date décroissante",
-
+      "desc": "Date croissante",
+      "asc": "Date décroissante",
       "cabriExpress": "Activités Express",
       "cabriGenius": "Activités Smart",
+      "cabriVittascience": "Activités Vittascience",
       "iframe": "Autres activités",
       "placeholder": "Recherche..."
     },

@@ -413,7 +413,8 @@
 			"asc": "From most recent to least recent",
 			"cabriExpress": "Express activities",
 			"cabriGenius": "Smart activities",
-			"iframe": "Other activities",
+      "cabriVittascience": "Vittascience activities",
+      "iframe": "Other activities",
 			"placeholder": "Search for..."
 		},
 		"sandbox": {

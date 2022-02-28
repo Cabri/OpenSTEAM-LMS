@@ -340,6 +340,7 @@
             "asc": "Del más al menos reciente",
             "cabriExpress": "Sólo actividades de Cabri Express",
             "cabriGenius": "Sólo actividades de Cabri Smart",
+            "cabriVittascience": "Sólo actividades de Vittascience",
             "iframe": "Sólo otros tipos de actividades",
             "placeholder": "Buscar..."
         },
