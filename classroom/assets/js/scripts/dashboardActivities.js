@@ -616,17 +616,17 @@ function manageDisplayCustomAndReading(correction, content, correction_div) {
 }
 
 function manageDisplayFree(correction, content, correction_div) {
-    setTextArea();
-    $('#activity-title').html(Activity.activity.title);
-    $('#activity-content').html(bbcodeToHtml(content));
-    if (correction == 0 || correction == null) {
-        if (!UserManager.getUser().isRegular) {
-            $('#activity-input').wysibb(wbbOpt);
-            $('#activity-input-container').show();
-        }
-    } else if (correction > 0) {
-        $('#activity-student-response').show();
-        $('#activity-student-response-content').html(bbcodeToHtml(Activity.response));
+  setTextArea();
+  $('#activity-title').html(Activity.activity.title);
+  $('#activity-content').html(bbcodeToHtml(content));
+  if (correction == 0 || correction == null) {
+    if (!UserManager.getUser().isRegular) {
+      $('#activity-input').wysibb(wbbOpt);
+      $('#activity-input-container').show();
+    }
+  } else if (correction > 0) {
+    $('#activity-student-response').show();
+    $('#activity-student-response-content').html(bbcodeToHtml(Activity.response));
 
     $('#activity-correction-container').show();
     $('#activity-correction').html(correction_div);
@@ -635,12 +635,13 @@ function manageDisplayFree(correction, content, correction_div) {
     } else {
       $('#label-activity-student-response').text(i18next.t("classroom.activities.yourAnswer"));
     }
-    
-    // todo
-    if (!Activity.evaluation && correction < 2) {
-        $('#activity-validate').show();
-        $('#activity-save').show();
-    }
+  }
+
+  // todo
+  if (!Activity.evaluation && correction < 2) {
+    $('#activity-validate').show();
+    $('#activity-save').show();
+  }
 }
 
 function manageDisplayLti(correction, content, correction_div, isDoable, activityValidationButtonElt) {
