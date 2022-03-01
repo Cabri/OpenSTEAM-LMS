@@ -737,8 +737,12 @@ function manageContentForActivity() {
   let content = "";
   if (IsJsonString(Activity.activity.content)) {
     const contentParsed = JSON.parse(Activity.activity.content);
-    if (contentParsed.hasOwnProperty('description')) {
-      content = contentParsed.description;
+    if (Activity.activity.type != "fillIn") {
+      if (contentParsed.hasOwnProperty('description')) {
+        content = contentParsed.description;
+      }
+    } else {
+      content = contentParsed;
     }
   } else {
     content = Activity.activity.content.replace(/(\[iframe\].*?link=[a-f0-9]{13})/gm, '$1&use=classroom')
