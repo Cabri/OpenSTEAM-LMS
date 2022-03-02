@@ -3514,7 +3514,12 @@ function freeValidateActivity() {
 
 function activitiesCreation(apps) {
     let htmlContent = `<div class="app-head" data-i18n="classroom.activities.applist.selectApp"></div>`;
+
+    // Cabri Temporary Patch
+    const allowedApps = ['EXPRESS', 'GENIUS', 'VITTASCIENCE', 'IMUSCICA'];
     apps.forEach(app => {
+        if(!allowedApps.includes(app.type)) return;
+
         let restrict = app.hasOwnProperty("type") ? `launchCustomActivity('${app.type}')` : `launchCustomActivity('custom')`;
         htmlContent+= `<div class="app-card" style="--border-color:${app.color};" onclick="${restrict}">
             <img class="app-card-img" src="${app.image}" alt="${app.name}">
