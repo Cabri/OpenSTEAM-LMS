@@ -16,7 +16,7 @@ use Classroom\Entity\Groups;
 use Classroom\Entity\UsersLinkGroups;
 use User\Entity\User;
 
-// Load env variables 
+// Load env variables
 $dotenv = Dotenv::createImmutable(__DIR__."/../");
 $dotenv->safeLoad();
 
@@ -36,13 +36,13 @@ $group = $entityManager->getRepository(Groups::class)->findOneBy(['link' => $gro
 // check if the user exists in db
 if ($token) {
     $regularUserToActivate = $entityManager->getRepository(Regular::class)->findOneBy(array('confirmToken'=> $token));
-    
+
     if (isset($_SESSION['id']) && $_SESSION['id'] != null) {
         // check if the link between the group and the user exist
         $user = $entityManager->getRepository(User::class)->findOneBy(['id' => $_SESSION['id']]);
         $linkAlreadyExist = $entityManager->getRepository(UsersLinkGroups::class)->findOneBy(['user' => $user, 'group' => $group]);
     }
-    
+
     $location="";
 
     if ($linkAlreadyExist) {
@@ -65,18 +65,18 @@ if ($token) {
             $regularUserToActivate->setActive(true);
             $userData->setUpdateDate(new \DateTime());
             $entityManager->flush();
-        
+
             // set the success cookie and redirect wether the user is logged or not
             setcookie("accountActivationSucceded",true, strtotime("+1 minute"));
             $location = $urlgc."&page=confirmation";
-        
+
         }
     }
-    // redirect the user 
+    // redirect the user
     return header("Location: $location");
 }
 
-    
+
 
 $grouName = "";
 $groupId = "";
@@ -88,14 +88,14 @@ if ($group) {
 $userId = isset($_SESSION['id']) ? $_SESSION['id'] : '';
 
 
-$informations = ['url' => $url, 
-                'urlWithCode'=> $urlgc, 
-                'urlHome' => $urlhome, 
-                'groupName' => $grouName, 
-                'linkCode' => $groupCode, 
-                'groupId' => $groupId, 
+$informations = ['url' => $url,
+                'urlWithCode'=> $urlgc,
+                'urlHome' => $urlhome,
+                'groupName' => $grouName,
+                'linkCode' => $groupCode,
+                'groupId' => $groupId,
                 'userId' => $userId];
-                
+
 setcookie('info', json_encode($informations), time()+600);
 
 if (strlen($groupCode) != 5 || !preg_match("/^[a-zA-Z0-9]+$/", $groupCode)) {
@@ -112,7 +112,7 @@ if (isset($_SESSION['id']) && ($page != "confirm" && $page != "success" && $page
 
 require_once(__DIR__ . "/header.html");
 ?>
-    <link rel="stylesheet" href="/classroom/assets/css/main.css?version=1.1">
+    <link rel="stylesheet" href="/classroom/assets/css/main.css?version=1.2">
     </head>
 
     <body>

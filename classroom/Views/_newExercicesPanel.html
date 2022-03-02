@@ -1,0 +1,354 @@
+
+<!-- content part -->
+<div id="classroom-dashboard-classes-new-activity" style="display:none;" class="dashboard-block classes-panel">
+    <nav class="row form-activity-container" style="margin: 0 auto;">
+        <div class="col text-center">
+            <span class="form-activity form-activity-desactivate">1</span>
+            <span data-i18n="classroom.activities.form.1">Application</span>
+        </div>
+
+        <div class="col"></div>
+
+        <div class=" col text-center">
+            <span class="form-activity form-activity-activate">2</span>
+            <span data-i18n="classroom.activities.form.2">Contenu</span>
+        </div>
+
+        <div class="col" style="border-bottom: 1px solid var(--classroom-text-1); height: 1px; align-self: center;"></div>
+
+        <div class=" col text-center">
+            <span class="form-activity form-activity-desactivate">3</span>
+            <span data-i18n="classroom.activities.form.3">Titre</span>
+        </div>
+
+        <div class="col" style="border-bottom: 1px solid var(--classroom-text-1); height: 1px; align-self: center;"></div>
+
+        <div class="col text-center">
+            <span class="form-activity form-activity-desactivate">4</span>
+            <span data-i18n="classroom.activities.form.4">Attribution</span>
+        </div>
+    </nav>
+
+    <div class="activity-container mb-2 part-content-index c-primary-form">
+       
+        <!-- Free activity part -->
+        <div id="activity_free" style="display:none;">
+            <div class="content m-3">
+                <label for="free_content" data-i18n="[html]newActivities.content">Contenu de l'activité</label>
+                <textarea id="free_content"></textarea>
+            </div>
+    
+            <div class="c-checkbox">
+                <input type="checkbox" name="free_autocorrect" id="free_autocorrect">
+                <label for="free_autocorrect" data-i18n="newActivities.autocorrect">Autocorrection</label>
+            </div>
+    
+            <div class="content m-3" id="free_correction_content" style="display: none;">
+                <label for="free_correction" data-i18n="newActivities.correction">Correction de l'activité</label>
+                <textarea id="free_correction"></textarea>
+            </div>
+        </div>
+
+        <!-- Reading activity part -->
+        <div id="activity_reading" style="display:none;">
+            <div class="form-row mt-1">
+                <label for="reading_content" class="tutorial-label">
+                    <span data-i18n="[html]newActivities.content"></span>
+                </label>
+                <textarea id="reading_content" class='part-content' width='100%' style='min-height: 60vh;'></textarea>
+            </div>
+        </div>
+
+        <!-- Quiz activity part -->
+        <div id="activity_quiz" style="display:none;">
+
+            <div class="content m-3">
+                <label for="quiz_states" data-i18n="[html]newActivities.states">Énoncé de l'activité</label>
+                <textarea id="quiz_states"></textarea>
+            </div>
+
+            <div class="content m-3">
+                <div class="quiz_propositions">
+                    <label for="quiz_proposition_1">Proposition 1</label><button data-i18n="newActivities.delete">Delete</button>
+                    <input type="text" id="quiz_proposition_1">
+
+                    <label for="quiz_hint" data-i18n="newActivities.hint">Indice</label>
+                    <input type="text" id="quiz_hint">
+                </div>
+                <button data-i18n="newActivities.addQuiz">Ajouter une proposition</button>
+            </div>
+
+        </div>
+
+        <!-- FillIn activity part -->
+        <div id="activity_fillIn" style="display:none;">
+
+            <div class="content m-3">
+                <label for="fillIn_states" data-i18n="[html]newActivities.states">Énoncé de l'activité</label>
+                <textarea id="fillIn_states"></textarea>
+            </div>
+            
+            <div class="content m-3">
+                <label for="fillIn_content" data-i18n="[html]newActivities.content">Contenu de l'activité</label>
+                <textarea id="fillIn_content"></textarea>
+            </div>
+
+            <button class="btn c-btn-outline-primary" id="fillInAddInputs">Add field</button>
+            <button class="btn c-btn-red" id="fillInRemoveInputs">Remove field</button>
+
+            <div class="content m-3">
+                <p><span data-i18n="newActivities.tolerance1"></span> <input type="number" id="fillIn_tolerance"> <span data-i18n="newActivities.tolerance2"></span></p>
+            </div>
+
+            <div class="content m-3">
+                <label for="fillIn_hint" data-i18n="newActivities.hint">Indice</label>
+                <input type="text" id="fillIn_hint">
+            </div>
+
+        </div>
+
+        <!-- DragAndDrop activity part -->
+        <div id="activity_dragAndDrop" style="display:none;">
+            
+            <div class="content m-3">
+                <label for="dragAndDrop_states" data-i18n="[html]newActivities.states">Énoncé de l'activité</label>
+                <textarea id="dragAndDrop_states"></textarea>
+            </div>
+            
+            <div class="content m-3">
+                <label for="dragAndDrop_content" data-i18n="[html]newActivities.content">Contenu de l'activité</label>
+                <textarea id="dragAndDrop_content"></textarea>
+            </div>
+
+            <div class="content m-3">
+                <label for="dragAndDrop_hint" data-i18n="newActivities.hint">Indice</label>
+                <input type="text" id="dragAndDrop_hint">
+            </div>
+
+        </div>
+
+
+        <!-- Custom & probably Lti -->
+        <div id="activity_custom" style="display:none;">
+            <div id="lti-loader-container"></div>
+        </div>
+
+
+<!-- 
+        <div id="classroom-dashboard-new-activity-panel" style="display:none;" class="activity-creation-form dashboard-block">
+            <div class="form-group mb-2 part-content-index part-row c-primary-form">
+                <div class="form-row mt-1">
+                    <label for="part-content-input" class="tutorial-label">
+                        <span data-i18n="classroom.activities.form.title.label"></span>
+                    </label>
+                    <input data-i18n="[placeholder]classroom.activities.form.title.placeholder" type="text" id="activity-form-title" class="form-control part-title-input">
+                </div>
+                <div class="form-row mt-1">
+                    <label for="part-content-input" class="tutorial-label">
+                        <span data-i18n='classroom.activities.form.content.label'></span>
+                    </label>
+                    <textarea id="activity-form-content" class='part-content' width='100%' style='min-height: 60vh;'></textarea>
+                </div>
+                <div class="form-row mt-1">
+                </div>
+            </div>
+            <button class="new-activity-panel2 c-btn-primary"><span data-i18n="classroom.activities.form.button"></span> <i class="fas fa-check"></i></button>
+        </div> -->
+
+
+        <!-- ajouter reponse autocorrect --> 
+        <!-- <div class="tolerance m-3">
+            <p>Ajouter une tolérance d'erreurs de <span> <input type="number" id="free_tolerance" value="0"> </span> caractère(s) sur l'ensemble de la réponse de l'élève.</p>
+        </div> -->
+        <!-- <div class="help m-3">
+            <p><span class="font-weight-bold">Indice *</span> s'affiche si la réponse est fausse</p>
+            <input type="text" id="free_indice" placeholder="Indice">
+        </div> -->
+    </div>
+
+    <div class="container">
+        <div class="row text-center w-100">
+            <div class="col-sm mb-2">
+                <button class="btn c-btn-grey" onclick="contentBackward()">
+                    <i class="fas fa-chevron-left"></i> <span data-i18n="classroom.activities.form.back"></span>
+                </button>
+            </div>
+            <div class="col-sm order-first order-sm-last mb-2">
+                <button id="content-forward-button" class="btn c-btn-secondary" onclick="contentForward()">
+                    <span data-i18n="classroom.activities.form.buttonContinue"></span> <i class="fas fa-chevron-right"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!-- title part -->
+<div id="classroom-dashboard-classes-new-activity-title" style="display:none;" class="dashboard-block ">
+    <nav class="row form-activity-container" style="margin: 0 auto;">
+        <div class="col text-center">
+            <span class="form-activity form-activity-desactivate">1</span>
+            <span data-i18n="classroom.activities.form.1">Application</span>
+        </div>
+
+        <div class="col"></div>
+
+        <div class=" col text-center">
+            <span class="form-activity form-activity-desactivate">2</span>
+            <span data-i18n="classroom.activities.form.2">Contenu</span>
+        </div>
+
+        <div class="col" style="border-bottom: 1px solid var(--classroom-text-1); height: 1px; align-self: center;"></div>
+
+        <div class=" col text-center">
+            <span class="form-activity form-activity-activate">3</span>
+            <span data-i18n="classroom.activities.form.3">Titre</span>
+        </div>
+
+        <div class="col" style="border-bottom: 1px solid var(--classroom-text-1); height: 1px; align-self: center;"></div>
+
+        <div class="col text-center">
+            <span class="form-activity form-activity-desactivate">4</span>
+            <span data-i18n="classroom.activities.form.4">Attribution</span>
+        </div>
+    </nav>
+
+    <div class="form-group mx-auto my-2 c-primary-form w-75">
+        <label data-i18n="classroom.activities.form.title.label">Titre : </label>
+        <input class="w-100" type="text" id="global_title">
+    </div>
+
+
+    <div class="container">
+        <div class="row text-center w-100">
+            <div class="col-sm mb-2">
+                <button class="btn c-btn-grey" onclick="titleBackward()">
+                    <i class="fas fa-chevron-left"></i> <span data-i18n="classroom.activities.form.back"></span>
+                </button>
+            </div>
+            <div class="col-sm order-first order-sm-last mb-2">
+                <button class="btn c-btn-secondary" onclick="titleForward()">
+                    <span data-i18n="classroom.activities.form.validate"></span> <i class="fas fa-check"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- title part -->
+<div id="classroom-dashboard-classes-new-activity-attribution" style="display:none;" class="dashboard-block class-creation-form-step2">
+
+    <nav class="row form-activity-container" style="margin: 0 auto;">
+        <div class="col text-center">
+            <span class="form-activity form-activity-desactivate">1</span>
+            <span data-i18n="classroom.activities.form.1">Application</span>
+        </div>
+
+        <div class="col"></div>
+
+        <div class=" col text-center">
+            <span class="form-activity form-activity-desactivate">2</span>
+            <span data-i18n="classroom.activities.form.2">Contenu</span>
+        </div>
+
+        <div class="col" style="border-bottom: 1px solid var(--classroom-text-1); height: 1px; align-self: center;"></div>
+
+        <div class=" col text-center">
+            <span class="form-activity form-activity-desactivate">3</span>
+            <span data-i18n="classroom.activities.form.3">Titre</span>
+        </div>
+
+        <div class="col" style="border-bottom: 1px solid var(--classroom-text-1); height: 1px; align-self: center;"></div>
+
+        <div class="col text-center">
+            <span class="form-activity form-activity-activate">4</span>
+            <span>Attribution</span>
+        </div>
+    </nav>
+
+    <div class="text-center px-1">
+        <h3 class="c-text-primary text-uppercase font-weight-bold" data-i18n="classroom.activities.form.success"></h3>
+    </div>
+
+    <div class="container text-center">
+        <div class="row my-2">
+            <div class="col-sm mb-2">
+                <button id="attribute-activity" onclick="attributeActivity(0)" class="new-activity-panel3 btn c-btn-primary">
+                    <span data-i18n="classroom.activities.form.attribute"></span> <i class="fas fa-chevron-right"></i>
+                </button>
+            </div>
+            <div class="col-sm mb-2">
+                <button onclick="navigatePanel('classroom-dashboard-activities-panel-teacher', 'dashboard-activities-teacher')" class="btn c-btn-primary">
+                    <span data-i18n="classroom.activities.form.return"></span> <i class="fas fa-chevron-right"></i>
+                </button>
+            </div>
+
+        </div>
+        <p data-i18n="classroom.activities.form.hint"></p>
+        <button class="btn c-btn-outline-primary" onclick="activityModify(0)" data-i18n="classroom.activities.form.modify"></button>
+    </div>
+</div>
+
+
+<div id="classroom-dashboard-proactivities-panel-teacher" style="display:none;" class="dashboard-block ">
+    <nav class="row form-activity-container" style="margin: 0 auto;">
+        <div class="col text-center">
+            <span class="form-activity form-activity-activate">1</span>
+            <span data-i18n="classroom.activities.form.1">Application</span>
+        </div>
+
+        <div class="col"></div>
+
+        <div class=" col text-center">
+            <span class="form-activity form-activity-desactivate">2</span>
+            <span data-i18n="classroom.activities.form.2">Contenu</span>
+        </div>
+
+        <div class="col" style="border-bottom: 1px solid var(--classroom-text-1); height: 1px; align-self: center;"></div>
+
+        <div class=" col text-center">
+            <span class="form-activity form-activity-desactivate">3</span>
+            <span data-i18n="classroom.activities.form.3">Titre</span>
+        </div>
+
+        <div class="col" style="border-bottom: 1px solid var(--classroom-text-1); height: 1px; align-self: center;"></div>
+
+        <div class="col text-center">
+            <span class="form-activity form-activity-desactivate">4</span>
+            <span data-i18n="classroom.activities.form.4">Attribution</span>
+        </div>
+    </nav>
+    <div id="activity-creation-grid"></div>
+
+</div>
+
+
+<div id="classroom-dashboard-classes-new-activity-title" style="display:none;" class="dashboard-block ">
+    <nav class="row form-activity-container" style="margin: 0 auto;">
+        <div class="col text-center">
+            <span class="form-activity form-activity-desactivate">1</span>
+            <span data-i18n="classroom.activities.form.1">Application</span>
+        </div>
+
+        <div class="col"></div>
+
+        <div class=" col text-center">
+            <span class="form-activity form-activity-desactivate">2</span>
+            <span data-i18n="classroom.activities.form.2">Contenu</span>
+        </div>
+
+        <div class="col" style="border-bottom: 1px solid var(--classroom-text-1); height: 1px; align-self: center;"></div>
+
+        <div class=" col text-center">
+            <span class="form-activity form-activity-activate">3</span>
+            <span data-i18n="classroom.activities.form.3">Titre</span>
+        </div>
+
+        <div class="col" style="border-bottom: 1px solid var(--classroom-text-1); height: 1px; align-self: center;"></div>
+
+        <div class="col text-center">
+            <span class="form-activity form-activity-desactivate">4</span>
+            <span data-i18n="classroom.activities.form.4">Attribution</span>
+        </div>
+    </nav>
+</div>

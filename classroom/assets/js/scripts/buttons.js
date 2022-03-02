@@ -215,6 +215,9 @@ function navigatePanel(id, idNav, option = "", interface = '', skipConfirm = fal
             history: id,
             navbar: idNav
         });
+        if ($_GET('panel') == 'classroom-dashboard-activity-panel') {
+            document.querySelector('#activity-content').innerHTML = '';
+        }
         let state = {};
         var title = '';
         let endUrl = idNav;
@@ -337,7 +340,7 @@ function anonymizeStudents() {
     let index = 1;
     if ($('#is-anonymised').is(':checked')) {
         $('.username').each(function (el) {
-            $('.username')[el].children[0].setAttribute('src', _PATH + 'assets/media/alphabet/A.png?version=1.1')
+            $('.username')[el].children[0].setAttribute('src', _PATH + 'assets/media/alphabet/A.png?version=1.2')
             $('.username')[el].children[0].setAttribute('alt', '')
             $('.username')[el].children[0].setAttribute('anonymized', 'true')
             $('.username')[el].children[1].innerHTML = "Elève n° " + index
@@ -375,9 +378,21 @@ $('#code-copy').click(function () {
     docopy(self)
 })
 
-$('body').on('click', '#add-student-dashboard-panel, .new-student-modal', function () {
-    pseudoModal.openModal('add-student-modal')
-})
+// .new-student-modal removed
+$('body').on('click', '#add-student-dashboard-panel', function () {
+    pseudoModal.openModal('add-student-modal');
+});
+
+
+document.querySelector('#update-classroom-student-button').addEventListener('click', (e) => {
+    e.preventDefault();
+    pseudoModal.openModal('update-classroom-student-modal');
+});
+
+document.querySelector('#create-classroom-student-button').addEventListener('click', (e) => {
+    e.preventDefault();
+    pseudoModal.openModal('create-classroom-student-modal');
+});
 
 //banque de ressources-->copier une activité
 window.addEventListener('storage', () => {
@@ -558,7 +573,10 @@ $('#dashboard-activities, .activity-panel-link').click(function () {
     navigatePanel('classroom-dashboard-activities-panel', 'dashboard-activities')
 })
 //activity-->validate
-function validateActivity() {
+// Add more validate options for the activities
+
+
+function defaultProcessValidateActivity() {
     $("#activity-validate").attr("disabled", "disabled");
     let interface = /\[iframe\].*?vittascience(|.com)\/([a-z0-9]{5,12})\/?/gm.exec(Activity.activity.content)
     if (interface == undefined || interface == null) {
@@ -566,6 +584,7 @@ function validateActivity() {
         Main.getClassroomManager().saveStudentActivity(false, false, Activity.id, correction, 3).then(function (activity) {
             if (typeof activity.errors != 'undefined') {
                 for (let error in activity.errors) {
+
                     displayNotification('#notif-div', `classroom.notif.${error}`, "error");
                     $("#activity-validate").attr("disabled", false);
                 }
@@ -597,7 +616,6 @@ function validateActivity() {
         $("#activity-validate").attr("disabled", false);
         window.localStorage.autocorrect = true
     }
-
 }
 
 function saveActivity() {
@@ -634,66 +652,27 @@ function studentActivitiesDisplay() {
 
     let activities = Main.getClassroomManager()._myActivities;
     let index = 1;
+    document.querySelector('#new-activities-list').innerHTML = '';
+    document.querySelector('#current-activities-list').innerHTML = '';
+    document.querySelector('#saved-activities-list').innerHTML = '';
+    document.querySelector('#done-activities-list').innerHTML = '';
+
     activities.newActivities.forEach(element => {
-        if (element.dateEnd) {
-            var dateEnd = element.dateEnd.date
-        } else {
-            var dateEnd = "aucune"
-        }
-        const dateBeforeText = element.activity.type === 'IFRAME-PAGE'
-          || element.activity.type === 'IFRAME-VIDEO'
-          || element.activity.type === 'IFRAME'
-          || element.activity.type === 'IFRAME-CABRI3D'
-          ? i18next.t('classroom.activities.dateBeforeAvailable')
-          : i18next.t('classroom.activities.dateBefore')
         $('#new-activities-list').append(activityItem(element, "newActivities"))
-        $('#header-table-bilan').append('<th data-toggle="tooltip" data-placement="top" title="' + element.activity.title + '"> Act.</br>n°' + index + '</th>')
-        $('#body-table-bilan').append('<td class="' + statusActivity(element) + ' classroom-clickable bilan-cell " title="' + dateBeforeText + ' ' + formatDay(dateEnd) + '"></td>')
         index++
     });
+
     activities.savedActivities.forEach(element => {
-        if (element.dateEnd) {
-            var dateEnd = element.dateEnd.date
-        } else {
-            var dateEnd = "aucune"
-        }
-
-        const dateBeforeText = element.activity.type === 'IFRAME-PAGE'
-        || element.activity.type === 'IFRAME-VIDEO'
-        || element.activity.type === 'IFRAME'
-        || element.activity.type === 'IFRAME-CABRI3D'
-          ? i18next.t('classroom.activities.dateBeforeAvailable')
-          : i18next.t('classroom.activities.dateBefore')
-
         $('#saved-activities-list').append(activityItem(element, "savedActivities"))
-        $('#header-table-bilan').append('<th data-toggle="tooltip" data-placement="top" title="' + element.activity.title + '"> Act.</br>n°' + index + '</th>')
-        $('#body-table-bilan').append('<td class="' + statusActivity(element) + ' classroom-clickable bilan-cell " title="' + dateBeforeText + ' ' + formatDay(dateEnd) + '"></td>')
         index++
     });
 
     activities.currentActivities.forEach(element => {
-        if (element.dateEnd) {
-            var dateEnd = element.dateEnd.date
-        } else {
-            var dateEnd = "aucune"
-        }
-
-        const dateBeforeText = element.activity.type === 'IFRAME-PAGE'
-        || element.activity.type === 'IFRAME-VIDEO'
-        || element.activity.type === 'IFRAME'
-        || element.activity.type === 'IFRAME-CABRI3D'
-          ? i18next.t('classroom.activities.dateBeforeAvailable')
-          : i18next.t('classroom.activities.dateBefore')
-
-       $('#current-activities-list').append(activityItem(element, "currentActivities"))
-        $('#header-table-bilan').append('<th data-toggle="tooltip" data-placement="top" title="' + element.activity.title + '"> Act.</br>n°' + index + '</th>')
-        $('#body-table-bilan').append('<td class="' + statusActivity(element) + ' classroom-clickable bilan-cell" title="' + dateBeforeText + ' ' + formatDay(dateEnd) + '"></td>')
+        $('#current-activities-list').append(activityItem(element, "currentActivities"))
         index++
     });
     activities.doneActivities.forEach(element => {
         $('#done-activities-list').append(activityItem(element, "doneActivities"))
-        $('#header-table-bilan').append('<th data-toggle="tooltip" data-placement="top" title="' + element.activity.title + '"> Act.</br>n°' + index + '</th>')
-        $('#body-table-bilan').append('<td class="' + statusActivity(element) + ' bilan-cell classroom-clickable" ></td>')
         index++
     });
 
@@ -2692,6 +2671,30 @@ function resetInputApplications() {
     $('#validation_delete_application').val("");
     $('#app_update_activity_restriction_value').val("");
     $('#app_update_activity_restriction_type').val("");
+
+    $('#isLti').prop('checked', false);
+    $('#update_isLti').prop('checked', false);
+
+    $('#inputs-lit').hide();
+    $('#update_inputs-lti').hide();
+
+    $('#clientId').val("");
+    $('#deploymentId').val("");
+    $('#toolUrl').val("");
+    $('#publicKeySet').val("");
+    $('#loginUrl').val("");
+    $('#redirectionUrl').val("");
+    $('#deepLinkUrl').val("");
+    $('#privateKey').val("");
+
+    $('#update_clientId').val("");
+    $('#update_deploymentId').val("");
+    $('#update_toolUrl').val("");
+    $('#update_publicKeySet').val("");
+    $('#update_loginUrl').val("");
+    $('#update_redirectionUrl').val("");
+    $('#update_deepLinkUrl').val("");
+    $('#update_privateKey').val("");
 }
 
 function getAndShowApps() {
@@ -2726,6 +2729,84 @@ function createApp() {
     openModalInState('#create-app-manager');
 }
 
+
+$('body').on('change', '#isLti', function () {
+    if ($(this).is(":checked")) {
+        $('#inputs-lti').show();
+    } else {
+        $('#inputs-lti').hide();
+    }
+})
+
+$('body').on('change', '#update_isLti', function () {
+    if ($(this).is(":checked")) {
+        $('#update_inputs-lti').show();
+    } else {
+        $('#update_inputs-lti').hide();
+    }
+})
+
+// Return false if the input is empty
+function checkLtiFields(type) {
+    if (type == 'create') {
+        if ($('#isLti').is(":checked")) {
+            if (
+                $('#clientId').val() == "" ||
+                $('#deploymentId').val() == "" ||
+                $('#toolUrl').val() == "" ||
+                $('#publicKeySet').val() == "" ||
+                $('#loginUrl').val() == "" ||
+                $('#redirectionUrl').val() == "" ||
+                $('#deepLinkUrl').val() == "" ||
+                $('#privateKey').val() == "")
+            {
+                return {isLti : false};
+            } else {
+                return {
+                    isLti : true,
+                    clientId: $('#clientId').val(),
+                    deploymentId: $('#deploymentId').val(),
+                    toolUrl: $('#toolUrl').val(),
+                    publicKeySet: $('#publicKeySet').val(),
+                    loginUrl: $('#loginUrl').val(),
+                    redirectionUrl: $('#redirectionUrl').val(),
+                    deepLinkUrl: $('#deepLinkUrl').val(),
+                    privateKey: $('#privateKey').val()
+                };
+            }
+        }
+    } else if (type == 'update') {
+        if ($('#update_isLti').is(":checked")) {
+            if (
+                $('#update_clientId').val() == "" ||
+                $('#update_deploymentId').val() == "" ||
+                $('#update_toolUrl').val() == "" ||
+                $('#update_publicKeySet').val() == "" ||
+                $('#update_loginUrl').val() == "" ||
+                $('#update_redirectionUrl').val() == "" ||
+                $('#update_deepLinkUrl').val() == "" ||
+                $('#update_privateKey').val() == ""
+            ) {
+                return {isLti : false};
+            } else {
+                let lti = {
+                    isLti : true,
+                    clientId: $('#update_clientId').val(),
+                    deploymentId: $('#update_deploymentId').val(),
+                    toolUrl: $('#update_toolUrl').val(),
+                    publicKeySet: $('#update_publicKeySet').val(),
+                    loginUrl: $('#update_loginUrl').val(),
+                    redirectionUrl: $('#update_redirectionUrl').val(),
+                    deepLinkUrl: $('#update_deepLinkUrl').val(),
+                    privateKey: $('#update_privateKey').val()
+                }
+                return lti;
+            }
+        }
+    }
+    return {isLti : false};
+}
+
 function updateApp(app_id) {
     resetInputApplications();
     mainManager.getmanagerManager().getApplicationById(app_id).then((response) => {
@@ -2737,6 +2818,19 @@ function updateApp(app_id) {
         $('#app_update_description').val(response.description);
         $('#app_update_image').val(response.image);
         $('#app_update_id').val(response.id);
+
+        if (response.hasOwnProperty('lti')) {
+            $('#update_isLti').prop('checked', true);
+            $('#update_inputs-lti').show();
+            $('#update_clientId').val(response.lti.clientId);
+            $('#update_deploymentId').val(response.lti.deploymentId);
+            $('#update_toolUrl').val(response.lti.toolUrl);
+            $('#update_publicKeySet').val(response.lti.publicKeySet);
+            $('#update_loginUrl').val(response.lti.loginUrl);
+            $('#update_redirectionUrl').val(response.lti.redirectionUrl);
+            $('#update_deepLinkUrl').val(response.lti.deepLinkUrl);
+            $('#update_privateKey').val(response.lti.privateKey);
+        }
         openModalInState('#update-app-manager');
     })
 }
@@ -2748,31 +2842,33 @@ function deleteApp(app_id, app_name) {
 }
 
 function persistUpdateApp() {
-    $('#update-app-manager').hide();
     let $application_id = $('#app_update_id').val(),
         $application_name = $('#app_update_name').val(),
         $application_description = $('#app_update_description').val(),
         $application_image = $('#app_update_image').val(),
         $application_restrictions_type = $('#app_update_activity_restriction_type').val(),
-        $application_restrictions_value = $('#app_update_activity_restriction_value').val();
+        $application_restrictions_value = $('#app_update_activity_restriction_value').val(),
+        lti = checkLtiFields('update');
 
-
-    mainManager.getmanagerManager().updateOneActivityRestriction($application_id, $application_restrictions_type, $application_restrictions_value);
-
-    //console.log($application_restrictions_type , $application_restrictions_value);
-
-    mainManager.getmanagerManager().updateApplication(
-        $application_id,
-        $application_name,
-        $application_description,
-        $application_image).then((response) => {
-        if (response.message == "success") {
-            displayNotification('#notif-div', "manager.apps.updateSuccess", "success");
-            closeModalAndCleanInput(true)
-        } else {
-            displayNotification('#notif-div', "manager.account.missingData", "error");
-        }
-    })
+    console.log(lti);
+    if (!lti.isLti && $('#update_isLti').is(":checked")) {
+        displayNotification('#notif-div', "manager.account.missingData", "error");
+    } else {
+        mainManager.getmanagerManager().updateOneActivityRestriction($application_id, $application_restrictions_type, $application_restrictions_value);
+        mainManager.getmanagerManager().updateApplication(
+            $application_id,
+            $application_name,
+            $application_description,
+            $application_image,
+            lti).then((response) => {
+            if (response.message == "success") {
+                displayNotification('#notif-div', "manager.apps.updateSuccess", "success");
+                closeModalAndCleanInput(true);
+            } else {
+                displayNotification('#notif-div', "manager.account.missingData", "error");
+            }
+        })
+    }
 }
 
 
@@ -2800,20 +2896,24 @@ function persistCreateApp() {
         $application_description = $('#app_create_description').val(),
         $application_image = $('#app_create_image').val(),
         $application_restrictions_type = $('#app_create_activity_restriction_type').val(),
-        $application_restrictions_value = $('#app_create_activity_restriction_value').val();
-
-    mainManager.getmanagerManager().createApplication($application_name, $application_description, $application_image).then((response) => {
-        if (response.message == "success") {
-            displayNotification('#notif-div', "manager.apps.createSuccess", "success");
-            closeModalAndCleanInput(true)
-            mainManager.getmanagerManager().updateOneActivityRestriction(response.application_id, $application_restrictions_type, $application_restrictions_value);
-        } else {
-            displayNotification('#notif-div', "manager.account.missingData", "error");
-        }
-        updateStoredApps();
-    })
+        $application_restrictions_value = $('#app_create_activity_restriction_value').val(),
+        lti = checkLtiFields('create');
 
 
+    if (!lti.isLti && $('#isLti').is(":checked")) {
+        displayNotification('#notif-div', "manager.account.missingData", "error");
+    } else {
+        mainManager.getmanagerManager().createApplication($application_name, $application_description, $application_image, lti).then((response) => {
+            if (response.message == "success") {
+                displayNotification('#notif-div', "manager.apps.createSuccess", "success");
+                closeModalAndCleanInput(true)
+                mainManager.getmanagerManager().updateOneActivityRestriction(response.application_id, $application_restrictions_type, $application_restrictions_value);
+            } else {
+                displayNotification('#notif-div', "manager.account.missingData", "error");
+            }
+            updateStoredApps();
+        })
+    }
 }
 
 function updateStoredApps() {
@@ -3131,36 +3231,6 @@ function createRegistrationTemplate() {
 }
 
 
-// Check if the actual activity type is limited for the user by id or type
-/**
- * WORK IN PROGRESS
- * @param {*} type
- * @param {*} id
- */
-function isActivitiesRestricted(id = null, type = null) {
-    // Only one check can be done at the same time
-    if (id != null && type != null) {
-        return false;
-    }
-    return new Promise(function (resolve, reject) {
-        $.ajax({
-            type: "POST",
-            url: "/routing/Routing.php?controller=activity&action=isActivitiesLimited",
-            data: {
-                activityId: id,
-                activityType: type
-            },
-            success: function (response) {
-                resolve(JSON.parse(response));
-            },
-            error: function () {
-                reject();
-            }
-        });
-    })
-}
-
-
 $('#btn-help-for-groupAdmin').click(function () {
     let message = $('#groupadmin-contact-message-input').val(),
         subject = $('#groupadmin-contact-subject-input').val();
@@ -3176,13 +3246,435 @@ $('#btn-help-for-groupAdmin').click(function () {
     })
 })
 
+// LMS Exercices DEBUG WiP
 
-function deleteActivity() {
-  Main.getClassroomManager().deleteActivity(ClassroomSettings.activity).then(function (activity) {
-    displayNotification('#notif-div', "classroom.notif.activityDeleted", "success", `'{"activityName": "${activity.name}"}'`);
-    deleteTeacherActivityInList(activity.id);
-    teacherActivitiesDisplay();
-    pseudoModal.closeModal('activity-delete-confirm');
-  })
-  ClassroomSettings.activity = null;
+function testDebug() {
+    navigatePanel('classroom-dashboard-classes-new-activity', 'dashboard-profil-teacher');
+}
+
+/**
+ * Setup the rich text editor for the activities
+ */
+function setTextArea() {
+    let wbbOpt = {
+        buttons: ",bold,italic,underline,|,justifyleft,justifycenter,justifyright,img,link,|,quote,bullist,|,vittaiframe,cabriiframe,vittapdf,video,peertube,vimeo,genialyiframe,gdocsiframe",
+    }
+    // Free
+    $('#free_enonce').wysibb(wbbOpt);
+    $('#free_content').wysibb(wbbOpt);
+    $('#free_correction').wysibb(wbbOpt);
+
+    // Reading
+    $("#reading_content").wysibb(wbbOpt);
+
+    // FillIn
+    $("#fillIn_states").wysibb(wbbOpt);
+    $("#fillIn_content").wysibb(wbbOpt);
+
+    // DragAndDrop
+    $("#dragAndDrop_states").wysibb(wbbOpt);
+    $("#dragAndDrop_content").wysibb(wbbOpt);
+
+     // Quiz
+     $("#quiz_states").wysibb(wbbOpt);
+}
+setTextArea();
+
+
+/**
+ * Hide all the activities section
+ */
+function hideAllActivities() {
+    $("#activity_free").hide();
+    $("#activity_reading").hide();
+    $("#activity_fillIn").hide();
+    $("#activity_dragAndDrop").hide();
+    $("#activity_custom").hide();
+    $("#activity_quiz").hide();
+}
+
+
+function launchCustomActivity(activityType, isUpdate = false) {
+    const contentForwardButtonElt = document.getElementById('content-forward-button');
+    contentForwardButtonElt.style.display = 'inline-block';
+    if(!isUpdate) {
+        // Reset and hide all activities input and fields
+        resetActivityInputs(activityType);
+    }
+    hideAllActivities();
+
+    Main.getClassroomManager()._createActivity.id = activityType;
+    Main.getClassroomManager()._createActivity.function = "create";
+
+    Main.getClassroomManager().isActivitiesRestricted(null, activityType).then((response) => {
+        if (response.Limited == false) {
+            switch(activityType) {
+                case 'free':
+                    $("#activity_free").show();
+                    break;
+                case 'quiz':
+                    $("#activity_quiz").show();
+                    break;
+                case 'fillIn':
+                    $("#activity_fillIn").show();
+                    break;
+                case 'reading':
+                    $("#activity_reading").show();
+                    break;
+                case 'dragAndDrop':
+                    $("#activity_dragAndDrop").show();
+                    break;
+                case 'custom':
+                    // Use the previous method for the activity without title
+                    $("#activity_reading").show();
+                    break;
+                default:
+                    // Check if it's an lti apps and get the data needed if it's the case
+                    contentForwardButtonElt.style.display = 'none';
+                    $("#activity_custom").show();
+                    if (isUpdate) {
+                        launchLtiDeepLinkCreate(activityType, isUpdate);
+                    } else {
+                        launchLtiDeepLinkCreate(activityType);
+                    }
+
+                    break;
+            }
+            navigatePanel('classroom-dashboard-classes-new-activity', 'dashboard-activities-teacher');
+        } else {
+            console.log(response.Restrictions);
+            if (UserManager.getUser().isFromGar) {
+                $('#app-restricted-number').attr('data-i18n-options', `{"activities": "${response.Restrictions[Object.keys(response.Restrictions)[0]]}"}`);
+                pseudoModal.openModal('activity-restricted-gar');
+                $('#app-restricted-number').localize();
+            } else {
+                pseudoModal.openModal('activity-restricted');
+            }
+        }
+    });
+}
+
+$("#free_autocorrect").change(function () {
+    if ($(this).is(":checked")) {
+        $("#free_correction_content").show();
+    } else {
+        $("#free_correction_content").hide();
+    }
+})
+
+function resetActivityInputs(activityType) {
+    if (activityType == 'free') {
+        $('#free_content').htmlcode("");
+        $('#free_correction').htmlcode("");
+        $('#global_title').val('');
+        $('#free_autocorrect').prop('checked', false);
+        $("#free_correction_content").hide();
+        $('#activity-input').val('');
+        // reset input eleve
+    } else {
+        Main.getClassroomManager().setDefaultActivityData();
+    }
+}
+
+function contentBackward() {
+    Main.getClassroomManager().getAllApps().then((apps) => {
+        activitiesCreation(apps);
+        navigatePanel('classroom-dashboard-proactivities-panel-teacher', 'dashboard-activities-teacher');
+    })
+}
+
+// Get the content
+function contentForward() {
+    if (Main.getClassroomManager()._createActivity.id == 'free') {
+        Main.getClassroomManager()._createActivity.content.description = $('#free_content').bbcode();
+        Main.getClassroomManager()._createActivity.solution = $('#free_correction').bbcode();
+        Main.getClassroomManager()._createActivity.autocorrect = $('#free_autocorrect').is(":checked");
+    } else if (Main.getClassroomManager()._createActivity.id == 'reading'){
+        Main.getClassroomManager()._createActivity.content.description = $('#reading_content').bbcode();
+    } else if (Main.getClassroomManager()._createActivity.id == 'fillIn') {
+
+        Main.getClassroomManager()._createActivity.content.states = $('#fillIn_states').bbcode();
+        Main.getClassroomManager()._createActivity.content.tolerance = $('#fillIn_tolerance').val();
+        //Main.getClassroomManager()._createActivity.content.hint = $('#fillIn_hint').val();
+        // Manage fill in fields
+        parseFillInFieldsAndSaveThem();
+
+
+    } else {
+        // By default using LTI, the button doesn't do anything specific
+    }
+    // Check if the content if empty
+    if (Main.getClassroomManager()._createActivity.content.description == '' && Main.getClassroomManager()._createActivity.content.fillInFields.tempData.length == 0) {
+        displayNotification('#notif-div', "classroom.notif.emptyContent", "error");
+    } else {
+        navigatePanel('classroom-dashboard-classes-new-activity-title', 'dashboard-proactivities-teacher');
+    }
+}
+
+function titleBackward() {
+    if (Main.getClassroomManager()._createActivity.id != "") {
+        launchCustomActivity(Main.getClassroomManager()._createActivity.id, true);
+    }
+}
+
+/**
+ * Title part
+ */
+function titleForward() {
+    Main.getClassroomManager()._createActivity.title = $('#global_title').val();
+
+    // Check if the title is empty
+    if (Main.getClassroomManager()._createActivity.title == '') {
+        displayNotification('#notif-div', "classroom.notif.emptyTitle", "error");
+    } else {
+        let title = Main.getClassroomManager()._createActivity.title,
+            type = Main.getClassroomManager()._createActivity.id,
+            content = JSON.stringify(Main.getClassroomManager()._createActivity.content),
+            solution = Main.getClassroomManager()._createActivity.solution,
+            tolerance = Main.getClassroomManager()._createActivity.tolerance,
+            autocorrect = Main.getClassroomManager()._createActivity.autocorrect;
+
+        if (Main.getClassroomManager()._createActivity.function == "create") {
+            Main.getClassroomManager().createNewActivity(title, type, content, solution, tolerance, autocorrect).then((response) => {
+                if (response.success == true) {
+                    Main.getClassroomManager()._lastCreatedActivity = response.id;
+                    displayNotification('#notif-div', "classroom.notif.activityCreated", "success", `'{"activityTitle": "${title}"}'`);
+                    navigatePanel('classroom-dashboard-classes-new-activity-attribution', 'dashboard-proactivities-teacher');
+                } else {
+                    displayNotification('#notif-div', "manager.account.errorSending", "error");
+                }
+            });
+        } else if (Main.getClassroomManager()._createActivity.function == "update") {
+            Main.getClassroomManager().updateActivity(ClassroomSettings.activity, title, type, content, solution, tolerance, autocorrect).then((response) => {
+                if (response.success == true) {
+                    Main.getClassroomManager()._lastCreatedActivity = response.id;
+                    displayNotification('#notif-div', "classroom.notif.activityCreated", "success", `'{"activityTitle": "${title}"}'`);
+                    navigatePanel('classroom-dashboard-classes-new-activity-attribution', 'dashboard-proactivities-teacher');
+                } else {
+                    displayNotification('#notif-div', "manager.account.errorSending", "error");
+                }
+            });
+        }
+    }
+}
+
+
+/**
+ * Validation pipeline for the new activity
+ */
+function validateActivity() {
+    switch(Activity.activity.type) {
+        case 'free':
+            freeValidateActivity()
+            break;
+        case 'quiz':
+
+            break;
+        case 'fillIn':
+
+            break;
+        case 'reading':
+            defaultProcessValidateActivity();
+            break;
+        case 'dragAndDrop':
+
+            break;
+        case 'custom':
+            defaultProcessValidateActivity();
+            break;
+        default:
+
+            break;
+    }
+}
+
+/**
+ * Default process for the validation of the free activity
+ */
+function freeValidateActivity() {
+    let studentResponse = $('#activity-input').bbcode();
+    Main.getClassroomManager().saveNewStudentActivity(Activity.activity.id, null, null, studentResponse).then((response) => {
+        if (response) {
+            $("#activity-validate").attr("disabled", false);
+            if (response.note != null && response.correction > 1) {
+                if (response.note == 3) {
+                    navigatePanel('classroom-dashboard-activity-panel-success', 'dashboard-activities', '', '', true)
+                } else if (response.note == 0) {
+                    navigatePanel('classroom-dashboard-activity-panel-fail', 'dashboard-activities', '', '', true)
+                }
+            } else {
+                navigatePanel('classroom-dashboard-activity-panel-correcting', 'dashboard-classes-teacher', '', '', true)
+            }
+        } else {
+            displayNotification('#notif-div', "classroom.notif.errorSending", "error");
+        }
+    });
+}
+
+
+function activitiesCreation(apps) {
+    let htmlContent = `<div class="app-head" data-i18n="classroom.activities.applist.selectApp"></div>`;
+    apps.forEach(app => {
+        let restrict = app.hasOwnProperty("type") ? `launchCustomActivity('${app.type}')` : `launchCustomActivity('custom')`;
+        htmlContent+= `<div class="app-card" style="--border-color:${app.color};" onclick="${restrict}">
+            <img class="app-card-img" src="${app.image}" alt="${app.name}">
+            <h3 class="app-card-title mt-2" data-i18n="">${app.name}</h3>
+            <p class="mt-2" data-i18n="">${app.description}</p>
+        </div>`
+
+    });
+    $('#activity-creation-grid').html(htmlContent);
+    $('#activity-creation-grid').localize();
+}
+
+function goBackToActivities() {
+    navigatePanel('classroom-dashboard-activities-panel', 'dashboard-activities');
+}
+
+
+function fillInAddFIeld() {
+    let htmlContent = `<div class="form-group">
+        <label for="fillIn_states" data-i18n="classroom.activities.fillIn.states"></label>
+        <textarea class="form-control" id="fillIn_states" rows="3" data-i18n=""></textarea>
+    </div>`;
+    $('#fillIn_states').bbcode();
+    $('#fillIn_content').after(htmlContent);
+    $('#fillIn_states').bbcode();
+    $('#fillIn_states').localize();
+}
+
+/**
+ * Fill in activity
+ */
+
+$('#fillInAddInputs').click(() => {
+    let index = Main.getClassroomManager()._createActivity.content.fillInFields.tempData.length + 1;
+    let field = `<p id="fillInField_${index}" style="border: solid; margin: 3px; padding: 10px; border-radius: 3px;">En cliquant sur le bouton << ajouter un champs à compléter >>, un texte est ajouté avec deux caractères verticaux << | réponse | >>. Vous pouvez écrire la réponse correcte entre ces deux caractères. Les réponses alternatives sont séparées par une double barre vertical << || >></p>`;
+
+    Main.getClassroomManager()._createActivity.content.fillInFields.tempData.push(field);
+    $('#fillIn_content').htmlcode(Main.getClassroomManager()._createActivity.content.fillInFields.tempData.join(''));
+
+    $(`p[id^="fillInField_"]`).bind("DOMSubtreeModified", function() {
+        Main.getClassroomManager()._createActivity.content.fillInFields.tempData.forEach((e, i) => {
+            if (e.includes(this.id)) {
+                Main.getClassroomManager()._createActivity.content.fillInFields.tempData[i] = `<p id="${this.id}" style="border: solid; margin: 3px; padding: 10px; border-radius: 3px;">${$(this).text()}</p>`;
+            }
+        });
+    });
+})
+
+
+$('#fillInRemoveInputs').click(() => {
+    $(`#fillInField_${Main.getClassroomManager()._createActivity.content.fillInFields.tempData.length}`).unbind();
+    Main.getClassroomManager()._createActivity.content.fillInFields.tempData.pop();
+    $('#fillIn_content').htmlcode(Main.getClassroomManager()._createActivity.content.fillInFields.tempData.join(''));
+})
+
+
+/* let fillInFields = [
+    'Le ciel est | bleu || vert |.',
+    'Le soleil est | jaune || orange || rouge |.',
+    'La lune est | bleue |.'
+]; */
+
+function parseFillInFieldsAndSaveThem() {
+    let fillInFields = [];
+    let lengthFill = Main.getClassroomManager()._createActivity.content.fillInFields.tempData.length;
+
+    for (let i = 0; i < lengthFill; i++) {
+        fillInFields.push($(`#fillInField_${i+1}`).text())
+    }
+
+    //Main.getClassroomManager()._createActivity.content.fillInFields = fillInFields;
+
+    const   regex = /\|(.*?)\|/gi,
+            regexMultipleAnswer = /([¤]+)/gi,
+            response = [],
+            stringWithOutAnswer = [];
+
+    fillInFields.forEach(field => {
+        response.push(field.match(regex).map(match => match.replace(regex, "$1")));
+        stringWithOutAnswer.push(field.replace(regex, '¤').replace(regexMultipleAnswer, '[Your answer]'));
+    });
+
+    Main.getClassroomManager()._createActivity.content.fillInFields.response = response;
+    Main.getClassroomManager()._createActivity.content.fillInFields.question = stringWithOutAnswer;
+
+
+}
+
+
+/* let proActivities = [{
+        "name": "classroom.activities.applist.apps.reading.title",
+        "desc": "classroom.activities.applist.apps.reading.desc",
+        "image": "./assets/plugins/images/reading.png",
+        "color": "#12ACB1",
+        "id": "reading"
+    },
+    {
+        "name": "classroom.activities.applist.apps.quiz.title",
+        "desc": "classroom.activities.applist.apps.quiz.desc",
+        "image": "./assets/plugins/images/quiz.png",
+        "color": "#FF931E",
+        "id": "quiz"
+    },
+    {
+        "name": "classroom.activities.applist.apps.dragAndDrop.title",
+        "desc": "classroom.activities.applist.apps.dragAndDrop.desc",
+        "image": "./assets/plugins/images/dragAndDrop.png",
+        "color": "#24A069",
+        "id": "dragAndDrop"
+    },
+    {
+        "name": "classroom.activities.applist.apps.fillIn.title",
+        "desc": "classroom.activities.applist.apps.fillIn.desc",
+        "image": "./assets/plugins/images/fillIn.png",
+        "color": "#60987E",
+        "id": "fillIn"
+    },
+    {
+        "name": "classroom.activities.applist.apps.free.title",
+        "desc": "classroom.activities.applist.apps.free.desc",
+        "image": "./assets/plugins/images/free.png",
+        "color": "#3FA9F5",
+        "id": "free"
+    }
+]; */
+
+
+
+function launchLtiDeepLinkCreate(type, isUpdate) {
+    let updateInput = '';
+    if (isUpdate) {
+        updateInput = `<input type="hidden" id="is_update" name="is_update" value="true">
+        <input type="hidden" id="update_url" name="update_url" value="${Main.getClassroomManager()._createActivity.content.description}">`;
+    }
+
+    document.querySelector('#lti-loader-container').innerHTML =
+    `<input id="activity-form-content-lti" type="text" hidden/>
+    <form name="contentitem_request_form" action="${_PATH}lti/contentitem.php" method="post" target="lti_teacher_iframe">
+        <input type="hidden" id="application_type" name="application_type" value="${type}">
+        ${updateInput}
+    </form>
+    <div style="width: 100%; height: 100%;" class="lti-iframe-holder">
+        <iframe id="lti_teacher_iframe" src="about:blank" name="lti_teacher_iframe" title="Tool Content" width="100%"  height="100%" allowfullscreen></iframe>
+    </div>`;
+
+    document.forms["contentitem_request_form"].submit();
+}
+
+function launchLtiResource(activityId, activityType, activityContent, isStudentLaunch = false, studentResourceUrl = false) {
+    document.querySelector('#activity-content').innerHTML =
+        `<input id="activity-score" type="text" hidden/>
+        <form name="resource_launch_form" action="${_PATH}lti/ltilaunch.php" method="post" target="lti_student_iframe">
+            <input type="hidden" id="application_type" name="application_type" value="${activityType}">
+            <input type="hidden" id="target_link_uri" name="target_link_uri" value="${activityContent.replace('&amp;', '&')}">
+            <input type="hidden" id="student_launch" name="student_launch" value="${isStudentLaunch}">
+            <input type="hidden" id="activities_link_user" name="activities_link_user" value="${activityId}">
+            <input type="hidden" id="student_resource_url" name="student_resource_url" value="${studentResourceUrl}">
+        </form>
+        <iframe id="lti_student_iframe" src="about:blank" name="lti_student_iframe" title="Tool Content" width="100%" style="
+        height: 60vh;" allowfullscreen></iframe>
+        `;
+    document.forms["resource_launch_form"].submit();
 }

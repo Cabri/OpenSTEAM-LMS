@@ -395,7 +395,7 @@ class managerManager {
         })
     }
 
-    updateApplication($application_id, $application_name, $application_description, $application_image) {
+    updateApplication($application_id, $application_name, $application_description, $application_image, $lti_data) {
         return new Promise(function (resolve, reject) {
             $.ajax({
                 type: "POST",
@@ -404,7 +404,8 @@ class managerManager {
                     application_id: $application_id,
                     application_name: $application_name,
                     application_description: $application_description,
-                    application_image: $application_image
+                    application_image: $application_image,
+                    lti_data: JSON.stringify($lti_data)
                 },
                 success: function (response) {
                     resolve(JSON.parse(response))
@@ -433,8 +434,9 @@ class managerManager {
             });
         })
     }
+    
 
-    createApplication($application_name, $application_description, $application_image) {
+    createApplication($application_name, $application_description, $application_image, $lti_data) {
         return new Promise(function (resolve, reject) {
             $.ajax({
                 type: "POST",
@@ -444,7 +446,7 @@ class managerManager {
                     application_description: $application_description,
                     application_image: $application_image,
                     application_description: $application_description,
-                    application_image: $application_image
+                    lti_data: JSON.stringify($lti_data)
                 },
                 success: function (response) {
                     resolve(JSON.parse(response))

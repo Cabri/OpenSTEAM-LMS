@@ -17,11 +17,11 @@ $confirm_account = (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? "ht
 $page = isset($_GET['page']) ? htmlspecialchars($_GET['page']) : null;
 
 if (!$page) {
-    // Load env variables 
+    // Load env variables
     $dotenv = Dotenv::createImmutable(__DIR__."/../");
     $dotenv->safeLoad();
     // bind and sanitize incoming token
-    $confirmToken = isset($_GET['token']) 
+    $confirmToken = isset($_GET['token'])
                     ? trim(htmlspecialchars(preg_replace('/<[^>]*>[^<]*<[^>]*>/', '',$_GET['token'])))
                     : null;
 
@@ -67,8 +67,8 @@ if (!$page) {
 } else {
     require_once(__DIR__ . "/header.html");
     ?>
-        <link rel="stylesheet" href="/classroom/assets/css/main.css?version=1.1">
-        <script src="./assets/js/lib/rotate.js?version=1.1"></script>
+        <link rel="stylesheet" href="/classroom/assets/css/main.css?version=1.2">
+        <script src="./assets/js/lib/rotate.js?version=1.2"></script>
         <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
         </head>
         <body>

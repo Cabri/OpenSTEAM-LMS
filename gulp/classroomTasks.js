@@ -42,6 +42,7 @@ class AutoBuildManager {
             'managerProfilePanel.html',
             'managerAppsPanel.html',
             'managerUsersPanel.html',
+            '_newExercicesPanel.html',
             'idePanel.html',
             'home_footer.html',
         ];
@@ -292,7 +293,7 @@ class AutoBuildManager {
             this.pluginsList.forEach((plugin) => {
                 plugin.css.forEach((cssFile) => {
                     cssLinks.push(
-                        `<link rel="stylesheet" href="assets/plugins/css/${cssFile}?version=1.1">\n`
+                        `<link rel="stylesheet" href="assets/plugins/css/${cssFile}?version=1.2">\n`
                     );
                 });
             });
@@ -318,7 +319,7 @@ class AutoBuildManager {
             this.pluginsList.forEach((plugin) => {
                 plugin.js.forEach((jsFile) => {
                     jsLinks.push(
-                        `<script src="assets/plugins/js/${jsFile}?version=1.1"></script>\n`
+                        `<script src="assets/plugins/js/${jsFile}?version=1.2"></script>\n`
                     );
                 });
             });
@@ -542,6 +543,7 @@ class AutoBuildManager {
                 'gulp/temp-views/managerProfilePanel.html',
                 'gulp/temp-views/managerAppsPanel.html',
                 'gulp/temp-views/managerUsersPanel.html',
+                'gulp/temp-views/_newExercicesPanel.html',
                 'gulp/temp-views/idePanel.html',
                 'gulp/temp-views/home_footer.html',
 
@@ -571,6 +573,7 @@ class AutoBuildManager {
                 'classroom/Views/managerProfilePanel.html',
                 'classroom/Views/managerAppsPanel.html',
                 'classroom/Views/managerUsersPanel.html',
+                'classroom/Views/_newExercicesPanel.html',
                 'classroom/Views/idePanel.html',
                 'classroom/Views/home_footer.html',
 

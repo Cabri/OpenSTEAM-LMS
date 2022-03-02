@@ -3,10 +3,11 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : mariadb
--- Généré le : jeu. 23 déc. 2021 à 15:38
+-- Généré le : ven. 18 fév. 2022 à 15:24
 -- Version du serveur : 10.6.5-MariaDB-1:10.6.5+maria~focal
 -- Version de PHP : 7.4.20
 
+SET FOREIGN_KEY_CHECKS=0;
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
 SET time_zone = "+00:00";
@@ -84,7 +85,8 @@ CREATE TABLE `classroom_activities_link_classroom_users` (
   `introduction` varchar(2000) COLLATE utf8mb3_unicode_ci DEFAULT NULL,
   `is_autocorrected` tinyint(1) NOT NULL DEFAULT 0,
   `is_evaluation` tinyint(1) NOT NULL DEFAULT 0,
-  `url` varchar(255) COLLATE utf8mb3_unicode_ci DEFAULT NULL
+  `url` varchar(255) COLLATE utf8mb3_unicode_ci DEFAULT NULL,
+  `response` text COLLATE utf8mb3_unicode_ci DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_unicode_ci;
 
 -- --------------------------------------------------------
@@ -100,6 +102,14 @@ CREATE TABLE `classroom_activities_restrictions` (
   `max_per_teachers` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Déchargement des données de la table `classroom_activities_restrictions`
+--
+
+INSERT INTO `classroom_activities_restrictions` (`id`, `application_id`, `activity_type`, `max_per_teachers`) VALUES
+(26, 22, 'free', -1),
+(27, 23, 'reading', -1);
+
 -- --------------------------------------------------------
 
 --
@@ -110,8 +120,17 @@ CREATE TABLE `classroom_applications` (
   `id` int(11) NOT NULL,
   `name` varchar(255) NOT NULL,
   `description` varchar(255) NOT NULL,
-  `image` varchar(255) DEFAULT NULL
+  `image` varchar(255) DEFAULT NULL,
+  `is_lti` tinyint(1) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Déchargement des données de la table `classroom_applications`
+--
+
+INSERT INTO `classroom_applications` (`id`, `name`, `description`, `image`, `is_lti`) VALUES
+(22, 'Réponse libre', 'Les exercices libres', './assets/plugins/images/free.png', 0),
+(23, 'Multimédia', 'Cette activité permet de visualiser des textes, images, vidéos, PDF, ainsi que des outils externes.', './assets/plugins/images/reading.png', 0);
 
 -- --------------------------------------------------------
 
@@ -282,7 +301,10 @@ CREATE TABLE `learn_activities` (
   `is_from_classroom` tinyint(1) NOT NULL DEFAULT 0,
   `title` varchar(1000) COLLATE utf8mb3_unicode_ci DEFAULT 'No title',
   `content` varchar(10000) COLLATE utf8mb3_unicode_ci NOT NULL DEFAULT 'No content',
-  `type` varchar(255) COLLATE utf8mb3_unicode_ci DEFAULT NULL
+  `type` varchar(255) COLLATE utf8mb3_unicode_ci DEFAULT NULL,
+  `solution` text COLLATE utf8mb3_unicode_ci DEFAULT NULL,
+  `tolerance` int(11) DEFAULT NULL,
+  `is_autocorrect` tinyint(1) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_unicode_ci;
 
 -- --------------------------------------------------------
@@ -395,25 +417,6 @@ CREATE TABLE `learn_tutorials_link_tutorials` (
   `tutorial1_id` int(11) NOT NULL,
   `tutorial2_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_unicode_ci;
-
--- --------------------------------------------------------
-
---
--- Structure de la table `python_containers`
---
-
-CREATE TABLE `python_containers` (
-  `id` int(11) NOT NULL,
-  `task_arn` varchar(255) NOT NULL,
-  `is_attribued` int(11) DEFAULT NULL,
-  `public_ip` varchar(255) DEFAULT NULL,
-  `created_at` datetime NOT NULL,
-  `updated_at` datetime DEFAULT NULL,
-  `user` int(11) DEFAULT NULL,
-  `container_key` varchar(255) DEFAULT NULL,
-  `task_key` varchar(255) DEFAULT NULL,
-  `status` varchar(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
@@ -683,12 +686,6 @@ ALTER TABLE `learn_tutorials_link_tutorials`
   ADD KEY `IDX_B7C981A3871CA2` (`tutorial2_id`);
 
 --
--- Index pour la table `python_containers`
---
-ALTER TABLE `python_containers`
-  ADD PRIMARY KEY (`id`);
-
---
 -- Index pour la table `users`
 --
 ALTER TABLE `users`
@@ -833,12 +830,6 @@ ALTER TABLE `learn_courses`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT pour la table `python_containers`
---
-ALTER TABLE `python_containers`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
-
---
 -- AUTO_INCREMENT pour la table `users`
 --
 ALTER TABLE `users`
@@ -924,6 +915,7 @@ ALTER TABLE `learn_comments`
   ADD CONSTRAINT `FK_298F36FC7032E9EE` FOREIGN KEY (`comment_answered`) REFERENCES `learn_comments` (`id`) ON DELETE CASCADE,
   ADD CONSTRAINT `FK_298F36FC89366B7B` FOREIGN KEY (`tutorial_id`) REFERENCES `learn_courses` (`id`),
   ADD CONSTRAINT `FK_298F36FC8D93D649` FOREIGN KEY (`user`) REFERENCES `users` (`id`) ON DELETE CASCADE;
+CONSTRAINT `FK_298F36FC8D93D649` FOREIGN KEY (`user`) REFERENCES `users` (`id`) ON DELETE CASCADE;
 
 --
 -- Contraintes pour la table `learn_courses`
@@ -976,6 +968,7 @@ ALTER TABLE `user_regulars`
 --
 ALTER TABLE `user_teachers`
   ADD CONSTRAINT `FK_D8AFBF6AC2FB178` FOREIGN KEY (`user`) REFERENCES `users` (`id`) ON DELETE CASCADE;
+SET FOREIGN_KEY_CHECKS=1;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

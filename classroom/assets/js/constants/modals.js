@@ -1,5 +1,5 @@
 const BASE_STUDENT_FORM = `<div class="c-primary-form row col-12">
-        
+
 <label class="col-5" data-i18n="classroom.modals.addStudent.pseudo">Pseudonyme</label>
 <input class="col-5 student-form-name" type="text">
 </div>`;
@@ -57,10 +57,10 @@ const classroomModals = {
         },
         content: `<h4 data-i18n="classroom.modals.settingsTeacher.lang">Langue</h4>
         <div id="switch-lang-list" class="d-flex justify-content-center">
-            <img class="flags-item mr-2" alt="flag" src="assets/media/flags/fr.png?version=1.1" onclick="changeLang('fr')">
-            <img class="flags-item mr-2" alt="flag" src="assets/media/flags/en.png?version=1.1" onclick="changeLang('en')">
-            <img class="flags-item mr-2" alt="flag" src="assets/media/flags/es.png?version=1.1" onclick="changeLang('es')">
-            <img class="flags-item mr-2" alt="flag" src="assets/media/flags/it.png?version=1.1" onclick="changeLang('it')">
+            <img class="flags-item mr-2" alt="flag" src="assets/media/flags/fr.png?version=1.2" onclick="changeLang('fr')">
+            <img class="flags-item mr-2" alt="flag" src="assets/media/flags/en.png?version=1.2" onclick="changeLang('en')">
+            <img class="flags-item mr-2" alt="flag" src="assets/media/flags/es.png?version=1.2" onclick="changeLang('es')">
+            <img class="flags-item mr-2" alt="flag" src="assets/media/flags/it.png?version=1.2" onclick="changeLang('it')">
         </div>
         <h4 data-i18n="classroom.modals.settingsTeacher.password">Mot de passe</h4>
         <p class="text-center" data-i18n="classroom.modals.settingsTeacher.passwordDescription"></p>
@@ -90,10 +90,10 @@ const classroomModals = {
         content: `<div>
                     <h4 data-i18n="classroom.modals.settingsTeacher.lang">Langue</h4>
                     <div id="switch-lang-list" class="d-flex justify-content-center">
-                    <img class="flags-item mr-2" alt="flag" src="assets/media/flags/fr.png?version=1.1" onclick="changeLang('fr')">
-                    <img class="flags-item mr-2" alt="flag" src="assets/media/flags/en.png?version=1.1" onclick="changeLang('en')">
-                    <img class="flags-item mr-2" alt="flag" src="assets/media/flags/es.png?version=1.1" onclick="changeLang('es')">
-                    <img class="flags-item mr-2" alt="flag" src="assets/media/flags/it.png?version=1.1" onclick="changeLang('it')">
+                    <img class="flags-item mr-2" alt="flag" src="assets/media/flags/fr.png?version=1.2" onclick="changeLang('fr')">
+                    <img class="flags-item mr-2" alt="flag" src="assets/media/flags/en.png?version=1.2" onclick="changeLang('en')">
+                    <img class="flags-item mr-2" alt="flag" src="assets/media/flags/es.png?version=1.2" onclick="changeLang('es')">
+                    <img class="flags-item mr-2" alt="flag" src="assets/media/flags/it.png?version=1.2" onclick="changeLang('it')">
                     </div>
                     <h4 data-i18n="classroom.modals.settingsTeacher.description">Pour modifier votre mot de passe ou d'autres paramètres de votre compte</h4>
                     <div class="d-flex flex-column align-items-center" style="gap: 0.5rem;">
@@ -164,7 +164,7 @@ const classroomModals = {
         selector: '',
         header: {
             icon: '',
-            title: 'modals.classroom.shareProject.title'
+            title: 'classroom.modals.shareProject.title'
         },
         content: `
     <h4>Sélectionner des apprenants</h4>
@@ -203,7 +203,7 @@ const classroomModals = {
                 `,
         footer: ``
     },
-    'add-student-modal': {
+    'create-classroom-student-modal': {
         selector: '',
         header: {
             icon: '',
@@ -216,7 +216,55 @@ const classroomModals = {
                 <input class="col-5 student-form-name" type="text">
             </div>
         </div>
-        <button class="save-student-in-classroom c-btn-primary m-3"><i class="fas fa-save"></i> <span class="ml-1" data-i18n="classroom.modals.addStudent.addStudentButton">Ajouter l'apprenant</span></button>
+        <button id="create-classroom-add-student-to-list" class="save-student-in-classroom c-btn-primary m-3"><i class="fas fa-save"></i> <span class="ml-1" data-i18n="clsave-student-in-classroomassroom.modals.addStudent.addStudentButton">Ajouter l'apprenant</span></button>
+        <div class="d-flex flex-column justify-content-center align-items-center">
+            <div class="d-flex justify-content-center modal-separator mt-4 mb-4">
+                <span data-i18n="classroom.modals.addActivity.orSeparator">OU</span>
+            </div>
+            <button class="btn c-btn-secondary" onclick="openCsvModal();">
+                <span data-i18n="classroom.modals.addStudent.addStudentByCsvButton">Ajouter un fichier d'apprenants (.csv)</span><i class="fas fa-chevron-right ml-1"></i>
+            </button>
+        </div>`,
+        footer: ``
+    },
+    'update-classroom-student-modal': {
+        selector: '',
+        header: {
+            icon: '',
+            title: 'classroom.modals.addStudent.title'
+        },
+        content: `
+        <div id="update-classroom-add-student-div">
+            <div class="c-primary-form row col-12">
+                <label class="col-5" data-i18n="classroom.modals.addStudent.pseudo">Pseudonyme</label>
+                <input class="col-5 student-form-name" type="text">
+            </div>
+        </div>
+        <button id="update-classroom-add-student-to-list" class="btn save-student-in-classroom c-btn-primary m-3"><i class="fas fa-save"></i> <span class="ml-1" data-i18n="classroom.modals.addStudent.addStudentButton">Ajouter l'apprenant</span></button>
+        <div class="d-flex flex-column justify-content-center align-items-center">
+            <div class="d-flex justify-content-center modal-separator mt-4 mb-4">
+                <span data-i18n="classroom.modals.addActivity.orSeparator">OU</span>
+            </div>
+            <button class="btn c-btn-secondary" onclick="openCsvModal();">
+                <span data-i18n="classroom.modals.addStudent.addStudentByCsvButton">Ajouter un fichier d'apprenants (.csv)</span><i class="fas fa-chevron-right ml-1"></i>
+            </button>
+        </div>`,
+        footer: ``
+    },
+    'add-student-modal': {
+        selector: '',
+        header: {
+            icon: '',
+            title: 'classroom.modals.addStudent.title'
+        },
+        content: `
+        <div id="classroom-dashboard-add-student-div">
+            <div class="c-primary-form row col-12">
+                <label class="col-5" data-i18n="classroom.modals.addStudent.pseudo">Pseudonyme</label>
+                <input class="col-5 student-form-name" type="text">
+            </div>
+        </div>
+        <button id="add-student-to-classroom" class="btn save-student-in-classroom c-btn-primary m-3"><i class="fas fa-save"></i> <span class="ml-1" data-i18n="classroom.modals.addStudent.addStudentButton">Ajouter l'apprenant</span></button>
         <div class="d-flex flex-column justify-content-center align-items-center">
             <div class="d-flex justify-content-center modal-separator mt-4 mb-4">
                 <span data-i18n="classroom.modals.addActivity.orSeparator">OU</span>
@@ -305,7 +353,7 @@ const classroomModals = {
                 <input type="text" class="form-control" id="u_phone">
             </div>
         </div>
-    
+
         <div class="form-row c-secondary-form mb-2" id="manager_bio">
             <label for="u_bio" data-i18n="[html]manager.profil.bio">Bio <span class="c-text-red">*</span></label>
             <textarea class="form-control" id="u_bio" rows="3"></textarea>
@@ -328,7 +376,7 @@ const classroomModals = {
                 </label>
             </div>
         </div>
-    
+
         <div class="form-row c-secondary-form" id="user_teacher_infos" style="display: none;" >
             <div class="form-group col-md" id="section_teacher_grade">
                 <select class="form-control" id="user_teacher_grade">
@@ -348,7 +396,7 @@ const classroomModals = {
                 <input type="text" class="form-control" id="u_school">
             </div>
         </div>
-    
+
     </div>
 
     <hr>
@@ -373,7 +421,7 @@ const classroomModals = {
 
     <div id="group_add_sa">
     </div>
-    
+
     <div id="create_update_personal_apps_sa">
 
     </div>
@@ -415,7 +463,7 @@ const classroomModals = {
                 <input type="text" class="form-control" id="update_u_phone">
             </div>
         </div>
-    
+
         <div class="form-row c-secondary-form mb-2" id="manager_update_bio">
             <label for="update_u_bio" data-i18n="[html]manager.profil.bio">Bio <span class="c-text-red">*</span></label>
             <textarea class="form-control" id="update_u_bio" rows="3"></textarea>
@@ -428,7 +476,7 @@ const classroomModals = {
                     Compte actif
                 </label>
             </div>
-    
+
             <div class="form-check form-check-inline c-checkbox ml-3">
                 <input type="checkbox" id="update_u_is_admin">
                 <label class="form-check-label" for="update_u_is_admin" data-i18n="manager.users.admin">
@@ -519,7 +567,7 @@ const classroomModals = {
                 <input type="text" class="form-control" id="u_phone_ga">
             </div>
         </div>
-    
+
         <div class="form-group c-secondary-form" id="group_admin_bio">
             <label for="u_bio_ga" data-i18n="[html]manager.profil.bio">Bio <span class="c-text-red">*</span></label>
             <textarea class="form-control" id="u_bio_ga" rows="3"></textarea>
@@ -545,7 +593,7 @@ const classroomModals = {
                 <label for="u_school" data-i18n="[html]manager.profil.school">School</label>
                 <input type="text" class="form-control" id="u_school_ga">
             </div>
-    
+
         </div>
         <div class="form-group col-md-12" id="allGroupsGA">
         </div>
@@ -590,7 +638,7 @@ const classroomModals = {
                 <input type="text" class="form-control" id="update_u_phone_ga">
             </div>
         </div>
-    
+
         <div class="form-group c-secondary-form mb-2" id="group_admin_bio_update">
             <label for="update_u_bio_ga" data-i18n="[html]manager.profil.bio">Bio <span class="c-text-red">*</span></label>
             <textarea class="form-control" id="update_u_bio_ga" rows="3"></textarea>
@@ -622,7 +670,7 @@ const classroomModals = {
         </div>
 
         <hr>
-    
+
         <div id="update_applications_ga">
         </div>
     </div>
@@ -824,6 +872,35 @@ const classroomModals = {
                                     <input type="number" class="form-control" id="app_update_activity_restriction_value">
                                 </div>
                             </div>
+
+                            <div class="c-checkbox">
+                                <input type="checkbox" class="form-check-input" id="update_isLti">
+                                <label for="update_isLti" class="mt-4 mb-1 vitta-modal-title" data-i18n="manager.apps.ltiApps">Lti apps ?</label>
+                            </div>
+                            <div class="form-row mt-1 c-secondary-form">
+                                <div class="col-md">
+                                    <div id="update_inputs-lti" style="display:none;">
+                                        <label for="update_clientId" data-i18n="[html]manager.apps.clientId">Client Id</label>
+                                        <input type="text" class="form-control mb-2" id="update_clientId">
+                                        <label for="update_deploymentId" data-i18n="[html]manager.apps.deploymentId">Deployment Id</label>
+                                        <input type="text" class="form-control mb-2" id="update_deploymentId">
+                                        <label for="update_toolUrl" data-i18n="[html]manager.apps.toolUrl">Tool Url</label>
+                                        <input type="text" class="form-control mb-2" id="update_toolUrl">
+                                        <label for="update_publicKeySet" data-i18n="[html]manager.apps.publicKeySet">Public Key Set</label>
+                                        <input type="text" class="form-control mb-2" id="update_publicKeySet">
+                                        <label for="update_loginUrl" data-i18n="[html]manager.apps.loginUrl">Login Url</label>
+                                        <input type="text" class="form-control mb-2" id="update_loginUrl">
+                                        <label for="update_redirectionUrl" data-i18n="[html]manager.apps.redirectionUrl">Redirection Url</label>
+                                        <input type="text" class="form-control mb-2" id="update_redirectionUrl">
+                                        <label for="update_deepLinkUrl" data-i18n="[html]manager.apps.deepLinkUrl">DeepLink Url</label>
+                                        <input type="text" class="form-control mb-2" id="update_deepLinkUrl">
+                                        <label for="update_privateKey" data-i18n="[html]manager.apps.privateKey">Private Key</label>
+                                        <input type="text" class="form-control mb-2" id="update_privateKey">
+                                    </div>
+                                </div>
+                            </div>
+
+
                             <button class="btn c-btn-secondary my-3 btn" onclick="persistUpdateApp()" data-i18n="manager.buttons.update">Modifier</button>
                             <button class="btn c-btn-light my-3 btn" onclick="closeModalAndCleanInput()" data-i18n="manager.buttons.cancel">Annuler</button>
                         </div>
@@ -866,6 +943,33 @@ const classroomModals = {
                                 <div class="col-md">
                                     <label for="app_create_activity_restriction_value" data-i18n="manager.activitiesRestrictions.max">Nombre</label>
                                     <input type="number" class="form-control" id="app_create_activity_restriction_value">
+                                </div>
+                            </div>
+
+                            <div class="c-checkbox">
+                                <input type="checkbox" class="form-check-input" id="isLti">
+                                <label for="isLti" class="mt-4 mb-1 vitta-modal-title" data-i18n="manager.apps.ltiApps">Lti apps ?</label>
+                            </div>
+                            <div class="form-row mt-1 c-secondary-form">
+                                <div class="col-md">
+                                    <div id="inputs-lti" style="display:none;">
+                                        <label for="clientId" data-i18n="[html]manager.apps.clientId">Client Id</label>
+                                        <input type="text" class="form-control mb-2" id="clientId">
+                                        <label for="deploymentId" data-i18n="[html]manager.apps.deploymentId">Deployment Id</label>
+                                        <input type="text" class="form-control mb-2" id="deploymentId">
+                                        <label for="toolUrl" data-i18n="[html]manager.apps.toolUrl">Tool Url</label>
+                                        <input type="text" class="form-control mb-2" id="toolUrl">
+                                        <label for="publicKeySet" data-i18n="[html]manager.apps.publicKeySet">Public Key Set</label>
+                                        <input type="text" class="form-control mb-2" id="publicKeySet">
+                                        <label for="loginUrl" data-i18n="[html]manager.apps.loginUrl">Login Url</label>
+                                        <input type="text" class="form-control mb-2" id="loginUrl">
+                                        <label for="redirectionUrl" data-i18n="[html]manager.apps.redirectionUrl">Redirection Url</label>
+                                        <input type="text" class="form-control mb-2" id="redirectionUrl">
+                                        <label for="deepLinkUrl" data-i18n="[html]manager.apps.deepLinkUrl">DeepLink Url</label>
+                                        <input type="text" class="form-control mb-2" id="deepLinkUrl">
+                                        <label for="privateKey" data-i18n="[html]manager.apps.privateKey">Private Key</label>
+                                        <input type="text" class="form-control mb-2" id="privateKey">
+                                    </div>
                                 </div>
                             </div>
 
@@ -952,9 +1056,47 @@ const classroomModals = {
       `,
     footer: ``
   },
+    'activity-restricted': {
+        selector: '',
+        header: {
+            icon: '',
+            title: 'manager.activitiesRestrictions.appRestricted'
+        },
+        content: `  <div id="activity-restricted">
+                        <div class="container-fluid" id="activity-restricted-content">
+                            <p class="mt-4 mb-1 font-weight-bold" data-i18n="manager.activitiesRestrictions.appRestrictedUL1"> </p>
+                            <p class="mt-4 mb-1" data-i18n="manager.activitiesRestrictions.appRestrictedUL2"> </p>
+                            <hr>
+                            <div class="w-100 text-center">
+                                <p class="mt-4 mb-1 font-weight-bold" data-i18n="manager.activitiesRestrictions.appRestrictedSubtitle2"> </p>
+                                <p data-i18n="manager.activitiesRestrictions.appRestrictedSubtitle3"> </p>
+                            </div>
+                        </div>
+                    </div>`,
+        footer: ``
+    },
+    'activity-restricted-gar': {
+        selector: '',
+        header: {
+            icon: '',
+            title: 'manager.activitiesRestrictions.appRestricted'
+        },
+        content: `  <div id="activity-restricted-gar">
+                        <div class="container-fluid" id="activity-restricted-gar-content">
+                            <p class="mt-4 mb-1 font-weight-bold" data-i18n="manager.activitiesRestrictions.appRestrictedGarContent1" id="app-restricted-number" data-i18n-options=""> </p>
+                            <p class="mt-4 mb-1" data-i18n="manager.activitiesRestrictions.appRestrictedGarContent2"> </p>
+                            <hr>
+                            <div class="w-100 text-center">
+                                <p class="mt-4 mb-1 font-weight-bold" data-i18n="manager.activitiesRestrictions.appRestrictedSubtitle2"> </p>
+                                <p data-i18n="manager.activitiesRestrictions.appRestrictedSubtitle3"> </p>
+                            </div>
+                        </div>
+                    </div>`,
+        footer: ``
+    }
 }
 
-/* 
+/*
 'update-activities-restrictions-manager': {
     selector: '',
     header: {

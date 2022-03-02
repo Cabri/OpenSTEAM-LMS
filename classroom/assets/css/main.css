@@ -1,4 +1,4 @@
-@import url("./admin.css?version=1.1");
+@import url("./admin.css?version=1.2");
 
 /* FONTS */
 @font-face {
@@ -1224,7 +1224,7 @@ img.btn-cabri {
     margin: 0px;
 }
 
-#classroom-dashboard-activities-panel .section-header i{
+#classroom-dashboard-activities-panel .section-header i {
     margin-right: 0.5em;
     font-size: 1.5em;
 }
@@ -1340,12 +1340,37 @@ h3.section-done {
     background-image: url("../media/cards/card-quickpi.jpg");
 }
 
+.sandbox-card.sandbox-card-express,
+.activity-card.activity-card-express {
+  background-image: url("../media/cards/card-express.png");
+}
+
+.sandbox-card.sandbox-card-genius,
+.activity-card.activity-card-genius {
+  background-image: url("../media/cards/card-smart.png");
+}
+
+.sandbox-card.sandbox-card-imuscica,
+.activity-card.activity-card-imuscica {
+  background-image: url("../media/cards/card-imuscica.png");
+}
+
 .sandbox-card .sandbox-card-top,
 .sandbox-card .sandbox-card-bot,
 .activity-card .activity-card-top,
 .activity-card .activity-card-bot {
     padding: 0.5em;
     text-align: right;
+}
+
+.activity-card .activity-card-top {
+    display: inline-flex;
+    justify-content: flex-end;
+}
+
+.activity-card .activity-card-top img {
+    height: 25px;
+    margin: 0 5px;
 }
 
 .sandbox-card .sandbox-card-top .dropdown i,
@@ -1427,8 +1452,72 @@ h3.section-done {
     max-height: 65vh;
 }
 
-/* ACTIVITY CREATE FORM */
+/* ACTIVITY CREATE SECTION  */
 
+#activity-creation-grid {
+    margin: 20px 5%;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    grid-gap: 20px 10px;
+
+}
+
+#activity-creation-grid .app-head {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+    margin: 1em 0.5em;
+}
+
+
+#activity-creation-grid .app-card {
+    --border-color: var(--classroom-text-2);
+    border-radius: 2em;
+    text-align: center;
+
+    display: grid;
+    grid-template-rows: 128px auto 1fr;
+    justify-items: center;
+
+    box-shadow: 0px 0px 10px 0px var(--classroom-shadow-1);
+    overflow: overlay;
+
+    padding: 1em;
+    cursor: pointer;
+    border: 2px solid transparent;
+    transition: all 0.3s ease;
+
+}
+
+#activity-creation-grid .app-card:hover {
+    border-color: var(--border-color);
+}
+
+#activity-creation-grid .app-card .app-card-title {
+    font-weight: 600;
+    font-size: 1.1em;
+    overflow-wrap: anywhere;
+}
+
+#activity-creation-grid .app-card .app-card-img {
+    height: 128px;
+    width: auto;
+}
+
+#activity_custom {
+    width: 100%;
+    height: 60vh;
+}
+
+#lti-loader-container {
+    width: 100%;
+    height: 100%;
+}
+
+/* ACTIVITY CREATE FORM */
 
 .activity-creation-form {
     display: flex;
@@ -1492,6 +1581,23 @@ h3.section-done {
     text-align: center;
 }
 
+#activity-auto-disclaimer {
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--classroom-secondary);
+}
+
+#activity-auto-disclaimer img {
+    background-color: var(--classroom-secondary);
+    border-radius: 256px;
+    border: 2px solid var(--classroom-secondary);
+    height: 1.5em;
+    margin: 5px 10px;
+
+}
+
 #activity-details {
     text-align: center;
     font-style: italic;
@@ -1547,10 +1653,7 @@ h3.section-done {
 .results-panel img {
     height: 30em;
     object-fit: scale-down;
-}
-
-.results-panel i {
-    margin: 0.5em;
+    margin: 2em;
 }
 
 .results-panel p {
@@ -1561,17 +1664,19 @@ h3.section-done {
     font-weight: 600;
 }
 
+.results-panel p i {
+    margin: 0.5em;
+}
 
-
-.results-fail i {
+.results-fail p i {
     color: var(--correction-fail);
 }
 
-.results-success i {
+.results-success p i {
     color: var(--correction-success);
 }
 
-.results-correcting i {
+.results-correcting p i {
     color: var(--classroom-secondary);
 }
 
@@ -1702,7 +1807,7 @@ h3.section-done {
     color: var(--classroom-secondary);
 }
 
-#table-students {
+.table-students {
     border: solid 2px var(--classroom-primary);
     border-radius: 0.5em;
     padding: 1em;
@@ -1711,7 +1816,7 @@ h3.section-done {
 
 }
 
-#table-students ul {
+.table-students ul {
     list-style-type: none;
     margin: 0 2em;
     padding: 0;
@@ -2237,7 +2342,7 @@ i.line_height34 {
 }
 
 /* OTHERS */
-
+/* NOT USED -> MAYBE CAN WE DELETE THIS ? */
 .table-students {
     border: solid 2px var(--classroom-primary);
 }
@@ -2376,49 +2481,49 @@ i.line_height34 {
 }
 
 .activity-card-lti-express {
-  background: url("../media/cards/card-express.png?version=1.1") !important;
+  background: url("../media/cards/card-express.png?version=1.2") !important;
   border-radius: 1.2em !important;
   background-clip: content-box !important;
   background-size: cover !important;
 }
 
 .activity-card-lti-genius {
-  background: url("../media/cards/card-smart.png?version=1.1") !important;
+  background: url("../media/cards/card-smart.png?version=1.2") !important;
   border-radius: 1.2em !important;
   background-clip: content-box !important;
   background-size: cover !important;
 }
 
 .activity-card-iframe-video {
-  background: url("../media/cards/card-video.png?version=1.1") !important;
+  background: url("../media/cards/card-video.png?version=1.2") !important;
   border-radius: 1.2em !important;
   background-clip: content-box !important;
   background-size: cover !important;
 }
 
 .activity-card-imuscica {
-  background: url("../media/cards/card-imuscica.png?version=1.1") !important;
+  background: url("../media/cards/card-imuscica.png?version=1.2") !important;
   border-radius: 1.2em !important;
   background-clip: content-box !important;
   background-size: cover !important;
 }
 
 .activity-card-other {
-  background: url("../media/cards/card-other.png?version=1.1") !important;
+  background: url("../media/cards/card-other.png?version=1.2") !important;
   border-radius: 1.2em !important;
   background-clip: content-box !important;
   background-size: cover !important;
 }
 
 .activity-card-cabri3d {
-  background: url("../media/cards/card-cabri3d.png?version=1.1") !important;
+  background: url("../media/cards/card-cabri3d.png?version=1.2") !important;
   border-radius: 1.2em !important;
   background-clip: content-box !important;
   background-size: cover !important;
 }
 
 .activity-card-lti-blockly {
-  background: url("../media/cards/card-blockly.png?version=1.1") !important;
+  background: url("../media/cards/card-blockly.png?version=1.2") !important;
   border-radius: 1.2em !important;
   background-clip: content-box !important;
   background-size: cover !important;
@@ -2674,7 +2779,7 @@ i.line_height34 {
   border-radius: 10px;
 }
 
-.lti-iframe-holder {
+/*.lti-iframe-holder {
   background:url(../media/loading.gif) center center no-repeat;
   background-size: 100px;
-}
+}*/

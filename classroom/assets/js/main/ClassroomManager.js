@@ -22,6 +22,11 @@ class ClassroomManager {
         this._myTeacherActivities = []
         this._tasksQueue = [];
         this._isExecutingTaskInQueue = false;
+        this._allActivities = []
+        this._allApps = []
+        this._createActivity = {}
+        this._lastCreatedActivity = 0;
+        this.setDefaultActivityData();
     }
 
     /**
@@ -1188,4 +1193,234 @@ class ClassroomManager {
             if(classroom.classroom.link == link) return classroom.classroom.id
         }
     }
+
+
+    // New exercices management
+
+    /**
+     * @public
+     * @param {string} activityId
+     * @returns {Activity}
+     * @memberof ActiviiesManager
+     * @description Get an activity by its id
+     * @example
+     * const activity = activitiesManager.getActivityById('activityId')
+     */
+    getActivityById(activityId) {
+        return this._allActivities.find(activity => activity.id === activityId)
+    }
+
+
+    /**
+     * Get all the apps
+     * @public
+     * @returns {Array}
+     */
+    getAllApps() {
+        return new Promise(function (resolve, reject) {
+            $.ajax({
+                type: "POST",
+                url: "/routing/Routing.php?controller=newActivities&action=get_all_apps",
+                success: function (response) {
+                    resolve(JSON.parse(response));
+                },
+                error: function () {
+                    reject('error')
+                }
+            });
+        })
+    };
+
+    //get one app by id
+    // write the commentaries
+
+    /**
+     * @public
+     * @param {string} activityId
+     * @returns {Activity}
+     * @description Get an activity by its id
+     * @example
+     * const activity = main.getClassroomManager.getActivityById('activityId')
+     */
+    getActivityById(id) {
+        return new Promise(function (resolve, reject) {
+            $.ajax({
+                type: "POST",
+                url: "/routing/Routing.php?controller=newActivities&action=get_one_activity",
+                data: {
+                    'id': id
+                },
+                success: function (response) {
+                    resolve(JSON.parse(response));
+                },
+                error: function () {
+                    reject('error')
+                }
+            });
+        })
+    }
+
+    // create a new activity
+    createNewActivity($title, $type, $content, $solution, $tolerance, $autocorrect) {
+        return new Promise(function (resolve, reject) {
+            $.ajax({
+                type: "POST",
+                url: "/routing/Routing.php?controller=newActivities&action=create_exercice",
+                data: {
+                    'title' : $title,
+                    'type' : $type,
+                    'content' : $content,
+                    'solution' : $solution,
+                    'tolerance' : $tolerance,
+                    'autocorrect' : $autocorrect
+                },
+                success: function (response) {
+                    resolve(JSON.parse(response));
+                },
+                error: function () {
+                    reject('error')
+                }
+            });
+        })
+    }
+
+    // update an activity
+    updateActivity($id, $title, $type, $content, $solution, $tolerance) {
+        return new Promise(function (resolve, reject) {
+            $.ajax({
+                type: "POST",
+                url: "/routing/Routing.php?controller=newActivities&action=update_activity",
+                data: {
+                    'id' : $id,
+                    'title' : $title,
+                    'type' : $type,
+                    'content' : $content,
+                    'solution' : $solution,
+                    'tolerance' : $tolerance
+                },
+                success: function (response) {
+                    resolve(JSON.parse(response));
+                },
+                error: function () {
+                    reject('error')
+                }
+            });
+        })
+    }
+
+
+    // delete an activity
+
+    deleteActivity($id) {
+        return new Promise(function (resolve, reject) {
+            $.ajax({
+                type: "POST",
+                url: "/routing/Routing.php?controller=newActivities&action=delete_activity",
+                data: {
+                    'id' : $id
+                },
+                success: function (response) {
+                    resolve(response);
+                },
+                error: function () {
+                    reject('error')
+                }
+            });
+        })
+    }
+
+
+    /**
+     * Return if the activity is limited or not
+     * @param {*} type 
+     * @param {*} id
+     */
+    isActivitiesRestricted(id = null, type = null) {
+        // Only one check can be done at the same time
+        if (id != null && type != null) {
+            return false;
+        }
+        return new Promise(function (resolve, reject) {
+            $.ajax({
+                type: "POST",
+                url: "/routing/Routing.php?controller=activity&action=isActivitiesLimited",
+                data: {
+                    activityId: id,
+                    activityType: type
+                },
+                success: function (response) {
+                    resolve(JSON.parse(response));
+                },
+                error: function () {
+                    reject();
+                }
+            });
+        });
+    }
+
+
+    saveNewStudentActivity(activity, correction = 1, note = 0, response) {
+        let chrono = parseInt((Date.now() - ClassroomSettings.chrono) / 1000)
+        return new Promise(function (resolve, reject) {
+            $.ajax({
+                type: "POST",
+                url: "/routing/Routing.php?controller=newActivities&action=save_new_activity",
+                data: {
+                    'id': activity,
+                    'correction': correction,
+                    'timePassed': chrono,
+                    'classroomLink': ClassroomSettings.classroom,
+                    'note': note,
+                    'response': response
+                },
+                success: function (r) {
+                    resolve(JSON.parse(r))
+                    ClassroomSettings.chrono = Date.now()
+                }
+            });
+        });
+    }
+
+    getStudentLinkActivity(studentId, activityId) {
+        return new Promise(function (resolve, reject) {
+            $.ajax({
+                type: "POST",
+                url: "/routing/Routing.php?controller=newActivities&action=get_student_link_activity",
+                data: {
+                    'studentId': studentId,
+                    'activityId': activityId
+                },
+                success: function (r) {
+                    resolve(JSON.parse(r))
+                }
+            });
+        });
+    }
+
+    setDefaultActivityData() {
+        this._createActivity = {
+            function: 'create',
+            id: '',
+            title: '', 
+            content: {
+                enonce: '',
+                description: '',
+                hint: '',
+                fillInFields: {
+                    tempData: [],
+                    answer: [],
+                    question: [],
+                }
+            }, 
+            type: '', 
+            solution: '',
+            tolerance: ''
+        }
+        const globalTitle = document.querySelector('#global_title');
+        if (globalTitle != null) {
+            document.querySelector('#global_title').value = '';
+        }
+    }
+
 }
+
