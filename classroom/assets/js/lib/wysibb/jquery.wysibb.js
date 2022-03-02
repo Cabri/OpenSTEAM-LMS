@@ -276,7 +276,7 @@ wbbdebug = false;
 				},
 				cabriiframe: {
 					title: CURLANG.cabriiframe,
-					buttonHTML: '<span class="btn-inner btn-span-cabri"><img class="btn-cabri" src="/classroom/assets/media/cabri_logo.png?version=1.1"></span>',
+					buttonHTML: '<span class="btn-inner btn-span-cabri"><img class="btn-cabri" src="/classroom/assets/media/cabri_logo.png?version=1.2"></span>',
 					hotkey: '',
 					modal: {
 						title: CURLANG.modal_cabri_title,
@@ -2664,7 +2664,7 @@ wbbdebug = false;
 			var $wrap = $(this.elFromString("<div>" + bbdata + "</div>"));
 			//transform smiles
 			/* $wrap.contents().filter(function() {return this.nodeType==3}).each($.proxy(smilerpl,this)).end().find("*").contents().filter(function() {return this.nodeType==3}).each($.proxy(smilerpl,this));
-	
+
 				function smilerpl(i,el) {
 					var ndata = el.data;
 					$.each(this.options.smileList,$.proxy(function(i,row) {
@@ -2978,7 +2978,7 @@ wbbdebug = false;
 			/* $.each(this.options.rules,$.proxy(function(s,bb) {
 					$block.find(s).attr("wbbkeep",1);
 				},this));
-	
+
 				//replace div and p without last br to html()+br
 				$block.find("*[wbbkeep!='1']").each($.proxy(function(i,el) {
 					var $this = $(el);

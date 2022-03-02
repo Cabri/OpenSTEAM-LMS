@@ -293,7 +293,7 @@ class AutoBuildManager {
             this.pluginsList.forEach((plugin) => {
                 plugin.css.forEach((cssFile) => {
                     cssLinks.push(
-                        `<link rel="stylesheet" href="assets/plugins/css/${cssFile}?version=1.1">\n`
+                        `<link rel="stylesheet" href="assets/plugins/css/${cssFile}?version=1.2">\n`
                     );
                 });
             });
@@ -319,7 +319,7 @@ class AutoBuildManager {
             this.pluginsList.forEach((plugin) => {
                 plugin.js.forEach((jsFile) => {
                     jsLinks.push(
-                        `<script src="assets/plugins/js/${jsFile}?version=1.1"></script>\n`
+                        `<script src="assets/plugins/js/${jsFile}?version=1.2"></script>\n`
                     );
                 });
             });

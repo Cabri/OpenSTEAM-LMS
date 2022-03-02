@@ -340,7 +340,7 @@ function anonymizeStudents() {
     let index = 1;
     if ($('#is-anonymised').is(':checked')) {
         $('.username').each(function (el) {
-            $('.username')[el].children[0].setAttribute('src', _PATH + 'assets/media/alphabet/A.png?version=1.1')
+            $('.username')[el].children[0].setAttribute('src', _PATH + 'assets/media/alphabet/A.png?version=1.2')
             $('.username')[el].children[0].setAttribute('alt', '')
             $('.username')[el].children[0].setAttribute('anonymized', 'true')
             $('.username')[el].children[1].innerHTML = "Elève n° " + index
@@ -573,7 +573,7 @@ $('#dashboard-activities, .activity-panel-link').click(function () {
     navigatePanel('classroom-dashboard-activities-panel', 'dashboard-activities')
 })
 //activity-->validate
-// Add more validate options for the activities 
+// Add more validate options for the activities
 
 
 function defaultProcessValidateActivity() {
@@ -2751,14 +2751,14 @@ function checkLtiFields(type) {
     if (type == 'create') {
         if ($('#isLti').is(":checked")) {
             if (
-                $('#clientId').val() == "" || 
-                $('#deploymentId').val() == "" || 
-                $('#toolUrl').val() == "" || 
-                $('#publicKeySet').val() == "" || 
-                $('#loginUrl').val() == "" || 
-                $('#redirectionUrl').val() == "" || 
-                $('#deepLinkUrl').val() == "" || 
-                $('#privateKey').val() == "") 
+                $('#clientId').val() == "" ||
+                $('#deploymentId').val() == "" ||
+                $('#toolUrl').val() == "" ||
+                $('#publicKeySet').val() == "" ||
+                $('#loginUrl').val() == "" ||
+                $('#redirectionUrl').val() == "" ||
+                $('#deepLinkUrl').val() == "" ||
+                $('#privateKey').val() == "")
             {
                 return {isLti : false};
             } else {
@@ -2778,13 +2778,13 @@ function checkLtiFields(type) {
     } else if (type == 'update') {
         if ($('#update_isLti').is(":checked")) {
             if (
-                $('#update_clientId').val() == "" || 
-                $('#update_deploymentId').val() == "" || 
-                $('#update_toolUrl').val() == "" || 
-                $('#update_publicKeySet').val() == "" || 
-                $('#update_loginUrl').val() == "" || 
-                $('#update_redirectionUrl').val() == "" || 
-                $('#update_deepLinkUrl').val() == "" || 
+                $('#update_clientId').val() == "" ||
+                $('#update_deploymentId').val() == "" ||
+                $('#update_toolUrl').val() == "" ||
+                $('#update_publicKeySet').val() == "" ||
+                $('#update_loginUrl').val() == "" ||
+                $('#update_redirectionUrl').val() == "" ||
+                $('#update_deepLinkUrl').val() == "" ||
                 $('#update_privateKey').val() == ""
             ) {
                 return {isLti : false};
@@ -2899,7 +2899,7 @@ function persistCreateApp() {
         $application_restrictions_value = $('#app_create_activity_restriction_value').val(),
         lti = checkLtiFields('create');
 
-    
+
     if (!lti.isLti && $('#isLti').is(":checked")) {
         displayNotification('#notif-div', "manager.account.missingData", "error");
     } else {
@@ -2913,7 +2913,7 @@ function persistCreateApp() {
             }
             updateStoredApps();
         })
-    }   
+    }
 }
 
 function updateStoredApps() {
@@ -3259,7 +3259,7 @@ function setTextArea() {
     let wbbOpt = {
         buttons: ",bold,italic,underline,|,justifyleft,justifycenter,justifyright,img,link,|,quote,bullist,|,vittaiframe,cabriiframe,vittapdf,video,peertube,vimeo,genialyiframe,gdocsiframe",
     }
-    // Free 
+    // Free
     $('#free_enonce').wysibb(wbbOpt);
     $('#free_content').wysibb(wbbOpt);
     $('#free_correction').wysibb(wbbOpt);
@@ -3337,7 +3337,7 @@ function launchCustomActivity(activityType, isUpdate = false) {
                     } else {
                         launchLtiDeepLinkCreate(activityType);
                     }
-                    
+
                     break;
             }
             navigatePanel('classroom-dashboard-classes-new-activity', 'dashboard-activities-teacher');
@@ -3404,7 +3404,7 @@ function contentForward() {
         // By default using LTI, the button doesn't do anything specific
     }
     // Check if the content if empty
-    if (Main.getClassroomManager()._createActivity.content.description == '' && Main.getClassroomManager()._createActivity.content.fillInFields.tempData.length == 0) { 
+    if (Main.getClassroomManager()._createActivity.content.description == '' && Main.getClassroomManager()._createActivity.content.fillInFields.tempData.length == 0) {
         displayNotification('#notif-div', "classroom.notif.emptyContent", "error");
     } else {
         navigatePanel('classroom-dashboard-classes-new-activity-title', 'dashboard-proactivities-teacher');
@@ -3422,7 +3422,7 @@ function titleBackward() {
  */
 function titleForward() {
     Main.getClassroomManager()._createActivity.title = $('#global_title').val();
-    
+
     // Check if the title is empty
     if (Main.getClassroomManager()._createActivity.title == '') {
         displayNotification('#notif-div', "classroom.notif.emptyTitle", "error");
@@ -3434,7 +3434,7 @@ function titleForward() {
             tolerance = Main.getClassroomManager()._createActivity.tolerance,
             autocorrect = Main.getClassroomManager()._createActivity.autocorrect;
 
-        if (Main.getClassroomManager()._createActivity.function == "create") {  
+        if (Main.getClassroomManager()._createActivity.function == "create") {
             Main.getClassroomManager().createNewActivity(title, type, content, solution, tolerance, autocorrect).then((response) => {
                 if (response.success == true) {
                     Main.getClassroomManager()._lastCreatedActivity = response.id;
@@ -3468,22 +3468,22 @@ function validateActivity() {
             freeValidateActivity()
             break;
         case 'quiz':
-            
+
             break;
         case 'fillIn':
-            
+
             break;
         case 'reading':
             defaultProcessValidateActivity();
             break;
         case 'dragAndDrop':
-            
+
             break;
         case 'custom':
             defaultProcessValidateActivity();
             break;
         default:
-            
+
             break;
     }
 }
@@ -3521,7 +3521,7 @@ function activitiesCreation(apps) {
             <h3 class="app-card-title mt-2" data-i18n="">${app.name}</h3>
             <p class="mt-2" data-i18n="">${app.description}</p>
         </div>`
-        
+
     });
     $('#activity-creation-grid').html(htmlContent);
     $('#activity-creation-grid').localize();
@@ -3571,9 +3571,9 @@ $('#fillInRemoveInputs').click(() => {
 })
 
 
-/* let fillInFields = [    
-    'Le ciel est | bleu || vert |.', 
-    'Le soleil est | jaune || orange || rouge |.', 
+/* let fillInFields = [
+    'Le ciel est | bleu || vert |.',
+    'Le soleil est | jaune || orange || rouge |.',
     'La lune est | bleue |.'
 ]; */
 
@@ -3649,8 +3649,8 @@ function launchLtiDeepLinkCreate(type, isUpdate) {
         updateInput = `<input type="hidden" id="is_update" name="is_update" value="true">
         <input type="hidden" id="update_url" name="update_url" value="${Main.getClassroomManager()._createActivity.content.description}">`;
     }
-    
-    document.querySelector('#lti-loader-container').innerHTML = 
+
+    document.querySelector('#lti-loader-container').innerHTML =
     `<input id="activity-form-content-lti" type="text" hidden/>
     <form name="contentitem_request_form" action="${_PATH}lti/contentitem.php" method="post" target="lti_teacher_iframe">
         <input type="hidden" id="application_type" name="application_type" value="${type}">
@@ -3664,7 +3664,7 @@ function launchLtiDeepLinkCreate(type, isUpdate) {
 }
 
 function launchLtiResource(activityId, activityType, activityContent, isStudentLaunch = false, studentResourceUrl = false) {
-    document.querySelector('#activity-content').innerHTML = 
+    document.querySelector('#activity-content').innerHTML =
         `<input id="activity-score" type="text" hidden/>
         <form name="resource_launch_form" action="${_PATH}lti/ltilaunch.php" method="post" target="lti_student_iframe">
             <input type="hidden" id="application_type" name="application_type" value="${activityType}">
