@@ -8,17 +8,13 @@
 			"hello2": "Hello!",
 			"title": "Manage your Classrooms</br>with Vittascience",
 			"neutralTitle": "OpenSTEAM LMS",
-			"cabriTitle": "Cabri.com",
 			"subtitle": "Discover - Learn - Share",
-			"cabriSubtitle": "The platform to succeed in math and science",
 			"login": "Log in",
 			"activities": "create easily </br> your activities",
-			"cabriActivities": "Create exercises</br> automatically in</br> a few minutes",
 			"attribute": "assign them </br> to your learners",
-			"cabriProgress": "Follow the progress</br> of your learners",
 			"visualize": "visualize </br> their results",
-			"cabriRessources": "Access a </br> variety of activities </br> and share your creations",
-			"student": "Student",
+      "helpers": " By our side to <span>accompany you.</span>",
+      "student": "Student",
 			"codeInput": " Enter your Classroom code",
 			"teacher": "Teacher",
 			"hasAccount": "Already have an account?",
@@ -114,7 +110,6 @@
 			"emptyTitle": "The title can not be empty",
 			"activityRestricted": "You can not create more activities from this type",
 			"shareProjectTeacher": "The project has been shared with your teacher",
-			"shareProjectTeacher": "The project was shared with your teacher",
 			"addActivities": "The selected activities have been added to your list",
 			"addActivity": "The activity has been added to your list",
 			"saveProject": "Have you thought about saving your activity?",
@@ -145,7 +140,6 @@
 			"activityCreated": "The activity {{activityTitle}} has been created",
 			"activityChanged": "The {{activityTitle}} activity has been modified",
 			"activityTitleMissing": "You must fill in the title of the activity",
-      "activityPlayerMissing": "You must fill in the player URL",
 			"CsvFileMissing": "You did not choose a csv file",
 			"errorWithCsv": "Error opening csv file : {{error}}",
 			"cantGetPassword": "Error, you can't see your password",
@@ -203,7 +197,7 @@
 			"backendReplyPseudoMissingInUsersArray" : "There is one or more error(s) in the student(s) name(s)",
 			"invalidActivityId": "Error submitting job: Invalid activity ID!",
 			"invalidCorrection": "Erreur submitting job: Invalid activity status!",
-      "generalBackendError": "An error has occurred, please try again later"
+			"currentPasswordDoesNotMatch": "The entered password is not correct!"
 		},
 		"ids": {
 			"classroom-dashboard-help-panel-teacher": "Help",
@@ -253,17 +247,14 @@
 				"delete": "Delete",
 				"copyLink": "Copy the direct link",
 				"learnerMode": "Learner mode",
-				"dueBy":"Due by"
-
+				"dueBy":"Due by",
+				"timePassed": "Time spent: "
 			}
 		},
 		"activities": {
 			"title": "Activities",
 			"save": "Save the draft ",
 			"add": "Create an activity",
-			"addCabriExpress": "Create Express activity",
-			"addCabriGenius": "Create Smart activity",
-			"addOther": "Other type of activity",
 			"new": "New",
 			"current": "Pending correction",
 			"waiting": "Not yet completed",
@@ -272,16 +263,15 @@
 			"anonymise": "Anonymize your student list so that you can display the dashboard to your learners.",
 			"save-draft": "Save as draft",
 			"validate": "Validate the activity",
-			"accept": "Very good control",
-			"vgood": "Satisfactory control",
-			"good": "Fragile control",
-			"refuse": "Insufficient mastery",
-			"instruction": "Instruction",
+			"accept": "Very good proficiency",
+			"vgood": "Good proficiency",
+			"good": "Weak proficiency",
+			"refuse": "Insufficient proficiency",
+			"instruction": "Instructions",
 			"commentary": "Comment",
-			"sendResults": "Send the comment to the learner ",
-			"noSend": "This activity has not been made",
-			"comments": "Enter your comments here",
-      "activitySubmited2": "Activity submitted on",
+			"sendResults": "Send the comment ",
+			"noSend": "This activity hasn't been returned",
+			"toSend": "Activity due by ",
 			"sentOn": "This activity was returned on ",
 			"activityOfUser": "Activity of ",
 			"userSentOn" : " sent on ",
@@ -304,33 +294,11 @@
 				"3": "Title",
 				"4": "Attribution",
 				"title": {
-					"label": "Title of the activity",
-          "labelCabri": "What is the title of the activity?",
-          "placeholder": "Title of the game",
-          "placeholderCabri": "Title of the activity"
-        },
-        "iframe": {
-          "label": "What is the access URL?",
-          "placeholder": "Enter a URL"
-        },
-        "notebookUpdateMessage": "Do not modify this section if you wish to keep the old activity book!",
-        "notebookUrl": {
-          "label": "Add a notebook URL",
-          "placeholder": "Notebook URL"
-        },
-        "playerUrl": {
-          "label": "Add a player URL",
-          "placeholder": "Player URL"
-        },
-        "player": {
-          "labelFileChooser": "Choose a file",
-          "fileUpload": "The file has been uploaded successfully",
-          "dragDrop": "Drag and drop"
-        },
-        "nextButton": "Next",
-        "endButton": "Finish",
+					"label": "Activity title",
+					"placeholder": "Part title"
+				},
 				"content": {
-					"label": "Content of the activity"
+					"label": "Activity content"
 				},
 				"back": "Back",
 				"validate": "Validate",
@@ -354,7 +322,6 @@
 			"toCopy": "This code allows you to easily join your class",
 			"copyLink": "The link to your class has been added to the clipboard",
 			"dateBefore": "To be returned before",
-      "dateBeforeAvailable": "Available until",
       "integrate": "Integrate into an activity",
 			"veryGoodProficiency": "Very good control",
 			"goodProficiency": "Satisfactory control",
@@ -363,60 +330,12 @@
 			"addLearner": "Add a learner",
 			"addLearners": "Add learners",
 			"addActivity": "Add an activity",
-			"exportCsv": "Export csv",
-      "players": {
-        "STANDARD": {
-          "title": "Standard",
-          "description": "The standard player will allow you to read all the activity books created with the Cabri authoring tool."
-        },
-        "IMUSCICA": {
-          "title": "iMuSciCA",
-          "description": "The iMuSciCA player allows to read in the music studio all the activities realized with the Cabri authoring tool."
-        },
-        "IFRAME": {
-          "title": "Autre",
-          "description": "Choose from a selection of readers to use in your activities with the Cabri authoring tool."
-        },
-        "EXPRESS": {
-          "title": "Express",
-          "description": "Create an activity using dynamic geometry and algebra tools, scientific and graphing calculator, etc."
-        },
-        "GENIUS": {
-          "title": "Smart",
-          "description": "Create an activity with the Express tools and add an automatic evaluation."
-        },
-        "IFRAME-CABRI3D": {
-          "title": "Cabri 3D",
-          "description": "Create a dynamic space geometry exploration."
-        },
-        "LTI-BLOCKLY": {
-          "title": "Cabri Blockly",
-          "description": "Add user actions to a Cabri activity, such as animations, locks,... visually programmed in the same spirit as with Scratch or Snap !"
-        }
-      },
-      "tabs": {
-        "players": "Activity book",
-        "iframes": "Video and web page"
-      },
-      "iframes": {
-        "IFRAME-VIDEO": {
-          "title": "Video",
-          "description": "Enter the URL of a video published on a hosting platform."
-        },
-        "IFRAME-PAGE": {
-          "title": "Web page",
-          "description": "Enter the URL of the web page."
-        }
-      }
-    },
+			"exportCsv": "Export csv"
+		},
 		"filter": {
-			"desc": "From the least recent to the most recent",
-			"asc": "From most recent to least recent",
-			"cabriExpress": "Express activities",
-			"cabriGenius": "Smart activities",
-      "cabriVittascience": "Vittascience activities",
-      "iframe": "Other activities",
-			"placeholder": "Search for..."
+			"desc": "Oldest to newest",
+			"asc": "Newest to oldest",
+			"placeholder": "Search..."
 		},
 		"sandbox": {
 			"mine": "My projects",
@@ -427,8 +346,9 @@
 			"studentSharedDescription": "Find here the programs shared by your teacher"
 		},
 		"footer": {
-			"privacy": "Privacy Policy ",
-			"cgu": "Terms and conditions of use",
+			"privacy": "Privacy policy ",
+			"cgu": "Terms of Service",
+			"legal": "Legal Notices",
 			"copyright": ""
 		},
 		"teacherHelpPanel": {
@@ -453,7 +373,6 @@
 			}
 		},
 		"modals": {
-			"addLtiActivityName": "What is the title of the activity ?",
 			"addActivity": {
 				"title": "Add an activity",
 				"resourceBank": {
@@ -468,20 +387,7 @@
 				"createActivity": {
 					"title": "Create a new activity",
 					"button": "Create an activity "
-				},
-				"next": "Next",
-				"limitTitle": "Exceeded limit",
-				"limitDescription": "The limit of the number of activities linked to this account has been reached.",
-        "upgradePlan": "Increase limit"
-      },
-			"updateActivity": {
-				"title": "Update an activity"
-			},
-			"deleteActivity": {
-				"title": "Delete activity",
-				"description": "Are you sure you want to delete the activity ?",
-				"confirm": "Confirm",
-				"cancel": "Cancel"
+				}
 			},
 			"settingsTeacher": {
 				"title": "Account Settings",
@@ -500,7 +406,8 @@
 			},
 			"addStudentByCsv": {
 				"title": "Add students with a .csv file",
-				"description": "You can add one or more learners at once by importing them from a .csv file. It is optional to define the password for each of them. Here are the sample .csv files: ",
+				"description": "You can add one or more learners at once by importing them from a .csv file. It is optionally possible to define the password for each of them. Here are the .csv template files: ",
+				"descriptionUpdate": "You can add one or more learners at once by importing them from a .csv file. <b>WARNING</b> : here, the passwords of the csv file aren't used ! Here is the .csv template file : ",
 				"csvTemplate": "template file with password",
 				"csvTemplateNoPassword": "template file without password",
 				"importStudentByCsvButton": "Import learners"
@@ -527,7 +434,13 @@
 			},
 			"shareProject": {
 				"title": "Share project"
-			}
+			},
+      "profileUpdatePasswordConfirm": {
+        "title": "Password confirmation",
+        "description": "Please enter your current password to confirm changes to your profile!",
+        "placeholderInput": "Password",
+        "validateButton": "Validate"
+      }
 		}
 	},
 	"login_popup": {

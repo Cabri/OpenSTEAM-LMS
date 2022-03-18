@@ -8,16 +8,12 @@
       "hello2": "Bonjour !",
       "title": "Gérez vos classes</br>avec Vittascience",
       "neutralTitle": "OpenSTEAM LMS",
-      "cabriTitle": "Cabri.com",
       "subtitle": "Découvrir - Apprendre - Partager",
-      "cabriSubtitle": "La plateforme pour réussir en maths et sciences",
       "login": "Se connecter",
       "activities": "créez facilement </br> vos activités",
-      "cabriActivities": "Créez des exercices</br> automatiquement en</br> quelques minutes",
       "attribute": "attribuez-les </br> à vos apprenants",
-      "cabriProgress": "Suivez les progrès </br> de vos élèves",
       "visualize": "visualisez </br> leurs résultats",
-      "cabriRessources": "Accédez à une </br> banque d'activités <br> variées et partagez <br> vos créations",
+      "helpers": " A nos côtés pour vous <span>accompagner.</span>",
       "student": "APPRENANT",
       "codeInput": " Rentrez ici votre code classe",
       "teacher": "ENSEIGNANT",
@@ -144,7 +140,6 @@
       "activityCreated": "L'activité {{activityTitle}} a été créée.",
       "activityChanged": "L'activité {{activityTitle}} a été modifiée.",
       "activityTitleMissing": "Vous devez renseigner le titre de l'activité.",
-      "activityPlayerMissing": "Vous devez renseigner une URL player.",
       "CsvFileMissing": "Vous n'avez pas choisi de fichier csv.",
       "errorWithCsv": "Erreur lors de l'ouverture du fichier csv : {{error}}",
       "cantGetPassword": "Erreur, vous ne pouvez pas voir votre mot de passe.",
@@ -195,16 +190,14 @@
       "ClassroomNameInvalid": "Le nom de la classe est requis.",
       "reservedNickname": "Le nom : \"{{reservedNickname}}\" ne peut être attribué.",
       "invalidLink": "Le lien que vous avez entré n'est pas valide.",
-      "invalidUrl": "Entrer le lien d'une page web ou d'une vidéo.",
-      "addFile": "Ajouter un lien de cahier ou un fichier est nécessaire.",
       "noUser" : "Vous devez renseigner un élève.",
       "noUserUsername" : "Vous devez rentrer un nom d'utilisateur.",
       "pseudoMissingInCsvFile" : "Certains élèves n'ont pas pu être ajoutés car leur pseudo était manquant.",
       "backendReplyPseudoMissingInCsv" : "Vérifier le fichier CSV : ligne vide ou pseudo manquant.",
       "backendReplyPseudoMissingInUsersArray" : "Il y a une erreur dans un ou plusieurs nom(s) d'apprenant(s).",
-      "generalBackendError": "Une erreur s'est produite, veuillez réessayer ultérieurement.",
       "invalidActivityId": "Erreur lors de la soumission du travail : identifiant d'activité non valide !",
-      "invalidCorrection": "Erreur lors de la soumission du travail : statut d'activité non valide !"
+      "invalidCorrection": "Erreur lors de la soumission du travail : statut d'activité non valide !",
+      "currentPasswordDoesNotMatch": "Le mot de passe saisi n'est pas correct !"
     },
     "ids": {
       "classroom-dashboard-help-panel-teacher": "Aide",
@@ -254,17 +247,15 @@
 				"delete": "Supprimer",
 				"copyLink": "Copier le lien direct",
 				"learnerMode": "Mode apprenant",
-				"dueBy":"À rendre avant le"
-			},
+				"dueBy":"À rendre avant le",
+        "timePassed": "Temps passé : "
+      },
 			"copyDirectLink": "Copier le lien direct"
     },
     "activities": {
       "title": "Activités",
       "save": "Sauver le brouillon ",
       "add": "Créer une activité",
-      "addCabriExpress": "Créer activité Express",
-      "addCabriGenius": "Créer activité Smart",
-      "addOther": "Autre type d'activité",
       "new": "Nouveaux",
       "current": "En attente de correction",
       "waiting": "Pas encore réalisée",
@@ -285,17 +276,15 @@
       "sentOn": "Cette activité a été rendue le ",
       "activityOfUser": "Activité de ",
       "userSentOn" : " rendue le ",
+      "timePassed" : "Temps passé sur l'activité :",
       "yourAnswer": "Votre réponse",
       "studentAnswer": "Réponse de l'apprenant",
       "comments": "Entrez ici vos remarques",
       "return": "Retour aux activités",
-      "teacherComments": "Remarques de l'enseignant",
-      "activitySubmited": "Activité de $1 rendue le $2",
       "bilan": {
         "title": "Bilan",
         "results": "Résultats",
-				"noComment": "Aucun commentaire",
-				   "grade": "Note"
+				"noComment": "Aucun commentaire"
       },
       "applist":{
         "selectApp":"Sélectionnez l'application avec laquelle vous souhaitez créer une activité",
@@ -329,30 +318,8 @@
         "4": "Attribution",
         "title": {
           "label": "Titre de l'activité",
-          "labelCabri": "Quel est le titre de l'activité ?",
-          "placeholder": "Titre",
-          "placeholderCabri": "Titre de l'activité"
+          "placeholder": "Titre"
         },
-        "iframe": {
-          "label": "Quelle est l'URL d'accès ?",
-          "placeholder": "Entrer une URL"
-        },
-        "notebookUpdateMessage": "Ne pas modifier cette section si vous souhaitez garder l'ancien cahier d'activité !",
-        "notebookUrl": {
-          "label": "Ajouter une URL de cahier",
-          "placeholder": "URL de cahier"
-        },
-        "playerUrl": {
-          "label": "Ajouter une URL de player",
-          "placeholder": "URL de player"
-        },
-        "player": {
-          "labelFileChooser": "Choisir un fichier",
-          "fileUpload": "Le fichier a bien été chargé",
-          "dragDrop": "Glissez-déposer"
-        },
-        "nextButton": "Suivant",
-        "endButton": "Terminer",
         "content": {
           "label": "Contenu de l'activité"
         },
@@ -378,71 +345,19 @@
       "toCopy": "Ce code permet de rejoindre en toute simplicité votre classe",
       "copyLink": "Le lien vers votre classe a été ajouté au presse-papier",
       "dateBefore": "À rendre avant le",
-      "dateBeforeAvailable": "Disponible jusqu'au",
       "integrate": "Intégrer dans une activité",
       "veryGoodProficiency": "Très bonne maîtrise",
       "goodProficiency": "Maîtrise satisfaisante",
       "weakProficiency": "Maîtrise fragile",
       "insufficientProficiency": "Maîtrise insuffisante",
       "addLearner": "Ajouter un apprenant",
-      "exportCsv": "Exporter csv",
-      "players": {
-        "STANDARD": {
-          "title": "Standard",
-          "description": "Utiliser le lecteur standard permet de lire en ligne tous les cahiers d’activités réalisés grâce à l’outil auteur Cabri."
-        },
-        "IMUSCICA": {
-          "title": "iMuSciCA",
-          "description": "Utiliser le lecteur iMuSciCA permet de lire dans le studio musical toutes les activités réalisées grâce à l’outil auteur Cabri."
-        },
-        "IFRAME": {
-          "title": "Autre",
-          "description": "Choisir parmi une sélection de lecteurs pour utiliser les activités réalisées avec l’outil auteur Cabri."
-        },
-        "EXPRESS": {
-          "title": "Express",
-          "description": "Créer une activité grâce aux outils de géométrie dynamique et d’algèbre, à la calculatrice scientifique et graphique, etc."
-        },
-        "GENIUS": {
-          "title": "Smart",
-          "description": "Créer une activité grâce aux outils Express et ajouter une évaluation automatique."
-        },
-        "IFRAME-CABRI3D": {
-          "title": "Cabri 3D",
-          "description": "Créer une exploration de géométrie dynamique dans l'espace."
-        },
-        "LTI-BLOCKLY": {
-          "title": "Cabri Blockly",
-          "description": "Ajouter à une activité Cabri des actions utilisateurs, comme des animations, des verrouillages,...programmées visuellement dans le même esprit qu'avec Scratch ou Snap!"
-        }
-      },
-      "tabs": {
-        "players": "Cahier d'activité",
-        "iframes": "Vidéo et page Internet"
-      },
-      "iframes": {
-        "IFRAME-VIDEO": {
-          "title": "Vidéo",
-          "description": "Entrer l’URL d’une vidéo publiée sur une plateforme d'hébergement."
-        },
-        "IFRAME-PAGE": {
-          "title": "Page Internet",
-          "description": "Entrer l’URL de la page Internet."
-        }
-      },
-      "displayActivity": "Voir l'activité",
-      "modifyActivity": "Modifier l'activité",
-      "modifyActivityAttribution": "Modifier l'attribution",
-      "removeActivityAttribution": "Retirer l'attribution "
+      "addLearners": "Ajouter des apprenants",
+      "addActivity": "Ajouter une activité",
+      "exportCsv": "Exporter csv"
     },
     "filter": {
-	"desc": "Date croissante",
-	"asc": "Date décroissante",
-
-      "cabriExpress": "Activités Express",
-      "cabriGenius": "Activités Smart",
-      "cabriVittascience": "Activités Vittascience",
-      "iframe": "Autres activités",
+      "desc": "Date croissante",
+      "asc": "Date décroissante",
       "placeholder": "Recherche..."
     },
     "sandbox": {
@@ -481,7 +396,6 @@
       }
     },
     "modals": {
-      "addLtiActivityName": "Quel est le titre de l'activité ?",
       "addActivity": {
         "title": "Ajouter une activité",
         "resourceBank": {
@@ -493,26 +407,10 @@
           "title": "Sélectionner des apprenants",
           "button": "Mes activités "
         },
-        "shareProject": {
-          "title": "Partager le projet"
-        },
         "createActivity": {
           "title": "Créer une nouvelle activité",
           "button": "Créer une activité "
-        },
-        "next": "Suivant",
-        "limitTitle": "Limite dépassée",
-        "limitDescription": "Limite du nombre d'activités atteinte pour ce compte.",
-        "upgradePlan": "Augmenter la limite"
-      },
-      "updateActivity": {
-        "title": "Modifier une activité"
-      },
-      "deleteActivity": {
-        "title": "Supprimer une activité",
-        "description": "Êtes-vous sûr de vouloir supprimer l'activité ?",
-        "confirm": "Confirmer",
-        "cancel": "Annuler"
+        }
       },
       "settingsTeacher": {
         "title": "Paramètres du compte",
@@ -532,6 +430,7 @@
       "addStudentByCsv": {
         "title": "Ajouter des apprenants avec un fichier .csv",
         "description": "Vous pouvez ajouter un ou plusieurs apprenants d'un seul coup en les important depuis un fichier .csv. Il est facultativement possible de définir le mot de passe pour chacun d'entre eux. Voici les fichiers .csv modèles : ",
+        "descriptionUpdate": "Vous pouvez ajouter un ou plusieurs apprenants d'un seul coup en les important depuis un fichier .csv. <b>ATTENTION</b> : ici, les mots de passe du fichier csv ne sont pas pris en compte ! Voici le fichier .csv modèle : ",
         "csvTemplate": "fichier modèle avec mot de passe",
         "csvTemplateNoPassword": "fichier modèle sans mot de passe",
         "importStudentByCsvButton": "Importer les apprenants"
@@ -558,6 +457,12 @@
 			},
 			"shareProject": {
 				"title": "Partager le projet"
+			},
+			"profileUpdatePasswordConfirm": {
+				"title": "Confirmation du mot de passe",
+				"description": "Veuillez saisir votre mot de passe actuel afin de valider les modifications de votre profil !",
+				"placeholderInput": "Mot de passe",
+				"validateButton": "Valider"
 			}
     }
   },
@@ -1193,8 +1098,7 @@
       "mailSentToUserReset": "Un e-mail a été envoyé à l'utilisateur pour qu'il change de mot de passe.",
       "mailNotSentToUserReset": "L'e-mail de changement de mot de passe n'a pas pu être envoyé à l'utilisateur.",
       "appsUpdated": "Les applications de l'utilisateur ont été mises à jour.",
-      "updateApps": "Modifier les applications",
-      	"updateAppModalTitle": "Application",
+      "updateAppModalTitle": "Application",
       "teacherGrades": {
         "0": "Primaire",
         "1": "Collège",
@@ -1425,6 +1329,9 @@
       "actualTeachers": "Enseignants actuels",
       "maxStudentsPerTeachers": "Maximum d'apprenants par enseignant",
       "maxStudentsPerTeacher": "Maximum d'apprenants par enseignant",
+      "activityType": "Type d'activité",
+      "maxActivitiesPerGroup": "Maximum d'activités par groupe",
+      "maxActivitiesPerTeacher": "Maximum d'activités par enseignant",
       "monitoring": "Suveillance des applications",
       "image": "Image",
       "userNoRights": "Pas de droits assignés",
