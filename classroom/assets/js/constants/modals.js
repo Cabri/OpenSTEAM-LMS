@@ -1,10 +1,10 @@
 const BASE_STUDENT_FORM = `<div class="c-primary-form row col-12">
-
+        
 <label class="col-5" data-i18n="classroom.modals.addStudent.pseudo">Pseudonyme</label>
 <input class="col-5 student-form-name" type="text">
 </div>`;
 const LINK_REGEX = /(\[iframe\].*link=)([a-f0-9]{13})/
-const NO_CLASS = "<p class='no-classes'> Vous devez d'abord créer une classe pour pouvoir utiliser cette fonctionalité"
+const NO_CLASS = "<p class='no-classes text-center'> Vous devez d'abord créer une classe pour pouvoir utiliser cette fonctionalité"
 const capitalizedDemoStudentName = `${demoStudentName.charAt().toUpperCase()}${demoStudentName.slice(1)}`
 const cookies = document.cookie.split(';')
 const lang = cookies.filter(entry => entry.trim().startsWith('lng'))
@@ -20,12 +20,12 @@ const classroomModals = {
         content: `<div class="text-center mx-auto w-100 mh-100 mb-2">
                     <p> <span data-i18n="classroom.modals.addStudentByCsv.description"></span>
                         <a data-i18n="classroom.modals.addStudentByCsv.csvTemplate;[download]classroom.modals.addStudentByCsv.csvTemplate" href="${_PATH}assets/media/lang/${langValue}/csv_template.csv"></a>
-                         -
+                         - 
                         <a data-i18n="classroom.modals.addStudentByCsv.csvTemplateNoPassword;[download]classroom.modals.addStudentByCsv.csvTemplateNoPassword" href="${_PATH}assets/media/lang/${langValue}/csv_template_nopw.csv"></a>.
                     </p>
                     <input type="file" id="importcsv-fileinput" name="importcsvfileinput"/><br>
                     <button class="btn c-btn-secondary mt-2" onclick="importLearnerCsv()">
-                        <i class="fas fa-file-csv"></i>
+                        <i class="fas fa-file-csv"></i> 
                         <span data-i18n="classroom.modals.addStudentByCsv.importStudentByCsvButton">Importer les apprenants</span>
                     </button>
                 </div>`,
@@ -41,7 +41,7 @@ const classroomModals = {
                     <p><span data-i18n="[html]classroom.modals.addStudentByCsv.descriptionUpdate"></span><a data-i18n="classroom.modals.addStudentByCsv.csvTemplateNoPassword;[download]classroom.modals.addStudentByCsv.csvTemplateNoPassword" href="${_PATH}assets/media/lang/${langValue}/csv_template_nopw.csv"></a>.</p>
                     <input type="file" id="importcsv-fileinput-classroom-create" name="importcsvfileinput"/><br>
                     <button class="btn c-btn-secondary mt-2" onclick="importLearnerCsv()">
-                        <i class="fas fa-file-csv"></i>
+                        <i class="fas fa-file-csv"></i> 
                         <span data-i18n="classroom.modals.addStudentByCsv.importStudentByCsvButton">Importer les apprenants</span>
                     </button>
                 </div>`,
@@ -57,7 +57,7 @@ const classroomModals = {
                     <p><span data-i18n="[html]classroom.modals.addStudentByCsv.descriptionUpdate"></span><a data-i18n="classroom.modals.addStudentByCsv.csvTemplateNoPassword;[download]classroom.modals.addStudentByCsv.csvTemplateNoPassword" href="${_PATH}assets/media/lang/${langValue}/csv_template_nopw.csv"></a>.</p>
                     <input type="file" id="importcsv-fileinput-classroom-update" name="importcsvfileinput"/><br>
                     <button class="btn c-btn-secondary mt-2" onclick="importLearnerCsv(true)">
-                        <i class="fas fa-file-csv"></i>
+                        <i class="fas fa-file-csv"></i> 
                         <span data-i18n="classroom.modals.addStudentByCsv.importStudentByCsvButton">Importer les apprenants</span>
                     </button>
                 </div>`,
@@ -74,7 +74,7 @@ const classroomModals = {
                 <div class="d-flex flex-column justify-content-center align-items-center">
                     <p data-i18n="classroom.modals.exportCsv.exportLearnersDescription"></p>
                     <button class="btn c-btn-secondary mt-2" onclick="exportLearnerCsv()">
-                        <i class="fa fa-download" aria-hidden="true"></i>
+                        <i class="fa fa-download" aria-hidden="true"></i> 
                         <span data-i18n="classroom.modals.exportCsv.exportLearners">Exporter la liste des apprenants</span>
                     </button>
                     <div class="d-flex justify-content-center modal-separator mt-4 mb-4">
@@ -82,7 +82,7 @@ const classroomModals = {
                     </div>
                     <p data-i18n="classroom.modals.exportCsv.exportDashboardDescription"></p>
                     <button class="btn c-btn-secondary mt-2" onclick="exportDashboardCsv()">
-                        <i class="fa fa-download" aria-hidden="true"></i>
+                        <i class="fa fa-download" aria-hidden="true"></i> 
                         <span data-i18n="classroom.modals.exportCsv.exportDashboard">Exporter le tableau de bord</span>
                     </button>
                 </div>
@@ -96,11 +96,22 @@ const classroomModals = {
             title: 'classroom.modals.settingsTeacher.title'
         },
         content: `<h4 data-i18n="classroom.modals.settingsTeacher.lang">Langue</h4>
-        <div id="switch-lang-list" class="d-flex justify-content-center">
-            <img class="flags-item mr-2" alt="flag" src="assets/media/flags/fr.png?version=VERSIONNUM" onclick="changeLang('fr')">
-            <img class="flags-item" alt="flag" src="assets/media/flags/en.png?version=VERSIONNUM" onclick="changeLang('en')">
-            <img class="flags-item mr-2" alt="flag" src="assets/media/flags/es.png?version=VERSIONNUM" onclick="changeLang('es')">
-            <img class="flags-item mr-2" alt="flag" src="assets/media/flags/it.png?version=VERSIONNUM" onclick="changeLang('it')">
+        <div id="switch-lang-list">
+            <button class="btn c-btn-secondary" onclick="changeLang('fr')">
+                Français
+            </button>
+            <button class="btn c-btn-secondary" onclick="changeLang('en')">
+                English
+            </button>
+            <button class="btn c-btn-secondary" onclick="changeLang('it')">
+                Italiano
+            </button>
+            <button class="btn c-btn-secondary" onclick="changeLang('es')">
+                Español
+            </button>
+            <button class="btn c-btn-secondary" onclick="changeLang('ar')">
+                العربية
+            </button>
         </div>
         <h4 data-i18n="classroom.modals.settingsTeacher.password">Mot de passe</h4>
         <p class="text-center" data-i18n="classroom.modals.settingsTeacher.passwordDescription"></p>
@@ -108,7 +119,7 @@ const classroomModals = {
             <form class="pwd-display-stud pwd-display-stud-modal" href="#">
                 <input type="password" readonly class="modal-pwd" id="password-display-area" autocomplete="off"><i class="classroom-clickable fas fa-low-vision ml-2 password-display-toggler"></i>
             </form>
-
+            
             <button class="btn c-btn-secondary" id="pwd-change-modal">Réinitialiser <i class="fas fa-chevron-right"></i></button>`,
         footer: ``
     },
@@ -118,22 +129,24 @@ const classroomModals = {
             icon: '',
             title: 'classroom.modals.settingsTeacher.title'
         },
-        /*  <h4>Choisir une image de profil</h4>
-                    <input type="checkbox" id="firstletter-teach-setting"><label>Première lettre de mon nom</label></br>
-                    <input type="file" id="avatar" name="avatar"accept="image/png, image/jpeg"><label style="margin-left: 1em;font-size: 1em;">Importer une image de profil</label></br>
-
-                    <h4>Notifications mail</h4>
-                    <input type="checkbox" id="action-teach-setting" ><label>Je souhaite être informé de toute action dans mes classes</label></br>
-                    <input type="checkbox" id="abstract-teach-setting" ><label>Je souhaite recevoir un résumé quotidien</label></br>
-                    <input type="checkbox" id="nonotif-teach-setting" ><label>Je ne souhaite pas recevoir de notification par mail</label></br>
-                    */
         content: `<div>
                     <h4 data-i18n="classroom.modals.settingsTeacher.lang">Langue</h4>
-                    <div id="switch-lang-list" class="d-flex justify-content-center">
-                    <img class="flags-item  mr-2" alt="flag" src="assets/media/flags/fr.png?version=VERSIONNUM" onclick="changeLang('fr')">
-                    <img class="flags-item mr-2" alt="flag" src="assets/media/flags/en.png?version=VERSIONNUM" onclick="changeLang('en')">
-                    <img class="flags-item mr-2" alt="flag" src="assets/media/flags/es.png?version=VERSIONNUM" onclick="changeLang('es')">
-                    <img class="flags-item mr-2" alt="flag" src="assets/media/flags/it.png?version=VERSIONNUM" onclick="changeLang('it')">
+                    <div id="switch-lang-list">
+                        <button class="btn c-btn-secondary" onclick="changeLang('fr')">
+                            Français
+                        </button>
+                        <button class="btn c-btn-secondary" onclick="changeLang('en')">
+                            English
+                        </button>
+                        <button class="btn c-btn-secondary" onclick="changeLang('it')">
+                            Italiano
+                        </button>
+                        <button class="btn c-btn-secondary" onclick="changeLang('es')">
+                            Español
+                        </button>
+                        <button class="btn c-btn-secondary" onclick="changeLang('ar')">
+                            العربية
+                        </button>    
                     </div>
                     <h4 data-i18n="classroom.modals.settingsTeacher.description">Pour modifier votre mot de passe ou d'autres paramètres de votre compte</h4>
                     <div class="d-flex flex-column align-items-center" style="gap: 0.5rem;">
@@ -144,7 +157,7 @@ const classroomModals = {
                         <div class="border-1" id="groupAdmin_options" style="display: none;">
                         <fieldset class="switch-to-admin">
                             <legend>
-                                <i class="fas fa-eye"></i>
+                                <i class="fas fa-eye"></i> 
                                 <span data-i18n="manager.profil.onlyVisibleGroupAdmin">Uniquement visible par vous en tant qu'administrateur de groupe :</span>
                             </legend>
                             <button class="theme-group-admin btn mb-2 c-btn-outline-primary c-btn-dashboard" onclick="switchToGroupAdmin()" id="groupadmin-switch-button" style="display:none;"><span
@@ -154,11 +167,11 @@ const classroomModals = {
                             </fieldset>
 
                         </div>
-
+                        
                         <div class="border-1" id="manager_options" style="display: none;">
                             <fieldset class="switch-to-admin ">
                                     <legend>
-                                        <i class="fas fa-eye"></i>
+                                        <i class="fas fa-eye"></i> 
                                         <span data-i18n="manager.profil.onlyVisiblemanager">Uniquement visible par vous en tant que super admin :</span>
                                     </legend>
                                     <button class="theme-super-admin btn mb-2 c-btn-outline-primary c-btn-dashboard" onclick="switchTomanager()" id="manager-switch-button" style="display:none;">
@@ -177,14 +190,12 @@ const classroomModals = {
             icon: '',
             title: 'classroom.modals.attributeActivity.title'
         },
-        content: `
-    <h4 class="c-text-primary font-weight-bold text-uppercase" data-i18n="classroom.classes.selectStudents">Sélectionner des apprenants</h4>
-    <p class='text-center' data-i18n="[html]classroom.classes.selectedStudents"><span class="student-number" id="attribuate-student-number">0</span> apprenants sélectionnés</p>
-    <div class="container-fluid">
-        <div id="list-student-attribute-modal" class="row justify-content-center c-primary-form"></div>
-    </div>
-    <button id="attribute-activity-to-students-close" class="btn btn-lg c-btn-primary" data-i18n="manager.buttons.validate">Valider</button>
-                `,
+        content: `  <h4 class="c-text-primary font-weight-bold text-uppercase" data-i18n="classroom.classes.selectStudents">Sélectionner des apprenants</h4>
+                    <p class='text-center' data-i18n="[html]classroom.classes.selectedStudents"><span class="student-number" id="attribuate-student-number">0</span> apprenants sélectionnés</p>
+                    <div class="container-fluid">
+                        <div id="list-student-attribute-modal" class="row justify-content-center c-primary-form"></div>
+                    </div>
+                    <button id="attribute-activity-to-students-close" class="btn btn-lg c-btn-primary" data-i18n="manager.buttons.validate">Valider</button>`,
         footer: ``
     },
     'list-classes-modal': {
@@ -394,7 +405,7 @@ const classroomModals = {
                 <input type="text" class="form-control" id="u_pseudo">
             </div>
         </div>
-
+    
         <div class="form-row c-secondary-form">
             <div class="form-group col-md">
                 <label for="u_mail" data-i18n="[html]manager.profil.email">Adresse E-mail <span class="c-text-red">*</span></label>
@@ -405,12 +416,12 @@ const classroomModals = {
                 <input type="text" class="form-control" id="u_phone">
             </div>
         </div>
-
+    
         <div class="form-row c-secondary-form mb-2" id="manager_bio">
             <label for="u_bio" data-i18n="[html]manager.profil.bio">Bio <span class="c-text-red">*</span></label>
             <textarea class="form-control" id="u_bio" rows="3"></textarea>
         </div>
-
+    
         <div class="form-row c-secondary-form">
             <div class="form-check form-check-inline c-checkbox">
                 <input class="form-check-input" type="checkbox" id="u_is_admin">
@@ -419,7 +430,7 @@ const classroomModals = {
                 </label>
             </div>
         </div>
-
+    
         <div class="form-row form-group c-secondary-form">
             <div class="form-check form-check-inline c-checkbox">
                 <input class="form-check-input" type="checkbox" id="u_is_teacher">
@@ -428,7 +439,7 @@ const classroomModals = {
                 </label>
             </div>
         </div>
-
+    
         <div class="form-row c-secondary-form" id="user_teacher_infos" style="display: none;" >
             <div class="form-group col-md" id="section_teacher_grade">
                 <select class="form-control" id="user_teacher_grade">
@@ -448,11 +459,11 @@ const classroomModals = {
                 <input type="text" class="form-control" id="u_school">
             </div>
         </div>
-
+    
     </div>
-
+    
     <hr>
-
+    
     <div class="form-group c-secondary-form">
         <label for="u_group" data-i18n="manager.profil.group">Groupe</label>
         <div class="input-group mb-3">
@@ -466,11 +477,11 @@ const classroomModals = {
                     </label>
                 </div>
             </div>
-
+    
         </div>
-
+    
     </div>
-
+    
     <div id="group_add_sa">
     </div>
 
@@ -486,6 +497,9 @@ const classroomModals = {
             <input type="date" id="create_end_date" name="trip-start" max="2025-12-31">
             <label class="form-check-label" for="create_max_students" data-i18n="[html]manager.table.maxStudentsFA"></label>
             <input type="number" id="create_max_students">
+
+            <label class="form-check-label" for="create_max_classrooms" data-i18n="[html]manager.table.maxClassroomsFA"></label>
+            <input type="number" id="create_max_classrooms">
         </div>
     </div>
 
@@ -493,7 +507,7 @@ const classroomModals = {
 
     <div id="create_update_personal_apps_sa">
     </div>
-
+    
     <button class="btn c-btn-secondary" onclick="createUserAndLinkToGroup()" data-i18n="manager.buttons.user.create">Create user</button>
     </div>`,
         footer: ``
@@ -520,7 +534,7 @@ const classroomModals = {
                 <input type="text" class="form-control" id="update_u_pseudo">
             </div>
         </div>
-
+    
         <div class="form-row c-secondary-form">
             <div class="form-group col-md">
                 <label for="update_u_mail" data-i18n="[html]manager.profil.email">Adresse E-mail <span class="c-text-red">*</span></label>
@@ -531,12 +545,12 @@ const classroomModals = {
                 <input type="text" class="form-control" id="update_u_phone">
             </div>
         </div>
-
+    
         <div class="form-row c-secondary-form mb-2" id="manager_update_bio">
             <label for="update_u_bio" data-i18n="[html]manager.profil.bio">Bio <span class="c-text-red">*</span></label>
             <textarea class="form-control" id="update_u_bio" rows="3"></textarea>
         </div>
-
+    
         <div class="form-row c-secondary-form">
             <div class="form-check form-check-inline c-checkbox">
                 <input type="checkbox" id="update_u_is_active">
@@ -544,7 +558,7 @@ const classroomModals = {
                     Compte actif
                 </label>
             </div>
-
+    
             <div class="form-check form-check-inline c-checkbox ml-3">
                 <input type="checkbox" id="update_u_is_admin">
                 <label class="form-check-label" for="update_u_is_admin" data-i18n="manager.users.admin">
@@ -552,7 +566,7 @@ const classroomModals = {
                 </label>
             </div>
         </div>
-
+    
         <div class="form-row form-group c-secondary-form">
             <div class="c-checkbox">
                 <input class="form-check-input" type="checkbox" id="update_u_is_teacher">
@@ -561,7 +575,7 @@ const classroomModals = {
                 </label>
             </div>
         </div>
-
+    
         <div class="form-row c-secondary-form" id="update_user_teacher_infos" style="display: none;">
             <div class="form-group col-md" id="section_teacher_update_grade">
                 <select class="form-control" id="update_user_teacher_grade">
@@ -581,13 +595,13 @@ const classroomModals = {
                 <input type="text" class="form-control" id="update_u_school">
             </div>
         </div>
-
-
+    
+    
         <hr>
-
+    
         <div id="update_actualgroup_sa">
         </div>
-
+    
         <hr>
 
         <div id="update_applications_sa">
@@ -601,10 +615,10 @@ const classroomModals = {
         <hr>
 
         <div id="update_personal_apps_sa">
-
+        
         </div>
     </div>
-
+    
     <button class="btn c-btn-secondary" onclick="updateUserModal()" data-i18n="manager.buttons.user.update">Update user</button>`,
         footer: ``
     },
@@ -629,7 +643,7 @@ const classroomModals = {
                 <input type="text" class="form-control" id="u_pseudo_ga">
             </div>
         </div>
-
+    
         <div class="form-row c-secondary-form">
             <div class="form-group col-md">
                 <label for="u_mail_ga" data-i18n="[html]manager.profil.email">Adresse E-mail <span class="c-text-red">*</span></label>
@@ -640,12 +654,12 @@ const classroomModals = {
                 <input type="text" class="form-control" id="u_phone_ga">
             </div>
         </div>
-
+    
         <div class="form-group c-secondary-form" id="group_admin_bio">
             <label for="u_bio_ga" data-i18n="[html]manager.profil.bio">Bio <span class="c-text-red">*</span></label>
             <textarea class="form-control" id="u_bio_ga" rows="3"></textarea>
         </div>
-
+    
         <div class="form-row c-secondary-form" id="user_teacher_infos_ga">
             <div class="form-group col-md" id="section_teacher_grade_ga">
                 <label for="user_teacher_grade_ga" data-i18n="[html]manager.profil.grade">Grade <span class="c-text-red">*</span></label>
@@ -666,7 +680,7 @@ const classroomModals = {
                 <label for="u_school" data-i18n="[html]manager.profil.school">School</label>
                 <input type="text" class="form-control" id="u_school_ga">
             </div>
-
+    
         </div>
         <div class="form-group col-md-12" id="allGroupsGA">
         </div>
@@ -674,7 +688,7 @@ const classroomModals = {
         <div id="create_applications_ga">
         </div>
     </div>
-
+    
     <button class="btn c-btn-secondary" onclick="createUserAndLinkToGroup_groupAdmin()" data-i18n="manager.buttons.user.create">Create user</button>`,
         footer: ``
     },
@@ -700,7 +714,7 @@ const classroomModals = {
                 <input type="text" class="form-control" id="update_u_pseudo_ga">
             </div>
         </div>
-
+    
         <div class="form-row c-secondary-form">
             <div class="form-group col-md">
                 <label for="update_u_mail_ga" data-i18n="[html]manager.profil.email">Adresse E-mail <span class="c-text-red">*</span></label>
@@ -711,12 +725,12 @@ const classroomModals = {
                 <input type="text" class="form-control" id="update_u_phone_ga">
             </div>
         </div>
-
+    
         <div class="form-group c-secondary-form mb-2" id="group_admin_bio_update">
             <label for="update_u_bio_ga" data-i18n="[html]manager.profil.bio">Bio <span class="c-text-red">*</span></label>
             <textarea class="form-control" id="update_u_bio_ga" rows="3"></textarea>
         </div>
-
+    
         <div class="form-row c-secondary-form" id="update_user_teacher_infos_ga">
             <div class="form-group col-md" id="section_teacher_grade_update_ga">
                 <select class="form-control" id="update_user_teacher_grade_ga">
@@ -736,18 +750,18 @@ const classroomModals = {
                 <input type="text" class="form-control" id="update_u_school_ga">
             </div>
         </div>
-
+    
         <hr>
-
+    
         <div id="update_actualgroup_ga">
         </div>
-
+    
         <hr>
-
+    
         <div id="update_applications_ga">
         </div>
     </div>
-
+    
     <button class="btn c-btn-secondary" onclick="updateUserModalGroupAdmin()" data-i18n="manager.buttons.user.update">Update user</button>`,
         footer: ``
     },
@@ -757,7 +771,7 @@ const classroomModals = {
             icon: '',
             title: 'manager.users.delete'
         },
-        content: `  <div id="delete-user-modal">
+        content: `  <div id="groupadmin-disable-user-modal">
                         <div class="col-12">
                             <div class="alert" id="alertDisableUserGA" role="alert" style="display:none;"></div>
                             <h3 class="font-weight-bold c-text-red m-auto text-center" data-i18n="manager.users.disableConfirmationTitle">Confirmer la désactivation</h3>
@@ -780,7 +794,7 @@ const classroomModals = {
             icon: '',
             title: 'manager.users.delete'
         },
-        content: `  <div id="delete-user-modal">
+        content: `  <div id="groupadmin-delete-user-modal">
                         <div class="col-12">
                             <div class="alert" id="alertDisableUserGA" role="alert" style="display:none;"></div>
                             <h3 class="font-weight-bold c-text-red m-auto text-center" data-i18n="manager.users.deleteConfirmationTitle"></h3>
@@ -804,7 +818,7 @@ const classroomModals = {
             icon: '',
             title: 'manager.users.delete'
         },
-        content: `  <div id="delete-user-modal">
+        content: `  <div id="manager-delete-user-modal">
                         <div class="col-12">
                             <div class="alert" id="alertDeleteUser" role="alert" style="display:none;"></div>
                             <h3 class="font-weight-bold c-text-red m-auto text-center" data-i18n="manager.users.deleteConfirmationTitle">Confirmer la suppression</h3>
@@ -827,7 +841,7 @@ const classroomModals = {
             icon: '',
             title: 'manager.users.delete'
         },
-        content: `  <div id="delete-user-modal">
+        content: `  <div id="manager-disable-user-modal">
                         <div class="col-12">
                             <div class="alert" id="alertDisableUser" role="alert" style="display:none;"></div>
                             <h3 class="font-weight-bold c-text-red m-auto text-center" data-i18n="manager.users.disableConfirmationTitle">Confirmer la désactivation</h3>
@@ -850,7 +864,7 @@ const classroomModals = {
             icon: '',
             title: 'manager.group.delete'
         },
-        content: `  <div id="delete-user-modal">
+        content: `  <div id="manager-delete-group-modal">
                         <div class="col-12">
                             <div class="alert" id="alertDeleteGroup" role="alert" style="display:none;"></div>
                             <h3 class="font-weight-bold c-text-red m-auto text-center" data-i18n="manager.users.deleteConfirmationTitle">Confirmer la suppression</h3>
@@ -873,7 +887,7 @@ const classroomModals = {
             icon: '',
             title: 'manager.users.showResetLinkTitle'
         },
-        content: `  <div id="delete-user-modal">
+        content: `  <div id="manager-show-resetlink-modal">
                         <div class="col-12">
                             <h3 class="font-weight-bold text-info m-auto text-center my-3" data-i18n="manager.users.showResetLink">Lien de réinitialisation de mot de passe</h3>
                             <div class="row">
@@ -893,7 +907,7 @@ const classroomModals = {
             icon: '',
             title: 'manager.group.showLinkTitle'
         },
-        content: `  <div id="delete-user-modal">
+        content: `  <div id="groupadmin-show-grouplink-modal">
                         <div class="col-12">
                             <h3 class="font-weight-bold text-info m-auto text-center my-3" data-i18n="manager.group.showLinkTitle">Lien du groupe</h3>
                             <div class="input-group c-secondary-form">
@@ -1026,7 +1040,7 @@ const classroomModals = {
                             <div class="form-row mt-1 c-secondary-form">
 
                                 <div class="col-md">
-                                    <label for="app_create_sort_index" data-i18n="manager.activitiesRestrictions.max">Nombre</label>
+                                    <label for="app_create_sort_index" data-i18n="manager.activitiesRestrictions.indexPos">Nombre</label>
                                     <input type="number" class="form-control" id="app_create_sort_index" value="0">
                                 </div>
 
@@ -1082,7 +1096,7 @@ const classroomModals = {
         },
         content: `  <div id="update-activities-restrictions-modal">
                         <div class="container-fluid" id="update-default-restrictions">
-
+                            
                         </div>
                     </div>`,
         footer: ``
@@ -1168,10 +1182,11 @@ const classroomModals = {
             icon: '',
             title: 'classroom.activities.deleteActivity'
         },
-        content: `  <div id="delete-user-modal">
+        content: `  <div id="delete-activities-modal">
                         <div class="col-12">
                             <div class="alert" id="alertDisableUserGA" role="alert" style="display:none;"></div>
                             <h3 class="font-weight-bold c-text-red m-auto text-center" data-i18n="classroom.activities.deleteConfirm">Confirmer la désactivation</h3>
+                            <p id="activity-linked-to-course-message" class="text-center mt-2"> Cette activité est liée à un ou plusieurs parcours.  </p>
                             <p class="text-center" data-i18n="classroom.activities.deleteActivityDisclaimer"></p>
                             <div class="text-center c-secondary-form">
                                 <p class="text-center" data-i18n="manager.users.deleteConfirmation">Veuillez écrire "supprimer" dans le champ si dessous pour valider l'action.</p>
@@ -1195,52 +1210,52 @@ const classroomModals = {
 
         <!-- UPDATE -->
         <div class="container-fluid" id="update-folder-manager" style="display:none;">
-
+    
             <p class="mt-4 mb-1 vitta-modal-title" data-i18n="classroom.activities.foldersMessages.updateFolder">Modification de dossier</p>
-
+    
             <div class="form-row mt-1 c-secondary-form">
                 <div class="col-md">
                     <label for="folder_update_name" data-i18n="[html]classroom.activities.foldersMessages.nameMandatory">Name</label>
                     <input type="text" class="form-control" id="folder_update_name">
                 </div>
             </div>
-
+           
             <button class="btn c-btn-secondary my-3 btn" onclick="foldersManager.persistUpdateFolder()" data-i18n="manager.buttons.update">Modifier</button>
             <button class="btn c-btn-light my-3 btn" onclick="foldersManager.resetInputs()" data-i18n="manager.buttons.cancel">Annuler</button>
         </div>
-
-
+    
+    
         <!-- DELETE -->
         <div class="col-12" id="delete-folder-manager" style="display:none;">
-
+    
             <h3 class="font-weight-bold text-danger m-auto text-center" data-i18n="classroom.activities.foldersMessages.deleteFolder">Confirmer la suppression</h3>
             <p class="text-center" data-i18n="classroom.activities.foldersMessages.deleteDisclaimer">Attention, le dossier et l'ensemble de son contenu (activités et sous-dossiers) seront supprimés.</p>
             <p class="text-center" data-i18n="manager.users.deleteConfirmation">Veuillez écrire "supprimer" dans le champ si dessous pour valider l'action.</p>
-
+    
             <div class="text-center c-secondary-form">
                 <input type="hidden" name="validation-delete-folder_id" id="validation-delete-folder_id">
                 <input type="text" name="validation-delete-folder" id="validation-delete-folder" data-i18n="[placeholder]manager.input.placeholder.delete" placeholder="supprimer">
             </div>
-
+    
             <div class="text-center">
                 <button class="btn c-btn-red mx-auto mt-3 btn-lg" onclick="foldersManager.persistDeleteFolder()" data-i18n="manager.buttons.validate">Valider</button>
                 <button class="btn c-btn-light mx-auto mt-3 btn-lg" onclick="foldersManager.resetInputs()" data-i18n="manager.buttons.cancel">Annuler</button>
             </div>
         </div>
-
-
+        
+    
         <!-- CREATE -->
         <div class="container-fluid" id="create-folder-manager" style="display:none;">
-
+    
             <p class="mt-4 mb-1 vitta-modal-title" data-i18n="classroom.activities.foldersMessages.createFolder">Création de dossier</p>
-
+    
             <div class="form-row mt-1 c-secondary-form">
                 <div class="col-md">
                     <label for="folder_create_name" data-i18n="[html]classroom.activities.foldersMessages.nameMandatory">Name</label>
                     <input type="text" class="form-control" id="folder_create_name">
                 </div>
             </div>
-
+    
             <button class="btn c-btn-light mx-auto mt-3 btn-lg" onclick="foldersManager.resetInputs()" data-i18n="manager.buttons.cancel">Annuler</button>
             <button class="btn c-btn-secondary mx-auto mt-3 btn-lg" onclick="foldersManager.persistCreateFolder()" data-i18n="manager.buttons.validate">Valider</button>
         </div>
@@ -1281,7 +1296,7 @@ const classroomModals = {
             icon: '',
             title: 'classroom.classes.deleteStudent'
         },
-        content: `  <div id="delete-user-modal">
+        content: `  <div id="delete-student-modal">
                         <div class="col-12">
                             <input type="hidden" id="student-to-delete-id">
                             <h3 class="font-weight-bold c-text-red m-auto text-center" data-i18n="classroom.classes.deleteStudentConfirm"></h3>
@@ -1293,6 +1308,84 @@ const classroomModals = {
                                 <button class="btn c-btn-light mx-auto mt-3 btn-lg" onclick="cancelDeleteStudent()" data-i18n="manager.buttons.cancel">Annuler</button>
                                 <button class="btn c-btn-secondary mx-auto mt-3 btn-lg" onclick="persistDeleteStudent()" data-i18n="manager.buttons.validate">Valider</button>
                             </div>
+                        </div>
+                    </div>`,
+        footer: ``
+    },
+    'pdf-preview': {
+        selector: '',
+        header: {
+            icon: '',
+            title: 'classroom.pdfPreview'
+        },
+        content: `  <div id="pdf-preview-galery">`,
+        footer: ``
+    },
+    'add-activity-to-course': {
+        selector: '',
+        header: {
+            icon: '',
+            title: 'courses.addActivities'
+        },
+        content: `  <div id="add-activity-container" class="container-fluid">
+
+                        <input type="search" class="form-control" id="course-activity-search" class="course-activity-search" data-i18n="[placeholder]courses.searchActivity">
+
+                        <div id="add-activity-content">
+
+                        </div>
+
+                        <button class="btn c-btn-light mx-auto mt-3 btn-lg" onclick="coursesManager.cancelActivityToCourse()" data-i18n="manager.buttons.cancel">Annuler</button>
+                        <button class="btn c-btn-secondary mx-auto mt-3 btn-lg" onclick="coursesManager.persistActivityToCourse()" data-i18n="manager.buttons.validate">Valider</button>
+                    </div>`,
+        footer: ``
+    },
+    'course-manager-modal': {
+        selector: '',
+        header: {
+            icon: '',
+            title: 'classroom.courses.coursesManager'
+        },
+        content: `  <div id="folder-manager-modal-content">
+                        <div class="col-12" id="delete-course-manager">
+                    
+                            <h3 class="font-weight-bold text-danger m-auto text-center" data-i18n="classroom.activities.coursesMessages.deleteFolder">Confirmer la suppression</h3>
+                            <p class="text-center" data-i18n="manager.users.deleteConfirmation">Veuillez écrire "supprimer" dans le champ si dessous pour valider l'action.</p>
+                    
+                            <div class="text-center c-secondary-form">
+                                <input type="hidden" name="validation-delete-course-id" id="validation-delete-course-id">
+                                <input type="text" name="validation-delete-course" id="validation-delete-course" data-i18n="[placeholder]manager.input.placeholder.delete" placeholder="supprimer">
+                            </div>
+                    
+                            <div class="text-center">
+                                <button class="btn c-btn-red mx-auto mt-3 btn-lg" onclick="coursesManager.persistDeleteCourse()" data-i18n="manager.buttons.validate">Valider</button>
+                                <button class="btn c-btn-light mx-auto mt-3 btn-lg" onclick="coursesManager.resetInputs()" data-i18n="manager.buttons.cancel">Annuler</button>
+                            </div>
+                        </div>
+                    </div>`,
+        footer: ``
+    },
+    'delete-classroom': {
+        selector: '',
+        header: {
+            icon: '',
+            title: 'classroom.classes.deleteModal.deleteTitle'
+        },
+        content: `  <div id="delete-classroom-modal">
+                        <div class="col-12">
+
+                            <h3 class="font-weight-bold c-text-red m-auto text-center" data-i18n="classroom.classes.deleteModal.message"></h3>
+
+                            <div class="text-center c-secondary-form">
+                                <p data-i18n="manager.users.disable.message" class="text-center"></p>
+                                <input type="text" name="validation-delete-classroom" id="validation-delete-classroom" data-i18n="[placeholder]manager.input.placeholder.delete" placeholder="supprimer">
+                            </div>
+
+                            <div class="text-center">
+                                <button class="btn c-btn-light mx-auto mt-3 btn-lg" onclick="cancelDeleteClassroom()" data-i18n="manager.buttons.cancel">Annuler</button>
+                                <button class="btn c-btn-secondary mx-auto mt-3 btn-lg" onclick="persistDeleteClassroom()" data-i18n="manager.buttons.validate">Valider</button>
+                            </div>
+
                         </div>
                     </div>`,
         footer: ``

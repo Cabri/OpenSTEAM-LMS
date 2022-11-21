@@ -1,0 +1,414 @@
+<!-- Main page -->
+<div id="classroom-dashboard-classes-new-course" style="display:none;" class="dashboard-block">
+
+
+    <!-- Top progress bar  -->
+    <nav class="row form-activity-container" style="margin: 0 auto;">
+        <!-- Step 1 -->
+        <div class="col text-center">
+            <span class="form-activity form-activity-activate">1</span>
+            <span data-i18n="">Création du parcours</span>
+        </div>
+
+        <div class="col"></div>
+
+        <!-- Step  -->
+        <div class=" col text-center">
+            <span class="form-activity form-activity-desactivate">2</span>
+            <span data-i18n="">Titre</span>
+        </div>
+
+        <div class="col" style="border-bottom: 1px solid var(--classroom-text-1); height: 1px; align-self: center;"></div>
+
+        <!-- Step 3 -->
+        <div class=" col text-center">
+            <span class="form-activity form-activity-desactivate">3</span>
+            <span data-i18n="">Paramètres</span>
+        </div>
+
+        <div class="col" style="border-bottom: 1px solid var(--classroom-text-1); height: 1px; align-self: center;"></div>
+
+        <!-- Step 4 -->
+        <div class="col text-center">
+            <span class="form-activity form-activity-desactivate">4</span>
+            <span data-i18n="classroom.activities.form.4">Attribution</span>
+        </div>
+    </nav>
+
+
+    <div class="container">
+
+
+        <div id="course-content" class="col-8 course-content">
+            <p>
+                <span>Activités</span><span>* Obligatoire</span>
+            </p>
+
+            <div class="col-sm mb-2">
+                <button class="btn c-btn-grey" id="course-add-activity" onclick="coursesManager.addActivityToCourse()">
+                    <span data-i18n="courses.addActivity">Ajouter une activité</span>
+                </button>
+
+                <!--
+                <button class="btn c-btn-secondary" id="course-create-activity">
+                    <span data-i18n="courses.createActivity">
+                        <span class="mr-1" data-i18n="classroom.activities.add" onclick="showExercicePanel()">Créer une activité</span><i class="fas fa-chevron-right"></i></span>
+                </button>
+                -->
+            </div>
+
+
+            <div id="course-activities-content" class="course-activities-content">
+
+
+            </div>
+
+        </div>
+
+
+
+        <div class="row text-center w-100">
+            <div class="col-sm order-first order-sm-last mb-2">
+                <button class="btn c-btn-secondary" onclick="coursesManager.goToTitle(true)" id="course-validate">
+                    <span data-i18n="manager.buttons.validate">Valider</span> <i class="fas fa-check"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<div id="classroom-dashboard-classes-new-course-title" style="display:none;" class="dashboard-block">
+
+
+    <!-- Top progress bar  -->
+    <nav class="row form-activity-container" style="margin: 0 auto;">
+        <!-- Step 1 -->
+        <div class="col text-center">
+            <span class="form-activity form-activity-activate"><i class="fas fa-check"></i></span>
+            <span data-i18n="courses.pagination.create"></span>
+        </div>
+
+        <div class="col"></div>
+
+        <!-- Step  -->
+        <div class=" col text-center">
+            <span class="form-activity form-activity-activate">2</span>
+            <span data-i18n="courses.pagination.title"></span>
+        </div>
+
+        <div class="col" style="border-bottom: 1px solid var(--classroom-text-1); height: 1px; align-self: center;"></div>
+
+        <!-- Step 3 -->
+        <div class=" col text-center">
+            <span class="form-activity form-activity-desactivate">3</span>
+            <span data-i18n="courses.pagination.parameters"></span>
+        </div>
+
+        <div class="col" style="border-bottom: 1px solid var(--classroom-text-1); height: 1px; align-self: center;"></div>
+
+        <!-- Step 4 -->
+        <div class="col text-center">
+            <span class="form-activity form-activity-desactivate">4</span>
+            <span data-i18n="courses.pagination.attribution"></span>
+        </div>
+    </nav>
+
+    <div class="container">
+
+        <div id="course-title-content" class="col-8 course-content">
+
+            <div class="form-group">
+                <label for="course-title" data-i18n="[html]courses.parameters.title"></label>
+                <input type="text" class="form-control" id="course-title" data-i18n="[placeholder]courses.placeholderTitle">
+            </div>
+
+            <div class="form-group">
+                <label for="course-description" data-i18n="[html]courses.parameters.description"></label>
+                <textarea class="form-control" id="course-description" data-i18n="[placeholder]courses.placeholderDescription"></textarea>
+            </div>
+
+        </div>
+
+
+        <div class="row text-center w-100">
+            <div class="col-sm mb-2">
+                <button class="btn c-btn-grey" onclick="coursesManager.goToCreate()">
+                    <span data-i18n="">Retour</span>
+                </button>
+            </div>
+            <div class="col-sm order-first order-sm-last mb-2">
+                <button class="btn c-btn-secondary" onclick="coursesManager.persistTitlePage()" id="course-validate">
+                    <span data-i18n="classroom.activities.form.validate">Valider</span> <i class="fas fa-check"></i>
+                </button>
+            </div>
+        </div>
+
+    </div>
+
+
+</div>
+
+
+<div id="classroom-dashboard-classes-new-course-parameters" style="display:none;" class="dashboard-block">
+
+
+    <!-- Top progress bar  -->
+    <nav class="row form-activity-container" style="margin: 0 auto;">
+        <!-- Step 1 -->
+        <div class="col text-center">
+            <span class="form-activity form-activity-activate"><i class="fas fa-check"></i></span>
+            <span data-i18n="courses.pagination.create"></span>
+        </div>
+
+        <div class="col"></div>
+
+        <!-- Step  -->
+        <div class=" col text-center">
+            <span class="form-activity form-activity-activate"><i class="fas fa-check"></i></span>
+            <span data-i18n="courses.pagination.title"></span>
+        </div>
+
+        <div class="col" style="border-bottom: 1px solid var(--classroom-text-1); height: 1px; align-self: center;"></div>
+
+        <!-- Step 3 -->
+        <div class=" col text-center">
+            <span class="form-activity form-activity-activate">3</span>
+            <span data-i18n="courses.pagination.parameters"></span>
+        </div>
+
+        <div class="col" style="border-bottom: 1px solid var(--classroom-text-1); height: 1px; align-self: center;"></div>
+
+        <!-- Step 4 -->
+        <div class="col text-center">
+            <span class="form-activity form-activity-desactivate">4</span>
+            <span data-i18n="courses.pagination.attribution"></span>
+        </div>
+    </nav>
+
+    <div class="container">
+
+        <div id="course-title-content" class="col-8 course-content">
+
+            <div class="form-row c-secondary-form">
+                <div class="form-group col-md">
+                    <label for="course-difficulty" data-i18n="[html]courses.parameters.difficulty"></label>
+                    <select class="form-control" id="course-difficulty" aria-label="Default select example">
+                        <option selected value="" data-i18n="courses.parameters.difficultyLevel.choose">Choississez la difficulté</option>
+                        <option value="0" data-i18n="courses.parameters.difficultyLevel.easy">Facile</option>
+                        <option value="1" data-i18n="courses.parameters.difficultyLevel.medium">Intermédiaire</option>
+                        <option value="2" data-i18n="courses.parameters.difficultyLevel.advenced">Avancé</option>
+                        <option value="3" data-i18n="courses.parameters.difficultyLevel.expert">Expert</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="form-row c-secondary-form">
+
+                <div class="form-group col-md">
+                    <label for="course-duration" data-i18n="[html]courses.parameters.duration"></label>
+                    <input type="number" name="course-duration" id="course-duration" class="form-control" value="1" min="1">
+                </div>
+
+            </div>
+
+            <div class="form-row c-secondary-form">
+                <div class="form-group col-md">
+                    <label for="course-license" data-i18n="[html]courses.parameters.license"></label>
+                    <select class="form-control" id="course-license" aria-label="Default select example">
+                        <option selected value="" data-i18n="courses.parameters.licenseType.choose">Choississez la licence</option>
+                        <option value="0" data-i18n="courses.parameters.licenseType.1">Privée (vous seul•e pouvez voir cette ressource)</option>
+						<option value="3" data-i18n="courses.parameters.licenseType.2">Déréférencée (ressource partageable par lien mais introuvable sur la page Ressources)</option>
+						<option value="1" data-i18n="courses.parameters.licenseType.3">Publique CC-BY-NC-SA (ressource libre, non-commerciale et modifiable)</option>
+						<option value="2" data-i18n="courses.parameters.licenseType.4">Publique CC-BY-NC-ND (ressource libre, non-commerciale et non-modifiable)</option>
+                    </select>
+                </div>
+            </div>
+
+
+
+        </div>
+
+
+
+        <div class="row text-center w-100">
+            <div class="col-sm mb-2">
+                <button class="btn c-btn-grey" onclick="coursesManager.goToTitle()">
+                    <span data-i18n="words.return">Retour</span>
+                </button>
+            </div>
+            <div class="col-sm order-first order-sm-last mb-2">
+                <button class="btn c-btn-secondary" onclick="coursesManager.persistParameters()" id="course-validate">
+                    <span data-i18n="classroom.activities.form.validate">Valider</span> <i class="fas fa-check"></i>
+                </button>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+
+
+
+<div id="classroom-dashboard-classes-new-course-attribution" style="display:none;" class="dashboard-block container">
+    <!-- Top progress bar  -->
+    <nav class="row form-activity-container" style="margin: 0 auto;">
+        <!-- Step 1 -->
+        <div class="col text-center">
+            <span class="form-activity form-activity-activate"><i class="fas fa-check"></i></span>
+            <span data-i18n="courses.pagination.create"></span>
+        </div>
+
+        <div class="col"></div>
+
+        <!-- Step  -->
+        <div class=" col text-center">
+            <span class="form-activity form-activity-activate"><i class="fas fa-check"></i></span>
+            <span data-i18n="courses.pagination.title"></span>
+        </div>
+
+        <div class="col" style="border-bottom: 1px solid var(--classroom-text-1); height: 1px; align-self: center;"></div>
+
+        <!-- Step 3 -->
+        <div class=" col text-center">
+            <span class="form-activity form-activity-activate"><i class="fas fa-check"></i></span>
+            <span data-i18n="courses.pagination.parameters"></span>
+        </div>
+
+        <div class="col" style="border-bottom: 1px solid var(--classroom-text-1); height: 1px; align-self: center;"></div>
+
+        <!-- Step 4 -->
+        <div class="col text-center">
+            <span class="form-activity form-activity-activate">4</span>
+            <span data-i18n="courses.pagination.attribution"></span>
+        </div>
+    </nav>
+
+    <div class="assign-activity-container" style="margin: 0 auto;">
+
+        <!-- Success title -->
+        <div class="text-center px-1">
+            <h3 class="c-text-primary text-uppercase font-weight-bold" data-i18n="courses.successfullyCreated">Parcours créé avec succès</h3>
+        </div>
+
+        <div class="container text-center">
+
+            <div class="row my-2">
+                <div class="col-sm mb-2">
+                    <button id="attribute-course" data-i18n="[html]courses.attribution" onclick="coursesManager.attributeCourse()" class="new-activity-panel3 btn c-btn-primary">
+                    </button>
+                </div>
+
+                <div class="col-sm mb-2">
+                    <button class="btn c-btn-primary" data-i18n="[html]courses.return">
+                    </button>
+                </div>
+            </div>
+
+            <p data-i18n="classroom.activities.form.hint"></p>
+            <button class="btn c-btn-outline-primary" onclick="coursesManager.updateCourse()" data-i18n="courses.update">
+                Modifier le parcours
+            </button>
+
+        </div>
+    </div>
+
+</div>
+
+
+<div id="classroom-dashboard-classes-new-course-attribution-select" style="display:none;" class="dashboard-block container">
+
+    <div class="assign-activity-container" style="margin: 0 auto;">
+
+        <div class="row">
+            <div class="col-12 mb-5 text-center">
+                <button id="new-course-attribute" class="btn c-btn-primary mt-5">
+                    <span data-i18n="classroom.activities.form.select1"></span> <i class="fas fa-plus"></i>
+                </button>
+                <div class="mt-2">
+                    <span id="assign-total-student-number-course">0</span> <span data-i18n="classroom.activities.form.select2"></span>
+                </div>
+            </div>
+        </div>
+
+
+        <!-- Submit multiple times -->
+        <div class="row">
+            <div class="col mb-5 text-center c-primary-form">
+                <div class="assign-row">
+                    <div>
+                        <label for="isEval-activity-form" data-i18n="classroom.activities.form.nature"></label>
+                        <div class="switcher">
+                            <input type="radio" name="isEval-activity-form" value="false" id="isExo-activity-form" checked>
+                            <label for="isExo-activity-form" class="switcher__label text-capitalize" data-i18n="words.yes"></label>
+
+                            <input type="radio" name="isEval-activity-form" value="true" id="isEval-activity-form">
+                            <label for="isEval-activity-form" class="switcher__label text-capitalize" data-i18n="words.no"></label>
+
+                            <span class="switcher__toggle"></span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+
+        <div class="section-facultative-options">
+
+            <div class="section-header-facultative-options" onclick="coursesManager.facultativeOptions()">
+                <i id="i-course-options" class="ml-2 fas fa-lg fa-chevron-up"></i>
+                <h3 class="section-title-facultative-options" data-i18n="classroom.activities.facultative">Options facultatives</h3>
+            </div>
+
+            <div id="course-options" style="display: none;">
+                <div class="container mt-3 pt-1" id="facultative">
+
+                    <div class="row">
+                        <div class="col-12 col-xl-6 c-primary-form assign-activity-calendar">
+                            <div class="row">
+                                <div class="col-6 text-right align-middle">
+                                    <label for="date-begin-course-form" data-i18n="classroom.activities.form.dateBegin"></label>
+                                </div>
+                                <div class="col-6 text-left">
+                                    <input type="date" id="date-begin-course-form">
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-12 col-xl-6 c-primary-form assign-activity-calendar">
+                            <div class="row">
+                                <div class="col-6 text-right align-middle">
+                                    <label for="date-end-course-form" data-i18n="classroom.activities.form.dateEnd"></label>
+                                </div>
+                                <div class="col-6 text-left">
+                                    <input type="date" id="date-end-course-form">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="row text-center my-2 mt-5">
+            <div class="col-sm mb-2">
+                <button class="btn c-btn-grey" onclick="navigatePanel('classroom-dashboard-activities-panel-teacher', 'dashboard-activities-teacher')">
+                    <i class="fas fa-angle-left"></i> <span class="text-capitalize" data-i18n="words.return"></span>
+                </button>
+            </div>
+
+            <div class="col-sm order-first order-sm-last mb-2">
+                <button id="attribute-course-to-students" class="btn c-btn-primary" onclick="coursesManager.persistAttribution()" disabled>
+                    <span data-i18n="classroom.activities.form.attribute2"></span><i class="fas fa-angle-right"></i>
+                </button>
+            </div>
+        </div>
+
+    </div>
+
+
+</div>

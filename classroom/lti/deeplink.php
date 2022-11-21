@@ -1,7 +1,9 @@
 <?php
 /**
  * This file is responsible for recieving deeplink data sent by the tool provider
- */
+ * Copyright (C) 2022 Seif-Eddine Benomar - Cabrilog
+ * Contribution to OpenSTEAM Project
+*/
 
 
 require_once __DIR__ . "/findrelativeroute.php";

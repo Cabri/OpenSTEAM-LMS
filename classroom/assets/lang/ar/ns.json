@@ -1,0 +1,1216 @@
+{
+    "classroom": {
+      "login": {
+        "noClass": "الرمز الذي تم إدخاله لا يتوافق مع أي فصل دراسي",
+        "countdown1": "وحدة إدارة Classroom في مرحلتها التجريبية حاليًا. إذا كنت ترغب في تجربته ، فيرجى <a href=\"/about?contact=1\">الاتصال بفريق Vittascience</a> ",
+        "countdown2": "الإصدار الرسمي في",
+        "display": "عرض",
+        "hello": "مرحبًا",
+        "title": "إدارة الفصول الدراسية الخاصة بك مع Vittascience",
+        "neutralTitle": "افتح نظام STEAM LMS",
+        "subtitle": "اكتشف - تعلم - شارك",
+        "login": "تسجيل الدخول",
+        "activities": "أنشئ </br> أنشطتك بسهولة",
+        "attribute": "قم بتعيينهم </br> لطلابك",
+        "visualize": "تصور نتائجهم",
+        "helpers": "من جانبنا <span>لمرافقتك.</span>",
+        "student": "تلميذ",
+        "codeInput": " أدخل رمز الفصل الدراسي الخاص بك",
+        "teacher": "معلم",
+        "hasAccount": "هل لديك حساب؟",
+        "gar": "استمتع بوحدة Classroom بسهولة باستخدام GAR",
+        "signup": "اشتراك",
+        "firstVisit": "اول مرة؟ يرجى اختيار اسم المستخدم",
+        "signin": "تسجيل الدخول",
+        "registerLink": "يسجل",
+        "hasReturned": "العودة إلى هذا الفصل الدراسي؟",
+        "forgot": "لقد نسيت كلمة المرور",
+        "error": {
+          "used": "اسم المستخدم هذا قيد الاستخدام بالفعل ، يرجى اختيار آخر",
+          "badInput": "اسم المستخدم أو كلمة المرور الخاصة بك خاطئة"
+        },
+        "suscribe": {
+          "title": "الإشتراك",
+          "content": "وحدة إدارة الفصل الدراسي متاحة مجانًا كإصدار تجريبي. استفد من جميع الميزات مع اشتراك Vittascience Premium. ابحث عن جميع مزايا وتفاصيل عرض Vittascience Premium باستخدام الزر أدناه",
+          "premium": "اكتشف Vittascience Premium"
+        },
+        "carousel": {
+          "activities": {
+            "title": "أنشئ أنشطتك بسهولة",
+            "content": "يُسهل محرر النشاط إنشاء محتوى تعليمي من خلال تضمين النصوص والصور ومقاطع الفيديو وواجهات برمجة تطبيقات Vittascience والعروض التقديمية Genially والمزيد. </br> </br> تصفح بنك الموارد التعاوني لـ Vittascience ، والذي يتضمن عدة مئات من الأنشطة المجانية والقابلة لإعادة الاستخدام . إذا سمح مؤلف المورد بذلك ، يمكنك إجراء تغييرات لتكييف المحتوى مع طلابك"
+          },
+          "attribute": {
+            "title": "قم بتعيينهم لطلابك",
+            "content": "بمجرد إنشاء الأنشطة الخاصة بك ، يمكنك تعيينها لطلابك. يمكن تعيينها بشكل فردي أو لمجموعات كاملة ، مثل فصل دراسي أو نادي علمي. </br> </br> يمكن للطلاب تسجيل الدخول بأمان باستخدام رمز Classroom أو رابط أو رمز QR أو GAR ، وإكمال الأنشطة المخصصة لهم"
+          },
+          "visualize": {
+            "title": "تصور نتائجهم",
+            "content": "تتيح لك لوحة المعلومات تتبع تقدم الطلاب أثناء تنقلهم خلال الأنشطة والدورات التدريبية. ابحث عن عمل طلابك بنقرة واحدة واترك التعليقات. </br> </br> بفضل نظام التحقق / التصحيح التلقائي للكتل و Python ، تمتلئ لوحة القيادة تلقائيًا بنتائج طلابك. التعرف بسرعة على الطلاب المتعثرين ، واكتساب وقت ثمين لمرافقتهم"
+          }
+        },
+        "register": {
+          "title": "تسجيل ",
+          "description": "يرجى إكمال الحقول التالية لإنشاء حسابك",
+          "passwordConstraints": "8 أحرف على الأقل",
+          "createButton": "تسجيل "
+        }
+      },
+      "register": {
+        "accountConfirmationEmail": {
+          "emailSubject": "تفعيل حسابي",
+          "bodyTitle": "تفعيل حسابي",
+          "textBeforeLink": "إذا كان الزر أعلاه لا يعمل ، انسخ والصق الرابط التالي في متصفحك"
+        }
+      },
+      "updateUserInfos": {
+        "emailUpdateConfirmation": {
+          "emailSubject": "أؤكد عنوان بريدي الإلكتروني الجديد",
+          "bodyTitle": "أؤكد عنوان بريدي الإلكتروني الجديد",
+          "textBeforeLink": "إذا كان الزر أعلاه لا يعمل ، انسخ والصق الرابط التالي في متصفحك"
+        }
+      },
+      "pdfPreview": "معاينة PDF",
+      "successPanel": "مبروك ، لقد نجحت في هذا النشاط",
+      "failPanel": "الجواب خاطئ",
+      "toCorrectPanel": "تم إرسال النشاط إلى معلمك ، </br> الذي سيقوم بتصحيحه قريبًا",
+      "bank": {
+        "helpTooltip": "يحتوي مركز الموارد على العديد من الأنشطة التي يمكنك استخدامها بحرية! لن يتمكن معلمك من الوصول إلى نتائج أنشطتك"
+      },
+      "help": {
+        "student": {
+          "label": "اسأل معلمك",
+          "question": "اكتب أسئلتك ",
+          "title": "هدف"
+        },
+        "teacher": {
+          "label": "اسأل فريقنا"
+        }
+      },
+      "profil": {
+        "identity": "الاسم و النسب ",
+        "class": "قاعة الدراسة ",
+        "todo": "الأنشطة التي يتعين القيام بها",
+        "done": "الأنشطة التي تم القيام بها",
+        "create": "الأنشطة </br> إنشاء",
+        "correctionToDo": "تصحيحات يجب القيام بها ",
+        "switchMode": "قم بالتبديل إلى وضع المتعلم",
+        "switchModeTeacher": "العودة إلى وضع المعلم",
+        "accountSettings": {
+          "title": "حسابي",
+          "firstname": "الاسم",
+          "lastname": "اللقب",
+          "nickname": "كنية (nickname)",
+          "email": "البريد الإلكتروني",
+          "password": "كلمة المرور",
+          "confirmPassword": "تأكيد كلمة المرور",
+          "updateButton": "تحديث"
+        }
+      },
+      "notif": {
+        "emptyContent": "لا يمكن أن يكون المحتوى فارغًا",
+        "emptyTitle": "لا يمكن أن يكون العنوان فارغًا",
+        "activityRestricted": "لا يمكنك إنشاء المزيد من الأنشطة من هذا النوع",
+        "shareProjectTeacher": "تمت مشاركة المشروع مع معلمك",
+        "addActivities": "تمت إضافة الأنشطة المحددة إلى قائمتك",
+        "addActivity": "تمت إضافة النشاط إلى قائمتك",
+        "saveProject": "هل قمت بحفظ نشاطك؟",
+        "savedProject": "تم حفظ مسودتك",
+        "deleteProject": "تم حذف المشروع",
+        "shareProject": "تمت مشاركة المشروع",
+        "corrections": "تم تحقيق تمرين في فصولك الدراسية",
+        "deleteAccount": "هل أنت متأكد أنك تريد حذف حساب المتعلم؟",
+        "accountIsDelete": "تم حذف حساب المتعلم",
+        "newPwd": "كلمة المرور الجديدة للمتعلم هي {{pwd}} لـ {{pseudo}}",
+        "classCreatedButNotUsers": "تم إنشاء الفصل الدراسي {{classroomName}} ، ولكن ليس الحسابات المرتبطة (لا يسمح حسابك بوجود متعلم {{learnerNumber}} )",
+        "classUpdatedButNotUsers": "تم تحديث الفصل الدراسي {{classroomName}} ، ولكن ليس الحسابات المرتبطة (لا يسمح حسابك بوجود متعلم {{learnerNumber}} )",
+        "usersNotAdded": "تعذر إضافة المتعلم (حسابك لا يسمح لك بوجود {{learnerNumber}} متعلم)",
+        "cantLoginLimitLearners": "لا يمكنك الانضمام إلى الفصل. وصل معلمك إلى الحد الأقصى لعدد المتعلمين",
+        "cantLoginClassroomBlocked": "لا يمكنك الانضمام إلى الفصل الدراسي ، فقد قام مدرسك بإغلاق الوصول إليه",
+        "classNotCreated": "لا يمكن أن يكون لديك أكثر من {{classroomNumberLimit}} فصل (فصول) دراسية",
+        "attributeActivityUndone": "النشاط غير مخصص",
+        "pseudoUpdated": "الكنية الجديدة للمتعلم هي  {{newPseudo}}",
+        "classroomDeleted": "تم حذف الفصل الدراسي {{classroomName}}",
+        "classroomCreated": "تم إنشاء الفصل الدراسي {{classroomName}} ، بالإضافة إلى جميع الحسابات المرتبطة",
+        "classroomUpdated": "تم تحديث الفصل الدراسي {{classroomName}} مع جميع الحسابات المرتبطة",
+        "usersAdded": "تم إنشاء الحسابات",
+        "usersAddedFromCsv": "تم إنشاء الحسابات من ملف csv",
+        "activityDeleted": "تمت إزالة النشاط {{activityName}}",
+        "activityDuplicated": "تم تكرار النشاط {{activityName}}",
+        "mustAttributeToStudent": "يجب عليك تخصيص النشاط للطلاب",
+        "activityAttributed": "تم تخصيص النشاط {{activityTitle}} للمتعلمين المدرجين في القائمة",
+        "activityAttributionChanged": "تم تغيير تعيين النشاط {{activityTitle}} للمتعلمين المدرجين",
+        "activityCreated": "تم إنشاء النشاط {{activityTitle}}",
+        "activityChanged": "تم تغيير النشاط {{activityTitle}}",
+        "activityTitleMissing": "يجب عليك إدخال عنوان النشاط",
+        "CsvFileMissing": "أنت لم تختر ملف csv",
+        "errorWithCsv": "خطأ أثناء فتح ملف csv: {{error}}",
+        "cantGetPassword": "خطأ ، لا يمكنك رؤية كلمة المرور الخاصة بك",
+        "cantResetPassword": "خطأ ، لا يمكنك إعادة تعيين كلمة المرور الخاصة بك",
+        "accountUpdated": "تم تحديث الحساب الخاص بك",
+        "emailUpdated": "يرجى الانتقال إلى رابط التأكيد الذي تم إرساله إليك للتو على عنوان البريد الإلكتروني الجديد لإنهاء التحديث",
+        "firstNameTooShort": "يجب أن يتكون الاسم من حرفين على الأقل",
+        "lastNameTooShort": "يجب أن يتكون النسب من حرفين على الأقل",
+        "pseudoTooShort": "يجب أن يتكون الكنية من حرفين على الأقل",
+        "invalidEmail": "عنوان البريد الإلكتروني المدخل غير صالح",
+        "invalidPassword": "كلمة المرور المدخلة غير صحيحة. يجب ألا يقل طوله عن 8 أحرف",
+        "passwordAndConfirmMismatch": "كلمة المرور وتأكيد كلمة المرور ليسا متماثلين",
+        "unknownUser": "خطأ في تحديث الحساب: المستخدم غير موجود",
+        "passwordInvalid": "كلمة المرور لا تحترم قيود الأمان",
+        "emailInvalid": "عنوان البريد الإلكتروني المرسل غير صالح",
+        "emailExists": "عنوان البريد الإلكتروني مخصص بالفعل لحساب آخر",
+        "UserNotExists": "خطأ في تحميل / إعادة تعيين كلمة المرور: مستخدم غير صحيح",
+        "RegularUserNotAllowed": "خطأ في تحميل / إعادة تعيين كلمة المرور: يمكن للمتعلمين فقط عرض / إعادة تعيين كلمة المرور الخاصة بهم",
+        "PasswordLengthInvalid": "تعذر استرداد كلمة المرور: كلمة مرور خاطئة",
+        "accountCreated": "تم إنشاء الحساب. يرجى الانتقال إلى رابط التأكيد الذي تم إرساله إليك للتو عبر البريد الإلكتروني لإنهاء التسجيل وتتمكن من تسجيل الدخول",
+        "firstnameMissing": "يجب عليك إدخال اسمك الأول",
+        "surnameMissing": "يجب عليك إدخال اسمك الأخير",
+        "pseudoMissing": "يجب عليك إدخال اسم الشهرة الخاص بك",
+        "emailMissing": "يجب عليك ادخال بريدك الالكتروني",
+        "passwordMissing": "يجب عليك إدخال كلمة المرور الخاصة بك",
+        "passwordConfirmMissing": "يجب عليك إدخال تأكيد كلمة المرور",
+        "passwordsMismatch": "كلمة المرور والتأكيد ليسا متطابقين",
+        "invalidUserId": "خطأ في إرسال الرسالة: اسم المستخدم الخاص بك غير صالح",
+        "helpRequestFromTeacherSent": "تم ارسال رسالتك. سنعود إليك في أقرب وقت ممكن",
+        "subjectMissingTeacherHelpForm": "يجب عليك إدخال موضوع الرسالة",
+        "messageMissingTeacherHelpForm": "يجب عليك إدخال رسالتك",
+        "invalidUserIdTeacherHelpForm": "خطأ في إرسال الرسالة: اسم المستخدم الخاص بك غير صالح",
+        "unknownUserTeacherHelpForm": "خطأ في إرسال الرسالة: اسم المستخدم الخاص بك لا يتوافق مع أي حساب مدرس",
+        "helpRequestFromLearnerSent": "تم إرسال رسالتك إلى معلمك",
+        "subjectMissingLearnerHelpForm": "يجب عليك إدخال موضوع الرسالة",
+        "messageMissingLearnerHelpForm": "يجب عليك إدخال رسالتك",
+        "invalidUserIdLearnerHelpForm": "خطأ في إرسال الرسالة: اسم المستخدم الخاص بك غير صالح",
+        "unknownUserLearnerHelpForm": "خطأ في إرسال الرسالة: اسم المستخدم الخاص بك غير معروف",
+        "unknownEmailLearnerHelpForm": "خطأ في إرسال الرسالة: عنوان البريد الإلكتروني لمعلمك غير معروف",
+        "activityTitleInvalid": "تعذر إنشاء النشاط: عنوان غير صالح",
+        "activityContentInvalid": "تعذر إنشاء النشاط: محتوى غير صالح",
+        "activityIsFromClassroomInvalid": "تعذر إنشاء النشاط: خطأ في السياق",
+        "activityUserIdInvalid": "تعذر إنشاء النشاط: مستخدم غير صالح",
+        "personalLimitationsReached": "لقد وصلت إلى الحد الأقصى لعدد الطلاب. ( {{max}} كحد أقصى)",
+        "groupLimitationsGroup": "لم تعد مجموعتك تستوعب المتعلمين",
+        "groupLimitationsTeacher": "لقد وصلت إلى حد الطلاب الذي تمنحك إياه مجموعتك",
+        "bothLimitationsReached": "لقد وصلت إلى حدود الطلاب التي قد تكون لديك أنت ومجموعتك. ( {{maxG}} مجموعة كحد أقصى ، حد أقصى شخصي {{maxP}} )",
+        "ClassroomNameInvalid": "اسم الفصل مطلوب",
+        "reservedNickname": "الاسم: &quot; {{reservedNickname}} &quot; لا يمكن أن ينسب",
+        "invalidLink": "الارتباط الذي أدخلته غير صالح",
+        "noUser": "يجب عليك إضافة طالب",
+        "noUserUsername": "يجب عليك إدخال اسم مستخدم",
+        "pseudoMissingInCsvFile": "لا يمكن إضافة بعض الطلاب لأن كنيات كانت غائبة",
+        "backendReplyPseudoMissingInCsv": "افحص ملف CSV: سطر فارغ أو ملف غائب",
+        "backendReplyPseudoMissingInUsersArray": "يوجد خطأ واحد (أخطاء) أو أكثر في اسم (أسماء) الطالب (الطلاب)",
+        "invalidActivityId": "خطأ في إرسال الوظيفة: معرف النشاط غير صالح",
+        "invalidCorrection": "خطأ في إرسال الوظيفة: حالة نشاط غير صالحة",
+        "currentPasswordDoesNotMatch": "كلمة المرور التي تم إدخالها غير صحيحة",
+        "noAnswerInActivity": "يجب أن يكون لديك حقل إجابة واحد على الأقل"
+      },
+      "ids": {
+        "classroom-dashboard-help-panel-teacher": "مساعدة",
+        "classroom-dashboard-activities-panel-teacher": "نشاطاتي",
+        "classroom-dashboard-classes-panel-teacher": "فصولي",
+        "classroom-dashboard-sandbox-panel": "صندوق الرمل",
+        "classroom-dashboard-profil-panel-teacher": "الملف الشخصي",
+        "classroom-dashboard-activities-panel": "نشاطاتي",
+        "classroom-dashboard-profil-panel": "الملف الشخصي",
+        "classroom-dashboard-help-panel": "مساعدة",
+        "classroom-dashboard-activities-panel-library-teacher": "مركز الموارد",
+        "classroom-dashboard-new-activity-panel": "خلق النشاط",
+        "classroom-dashboard-new-activity-panel2": "متوسط",
+        "classroom-dashboard-new-activity-panel3": "الإسناد",
+        "classroom-table-panel-teacher": "فئة {{name}}",
+        "classroom-dashboard-sandbox-creation": "اختيار الواجهة",
+        "classroom-dashboard-ide-panel": "{{interface}} رمل",
+        "classroom-dashboard-activity-panel": "النشاط {{name}}"
+      },
+      "displayCode": "اعرض الكود",
+      "navbar": {
+        "activities": "أنشطة"
+      },
+      "classes": {
+        "add": "أضف فصل دراسي جديد",
+        "noClasses": "ليس لديك فصل دراسي بعد",
+        "createClassNow": "ابدأ بإنشاء فصل دراسي الآن",
+        "form": {
+          "title": "أضف فصلاً دراسيًا",
+          "updateTitle": "تحديث الفصول الدراسية",
+          "name": "اسم الفصل الدراسي",
+          "school": "اسم المدرسة",
+          "addStudent": "أضف متعلمًا",
+          "noStudent": "لا يوجد متعلم حتى الآن في هذا الفصل الدراسي",
+          "isBlockedButton": "يقتصر على هؤلاء المتعلمين ، ولن يتمكن أي شخص آخر من الانضمام إلى الفصل الدراسي",
+          "save": "احفظ الفصل",
+          "return": "العودة إلى الفصل"
+        },
+        "panel": {
+          "seeActivity": "افتح النشاط",
+          "editActivity": "قم بتحرير النشاط",
+          "editAttribution": "قم بتحرير الإسناد",
+          "removeAttribution": "قم بإزالة الإسناد",
+          "password": "كلمة السر خاصتك ",
+          "resetPassword": "إعادة تعيين كلمة المرور",
+          "editNickname": "تحرير لقبك",
+          "delete": "حذف",
+          "copyLink": "انسخ الرابط المباشر",
+          "copyImage": "انسخ الصورة",
+          "downloadImage": "قم بتنزيل الصورة",
+          "learnerMode": "وضع المتعلم",
+          "dueBy": "يسلم في",
+          "timePassed": "قضاء الوقت"
+        },
+        "selectStudents": "حدد الطلاب",
+        "selectedStudents": "تم اختيار <span id='attribuate-student-number'>0</span> طلاب",
+        "activationLink": "تفعيل رابط تفعيل",
+        "activationLinkDisabled": "رابط التنشيط معطل",
+        "deleteStudent": "احذف الطالب",
+        "deleteStudentConfirm": "هل أنت متأكد أنك تريد حذف هذا الطالب؟"
+      },
+      "activities": {
+        "title": "أنشطة",
+        "save": "احفظ المسودة",
+        "add": "قم بإنشاء نشاط",
+        "new": "جديد",
+        "current": "في تَقَدم",
+        "waiting": "لم تكتمل بعد",
+        "done": "فعله",
+        "todo": "لتصحيح",
+        "anonymise": "قم بإخفاء هوية قائمة المتعلمين لديك ، مما يتيح لك عرضها للجميع",
+        "save-draft": "احفظ كمسودة",
+        "validate": "تحقق من صحة النشاط",
+        "validateWarning": "يرجى ملاحظة أنه لا يمكنك إرسال هذا النشاط إلا مرة واحدة",
+        "validateNoEval": "يمكنك إرسال هذا النشاط عدة مرات كما تريد",
+        "accept": "إجادة جيدة جدا",
+        "vgood": "إتقان جيد",
+        "good": "إتقان ضعيف",
+        "refuse": "إجادة غير كافية",
+        "nnoted": "لم يتم تقييمه",
+        "instruction": "تعليمات",
+        "commentary": "تعليق",
+        "sendResults": "أرسل التعليق",
+        "noSend": "لم يتم إرجاع هذا النشاط",
+        "toSend": "النشاط المستحق",
+        "sentOn": "تم إرجاع هذا النشاط في",
+        "activityOfUser": "نشاط",
+        "userSentOn": " أرسلت في",
+        "timePassed": "الوقت المستغرق في النشاط",
+        "yourAnswer": "اجابتك",
+        "studentAnswer": "إجابة المتعلم",
+        "comments": "اكتب تعليقاتك هناك",
+        "return": "العودة إلى الأنشطة",
+        "numberOfTries": "عدد المحاولات",
+        "isAutocorrected": "تم تصحيح هذا النشاط تلقائيًا ، يمكنك تغيير الملاحظة أدناه",
+        "isAutocorrect": "سيتم تصحيح هذا النشاط تلقائيًا",
+        "states": "حالات النشاط",
+        "content": "محتوى النشاط",
+        "correction": "تصحيح",
+        "putYourAnswer": "ضع إجابتك هنا",
+        "hint": "ملحوظة",
+        "saved": "تم حفظ النشاط",
+        "wrongAnswer": "إجابة خاطئة",
+        "emptyAnswer": "لا يمكن أن يكون الجواب فارغًا",
+        "wrongAnswerLarge": "إجابة خاطئة ، يمكنك المحاولة مرة أخرى",
+        "previewActivity": "معاينة النشاط",
+        "hintExist": "<i class='fas fa-info-circle'></i>يحتوي هذا التمرين على تلميح ، ولا يمكن عرضه إلا إذا كان بإمكان الطالب إرسال النشاط عدة مرات",
+        "anoStudent": "تلميذ",
+        "bilan": {
+          "title": "حصيلة",
+          "results": "نتائج",
+          "noComment": "لا تعليق حتى الان"
+        },
+        "applist": {
+          "selectApp": "حدد التطبيق الذي ترغب في إنشاء نشاط به"
+        },
+        "form": [
+          null,
+          "طلب",
+          "محتوى",
+          "عنوان",
+          "الإسناد"
+        ],
+        "toCopy": "يتيح لك هذا الكود الانضمام إلى الفصل الدراسي بسهولة",
+        "qrCode": "امسح رمز الاستجابة السريعة ضوئيًا",
+        "copyLink": "تمت إضافة رابط فصلك الدراسي إلى الحافظة",
+        "dateBefore": "لرد الجميل من قبل",
+        "integrate": "الاندماج في نشاط",
+        "veryGoodProficiency": "إجادة جيدة جدا",
+        "goodProficiency": "إتقان جيد",
+        "weakProficiency": "إتقان ضعيف",
+        "insufficientProficiency": "إجادة غير كافية",
+        "noProficiency": "لم يتم تقييمه",
+        "addLearner": "أضف متعلمًا",
+        "addLearners": "أضف المتعلمين",
+        "addActivity": "أضف نشاطًا",
+        "exportCsv": "تصدير ملف CSV",
+        "month": [
+          null,
+          "يناير",
+          "فبراير",
+          "مارس",
+          "أبريل",
+          "ماي",
+          "يونيو",
+          "يوليو",
+          "غشت",
+          "شتنبر",
+          "اكتوبر",
+          "نونبر",
+          "دجنبر"
+        ],
+        "preview": "معاينة",
+        "deleteActivityDisclaimer": "سيتم حذف هذا النشاط من المنصة",
+        "deleteConfirm": "هل تريد حقًا حذف هذا النشاط؟",
+        "deleteActivity": "احذف النشاط",
+        "correctAnswer": "اجابة صحيحة",
+        "nbActivities": "<span class='nb-activities'>{{ nbActi }}</span> أنشطة</p>",
+        "moveToFolder": "الانتقال إلى",
+        "rootFolder": "المجلد الرئيسي",
+        "seekFolder": "اذهب إلى المجلد",
+        "foldersMessages": {
+          "errorDelete": "حدث خطأ أثناء حذف المجلد",
+          "errorCreate": "حدث خطأ أثناء إنشاء المجلد",
+          "errorLenght": "يجب أن يكون اسم المجلد بين 1 و 30 حرفًا",
+          "errorUpdate": "حدث خطأ أثناء تحديث المجلد",
+          "errorMoveTo": "حدث خطأ أثناء تحريك الجسم",
+          "movedTo": "تم نقل الكائن إلى",
+          "created": "تم إنشاء المجلد",
+          "updated": "تم تحديث المجلد",
+          "deleted": "تم حذف المجلد",
+          "createFolder": "قم بإنشاء مجلد",
+          "deleteFolder": "قم بتأكيد حذف المجلد",
+          "updateFolder": "قم بتحديث المجلد",
+          "nameMandatory": "اسم المجلد <span class='mandatory'>*</span>",
+          "deleteDisclaimer": "كن حذرًا ، سيتم حذف المجلد ومحتوياته (الأنشطة والمجلدات الفرعية)"
+        },
+        "facultative": "مجال اختياري",
+        "infoRetroAttribution": "سيتم إضافة هذا النشاط لكل طالب جديد يضاف إلى الفصل",
+        "infoAutocorrect": "هذا النشاط به تصحيح آلي ، هل ترغب في تفعيله؟",
+        "infoEvaluation": "بتحديد \"لا\" ، يمكن للمتعلمين إرسال النشاط مرة واحدة فقط ولا يمكنهم الوصول إلى التلميحات والمساعدات"
+      },
+      "filter": {
+        "desc": "من الأقدم إلى الأحدث",
+        "asc": "من الأحدث إلى الأقدم",
+        "placeholder": "فرز"
+      },
+      "sandbox": {
+        "mine": "مشاريعي",
+        "shared": "المشاريع المشتركة",
+        "add": "قم بإنشاء برنامج",
+        "chooseInterface": "حدد الواجهة حيث تريد إنشاء برنامج",
+        "teacherSharedDescription": "ابحث هنا عن البرامج التي يشاركها المتعلمون",
+        "studentSharedDescription": "ابحث هنا عن البرامج التي شاركها معلمك"
+      },
+      "footer": {
+        "privacy": "سياسة الخصوصية",
+        "cgu": "شروط الخدمة",
+        "legal": "إشعارات قانونية",
+        "copyright": ""
+      },
+      "teacherHelpPanel": {
+        "contactForm": {
+          "title": "اتصل بنا",
+          "objectPlaceholder": "شيء ما ",
+          "messagePlaceholder": "اكتب رسالتك هنا. (بحد أقصى 800 حرف)",
+          "sendButton": "أرسل الرسالة",
+          "fillInAllTheFields": "املأ جميع الحقول"
+        }
+      },
+      "sandBoxCreationPanel": {
+        "title": "حدد الواجهة التي تريد إنشاء برنامج عليها",
+        "knowMoreButton": "تعرف على المزيد حول الواجهات",
+        "interfacesDescription": {
+          "arduino": "واجهة برمجة للوحة Arduino",
+          "microbit": "واجهة برمجة للوحة Micro: bit",
+          "python": "واجهة برمجة الفكر Python 3 للتعليم",
+          "texas-instruments": "واجهة برمجة للآلة الحاسبة مع لوحة micro: bit",
+          "esp32": "واجهة برمجة للوحات ESP32 (Wemos D1R32 ، NodeMCU ، Huzzah32 ، ...)",
+          "quickpi": "واجهة برمجة للوحة Quick-Pi"
+        }
+      },
+      "modals": {
+        "addActivity": {
+          "title": "أضف نشاطًا",
+          "resourceBank": {
+            "title": "تصفح مركز الموارد التعاوني",
+            "button": "مركز الموارد"
+          },
+          "orSeparator": "أو",
+          "attributeActivity": {
+            "title": "استشر أنشطتي الحالية",
+            "button": "نشاطاتي"
+          },
+          "createActivity": {
+            "title": "قم بإنشاء نشاط جديد",
+            "button": "قم بإنشاء نشاط"
+          }
+        },
+        "settingsTeacher": {
+          "title": "إعدادت الحساب",
+          "lang": "لغة",
+          "description": "لتغيير كلمة المرور الخاصة بك أو إعدادات الحساب الأخرى",
+          "accessButton": "الوصول إلى ملف التعريف الخاص بك",
+          "password": "كلمة المرور",
+          "passwordDescription": "ها هي كلمة مرورك. تذكر أن تحفظها ، وإلا فلن يتمكن سوى معلمك من إعادتها إليك",
+          "resetPassword": "إعادة ضبط"
+        },
+        "addStudent": {
+          "title": "أضف الطلاب",
+          "pseudo": "اسم مستعار",
+          "addStudentButton": "أضف طالبًا",
+          "addStudentByCsvButton": "إضافة ملف متعلم (.csv)"
+        },
+        "addStudentByCsv": {
+          "title": "أضف الطلاب باستخدام ملف .csv",
+          "description": "يمكنك إضافة متعلم واحد أو أكثر مرة واحدة عن طريق استيرادهم من ملف .csv. من الممكن اختياريًا تحديد كلمة المرور لكل منهم. فيما يلي ملفات نموذج .csv",
+          "descriptionUpdate": "يمكنك إضافة متعلم واحد أو أكثر مرة واحدة عن طريق استيرادهم من ملف .csv. <b>تحذير</b> : هنا ، لا يتم استخدام كلمات مرور ملف csv! هنا ملف نموذج .csv",
+          "csvTemplate": "ملف قالب بكلمة مرور",
+          "csvTemplateNoPassword": "ملف قالب بدون كلمة مرور",
+          "importStudentByCsvButton": "استيراد المتعلمين"
+        },
+        "exportCsv": {
+          "title": "تصدير بتنسيق csv",
+          "exportLearnersDescription": "قم بتنزيل قائمة المتعلمين لهذا الفصل بالإضافة إلى كلمة المرور الخاصة بهم. الملف الذي تم تنزيله بتنسيق .csv",
+          "exportLearners": "قم بتنزيل قائمة المتعلمين",
+          "exportDashboardDescription": "قم بتنزيل قائمة المتعلمين لهذا الفصل وكذلك الأنشطة المخصصة لكل منهم بالإضافة إلى حالة كل نشاط (لم يتم تنفيذه بعد ، يجب تصحيحه وإكماله). الملف الذي تم تنزيله بتنسيق .csv",
+          "exportDashboard": "قم بتنزيل لوحة القيادة"
+        },
+        "listClass": {
+          "title": "التبديل في وضع الطالب",
+          "description": "يمكنك بسهولة اختبار الواجهة كمتعلم والعودة إلى ملف تعريف المعلم الخاص بك في أي وقت. سيتم حفظ التقدم كمتعلم في الحساب &quot; {{demoStudent}} &quot;",
+          "switchButton": "قم بالتبديل إلى وضع المتعلم"
+        },
+        "changePseudo": {
+          "title": "تغيير الكنية ",
+          "description": "تغيير الكنية ",
+          "validateButton": "تحقق"
+        },
+        "attributeActivity": {
+          "title": "تعيين النشاط"
+        },
+        "shareProject": {
+          "title": "شارك المشروع"
+        },
+        "profileUpdatePasswordConfirm": {
+          "title": "تأكيد كلمة المرور",
+          "description": "الرجاء إدخال كلمة المرور الحالية لتأكيد التغييرات في ملف التعريف الخاص بك",
+          "placeholderInput": "كلمة المرور",
+          "validateButton": "تحقق"
+        }
+      },
+      "folders": {
+        "folderManagement": "إدارة المجلد",
+        "name": "اسم",
+        "title": "المجلدات"
+      },
+      "pagination": {
+        "previous": "سابق",
+        "next": "التالي"
+      }
+    },
+    "faqInfo": [
+      null,
+      {
+        "section_title": "اسئلة عامة",
+        "question_list": [
+          null,
+          {
+            "title": "ما هي وحدة Classroom؟",
+            "answer": "تسهل وحدة Classroom تخصيص المحتوى التعليمي ومراقبة المتعلمين. يمكن للمدرسين استخدام محتويات المجتمع ، أو إنشاء أنشطتهم الخاصة ومشاركتها"
+          },
+          {
+            "title": "من يستخدم وحدة Classroom؟",
+            "answer": "في الفصل كما هو الحال في المنزل أو في ورشة العمل اللامنهجية ، يتم استخدام وحدة الفصل الدراسي من قبل المعلمين (المعلمين ، الميسرين ، المدربين ، إلخ) والمتعلمين (التلاميذ ، الطلاب ، المتدربين ، إلخ). تم تصميم وحدة الفصل للمستوى الثانوي (من 10 إلى 18 عامًا تقريبًا) ، ولكن يمكن تكييفها مع سياقات أخرى"
+          },
+          {
+            "title": "ما هي طبيعة الدعم من وزارة التربية الوطنية؟",
+            "answer": "Vittascience هو الفائز في برنامج Édu-up لدعم إنتاج الموارد الرقمية المبتكرة. مزيد من التفاصيل متوفرة على <a href=\"/eduUp\">الصفحة المخصصة لـ Edu-up</a> "
+          },
+          {
+            "title": "على أي وسائط يمكن استخدام وحدة الفصل الدراسي؟",
+            "answer": "تعمل وحدة الفصل الدراسي على أجهزة الكمبيوتر والأجهزة اللوحية والهواتف الذكية مع معظم المتصفحات والاتصال بالإنترنت"
+          },
+          {
+            "title": "هل يمكننا طلب مظاهرة؟",
+            "answer": "ننظم بانتظام ندوات عبر الإنترنت للعروض التقديمية للوحدات الدراسية ، يمكنك الاشتراك <a href=\"https://www.youtube.com/Vittascience\">في قناة Vittascience على Youtube</a> لعرض الإعادة ومشاهدة ندوات الويب المجدولة التالية. لحجز عرض مؤتمر عبر الفيديو مع أحد ممثلينا التربويين ، <a href=\"/about?contact=1\">اتصل بنا باستخدام هذا النموذج</a> "
+          },
+          {
+            "title": "كيف يمكنني الإبلاغ عن الأخطاء وتقديم التعليقات حول وحدة Classroom؟",
+            "answer": "يمكنك الاتصال بنا على وحدة Classroom في علامة تبويب الملف الشخصي باستخدام الزر \"تعليمات\""
+          },
+          {
+            "title": "هل وحدة الفصل متاحة بلغات متعددة؟",
+            "answer": "نعم ، وحدة Classroom متاحة حاليًا باللغتين الفرنسية والإنجليزية. لتغيير اللغة ، انتقل إلى علامة تبويب الملف الشخصي ، وانقر على زر الإعدادات ، ثم حدد اللغة التي تناسبك"
+          }
+        ]
+      },
+      [
+        null,
+        null,
+        null,
+        {
+          "section_title": "التراخيص والتصاريح",
+          "question_list": [
+            null,
+            {
+              "title": "هل يمكننا إعطاء وصف أو عرض تقديمي لوحدة الفصل؟",
+              "answer": "نعم ، يمكنك إعادة استخدام العناصر المرئية لوحدة Classroom لإنشاء وصف أو عرض تقديمي أو تدريب أو برنامج تعليمي أو دورة تدريبية أو غير ذلك. إذا كنت ترغب في تضمين صور أو محتوى نشاط ، يرجى ذكر المؤلف (انظر السؤال التالي)"
+            },
+            {
+              "title": "هل يمكننا إعادة استخدام أنشطة مجتمع Vittascience؟",
+              "answer": "نعم ، جميع الأنشطة الظاهرة في بنك موارد Vittascience تخضع لترخيص المشاع الإبداعي. حالتان ممكنتان:<ul style=\";text-align:right;direction:rtl\"><li style=\";text-align:right;direction:rtl\"> CC BY-NC-SA: يريد المؤلف مشاركة المحتوى للاستخدام غير التجاري فقط بشرط ذكر اسمه. المحتوى عرضة للتغيير.</li><li style=\";text-align:right;direction:rtl\">CC BY-NC-ND: يريد المؤلف مشاركة المحتوى للاستخدام غير التجاري فقط بشرط ذكر اسمه. لا يمكن تغيير المحتوى.</li></ul>"
+            },
+            {
+              "title": "أين يمكنني العثور على رمز المصدر لوحدة Classroom؟",
+              "answer": "الكود المصدري لوحدة Classroom متاح حاليًا في <a href=\"https://github.com/vittascience/OpenSTEAM-LMS\">مستودع Vittascience Github</a> . لا تتردد في المساهمة"
+            }
+          ]
+        }
+      ],
+      {
+        "section_title": "التراخيص والتصاريح",
+        "question_list": [
+          null,
+          {
+            "title": "هل يمكنني تقديم وصفي الخاص أو تقديمي لوحدة Classroom؟",
+            "answer": "نعم ، يمكنك إعادة استخدام العناصر المرئية لوحدة Classroom لإنشاء وصف أو عرض تقديمي أو وحدة تدريبية أو برنامج تعليمي أو دورة تدريبية أو محتوى آخر خاص بك. إذا كنت ترغب في تضمين محتوى النشاط أو الصور ، يرجى ذكر المؤلف (انظر السؤال التالي)"
+          },
+          {
+            "title": "هل يمكنني إعادة استخدام أنشطة مجتمع Vittascience؟",
+            "answer": "نعم ، جميع الأنشطة الظاهرة في بنك موارد Vittascience تخضع لترخيص المشاع الإبداعي. حالتان ممكنتان:<ul style=\";text-align:right;direction:rtl\"><li style=\";text-align:right;direction:rtl\"> CC BY-NC-SA: يرغب المؤلف في مشاركة المحتوى للاستخدام غير التجاري فقط بشرط ذكر اسمه. يمكن تعديل المحتوى.</li><li style=\";text-align:right;direction:rtl\">CC BY-NC-ND: يرغب المؤلف في مشاركة المحتوى للاستخدام غير التجاري فقط بشرط ذكر اسمه. لا يجوز تعديل المحتوى.</li></ul>"
+          },
+          {
+            "title": "أين يمكنني العثور على الكود المصدري لوحدة Classroom؟",
+            "answer": "الكود المصدري لوحدة Classroom متاح حاليًا في <a href=\"https://github.com/vittascience/OpenSTEAM-LMS\">مستودع Vittascience Github</a> . لا تتردد في المساهمة"
+          }
+        ]
+      }
+    ],
+    "login_popup": {
+      "title": "تسجيل الدخول",
+      "details": "أدخل تفاصيل تسجيل الدخول الخاصة بك للوصول إلى حسابك",
+      "form": {
+        "addressmail": "عنوان البريد الالكترونى",
+        "addressmail_placeholder": "exemple@domaine.com",
+        "password": "كلمة المرور",
+        "password_placeholder": "كلمة السر خاصتك",
+        "forgot_password": "لقد نسيت كلمة المرور",
+        "btn_connect": "تسجيل الدخول"
+      },
+      "success": "كانت المصادقة ناجحة. إعادة التوجيه ",
+      "error": "خطأ. يرجى التحقق من تفاصيل تسجيل الدخول الخاصة بك",
+      "canNotLoginBefore": "{{failedLoginAttempts}} محاولات فاشلة. عليك الانتظار {{timeToWait}} دقيقة قبل المحاولة مرة أخرى",
+      "mailSuccess": "تم إرسال بريد إلكتروني للتفعيل إلى عنوان بريدك الإلكتروني",
+      "mailError": "حدث خطأ. يرجى التحقق من عنوان البريد الإلكتروني الخاص بك",
+      "userNotFound": "لم يتم العثور على مستخدم مرتبط بهذا البريد",
+      "inactiveAccount": "حسابك غير نشط ، انقر فوق الزر الموجود أدناه لإرسال بريد تحقق جديد",
+      "accountDeactivated": "تم إلغاء تنشيط حسابك ، اتصل بالمسؤول إذا استمرت المشكلة",
+      "errorBeta": "يجب أن تكون أحد مختبري الإصدار التجريبي للوصول إلى هذه الوظيفة. <a href='https://fr.vittascience.com/about#contact'>اتصل بفريق Vittascience</a> لمعرفة المزيد"
+    },
+    "signup-popup": {
+      "title": "تسجيل",
+      "notice": "يرجى إكمال الحقول التالية لإنشاء حساب Vittascience الخاص بك",
+      "firstName": "الاسم",
+      "lastName": "اللقب",
+      "mail": "عنوان البريد الالكترونى",
+      "telephone": "رقم الهاتف",
+      "password": "كلمة المرور",
+      "passwordConfirmed": "تأكيد",
+      "firstNamePlaceholder": "اسمك",
+      "lastNamePlaceholder": "نسبك",
+      "mailPlaceholder": "سيتم إرسال رسالة تأكيد بالبريد الإلكتروني",
+      "telephonePlaceholder": "رقم هاتفك (اختياري)",
+      "passwordPlaceholder": "8 أحرف على الأقل. الأحرف الكبيرة والصغيرة والأرقام",
+      "passwordConfirmedPlaceholder": "كرر كلمة مرورك مرة ثانية",
+      "mandatory": "الحقول المشار إليها بعلامة <span class=\"mandatory \">*</span> إلزامية",
+      "submit": "تأكيد",
+      "back": "رجوع",
+      "title2nd": "يرجى تزويدنا ببعض المعلومات الإضافية",
+      "areYou": "أنت",
+      "member": "الفرد؟",
+      "teacher": "معلم؟",
+      "teacher-grade": "مستوى التعليم",
+      "grades": {
+        "primary": "مدرسة إبتدائية",
+        "middle": "المدرسة المتوسطة",
+        "high": "المدرسة الثانوية",
+        "highbis": "المدرسة الثانوية المهنية",
+        "higher": "ما بعد البكالورية"
+      },
+      "establishement": "مؤسسة",
+      "establishementPlaceholder": "البحث عن طريق اسم المؤسسة أو المدينة",
+      "subject": "المادة الدراسية",
+      "bio": "نبدة",
+      "bioPlaceholder": "أخبرنا قليلاً عن نفسك ، سيتمكن المستخدمون الآخرون للموقع من معرفة المزيد عن رحلتك :) بحد أقصى 800 حرف",
+      "profilPicture": "صورة الملف الشخصي (اختياري)",
+      "allowPictures": "التنسيقات المقبولة: jpeg ، jpg ، png. الأعلى. 10 ميغا بايت",
+      "allowPublicName": "هل توافق على أن اسمك واسم عائلتك علنيان على الموقع؟",
+      "allowNewsletter": "هل ترغب في تلقي النشرة الإخبارية عبر البريد الإلكتروني؟",
+      "allowAlertMessage": "هل ترغب في تلقي تنبيهات عبر البريد الإلكتروني عندما تتلقى رسائل جديدة على الموقع؟",
+      "allowMessageReceive": "هل ترغب في أن يتم الاتصال بك من قبل مستخدمين آخرين للموقع؟",
+      "eighteenConfirm": "أؤكد أن عمري يزيد عن 18 سنة (المادة 1124 من القانون المدني)",
+      "confirmCGU": "من خلال التحقق من صحة هذا النموذج ، فإنك تقبل <a target=\"_blank\" href=\"/cgu\">الشروط العامة للاستخدام</a> ",
+      "concernedAboutPrivacy": "تضع Vittascience أمان وسرية البيانات الشخصية لمستخدميها في صميم اهتماماتها. اكتشف <a target=\"_blank\" href=\"/privacy\">سياسة حماية البيانات الشخصية الخاصة بنا</a>",
+      "errors": {
+        "mailUsed": "البريد الإلكتروني {{ mail }} قيد الاستخدام بالفعل. الرجاء اختيار واحد آخر",
+        "mailUsedServer": "عنوان البريد الإلكتروني المقدم موجود بالفعل",
+        "lastName": "النسب المقدم غير صحيح",
+        "firstName": "الاسم المقدم غير صحيح",
+        "mailInvalid": "عنوان البريد الإلكتروني غير صالح",
+        "passwordInvalid": "كلمة المرور لا تحترم قيود الأمان",
+        "biographyInvalid": "السيرة الذاتية غير صحيحة",
+        "telephoneInvalid": "رقم الهاتف غير صحيح",
+        "profilPictureInvalid": "صورة الملف الشخصي المقدمة لا تتبع التنسيق المشار إليه",
+        "establishementIncorrect": "اسم المؤسسة غير صحيح",
+        "gradeIncorrect": "مستوى التعليم غير صحيح",
+        "subjectIncorrect": "اسم المادة الدراسية غير صحيح"
+      },
+      "success": {
+        "main": "تم تسجيل تسجيلك بنجاح! تم إرسال رابط التأكيد إليك على <b>{{mail}}</b>",
+        "notice": "يجب عليك الوصول إلى هذا الرابط قبل أن تتمكن من الاتصال. إذا لم تتمكن من العثور على البريد الإلكتروني المقابل ، يرجى التحقق من مجلد البريد العشوائي الخاص بك"
+      }
+    },
+    "switchAccessibility": {
+      "title": "إمكانية الوصول",
+      "theme": "مظهر ",
+      "light_theme": "مظهر لامع",
+      "dark_theme": "مظهر داكن",
+      "font": "الخطوط",
+      "basic_font": "أساسي",
+      "know_more": "تعرف أكثر"
+    },
+    "words": {
+      "send": "إرسال",
+      "settings": "الإعدادات",
+      "disconnect": "تسجيل الخروج",
+      "help": "مساعدة ",
+      "duplicate": "مكرر",
+      "delete": "حذف",
+      "attribute": "إسناد ",
+      "modify": "تعديل",
+      "optional": "اختياري",
+      "evaluation": "تقييم",
+      "exercise": "تمرين",
+      "return": "إرجاع",
+      "anonymize": "إخفاء الهوية",
+      "days": "أيام",
+      "hours": "ساعات",
+      "minutes": "الدقائق",
+      "seconds": "ثواني",
+      "confirm": "تؤكد",
+      "username": "اسم مستعار",
+      "password": "كلمة المرور",
+      "options": "والخيارات",
+      "yes": "نعم",
+      "no": "رقم"
+    },
+    "manager": {
+      "profil": {
+        "manager": "قم بالتبديل إلى المدير",
+        "groupAdmin": "قم بالتبديل إلى مسؤول المجموعة",
+        "bio": "السيرة الذاتية",
+        "group": "مجموعة",
+        "apps": "تطبيقات",
+        "personalApps": "التطبيقات الشخصية",
+        "groupsApps": "تطبيقات المجموعة",
+        "email": "البريد الإلكتروني <span class=\"c-text-red\">*</span>",
+        "nickname": "اسم المستخدم",
+        "lastname": "النسب <span class=\"c-text-red\">*</span>",
+        "firstname": "الاسم <span class=\"c-text-red\">*</span>",
+        "phone": "رقم الهاتف",
+        "grade": "مستوى التعليم <span class=\"c-text-red\">*</span>",
+        "subject": "مادة دراسية  <span class=\"c-text-red\">*</span>",
+        "school": "المدرسة <span class=\"c-text-red\">*</span>",
+        "password": "كلمة السر <span class=\"c-text-red\">*</span>",
+        "confirmPassword": "تأكيد كلمة المرور <span class=\"c-text-red\">*</span>",
+        "help": "مساعدة",
+        "onlyVisibleGroupAdmin": "مرئي لك فقط كمسؤول مجموعة",
+        "onlyVisiblemanager": "مرئي لك فقط كمدير"
+      },
+      "account": {
+        "activate": {
+          "success": "!تم تنشيط حسابك",
+          "alreadyactive": "حسابك نشط بالفعل",
+          "noToken": "لم يتم إرفاق أي رمز مميز بهذا الرابط"
+        },
+        "active": "حساب نشط",
+        "registration": {
+          "success": "!تسجيل ناجح",
+          "emailSent": "تم إرسال بريد إلكتروني إليك للتو ، اتبع الرابط الموجود به لتفعيل حسابك ومتابعة ارتباطك بالمجموعة &quot;<span id=\"gourpName2\"></span> &quot;",
+          "accountPublic": "هل توافق على أن اسمك واسم عائلتك علنيان على الموقع؟",
+          "newsletter": "هل ترغب في تلقي النشرة الإخبارية عبر البريد الإلكتروني؟",
+          "mailAlert": "هل ترغب في تلقي تنبيهات عبر البريد الإلكتروني عند تلقي رسائل جديدة على الموقع؟",
+          "allowContact": "هل ترغب في أن يتم الاتصال بك من قبل مستخدمين آخرين للموقع؟",
+          "confirmAdult": "أؤكد أن عمري يزيد عن 18 عامًا (المادة 1124 من كود du المدني) *",
+          "disclaimerVittascience": "تضع Vittascience أمان وسرية البيانات الشخصية لمستخدميها في صميم اهتماماتها. اكتشف <a href=\"http://vittascience.com/privacy\">سياسة حماية البيانات الشخصية الخاصة بنا</a>",
+          "mandatory": "الحقول المشار إليها بعلامة <span class=\"c-text-red\">*</span> إلزامية",
+          "cguVittascience": "من خلال التحقق من صحة هذا النموذج ، فإنك تقبل <a href=\"http://vittascience.com/\">شروط الخدمة</a> ",
+          "cguOpenSteam": "من خلال التحقق من صحة هذا النموذج ، فإنك تقبل <a target=\"_blank\" href=\"/classroom/cgu.php\">شروط الخدمة</a> ",
+          "description": "يرجى إكمال الحقول التالية لإنشاء حسابك",
+          "title": "تسجيل",
+          "registrationFinalizationSuccess": "تم الانتهاء من تسجيلك ، يمكنك الآن الاتصال",
+          "registrationFinalization": "إنهاء التسجيل الخاص بك",
+          "descriptionFinalization": "يرجى استكمال الحقول التالية لإكمال التسجيل الخاص بك",
+          "noTokenOrUserActive": "رمز غير صالح أو المستخدم نشط بالفعل",
+          "noToken": "رمز غائب "
+        },
+        "notAllowedUpdateUser": "ليس لديك حقوق تحديث هذا المستخدم",
+        "notAllowedDeleteGroup": "ليس لديك حقوق حذف هذه المجموعة",
+        "notAllowedDisableUser": "ليس لديك الحق في تعطيل هذا المستخدم",
+        "notAllowedDeleteUser": "ليس لديك الحق في حذف هذا المستخدم",
+        "passwordUpdatedMessage": "كلمة السر الخاصة بك تم تغييرها بنجاح",
+        "noUserFound": "لم يتم العثور على أي مستخدم يستخدم هذا العنوان",
+        "noUserFoundToken": "هذا الرمز لا يتوافق مع أي مستخدم",
+        "missingData": "المعلومات مفقودة لإنهاء العملية",
+        "missingDataDate": "معلومات التاريخ مفقودة لإنهاء العملية",
+        "errorSending": "حدث خطأ أثناء إرسال البريد الإلكتروني",
+        "userNotFound": "المستخدم غير موجود و / أو نشط بالفعل",
+        "userNotFoundId": "المستخدم ليس موجود",
+        "errorActivation": "حدث خطأ أثناء التنشيط",
+        "notAllowedToCreateUserInThisGroup": "غير مصرح لك بإنشاء مستخدم في هذه المجموعة",
+        "subscriptionOudated": "انتهت صلاحية تطبيق APPNAME الخاص بك في DATE. لمزيد من المعلومات اتصل بالمسؤول"
+      },
+      "users": {
+        "users": "المستخدمون",
+        "add": "إضافة مستخدم",
+        "activated": "تم تفعيل الحساب",
+        "errorActivation": "حدث خطأ أثناء التنشيط",
+        "create": "إنشاء مستخدم",
+        "delete": "مسح المستخدم",
+        "deleteConfirmation": "الرجاء كتابة \"حذف\" في الحقل أدناه للتحقق من صحة الإجراء",
+        "deleteIntentionSA": "أنت على وشك حذف المستخدم:<span id=\"mdi_firstnameSA\"></span>",
+        "disableIntention": "أنت على وشك تعطيل المستخدم:<span id=\"mde_firstnameSA\"></span>",
+        "deleteConfirmationTitle": "تأكيد الحذف",
+        "disableConfirmationTitle": "تأكيد التعطيل",
+        "update": "تحديث المستخدم",
+        "updateAppUser": "تحديث تطبيقات المستخدم",
+        "updateApp": "تحديث التطبيقات",
+        "disable": {
+          "message": "الرجاء كتابة \"حذف\" في الحقل أدناه للتحقق من صحة الإجراء",
+          "intention": "أنت على وشك حذف المستخدم:<span id=\"md_firstnameGA\"></span>"
+        },
+        "mail": {
+          "resetPassword": {
+            "subject": "إعادة تعيين كلمة المرور الخاصة بك",
+            "bodyTitle": "إعادة تعيين كلمة المرور",
+            "textBeforeLink": "إذا لم يعمل الزر أعلاه ، فقم بنسخ الرابط التالي ولصقه في متصفحك"
+          },
+          "finalizeAccount": {
+            "title": "إنهاء التسجيل",
+            "subject": "إنهاء التسجيل",
+            "bodyTitle": "إنهاء التسجيل الخاص بك",
+            "textBeforeLink": "إذا لم يعمل الزر أعلاه ، فقم بنسخ الرابط التالي ولصقه في متصفحك"
+          }
+        },
+        "showResetLinkTitle": "إعادة تعيين كلمة المرور",
+        "showResetLink": "رابط إعادة تعيين كلمة المرور",
+        "groupAdmin": "مسؤول المجموعة",
+        "admin": "مدير",
+        "teacher": "معلم",
+        "usersPerPage": "المستخدمون في كل صفحة",
+        "userDeleted": "تم حذف المستخدم",
+        "userDisabled": "تم تعطيل المستخدم",
+        "userCreated": "تم إنشاء المستخدم بنجاح",
+        "userUpdated": "تم تحديث المستخدم بنجاح",
+        "chooseNewPassword": "اختر كلمة السر الجديدة",
+        "passwordUpdate": "تم تغيير كلمة السر الخاصة بك",
+        "enterYourEmail": "أدخل عنوان بريدك الالكتروني",
+        "sendResetMailDescription": "من خلال النقر فوق إرسال بريد إلكتروني يحتوي على رابط لتغيير كلمة المرور الخاصة بك ، سيتم إرساله إليك",
+        "yourMail": "بريدك الالكتروني",
+        "emailSended": "تم إرسال بريد إلكتروني يحتوي على الإجراء الواجب اتباعه إليك للتو",
+        "emailNotReceived": "إذا لم تكن قد تلقيت البريد الإلكتروني ، فانقر فوق البدء من جديد (قد يستغرق البريد الإلكتروني بعض الوقت للوصول)",
+        "mailSentToUser": "تم إرسال بريد إلكتروني إلى المستخدم لإكمال تسجيله",
+        "mailNotSentToUser": "تعذر إرسال البريد الإلكتروني لإنهاء التسجيل إلى المستخدم",
+        "mailSentToUserReset": "تم إرسال بريد إلكتروني إلى المستخدم لتغيير كلمة المرور الخاصة به",
+        "mailNotSentToUserReset": "تعذر إرسال البريد الإلكتروني لتغيير كلمة المرور إلى المستخدم",
+        "appsUpdated": "تم تحديث تطبيقات المستخدم",
+        "updateAppModalTitle": "طلب",
+        "globalRestrictions": "قيود عالمية",
+        "teacherGrades": [
+          "مدرسة ابتدائية",
+          "المدرسة المتوسطة",
+          "المدرسة الثانوية",
+          "مدرسة إعدادية تقنية",
+          "ما بعد البكالوريا "
+        ],
+        "teacherSubjects": [
+          [
+            "مدرسة ابتدائية",
+            "أخرى (يرجى التحديد في السيرة الذاتية)"
+          ],
+          [
+            "التربية البدنية والرياضية",
+            "التربية الأخلاقية والمدنية",
+            "التدريس الفني",
+            "فرنسي",
+            "تاريخ و جغرافيا",
+            "اللغة الحية",
+            "الرياضيات",
+            "الفيزياء الكيميائية",
+            "علوم الأرض والحياة",
+            "تكنولوجيا",
+            "أخرى (حدد في السيرة الذاتية)"
+          ],
+          [
+            "الفنون",
+            "فنون السيرك",
+            "علم الأحياء علم البيئة",
+            "التقنيات الحيوية",
+            "ثقافة الإبداع والتصميم",
+            "الإبداع والابتكار التكنولوجي",
+            "علم البيئة - الزراعة - الأقاليم - التنمية المستدامة",
+            "التربية البدنية والرياضية",
+            "التربية الأخلاقية والمدنية",
+            "تعليم العلوم",
+            "التعليم التكنولوجي المستعرض",
+            "فرنسي",
+            "علم الهيبولوجيا وركوب الخيل",
+            "تاريخ و جغرافيا",
+            "تاريخ الجغرافيا والجغرافيا السياسية والعلوم السياسية",
+            "العلوم الإنسانية والأدب والفلسفة",
+            "لغات وثقافات العصور القديمة: لاتينية أو يونانية",
+            "اللغة الحية",
+            "اللغات والآداب والثقافات الأجنبية والإقليمية",
+            "الأدب واللغات والثقافات القديمة",
+            "إدارة",
+            "الرياضيات",
+            "العلوم الرقمية وعلوم الكمبيوتر",
+            "الفيزياء الكيميائية",
+            "أساسيات الاقتصاد والإدارة",
+            "الصحة والاجتماعية",
+            "علوم الأرض والحياة",
+            "العلوم الهندسية",
+            "العلوم والمختبر",
+            "علوم وتقنيات المسرح والموسيقى والرقص",
+            "علوم وتكنولوجيا المختبرات",
+            "علوم وتقنيات الفنادق والمطاعم",
+            "علوم وتكنولوجيا الصناعة والتنمية المستدامة",
+            "علوم وتقنيات التصميم والفنون التطبيقية",
+            "الإدارة والعلوم والتقنيات",
+            "العلوم والتكنولوجيا الرقمية",
+            "العلوم الاقتصادية والاجتماعية",
+            "أخرى (يرجى التحديد في السيرة الذاتية)"
+          ],
+          [
+            "الفنون التطبيقية والثقافات الفنية",
+            "الاقتصاد الصحيح",
+            "إدارة الاقتصاد",
+            "التربية البدنية والرياضة",
+            "التربية الأخلاقية والمدنية",
+            "التعليم التكنولوجي المستعرض",
+            "فرنسي",
+            "تاريخ و جغرافيا",
+            "اللغات الأجنبية الحديثة",
+            "رياضيات فيزياء - كيمياء",
+            "الوقاية الصحية البيئية",
+            "أخرى (يرجى التحديد في السيرة الذاتية)"
+          ],
+          [
+            "تعليم عالى",
+            "أخرى (يرجى التحديد في السيرة الذاتية)"
+          ]
+        ]
+      },
+      "group": {
+        "generalInfo": "معلومات عامة",
+        "add": "أضف مجموعة",
+        "create": "إنشاء مجموعة",
+        "delete": "حذف المجموعة",
+        "deleteIntention": "أنت على وشك حذف المجموعة:<span id=\"md_group\"></span>",
+        "update": "تحديث المجموعة",
+        "academy": "الأكاديمية",
+        "join": {
+          "firstVisit": "الزيارة الأولى ؟",
+          "signin": "تسجيل الدخول",
+          "signinSubtitle": "أدخل تفاصيل تسجيل الدخول الخاصة بك للوصول إلى حسابك",
+          "addressMail": "عنوان البريد",
+          "disclaimer": "من خلال الانضمام إلى هذه المجموعة ، فإنك تفوض مسؤول المجموعة لتعديل و / أو إلغاء تنشيط حسابك. سيكون لديك أيضًا التطبيقات التي تمتلكها المجموعة",
+          "lastStep": "لم يتبق سوى خطوة واحدة! انقر فوق الزر أدناه لإنهاء الارتباط",
+          "joinGroup": "أنت على وشك الانضمام إلى المجموعة: &quot;<span id='groupNameConfirmLink'></span> &quot;",
+          "notfound": "!المجموعة غير موجودة",
+          "notfoundDetails": "لا يمكننا العثور على أي مجموعات مرتبطة بالكود<span id='gourpName3'></span> ",
+          "clickToRedirectLogin": "انقر فوق \"متابعة\" لإعادة توجيهك إلى صفحة تسجيل الدخول",
+          "clickToRedirectHome": "انقر فوق متابعة ليتم إعادة توجيهك إلى الصفحة الرئيسية",
+          "invalidLink": "رابط غير صحيح",
+          "invalidFormatLink": "تنسيق الارتباط الذي أدخلته غير مطابق",
+          "success": "لقد انضممت إلى المجموعة: &quot;<span id=\"gourpName\"></span> &quot;",
+          "alreadyLinked": "أنت بالفعل جزء من هذه المجموعة",
+          "error": "حدث خطأ أثناء الربط",
+          "userNotFound": "لم يتم العثور على المستخدم ، يمكنك النقر فوق \"متابعة\" لإعادة توجيهك إلى صفحة تسجيل الدخول",
+          "contactAdmin": "إذا استمرت المشكلة ، فاتصل بالإدارة",
+          "groupFull": "المجموعة التي تريد الانضمام إليها ممتلئة",
+          "onlyOneGroup": "أنت بالفعل جزء من مجموعة ، ولا يمكنك الانضمام إلى مجموعة أخرى",
+          "mail": {
+            "textBeforeName": "المستخدم ",
+            "textAfterName": "انضم للمجموعة",
+            "emailSubject": "انضم مستخدم إلى المجموعة"
+          }
+        },
+        "name": "اسم المجموعة <span class=\"c-text-red\">*</span>",
+        "description": "وصف المجموعة <span class=\"c-text-red\">*</span>",
+        "link": "ارتباط المجموعة",
+        "applications": "تطبيقات المجموعة",
+        "groupsPerPage": "مجموعات في كل صفحة",
+        "groupDeleted": "تم حذف المجموعة",
+        "groupCreated": "تم إنشاء المجموعة بنجاح",
+        "groupUpdated": "تم تحديث المجموعة بنجاح",
+        "groupCreateFailed": "لا يمكن إنشاء المجموعة ، هناك بيانات مفقودة",
+        "showLinkTitle": "ارتباط المجموعة",
+        "usersWithoutGroups": "معلمين بدون مجموعات",
+        "searchResult": "نتيجة البحث",
+        "usersInactiveOrNoRegular": "المستخدمين غير النشطين أو غير المنتظمين",
+        "usersWithoutGroupsDescription": "مجموعة المدرسين غير مرتبطة بأي مجموعة",
+        "usersInactiveOrNoRegularDescription": "مجموعة المستخدمين غير المنتظمين",
+        "groupDeleteError": "لا يمكن حذف المجموعة",
+        "groupFull": "المجموعة ممتلئة",
+        "groupFullAdminMessage": "المجموعة ممتلئة ، ولا يمكنك إضافة مستخدمين آخرين",
+        "toManyStudentsFromTheTeacher": "المدرس الذي تريد إضافته إلى المجموعة لديه عدد كبير جدًا من الطلاب",
+        "toManyStudentsInGroup": "لا يمكن للمجموعة استيعاب الكثير من الطلاب ، فالمعلم لديه عدد كبير جدًا من الطلاب",
+        "teachersPerGroup": "مدرس لكل مجموعة",
+        "studentsPerGroup": "الطلاب في كل مجموعة",
+        "activitiesPerGroup": "الأنشطة لكل مجموعة",
+        "activitiesPerTeacher": "الأنشطة لكل معلم",
+        "studentsPerTeacher": "الطلاب لكل معلم",
+        "maxStudents": "الحد الأقصى لعدد الطلاب",
+        "maxActivities": "الحد الأقصى من الأنشطة",
+        "groupsRestrictions": "قيود المجموعة"
+      },
+      "title": {
+        "activeUsers": "المستخدمين النشطين",
+        "inaactiveUsers": "المستخدمون غير النشطين"
+      },
+      "buttons": {
+        "continue": "إكمال ",
+        "validate": "تحقق",
+        "activate": "تفعيل",
+        "cancel": "إلغاء ",
+        "finalize": "وضع اللمسات الأخيرة",
+        "send": "إرسال",
+        "login": "تسجيل الدخول",
+        "signup": "تسجيل ",
+        "join": "إنضمام ",
+        "save": "حفظ",
+        "close": "غلق",
+        "disable": "تعطيل",
+        "delete": "حذف",
+        "reset": "إعادة ضبط",
+        "update": "تحديث",
+        "search": "بحث",
+        "restart": "إعادة بدء",
+        "copyLink": "انسخ الرابط",
+        "show": "عرض",
+        "manage": "إدارة",
+        "user": {
+          "add": "إضافة مستخدم",
+          "create": "إنشاء مستخدم",
+          "delete": "مسح المستخدم",
+          "update": "تحديث المستخدم",
+          "addGroup": "أضف مجموعة",
+          "createA": "إنشاء مستخدم",
+          "updateA": "تحديث المستخدم",
+          "updateApp": "تحديث التطبيقات"
+        },
+        "group": {
+          "add": "أضف مجموعة",
+          "create": "إنشاء مجموعة",
+          "delete": "حذف المجموعة",
+          "update": "تحديث المجموعة",
+          "createA": "إنشاء مجموعة",
+          "updateA": "تحديث المجموعة"
+        }
+      },
+      "sort": {
+        "user": {
+          "bylastname": "فرز حسب النسب ",
+          "byfirstname": "فرز حسب الاسم "
+        },
+        "group": {
+          "byname": "الترتيب حسب الاسم",
+          "bydesc": "فرز حسب الوصف"
+        }
+      },
+      "input": {
+        "placeholder": {
+          "delete": "حذف"
+        },
+        "writeDelete": "يجب عليك كتابة حذف للتحقق من صحة الإجراء",
+        "writeDisable": "يجب أن تكتب تعطيل للتحقق من صحة الإجراء"
+      },
+      "table": {
+        "lastname": "اللقب",
+        "firstname": "الاسم ",
+        "applications": "التطبيقات",
+        "nbUsers": "عدد المستخدمين",
+        "group": "مجموعة",
+        "description": "وصف",
+        "descriptionMandatory": "الوصف <span class=\"c-text-red\">*</span>",
+        "right": "حقوق",
+        "resetPassword": "إعادة تعيين كلمة المرور",
+        "link": "نهاية لهذه الغاية",
+        "name": "اسم",
+        "nameMandatory": "الاسم <span class=\"c-text-red\">*</span>",
+        "dateBegin": "موعد البدء",
+        "dateEnd": "تاريخ الانتهاء",
+        "outDated": "قديم",
+        "status": "حالة",
+        "maxStudents": "الحد الأقصى لعدد الطلاب",
+        "actualStudents": "الطلاب الحاليون",
+        "maxTeachers": "الحد الأقصى من المعلمين",
+        "actualTeachers": "المعلمين الحاليين",
+        "maxStudentsPerTeachers": "الحد الأقصى لعدد الطلاب لكل معلم",
+        "maxStudentsPerTeacher": "الحد الأقصى لعدد الطلاب لكل معلم",
+        "activityType": "نوع النشاط",
+        "maxActivitiesPerGroup": "الحد الأقصى من الأنشطة لكل مجموعة",
+        "maxActivitiesPerTeacher": "الحد الأقصى من الأنشطة لكل معلم",
+        "monitoring": "مراقبة التطبيقات",
+        "image": "صورة",
+        "backgroundImage": "الصورة الخلفية",
+        "userNoRights": "لم يتم تعيين حقوق",
+        "userAdmin": "مدير",
+        "userTeacher": "معلم",
+        "restrictions": "قيود",
+        "color": "اللون",
+        "restriction": "تقييد",
+        "dateBeginFA": "<i class='far fa-calendar-alt'></i>موعد البدء",
+        "dateEndFA": "<i class='far fa-calendar-alt'></i>تاريخ الانتهاء",
+        "maxStudentsFA": "<i class=fas fa-user-alt'></i>الحد الأقصى لعدد الطلاب"
+      },
+      "apps": {
+        "apps": "تطبيقات",
+        "create": "أضف تطبيقًا",
+        "updateSuccess": "تم تحديث التطبيق بنجاح",
+        "createSuccess": "تم إنشاء التطبيق بنجاح",
+        "deleteSuccess": "تم حذف التطبيق بنجاح",
+        "deleteIntention": "أنت على وشك حذف التطبيق:<span id=\"application_delete_name\"></span>",
+        "outDatedApp": "التطبيق الذي تريد تعيينه قديم",
+        "infoMaxStudentsPerTeachers": "حدد الحد الأقصى لعدد الطلاب الذي يمكن أن يكون لدى معلم في المجموعة",
+        "infoMaxStudentsPerGroups": "تحديد الحد الأقصى لعدد الطلاب الذين يمكن أن تضمهم المجموعة (من خلال إضافة إجمالي طلاب المعلمين الذين لديهم هذا التطبيق)",
+        "infoMaxTeachers": "يحدد الحد الأقصى لعدد المعلمين الذين يمكنهم الحصول على التطبيق في هذه المجموعة",
+        "usersLimitation": "حدالطلاب",
+        "groupsLimitation": "حد المجموعات",
+        "activitiesLimitation": "حد الأنشطة",
+        "defaultRestrictions": "القيود التلقائية",
+        "ltiApps": "تطبيقات LTI",
+        "clientId": "معرف العميل <span class=\"c-text-red\">*</span>",
+        "deploymentId": "معرّف النشر <span class=\"c-text-red\">*</span>",
+        "toolUrl": "رابط الأداة <span class=\"c-text-red\">*</span>",
+        "publicKeySet": "مجموعة المفتاح العمومي <span class=\"c-text-red\">*</span>",
+        "loginUrl": "رابط تسجيل الدخول <span class=\"c-text-red\">*</span>",
+        "redirectionUrl": "عنوان url الخاص بإعادة التوجيه <span class=\"c-text-red\">*</span>",
+        "deepLinkUrl": "عنوان url للرابط العميق <span class=\"c-text-red\">*</span>",
+        "privateKey": "مفتاح خاص <span class=\"c-text-red\">*</span>",
+        "monitoringApps": "معلومات التطبيقات",
+        "monitoringGroup": "معلومات المجموعة",
+        "appStatus0": "غير نشط",
+        "appStatus1": "ادارة",
+        "appStatus2": "عفا عليها الزمن"
+      },
+      "activitiesRestrictions": {
+        "updateAll": "قيود التحديث",
+        "update": "تقييد التحديث",
+        "create": "إنشاء قيود",
+        "delete": "حذف القيد",
+        "updateSuccess": "تم تحديث القيد بنجاح",
+        "createSuccess": "تم إنشاء القيد بنجاح",
+        "deleteSuccess": "تم حذف القيد بنجاح",
+        "deleteIntention": "أنت على وشك حذف القيد:<span id=\"restriction_delete_name\"></span>",
+        "restrictionType": "نوع النشاط",
+        "maxActivity": "الحد الأقصى للنشاط",
+        "closeDetail": "أغلق التفاصيل",
+        "restrictions": "قيود النشاط",
+        "appRestricted": "إنشاء المزيد من الأنشطة",
+        "appOutDated": "الاشتراك في التطبيق عفا عليه الزمن ",
+        "appOutDatedUL1": "يتيح اشتراكك الوصول إلى هذا التطبيق عفا عليه الزمن ",
+        "appOutDatedUL2": "لمواصلة استخدام هذا التطبيق ، يرجى الاتصال بالمسؤول",
+        "appOutDatedSubtitle3": "اتصل بالدعم",
+        "appRestrictedUL1": "لقد وصلت إلى حد {{activities}} أنشطة مرتبطة بحسابك",
+        "appRestrictedUL2": "لإضافة أنشطة إضافية ، يرجى الاتصال بالمسؤول",
+        "appRestrictedSubtitle2": "مشكلة في اشتراكك؟",
+        "appRestrictedSubtitle3": "اتصل بالدعم",
+        "appRestrictedGarContent1": "لقد وصلت إلى حد {{activities}} أنشطة مرتبطة بحسابك",
+        "appRestrictedGarContent2": "لإضافة أنشطة إضافية ، يرجى الاتصال بمدير تعيين GAR في مؤسستك",
+        "indexPos": "موضع الفهرس",
+        "appQuantity": "كمية"
+      },
+      "defaultRestrictions": {
+        "update": "تحديث القيود الافتراضية",
+        "type": "نوع النشاط",
+        "max": "أقصى",
+        "add": "أضف قيدًا",
+        "updateUsersRestrictionsSuccess": "تم تحديث قيود المستخدمين الافتراضية بنجاح",
+        "updateGroupsRestrictionsSuccess": "تم تحديث قيود المجموعات الافتراضية بنجاح",
+        "updateActivitiesRestrictionsSuccess": "تم تحديث قيود الأنشطة الافتراضية بنجاح",
+        "deleteActivitiesRestrictionsSuccess": "تم حذف تقييد النشاط الافتراضي بنجاح",
+        "getDefaultRestrictions": "اعرض القيود الافتراضية",
+        "restrictionAlreadyExist": "القيد موجود بالفعل"
+      }
+    },
+    "navbar": {
+      "items": {
+        "kits": "المعدات",
+        "community": {
+          "title": "تواصل اجتماعي",
+          "dropdown": {
+            "vittamap": "فيتاماب",
+            "blog": "مقالات",
+            "gallery": "صالة عرض",
+            "about": "حول"
+          }
+        },
+        "tooltips": {
+          "backToHome": "العودة إلى الصفحة الرئيسية",
+          "programming": "البرمجة مع Vittascience",
+          "resources": "مركز الموارد التعليمية",
+          "classroom": "قم بإدارة فصولك الدراسية مع Vittascience",
+          "hardware": "اكتشف مجموعاتنا ومنتجاتنا"
+        },
+        "programming": "برمجة",
+        "classroom": "قاعة الدراسة",
+        "arduino": "اردوينو",
+        "microbit": "ميكروبيت",
+        "microbit-tutorials": "دروس الميكروبيت",
+        "ressources": "موارد",
+        "accessibility": "تغيير موضوع وخط الموقع",
+        "lang": "تغيير اللغة",
+        "user_shortcuts": {
+          "welcome": "أهلا وسهلا",
+          "signup": "اشتراك",
+          "login": "الاتصال",
+          "hello": "مرحبًا",
+          "account": "حسابي",
+          "disconnect": "قطع الاتصال",
+          "willSignup": "تسجيل الدخول",
+          "willSignin": "تسجيل الدخول"
+        }
+      }
+    },
+    "newActivities": {
+      "create": "قم بإنشاء نشاط جديد",
+      "delete": "حذف",
+      "addQuiz": "أضف اقتراحًا",
+      "states": "بيان النشاط <span class=\"c-text-red\">*</span>",
+      "cancel": "يلغي",
+      "autocorrect": "تصحيح تلقائي",
+      "correction": "تصحيح النشاط",
+      "contentTitle": "محتوى النشاط",
+      "tolerance1": "أضف تفاوت خطأ لـ",
+      "tolerance2": "حرف (شخصيات) في استجابة الطالب بالكامل",
+      "hint": "<i>يتم عرض تلميح * إذا كانت الإجابة خاطئة</i>",
+      "title": "عنوان النشاط <span class=\"c-text-red\">*</span>",
+      "description": "وصف النشاط <span class=\"c-text-red\">*</span>",
+      "content": "محتوى النشاط <span class=\"c-text-red\">*</span>",
+      "addField": "أضف حقل الإجابة",
+      "addFieldTooltip": "بالنقر فوق الزر \"إضافة حقل إجابة\" ، تتم إضافة نص منمنم. يمكنك كتابة الإجابة الصحيحة في هذا المجال. الإجابات البديلة مفصولة بعلامة العطف المزدوجة &&",
+      "ActivitiesData": {
+        "title": {
+          "reading": "قراءة",
+          "free": "إجابة مجانية",
+          "quiz": "اختبار",
+          "fillIn": "أملأ",
+          "dragAndDrop": "السحب والإفلات"
+        },
+        "description": {
+          "reading": "يتيح لك هذا النشاط عرض الصور ومقاطع الفيديو وملفات PDF وواجهات Vittascience وكذلك الأدوات الخارجية",
+          "free": "يسمح هذا النشاط للطلاب بالإجابة على تمرين مكتوب",
+          "quiz": "يقوم هذا النشاط بتقييم المعرفة باستخدام أسئلة الاختيار المتعددة أو البسيطة",
+          "fillIn": "يتيح لك هذا النشاط تطبيق معرفتك عن طريق ملء المربعات الفارغة",
+          "dragAndDrop": "يتيح لك هذا النشاط سحب الكلمات وإفلاتها في مساحات فارغة مختلفة"
+        }
+      }
+    }
+  }

@@ -3,8 +3,8 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : mariadb
--- Généré le : mar. 26 juil. 2022 à 14:12
--- Version du serveur : 10.8.3-MariaDB-1:10.8.3+maria~jammy
+-- Généré le : lun. 07 nov. 2022 à 07:59
+-- Version du serveur : 10.9.3-MariaDB-1:10.9.3+maria~ubu2204
 -- Version de PHP : 8.0.19
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -19,7 +19,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Base de données : `openSteam`
+-- Base de données : `opensteam`
 --
 
 -- --------------------------------------------------------
@@ -87,7 +87,8 @@ CREATE TABLE `classroom_activities_link_classroom_users` (
   `is_autocorrected` tinyint(1) NOT NULL DEFAULT 0,
   `is_evaluation` tinyint(1) NOT NULL DEFAULT 0,
   `url` varchar(255) COLLATE utf8mb3_unicode_ci DEFAULT NULL,
-  `response` text COLLATE utf8mb3_unicode_ci DEFAULT NULL
+  `response` text COLLATE utf8mb3_unicode_ci DEFAULT NULL,
+  `is_from_course` tinyint(1) NOT NULL DEFAULT 0
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_unicode_ci;
 
 -- --------------------------------------------------------
@@ -99,7 +100,7 @@ CREATE TABLE `classroom_activities_link_classroom_users` (
 CREATE TABLE `classroom_applications` (
   `id` int(11) NOT NULL,
   `name` varchar(255) NOT NULL,
-  `description` varchar(255) NOT NULL,
+  `description` text NOT NULL,
   `image` varchar(255) DEFAULT NULL,
   `is_lti` tinyint(1) DEFAULT NULL,
   `color` varchar(10) DEFAULT NULL,
@@ -114,7 +115,7 @@ CREATE TABLE `classroom_applications` (
 
 INSERT INTO `classroom_applications` (`id`, `name`, `description`, `image`, `is_lti`, `color`, `max_per_teachers`, `sort`, `background_image`) VALUES
 (1, 'reading', 'reading', './assets/media/activity/reading.png', 0, '#12acb1', -1, 7, ''),
-(2, 'free', 'free', './assets/media/activity/free.png', 0, '#3fa9f5', 4, 3, ''),
+(2, 'free', 'free', './assets/media/activity/free.png', 0, '#3fa9f5', -1, 3, ''),
 (3, 'dragAndDrop', 'dragAndDrop', './assets/media/activity/dragAndDrop.png', 0, '#24a069', -1, 2, ''),
 (4, 'quiz', 'quiz', './assets/media/activity/quiz.png', 0, '#ff931e', -1, 5, ''),
 (5, 'fillIn', 'fillIn', './assets/media/activity/fillIn.png', 0, '#5c947a', -1, 4, '');
@@ -134,7 +135,8 @@ CREATE TABLE `classroom_groups` (
   `date_end` datetime DEFAULT '2030-01-01 00:00:00',
   `max_teachers` int(11) DEFAULT NULL,
   `max_students` int(11) DEFAULT NULL,
-  `max_students_per_teachers` int(11) DEFAULT NULL
+  `max_students_per_teachers` int(11) DEFAULT NULL,
+  `max_classrooms_per_teachers` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
@@ -168,8 +170,8 @@ CREATE TABLE `classroom_restrictions` (
 --
 
 INSERT INTO `classroom_restrictions` (`id`, `name`, `restrictions`) VALUES
-(1, 'userDefaultRestrictions', '\"{\\\"maxStudents\\\":50}\"'),
-(2, 'groupDefaultRestrictions', '\"{\\\"maxStudents\\\":500,\\\"maxTeachers\\\":10,\\\"maxStudentsPerTeacher\\\":50}\"');
+(1, 'userDefaultRestrictions', '\"{\\\"maxStudents\\\":5,\\\"maxClassrooms\\\":0}\"'),
+(2, 'groupDefaultRestrictions', '\"{\\\"maxStudents\\\":15,\\\"maxTeachers\\\":1,\\\"maxStudentsPerTeacher\\\":5,\\\"maxClassroomsPerTeacher\\\":0}\"');
 
 -- --------------------------------------------------------
 
@@ -212,6 +214,22 @@ CREATE TABLE `classroom_users_link_classrooms` (
 -- --------------------------------------------------------
 
 --
+-- Structure de la table `classroom_users_link_courses`
+--
+
+CREATE TABLE `classroom_users_link_courses` (
+  `id` int(11) NOT NULL,
+  `user_id` int(11) NOT NULL,
+  `course_id` int(11) NOT NULL,
+  `activities_data` text DEFAULT NULL,
+  `date_begin` datetime DEFAULT NULL,
+  `date_end` datetime DEFAULT NULL,
+  `course_state` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
 -- Structure de la table `classroom_users_link_groups`
 --
 
@@ -233,7 +251,8 @@ CREATE TABLE `classroom_users_restrictions` (
   `date_begin` datetime DEFAULT NULL,
   `date_end` datetime DEFAULT NULL,
   `max_students` int(11) DEFAULT NULL,
-  `user_id` int(11) NOT NULL
+  `user_id` int(11) NOT NULL,
+  `max_classrooms` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
@@ -272,7 +291,10 @@ CREATE TABLE `interfaces_projects` (
   `link` varchar(255) COLLATE utf8mb3_unicode_ci NOT NULL,
   `mode` varchar(20) COLLATE utf8mb3_unicode_ci DEFAULT NULL,
   `is_deleted` tinyint(1) NOT NULL DEFAULT 0,
-  `is_activity_solve` tinyint(1) NOT NULL DEFAULT 0
+  `is_activity_solve` tinyint(1) NOT NULL DEFAULT 0,
+  `is_exercise_creator` tinyint(1) NOT NULL DEFAULT 0,
+  `id_exercise` int(11) DEFAULT NULL,
+  `exercise_statement` longtext COLLATE utf8mb3_unicode_ci DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_unicode_ci;
 
 -- --------------------------------------------------------
@@ -317,7 +339,8 @@ CREATE TABLE `learn_activities` (
   `solution` text COLLATE utf8mb3_unicode_ci DEFAULT NULL,
   `tolerance` int(11) DEFAULT NULL,
   `is_autocorrect` tinyint(1) DEFAULT NULL,
-  `folder` int(11) DEFAULT NULL
+  `folder` int(11) DEFAULT NULL,
+  `is_collapsed` tinyint(4) DEFAULT 0
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_unicode_ci;
 
 -- --------------------------------------------------------
@@ -387,14 +410,15 @@ CREATE TABLE `learn_courses` (
   `duration` int(11) NOT NULL DEFAULT 3600,
   `difficulty` int(11) NOT NULL DEFAULT 0,
   `lang` varchar(100) COLLATE utf8mb3_unicode_ci DEFAULT 'No lang',
-  `support` int(11) NOT NULL,
+  `support` int(11) DEFAULT 0,
   `img` varchar(10000) COLLATE utf8mb3_unicode_ci NOT NULL DEFAULT 'No image',
   `link` varchar(255) COLLATE utf8mb3_unicode_ci NOT NULL DEFAULT 'No link',
   `created_at` timestamp NULL DEFAULT current_timestamp(),
   `updated_at` timestamp NULL DEFAULT current_timestamp(),
   `is_deleted` tinyint(1) NOT NULL DEFAULT 0,
   `rights` int(11) NOT NULL DEFAULT 0,
-  `views` int(11) NOT NULL DEFAULT 0
+  `views` int(11) NOT NULL DEFAULT 0,
+  `folder` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_unicode_ci;
 
 -- --------------------------------------------------------
@@ -502,7 +526,7 @@ CREATE TABLE `users_login_attempts` (
 
 CREATE TABLE `user_classroom_users` (
   `user` int(11) NOT NULL,
-  `gar_id` varchar(255) COLLATE utf8mb3_unicode_ci DEFAULT NULL,
+  `gar_id` varchar(128) COLLATE utf8mb3_unicode_ci DEFAULT NULL,
   `school_id` varchar(8) COLLATE utf8mb3_unicode_ci DEFAULT NULL,
   `is_teacher` tinyint(1) DEFAULT NULL,
   `mail_teacher` varchar(255) COLLATE utf8mb3_unicode_ci DEFAULT NULL,
@@ -633,6 +657,12 @@ ALTER TABLE `classroom_users_link_classrooms`
   ADD PRIMARY KEY (`id_user`,`id_classroom`),
   ADD KEY `IDX_D2CA61A6B3CA4B` (`id_user`),
   ADD KEY `IDX_D2CA61AC9488CBA` (`id_classroom`);
+
+--
+-- Index pour la table `classroom_users_link_courses`
+--
+ALTER TABLE `classroom_users_link_courses`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Index pour la table `classroom_users_link_groups`
@@ -828,7 +858,7 @@ ALTER TABLE `classroom_activities_link_classroom_users`
 -- AUTO_INCREMENT pour la table `classroom_applications`
 --
 ALTER TABLE `classroom_applications`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=43;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1;
 
 --
 -- AUTO_INCREMENT pour la table `classroom_groups`
@@ -858,6 +888,12 @@ ALTER TABLE `classroom_users_link_applications`
 -- AUTO_INCREMENT pour la table `classroom_users_link_applications_from_groups`
 --
 ALTER TABLE `classroom_users_link_applications_from_groups`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT pour la table `classroom_users_link_courses`
+--
+ALTER TABLE `classroom_users_link_courses`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --

@@ -19,6 +19,7 @@ class ClassroomManager {
     constructor() {
         this._myActivities = [];
         this._myClasses = [];
+        this._selectedClassroomToDelete = null;
         this._myTeacherActivities = [];
         this._tasksQueue = [];
         this._isExecutingTaskInQueue = false;
@@ -35,7 +36,7 @@ class ClassroomManager {
             },
             resize_maxheight: 354,
             autoresize: false,
-            buttons: ",bold,italic,underline|,justifyleft,justifycenter,justifyright,img,link,|,quote,bullist,|,vittaiframe,cabriiframe,vittapdf,video,peertube,vimeo,genialyiframe,gdocsiframe,answer",
+            buttons: ",bold,italic,underline|,justifyleft,justifycenter,justifyright,customimageupload,link,|,quote,bullist,|,vittaiframe,cabriiframe,custompdfupload,video,peertube,vimeo,genialyiframe,gdocsiframe,answer",
         }
     }
 

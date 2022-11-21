@@ -4,29 +4,30 @@
       "noClass": "Le code entré ne correspond à aucune classe.",
       "countdown1": "Le module de gestion de classe est actuellement en version bêta. Si vous souhaitez l’essayer, veuillez <a href=\"/about?contact=1\">contacter l’équipe Vittascience</a>.",
       "countdown2": "Sortie officielle dans",
-      "display":"afficher",
-      "hello": "Bonjour !",
+      "hello1": "'Bonjour !'",
+      "hello2": "Bonjour !",
       "title": "Gérez vos classes</br>avec Vittascience",
-      "neutralTitle": "La plateforme Cabri",
+      "neutralTitle": "OpenSTEAM LMS",
+      "cabriTitle": "Cabri.com",
       "subtitle": "Découvrir - Apprendre - Partager",
       "login": "Se connecter",
-			"activities": "Créez facilement </br> vos activités",
-			"attribute": "Attribuez les </br> à vos apprenants",
-			"visualize": "Visualisez </br> leurs résultats",
+      "activities": "Créez facilement </br> vos activités",
+      "attribute": "Attribuez les </br> à vos apprenants",
+      "visualize": "Visualisez </br> leurs résultats",
       "helpers": " A nos côtés pour vous <span>accompagner.</span>",
       "student": "APPRENANT",
       "codeInput": " Rentrez ici votre code classe",
       "teacher": "ENSEIGNANT",
       "hasAccount": "Vous avez déja un compte ?",
-      "gar": "Profitez de la plateforme Cabri en toute simplicité à l'aide du GAR.</br><i class=\"fas fa-exclamation-triangle\" style=\"color:var(--vitta-orange-light)\"></i> Le raccordement au GAR n’est pas encore finalisé, il sera prêt prochainement.",
+      "gar": "Profitez du module classe en toute simplicité à l'aide du GAR.",
       "signup": "S'INSCRIRE",
-      "firstVisit": "Première visite ? Veuillez choisir un identifiant.",
+      "firstVisit": "Première viste ? Veuillez choisir un identifiant.",
       "signin": "SE CONNECTER",
-      "registerLink": "Créer un compte",
+      "registerLink": "S'inscrire",
       "hasReturned": "De retour dans cette classe ?",
       "forgot": "J'ai oublié mon mot de passe",
       "error": {
-        "used": "Ce pseudo est déja utilisé, veuillez en choisir un autre.",
+        "used": "Ce pseudo est déja utilisé, veuillez en choisir un autre",
         "badInput": "Votre pseudo ou mot de passe est erroné."
       },
       "suscribe": {
@@ -36,16 +37,16 @@
       },
       "carousel": {
         "activities": {
-          "title": "créez facilement vos activités",
-          "content": "L'éditeur d'activité permet de créer du contenu pédagogique en toute simplicité, en incluant du texte, des images, des vidéos, des interfaces de programmation Vittascience, des présentations Genially et bien d'autres outils.</br></br>Parcourez la banque de ressources collaboratives Vittascience qui regroupe plusieurs centaines d'activités libres et réutilisables. Si l'auteur de la ressource l'autorise, vous pouvez même apporter des modifications pour adapter le contenu à vos apprenants !"
+          "title": "Créez facilementvos activités",
+          "content": "L'éditeur d'activité permet de créer du contenu pédagogique en toute simplicité, en incluant du texte, des images, des vidéos, des interfaces de programmation Vittascience, des présentations Genially et bien d'autres outils.</br></br>Parcourez la banque de ressources collaboratives Vittascience, qui regroupe plusieurs centaines d'activités libres et réutilisables. Si l'auteur de la ressourcel'autorise, vous pouvez même apporter des modifications pour adapter le contenu à vos apprenants !"
         },
         "attribute": {
-          "title": "attribuez-les à vos apprenants",
+          "title": "Attribuez les à vos apprenants",
           "content": "Une fois vos activités créées, vous pouvez les attribuer à vos apprenants. Il est possible d'attribuer individuellement ou bien à des groupes entiers, par exemple une classe ou un club scientifique.</br></br>Les apprenants peuvent se connecter en toute sécurité à l'aide d'un code classe, d'un lien, d'un QRcode ou du GAR, et réaliser les activités qui leurs ont été attribuées."
         },
         "visualize": {
-          "title": "visualisez leurs résultats",
-          "content": "Le tableau de bord permet de suivre la progression des apprenants à mesure qu'ils avancent dans les activités et parcours. Retrouvez le travail de vos apprenants en un clic avec la possibilité de commenter le rendu.</br></br>Grâce au système de correction automatique pour blocs et Python, le tableau de bord se remplit directement avec les résultats des élèves. Identifiez rapidement les apprenants en difficulté et gagnez un temps précieux pour les accompagner."
+          "title": "Visualisez leurs résultats",
+          "content": "Le tableau de bord permet de suivre la progression des apprenants à mesure qu'ils avancent dans les activités et parcours. Retrouvez le travail de vos apprenants en un clic avec possibilité de commenter le rendu.</br></br>Grâce au système de correction automatique pour blocs et Python, le tableau de bord se remplit directement avec les résultats des élèves. Identifiez rapidement les apprenants en difficulté et gagnez un temps précieux pour les accompagner."
         }
       },
       "register": {
@@ -59,18 +60,19 @@
       "accountConfirmationEmail": {
         "emailSubject": "Activer mon compte",
         "bodyTitle": "Activer mon compte",
-        "textBeforeLink": "Si le bouton ci-dessus ne fonctionne pas, copiez et collez le lien suivant dans votre navigateur :"
+        "textBeforeLink": "Si le bouton ci-dessus ne fonctionne pas, copiez et collez dans votre navigateur, le lien suivant :"
       }
     },
     "updateUserInfos": {
       "emailUpdateConfirmation": {
-        "emailSubject": "Confirmez ma nouvelle adresse e-mail",
-        "bodyTitle": "Confirmez ma nouvelle adresse e-mail",
-        "textBeforeLink": "Si le bouton ci-dessus ne fonctionne pas, copiez et collez le lien suivant dans votre navigateur :"
+        "emailSubject": "Confirmez ma nouvelle adresse email",
+        "bodyTitle": "Confirmez ma nouvelle adresse email",
+        "textBeforeLink": "Si le bouton ci-dessus ne fonctionne pas, copiez et collez dans votre navigateur, le lien suivant :"
       }
     },
+    "pdfPreview": "prévisualisation de PDF",
     "successPanel": "Bravo, tu as réussi cette activité !",
-    "failPanel": "La réponse n'est pas correcte.",
+    "failPanel": "La réponse n'est pas correcte",
     "toCorrectPanel": "L'activité à été transmise à ton enseignant,</br>qui reviendra vers toi bientôt !",
     "bank": {
       "helpTooltip": "La banque de ressource contient de nombreuses activités sur lesquelles tu peux t'entraîner en autonomie ! Ton enseignant n'aura pas accès aux résultats de ces activités."
@@ -90,7 +92,7 @@
       "class": "CLASSE : ",
       "todo": "Activités </br> à faire",
       "done": "Activités </br> réalisées",
-      "create": "Activités </br> créées",
+      "create": "Activités </br> crées",
       "correctionToDo": "Corrections </br> à faire",
       "switchMode": "Passer en mode apprenant",
       "switchModeTeacher": "Retour au mode enseignant",
@@ -109,97 +111,99 @@
       "emptyContent": "Le contenu ne peut pas être vide.",
       "emptyTitle": "Le titre ne peut pas être vide.",
       "activityRestricted": "Vous ne pouvez pas créer plus d'activité de ce type.",
-      "shareProjectTeacher": "Le projet a été partagé avec votre enseignant.",
-      "addActivities": "Les activités sélectionnées ont été ajoutées à votre liste.",
-      "addActivity": "L'activité a été ajoutée à votre liste.",
-      "saveProject": "Avez-vous pensé à sauver votre activité ?",
+      "shareProjectTeacher": "Le projet a été partagé avec votre enseignant",
+      "addActivities": "Les activités sélectionnées ont été ajoutées à votre liste",
+      "addActivity": "L'activité a été ajoutée à votre liste",
+      "saveProject": "Avez vous pensé à sauver votre activité?",
       "savedProject": "Le brouillon de votre activité a été sauvé.",
       "deleteProject": "Le projet a été supprimé.",
-      "shareProject": "Le projet a été partagé.",
-      "corrections": "Un exercice a été rendu dans vos classes.",
-      "deleteAccount": "Êtes-vous sûr de vouloir supprimer le compte de l'apprenant ?",
-      "accountIsDelete": "Le compte de l'apprenant a été supprimé.",
+      "shareProject": "Le projet a été partagé",
+      "corrections": "Un exercice a été rendu dans vos classes",
+      "deleteAccount": "Etes vous sur de vouloir supprimer le compte de l'apprenant?",
+      "accountIsDelete": "Le compte de l'apprenant  a été supprimé",
       "newPwd": "Le nouveau mot de passe de l'apprenant {{pseudo}} est {{pwd}}",
-      "classCreatedButNotUsers": "La classe {{classroomName}} a bien été créée, mais pas les comptes associés (Votre compte ne vous permet pas d'avoir {{learnerNumber}} apprenants.)",
-      "classUpdatedButNotUsers": "La classe {{classroomName}} a bien été mise à jour, mais pas les comptes associés (Votre compte ne vous permet pas d'avoir {{learnerNumber}} apprenants.)",
-      "usersNotAdded": "L'apprenant n'a pas pu être ajouté (Votre compte ne vous permet pas d'avoir {{learnerNumber}} apprenants.)",
+      "classCreatedButNotUsers": "La classe {{classroomName}} a bien été crée, mais pas les comptes associés (Votre compte ne vous permet pas d'avoir {{learnerNumber}} apprenants)",
+      "classUpdatedButNotUsers": "La classe {{classroomName}} a bien été mise à jour, mais pas les comptes associés (Votre compte ne vous permet pas d'avoir {{learnerNumber}} apprenants)",
+      "usersNotAdded": "L'apprenant n'a pas pu être ajouté (Votre compte ne vous permet pas d'avoir {{learnerNumber}} apprenants)",
       "cantLoginLimitLearners": "Vous ne pouvez pas rejoindre la classe. Votre professeur a atteint son nombre maximum d'apprenants.",
       "cantLoginClassroomBlocked": "Vous ne pouvez pas rejoindre la classe, votre professeur en a verrouillé l'accès.",
-      "classNotCreated": "Vous ne pouvez pas avoir plus d'une classe.",
-      "attributeActivityUndone": "L'activité a été désattribuée.",
+      "classNotCreated": "Vous ne pouvez pas avoir plus de {{classroomNumberLimit}} classe(s).",
+      "attributeActivityUndone": "L'activité a été désattribuée",
       "pseudoUpdated": "Le nouveau pseudo de l'apprenant est {{newPseudo}}",
-      "classroomDeleted": "La classe {{classroomName}} a été supprimée.",
-      "classroomCreated": "La classe {{classroomName}} a été créée, ainsi que tous les comptes associés.",
-      "classroomUpdated": "La classe {{classroomName}} a été mise à jour, ainsi que tous les comptes associés.",
-      "usersAdded": "Les comptes ont été créés.",
-      "usersAddedFromCsv": "Les comptes ont été créés d'après le fichier csv.",
-      "activityDeleted": "L'activité {{activityName}} a été supprimée.",
+      "classroomDeleted": "La classe {{classroomName}} a été supprimée",
+      "classroomCreated": "La classe {{classroomName}} a été créée, ainsi que tous les comptes associés",
+      "classroomUpdated": "La classe {{classroomName}} a été mise à jour, ainsi que tous les comptes associés",
+      "usersAdded": "Les comptes ont été créés",
+      "usersAddedFromCsv": "Les comptes ont été créés d'après le fichier csv",
+      "activityDeleted": "L'activité {{activityName}} a été supprimée",
       "activityDuplicated": "L'activité {{activityName}} a été dupliquée",
-      "mustAttributeToStudent": "Vous devez sélectionner des apprenants.",
-      "activityAttributed": "L'activité {{activityTitle}} a été attribuée aux apprenants listés.",
-      "activityAttributionChanged": "L'attribution de l'activité {{activityTitle}} a été modifiée pour les apprenants listés.",
-      "activityCreated": "L'activité {{activityTitle}} a été créée.",
-      "activityChanged": "L'activité {{activityTitle}} a été modifiée.",
-      "activityTitleMissing": "Vous devez renseigner le titre de l'activité.",
-      "CsvFileMissing": "Vous n'avez pas choisi de fichier csv.",
+      "mustAttributeToStudent": "Vous devez attribuer l'activité à des étudiants",
+      "activityAttributed": "L'activité {{activityTitle}} a été attribuée aux apprenants listés",
+      "activityAttributionChanged": "L'attribution de l'activité {{activityTitle}} a été modifiée pour les apprenants listés",
+      "activityCreated": "L'activité {{activityTitle}} a été créée",
+      "activityChanged": "L'activité {{activityTitle}} a été modifiée",
+      "activityTitleMissing": "Vous devez renseigner le titre de l'activité",
+      "CsvFileMissing": "Vous n'avez pas choisi de fichier csv",
       "errorWithCsv": "Erreur lors de l'ouverture du fichier csv : {{error}}",
-      "cantGetPassword": "Erreur, vous ne pouvez pas voir votre mot de passe.",
-      "cantResetPassword": "Erreur, vous ne pouvez pas réinitialiser votre mot de passe.",
-      "accountUpdated": "Votre compte a été mis à jour.",
-      "emailUpdated": "Veuillez vous rendre sur le lien de confirmation qui vient de vous être communiqué sur la nouvelle adresse e-mail pour en finaliser la mise à jour.",
-      "firstNameTooShort": "Le prénom doit comporter au moins 2 caractères.",
-      "lastNameTooShort": "Le nom doit comporter au moins 2 caractères.",
-      "pseudoTooShort": "Le pseudo doit comporter au moins 2 caractères.",
-      "invalidEmail": "L'adresse e-mail saisie est invalide.",
+      "cantGetPassword": "Erreur, vous ne pouvez pas voir votre mot de passe",
+      "cantResetPassword": "Erreur, vous ne pouvez pas réinitialiser votre mot de passe",
+      "accountUpdated": "Votre compte a été mis à jour",
+      "emailUpdated": "Veuillez vous rendre sur le lien de confirmation qui vient de vous être communiqué sur la nouvelle adresse e-mail pour en finaliser la mise à jour",
+      "firstNameTooShort": "Le prénom doit au moins comporter 2 caractères",
+      "lastNameTooShort": "Le nom doit au moins comporter 2 caractères",
+      "pseudoTooShort": "Le pseudo doit au moins comporter 2 caractères",
+      "invalidEmail": "L'adresse e-mail saisie est invalide",
       "invalidPassword": "Le mot de passe saisi est invalide. Il doit comporter au moins 8 caractères.",
       "passwordAndConfirmMismatch": "Le mot de passe et la confirmation du mot de passe ne sont pas identiques !",
       "unknownUser": "Erreur lors de la mise à jour du compte : l'utilisateur n'existe pas !",
       "passwordInvalid": "Le mot de passe ne respecte pas les contraintes de sécurité.",
-      "emailInvalid": "L'adresse e-mail envoyée est invalide.",
-      "emailExists": "L'adresse e-mail est déjà attribuée à un autre compte.",
+      "emailInvalid": "L'adresse e-mail envoyée est invalide",
+      "emailExists": "L'adresse e-mail est déjà attribuée à un autre compte",
       "UserNotExists": "Erreur lors du chargement / de la réinitialisation du mot de passe : utilisateur incorrect !",
       "RegularUserNotAllowed": "Erreur lors du chargement / de la réinitialisation du mot de passe : seul les apprenants peuvent afficher / réinitialiser leur mot de passe !",
       "PasswordLengthInvalid": "Impossible de récupérer le mot de passe : mot de passe erroné !",
       "accountCreated": "Le compte a été créé. Veuillez vous rendre sur le lien de confirmation qui vient de vous être communiqué par e-mail pour finaliser l'inscription et pouvoir vous connecter.",
-      "firstnameMissing": "Vous devez renseigner votre prénom.",
-      "surnameMissing": "Vous devez renseigner votre nom.",
-      "pseudoMissing": "Vous devez renseigner votre pseudo.",
-      "emailMissing": "Vous devez renseigner votre adresse e-mail.",
-      "passwordMissing": "Vous devez renseigner votre mot de passe.",
-      "passwordConfirmMissing": "Vous devez renseigner la confirmation du mot de passe.",
-      "passwordsMismatch": "Le mot de passe et la confirmation ne sont pas identiques.",
-      "invalidUserId": "Erreur lors de l'envoi du message : votre identifiant est invalide.",
+      "firstnameMissing": "Vous devez renseigner votre prénom",
+      "surnameMissing": "Vous devez renseigner votre nom",
+      "pseudoMissing": "Vous devez renseigner votre pseudo",
+      "emailMissing": "Vous devez renseigner votre adresse e-mail",
+      "passwordMissing": "Vous devez renseigner votre mot de passe",
+      "passwordConfirmMissing": "Vous devez renseigner la confirmation du mot de passe",
+      "passwordsMismatch": "Le mot de passe et la confirmation ne sont pas identiques",
+      "invalidUserId": "Erreur lors de l'envoi du message : votre identifiant est invalide",
       "helpRequestFromTeacherSent": "Votre message a bien été envoyé. Nous vous répondons au plus vite.",
-      "subjectMissingTeacherHelpForm": "Vous devez renseigner l'objet du message.",
-      "messageMissingTeacherHelpForm": "Vous devez saisir votre message.",
-      "invalidUserIdTeacherHelpForm": "Erreur lors de l'envoi du message : votre identifiant est invalide.",
-      "unknownUserTeacherHelpForm": "Erreur lors de l'envoi du message : votre identifiant ne correspond à aucun compte enseignant.",
-      "helpRequestFromLearnerSent": "Ton message a bien été envoyé à ton enseignant.",
-      "subjectMissingLearnerHelpForm": "Tu dois renseigner l'objet du message.",
-      "messageMissingLearnerHelpForm": "Tu dois saisir ton message.",
-      "invalidUserIdLearnerHelpForm": "Erreur lors de l'envoi du message : ton identifiant est invalide.",
-      "unknownUserLearnerHelpForm": "Erreur lors de l'envoi du message : ton identifiant est inconnu.",
-      "unknownEmailLearnerHelpForm": "Erreur lors de l'envoi du message : l'adresse e-mail de ton enseignant est inconnue.",
-      "activityTitleInvalid": "L'activité n'a pas pu être créée : titre invalide.",
-      "activityContentInvalid": "L'activité n'a pas pu être créée : contenu invalide.",
-      "activityIsFromClassroomInvalid": "L'activité n'a pas pu être créée : erreur de contexte.",
-      "activityUserIdInvalid": "L'activité n'a pas pu être créée : utilisateur invalide.",
-      "personalLimitationsReached": "Vous avez atteint votre nombre maximum d'apprenants.",
-      "groupLimitationsGroup": "Votre groupe ne peut plus accueillir d'apprenants.",
-      "groupLimitationsTeacher": "Vous avez atteint la limite d'apprenants que votre groupe vous octroie.",
-      "bothLimitationsReached": "Vous avez atteint les limitations d'apprenants que vous et votre groupe pouvez avoir.",
-      "ClassroomNameInvalid": "Le nom de la classe est requis.",
+      "subjectMissingTeacherHelpForm": "Vous devez renseigner l'objet du message",
+      "messageMissingTeacherHelpForm": "Vous devez saisir votre message",
+      "invalidUserIdTeacherHelpForm": "Erreur lors de l'envoi du message : votre identifiant est invalide",
+      "unknownUserTeacherHelpForm": "Erreur lors de l'envoi du message : votre identifiant ne correspond à aucun compte enseignant",
+      "helpRequestFromLearnerSent": "Ton message a bien été envoyé à ton enseignant",
+      "subjectMissingLearnerHelpForm": "Tu dois renseigner l'objet du message",
+      "messageMissingLearnerHelpForm": "Tu dois saisir ton message",
+      "invalidUserIdLearnerHelpForm": "Erreur lors de l'envoi du message : ton identifiant est invalide",
+      "unknownUserLearnerHelpForm": "Erreur lors de l'envoi du message : ton identifiant est inconnu",
+      "unknownEmailLearnerHelpForm": "Erreur lors de l'envoi du message : l'adresse e-mail de ton enseignant est inconnue",
+      "activityTitleInvalid": "L'activité n'a pas pu être créée : titre invalide",
+      "activityContentInvalid": "L'activité n'a pas pu être créée : contenu invalide",
+      "activityIsFromClassroomInvalid": "L'activité n'a pas pu être créée : erreur de contexte",
+      "activityUserIdInvalid": "L'activité n'a pas pu être créée : utilisateur invalide",
+      "personalLimitationsReached": "Vous avez atteint votre nombre maximum d'apprenants ({{max}} maximum)",
+      "groupLimitationsGroup": "Votre groupe ne peut plus accueillir d'apprenants",
+      "groupLimitationsTeacher": "Vous avez atteint la limite d'apprenants que votre groupe vous octroie",
+      "bothLimitationsReached": "Vous avez atteint les limitations d'apprenants que vous et votre groupe pouvez avoir. ({{maxG}} maximum par groupe, {{maxP}} maximum personnel)",
+      "ClassroomNameInvalid": "Le nom de la classe est requis",
       "reservedNickname": "Le nom : \"{{reservedNickname}}\" ne peut être attribué.",
-      "invalidLink": "Le lien que vous avez entré n'est pas valide.",
-      "noUser" : "Vous devez renseigner un élève.",
-      "noUserUsername" : "Vous devez rentrer un nom d'utilisateur.",
-      "pseudoMissingInCsvFile" : "Certains élèves n'ont pas pu être ajoutés car leur pseudo était manquant.",
-      "backendReplyPseudoMissingInCsv" : "Vérifier le fichier CSV : ligne vide ou pseudo manquant.",
-      "backendReplyPseudoMissingInUsersArray" : "Il y a une erreur dans un ou plusieurs nom(s) d'apprenant(s).",
+      "invalidLink": "Le lien que vous avez entrer n'est pas valide",
+      "noUser": "Vous devez renseigner un élève",
+      "noUserUsername": "Vous devez rentrer un nom d'utilisateur",
+      "pseudoMissingInCsvFile": "Certains élèves n'ont pu être ajouter car leur pseudo était manquant",
+      "backendReplyPseudoMissingInCsv": "Vérifier le fichier CSV : ligne vide ou pseudo manquant",
+      "backendReplyPseudoMissingInUsersArray": "Il y a une erreur dans un ou plusieurs nom d'apprenant(s)",
       "invalidActivityId": "Erreur lors de la soumission du travail : identifiant d'activité non valide !",
       "invalidCorrection": "Erreur lors de la soumission du travail : statut d'activité non valide !",
       "currentPasswordDoesNotMatch": "Le mot de passe saisi n'est pas correct !",
-      "noAnswerInActivity": "Vous devez renseigner au moins un champ de réponse"
+      "noAnswerInActivity": "Vous devez renseigner au moins un champ de réponse",
+      "courseMissingData": "Vous devez renseigner un titre et une description",
+      "courseMissingParameters": "Vous devez renseigner les paramètres pour continuer"
     },
     "ids": {
       "classroom-dashboard-help-panel-teacher": "Aide",
@@ -225,8 +229,8 @@
     },
     "classes": {
       "add": "Ajouter une classe",
-			"noClasses": "Vous n'avez pas encore de classe.",
-			"createClassNow": "Commencez par créer une classe dès maintenant !",
+      "noClasses": "Vous n'avez pas encore de classe.",
+      "createClassNow": "Commencez par créer une classe dès maintenant !",
       "form": {
         "title": "Créer une classe",
         "name": "Nom de la classe",
@@ -238,22 +242,23 @@
         "save": "Sauvegarder la classe",
         "return": "Retour à la classe"
       },
-			"panel": {
-				"seeActivity":"Voir l'activité",
-				"editActivity":"Modifier l'activité",
-				"editAttribution":"Modifier l'attribution",
-				"removeAttribution":"Retirer l'attribution",
-				"password": "Votre mot de passe :",
-				"resetPassword" : "Regénérer le mot de passe",
-				"editNickname": "Modifier le pseudonyme",
-				"delete": "Supprimer",
-				"copyLink": "Copier le lien direct",
-				"copyImage": "Copy the image",
-				"downloadImage": "Download the image",
-				"learnerMode": "Mode apprenant",
-				"dueBy":"À rendre avant le",
+      "panel": {
+        "seeActivity": "Voir l'activité",
+        "editActivity": "Modifier l'activité",
+        "editAttribution": "Modifier l'attribution",
+        "removeAttribution": "Retirer l'attribution",
+        "password": "Votre mot de passe :",
+        "resetPassword": "Regénérer le mot de passe",
+        "editNickname": "Modifier le pseudonyme",
+        "delete": "Supprimer",
+        "copyLink": "Copier le lien direct",
+        "copyImage": "Copy the image",
+        "downloadImage": "Download the image",
+        "learnerMode": "Mode apprenant",
+        "dueBy": "À rendre avant le",
         "timePassed": "Temps passé : "
       },
+      "copyDirectLink": "Copier le lien direct",
       "selectStudents": "Sélectionner des apprenants",
       "selectedStudents": "<span id='attribuate-student-number'>0</span> apprenants sélectionnés",
       "activationLink": "Lien d'activation activé",
@@ -265,6 +270,9 @@
       "title": "Activités",
       "save": "Sauver le brouillon ",
       "add": "Créer une activité",
+      "addCabriExpress": "Créer activité Express",
+      "addCabriGenius": "Créer activité Smart",
+      "addOther": "Autre type d'activité",
       "new": "Nouveaux",
       "current": "En attente de correction",
       "waiting": "Pas encore réalisée",
@@ -287,8 +295,8 @@
       "toSend": "Activité à rendre pour le ",
       "sentOn": "Cette activité a été rendue le ",
       "activityOfUser": "Activité de ",
-      "userSentOn" : " rendue le ",
-      "timePassed" : "Temps passé sur l'activité :",
+      "userSentOn": " rendue le ",
+      "timePassed": "Temps passé sur l'activité :",
       "yourAnswer": "Votre réponse",
       "studentAnswer": "Réponse de l'apprenant",
       "comments": "Entrez ici vos remarques",
@@ -310,28 +318,29 @@
       "bilan": {
         "title": "Bilan",
         "results": "Résultats",
-				"noComment": "Aucun commentaire"
+        "noComment": "Aucun commentaire",
+        "grade": "Note"
       },
-      "applist":{
-        "selectApp":"Sélectionnez l'application avec laquelle vous souhaitez créer une activité",
-        "apps":{
-          "reading":{
+      "applist": {
+        "selectApp": "Sélectionnez l'application avec laquelle vous souhaitez créer une activité",
+        "apps": {
+          "reading": {
             "title": "Multimédia",
             "desc": "Cette activité permet de visualiser des textes, images, vidéos, PDF, ainsi que des outils externes."
           },
-          "quiz":{
+          "quiz": {
             "title": "QCM",
             "desc": "Cette activité permet d'évaluer les connaissances à l'aide de question à choix multiples ou simples."
           },
-          "free":{
+          "free": {
             "title": "Réponse libre",
             "desc": "Cette activité permet aux élèves de répondre à un énoncé par écrit."
           },
-          "fillIn":{
+          "fillIn": {
             "title": "Texte à trous",
             "desc": "Cette activité permet d'évaluer les connaissances en remplissant des cases vides."
           },
-          "dragAndDrop":{
+          "dragAndDrop": {
             "title": "Glisser-Déposer",
             "desc": "Cette activité permet de glisser et déposer des mots dans différents espaces vides."
           }
@@ -344,8 +353,30 @@
         "4": "Attribution",
         "title": {
           "label": "Titre de l'activité",
-          "placeholder": "Titre"
+          "labelCabri": "Quel est le titre de l'activité ?",
+          "placeholder": "Titre",
+          "placeholderCabri": "Titre de l'activité"
         },
+        "iframe": {
+          "label": "Quelle est l'URL d'accès ?",
+          "placeholder": "Entrer une URL"
+        },
+        "notebookUpdateMessage": "Ne pas modifier cette section si vous souhaitez garder l'ancien cahier d'activité !",
+        "notebookUrl": {
+          "label": "Ajouter une URL de cahier",
+          "placeholder": "URL de cahier"
+        },
+        "playerUrl": {
+          "label": "Ajouter une URL de player",
+          "placeholder": "URL de player"
+        },
+        "player": {
+          "labelFileChooser": "Choisir un fichier",
+          "fileUpload": "Le fichier a bien été chargé",
+          "dragDrop": "Glissez-déposer"
+        },
+        "nextButton": "Suivant",
+        "endButton": "Terminer",
         "content": {
           "label": "Contenu de l'activité"
         },
@@ -366,12 +397,13 @@
         "nature": "L’élève peut-il soumettre plusieurs fois l’activité ?",
         "dateBegin": "Date de début :",
         "dateEnd": "Date de fin :",
-        "retroAttribution" : "Cette activité sera attribuée aux nouveaux apprenants"
+        "retroAttribution": "Cette activité sera attribuée aux nouveaux apprenants"
       },
       "toCopy": "Ce code permet de rejoindre en toute simplicité votre classe",
       "qrCode": "Scanner le QR code :",
       "copyLink": "Le lien vers votre classe a été ajouté au presse-papier",
       "dateBefore": "À rendre avant le",
+      "dateBeforeAvailable": "Disponible jusqu'au",
       "integrate": "Intégrer dans une activité",
       "veryGoodProficiency": "Très bonne maîtrise",
       "goodProficiency": "Maîtrise satisfaisante",
@@ -379,9 +411,55 @@
       "insufficientProficiency": "Maîtrise insuffisante",
       "noProficiency": "Non-noté",
       "addLearner": "Ajouter un apprenant",
-      "addLearners": "Ajouter des apprenants",
-      "addActivity": "Ajouter une activité",
       "exportCsv": "Exporter csv",
+      "players": {
+        "STANDARD": {
+          "title": "Standard",
+          "description": "Utiliser le lecteur standard permet de lire en ligne tous les cahiers d’activités réalisés grâce à l’outil auteur Cabri."
+        },
+        "IMUSCICA": {
+          "title": "iMuSciCA",
+          "description": "Utiliser le lecteur iMuSciCA permet de lire dans le studio musical toutes les activités réalisées grâce à l’outil auteur Cabri."
+        },
+        "IFRAME": {
+          "title": "Autre",
+          "description": "Choisir parmi une sélection de lecteurs pour utiliser les activités réalisées avec l’outil auteur Cabri."
+        },
+        "EXPRESS": {
+          "title": "Express",
+          "description": "Créer une activité grâce aux outils de géométrie dynamique et d’algèbre, à la calculatrice scientifique et graphique, etc."
+        },
+        "GENIUS": {
+          "title": "Smart",
+          "description": "Créer une activité grâce aux outils Express et ajouter une évaluation automatique."
+        },
+        "IFRAME-CABRI3D": {
+          "title": "Cabri 3D",
+          "description": "Créer une exploration de géométrie dynamique dans l'espace."
+        },
+        "LTI-BLOCKLY": {
+          "title": "Cabri Blockly",
+          "description": "Ajouter à une activité Cabri des actions utilisateurs, comme des animations, des verrouillages,...programmées visuellement dans le même esprit qu'avec Scratch ou Snap!"
+        }
+      },
+      "tabs": {
+        "players": "Cahier d'activité",
+        "iframes": "Vidéo et page Internet"
+      },
+      "iframes": {
+        "IFRAME-VIDEO": {
+          "title": "Vidéo",
+          "description": "Entrer l’URL d’une vidéo publiée sur une plateforme d'hébergement."
+        },
+        "IFRAME-PAGE": {
+          "title": "Page Internet",
+          "description": "Entrer l’URL de la page Internet."
+        }
+      },
+      "displayActivity": "Voir l'activité",
+      "modifyActivity": "Modifier l'activité",
+      "modifyActivityAttribution": "Modifier l'attribution",
+      "removeActivityAttribution": "Retirer l'attribution ",
       "month": {
         "1": "Janvier",
         "2": "Février",
@@ -430,6 +508,11 @@
     "filter": {
       "desc": "Date croissante",
       "asc": "Date décroissante",
+
+      "cabriExpress": "Activités Express",
+      "cabriGenius": "Activités Smart",
+      "cabriVittascience": "Activités Vittascience",
+      "iframe": "Autres activités",
       "placeholder": "Recherche..."
     },
     "sandbox": {
@@ -467,7 +550,11 @@
         "quickpi": "Interface de programmation pour la carte Quick-Pi"
       }
     },
+    "courses": {
+      "coursesManager": "Suppression du parcours"
+    },
     "modals": {
+      "addLtiActivityName": "Quel est le titre de l'activité ?",
       "addActivity": {
         "title": "Ajouter une activité",
         "resourceBank": {
@@ -479,10 +566,26 @@
           "title": "Sélectionner des apprenants",
           "button": "Mes activités "
         },
+        "shareProject": {
+          "title": "Partager le projet"
+        },
         "createActivity": {
           "title": "Créer une nouvelle activité",
           "button": "Créer une activité "
-        }
+        },
+        "next": "Suivant",
+        "limitTitle": "Limite dépassée",
+        "limitDescription": "Limite du nombre d'activités atteinte pour ce compte.",
+        "upgradePlan": "Augmenter la limite"
+      },
+      "updateActivity": {
+        "title": "Modifier une activité"
+      },
+      "deleteActivity": {
+        "title": "Supprimer une activité",
+        "description": "Êtes-vous sûr de vouloir supprimer l'activité ?",
+        "confirm": "Confirmer",
+        "cancel": "Annuler"
       },
       "settingsTeacher": {
         "title": "Paramètres du compte",
@@ -523,19 +626,19 @@
         "title": "Modifier le pseudo",
         "description": "Modifier le pseudo",
         "validateButton": "Valider"
-			},
-			"attributeActivity": {
-				"title": "Attribuer l'activité"
-			},
-			"shareProject": {
-				"title": "Partager le projet"
-			},
-			"profileUpdatePasswordConfirm": {
-				"title": "Confirmation du mot de passe",
-				"description": "Veuillez saisir votre mot de passe actuel afin de valider les modifications de votre profil !",
-				"placeholderInput": "Mot de passe",
-				"validateButton": "Valider"
-			}
+      },
+      "attributeActivity": {
+        "title": "Attribuer l'activité"
+      },
+      "shareProject": {
+        "title": "Partager le projet"
+      },
+      "profileUpdatePasswordConfirm": {
+        "title": "Confirmation du mot de passe",
+        "description": "Veuillez saisir votre mot de passe actuel afin de valider les modifications de votre profil !",
+        "placeholderInput": "Mot de passe",
+        "validateButton": "Valider"
+      }
     },
     "folders": {
       "folderManagement": "Gestion des dossiers",
@@ -956,10 +1059,10 @@
     "error": "Erreur. Veuillez vérifier vos identifiants.",
     "canNotLoginBefore": "{{failedLoginAttempts}} tentatives échouées. Vous devez attendre {{timeToWait}} minute(s) avant de pouvoir vous connecter à nouveau",
     "mailSuccess": "Un e-mail d'activation a été envoyé à votre adresse e-mail.",
-		"mailError": "Une erreur est survenue. Veuillez vérifier votre adresse e-mail.",
-		"userNotFound": "Aucun utilisateur trouvé avec ces identifiants.",
-		"accountDeactivated": "Votre compte a été désactivé, contactez un administrateur si le problème persiste.",
-		"inactiveAccount": "Votre compte n'est pas encore actif, cliquez sur le bouton ci-dessous pour envoyer l'e-mail de validation.",
+    "mailError": "Une erreur est survenue. Veuillez vérifier votre adresse e-mail.",
+    "userNotFound": "Aucun utilisateur trouvé avec ces identifiants.",
+    "accountDeactivated": "Votre compte a été désactivé, contactez un administrateur si le problème persiste.",
+    "inactiveAccount": "Votre compte n'est pas encore actif, cliquez sur le bouton ci-dessous pour envoyer l'e-mail de validation.",
     "errorBeta": "Vous devez être bêta testeur pour accéder à cette fonctionalité. <a href='https://fr.vittascience.com/about#contact'>Contacter l'équipe Vittascience</a> pour en savoir plus."
   },
   "signup-popup": {
@@ -1117,7 +1220,7 @@
       "noUserFound": "Aucun utilisateur utilisant cette adresse n'a été trouvé.",
       "noUserFoundToken": "Ce token ne correspond à aucun utilisateur.",
       "missingData": "Il manque des informations pour finaliser l'opération.",
-			"missingDataDate": "Il manque des informations de date pour finaliser l'opération.",
+      "missingDataDate": "Il manque des informations de date pour finaliser l'opération.",
       "errorSending": "Une erreur est survenue lors de l'envoie de l'e-mail.",
       "userNotFound": "Utilisateur introuvable et/ou déjà actif.",
       "userNotFoundId": "Utilisateur introuvable",
@@ -1128,8 +1231,8 @@
     "users": {
       "users": "Utilisateurs",
       "add": "Ajouter un utilisateur",
-			"activated": "Le compte a été activé avec succès.",
-			"errorActivation": "Une erreur est survenue lors de l'activation du compte.",
+      "activated": "Le compte a été activé avec succès.",
+      "errorActivation": "Une erreur est survenue lors de l'activation du compte.",
       "create": "Créer un utilisateur",
       "delete": "Supprimer un utilisateur",
       "deleteConfirmation": "Veuillez écrire \"supprimer\" dans le champ si dessous pour valider l'action.",
@@ -1148,13 +1251,13 @@
         "resetPassword": {
           "subject": "Réinitialisation de votre mot de passe.",
           "bodyTitle": "Réinitialisation du mot de passe.",
-          "textBeforeLink": "Si le bouton ci-dessus ne fonctionne pas, copiez et collez le lien suivant dans votre navigateur :"
+          "textBeforeLink": "Si le bouton ci-dessus ne fonctionne pas, copiez et collez dans votre navigateur, le lien suivant :"
         },
         "finalizeAccount": {
           "title": "Finalisation d'inscription",
           "subject": "Finalisation d'inscription",
           "bodyTitle": "Finaliser votre inscription.",
-          "textBeforeLink": "Si le bouton ci-dessus ne fonctionne pas, copiez et collez le lien suivant dans votre navigateur :"
+          "textBeforeLink": "Si le bouton ci-dessus ne fonctionne pas, copiez et collez dans votre navigateur, le lien suivant :"
         }
       },
       "showResetLinkTitle": "Réinitialisation de mot de passe.",
@@ -1170,15 +1273,15 @@
       "chooseNewPassword": "Choisissez votre nouveau mot de passe",
       "passwordUpdate": "Votre mot de passe à été modifié",
       "enterYourEmail": "Entrer votre adresse e-mail",
-      "sendResetMailDescription": "En cliquant sur Envoyer, un e-mail contenant un lien pour changer votre mot de passe vous sera envoyé.",
-      "yourMail": "Votre e-mail",
-      "emailSended": "Un e-mail contenant la procédure à suivre vient de vous être envoyé.",
-      "emailNotReceived": "Si vous n'avez pas reçu l'e-mail, cliquez sur Recommencer (léger temps d'attente possible).",
-      "mailSentToUser": "Un e-mail a été envoyé à l'utilisateur pour qu'il finalise son inscription.",
-      "mailNotSentToUser": "L'e-mail de finalisation d'inscription n'a pas pu être envoyé à l'utilisateur.",
-      "mailSentToUserReset": "Un e-mail a été envoyé à l'utilisateur pour qu'il change de mot de passe.",
-      "mailNotSentToUserReset": "L'e-mail de changement de mot de passe n'a pas pu être envoyé à l'utilisateur.",
-      "appsUpdated": "Les applications de l'utilisateur ont été mises à jour.",
+      "sendResetMailDescription": "En cliquant sur envoyer un e-mail contenant un lien pour changer votre mot de passe vous sera envoyé.",
+      "yourMail": "Votre E-mail",
+      "emailSended": "Un E-mail contenant la procèdure à suivre vient de vous être envoyer",
+      "emailNotReceived": "Si vous n'avez pas reçu l'e-mail, cliquer sur recommencer (le mail peut mettre un petit peu de temps avant d'arriver)",
+      "mailSentToUser": "Un e-mail a été envoyé à l'utilisateur pour qu'il finalise son inscription",
+      "mailNotSentToUser": "l'e-mail de finalisation d'inscription n'a pas pu être envoyé à l'utilisateur",
+      "mailSentToUserReset": "Un e-mail a été envoyé à l'utilisateur pour qu'il change de mot de passe",
+      "mailNotSentToUserReset": "l'e-mail de changement de mot de passe n'a pas pu être envoyé à l'utilisateur",
+      "appsUpdated": "Les applications de l'utilisateur ont été mise à jour",
       "updateAppModalTitle": "Application",
       "globalRestrictions": "Restrictions globales",
       "teacherGrades": {
@@ -1220,7 +1323,7 @@
           "10": "Enseignement technologique transversal (ETT)",
           "11": "Français",
           "12": "Hippologie et équitation",
-          "13": "Histoire-Géographie",
+          "13": "Histoire - Géographie",
           "14": "Histoire-géographie, géopolitique et sciences politiques",
           "15": "Humanités, littérature et philosophie",
           "16": "Langues et cultures de l’Antiquité : latin ou grec",
@@ -1264,10 +1367,11 @@
           "0": "Etudes supérieures",
           "1": "Autre (préciser dans la biographie)"
         }
-      }
+      },
+      "groupFull": "Le groupe est complet."
     },
     "group": {
-			"generalInfo": "Informations générales",
+      "generalInfo": "Informations générales",
       "add": "Ajouter un groupe",
       "create": "Créer un groupe",
       "delete": "Supprimer un groupe",
@@ -1322,23 +1426,24 @@
       "toManyStudentsFromTheTeacher": "Le professeur que vous souhaitez ajouter au groupe possède trop d'élèves.",
       "toManyStudentsInGroup": "Le groupe ne peut pas accueillir autant d'apprenants, le professeur possède trop d'apprenants.",
       "teachersPerGroup": "Enseignant par groupe",
-			"activitiesPerGroup": "Activité(s) par groupe",
-			"activitiesPerTeacher": "Activité(s) par enseignant",
+      "activitiesPerGroup": "Activité(s) par groupe",
+      "activitiesPerTeacher": "Activité(s) par enseignant",
       "studentsPerGroup": "Apprenants par groupe",
       "studentsPerTeacher": "Apprenants par enseignant",
-			"maxStudents": "Maximum d'apprenants",
-			"maxActivities": "Maximum d'activités",
-			"groupsRestrictions": "Restriction du groupe"
-		},
-		"title": {
-			"activeUsers": "Utilisateurs actifs",
-			"inactiveUsers": "Utilisateurs inactifs"
-		},
+      "maxStudents": "Maximum d'apprenants",
+      "maxActivities": "Maximum d'activités",
+      "groupsRestrictions": "Restriction du groupe",
+      "classroomPerTeacher": "Classe(s) par enseignant"
+    },
+    "title": {
+      "activeUsers": "Utilisateurs actifs",
+      "inactiveUsers": "Utilisateurs inactifs"
+    },
     "buttons": {
       "continue": "Continuer",
       "validate": "Valider",
       "cancel": "Annuler",
-			"activate": "Activer",
+      "activate": "Activer",
       "finalize": "Finaliser",
       "send": "Envoyer",
       "login": "Se connecter",
@@ -1398,12 +1503,12 @@
       "nbUsers": "Nombre d'utilisateurs",
       "group": "Groupe",
       "description": "Description",
-			"descriptionMandatory": "Description <span class=\"c-text-red\">*</span>",
+      "descriptionMandatory": "Description <span class=\"c-text-red\">*</span>",
       "right": "Rôle",
       "resetPassword": "Réinitialiser le mot de passe",
       "link": "Lien",
       "name": "Nom",
-			"nameMandatory": "Nom <span class=\"c-text-red\">*</span>",
+      "nameMandatory": "Nom <span class=\"c-text-red\">*</span>",
       "dateBegin": "Date début",
       "dateEnd": "Date de fin",
       "outDated": "Périmé",
@@ -1446,14 +1551,14 @@
       "activitiesLimitation": "Limitations d'activité",
       "defaultRestrictions": "Restrictions par défaut",
       "ltiApps": "Applications LTI",
-      "clientId" : "Id client <span class=\"c-text-red\">*</span>",
-      "deploymentId" : "Id déploiement <span class=\"c-text-red\">*</span>",
-      "toolUrl" : "Url de l'outil <span class=\"c-text-red\">*</span>",
-      "publicKeySet" : "Clé publique <span class=\"c-text-red\">*</span>",
-      "loginUrl" : "Url de login <span class=\"c-text-red\">*</span>",
-      "redirectionUrl" : "Url de redirection <span class=\"c-text-red\">*</span>",
-      "deepLinkUrl" : "Url de deep link <span class=\"c-text-red\">*</span>",
-      "privateKey" : "Clé privée <span class=\"c-text-red\">*</span>",
+      "clientId": "Id client <span class=\"c-text-red\">*</span>",
+      "deploymentId": "Id déploiement <span class=\"c-text-red\">*</span>",
+      "toolUrl": "Url de l'outil <span class=\"c-text-red\">*</span>",
+      "publicKeySet": "Clé publique <span class=\"c-text-red\">*</span>",
+      "loginUrl": "Url de login <span class=\"c-text-red\">*</span>",
+      "redirectionUrl": "Url de redirection <span class=\"c-text-red\">*</span>",
+      "deepLinkUrl": "Url de deep link <span class=\"c-text-red\">*</span>",
+      "privateKey": "Clé privée <span class=\"c-text-red\">*</span>",
       "monitoringApps": "Informations des applications",
       "monitoringGroup": "Informations du groupe",
       "appStatus0": "Inactive",
@@ -1473,11 +1578,11 @@
       "maxActivity": "Maximum d'activité",
       "closeDetail": "Fermer le détail",
       "restrictions": "Restrictions d'activité",
-      "appRestricted" : "Créez plus d'activités !",
-			"appOutDated" : "L'abonnement de l'application est périmé.",
-			"appOutDatedUL1": "Votre abonnement donnant accès à cette application est périmé.",
-			"appOutDatedUL2": "Pour continuer à utiliser cette application, veuillez prendre contact avec votre administrateur.",
-			"appOutDatedSubtitle3": "Contacter le support",
+      "appRestricted": "Créez plus d'activités !",
+      "appOutDated": "L'abonnement de l'application est périmé.",
+      "appOutDatedUL1": "Votre abonnement donnant accès à cette application est périmé.",
+      "appOutDatedUL2": "Pour continuer à utiliser cette application, veuillez prendre contact avec votre administrateur.",
+      "appOutDatedSubtitle3": "Contacter le support",
       "appRestrictedUL1": "Vous avez atteint la limite de {{activities}} activités associés à votre compte.",
       "appRestrictedUL2": "Pour ajouter des activités sumpplémentaires, veuillez prendre contact avec votre administrateur.",
       "appRestrictedSubtitle2": "Un problème avec votre abonnement ?",
@@ -1569,5 +1674,44 @@
         "dragAndDrop": "Cette activité permet de glisser et déposer des mots dans différents espaces vides."
       }
     }
+  },
+  "courses": {
+    "addActivity": "Ajouter une activité",
+    "addActivities": "Ajouter des activités",
+    "createActivity": "Créer une activité",
+    "searchActivity": "Rechercher une activité",
+    "placeholderTitle": "Titre de votre activité",
+    "placeholderDescription": "Description de votre activité",
+    "pagination": {
+      "create": "Création du parcours",
+      "title": "Titre",
+      "parameters": "Paramètres",
+      "attribution": "Attribution"
+    },
+    "parameters": {
+      "title": "Titre du parcours <span class=\"c-text-red\">*</span>",
+      "description": "Description du parcours <span class=\"c-text-red\">*</span>",
+      "difficulty": "Difficulté <span class=\"c-text-red\">*</span>",
+      "difficultyLevel": {
+        "choose": "Choisissez une difficulté",
+        "easy": "Débutant",
+        "medium": "Intermédiaire",
+        "advanced": "Avancé",
+        "expert": "Expert"
+      },
+      "duration": "Durée (en min) <span class=\"c-text-red\">*</span>",
+      "license": "Licence d'utilisation <span class=\"c-text-red\">*</span>",
+      "licenseType": {
+        "choose": "Choisissez une licence",
+        "1": "Privée (vous seul•e pouvez voir cette ressource)",
+        "2": "Déréférencée (ressource partageable par lien mais introuvable sur la page Ressources)",
+        "3": "Publique CC-BY-NC-SA (ressource libre, non-commerciale et modifiable)",
+        "4": "Publique CC-BY-NC-ND (ressource libre, non-commerciale et non-modifiable)"
+      }
+    },
+    "successfullyCreated": "Parcours créé avec succès",
+    "attribution": "Attribuer le parcours <i class='fas fa-chevron-right'></i>",
+    "return": "Retour <i class='fas fa-chevron-right'></i>",
+    "update": "Modifier le parcours"
   }
 }

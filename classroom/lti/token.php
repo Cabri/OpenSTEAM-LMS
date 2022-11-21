@@ -2,7 +2,9 @@
 /**
  * This file is responsible for giving Access_tokens to tool providers
  * Access Token is used when the tool provider want to send the score to platform (score.php)
- */
+ * Copyright (C) 2022 Seif-Eddine Benomar - Cabrilog
+ * Contribution to OpenSTEAM Project
+*/
 
 require_once __DIR__ . "/findrelativeroute.php";
 

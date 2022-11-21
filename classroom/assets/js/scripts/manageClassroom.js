@@ -999,7 +999,7 @@ function displayStudentsInClassroom(students, link=false) {
         $('[data-toggle="tooltip"]').tooltip()
     });
 
-    if(! (document.cookie.indexOf("isGarTest") || document.cookie.indexOf("isFromGar")))
+    if(! UserManager.getUser().isFromGar)
         $('#body-table-teach').append('<button id="add-student-dashboard-panel" class="btn c-btn-primary"><span data-i18n="classroom.activities.addLearners">Ajouter des apprenants</span> <i class="fas fa-plus"></i></button>').localize();
 
     // get classroom settings from localstorage

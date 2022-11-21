@@ -251,13 +251,14 @@ class managerManager {
     /**
      * @returns promise
      */
-    updateDefaultUsersRestrictions($maxStudents) {
+    updateDefaultUsersRestrictions($maxStudents, $maxClassrooms) {
         return new Promise(function (resolve, reject) {
             $.ajax({
                 type: "POST",
                 url: "/routing/Routing.php?controller=superadmin&action=update_default_users_restrictions",
                 data: {
                     maxStudents: $maxStudents,
+                    maxClassrooms: $maxClassrooms
                 },
                 success: function (response) {
                     resolve(JSON.parse(response))
@@ -272,7 +273,7 @@ class managerManager {
     /**
      * @returns promise
      */
-    updateDefaultGroupsRestrictions($maxStudents, $maxTeachers, $maxPerTeachers) {
+    updateDefaultGroupsRestrictions($maxStudents, $maxTeachers, $maxPerTeachers, $maxClassrooms) {
         return new Promise(function (resolve, reject) {
             $.ajax({
                 type: "POST",
@@ -281,6 +282,7 @@ class managerManager {
                     maxStudents: $maxStudents,
                     maxTeachers: $maxTeachers,
                     maxPerTeachers: $maxPerTeachers,
+                    maxClassrooms: $maxClassrooms,
                 },
                 success: function (response) {
                     resolve(JSON.parse(response))
@@ -686,6 +688,9 @@ class managerManager {
             else
                 $('#group_name_from_table').text(group.name);
 
+            if (data == false) {
+                return;
+            }
             data.forEach(element => {
                 if (element.hasOwnProperty('currentPage')) {
                     mainManager.getmanagerManager()._paginationUsersInfo = element;

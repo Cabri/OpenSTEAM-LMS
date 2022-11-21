@@ -24,6 +24,7 @@
     <link rel="stylesheet" href="assets/css/main.css?version=VERSIONNUM">
     <link rel="stylesheet" href="assets/css/modal.css?version=VERSIONNUM">
     <link rel="stylesheet" href="assets/css/elements.css?version=VERSIONNUM">
+
 </head>
 
 <body>

@@ -33,8 +33,8 @@ if ($applicationType == null) {
 	exit;
 }
 
-//$platform_url = isset($_SERVER['HTTPS']) ? 'https://' : 'http://' . $_SERVER['HTTP_HOST'];
 $platform_url = getenv('VS_HOST');
+
 $ltiApplication = $entityManager->getRepository(Applications::class)->findOneBy(["name" => $applicationType])->getId();
 $ltiTool = $entityManager->getRepository(LtiTool::class)->findOneBy(["application" => $ltiApplication]);
 

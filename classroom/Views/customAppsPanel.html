@@ -1,0 +1,51 @@
+<div id="classroom-dashboard-classes-custom-activity" style="display:none;" class="dashboard-block classes-panel">
+    <nav class="row form-activity-container" style="margin: 0 auto;">
+        <div class="col text-center">
+            <span class="form-activity form-activity-secondary"><i class="fas fa-check"></i></span>
+            <span data-i18n="classroom.activities.form.1">Application</span>
+        </div>
+
+        <div class="col"></div>
+
+        <div class=" col text-center">
+            <span class="form-activity form-activity-activate">2</span>
+            <span data-i18n="classroom.activities.form.2">Contenu</span>
+        </div>
+
+        <div class="col" style="border-bottom: 1px solid var(--classroom-text-1); height: 1px; align-self: center;"></div>
+
+        <div class=" col text-center">
+            <span class="form-activity form-activity-desactivate">3</span>
+            <span data-i18n="classroom.activities.form.3">Titre</span>
+        </div>
+
+        <div class="col" style="border-bottom: 1px solid var(--classroom-text-1); height: 1px; align-self: center;"></div>
+
+        <div class="col text-center">
+            <span class="form-activity form-activity-desactivate">4</span>
+            <span data-i18n="classroom.activities.form.4">Attribution</span>
+        </div>
+    </nav>
+
+    <div class="container mb-2 part-content-index c-primary-form">
+        <!-- Graphonemo activity part -->
+        <div id="activity-custom-content" class="mt-4" style="display:none;">
+            
+        </div>
+
+        <div class="container">
+            <div class="row text-center w-100">
+                <div class="col-sm mb-2">
+                    <button class="btn c-btn-grey" onclick="contentBackward()">
+                        <i class="fas fa-chevron-left"></i> <span data-i18n="classroom.activities.form.back"></span>
+                    </button>
+                </div>
+                <div class="col-sm order-first order-sm-last mb-2">
+                    <button id="content-forward-button" class="btn c-btn-secondary" onclick="contentForward()">
+                        <span data-i18n="classroom.activities.form.buttonContinue"></span> <i class="fas fa-chevron-right"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

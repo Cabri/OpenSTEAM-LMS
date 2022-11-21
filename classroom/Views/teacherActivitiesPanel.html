@@ -22,10 +22,10 @@
             </div>
 
             <div class="col-auto mt-2">
-                <button  class="btn btn-folders mx-1" onclick="foldersManager.displayModeSwitch('card')" >
+                <button class="btn c-btn-icon-only mx-1" onclick="foldersManager.displayModeSwitch('card')">
                     <img src="assets/media/folders/cadrillage.svg" alt="arb-folders" onload="SVGInject(this)">
                 </button>
-                <button class="btn btn-folders mx-1" onclick="foldersManager.displayModeSwitch('list')" >
+                <button class="btn c-btn-icon-only mx-1" onclick="foldersManager.displayModeSwitch('list')">
                     <img src="assets/media/folders/arborescence.svg" alt="arb-folders" onload="SVGInject(this)">
                 </button>
             </div>
@@ -33,21 +33,18 @@
     </div>
 
     <div class="buttons-interactions flex-wrap d-inline-flex col-12 mt-3">
+        <button id="new-activity-panel1" onclick="showExercicePanel()" class=" btn c-btn-outline-secondary"><span class="mr-1" data-i18n="classroom.activities.add"></span><i class="fas fa-chevron-right"></i>
+        </button>
 
-        <div class="col-12 col-sm-3 mt-2 d-flex justify-content-center">
-            <button id="new-activity-panel1" onclick="showExercicePanel()" class=" btn c-btn-outline-secondary"><span class="mr-1" data-i18n="classroom.activities.add"></span><i class="fas fa-chevron-right"></i>
-            </button>
-        </div>
+        <!-- <button id="new-activity-panel1" onclick="coursesManager.showCoursePanel()" class="btn c-btn-outline-primary"><span class="mr-1">Créer un parcours</span><i class="fas fa-chevron-right"></i>
+        </button> -->
 
-        <div class="col-12 col-sm-auto mt-2 d-inline-flex justify-content-center">
-            <button class="btn btn-folders" id="new-activities-folder" onclick="foldersManager.openFolderModal()" >
-                <img src="assets/media/folders/createFolder.svg" alt="folders" onload="SVGInject(this)">
-            </button>
-            <button class="btn btn-folders" onclick="foldersManager.seekFolderModal()">
-                <img src="assets/media/folders/icon_arborescence.svg" alt="arb-folders" onload="SVGInject(this)">
-            </button>
-        </div>
-
+        <button class="btn c-btn-icon-only" id="new-activities-folder" onclick="foldersManager.openFolderModal()">
+            <img src="assets/media/folders/createFolder.svg" alt="folders" onload="SVGInject(this)">
+        </button>
+        <button class="btn c-btn-icon-only" onclick="foldersManager.seekFolderModal()">
+            <img src="assets/media/folders/folder_tree.svg" alt="arb-folders" onload="SVGInject(this)" style="height: 30px;">
+        </button>
     </div>
 
     <div id="list-activities-teacher">
@@ -122,8 +119,8 @@
         <div class="col" style="border-bottom: 1px solid var(--classroom-text-1); height: 1px; align-self: center;"></div>
 
         <div class="col text-center">
-            <span class="form-activity form-activity-activate">2</span>
-            <span data-i18n="classroom.activities.form.4"></span>
+            <span class="form-activity form-activity-activate">4</span>
+            <span>Attribution</span>
         </div>
     </nav>
     <div class="assign-activity-container" style="margin: 0 auto;">
@@ -171,7 +168,7 @@
                         </div>
                     </div>
 
-<!--                     <i class="fas fa-info assign-info-icon" id="infoEvaluation" data-toggle="tooltip" title=""></i> -->
+                    <!--                     <i class="fas fa-info assign-info-icon" id="infoEvaluation" data-toggle="tooltip" title=""></i> -->
                 </div>
 
                 <p id="hint-exist-disclaimer" data-i18n="[html]classroom.activities.hintExist" style="display:none;"></p>

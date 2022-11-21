@@ -81,11 +81,6 @@ $('body').on('click', '.activity-list-options i', function () {
     ClassroomSettings.activity = $(this).attr('id').replace("dropdown-list-activityItem-", "");
 })
 
-function startDeleteActivity() {
-    $('#validation_delete_group').val("");
-    pseudoModal.openModal('delete-activity-modal');
-}
-
 function persistDeleteActivity() {
     let validation = $('#validation-delete-activity').val();
     let placeholderWord = $('#validation-delete-activity').attr('placeholder');
@@ -111,10 +106,18 @@ function cancelDeleteActivity() {
 
 //activité modal-->supprimer
 $('body').on('click', '.modal-activity-delete', function () {
-    startDeleteActivity();
+    pseudoModal.openModal('delete-activity-modal');
+    let activityId = ClassroomSettings.activity,
+        courseArray = [];
+    coursesManager.myCourses.forEach(course => {
+        if (course.activities.find(c => c.id == activityId)) {
+            courseArray.push(course.title);
+        }
+    });
+    document.getElementById('activity-linked-to-course-message').style.display = courseArray.length > 0 ? 'block' : 'none';
 })
 
-//activité modal-->modifier
+
 function activityModify(id) {
 
     hideAllActivities();

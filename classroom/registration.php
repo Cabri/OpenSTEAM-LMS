@@ -21,8 +21,8 @@ $dotenv->safeLoad();
 $uri_parts = explode('?', $_SERVER['REQUEST_URI'], 2);
 $token = isset($_GET['token']) ? htmlspecialchars($_GET['token']) : null;
 $page = isset($_GET['page']) ? htmlspecialchars($_GET['page']) : null;
-$url = (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? "https" : "http") . "://$_SERVER[HTTP_HOST]" . $uri_parts[0];
-$urlhome = (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? "https" : "http") . "://$_SERVER[HTTP_HOST]" . "/classroom/home.php";
+$url = $_ENV['VS_HOST'] . $uri_parts[0];
+$urlhome = $_ENV['VS_HOST'] . "/classroom/home.php";
 setcookie("token", $token, time() + 3600);
 
 if (isset($_SESSION['id'])) {

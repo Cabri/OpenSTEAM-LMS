@@ -1,4 +1,8 @@
 <?php
+/* 
+* Copyright (C) 2022 Seif-Eddine Benomar - Cabrilog
+* Contribution to OpenSTEAM Project
+*/
 
 require_once __DIR__ . "/findrelativeroute.php";
 
@@ -26,7 +30,7 @@ if (!$ltiTool) {
 
 $jwt_payload = [
   "iss" => $platform_url,
-  "aud" => $loginHint['deploymentId'],
+  "aud" => $_REQUEST['client_id'],
   "sub" => $loginHint['userId'],
   "exp" => time() + 600,
   "iat" => time(),

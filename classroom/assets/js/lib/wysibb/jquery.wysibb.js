@@ -72,7 +72,8 @@ if (getLangInCookie() == 'fr' || /fr\.vittascience/.test(window.location.href)) 
 		modal_vitta_url: "Insérer l'URL du projet ou <a href='/classroom/home.php?panel=classroom-dashboard-sandbox-panel&nav=dashboard-sandbox-teacher' target='blank'>créer un nouveau projet</a>.<br> Vous pouvez copier l'url du projet depuis la page du projet ou bien sélectionner l'option &#8220;intégrer dans l'activité&#8221; sur la carte du projet depuis <a href='/classroom/home.php?panel=classroom-dashboard-sandbox-panel&nav=dashboard-sandbox-teacher' target='blank'>la page sandbox</a>.",
 		modal_cabri_title: "Insérer cahier Cabri Express",
 		modal_cabri_url: "Insérer l'URL du cahier Cabri Express",
-		modal_vitta_url_pdf: "Insérer l'url d'un PDF",
+		modal_vitta_url_pdf: "Insérer l'url d'un PDF<br /><em>(Attention : le lien doit impérativement être en https)</em>",
+		modal_pdf_url: "Insérer l'url du fichier",
 		modal_genialy_title: "Insérer Genially",
 		modal_genialy_url: "Saisir l'url Genially",
 		modal_gdocs_title: "Insérer Google Docs, Slides ou Sheets",
@@ -118,7 +119,47 @@ if (getLangInCookie() == 'fr' || /fr\.vittascience/.test(window.location.href)) 
 		genialy: "Insérer Genially",
 		vittaiframe: "Editeur",
 		cabriiframe: "Cabri Express",
-		vittapdf: "Pdf",
+		vittapdf: "Insérer un pdf",
+		maxWidthText: "Largeur maximale",
+		messages:{
+			uploadSuccess: "Fichier sauvegardé avec succès",
+			dataSavedSuccessfully: "Les données ont été enregistrées avec succès",
+			unexpectedErrorOccured: "Une erreur inattendue est survenue",
+			image:{
+				titleIsRequired: "Le titre est requis",
+				imageIsRequired: "L'image est requise",
+				urlIsRequired: "L'url est requise",
+				imageUploadError: "Erreur durant le téléversement",
+				imageNotStored:"L'image n'a pu être sauvegardée sur le serveur",
+				invalidUrl: "L'url ou l'extension de fichier n'est pas valide",
+				invalidImageName: "Le nom de l'image n'est pas valide",
+				invalidImageTempName: "Le nom temporaire de l'image n'est pas valide",
+				invalidImageExtension: "L'extension du fichier n'est pas valide",
+				invalidImageSize: "La taille de l'image n'est pas valide",
+				imageSizeToLarge: "Le fichier est trop volumineux",
+				widthIsInvalid: "La largeur doit-être comprise entre 0 et 100",
+				fileIsValid: "Le Fichier est valide",
+			},
+			file:{
+				titleIsRequired: "Le nom du fichier est requis",
+				fileIsRequired: "Un Fichier est requis",
+				urlIsRequired: "L'url est requise",
+				fileUploadError: "Une erreur est survenue durant le téléversement",
+				fileNotStored: "Le fichier n'a pu être sauvegardé sur le serveur",
+				invalidUrl: "L'url ou l'extension de fichier n'est pas valide",
+				invalidFileName: "Le nom du fichier n'est pas valide",
+				invalidFileTempName: "Le nom du fichier temporaire n'est pas valide",
+				invalidFileExtension: "L'extension du fichier n'est pas valide",
+				invalidFileSize: "La taille du fichier n'est pas valide",
+				fileSizeToLarge: "Le fichier est trop volumineux",
+				fileIsValid: "Le fichier est valide",
+			}
+		},
+		setImgTitle: "Titre de l'image",
+		imgUpload: "Téleverser une image",
+		setFileTitle: "Titre du fichier",
+		fileUpload: "Teléverser un fichier",
+		compressFileText: "Compresser mon fichier"
 	};
 } else {
 	WBBLANG['en'] = CURLANG = {
@@ -167,7 +208,8 @@ if (getLangInCookie() == 'fr' || /fr\.vittascience/.test(window.location.href)) 
 		modal_vitta_url: "Insert project URL or <a href='/classroom/home.php?panel=classroom-dashboard-sandbox-panel&nav=dashboard-sandbox-teacher' target='blank'>create new project</a>.<br> You can copy the url from the project page or select the &#8220;integrate into activity&#8221; option on the project card within the <a href='/classroom/home.php?panel=classroom-dashboard-sandbox-panel&nav=dashboard-sandbox-teacher' target='blank'>sandbox page</a>.",
 		modal_cabri_title: "Insert Cabri Express notebook",
 		modal_cabri_url: "Insert the URL of the Cabri Express notebook",
-		modal_vitta_url_pdf: "Insert PDF URL",
+		modal_vitta_url_pdf: "Insert PDF URL<br /><em>(Please note: the link must be in https)</em>",
+		modal_pdf_url: "Insert PDF URL",
 		modal_genialy_title: "Insert Genially",
 		modal_genialy_url: "Insert Genially URL",
 		modal_gdocs_title: "Insert Google Docs, Slides or Sheets",
@@ -214,6 +256,46 @@ if (getLangInCookie() == 'fr' || /fr\.vittascience/.test(window.location.href)) 
 		vittaiframe: "Editor",
 		cabriiframe: "Cabri Express",
 		vittapdf: "Pdf",
+		maxWidthText: "Max-width",
+		messages:{
+			uploadSuccess: "File successfully uploaded",
+			dataSavedSuccessfully: "Data saved successfully",
+			unexpectedErrorOccured: "An unexpected error occured",
+			image:{
+				titleIsRequired: "The title is required",
+				imageIsRequired: "An image is required",
+				urlIsRequired: "The url link is required",
+				imageUploadError: "Error during the upload",
+				imageNotStored:"The image was not saved on the server",
+				invalidUrl: "Invalid url or extension",
+				invalidImageName: "Image name invalid",
+				invalidImageTempName: "Temporary file name invalid",
+				invalidImageExtension: "Extension not authorized",
+				invalidImageSize: "Image size not valid",
+				imageSizeToLarge: "File too large",
+				widthIsInvalid: "The width has to be between 0 and 100",
+				fileIsValid: "File is valid",
+			},
+			file:{
+				titleIsRequired: "The title is required",
+				fileIsRequired: "A file is required",
+				urlIsRequired: "The url is required",
+				fileUploadError: "An unexpected error occured while downloading",
+				fileNotStored: "The file was not saved on the server",
+				invalidUrl: "Invalid url or extension",
+				invalidFileName: "The filename is invalid",
+				invalidFileTempName: "The temporary filename is invalid",
+				invalidFileExtension: "The file extension is invalid",
+				invalidFileSize: "The file size is invalid",
+				fileSizeToLarge: "The file size is too large",
+				fileIsValid: "The file is valid",
+			}
+		},
+		setImgTitle: "Image title",
+		imgUpload: "Upload image",
+		setFileTitle: "File title",
+		fileUpload: "Upload a file",
+		compressFileText: "Compress my file"
 	};
 }
 
@@ -545,13 +627,13 @@ wbbdebug = false;
 					valueBBname: "color",
 					subInsert: true,
 					colors: "#000000,#444444,#666666,#999999,#b6b6b6,#cccccc,#d8d8d8,#efefef,#f4f4f4,#ffffff,-, \
-								 #ff0000,#980000,#ff7700,#ffff00,#00ff00,#00ffff,#1e84cc,#0000ff,#9900ff,#ff00ff,-, \
-								 #f4cccc,#dbb0a7,#fce5cd,#fff2cc,#d9ead3,#d0e0e3,#c9daf8,#cfe2f3,#d9d2e9,#ead1dc, \
-								 #ea9999,#dd7e6b,#f9cb9c,#ffe599,#b6d7a8,#a2c4c9,#a4c2f4,#9fc5e8,#b4a7d6,#d5a6bd, \
-								 #e06666,#cc4125,#f6b26b,#ffd966,#93c47d,#76a5af,#6d9eeb,#6fa8dc,#8e7cc3,#c27ba0, \
-								 #cc0000,#a61c00,#e69138,#f1c232,#6aa84f,#45818e,#3c78d8,#3d85c6,#674ea7,#a64d79, \
-								 #900000,#85200C,#B45F06,#BF9000,#38761D,#134F5C,#1155Cc,#0B5394,#351C75,#741B47, \
-								 #660000,#5B0F00,#783F04,#7F6000,#274E13,#0C343D,#1C4587,#073763,#20124D,#4C1130",
+							 #ff0000,#980000,#ff7700,#ffff00,#00ff00,#00ffff,#1e84cc,#0000ff,#9900ff,#ff00ff,-, \
+							 #f4cccc,#dbb0a7,#fce5cd,#fff2cc,#d9ead3,#d0e0e3,#c9daf8,#cfe2f3,#d9d2e9,#ead1dc, \
+							 #ea9999,#dd7e6b,#f9cb9c,#ffe599,#b6d7a8,#a2c4c9,#a4c2f4,#9fc5e8,#b4a7d6,#d5a6bd, \
+							 #e06666,#cc4125,#f6b26b,#ffd966,#93c47d,#76a5af,#6d9eeb,#6fa8dc,#8e7cc3,#c27ba0, \
+							 #cc0000,#a61c00,#e69138,#f1c232,#6aa84f,#45818e,#3c78d8,#3d85c6,#674ea7,#a64d79, \
+							 #900000,#85200C,#B45F06,#BF9000,#38761D,#134F5C,#1155Cc,#0B5394,#351C75,#741B47, \
+							 #660000,#5B0F00,#783F04,#7F6000,#274E13,#0C343D,#1C4587,#073763,#20124D,#4C1130",
 					transform: {
 						'<font color="{COLOR}">{SELTEXT}</font>': '[color={COLOR}]{SELTEXT}[/color]'
 					}
@@ -778,6 +860,611 @@ wbbdebug = false;
 					},
 					transform: {
 						'<div>{gdocs-URL}</div>': '[iframe]{gdocs-URL}[/iframe]'
+					}
+				},
+				customimageupload: {
+					title: CURLANG.imgUpload,
+					buttonHTML: '<i class="far fa-file-image" style="height:27px;width:31px;font-size:20px;text-align:center;padding-top: 5px;"></i>',
+					modal: function (cmd, opt, queryState) {
+
+						// save the current cursor pos where to add the image
+						this.saveRange();
+
+						this.$modal = $('#wbbmodal').prependTo(document.body)
+						.html(`
+							<div class="wbbm hastabs" hastabs"="" style="max-width: 500px; width: 600px; margin-top: 202.479px;">
+								<div class="wbbm-title">
+									<span class="wbbm-title-text">Image</span>
+									<span class="wbbclose" title="${CURLANG.close}">×</span>
+								</div>
+								<div class="wbbm-content">
+									<div class="wbbm-tablist">
+										<ul>
+											<li class="on" id="upload" onclick="$(this).parent().find('.on').removeClass('on');$(this).addClass('on');$(this).parents('.wbbm-content').find('.tab-cont').hide();$(this).parents('.wbbm-content').find('.tab0').show()">
+												${CURLANG.imgUpload}
+											</li>
+											
+											<li class="" id="url" onclick="$(this).parent().find('.on').removeClass('on');$(this).addClass('on');$(this).parents('.wbbm-content').find('.tab-cont').hide();$(this).parents('.wbbm-content').find('.tab1').show()">
+												${CURLANG.modal_img_tab1}
+											</li>
+										</ul>
+									</div>
+									<div id="fileUploadMsgBox" class="text-center">
+				
+										</div>
+									<div class="wbbm-cont">
+										
+										<div class="tab-cont tab0" tid="0">													
+												<div class="wbbm-inp-row">
+													<label>${CURLANG.setImgTitle}</label>
+													<input class="inp-text modal-text" type="text" id="uploadImgTitle" name="TITLE" value="">
+												</div>
+												<div class="fileupload" class="d-flex flex-column-reverse" style="text-align:center;margin:0 auto;">
+													<div class="mb-3">
+														<input id="imageToUpload" class="file" type="file" name="img" accept=".jpg,.jpeg,.png,.svg,.webp,.gif,.apng" />
+														<button id="nicebtn" class="wbb-button">${CURLANG.modal_img_btn}</button> 
+														<p class="my-2">Format(s) : .jpg,.jpeg,.png,.svg,.webp,.gif,.apng ( 1Mb max.)</p>
+														<p class="my-2"><a href="https://www.iloveimg.com/" target="_blank">${CURLANG.compressFileText}</a></p>
+													</div>
+												</div>
+												<div class="wbbm-inp-row">
+												<label>${CURLANG.maxWidthText}</label>
+												<input type="range" id="uploadImgWidth" name="WIDTH"  min="0" step="5" max="100" value="100" style="padding: 5px 0;" onchange="((event) =>{ document.querySelector('#uploadImgWidthDisplay').textContent = event.target.value +'%' })(event) ">
+												<div id="uploadImgWidthDisplay">100%</div>
+												
+											</div> 
+										</div>
+										<div class="tab-cont tab1" tid="1" style="display: none;">
+											<div class="wbbm-inp-row">
+												<label>${CURLANG.setImgTitle}</label>
+												<input class="inp-text modal-text" type="text" id="urlImgTitle" name="TITLE" value="">
+											</div>
+											<div class="wbbm-inp-row">
+												<label>${CURLANG.modal_img_tab1}</label>
+												<input class="inp-text modal-text" type="text" id="urlImgSrc" name="SRC" value="">
+											</div>
+											<div class="wbbm-inp-row">
+												<label>${CURLANG.maxWidthText}</label>
+												<input type="range" id="urlImgWidth" name="WIDTH"  min="0" step="5" max="100" value="100" style="padding: 5px 0;" onchange="((event) =>{ document.querySelector('#urlImgWidthDisplay').textContent = event.target.value +'%' })(event) ">
+												<div id="urlImgWidthDisplay">100%</div>
+												
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="wbbm-bottom">
+									<button id="wbbm-submit" class="wbb-button">${CURLANG.save}</button>
+									<button id="wbbm-cancel" class="wbb-cancel-button">${CURLANG.cancel}</button>
+								</div>
+							</div>
+						`).show()
+
+						// make the submit bouton disabled by default until all is ok
+						// this.$modal.find('#uploadToServer').attr('disabled', true)
+
+						// handle file input change
+						this.$modal.find('#imageToUpload').change($.proxy(function (e) {
+
+							// make the submit bouton disabled each time at start
+							this.$modal.find('#uploadToServer').attr('disabled', true)
+
+							// bind html elements
+							const imageToUpload = this.$modal.find('#imageToUpload')[0].files[0]
+							const fileUploadMsgBox = this.$modal.find('#fileUploadMsgBox')
+
+							// get the extension from the mime type
+							const imageExtension = imageToUpload ? imageToUpload.type.split('/')[1] : null
+							const allowedExtensions = ['jpg','jpeg','png','svg','webp','gif','apng']
+
+							// reset the msg box if not empty each time at start
+							if (fileUploadMsgBox.html() != '') fileUploadMsgBox.html('')
+
+							const errors = []
+							//  the user switched from 1 file to no file
+							if (typeof imageToUpload === 'undefined') errors.push({errorType: 'imageIsRequired'})
+							else{
+								if(allowedExtensions.indexOf(imageExtension) === -1) errors.push({errorType: 'invalidImageExtension'})
+								if(imageToUpload.size > 1000000) errors.push({errorType: 'imageSizeToLarge'})
+							}
+
+							// some errors found
+							if(errors.length > 0){
+								let output = ''
+								errors.map(error => {
+									output += `<p class="my-0">${CURLANG.messages.image[error.errorType]}</>`
+								})
+
+								fileUploadMsgBox.html(`
+									<div class="alert alert-danger">
+										<p class="my-0">${output}</>
+									</div>
+								`)
+								return
+							}
+
+							// no errors, set success msg
+							fileUploadMsgBox.html(`
+								<div class="alert alert-success">
+									<p class="my-0">${CURLANG.messages.image.fileIsValid}</>
+								</div>
+							`)
+						}, this))
+
+						// HANDLE CANCEL BUTTON CLICK
+						this.$modal.find('#wbbm-cancel,.wbbclose').click($.proxy(this.closeModal, this));
+
+						// HANDLE MODAL CLOSE WHEN ESC KEY IS CLICKED
+						$(document).bind("keydown", $.proxy(this.escModal, this));
+
+						// HANDLE MODAL CLOSE WHEN CLICK OCCURES OUTSIDE OF THE MODAL
+						this.$modal.bind('click', $.proxy(function (e) {
+							if ($(e.target).parents(".wbbm").length == 0) {
+								this.closeModal();
+							}
+						}, this));
+
+						// error checking on title and width image url and upload image features
+						const checkForErrors = (title,width) =>{
+							const errors = []
+							let output = ''
+							if(title === '') errors.push({errorType: 'titleIsRequired'})
+							if(parseInt(width) < 0 || parseInt(width) > 100) errors.push({errorType : 'widthIsInvalid'})
+
+							// some errors found, display them to the user
+							if(errors.length > 0){
+								errors.map(error => {
+									output += `<p class="my-0">${CURLANG.messages.image[error.errorType]}</>`
+								})
+							}
+							return output
+						}
+
+						// HANDLE MODAL CLOSE BUTTON IN THE MODAL FOOTER
+						this.$modal.find('#wbbm-submit').click($.proxy(function (e) {
+							let imgSrc,imgTitle,imgWidth
+							const currentTab = this.$modal.find('.wbbm-tablist .on')[0]
+							const fileUploadMsgBox = this.$modal.find('#fileUploadMsgBox')
+
+							// reset the msg box each time at start if not empty
+							if (fileUploadMsgBox.html() != '') fileUploadMsgBox.html('')
+
+							// UPLOAD IMAGE TAB
+							if(currentTab.id === 'upload'){
+								e.preventDefault()
+
+								//const baseUrl = `${location.protocol}//${location.hostname}`
+								const uploadUrl = `/routing/Routing.php?controller=course&action=upload_img_from_text_editor`
+								// bind data and reset the message box
+								const uploadImgTitle = this.$modal.find('#uploadImgTitle').val()
+								const uploadImgWidth = this.$modal.find('#uploadImgWidth').val()
+								const imageToUpload = this.$modal.find('#imageToUpload')[0].files[0]
+								const fileUploadMsgBox = this.$modal.find('#fileUploadMsgBox')
+
+								// get the extension from the mime type
+								const imageExtension = imageToUpload ? imageToUpload.type.split('/')[1] : null
+								const allowedExtensions = ['jpg','jpeg','png','svg','webp','gif','apng']
+
+								let errors = checkForErrors(uploadImgTitle, uploadImgWidth)
+								if (typeof imageToUpload === 'undefined'){
+									errors +=`<p class="my-0">${CURLANG.messages.image.imageIsRequired}</>`
+								}
+								else{
+									if(allowedExtensions.indexOf(imageExtension) === -1){
+										errors +=`<p class="my-0">${CURLANG.messages.image.invalidImageExtension}</>`
+									}
+									if (imageToUpload.size > 1000000){
+										errors +=`<p class="my-0">${CURLANG.messages.image.imageSizeToLarge}</>`
+									}
+								}
+
+								// some errors found, display them to the user
+								if(errors != ''){
+									fileUploadMsgBox.html(`
+										<div class="alert alert-danger">
+											${errors}
+										</div>
+									`)
+									return
+								}
+
+								// no errors, prepare file to be submitted
+								const dataToSend = new FormData()
+								dataToSend.append('image', imageToUpload)
+
+								// inform the user that its request is loading
+								fileUploadMsgBox.html(`
+									<div class="alert alert-info">
+										<p class="my-0">${CURLANG.loading}</>
+									</div>
+								`)
+
+								// IMAGE UPLOAD ON THE SERVER
+								const handleImageUploadOnServer = async () =>{
+									try {
+										const data = await (await fetch(uploadUrl, {
+											method: "POST",
+											body: dataToSend
+										})).json()
+
+										// some errors received
+										if(data.errors){
+											// append errors text to output
+											let output = ''
+											data.errors.map(error => {
+												output += `<p class="my-0">${CURLANG.messages.image[error.errorType]}</p>`
+											})
+
+											// render errors output to the user
+											fileUploadMsgBox.html(`
+												<div class="alert alert-danger">
+													${output}
+												</div>
+											`)
+											return
+										}
+
+										// no errors
+										if (typeof data.errors === 'undefined') {
+
+											// display success msg and prepare data for the bbcode
+											fileUploadMsgBox.html(`
+												<div class="alert alert-success">
+													<p class="my-0">${CURLANG.messages.uploadSuccess}</>
+												</div>
+											`)
+											imgSrc = data.src
+											imgTitle = uploadImgTitle
+											imgWidth = `${uploadImgWidth}%`
+
+											this.wbbInsertCallback(cmd, { SRC: imgSrc,TITLE: imgTitle, WIDTH: imgWidth })
+											setTimeout(()=>{
+												this.closeModal();
+												this.updateUI();
+											},1200)
+										}
+									} catch (error) {
+										fileUploadMsgBox.html(`
+											<div class="alert alert-danger">
+												<p class="my-0">${CURLANG.messages.unexpectedErrorOccured}</>
+											</div>
+										`)
+									}
+								}
+								handleImageUploadOnServer()
+
+							}
+							// INSERT IMAGE URL TAB
+							else if(currentTab.id === 'url'){
+								// bind data
+								const urlRegex = /http(s)?:\/\/(\w+\.)?(\w+\.)(\w{2,14})?(.*)\.(jpg|jpeg|png|svg|webp|gif|apng)/gi;
+								imgTitle = this.$modal.find('.tab1 #urlImgTitle')[0].value
+								imgSrc = this.$modal.find('.tab1 #urlImgSrc')[0].value
+								imgWidth = this.$modal.find('.tab1 #urlImgWidth')[0]
+											? `${this.$modal.find('.tab1 #urlImgWidth')[0].value }%`
+											: '100%'
+
+								// check for errors
+								let errors = checkForErrors(imgTitle,imgWidth)
+								// check for src specifically as it is not part of custom upload
+								if(imgSrc === ''){
+									errors +=`<p class="my-0">${CURLANG.messages.image.urlIsRequired}</>`
+								}
+								else if(!urlRegex.test(imgSrc)){
+									errors +=`<p class="my-0">${CURLANG.messages.image.invalidUrl}</>`
+								}
+
+								// some errors found, display them to the user
+								if(errors != ''){
+									fileUploadMsgBox.html(`
+									<div class="alert alert-danger">
+										${errors}
+									</div>
+									`)
+									return
+								}
+
+								// no errors, display success msg and prepare data for the bbcode
+								fileUploadMsgBox.html(`
+									<div class="alert alert-success">
+										<p class="my-0">${CURLANG.messages.dataSavedSuccessfully}</>
+									</div>
+								`)
+
+								this.wbbInsertCallback(cmd, { SRC: imgSrc, TITLE: imgTitle, WIDTH: imgWidth })
+								setTimeout(()=>{
+									this.closeModal();
+									this.updateUI();
+								},1500)
+							}
+						}, this));
+					},
+					transform: {
+						'<img src="{SRC}" title="{TITLE}"  class="img-fluid" style="max-width:{WIDTH};"/>': '[img title={TITLE} max-width={WIDTH}]{SRC}[/img]'
+					}
+				},
+				custompdfupload: {
+					title: CURLANG.vittapdf,
+					buttonHTML: '<i class="far fa-file-pdf" style="height:27px;width:31px;font-size:20px;text-align:center;padding-top: 5px;"></i>',
+					modal: function(cmd,opt,queryState) {
+						// get the modal container
+						this.$modal = $("#wbbmodal")
+
+						// save the current cursor pos where to add the data
+						this.saveRange();
+
+						// append the content onto the modal
+						this.$modal.prependTo(document.body)
+							.html(`
+								<div class="wbbm hastabs" hastabs"="" style="max-width: 500px; width: 600px; margin-top: 202.479px;">
+									<div class="wbbm-title">
+										<span class="wbbm-title-text">${CURLANG.vittapdf}</span>
+										<span class="wbbclose" title="${CURLANG.close}">×</span>
+									</div>
+									<div class="wbbm-content">
+										<div class="wbbm-tablist">
+											<ul>
+												<li class="on" id="upload" onclick="$(this).parent().find('.on').removeClass('on');$(this).addClass('on');$(this).parents('.wbbm-content').find('.tab-cont').hide();$(this).parents('.wbbm-content').find('.tab0').show()">
+													${CURLANG.fileUpload}
+												</li>
+												
+												<li class="" id="url" onclick="$(this).parent().find('.on').removeClass('on');$(this).addClass('on');$(this).parents('.wbbm-content').find('.tab-cont').hide();$(this).parents('.wbbm-content').find('.tab1').show()">
+													${CURLANG.modal_img_tab1}
+												</li>
+											</ul>
+										</div>
+										<div id="fileUploadMsgBox" class="text-center">
+					
+											</div>
+										<div class="wbbm-cont">
+											
+											<div class="tab-cont tab0" tid="0">
+												<div class="wbbm-inp-row">
+													<label>${CURLANG.setFileTitle}</label>
+													<input class="inp-text modal-text" type="text" id="uploadFileTitle" name="TITLE" value="">
+												</div>
+												<div class="fileupload" class="d-flex flex-column-reverse" style="text-align:center;margin:0 auto;">
+													<div class="mb-3">
+														<input id="fileToUpload" class="file" type="file" name="file" accept=".pdf" />
+														<button id="nicebtn" class="wbb-button">${CURLANG.modal_img_btn}</button> 
+														<p class="my-2">Format(s) : .pdf ( 5Mb max.)</p>
+														<p class="my-2"><a href="https://www.ilovepdf.com/" target="_blank">${CURLANG.compressFileText}</a></p>
+													</div>
+												</div>
+											</div>
+											<div class="tab-cont tab1" tid="1" style="display: none;">
+												<div class="wbbm-inp-row">
+													<label>${CURLANG.setFileTitle}</label>
+													<input class="inp-text modal-text" type="text" id="urlFileTitle" name="TITLE" value="">
+												</div>
+												<div class="wbbm-inp-row">
+													<label>${CURLANG.modal_img_tab1}</label>
+													<input class="inp-text modal-text" type="text" id="urlFileSrc" name="SRC" value="">
+												</div>
+												
+											</div>
+										</div>
+									</div>
+									<div class="wbbm-bottom">
+										<button id="wbbm-submit" class="wbb-button">${CURLANG.save}</button>
+										<button id="wbbm-cancel" class="wbb-cancel-button">${CURLANG.cancel}</button>
+									</div>
+								</div>
+							`).show()
+
+						// HANDLE CHANGE FOR PDF FILE INPUT
+						this.$modal.find('#fileToUpload').change($.proxy(function (e) {
+							e.preventDefault()
+							// bind html elements
+							const fileToUpload = this.$modal.find('#fileToUpload')[0].files[0]
+							const fileUploadMsgBox = this.$modal.find('#fileUploadMsgBox')
+
+							// get the extension from the mime type
+							const fileExtension = fileToUpload ? fileToUpload.type.split('/')[1] : null
+							const allowedExtensions = ['pdf']
+
+							// reset the msg box each time at start if not empty
+							if (fileUploadMsgBox.html() != '') fileUploadMsgBox.html('')
+
+							const errors = []
+							//  the user switched from 1 file to no file
+							if (typeof fileToUpload === 'undefined') errors.push({errorType: 'fileIsRequired'})
+							else{
+								if(allowedExtensions.indexOf(fileExtension) === -1) errors.push({errorType: 'invalidFileExtension'})
+								if(fileToUpload.size > 5000000) errors.push({errorType: 'fileSizeToLarge'})
+							}
+
+							// some errors found
+							if(errors.length > 0){
+								let output = ''
+								errors.map(error => {
+									output += `<p class="my-0">${CURLANG.messages.file[error.errorType]}</>`
+								})
+
+								fileUploadMsgBox.html(`
+									<div class="alert alert-danger">
+										<p class="my-0">${output}</>
+									</div>
+								`)
+								return
+							}
+
+							// no errors, set success msg
+							fileUploadMsgBox.html(`
+								<div class="alert alert-success">
+									<p class="my-0">${CURLANG.messages.file.fileIsValid}</>
+								</div>
+							`)
+						}, this));
+
+						// HANDLE CANCEL BUTTON CLICK
+						this.$modal.find('#wbbm-cancel,.wbbclose').click($.proxy(this.closeModal, this));
+
+						// HANDLE MODAL CLOSE WHEN ESC KEY IS CLICKED
+						$(document).bind("keydown", $.proxy(this.escModal, this));
+
+						// HANDLE MODAL CLOSE WHEN CLICK OCCURES OUTSIDE OF THE MODAL
+						this.$modal.bind('click', $.proxy(function (e) {
+							if ($(e.target).parents(".wbbm").length == 0) {
+								this.closeModal();
+							}
+						}, this));
+
+						// HANDLE MODAL CLOSE BUTTON IN THE MODAL FOOTER
+						this.$modal.find('#wbbm-submit').click($.proxy(function (e) {
+							// bind data
+							let fileSrc,fileTitle
+							const currentTab = this.$modal.find('.wbbm-tablist .on')[0]
+							const fileUploadMsgBox = this.$modal.find('#fileUploadMsgBox')
+
+							// reset the msg box each time at start if not empty
+							if (fileUploadMsgBox.html() != '') fileUploadMsgBox.html('')
+
+							// UPLOAD FILE TAB
+							if(currentTab.id === 'upload'){
+								e.preventDefault()
+
+								const uploadUrl = `/routing/Routing.php?controller=upload&action=upload_file_from_text_editor`
+
+								// bind data and reset the message box
+								const uploadFileTitle = this.$modal.find('#uploadFileTitle').val()
+								const fileToUpload = this.$modal.find('#fileToUpload')[0].files[0]
+								const fileUploadMsgBox = this.$modal.find('#fileUploadMsgBox')
+
+								// get the extension from the mime type
+								const fileExtension = fileToUpload ? fileToUpload.type.split('/')[1] : null
+								const allowedExtensions = ['pdf']
+
+								const errors = []
+								if(uploadFileTitle === '') errors.push({errorType: 'titleIsRequired'})
+								if (typeof fileToUpload === 'undefined') errors.push({errorType: 'fileIsRequired'})
+								else {
+									if(allowedExtensions.indexOf(fileExtension) === -1) errors.push({errorType: 'invalidFileExtension'})
+									if (fileToUpload.size > 5000000) errors.push({errorType: 'fileSizeToLarge'})
+								}
+
+								// some errors found, display them to the user
+								if(errors.length > 0){
+									let output = ''
+									errors.map(error => {
+										output += `<p class="my-0">${CURLANG.messages.file[error.errorType]}</>`
+									})
+									fileUploadMsgBox.html(`
+										<div class="alert alert-danger">
+											${output}
+										</div>
+									`)
+									return
+								}
+
+								// prepare file to be submitted and disable submit button to avoid multiple submission
+								const dataToSend = new FormData()
+								dataToSend.append('file', fileToUpload)
+
+								// inform the user that its request is loading
+								fileUploadMsgBox.html(`
+									<div class="alert alert-info">
+										<p class="my-0">${CURLANG.loading}</>
+									</div>
+								`)
+
+								// FILE UPLOAD ON THE SERVER
+								const handleFileUploadOnServer  = async () =>{
+									try {
+										const data = await (await fetch(uploadUrl, {
+											method: "POST",
+											body: dataToSend
+										})).json()
+
+										// some errors received
+										if(data.errors){
+											// append errors text to output
+											let output = ''
+											data.errors.map(error => {
+												output += `<p class="my-0">${CURLANG.messages.file[error.errorType]}</p>`
+											})
+
+											// render errors output to the user
+											fileUploadMsgBox.html(`
+												<div class="alert alert-danger">
+													${output}
+												</div>
+											`)
+											return
+										}
+
+										// no errors
+										if (typeof data.errors === 'undefined') {
+
+											// display success msg and prepare data for the bbcode
+											fileUploadMsgBox.html(`
+												<div class="alert alert-success">
+													<p class="my-0">${CURLANG.messages.uploadSuccess}</>
+												</div>
+											`)
+											fileSrc = data.src
+											fileTitle = uploadFileTitle
+
+											this.wbbInsertCallback(cmd, { SRC: fileSrc, id: id, TITLE: fileTitle})
+											setTimeout(()=>{
+												this.closeModal();
+												this.updateUI();
+											},1200)
+										}
+									} catch (error) {
+										fileUploadMsgBox.html(`
+											<div class="alert alert-danger">
+												<p class="my-0">${CURLANG.messages.unexpectedErrorOccured}</>
+											</div>
+										`)
+									}
+
+								}
+								handleFileUploadOnServer()
+
+							}
+							// INSERT FILE URL TAB
+							else if(currentTab.id === 'url'){
+								// bind data
+								const urlRegex = /http(s)?:\/\/(\w+\.)?(\w+\.)(\w{2,14})?(.*)\.pdf/gi;
+								fileTitle = this.$modal.find('.tab1 #urlFileTitle')[0].value
+								fileSrc = this.$modal.find('.tab1 #urlFileSrc')[0].value
+
+								const errors = []
+								// check for src specifically as it is not part of custom upload
+								if(fileTitle === '') errors.push({errorType: 'titleIsRequired'})
+								if(fileSrc === '') errors.push({errorType: 'urlIsRequired'})
+								else if(!urlRegex.test(fileSrc)) errors.push({errorType: 'invalidUrl'})
+
+								if(errors.length > 0){
+									let output = ''
+									errors.map(error => {
+										output += `<p class="my-0">${CURLANG.messages.file[error.errorType]}</>`
+									})
+									fileUploadMsgBox.html(`
+										<div class="alert alert-danger">
+											${output}
+										</div>
+									`)
+									return
+								}
+
+								// display success msg and prepare data for the bbcode
+								fileUploadMsgBox.html(`
+									<div class="alert alert-success">
+										<p class="my-0">${CURLANG.messages.dataSavedSuccessfully}</>
+									</div>
+								`)
+
+								this.wbbInsertCallback(cmd, { SRC: fileSrc, TITLE: fileTitle })
+								setTimeout(()=>{
+									this.closeModal();
+									this.updateUI();
+								},1200)
+							}
+						}, this));
+					  },
+					  transform: {
+						'<embed src="{SRC}" title="{TITLE}" width=100% height=500 type="application/pdf" />': '[embed title={TITLE}]{SRC}[/embed]'
 					}
 				}
 			},
@@ -1664,17 +2351,17 @@ wbbdebug = false;
 				$.log("Init modal");
 				this.$modal = $('<div>').attr("id", "wbbmodal").prependTo(document.body)
 					.html(`<div class="wbbm">
-								<div class="wbbm-title">
-									<span class="wbbm-title-text"></span>
-									<span class="wbbclose" title="${CURLANG.close}">×</span>
-								</div>
-								<div class="wbbm-content"></div>
-								<div class="wbbm-bottom">
-									<button id="wbbm-submit" class="wbb-button">${CURLANG.save}</button>
-									<button id="wbbm-cancel" class="wbb-cancel-button">${CURLANG.cancel}</button>
-									<button id="wbbm-remove" class="wbb-remove-button">${CURLANG.remove}</button>
-								</div>
-							</div>`).hide();
+							<div class="wbbm-title">
+								<span class="wbbm-title-text"></span>
+								<span class="wbbclose" title="${CURLANG.close}">×</span>
+							</div>
+							<div class="wbbm-content"></div>
+							<div class="wbbm-bottom">
+								<button id="wbbm-submit" class="wbb-button">${CURLANG.save}</button>
+								<button id="wbbm-cancel" class="wbb-cancel-button">${CURLANG.cancel}</button>
+								<button id="wbbm-remove" class="wbb-remove-button">${CURLANG.remove}</button>
+							</div>
+						</div>`).hide();
 
 				this.$modal.find('#wbbm-cancel,.wbbclose').click($.proxy(this.closeModal, this));
 				this.$modal.bind('click', $.proxy(function (e) {
@@ -2676,18 +3363,18 @@ wbbdebug = false;
 			//transform smiles
 			/* $wrap.contents().filter(function() {return this.nodeType==3}).each($.proxy(smilerpl,this)).end().find("*").contents().filter(function() {return this.nodeType==3}).each($.proxy(smilerpl,this));
 
-				function smilerpl(i,el) {
-					var ndata = el.data;
-					$.each(this.options.smileList,$.proxy(function(i,row) {
-						var fidx = ndata.indexOf(row.bbcode);
-						if (fidx!=-1) {
-							var afternode_txt = ndata.substring(fidx+row.bbcode.length,ndata.length);
-							var afternode = document.createTextNode(afternode_txt);
-							el.data = ndata = el.data.substr(0,fidx);
-							$(el).after(afternode).after(this.strf(row.img,this.options));
-						}
-					},this));
-				} */
+			function smilerpl(i,el) {
+				var ndata = el.data;
+				$.each(this.options.smileList,$.proxy(function(i,row) {
+					var fidx = ndata.indexOf(row.bbcode);
+					if (fidx!=-1) {
+						var afternode_txt = ndata.substring(fidx+row.bbcode.length,ndata.length);
+						var afternode = document.createTextNode(afternode_txt);
+						el.data = ndata = el.data.substr(0,fidx);
+						$(el).after(afternode).after(this.strf(row.img,this.options));
+					}
+				},this));
+			} */
 			this.getHTMLSmiles($wrap);
 			//$wrap.contents().filter(function() {return this.nodeType==3}).each($.proxy(this,smileRPL,this));
 
@@ -2987,19 +3674,20 @@ wbbdebug = false;
 
 			//OLD
 			/* $.each(this.options.rules,$.proxy(function(s,bb) {
-					$block.find(s).attr("wbbkeep",1);
-				},this));
 
-				//replace div and p without last br to html()+br
-				$block.find("*[wbbkeep!='1']").each($.proxy(function(i,el) {
-					var $this = $(el);
-					if ($this.is('div,p') && ($this.children().length==0 || el.lastChild.tagName!="BR")) {
-						$this.after("<br/>").after($this.contents()).remove();
-					}else{
-						$this.after($this.contents()).remove();
-					}
-				},this));
-				$block.find("*[wbbkeep]").removeAttr("wbbkeep").removeAttr("style"); */
+				$block.find(s).attr("wbbkeep",1);
+			},this));
+
+			//replace div and p without last br to html()+br
+			$block.find("*[wbbkeep!='1']").each($.proxy(function(i,el) {
+				var $this = $(el);
+				if ($this.is('div,p') && ($this.children().length==0 || el.lastChild.tagName!="BR")) {
+					$this.after("<br/>").after($this.contents()).remove();
+				}else{
+					$this.after($this.contents()).remove();
+				}
+			},this));
+			$block.find("*[wbbkeep]").removeAttr("wbbkeep").removeAttr("style"); */
 		},
 		sortArray: function (ar, asc) {
 			ar.sort(function (a, b) {

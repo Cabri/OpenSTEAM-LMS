@@ -39,16 +39,16 @@
     <div class="container">
         <div id="classroom-flow" class="row py-5 justify-content-md-center">
             <div class="col-sm col-lg-3 text-center">
-                <img class="img-fluid" src="assets/media/create_activities.png?version=VERSIONNUM" alt=""></br>
+                <img class="img-fluid" src="assets/media/create_activities.png" alt=""></br>
                 <span data-i18n="[html]classroom.login.activities"></span>
             </div>
             <div class="col-sm col-lg-3 text-center">
-                <img class="img-fluid" src="assets/media/assign_activities.png?version=VERSIONNUM" alt=""></br>
+                <img class="img-fluid" src="assets/media/assign_activities.png" alt=""></br>
                 <span data-i18n="[html]classroom.login.attribute"></span>
 
             </div>
             <div class="col-sm col-lg-3 text-center">
-                <img class="img-fluid" src="assets/media/visualise_activities.png?version=VERSIONNUM" alt=""></br>
+                <img class="img-fluid" src="assets/media/visualise_activities.png" alt=""></br>
                 <span data-i18n="[html]classroom.login.visualize"></span>
             </div>
         </div>
@@ -69,7 +69,7 @@
 
             <h3 class="font-weight-bold c-text-secondary" data-i18n="classroom.login.student"></h3>
             <div class="c-secondary-form">
-                <img src="assets/media/orange_lock.png?version=VERSIONNUM" class="icon-label">
+                <img src="assets/media/orange_lock.png" class="icon-label">
                 <label for="secret_code" data-i18n="classroom.login.codeInput"></label></br>
                 <input type="text" placeholder="123ABC" name="secret_code" id="class-code" required>
             </div>
@@ -89,7 +89,7 @@
             </span>
         </div>
         <div id="classroom-login-gar" class="container-border-right">
-            <img src="assets/media/logoGAR.png?version=VERSIONNUM" alt="Logo GAR">
+            <img src="assets/media/logoGAR.png" alt="Logo GAR">
             <span class="gar-presentation-text my-3" data-i18n="[html]classroom.login.gar"></span>
         </div>
         <button onclick="navigateLight('', 1)" class="btn close-login-classroom"><i class="fas fa-times"></i></button>
@@ -111,7 +111,7 @@
 
                 <div class="col-md-6">
                     <div class="form-row mb-4">
-                        <img src="assets/media/icon-pseudonyme.svg?version=VERSIONNUM" class="filter-color-green">
+                        <img src="assets/media/icon-pseudonyme.svg" class="filter-color-green">
                         <label for="profile-form-first-name" class="tutorial-label"
                             data-i18n="[html]manager.profil.firstname"></label>
                         <input type="text" name="first-name" id="profile-form-first-name"
@@ -120,7 +120,7 @@
                 </div>
                 <div class="col-md-6">
                     <div class="form-row mb-4">
-                        <img src="assets/media/icon-pseudonyme.svg?version=VERSIONNUM" class="filter-color-green">
+                        <img src="assets/media/icon-pseudonyme.svg" class="filter-color-green">
                         <label for="profile-form-last-name" class="tutorial-label"
                             data-i18n="[html]manager.profil.lastname"></label>
                         <input type="text" name="last-name" id="profile-form-last-name"
@@ -130,7 +130,7 @@
 
                 <div class="col-md-4" id="registration_pseudo">
                     <div class="form-row mb-4">
-                        <img src="assets/media/icon-pseudonyme.svg?version=VERSIONNUM" class="filter-color-green">
+                        <img src="assets/media/icon-pseudonyme.svg" class="filter-color-green">
                         <label for="profile-form-pseudo" class="tutorial-label"
                             data-i18n="[html]manager.profil.nickname"></label>
                         <input type="text" name="pseudo" id="profile-form-pseudo" class="form-control form-control-lg">
@@ -139,7 +139,7 @@
 
                 <div class="col-md-4">
                     <div class="form-row mb-4">
-                        <img src="assets/media/icon-email.svg?version=VERSIONNUM" class="filter-color-green">
+                        <img src="assets/media/icon-email.svg" class="filter-color-green">
                         <label for="profile-form-email" class="tutorial-label"
                             data-i18n="[html]manager.profil.email"></label>
                         <input type="email" name="email" id="profile-form-email" class="form-control form-control-lg">
@@ -148,7 +148,7 @@
 
                 <div class="col-md-4" id="registration_phone">
                     <div class="form-row mb-4">
-                        <img src="assets/media/icon-phone.svg?version=VERSIONNUM" class="filter-color-green">
+                        <img src="assets/media/icon-phone.svg" class="filter-color-green">
                         <label for="profile-form-phone" class="tutorial-label"
                             data-i18n="manager.profil.phone"></label>
                         <input type="text" name="phone-number" class="form-control form-control-lg"
@@ -158,7 +158,7 @@
 
                 <div class="col-md-12" id="registration_bio">
                     <div class="form-row mb-4">
-                        <img src="assets/media/icon-information.svg?version=VERSIONNUM" class="filter-color-green">
+                        <img src="assets/media/icon-information.svg" class="filter-color-green">
                         <label for="profile-form-bio" class="tutorial-label"
                             data-i18n="[html]manager.profil.bio"></label>
                         <textarea class="form-control form-control-lg" name="mini-bio" id="profile-form-bio"
@@ -168,7 +168,7 @@
 
                 <div class="col-md-12" id="registration_school">
                     <div class="form-row mb-4">
-                        <img src="assets/media/icon-school.svg?version=VERSIONNUM" class="filter-color-green">
+                        <img src="assets/media/icon-school.svg" class="filter-color-green">
                         <label for="profile-form-school" class="tutorial-label"
                             data-i18n="[html]manager.profil.school"></label>
                         <input type="text" class="form-control form-control-lg" name="school" id="profile-form-school">
@@ -177,7 +177,7 @@
 
                 <div class="col-md-6" id="registration_grade">
                     <div class="form-row mb-4">
-                        <img src="assets/media/icon-information.svg?version=VERSIONNUM" class="filter-color-green">
+                        <img src="assets/media/icon-information.svg" class="filter-color-green">
                         <label for="profile-form-grade" class="tutorial-label"
                             data-i18n="[html]manager.profil.grade"></label>
                         <select class="form-control" id="profile-form-grade" name="grade">
@@ -192,7 +192,7 @@
 
                 <div class="col-md-6" id="registration_subject">
                     <div class="form-row mb-4">
-                        <img src="assets/media/icon-information.svg?version=VERSIONNUM" class="filter-color-green">
+                        <img src="assets/media/icon-information.svg" class="filter-color-green">
                         <label for="profile-form-subject" class="tutorial-label"
                             data-i18n="[html]manager.profil.subject"></label>
                         <select class="form-control" id="profile-form-subject" name="subject">
@@ -202,7 +202,7 @@
 
                 <div class="col-md-6">
                     <div>
-                        <img src="assets/media/icon-lock.svg?version=VERSIONNUM" class="filter-color-green">
+                        <img src="assets/media/icon-lock.svg" class="filter-color-green">
                         <label for="profile-form-password" class="tutorial-label"
                             data-i18n="[html]manager.profil.password"></label>
                     </div>
@@ -215,7 +215,7 @@
                 </div>
 
                 <div class="col-md-6">
-                    <img src="assets/media/icon-lock.svg?version=VERSIONNUM" class="filter-color-green">
+                    <img src="assets/media/icon-lock.svg" class="filter-color-green">
                     <label for="profile-form-confirm-password" class="tutorial-label"
                         data-i18n="[html]manager.profil.confirmPassword"></label>
                     <div class="form-inline">
@@ -324,7 +324,7 @@
             <h3 class="font-weight-bold c-text-primary" data-i18n="classroom.login.signup"></h3>
             <div class="c-primary-form">
                 <p data-i18n="classroom.login.firstVisit"></p>
-                <img src="assets/media/green_user.png?version=VERSIONNUM" class="icon-label">
+                <img src="assets/media/green_user.png" class="icon-label">
                 <label for="username" data-i18n="words.username" class="text-capitalize"></label></br>
                 <input type="text" placeholder="Vitta" name="username" id="new-user-pseudo-form" required>
             </div>
@@ -337,11 +337,11 @@
                 <h3 class="font-weight-bold c-text-primary" data-i18n="classroom.login.signin"></h3>
                 <p data-i18n="classroom.login.hasReturned"></p>
 
-                <img src="assets/media/green_user.png?version=VERSIONNUM" class="icon-label">
+                <img src="assets/media/green_user.png" class="icon-label">
                 <label for="username" data-i18n="words.username" class="text-capitalize"></label></br>
                 <input type="text" placeholder="Vitta" id="user-pseudo-form" name="secret_code" required></br>
 
-                <img src="assets/media/green_lock.png?version=VERSIONNUM" class="icon-label">
+                <img src="assets/media/green_lock.png" class="icon-label">
                 <label for="username" data-i18n="words.password"></label></br>
                 <input type="password" placeholder="••••••••••" name="secret_code" id="user-password-form"
                     required></br>
@@ -365,31 +365,32 @@
         $('#fake-display').html(text);
     }));
 </script> -->
-<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js?version=VERSIONNUM"
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
     integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous">
 </script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js?version=VERSIONNUM"
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
     integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous">
 </script>
-<script src="assets/js/lib/i18next.js?version=VERSIONNUM"></script>
-<script src="assets/js/lib/jquery-i18next.min.js?version=VERSIONNUM"></script>
-<script src="assets/js/lib/i18nextXHRBackend.min.js?version=VERSIONNUM"></script>
-<script src="assets/js/lib/i18nextBrowserLanguageDetector.min.js?version=VERSIONNUM"></script>
-<script type="text/javascript" src="/classroom/assets/js/lib/slick-carrousel.js?version=VERSIONNUM"></script>
-<script src="assets/js/utils/translate.js?version=VERSIONNUM"></script>
-<script src="assets/js/utils/get.js?version=VERSIONNUM"></script>
-<script src="assets/js/scripts/dashboardActivities.js?version=VERSIONNUM"></script>
-<script src="assets/js/scripts/displayPanel.js?version=VERSIONNUM"></script>
-<script src="assets/js/lib/EasyAutocomplete-1.3.5/jquery.easy-autocomplete.min.js?version=VERSIONNUM"></script>
-<script src="assets/js/main/Loader.js?version=VERSIONNUM"></script>
-<script src="assets/js/main/UIManager.js?version=VERSIONNUM"></script>
-<script src="assets/js/main/User.js?version=VERSIONNUM"></script>
-<script src="assets/js/main/ClassroomManager.js?version=VERSIONNUM"></script>
-<script src="assets/js/main/Main.js?version=VERSIONNUM"></script>
-<script src="assets/js/scripts/main-login.js?version=VERSIONNUM"></script>
-<script src="assets/js/utils/registrationTemplate.js?version=VERSIONNUM"></script>
-<script src="assets/js/scripts/buttons.js?version=VERSIONNUM"></script>
-<script src="assets/js/scripts/login.js?version=VERSIONNUM"></script>
+
+<script src="assets/js/lib/i18next.js?version=1.2.12a"></script>
+<script src="assets/js/lib/jquery-i18next.min.js?version=1.2.12a"></script>
+<script src="assets/js/lib/i18nextXHRBackend.min.js?version=1.2.12a"></script>
+<script src="assets/js/lib/i18nextBrowserLanguageDetector.min.js?version=1.2.12a"></script>
+<script type="text/javascript" src="/classroom/assets/js/lib/slick-carrousel.js?version=1.2.12a"></script>
+<script src="assets/js/utils/translate.js?version=1.2.12a"></script>
+<script src="assets/js/utils/get.js?version=1.2.12a"></script>
+<script src="assets/js/scripts/dashboardActivities.js?version=1.2.12a"></script>
+<script src="assets/js/scripts/displayPanel.js?version=1.2.12a"></script>
+<script src="assets/js/lib/EasyAutocomplete-1.3.5/jquery.easy-autocomplete.min.js?version=1.2.12a"></script>
+<script src="assets/js/main/Loader.js?version=1.2.12a"></script>
+<script src="assets/js/main/UIManager.js?version=1.2.12a"></script>
+<script src="assets/js/main/User.js?version=1.2.12a"></script>
+<script src="assets/js/main/ClassroomManager.js?version=1.2.12a"></script>
+<script src="assets/js/main/Main.js?version=1.2.12a"></script>
+<script src="assets/js/scripts/main-login.js?version=1.2.12a"></script>
+<script src="assets/js/utils/registrationTemplate.js?version=1.2.12a"></script>
+<script src="assets/js/scripts/buttons.js?version=1.2.12a"></script>
+<script src="assets/js/scripts/login.js?version=1.2.12a"></script>
 <script>
     UIManager.init().then((resolve) => {
         UserManager.init().then((resolve) => {

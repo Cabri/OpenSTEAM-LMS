@@ -1,0 +1,130 @@
+<div id="classroom-dashboard-course-panel" class="dashboard-block" style="display:none;">
+
+    <div class="container-fluid">
+
+        <div class="course-state w-75 mx-auto" id="course-progress-bar">
+        </div>
+
+
+        <div class="row">
+            <div id="main-div-course" class="col-12 col-lg-8 mb-3" style="margin: 0 auto;overflow-wrap: break-word;">
+                
+                <h3 id="activity-title-course" class="activity-title"></h3>
+               
+                <!-- Used for status / date  -->
+                <p id="activity-details-course" class="activity-details"></p>
+
+
+                <!-- Used for subtitle -->
+                <p id="activity-introduction-course">
+                    <span id="text-introduction-course"></span>
+                </p>
+
+                <!-- Used for states -->
+                <div id="activity-states-container-course" style="display:none;">
+                    <label for="activity-states-course" class="vitta-modal-title mt-2" data-i18n="classroom.activities.states">Énoncé de l'activité</label>
+                    <p id="activity-states-course"></p>
+                </div>
+
+                <!-- @Update Rémi -->
+                <div id="activity-student-response-course" style="display:none;">
+                    <label id="label-activity-student-response-course" for="activity-student-response-content-course" class="vitta-modal-title mt-2" data-i18n="classroom.activities.studentAnswer">Réponse de l'élève</label>
+                    <p id="activity-student-response-content-course"> </p>
+                </div>
+
+                <!-- Used for content -->
+                <div id="activity-content-container-course" style="display:none;">
+                    <label for="activity-content-course" id="label-activity-content-course" class="vitta-modal-title mt-2" data-i18n="newActivities.contentTitle">Contenu de l'activité</label>
+                    <p id="activity-content-course"></p>    
+                </div>
+                
+                <div id="activity-input-container-course" style="display:none;">
+                    <label for="activity-input-course" class="vitta-modal-title mt-2" data-i18n="classroom.activities.putYourAnswer">Entrez votre réponse</label>
+                    <textarea id="activity-input-course" style="height:400px"></textarea>
+                </div>
+
+                <div id="activity-drag-and-drop-container-course" style="display: none;">
+                    <label class="vitta-modal-title mt-2">Drag & drop</label>
+                    <div id="drag-and-drop-text-course">
+
+                    </div>
+                     <div id="drag-and-drop-fields-course" class="drag-and-drop-fields">
+
+                    </div>
+
+                </div>
+
+                <div id="activity-hint-container-course" style="display:none;">
+                    <label for="activity-hint-course" class="vitta-modal-title mt-2" data-i18n="classroom.activities.hint">Indice</label>
+                    <p id="activity-hint-course"></p>
+                </div>
+
+
+                <div id="course-result-message">
+                    <p id="course-result-message-content"></p>
+                </div>
+
+
+                <div class="d-flex justify-content-center mt-2" id="course-btn-container" style="display:none;">
+
+                    <div id="course-validate-buttons">
+                        <button class="btn c-btn-primary mx-1" id="course-validate-course" data-i18n="classroom.activities.validate" onclick="coursesManager.validateCourse(1)"> 
+                            <i class="fas fa-chevron-right"></i>
+                        </button>
+    
+                        <button class="btn c-btn-grey mx-2" id="course-save-course" onclick="coursesManager.validateCourse(0)" data-i18n="classroom.activities.save-draft">
+                            <i class="fas fa-chevron-right"></i>
+                        </button>
+                    </div>
+                    <br>
+                    <div id="course-options-course-buttons" style="display:none;">
+
+                        <div class="row my-1 mx-3">
+                            <button class="btn c-btn-primary mx-1" id="course-next-course" onclick="coursesManager.readCourseFromStudent()"> 
+                                Continuer le parcours >
+                            </button>
+                        </div>
+                        
+                        <div class="row my-1 mx-3">
+                            <button class="btn c-btn-grey mx-2" id="course-return" onclick="goBackToActivities()">
+                                Retourner au menu des activités
+                            </button>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div id="activity-correction-container-course" class="col-12 col-lg-4" style="display:none">
+                <div id="activity-correction-course"></div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<div id="classroom-dashboard-course-panel-ended" class="dashboard-block" style="display:none;">
+
+    <div class="container-fluid">
+
+        <div class="results-correcting">
+
+            <div class="d-flex flex-column align-items-center justify-content-center mt-2">
+
+                <h1 class="my-3">RÉSULTATS DU PARCOURS</h1>
+                <p id="course-result-note"></p>
+
+                <div id="course-activities-result" class="course-activities-result">
+
+
+                </div>
+    
+            </div>
+
+        </div>
+
+    </div>
+
+</div>

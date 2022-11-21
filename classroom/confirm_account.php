@@ -13,7 +13,7 @@ use Dotenv\Dotenv;
 use User\Entity\Regular;
 use User\Entity\User;
 
-$confirm_account = (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? "https" : "http") . "://$_SERVER[HTTP_HOST]"."/classroom/confirm_account.php?page=";
+$confirm_account = $_ENV['VS_HOST']."/classroom/confirm_account.php?page=";
 $page = isset($_GET['page']) ? htmlspecialchars($_GET['page']) : null;
 
 if (!$page) {

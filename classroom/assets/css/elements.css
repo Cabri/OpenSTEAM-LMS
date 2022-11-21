@@ -126,6 +126,18 @@
     background: transparent;
 }
 
+.c-btn-icon-only {
+    display: inline-flex;
+    background-color: transparent;
+    padding: 0 !important;
+    height: fit-content;
+    align-self: center;
+}
+
+.c-btn-icon-only svg {
+    height: 100%;
+}
+
 .c-btn-outline-primary,
 .c-btn-primary,
 .c-btn-outline-secondary,
@@ -142,7 +154,11 @@
     border-radius: 256px;
     transition: all 0.2s ease-in-out;
     filter: brightness(1);
+}
 
+.c-btn-icon-only {
+    transition: all 0.2s ease-in-out;
+    filter: brightness(1);
 }
 
 .c-btn-outline-primary:focus,
@@ -156,7 +172,8 @@
 .c-btn-outline-grey:focus,
 .c-btn-grey:focus,
 .c-btn-outline-light:focus,
-.c-btn-light:focus {
+.c-btn-light:focus,
+.c-btn-icon-only:focus {
     outline: 0;
     box-shadow: 0 0 0 0.2rem rgba(126, 126, 126, 0.25);
     filter: brightness(0.9);
@@ -173,7 +190,8 @@
 .c-btn-outline-grey:hover,
 .c-btn-grey:hover,
 .c-btn-outline-light:hover,
-.c-btn-light:hover {
+.c-btn-light:hover,
+.c-btn-icon-only:hover {
     filter: brightness(0.9);
 }
 

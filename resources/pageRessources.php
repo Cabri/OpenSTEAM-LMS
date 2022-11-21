@@ -11,7 +11,7 @@
             ],
             [
                 "type" => "js",
-                "src" => "assets/js/lib/lazyload.js"
+                "src" => "/assets/js/lib/vanilla_lazyload-12.4.0/lazyload.min.js"
             ]
         ],
         "shop.php" => [
@@ -81,7 +81,7 @@
         "vittapi.php" => [
             [
                 "type" => "js",
-                "src" => "https://www.gstatic.com/charts/loader.js"
+                "src" => "/assets/js/lib/charts/loader.js"
             ]
         ]
     ];

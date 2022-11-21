@@ -26,6 +26,7 @@
     <link rel="stylesheet" href="assets/css/main.css?version=VERSIONNUM">
     <link rel="stylesheet" href="assets/css/modal.css?version=VERSIONNUM">
     <link rel="stylesheet" href="assets/css/elements.css?version=VERSIONNUM">
+
 </head>
 
 <body>
@@ -38,7 +39,6 @@
     <script src="assets/js/lib/i18nextXHRBackend.min.js?version=VERSIONNUM"></script>
     <script src="assets/js/lib/i18nextBrowserLanguageDetector.min.js?version=VERSIONNUM"></script>
     <script src="assets/js/utils/translate.js?version=VERSIONNUM"></script>
-
 </body>
 
 </html>

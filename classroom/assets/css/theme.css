@@ -23,6 +23,7 @@
     --classroom-background: #fff;
     --classroom-background-1: #f6f6f6;
     --classroom-text-0: black;
+    --classroom-text-0-rgb: 0, 0, 0;
     --classroom-text-1: #333;
     --classroom-text-2: #666;
 
@@ -50,6 +51,7 @@
     --classroom-background: #181818;
     --classroom-background-1: #0a0a0a;
     --classroom-text-0: rgb(255, 255, 255);
+    --classroom-text-0-rgb: 255, 255, 255;
     --classroom-text-1: rgb(205, 205, 205);
     --classroom-text-2: rgb(153, 153, 153);
     --classroom-shadow-1: rgba(0, 0, 0, 1);

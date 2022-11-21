@@ -1,725 +1,702 @@
 {
-  "classroom": {
-    "login": {
-      "noClass": "The code entered does not correspond to any classroom.",
-      "countdown1": "The Classroom management module is currently in its beta stage. If you wish to try it out, please <a href=\"/about?contact=1\">contact the Vittascience team</a>.",
-      "countdown2": "Official release in",
-      "display": " display",
-      "hello": " Hello !",
-      "title": "Manage your Classrooms</br>with Vittascience",
-      "neutralTitle": "The Cabri platform",
-      "subtitle": "Discover - Learn - Share",
-      "login": "Log in",
-      "activities": "create easily </br> your activities",
-      "attribute": "assign them </br> to your learners",
-      "visualize": "visualize </br> their results",
-      "helpers": " By our side to <span>accompany you.</span>",
-      "student": "Student",
-      "codeInput": " Enter your Classroom code",
-      "teacher": "Teacher",
-      "hasAccount": "Already have an account?",
-      "gar": "Enjoy the Classroom module with ease using GAR.",
-      "signup": "SIGN UP",
-      "firstVisit": "First time? Please choose a username.",
-      "signin": "Sign in",
-      "registerLink": "Create an account",
-      "hasReturned": "Back to this Classroom?",
-      "forgot": "I forgot my password",
-      "error": {
-        "used": "This username is already in use, please choose another",
-        "badInput": "Your username or password is wrong."
-      },
-      "suscribe": {
-        "title": "subscribe",
-        "content": "The Classroom management module is available for free as a trial version. Benefit from all the features with the Vittascience Premium subscription. Find all the advantages and details of the Vittascience Premium offer using the button below.",
-        "premium": "Discover Vittascience Premium"
-      },
-      "carousel": {
-        "activities": {
-          "title": "Easily create your activities",
-          "content": "The activity editor makes it easy to create instructional content by including text, images, videos, Vittascience APIs, Genially presentations, and more.</br></br>Browse the Vittascience collaborative resource bank, which includes several hundred free and reusable activities. If the author of a resource allows it, you can even make changes to adapt the content to your students."
-        },
-        "attribute": {
-          "title": "Assign them to your students",
-          "content": "Once your activities have been created, you can assign them to your students. They can be assigned individually or to entire groups, such as a class or science club.</br></br>Students can securely log in using a Classroom code, link, QR code, or GAR, and complete their assigned activities."
-        },
-        "visualize": {
-          "title": "Visualize their results",
-          "content": "The dashboard allows you to track students' progress as they move through the activities and courses. Find your students' work in one click and leave comments.</br></br>Thanks to the automatic validation/correction system for blocks and Python, the dashboard fills up automatically with your students' results. Rapidly identify struggling students, gaining valuable time to accompany them."
-        }
-      },
-      "register": {
-        "title": "Registration",
-        "description": "Please complete the following fields to create your account.",
-        "passwordConstraints": "Minimum 8 characters.",
-        "createButton": "Register"
-      }
-    },
-    "register": {
-      "accountConfirmationEmail": {
-        "emailSubject": "Activate my account",
-        "bodyTitle": "Activate my account",
-        "textBeforeLink": "If the button above does not work, copy and paste into your browser, the following link :"
-      }
-    },
-    "updateUserInfos": {
-      "emailUpdateConfirmation": {
-        "emailSubject": "Confirm my new email address",
-        "bodyTitle": "Confirm my new email address",
-        "textBeforeLink": "If the above button does not work, copy and paste the following link into your browser:"
-      }
-    },
-    "successPanel": "Well done, you did it!",
-    "failPanel": "The answer is not correct",
-    "toCorrectPanel": "The activity has been passed on to your teacher,</br> who will get back to you soon! <i class=\"fas fa-pen\"></i>",
-    "bank": {
-      "helpTooltip": "The resource center contains numerous activities that you can use freely! Your teacher won't have access to your activities results"
-    },
-    "help": {
-      "student": {
-        "label": "Contact your teacher",
-        "question": "Ask your questions...",
-        "title": "Object"
-      },
-      "teacher": {
-        "label": "Contact your teacher"
-      }
-    },
-    "profil": {
-      "identity": "First name Last name",
-      "class": "CLASS: ",
-      "todo": "Activities to do",
-      "done": "Activities carried out",
-      "create": "Activities created",
-      "correctionToDo": "Corrections to be made",
-      "switchMode": "Switch to learner mode",
-      "switchModeTeacher": "Back to teacher mode",
-      "accountSettings": {
-        "title": "My account",
-        "firstname": "First name",
-        "lastname": "Name",
-        "nickname": "Username",
-        "email": "E-mail",
-        "password": "Password",
-        "confirmPassword": "Confirm password",
-        "updateButton": "Update"
-      }
-    },
-    "notif": {
-      "emptyContent": "The content can not be empty",
-      "emptyTitle": "The title can not be empty",
-      "activityRestricted": "You can not create more activities from this type",
-      "shareProjectTeacher": "The project has been shared with your teacher",
-      "addActivities": "The selected activities have been added to your list",
-      "addActivity": "The activity has been added to your list",
-      "saveProject": "Have you thought about saving your activity?",
-      "savedProject": "The draft of your activity has been saved.",
-      "deleteProject": "The project has been deleted.",
-      "shareProject": "The project was shared",
-      "corrections": "An exercise has been completed in your classes",
-      "deleteAccount": "Are you sure you want to delete the learner's account?",
-      "accountIsDelete": "The learner's account has been deleted",
-      "newPwd": "The new learner password {{pseudo}} is {{pwd}}",
-      "classCreatedButNotUsers": "The {{classroomName}} class has been created, but not the associated accounts (Your account does not allow you to have {{learnerNumber}} learners)",
-      "classUpdatedButNotUsers": "The {{classroomName}} class has been updated, but not the associated accounts (Your account does not allow you to have {{learnerNumber}} learners)",
-      "usersNotAdded": "The learner could not be added (Your account does not allow you to have {{learnerNumber}} learners)",
-      "cantLoginLimitLearners": "You cannot join the class. Your teacher has reached the maximum number of learners.",
-      "cantLoginClassroomBlocked": "You can't join the class, your teacher has locked it.",
-      "classNotCreated": "You cannot have more than one class.",
-      "attributeActivityUndone": "The activity has been de-allocated",
-      "pseudoUpdated": "The learner's new nickname is {{newPseudo}}",
-      "classroomDeleted": "The {{classroomName}} class has been deleted",
-      "classroomCreated": "The {{classroomName}} class has been created, as well as all associated accounts",
-      "classroomUpdated": "The {{classroomName}} class has been updated, as well as all associated accounts",
-      "usersAdded": "The accounts have been created",
-      "usersAddedFromCsv": "The accounts were created according to the csv file",
-      "activityDeleted": "The {{activityName}} activity has been deleted",
-      "activityDuplicated": " The {{activityName}} activity has been duplicated",
-      "mustAttributeToStudent": "You must assign the activity to learners",
-      "activityAttributed": "The activity {{activityTitle}} has been assigned to the learners listed",
-      "activityAttributionChanged": "The {{activityTitle}} assignment has been changed for the learners listed",
-      "activityCreated": "The activity {{activityTitle}} has been created",
-      "activityChanged": "The {{activityTitle}} activity has been modified",
-      "activityTitleMissing": "You must fill in the title of the activity",
-      "CsvFileMissing": "You did not choose a csv file",
-      "errorWithCsv": "Error opening csv file : {{error}}",
-      "cantGetPassword": "Error, you can't see your password",
-      "cantResetPassword": "Error, you cannot reset your password",
-      "accountUpdated": "Your account has been updated",
-      "emailUpdated": "Please go to the confirmation link that has just been sent to you on the new e-mail address to finalize the update",
-      "firstNameTooShort": "The first name must have at least 2 characters",
-      "lastNameTooShort": "The name must be at least 2 characters long",
-      "pseudoTooShort": "The nickname must be at least 2 characters long",
-      "invalidEmail": "The e-mail address entered is invalid",
-      "invalidPassword": "The password entered is invalid. It must contain at least 8 characters.",
-      "passwordAndConfirmMismatch": "The password and the password confirmation are not identical!",
-      "unknownUser": "Error when updating the account: the user does not exist!",
-      "passwordInvalid": "The password does not respect the security constraints.",
-      "emailInvalid": "The e-mail address sent is invalid",
-      "emailExists": "The email address is already assigned to another account",
-      "UserNotExists": "Error while loading/resetting password: Incorrect user!",
-      "RegularUserNotAllowed": "Error while loading / resetting password: only learners can display / reset their password!",
-      "PasswordLengthInvalid": "Unable to recover password: wrong password!",
-      "accountCreated": "The account has been created. Please go to the confirmation link that has just been sent to you by e-mail to finalize the registration and to be able to connect.",
-      "firstnameMissing": "You must fill in your first name",
-      "surnameMissing": "You must fill in your name",
-      "pseudoMissing": "You must redesignate your nickname",
-      "emailMissing": "You must fill in your e-mail address",
-      "passwordMissing": "You must enter your password",
-      "passwordConfirmMissing": "You must fill in the password confirmation",
-      "passwordsMismatch": "Password and confirmation are not identical",
-      "invalidUserId": "Error when sending the message: your login is invalid",
-      "helpRequestFromTeacherSent": "Your message has been sent. We will reply as soon as possible.",
-      "subjectMissingTeacherHelpForm": "You must fill in the subject of the message",
-      "messageMissingTeacherHelpForm": "You must enter your message",
-      "invalidUserIdTeacherHelpForm": "Error when sending the message: your login is invalid",
-      "unknownUserTeacherHelpForm": "Error when sending the message: your login does not correspond to any teacher account",
-      "helpRequestFromLearnerSent": "Your message has been sent to your teacher",
-      "subjectMissingLearnerHelpForm": "You must fill in the subject of the message",
-      "messageMissingLearnerHelpForm": "You must type your message",
-      "invalidUserIdLearnerHelpForm": "Error when sending the message: your login is invalid",
-      "unknownUserLearnerHelpForm": "Error when sending the message: your username is unknown",
-      "unknownEmailLearnerHelpForm": "Error when sending the message: your teacher's email address is unknown",
-      "activityTitleInvalid": "Activity could not be created: invalid title",
-      "activityContentInvalid": "Activity could not be created: invalid content",
-      "activityIsFromClassroomInvalid": "Activity could not be created: context error",
-      "activityUserIdInvalid": "Activity could not be created: invalid user",
-      "personalLimitationsReached": "You have reached your maximum number of students. ({{max}} max)",
-      "groupLimitationsGroup": "Your group can no longer accommodate learners",
-      "groupLimitationsTeacher": "You have reached the learner limit that your group grants you",
-      "bothLimitationsReached": "You have reached the student limitations that you and your group may have. ({{maxG}} group max, {{maxP}} personal max)",
-      "ClassroomNameInvalid": "The classroom name is required",
-      "reservedNickname": "The name : \"{{reservedNickname}}\" can not be attributed.",
-      "invalidLink": "The link you entered is not valid",
-      "noUser": "You have to add a student",
-      "noUserUsername": "You have to enter a username",
-      "pseudoMissingInCsvFile": "Some students couldn't be added as their pseudo was missing",
-      "backendReplyPseudoMissingInCsv": "Check the CSV file : empty line or pseudo missing",
-      "backendReplyPseudoMissingInUsersArray": "There is one or more error(s) in the student(s) name(s)",
-      "invalidActivityId": "Error submitting job: Invalid activity ID!",
-      "invalidCorrection": "Erreur submitting job: Invalid activity status!",
-      "currentPasswordDoesNotMatch": "The entered password is not correct!",
-      "noAnswerInActivity": " You must fill in at least one response field"
-    },
-    "ids": {
-      "classroom-dashboard-help-panel-teacher": "Help",
-      "classroom-dashboard-activities-panel-teacher": "My activities",
-      "classroom-dashboard-classes-panel-teacher": "My classes",
-      "classroom-dashboard-sandbox-panel": "Sandbox",
-      "classroom-dashboard-profil-panel-teacher": "Profile",
-      "classroom-dashboard-activities-panel": "My activities",
-      "classroom-dashboard-profil-panel": "Profile",
-      "classroom-dashboard-help-panel": "Help",
-      "classroom-dashboard-activities-panel-library-teacher": "Resource Bank",
-      "classroom-dashboard-new-activity-panel": "Creation of the activity",
-      "classroom-dashboard-new-activity-panel2": "Intermediate",
-      "classroom-dashboard-new-activity-panel3": "Allocation",
-      "classroom-table-panel-teacher": "Class {{name}}",
-      "classroom-dashboard-sandbox-creation": "Interface selection",
-      "classroom-dashboard-ide-panel": "Sandbox {{interface}}",
-      "classroom-dashboard-activity-panel": "Activity {{name}}"
-    },
-    "displayCode": "Display the code",
-    "navbar": {
-      "activities": "Activities"
-    },
-    "classes": {
-      "add": "Add a class",
-      "noClasses": "You don't have a class yet.",
-      "createClassNow": "Start by creating a class now!",
-      "form": {
-        "title": "Create a class",
-        "name": "Name of the class",
+	"classroom": {
+		"login": {
+			"noClass": "The code entered does not correspond to any classroom.",
+			"countdown1": "The Classroom management module is currently in its beta stage. If you wish to try it out, please <a href=\"/about?contact=1\">contact the Vittascience team</a>.",
+			"countdown2": "Official release in",
+			"hello1": "'Hello!'",
+			"hello2": "Hello!",
+			"title": "Manage your Classrooms</br>with Vittascience",
+			"neutralTitle": "OpenSTEAM LMS",
+			"cabriTitle": "Cabri.com",
+			"subtitle": "Discover - Learn - Share",
+			"cabriSubtitle": "The platform to succeed in math and science",
+			"login": "Log in",
+			"activities": "create easily </br> your activities",
+			"cabriActivities": "Create exercises</br> automatically in</br> a few minutes",
+			"attribute": "assign them </br> to your learners",
+			"cabriProgress": "Follow the progress</br> of your learners",
+			"visualize": "visualize </br> their results",
+			"cabriRessources": "Access a </br> variety of activities </br> and share your creations",
+			"student": "Student",
+			"codeInput": " Enter your Classroom code",
+			"teacher": "Teacher",
+			"hasAccount": "Already have an account?",
+			"gar": "Enjoy the Classroom module with ease using GAR.",
+			"signup": "SIGN UP",
+			"firstVisit": "First time? Please choose a username.",
+			"signin": "Sign in",
+			"registerLink": "Create an account",
+			"hasReturned": "Back to this Classroom?",
+			"forgot": "I forgot my password",
+			"error": {
+				"used": "This username is already in use, please choose another",
+				"badInput": "Your username or password is wrong."
+			},
+			"suscribe": {
+				"title": "subscribe",
+				"content": "The Classroom management module is available for free as a trial version. Benefit from all the features with the Vittascience Premium subscription. Find all the advantages and details of the Vittascience Premium offer using the button below.",
+				"premium": "Discover Vittascience Premium"
+			},
+			"carousel": {
+				"activities": {
+					"title": "Easily create your activities",
+					"content": "The activity editor makes it easy to create instructional content by including text, images, videos, Vittascience APIs, Genially presentations, and more.</br></br>Browse the Vittascience collaborative resource bank, which includes several hundred free and reusable activities. If the author of a resource allows it, you can even make changes to adapt the content to your students."
+				},
+				"attribute": {
+					"title": "Assign them to your students",
+					"content": "Once your activities have been created, you can assign them to your students. They can be assigned individually or to entire groups, such as a class or science club.</br></br>Students can securely log in using a Classroom code, link, QR code, or GAR, and complete their assigned activities."
+				},
+				"visualize": {
+					"title": "Visualize their results",
+					"content": "The dashboard allows you to track students' progress as they move through the activities and courses. Find your students' work in one click and leave comments.</br></br>Thanks to the automatic validation/correction system for blocks and Python, the dashboard fills up automatically with your students' results. Rapidly identify struggling students, gaining valuable time to accompany them."
+				}
+			},
+			"register": {
+				"title": "Registration",
+				"description": "Please complete the following fields to create your account.",
+				"passwordConstraints": "Minimum 8 characters.",
+				"createButton": "Register"
+			}
+		},
+		"register": {
+			"accountConfirmationEmail": {
+				"emailSubject": "Activate my account",
+				"bodyTitle": "Activate my account",
+				"textBeforeLink": "If the button above does not work, copy and paste into your browser, the following link :"
+			}
+		},
+		"updateUserInfos": {
+			"emailUpdateConfirmation": {
+				"emailSubject": "Confirm my new email address",
+				"bodyTitle": "Confirm my new email address",
+				"textBeforeLink": "If the above button does not work, copy and paste the following link into your browser:"
+			}
+		},
+		"successPanel": "Well done, you did it!",
+		"failPanel": "The answer is not correct",
+		"toCorrectPanel": "The activity has been passed on to your teacher,</br> who will get back to you soon! <i class=\"fas fa-pen\"></i>",
+		"bank": {
+			"helpTooltip": "The resource center contains numerous activities that you can use freely! Your teacher won't have access to your activities results"
+		},
+		"help": {
+			"student": {
+				"label": "Contact your teacher",
+				"question": "Ask your questions...",
+				"title": "Object"
+			},
+			"teacher": {
+				"label": "Contact your teacher"
+			}
+		},
+		"profil": {
+			"identity": "First name Last name",
+			"class": "CLASS: ",
+			"todo": "Activities to do",
+			"done": "Activities carried out",
+			"create": "Activities created",
+			"correctionToDo": "Corrections to be made",
+			"switchMode": "Switch to learner mode",
+			"switchModeTeacher": "Back to teacher mode",
+			"accountSettings": {
+				"title": "My account",
+				"firstname": "First name",
+				"lastname": "Name",
+				"nickname": "Username",
+				"email": "E-mail",
+				"password": "Password",
+				"confirmPassword": "Confirm password",
+				"updateButton": "Update"
+			}
+		},
+		"notif": {
+			"emptyContent": "The content can not be empty",
+			"emptyTitle": "The title can not be empty",
+			"activityRestricted": "You can not create more activities from this type",
+			"shareProjectTeacher": "The project has been shared with your teacher",
+			"shareProjectTeacher": "The project was shared with your teacher",
+			"addActivities": "The selected activities have been added to your list",
+			"addActivity": "The activity has been added to your list",
+			"saveProject": "Have you thought about saving your activity?",
+			"savedProject": "The draft of your activity has been saved.",
+			"deleteProject": "The project has been deleted.",
+			"shareProject": "The project was shared",
+			"corrections": "An exercise has been completed in your classes",
+			"deleteAccount": "Are you sure you want to delete the learner's account?",
+			"accountIsDelete": "The learner's account has been deleted",
+			"newPwd": "The new learner password {{pseudo}} is {{pwd}}",
+			"classCreatedButNotUsers": "The {{classroomName}} class has been created, but not the associated accounts (Your account does not allow you to have {{learnerNumber}} learners)",
+			"classUpdatedButNotUsers": "The {{classroomName}} class has been updated, but not the associated accounts (Your account does not allow you to have {{learnerNumber}} learners)",
+			"usersNotAdded": "The learner could not be added (Your account does not allow you to have {{learnerNumber}} learners)",
+			"cantLoginLimitLearners": "You cannot join the class. Your teacher has reached the maximum number of learners.",
+			"cantLoginClassroomBlocked": "You can't join the class, your teacher has locked it.",
+			"classNotCreated": "You cannot have more than one class.",
+			"attributeActivityUndone": "The activity has been de-allocated",
+			"pseudoUpdated": "The learner's new nickname is {{newPseudo}}",
+			"classroomDeleted": "The {{classroomName}} class has been deleted",
+			"classroomCreated": "The {{classroomName}} class has been created, as well as all associated accounts",
+			"classroomUpdated": "The {{classroomName}} class has been updated, as well as all associated accounts",
+			"usersAdded": "The accounts have been created",
+			"usersAddedFromCsv": "The accounts were created according to the csv file",
+			"activityDeleted": "The {{activityName}} activity has been deleted",
+			"mustAttributeToStudent": "You must assign the activity to learners",
+			"activityAttributed": "The activity {{activityTitle}} has been assigned to the learners listed",
+			"activityAttributionChanged": "The {{activityTitle}} assignment has been changed for the learners listed",
+			"activityCreated": "The activity {{activityTitle}} has been created",
+			"activityChanged": "The {{activityTitle}} activity has been modified",
+			"activityTitleMissing": "You must fill in the title of the activity",
+      "activityPlayerMissing": "You must fill in the player URL",
+			"CsvFileMissing": "You did not choose a csv file",
+			"errorWithCsv": "Error opening csv file : {{error}}",
+			"cantGetPassword": "Error, you can't see your password",
+			"cantResetPassword": "Error, you cannot reset your password",
+			"accountUpdated": "Your account has been updated",
+			"emailUpdated": "Please go to the confirmation link that has just been sent to you on the new e-mail address to finalize the update",
+			"firstNameTooShort": "The first name must have at least 2 characters",
+			"lastNameTooShort": "The name must be at least 2 characters long",
+			"pseudoTooShort": "The nickname must be at least 2 characters long",
+			"invalidEmail": "The e-mail address entered is invalid",
+			"invalidPassword": "The password entered is invalid. It must contain at least 8 characters.",
+			"passwordAndConfirmMismatch": "The password and the password confirmation are not identical!",
+			"unknownUser": "Error when updating the account: the user does not exist!",
+			"passwordInvalid": "The password does not respect the security constraints.",
+			"emailInvalid": "The e-mail address sent is invalid",
+			"emailExists": "The email address is already assigned to another account",
+			"UserNotExists": "Error while loading/resetting password: Incorrect user!",
+			"RegularUserNotAllowed": "Error while loading / resetting password: only learners can display / reset their password!",
+			"PasswordLengthInvalid": "Unable to recover password: wrong password!",
+			"accountCreated": "The account has been created. Please go to the confirmation link that has just been sent to you by e-mail to finalize the registration and to be able to connect.",
+			"firstnameMissing": "You must fill in your first name",
+			"surnameMissing": "You must fill in your name",
+			"pseudoMissing": "You must redesignate your nickname",
+			"emailMissing": "You must fill in your e-mail address",
+			"passwordMissing": "You must enter your password",
+			"passwordConfirmMissing": "You must fill in the password confirmation",
+			"passwordsMismatch": "Password and confirmation are not identical",
+			"invalidUserId": "Error when sending the message: your login is invalid",
+			"helpRequestFromTeacherSent": "Your message has been sent. We will reply as soon as possible.",
+			"subjectMissingTeacherHelpForm": "You must fill in the subject of the message",
+			"messageMissingTeacherHelpForm": "You must enter your message",
+			"invalidUserIdTeacherHelpForm": "Error when sending the message: your login is invalid",
+			"unknownUserTeacherHelpForm": "Error when sending the message: your login does not correspond to any teacher account",
+			"helpRequestFromLearnerSent": "Your message has been sent to your teacher",
+			"subjectMissingLearnerHelpForm": "You must fill in the subject of the message",
+			"messageMissingLearnerHelpForm": "You must type your message",
+			"invalidUserIdLearnerHelpForm": "Error when sending the message: your login is invalid",
+			"unknownUserLearnerHelpForm": "Error when sending the message: your username is unknown",
+			"unknownEmailLearnerHelpForm": "Error when sending the message: your teacher's email address is unknown",
+			"activityTitleInvalid": "Activity could not be created: invalid title",
+			"activityContentInvalid": "Activity could not be created: invalid content",
+			"activityIsFromClassroomInvalid": "Activity could not be created: context error",
+			"activityUserIdInvalid": "Activity could not be created: invalid user",
+			"personalLimitationsReached": "You have reached your maximum number of students. ({{max}} max)",
+			"groupLimitationsGroup": "Your group can no longer accommodate learners",
+			"groupLimitationsTeacher": "You have reached the learner limit that your group grants you",
+			"bothLimitationsReached": "You have reached the student limitations that you and your group may have. ({{maxG}} group max, {{maxP}} personal max)",
+			"ClassroomNameInvalid": "The classroom name is required",
+			"reservedNickname": "The name : \"{{reservedNickname}}\" can not be attributed.",
+			"invalidLink": "The link you entered is not valid",
+			"noUser" : "You have to add a student",
+			"noUserUsername" : "You have to enter a username",
+			"pseudoMissingInCsvFile" : "Some students couldn't be added as their pseudo was missing",
+			"backendReplyPseudoMissingInCsv" : "Check the CSV file : empty line or pseudo missing",
+			"backendReplyPseudoMissingInUsersArray" : "There is one or more error(s) in the student(s) name(s)",
+			"invalidActivityId": "Error submitting job: Invalid activity ID!",
+			"invalidCorrection": "Erreur submitting job: Invalid activity status!",
+		    "generalBackendError": "An error has occurred, please try again later",
+			"currentPasswordDoesNotMatch": "The entered password is not correct!",
+			"noAnswerInActivity": "You must have at least one answer field",
+			"courseMissingData": "You must enter a title and a description",
+			"courseMissingParameters": "You must set the parameters for the course"
+		},
+		"ids": {
+			"classroom-dashboard-help-panel-teacher": "Help",
+			"classroom-dashboard-activities-panel-teacher": "My activities",
+			"classroom-dashboard-classes-panel-teacher": "My classes",
+			"classroom-dashboard-sandbox-panel": "Sandbox",
+			"classroom-dashboard-profil-panel-teacher": "Profile",
+			"classroom-dashboard-activities-panel": "My activities",
+			"classroom-dashboard-profil-panel": "Profile",
+			"classroom-dashboard-help-panel": "Help",
+			"classroom-dashboard-activities-panel-library-teacher": "Resource Bank",
+			"classroom-dashboard-new-activity-panel": "Creation of the activity",
+			"classroom-dashboard-new-activity-panel2": "Intermediate",
+			"classroom-dashboard-new-activity-panel3": "Allocation",
+			"classroom-table-panel-teacher": "Class {{name}}",
+			"classroom-dashboard-sandbox-creation": "Interface selection",
+			"classroom-dashboard-ide-panel": "Sandbox {{interface}}",
+			"classroom-dashboard-activity-panel": "Activity {{name}}"
+		},
+		"displayCode": "Display the code",
+		"navbar": {
+			"activities": "Activities"
+		},
+		"classes": {
+			"add": "Add a class",
+			"noClasses": "You don't have a class yet.",
+			"createClassNow": "Start by creating a class now!",
+			"form": {
+				"title": "Create a class",
         "updateTitle": "Update classroom",
-        "school": "Name of the establishment",
-        "addStudent": "Add a learner",
-        "noStudent": "No learners in this class yet",
-        "isBlockedButton": "Restrict to these learners, no one else will be able to join the class.",
-        "save": "Save the class",
-        "return": "Back to the classroom"
-      },
-      "panel": {
-        "seeActivity": "Open the activity",
-        "editActivity": "Edit the activity",
-        "editAttribution": "Edit the attribution",
-        "removeAttribution": "Remove the attribution",
-        "password": "Your password :",
-        "resetPassword": "Reset password",
-        "editNickname": "Edit your nickname",
-        "delete": "Delete",
-        "copyLink": "Copy the direct link",
-        "copyImage": " Copy the image",
-        "downloadImage": " Download the image",
-        "learnerMode": "Learner mode",
-        "dueBy": "Due by",
-        "timePassed": "Time spent: "
-      },
-      "selectStudents": " Selecting learners",
-      "selectedStudents": " <span id='attribuate-student-number'>0</span> selected learners",
-      "activationLink": " Activation link activated",
-      "activationLinkDisabled": " Activation link disabled",
-      "deleteStudent": " Delete the student",
-      "deleteStudentConfirm": " Do you really want to remove this student?"
-    },
-    "activities": {
-      "title": "Activities",
-      "save": "Save the draft ",
-      "add": "Create an activity",
-      "new": "New",
-      "current": "Pending correction",
-      "waiting": "Not yet completed",
-      "done": "Completed",
-      "todo": "To be corrected",
-      "anonymise": "Anonymize your student list so that you can display the dashboard to your learners.",
-      "save-draft": "Save as draft",
-      "validate": "Validate the activity",
-      "validateWarning": " <i class='fas fa-exclamation-triangle'></i> Please note, you will only be able to submit this activity once!",
-      "validateNoEval": " <i class='fas fa-thumbs-up'></i> You can submit this activity as many times as you like.",
-      "accept": "Very good proficiency",
-      "vgood": "Good proficiency",
-      "good": "Weak proficiency",
-      "refuse": "Insufficient proficiency",
-      "nnoted": " Not rated",
-      "instruction": "Instructions",
-      "commentary": "Comment",
-      "sendResults": "Send the comment ",
-      "noSend": "This activity hasn't been returned",
-      "toSend": "Activity due by ",
-      "sentOn": "This activity was returned on ",
-      "activityOfUser": "Activity of ",
-      "userSentOn": " sent on ",
-      "timePassed": "Time spent on activity:",
-      "yourAnswer": "Your answer",
-      "studentAnswer": "Learner's answer",
-      "comments": "Write your comments there",
-      "return": "Return to the activities",
-      "numberOfTries": " Number of trials:",
-      "isAutocorrected": " This exercise has been corrected automatically, you can modify the note below.",
-      "isAutocorrect": " This activity will be corrected automatically.",
-      "states": " Activity Statement",
-      "content": " Content of the activity",
-      "correction": " Corrected",
-      "putYourAnswer": " Enter your answer",
-      "hint": " Index",
-      "saved": " Saved activity",
-      "wrongAnswer": " Wrong answer",
-      "emptyAnswer": " The answer cannot be empty",
-      "wrongAnswerLarge": " Wrong answer, you can try again!",
-      "hintExist": " <i class='fas fa-info-circle'></i> This exercise has a hint, it can only be displayed if the student can submit the activity multiple times",
-      "anoStudent": " Student",
-      "bilan": {
-        "title": "Balance sheet",
-        "results": "Results",
-        "noComment": "No comment yet"
-      },
-      "applist": {
-        "selectApp": "Select the application that you wish to create an activity with",
-        "apps": {
-          "reading": {
-            "title": " Multimedia",
-            "desc": " This activity allows you to view texts, images, videos, PDFs, as well as external tools."
-          },
-          "quiz": {
-            "title": " MCQS",
-            "desc": " This activity assesses knowledge using multiple choice or simple questions."
-          },
-          "free": {
-            "title": " Free response",
-            "desc": " This activity allows students to respond to a statement in writing."
-          },
-          "fillIn": {
-            "title": " Cloze text",
-            "desc": " This activity assesses knowledge by filling in blanks."
-          },
-          "dragAndDrop": {
-            "title": " Drag and Drop",
-            "desc": " This activity allows you to drag and drop words into different empty spaces."
-          }
-        }
-      },
-      "form": {
-        "1": "Application",
-        "2": "Content",
-        "3": "Title",
-        "4": "Attribution",
-        "title": {
-          "label": "Activity title",
-          "placeholder": "Part title"
+        "name": "Name of the class",
+				"school": "Name of the establishment",
+				"addStudent": "Add a learner",
+				"noStudent": "No learners in this class yet",
+				"isBlockedButton": "Restrict to these learners, no one else will be able to join the class.",
+				"save": "Save the class",
+				"return": "Back to the classroom"
+			},
+			"panel": {
+				"seeActivity":"Open the activity",
+				"editActivity":"Edit the activity",
+				"editAttribution":"Edit the attribution",
+				"removeAttribution":"Remove the attribution",
+				"password": "Your password :",
+				"resetPassword" : "Reset password",
+				"editNickname": "Edit your nickname",
+				"delete": "Delete",
+				"copyLink": "Copy the direct link",
+				"learnerMode": "Learner mode",
+				"dueBy":"Due by"
+
+			}
+		},
+		"activities": {
+			"title": "Activities",
+			"save": "Save the draft ",
+			"add": "Create an activity",
+			"addCabriExpress": "Create Express activity",
+			"addCabriGenius": "Create Smart activity",
+			"addOther": "Other type of activity",
+			"new": "New",
+			"current": "Pending correction",
+			"waiting": "Not yet completed",
+			"done": "Completed",
+			"todo": "To be corrected",
+			"anonymise": "Anonymize your student list so that you can display the dashboard to your learners.",
+			"save-draft": "Save as draft",
+			"validate": "Validate the activity",
+			"accept": "Very good control",
+			"vgood": "Satisfactory control",
+			"good": "Fragile control",
+			"refuse": "Insufficient mastery",
+			"instruction": "Instruction",
+			"commentary": "Comment",
+			"sendResults": "Send the comment to the learner ",
+			"noSend": "This activity has not been made",
+			"comments": "Enter your comments here",
+      "activitySubmited2": "Activity submitted on",
+			"sentOn": "This activity was returned on ",
+			"activityOfUser": "Activity of ",
+			"userSentOn" : " sent on ",
+			"yourAnswer": "Your answer",
+			"studentAnswer": "Learner's answer",
+			"comments": "Write your comments there",
+			"return": "Return to the activities",
+			"bilan": {
+				"title": "Balance sheet",
+				"results": "Results",
+				"noComment": "No comment yet"
+			},
+			"applist":{
+				"selectApp":"Select the application that you wish to create an activity with"
+			},
+			"form": {
+				"1": "Application",
+				"2": "Content",
+				"3": "Title",
+				"4": "Attribution",
+				"title": {
+					"label": "Title of the activity",
+          "labelCabri": "What is the title of the activity?",
+          "placeholder": "Title of the game",
+          "placeholderCabri": "Title of the activity"
         },
-        "content": {
-          "label": "Activity content"
+        "iframe": {
+          "label": "What is the access URL?",
+          "placeholder": "Enter a URL"
         },
-        "back": "Back",
-        "validate": "Validate",
-        "buttonContinue": "Save and continue",
-        "button": "Save and approve",
-        "success": "Congratulations, you created an activity!",
-        "attribute": "Attribute the activity right now",
-        "attribute2": "Attribute the activity ",
-        "return": "Return to My activities",
-        "hint": "You can still attribute this activity later from your dashboard.",
-        "modify": "Modify the activity",
-        "select1": "Select the learners",
-        "select2": " selected.",
-        "instructions": "Specific instructions for these learners",
-        "autocorrect": "This activity has auto-correction, do you want to activate it?",
-        "nature": "Can the student submit the activity more than once?",
-        "dateBegin": "Start Date:",
-        "dateEnd": "End date :",
-        "retroAttribution": "This activity will be added for every new students"
-      },
-      "toCopy": "This code allows you to easily join your class",
-      "qrCode": " Scan the QR code :",
-      "copyLink": "The link to your class has been added to the clipboard",
-      "dateBefore": "To be returned before",
+        "notebookUpdateMessage": "Do not modify this section if you wish to keep the old activity book!",
+        "notebookUrl": {
+          "label": "Add a notebook URL",
+          "placeholder": "Notebook URL"
+        },
+        "playerUrl": {
+          "label": "Add a player URL",
+          "placeholder": "Player URL"
+        },
+        "player": {
+          "labelFileChooser": "Choose a file",
+          "fileUpload": "The file has been uploaded successfully",
+          "dragDrop": "Drag and drop"
+        },
+        "nextButton": "Next",
+        "endButton": "Finish",
+				"content": {
+					"label": "Content of the activity"
+				},
+				"back": "Back",
+				"validate": "Validate",
+				"buttonContinue": "Save and continue",
+				"button": "Save and approve",
+				"success": "Congratulations, you created an activity!",
+				"attribute": "Attribute the activity right now",
+				"attribute2": "Attribute the activity ",
+				"return": "Return to My activities",
+				"hint": "You can still attribute this activity later from your dashboard.",
+				"modify": "Modify the activity",
+				"select1": "Select the learners",
+				"select2": " selected.",
+				"instructions": "Specific instructions for these learners",
+				"autocorrect": "This activity has auto-correction, do you want to activate it?",
+				"nature": "Can the student submit the activity more than once?",
+				"dateBegin": "Start Date:",
+				"dateEnd": "End date :",
+				"retroAttribution" : "This activity will be added for every new students"
+			},
+			"toCopy": "This code allows you to easily join your class",
+			"copyLink": "The link to your class has been added to the clipboard",
+			"dateBefore": "To be returned before",
+      "dateBeforeAvailable": "Available until",
       "integrate": "Integrate into an activity",
-      "veryGoodProficiency": "Very good control",
-      "goodProficiency": "Satisfactory control",
-      "weakProficiency": "Fragile control",
-      "insufficientProficiency": "Insufficient mastery",
-      "noProficiency": " Not rated",
-      "addLearner": "Add a learner",
-      "addLearners": "Add learners",
-      "addActivity": "Add an activity",
-      "exportCsv": "Export csv",
-      "month": {
-        "1": " January",
-        "2": " February",
-        "3": " March",
-        "4": " April",
-        "5": " May",
-        "6": " June",
-        "7": " July",
-        "8": " August",
-        "9": " September",
-        "10": " October",
-        "11": " November",
-        "12": " December"
-      },
-      "preview": " Preview",
-      "deleteActivityDisclaimer": " You are about to delete an activity. This action is irreversible.",
-      "deleteConfirm": " Confirm the deletion of the activity",
-      "deleteActivity": " Delete the activity",
-      "correctAnswer": " Correct answer",
-      "nbActivities": " <span class='nb-activities'>{{ nbActi }}</span> Activities </p>",
-      "moveToFolder": " Move to",
-      "rootFolder": " Root folder",
-      "seekFolder": " Go to the folder",
-      "foldersMessages": {
-        "errorDelete": " An error occurred while deleting the folder",
-        "errorCreate": " An error occurred while creating the file",
-        "errorLenght": " The folder name must contain between 1 and 30 characters",
-        "errorUpdate": " An error occurred while editing the file",
-        "errorMoveTo": " An error occurred when moving the object",
-        "movedTo": " Object successfully moved",
-        "created": " Successfully created file",
-        "updated": " Successfully modified file",
-        "deleted": " File successfully deleted",
-        "createFolder": " Create a folder",
-        "deleteFolder": " Confirm the deletion of the file",
-        "updateFolder": " Modify the file",
-        "nameMandatory": " Folder Name <span class='mandatory'>*</span>",
-        "deleteDisclaimer": " Attention, the folder and all its contents (activities and subfolders) will be deleted"
-      },
-      "facultative": " Optional fields",
-      "previewActivity": " Preview of the activity",
-      "infoRetroAttribution": " This activity will be assigned to new learners when they are added to your class.",
-      "infoAutocorrect": " This activity has automatic correction",
-      "infoEvaluation": " In assessment mode, learners can only submit the activity once and do not have access to hints and prompts."
-    },
-    "filter": {
-      "desc": "Oldest to newest",
-      "asc": "Newest to oldest",
-      "placeholder": "Search..."
-    },
-    "sandbox": {
-      "mine": "My projects",
-      "shared": "Shared projects",
-      "add": "Create a program",
-      "chooseInterface": "Select the interface on which you want to create a program: ",
-      "teacherSharedDescription": "Find here the programs shared by your learners.",
-      "studentSharedDescription": "Find here the programs shared by your teacher"
-    },
-    "footer": {
-      "privacy": "Privacy policy ",
-      "legal": "Legal Notices",
-      "cgu": "Terms of Service",
-      "copyright": " "
-    },
-    "teacherHelpPanel": {
-      "contactForm": {
-        "title": "Contact us",
-        "objectPlaceholder": "Object",
-        "messagePlaceholder": "Write your message here. (Maximum 800 characters)",
-        "sendButton": "Send the message",
-        "fillInAllTheFields": "Fill in all fields"
-      }
-    },
-    "sandBoxCreationPanel": {
-      "title": "Select the interface on which you want to create a program",
-      "knowMoreButton": "Learn more about interfaces",
-      "interfacesDescription": {
-        "arduino": "Programming interface for the Arduino board",
-        "microbit": "Programming interface for the Micro:bit board",
-        "python": "Programming interface for Python 3 thought for education",
-        "texas-instruments": "Programming interface for calculator with the micro:bit board",
-        "esp32": "Programming interface for the ESP32 boards (Wemos D1R32, NodeMCU, Huzzah32, …)",
-        "quickpi": "Programming interface for the Quick-Pi board"
-      }
-    },
-    "modals": {
-      "addActivity": {
-        "title": "Add an activity",
-        "resourceBank": {
-          "title": "Browse the collaborative resource bank",
-          "button": "Resource Bank "
+			"veryGoodProficiency": "Very good control",
+			"goodProficiency": "Satisfactory control",
+			"weakProficiency": "Fragile control",
+			"insufficientProficiency": "Insufficient mastery",
+			"noProficiency": "Not evaluated",
+			"addLearner": "Add a learner",
+			"addLearners": "Add learners",
+			"addActivity": "Add an activity",
+			"exportCsv": "Export csv",
+      "players": {
+        "STANDARD": {
+          "title": "Standard",
+          "description": "The standard player will allow you to read all the activity books created with the Cabri authoring tool."
         },
-        "orSeparator": "OR",
-        "attributeActivity": {
-          "title": "View my existing activities",
-          "button": "My activities "
+        "IMUSCICA": {
+          "title": "iMuSciCA",
+          "description": "The iMuSciCA player allows to read in the music studio all the activities realized with the Cabri authoring tool."
         },
-        "createActivity": {
-          "title": "Create a new activity",
-          "button": "Create an activity "
+        "IFRAME": {
+          "title": "Autre",
+          "description": "Choose from a selection of readers to use in your activities with the Cabri authoring tool."
+        },
+        "EXPRESS": {
+          "title": "Express",
+          "description": "Create an activity using dynamic geometry and algebra tools, scientific and graphing calculator, etc."
+        },
+        "GENIUS": {
+          "title": "Smart",
+          "description": "Create an activity with the Express tools and add an automatic evaluation."
+        },
+        "IFRAME-CABRI3D": {
+          "title": "Cabri 3D",
+          "description": "Create a dynamic space geometry exploration."
+        },
+        "LTI-BLOCKLY": {
+          "title": "Cabri Blockly",
+          "description": "Add user actions to a Cabri activity, such as animations, locks,... visually programmed in the same spirit as with Scratch or Snap !"
         }
       },
-      "settingsTeacher": {
-        "title": "Account Settings",
-        "lang": "Language",
-        "description": "To change your password or other account settings",
-        "accessButton": "Go to your profile",
-        "password": "Password",
-        "passwordDescription": "Here is your password. Remember it, otherwise only your teacher can give it back to you.",
-        "resetPassword": "Reset"
+      "tabs": {
+        "players": "Activity book",
+        "iframes": "Video and web page"
       },
-      "addStudent": {
-        "title": "Add students",
-        "pseudo": "Pseudonym",
-        "addStudentButton": "Add learner",
-        "addStudentByCsvButton": "Add a learner file (.csv)"
-      },
-      "addStudentByCsv": {
-        "title": "Add students with a .csv file",
-        "description": "You can add one or more learners at once by importing them from a .csv file. It is optionally possible to define the password for each of them. Here are the .csv template files: ",
-        "descriptionUpdate": "You can add one or more learners at once by importing them from a .csv file. <b>WARNING</b> : here, the passwords of the csv file aren't used ! Here is the .csv template file : ",
-        "csvTemplate": "template file with password",
-        "csvTemplateNoPassword": "template file without password",
-        "importStudentByCsvButton": "Import learners"
-      },
-      "exportCsv": {
-        "title": "Export in csv format",
-        "exportLearnersDescription": "Download the list of learners for this class and their passwords. The downloaded file is in .csv format.",
-        "exportLearners": "Download the list of learners",
-        "exportDashboardDescription": "Download the list of learners for this class and, for each of them, their assigned activities as well as the status of each activity (not yet done, to be corrected, completed). The downloaded file is in .csv format.",
-        "exportDashboard": "Download the dashboard"
-      },
-      "listClass": {
-        "title": "Switch to learner mode",
-        "description": "You can easily test the interface as a learner and return to your teacher profile at any time. Your progress as a learner will be saved in your demostudent account.",
-        "switchButton": "Switch to learner mode"
-      },
-      "changePseudo": {
-        "title": "Change nickname",
-        "description": "Change nickname",
-        "validateButton": "Validate"
-      },
-      "attributeActivity": {
-        "title": "Assign activity"
-      },
-      "shareProject": {
-        "title": "Share project"
-      },
-      "profileUpdatePasswordConfirm": {
-        "title": "Password confirmation",
-        "description": "Please enter your current password to confirm changes to your profile!",
-        "placeholderInput": "Password",
-        "validateButton": "Validate"
-      }
-    },
-    "folders": {
-      "folderManagement": " File management",
-      "name": " Folder name <span class=\"mandatory\">*</span>",
-      "title": " File",
-      "image": " Image of the file"
-    }
-  },
-  "faqInfo": {
-    "1": {
-      "section_title": " General Questions",
-      "question_list": {
-        "1": {
-          "title": " What is the Cabri platform?",
-          "answer": " The Cabri platform makes it easy to assign educational content and track learners. Teachers can use content from the community or create their own activities and share them."
+      "iframes": {
+        "IFRAME-VIDEO": {
+          "title": "Video",
+          "description": "Enter the URL of a video published on a hosting platform."
         },
-        "2": {
-          "title": " Who uses the Cabri platform?",
-          "answer": " In class, at home or in extracurricular workshops, the Cabri platform is used by teachers (professors, animators, trainers, etc.) and their learners (pupils, students, apprentices, etc.). The Cabri platform has been designed for the secondary level (~10 to 18 years old), but it can be adapted to other contexts."
-        },
-        "3": {
-          "title": " What is the nature of the support from the Ministry of Education?",
-          "answer": " Vittascience is a winner of the Édu-up scheme to support the production of innovative digital resources. More details are available on <a href=\"/eduUp\">the page dedicated to Édu-up</a>."
-        },
-        "4": {
-          "title": " On which media can the Cabri platform be used?",
-          "answer": " The Cabri platform runs on computers, tablets and smartphones with most browsers and an Internet connection."
-        },
-        "5": {
-          "title": " Can we ask for a demonstration?",
-          "answer": " We regularly host webinars presenting the Cabri platform; you can subscribe to <a href=\"https://www.youtube.com/Vittascience\">Vittascience's YouTube channel</a> to watch the replay and see upcoming scheduled webinars. To book a video conference demonstration with one of our educational representatives, <a href=\"/about?contact=1\">contact us via this form</a>."
-        },
-        "6": {
-          "title": " How to report bugs and give feedback on the Cabri platform?",
-          "answer": " You can contact us on the Cabri platform in the Profile tab with the Help button."
-        },
-        "7": {
-          "title": " Is the Cabri platform available in several languages?",
-          "answer": " Yes, the Cabri platform is currently available in French and English. To change the language, go to the Profile tab, click on the Settings button, and then select the language you prefer."
-        }
-      }
-    },
-    "2": {
-      "3": {
-        "section_title": " Licenses and authorizations",
-        "question_list": {
-          "1": {
-            "title": " Can we make a description or presentation of the Cabri platform?",
-            "answer": " Yes, you can reuse the visuals of the Cabri platform to create descriptions, presentations, trainings, tutorials, courses or others. If you want to include images or activity content, please mention the author (see next question)."
-          },
-          "2": {
-            "title": " Can we reuse the activities of the Vittascience community?",
-            "answer": " Yes, all the activities visible in the Vittascience resource bank are under Creative Commons license. Two cases are possible:<ul><li>CC BY-NC-SA: the author wants the content to be shared in a non-commercial use only and under the condition of mentioning his name. The content can be modified.</li><li>CC BY-NC-ND: the author wishes the content to be shared in a non-commercial use only and provided that his/her name is mentioned. The content may not be modified.</li></ul>"
-          },
-          "3": {
-            "title": " Where can I find the source code of the Cabri platform?",
-            "answer": " The source code for the Cabri platform is not available at this time. You can find many open source modules of the Vittascience platform on <a href=\"https://github.com/vittascience\">Vittascience GitHub folder</a>, feel free to contribute!"
-          }
+        "IFRAME-PAGE": {
+          "title": "Web page",
+          "description": "Enter the URL of the web page."
         }
       },
-      "section_title": " Accounts",
-      "question_list": {
-        "1": {
-          "title": " How to connect to the Cabri platform?",
-          "answer": " It is possible to connect to the Cabri platform in three ways:<ul><li>Class code: allows learners to register or connect quickly with only a pseudonym (without filling in an email address). A class code is automatically generated for each class created by the teacher.</li><li>Vittascience account: allows the teacher to log in with a Vittascience account (email address and password). This method is for teachers only and is not suitable for learners (RGPD).</li><li>RAM account: the Resource Access Manager (RAM) aims to simplify and secure authenticated access between ENT users and their digital resources. More information is available on the <a href=\"/gar\">Accessing Vittascience through GAR</a>.</li></ul>Privacy is paramount for Vittascience, to learn more, find the <a href=\"/privacy\">page dedicated to personal data protection</a>."
-        },
-        "2": {
-          "title": " Can I use Vittascience without an account?",
-          "answer": " Without an account, it is possible to use the Program page and access Vittascience's educational resources. However, you will need an account to perform class activities, save your achievements and share your content. Your learners do not need to create a Vittascience account if you invite them via the Cabri platform."
-        },
-        "3": {
-          "title": " How to create an account?",
-          "answer": " Simply click on Subscribe in the homepage of the Cabri platform, choose the offer that suits you and provide some information.<ul><li>If you opt for the free offer, a link is sent to you by email, simply click on this link to confirm your account. Once your account is confirmed, you can explore the interface, create your activities and share them.</li><li>If you opt for a paid offer, perform the creation of a quote for your establishment or a purchase, then your account will be activated.</li></ul>"
-        },
-        "4": {
-          "title": " What is a teacher account?",
-          "answer": " Any Vittascience account created from an email address or GAR can be used as a teacher account. A teacher account has features to create learner accounts, organize activities, and exchange feedback with their learners."
-        },
-        "5": {
-          "title": " What is a learner account?",
-          "answer": " A learner account allows you to complete activities requested by teachers, to explore Vittascience programming interfaces and to share your own achievements. Only a pseudonym is required to create a learner account. A 4-digit code is automatically generated to secure the learners' access; only the teacher can modify it."
-        },
-        "6": {
-          "title": " Forgot your username or password?",
-          "answer": " If you have a Vittascience (teacher) account, you can receive a password recovery email via <a href=\"/passwordRecovery\">this link</a>. As a learner, you must ask your teacher to reset your 4-digit code."
-        },
-        "7": {
-          "title": " How do I change my password or other account settings?",
-          "answer": " To change your password or other settings, go to <a href=\"/profile\">your profile page</a>. In the case of GAR, the settings are those of your ENT."
-        }
-      }
-    },
-    "3": {
-      "section_title": " Licenses and authorizations",
-      "question_list": {
-        "1": {
-          "title": " Can we make a description or presentation of the Cabri platform?",
-          "answer": " Yes, you can reuse the visuals of the Cabri platform to create descriptions, presentations, trainings, tutorials, courses or others. If you want to include images or activity content, please mention the author (see next question)."
-        },
-        "2": {
-          "title": " Can we reuse the activities of the Vittascience community?",
-          "answer": " Yes, all the activities visible in the Vittascience resource bank are under Creative Commons license. Two cases are possible:<ul><li>CC BY-NC-SA: the author wants the content to be shared in a non-commercial use only and under the condition of mentioning his name. The content can be modified.</li><li>CC BY-NC-ND: the author wishes the content to be shared in a non-commercial use only and provided that his/her name is mentioned. The content may not be modified.</li></ul>"
-        },
-        "3": {
-          "title": " Where can I find the source code of the Cabri platform?",
-          "answer": " The source code for the Cabri platform is not available at this time. You can find many open source modules of the Vittascience platform on <a href=\"https://github.com/vittascience\">Vittascience GitHub folder</a>, feel free to contribute!"
-        }
-      }
-    },
-    "title": " Frequently Asked Questions",
-    "hint": " Can't find the answer to your question? <a href=\"/about?contact=1\">Contact us via this form</a>."
-  },
-  "faqInfoNeutral": {
-    "1": {
-      "section_title": " General Questions",
-      "question_list": {
-        "1": {
-          "title": " What is the Cabri platform?",
-          "answer": " The Cabri platform makes it easy to assign educational content and track learners. Teachers can use content from the community or create their own activities and share them."
-        },
-        "2": {
-          "title": " Who uses the Cabri platform?",
-          "answer": " In class, at home or in extracurricular workshops, the Cabri platform is used by teachers (professors, animators, trainers, etc.) and their learners (pupils, students, apprentices, etc.). The Cabri platform has been designed for the secondary level (~10 to 18 years old), but it can be adapted to other contexts."
-        },
-        "3": {
-          "title": " On which media can the Cabri platform be used?",
-          "answer": " The Cabri platform runs on computers, tablets and smartphones with most browsers and an Internet connection."
-        },
-        "4": {
-          "title": " How to report bugs and give feedback on the Cabri platform?",
-          "answer": " You can contact us on the Cabri platform in the Profile tab with the Help button."
-        },
-        "5": {
-          "title": " Is the Cabri platform available in several languages?",
-          "answer": " Yes, the Cabri platform is currently available in French and English. To change the language, go to the Profile tab, click on the Settings button, and then select the language you prefer."
-        }
-      }
-    },
-    "2": {
-      "section_title": " Accounts",
-      "question_list": {
-        "1": {
-          "title": " How to connect to the Cabri platform?",
-          "answer": " It is possible to connect to the Cabri platform in three ways:<ul><li>Class code: allows learners to register or connect quickly with only a pseudonym (without filling in an email address). A class code is automatically generated for each class created by the teacher.</li><li>Cabri Platform Account: allows the teacher to log in with a Cabri Platform account (email address and password). This method is for teachers only and is not suitable for learners (RGPD).</li><li>RAM account: the Resource Access Manager (RAM) aims to simplify and secure authenticated access between ENT users and their digital resources. More information is available on the <a href=\"/gar\">accessing the Cabri platform through the GAR</a>.</li></ul>Privacy is paramount to the Cabri platform, to learn more, find the <a href=\"/privacy\">page dedicated to personal data protection</a>."
-        },
-        "2": {
-          "title": " How to create an account?",
-          "answer": " Simply click on Create an account on the Cabri platform home page and provide some information. A link will be sent to you by email, just click on it to confirm your account. Once your account is confirmed, you can explore the interface, create your activities and share them."
-        },
-        "3": {
-          "title": " What is a teacher account?",
-          "answer": " Any Cabri Platform account created from an email address or the GAR can be used as a teacher account. A teacher account has features for creating learner accounts, organizing activities and exchanging feedback with learners."
-        },
-        "4": {
-          "title": " What is a learner account?",
-          "answer": " A learner account allows you to complete activities requested by teachers and to share your own achievements. Only a pseudonym is required to create a learner account. A 4-digit code is automatically generated to secure learner access; only the teacher can manually change it. However, the learner can reset the code to obtain a new one."
-        },
-        "5": {
-          "title": " Forgot your username or password?",
-          "answer": " If you have a Cabri Platform (teacher) account, you can receive a password recovery email via <a href=\"/passwordRecovery\">this link</a>. As a learner, you must ask your teacher to reset your 4-digit code."
-        },
-        "6": {
-          "title": " How do I change my password or other account settings?",
-          "answer": " To change your password or other settings, go to your Profile panel, click on Settings and then on Access your profile. In the case of GAR, the settings are those of your ENT."
-        }
-      }
-    },
-    "3": {
-      "section_title": " Licenses and authorizations",
-      "question_list": {
-        "1": {
-          "title": " Can we make a description or presentation of the Cabri platform?",
-          "answer": " Yes, you can reuse the visuals of the Cabri platform to create descriptions, presentations, trainings, tutorials, courses or others. If you want to include images or activity content, please mention the author (see next question)."
-        },
-        "2": {
-          "title": " Where can I find the source code of the Cabri platform?",
-          "answer": " The source code for the Cabri platform is available <a href=\"https://github.com/Cabri/OpenSTEAM-LMS/\">on the associated git repo</a>, feel free to contribute!"
-        }
-      }
-    },
-    "title": " Frequently Asked Questions",
-    "hint": " Can't find the answer to your question? <a href=\"/about?contact=1\">Contact us via this form</a>."
-  },
+
+	"month": {
+		"1": " January",
+		"2": " February",
+		"3": " March",
+		"4": " April",
+		"5": " May",
+		"6": " June",
+		"7": " July",
+		"8": " August",
+		"9": " September",
+		"10": " October",
+		"11": " November",
+		"12": " December"
+	},
+	"preview": " Preview",
+	"deleteActivityDisclaimer": " You are about to delete an activity. This action is irreversible.",
+	"deleteConfirm": " Confirm the deletion of the activity",
+	"deleteActivity": " Delete the activity",
+	"correctAnswer": " Correct answer",
+	"nbActivities": " <span class='nb-activities'>{{ nbActi }}</span> Activities </p>",
+	"moveToFolder": " Move to",
+	"rootFolder": " Root folder",
+	"seekFolder": " Go to the folder",
+	"foldersMessages": {
+		"errorDelete": " An error occurred while deleting the folder",
+		"errorCreate": " An error occurred while creating the file",
+		"errorLenght": " The folder name must contain between 1 and 30 characters",
+		"errorUpdate": " An error occurred while editing the file",
+		"errorMoveTo": " An error occurred when moving the object",
+		"movedTo": " Object successfully moved",
+		"created": " Successfully created file",
+		"updated": " Successfully modified file",
+		"deleted": " File successfully deleted",
+		"createFolder": " Create a folder",
+		"deleteFolder": " Confirm the deletion of the file",
+		"updateFolder": " Modify the file",
+		"nameMandatory": " Folder Name <span class='mandatory'>*</span>",
+		"deleteDisclaimer": " Attention, the folder and all its contents (activities and subfolders) will be deleted"
+	},
+	"facultative": " Optional fields",
+	"previewActivity": " Preview of the activity",
+	"infoRetroAttribution": " This activity will be assigned to new learners when they are added to your class.",
+	"infoAutocorrect": " This activity has automatic correction",
+	"infoEvaluation": " In assessment mode, learners can only submit the activity once and do not have access to hints and prompts."
+	},
+		"filter": {
+			"desc": "From the least recent to the most recent",
+			"asc": "From most recent to least recent",
+			"cabriExpress": "Express activities",
+			"cabriGenius": "Smart activities",
+      "cabriVittascience": "Vittascience activities",
+      "iframe": "Other activities",
+			"placeholder": "Search for..."
+		},
+		"sandbox": {
+			"mine": "My projects",
+			"shared": "Shared projects",
+			"add": "Create a program",
+			"chooseInterface": "Select the interface on which you want to create a program: ",
+			"teacherSharedDescription": "Find here the programs shared by your learners.",
+			"studentSharedDescription": "Find here the programs shared by your teacher"
+		},
+		"footer": {
+			"privacy": "Privacy Policy ",
+			"cgu": "Terms and conditions of use",
+			"copyright": ""
+		},
+		"teacherHelpPanel": {
+			"contactForm": {
+				"title": "Contact us",
+				"objectPlaceholder": "Object",
+				"messagePlaceholder": "Write your message here. (Maximum 800 characters)",
+				"sendButton": "Send the message",
+				"fillInAllTheFields": "Fill in all fields"
+			}
+		},
+		"sandBoxCreationPanel": {
+			"title": "Select the interface on which you want to create a program",
+			"knowMoreButton": "Learn more about interfaces",
+			"interfacesDescription": {
+				"arduino": "Programming interface for the Arduino board",
+				"microbit": "Programming interface for the Micro:bit board",
+				"python": "Programming interface for Python 3 thought for education",
+				"texas-instruments": "Programming interface for calculator with the micro:bit board",
+				"esp32": "Programming interface for the ESP32 boards (Wemos D1R32, NodeMCU, Huzzah32, …)",
+				"quickpi": "Programming interface for the Quick-Pi board"
+			}
+		},
+		"modals": {
+			"addLtiActivityName": "What is the title of the activity ?",
+			"addActivity": {
+				"title": "Add an activity",
+				"resourceBank": {
+					"title": "Browse the collaborative resource bank",
+					"button": "Resource Bank "
+				},
+				"orSeparator": "OR",
+				"attributeActivity": {
+					"title": "View my existing activities",
+					"button": "My activities "
+				},
+				"createActivity": {
+					"title": "Create a new activity",
+					"button": "Create an activity "
+				},
+				"next": "Next",
+				"limitTitle": "Exceeded limit",
+				"limitDescription": "The limit of the number of activities linked to this account has been reached.",
+        "upgradePlan": "Increase limit"
+      },
+			"updateActivity": {
+				"title": "Update an activity"
+			},
+			"deleteActivity": {
+				"title": "Delete activity",
+				"description": "Are you sure you want to delete the activity ?",
+				"confirm": "Confirm",
+				"cancel": "Cancel"
+			},
+			"settingsTeacher": {
+				"title": "Account Settings",
+				"lang": "Language",
+				"description": "To change your password or other account settings",
+				"accessButton": "Go to your profile",
+				"password": "Password",
+				"passwordDescription": "Here is your password. Remember it, otherwise only your teacher can give it back to you.",
+				"resetPassword": "Reset"
+			},
+			"addStudent": {
+				"title": "Add students",
+				"pseudo": "Pseudonym",
+				"addStudentButton": "Add learner",
+				"addStudentByCsvButton": "Add a learner file (.csv)"
+			},
+			"addStudentByCsv": {
+				"title": "Add students with a .csv file",
+				"description": "You can add one or more learners at once by importing them from a .csv file. It is optional to define the password for each of them. Here are the sample .csv files: ",
+				"csvTemplate": "template file with password",
+				"csvTemplateNoPassword": "template file without password",
+				"importStudentByCsvButton": "Import learners"
+			},
+			"exportCsv": {
+				"title": "Export in csv format",
+				"exportLearnersDescription": "Download the list of learners for this class and their passwords. The downloaded file is in .csv format.",
+				"exportLearners": "Download the list of learners",
+				"exportDashboardDescription": "Download the list of learners for this class and, for each of them, their assigned activities as well as the status of each activity (not yet done, to be corrected, completed). The downloaded file is in .csv format.",
+				"exportDashboard": "Download the dashboard"
+			},
+			"listClass": {
+				"title": "Switch to learner mode",
+				"description": "You can easily test the interface as a learner and return to your teacher profile at any time. Your progress as a learner will be saved in your demostudent account.",
+				"switchButton": "Switch to learner mode"
+			},
+			"changePseudo": {
+				"title": "Change nickname",
+				"description": "Change nickname",
+				"validateButton": "Validate"
+			},
+			"attributeActivity": {
+				"title": "Assign activity"
+			},
+			"shareProject": {
+				"title": "Share project"
+			}
+		}
+	},
+	"login_popup": {
+		"title": "Login",
+		"details": "Enter your login details to access your account.",
+		"form": {
+			"addressmail": "Email address",
+			"addressmail_placeholder": "exemple@domaine.com",
+			"password": "Password",
+			"password_placeholder": "Your password.",
+			"forgot_password": "I forgot my password.",
+			"btn_connect": "Log in"
+		},
+		"success": "The authentication was successful. Redirection...",
+		"error": "Error. Please check your login details.",
+		"mailSuccess": "An activation email has been sent to your email address.",
+		"mailError": "An error has occurred. Please verify your email address.",
+		"userNotFound": "No linked user found with this mail.",
+		"inactiveAccount": "Your account is not active, click on the button just below to send a new validation mail.",
+		"accountDeactivated": "Your account has been deactivated, contact an administrator if the problem persists.",
+		"errorBeta": "You must be a beta tester to access this feature. <a href='https://fr.vittascience.com/about#contact'>Contact the Vittascience team</a> to learn more."
+	},
+	"signup-popup": {
+		"title": "Registration",
+		"notice": "Please complete the following fields to create your Vittascience account.",
+		"firstName": "First name",
+		"lastName": "Name",
+		"mail": "Email address",
+		"telephone": "Phone",
+		"password": "Password",
+		"passwordConfirmed": "Confirmation",
+		"firstNamePlaceholder": "Your first name.",
+		"lastNamePlaceholder": "Your name.",
+		"mailPlaceholder": "A confirmation email will be sent to you.",
+		"telephonePlaceholder": "Your telephone number (optional).",
+		"passwordPlaceholder": "Minimum 8 characters. Upper case, lower case and numbers.",
+		"passwordConfirmedPlaceholder": "Repeat your password a second time.",
+		"mandatory": "Fields marked with a <span class=\"mandatory\">*</span> are required.",
+		"submit": "Confirm",
+		"back": "Back",
+		"title2nd": "Please provide us with some additional information",
+		"areYou": "Are you...",
+		"member": "An individual?",
+		"teacher": "A teacher?",
+		"teacher-grade": "Level of training",
+		"grades": {
+			"primary": "Primary",
+			"middle": "College",
+			"high": "High School",
+			"highbis": "Professional High School",
+			"higher": "Post-BAC"
+		},
+		"establishement": "Institution",
+		"establishementPlaceholder": "Search by school name or city.",
+		"subject": "Subject taught",
+		"bio": "Mini-bio",
+		"bioPlaceholder": "Tell us a little bit about yourself, so other users of the site can know a little more about your background :) Maximum 800 characters.",
+		"profilPicture": "Profile picture (optional)",
+		"allowPictures": "Accepted formats: jpeg, jpg, png. Max. 10Mb",
+		"allowPublicName": "Do you accept that your name and surname are public on the site?",
+		"allowNewsletter": "Would you like to receive our newsletter by email?",
+		"allowAlertMessage": "Would you like to receive e-mail alerts when new messages are received on the site?",
+		"allowMessageReceive": "Would you like to be contacted by other users of the site?",
+		"eighteenConfirm": "I confirm that I am over 18 years old (article 1124 of the civil code)",
+		"confirmCGU": "By validating this form, you agree to the <a target=\"_blank\" href=\"/cgu\">Terms and Conditions</a>.",
+		"concernedAboutPrivacy": "Vittascience places the security and confidentiality of its users' personal data at the heart of its concerns. Discover <a target=\"_blank\" href=\"/privacy\">our personal data protection policy</a>",
+		"errors": {
+			"mailUsed": "The mail {{ mail }} is already in use. Please choose another one.",
+			"mailUsedServer": "The email address provided already exists.",
+			"lastName": "The name provided is incorrect.",
+			"firstName": "The first name provided is incorrect.",
+			"mailInvalid": "The email address is invalid.",
+			"passwordInvalid": "The password does not respect the security constraints.",
+			"biographyInvalid": "The biography is incorrect.",
+			"telephoneInvalid": "The phone number is incorrect.",
+			"profilPictureInvalid": "The profile photo provided does not respect the format indicated.",
+			"establishementIncorrect": "The establishment name is incorrect.",
+			"gradeIncorrect": "The level of teaching is incorrect.",
+			"subjectIncorrect": "The name of the subject taught is incorrect."
+		},
+		"success": {
+			"main": "Your registration has been successfully registered! A confirmation link has been sent to you at <b>{mail }}</b>.",
+			"notice": "You must access this link before you can log in. If you cannot find the email in question, please check your spam folder."
+		}
+	},
+	"switchAccessibility": {
+		"title": "Accessibility",
+		"theme": "Theme",
+		"light_theme": "Clear theme",
+		"dark_theme": "Dark theme",
+		"font": "Police",
+		"basic_font": "Basic",
+		"know_more": "Read more"
+	},
+	"words": {
+		"send": "send",
+		"settings": "parameters",
+		"disconnect": "disconnection",
+		"help": "help",
+		"duplicate": "duplicate",
+		"delete": "delete",
+		"attribute": "allocate",
+		"modify": "edit",
+		"optional": "optional",
+		"evaluation": "evaluation",
+		"exercise": "exercise",
+		"return": "return",
+		"anonymize": "anonymize",
+		"days": "days",
+		"hours": "hours",
+		"minutes": "minutes",
+		"seconds": "seconds",
+		"confirm": "confirm",
+		"username": "pseudonym",
+		"password": "Password",
+		"yes": "Yes",
+		"no": "No"
+	},
   "faqTeacherNeutral": {
+    "title": "FAQ",
     "1": {
       "section_title": "Activities",
       "question_list": {
@@ -857,10 +834,10 @@
           "answer": "The source code of the Class module is available on the <a href=\"https://github.com/Cabri/OpenSTEAM-LMS/\" target=\"_href\">OpenSTEAM-LMS git repository</a>, feel free to contribute!"
         }
       }
-    },
-    "title": "FAQ"
+    }
   },
   "faqStudentNeutral": {
+    "title": "FAQ",
     "1": {
       "section_title": "Activities",
       "question_list": {
@@ -938,636 +915,521 @@
           "answer": "The source code of the Class module is available on <a href=\"https://github.com/Cabri/OpenSTEAM-LMS/\" target=\"_href\">the OpenSTEAM-LMS git repository</a>, feel free to contribute!"
         }
       }
-    },
-    "title": "FAQ"
-  },
-  "login_popup": {
-    "title": "Login",
-    "details": "Enter your login details to access your account.",
-    "form": {
-      "addressmail": "Email address",
-      "addressmail_placeholder": "exemple@domaine.com",
-      "password": "Password",
-      "password_placeholder": "Your password.",
-      "forgot_password": "I forgot my password.",
-      "btn_connect": "Log in"
-    },
-    "success": "The authentication was successful. Redirection...",
-    "error": "Error. Please check your login details.",
-    "canNotLoginBefore": " {{failedLoginAttempts}} failed. You must wait {{timeToWait}} minute(s) before you can log in again",
-    "mailSuccess": "An activation email has been sent to your email address.",
-    "mailError": "An error has occurred. Please verify your email address.",
-    "userNotFound": "No linked user found with this mail.",
-    "accountDeactivated": "Your account has been deactivated, contact an administrator if the problem persists.",
-    "inactiveAccount": "Your account is not active, click on the button just below to send a new validation mail.",
-    "errorBeta": "You must be a beta tester to access this feature. <a href='https://fr.vittascience.com/about#contact'>Contact the Vittascience team</a> to learn more."
-  },
-  "signup-popup": {
-    "title": "Registration",
-    "notice": "Please complete the following fields to create your Vittascience account.",
-    "firstName": "First name",
-    "lastName": "Name",
-    "mail": "Email address",
-    "telephone": "Phone",
-    "password": "Password",
-    "passwordConfirmed": "Confirmation",
-    "firstNamePlaceholder": "Your first name.",
-    "lastNamePlaceholder": "Your name.",
-    "mailPlaceholder": "A confirmation email will be sent to you.",
-    "telephonePlaceholder": "Your telephone number (optional).",
-    "passwordPlaceholder": "Minimum 8 characters. Upper case, lower case and numbers.",
-    "passwordConfirmedPlaceholder": "Repeat your password a second time.",
-    "mandatory": "Fields marked with a <span class=\"mandatory\">*</span> are required.",
-    "submit": "Confirm",
-    "back": "Back",
-    "title2nd": "Please provide us with some additional information",
-    "areYou": "Are you...",
-    "member": "An individual?",
-    "teacher": "A teacher?",
-    "teacher-grade": "Level of training",
-    "grades": {
-      "primary": "Primary",
-      "middle": "College",
-      "high": "High School",
-      "highbis": "Professional High School",
-      "higher": "Post-BAC"
-    },
-    "establishement": "Institution",
-    "establishementPlaceholder": "Search by school name or city.",
-    "subject": "Subject taught",
-    "bio": "Mini-bio",
-    "bioPlaceholder": "Tell us a little bit about yourself, so other users of the site can know a little more about your background :) Maximum 800 characters.",
-    "profilPicture": "Profile picture (optional)",
-    "allowPictures": "Accepted formats: jpeg, jpg, png. Max. 10Mb",
-    "allowPublicName": "Do you accept that your name and surname are public on the site?",
-    "allowNewsletter": "Would you like to receive our newsletter by email?",
-    "allowAlertMessage": "Would you like to receive e-mail alerts when new messages are received on the site?",
-    "allowMessageReceive": "Would you like to be contacted by other users of the site?",
-    "eighteenConfirm": "I confirm that I am over 18 years old (article 1124 of the civil code)",
-    "confirmCGU": "By validating this form, you agree to the <a target=\"_blank\" href=\"/cgu\">Terms and Conditions</a>.",
-    "concernedAboutPrivacy": "Vittascience places the security and confidentiality of its users' personal data at the heart of its concerns. Discover <a target=\"_blank\" href=\"/privacy\">our personal data protection policy</a>",
-    "errors": {
-      "mailUsed": "The mail {{ mail }} is already in use. Please choose another one.",
-      "mailUsedServer": "The email address provided already exists.",
-      "lastName": "The name provided is incorrect.",
-      "firstName": "The first name provided is incorrect.",
-      "mailInvalid": "The email address is invalid.",
-      "passwordInvalid": "The password does not respect the security constraints.",
-      "biographyInvalid": "The biography is incorrect.",
-      "telephoneInvalid": "The phone number is incorrect.",
-      "profilPictureInvalid": "The profile photo provided does not respect the format indicated.",
-      "establishementIncorrect": "The establishment name is incorrect.",
-      "gradeIncorrect": "The level of teaching is incorrect.",
-      "subjectIncorrect": "The name of the subject taught is incorrect."
-    },
-    "success": {
-      "main": "Your registration has been successfully registered! A confirmation link has been sent to you at <b>{mail }}</b>.",
-      "notice": "You must access this link before you can log in. If you cannot find the email in question, please check your spam folder."
     }
-  },
-  "switchAccessibility": {
-    "title": "Accessibility",
-    "theme": "Theme",
-    "light_theme": "Clear theme",
-    "dark_theme": "Dark theme",
-    "font": "Police",
-    "basic_font": "Basic",
-    "know_more": "Read more"
-  },
-  "words": {
-    "send": "send",
-    "settings": "parameters",
-    "disconnect": "disconnection",
-    "help": "help",
-    "duplicate": "duplicate",
-    "delete": "delete",
-    "attribute": "allocate",
-    "modify": "edit",
-    "optional": "optional",
-    "evaluation": "evaluation",
-    "exercise": "exercise",
-    "return": "return",
-    "anonymize": "anonymize",
-    "days": "days",
-    "hours": "hours",
-    "minutes": "minutes",
-    "seconds": "seconds",
-    "confirm": "confirm",
-    "username": "pseudonym",
-    "password": "Password",
-    "options": " options",
-    "yes": "Yes",
-    "no": "No"
   },
   "manager": {
-    "profil": {
-      "manager": "Switch to manager",
-      "groupAdmin": "Switch to group administrator",
-      "bio": "Bio",
-      "group": "Group",
-      "apps": "Apps",
-      "groupsApps": " Group applications",
-      "personalApps": "Personal apps",
-      "email": "E-mail <span class=\"c-text-red\">*</span>",
-      "nickname": "Username",
-      "lastname": "Lastname <span class=\"c-text-red\">*</span>",
-      "firstname": "Firstname <span class=\"c-text-red\">*</span>",
-      "phone": "Phone number",
-      "grade": "Niveau de formation <span class=\"c-text-red\">*</span>",
-      "subject": "Taught subject <span class=\"c-text-red\">*</span>",
-      "school": "School <span class=\"c-text-red\">*</span>",
-      "password": "Password <span class=\"c-text-red\">*</span>",
-      "confirmPassword": "Confirm password <span class=\"c-text-red\">*</span>",
-      "help": "Help",
-      "onlyVisibleGroupAdmin": "Only visible to you as a group administrator:",
-      "onlyVisiblemanager": "Only visible to you as a manager:"
-    },
-    "account": {
-      "activate": {
-        "success": "Your account has been activated !",
-        "alreadyactive": "Your account is already active.",
-        "noToken": "No token is attached to this link."
-      },
-      "active": "Active account",
-      "registration": {
-        "success": "Successful registration !",
-        "emailSent": "An email has just been sent to you, follow the link in it to activate your account and continue your link to the group \"<span id=\"gourpName2\"></span>\"",
-        "accountPublic": "Do you agree that your first and last name are public on the site ?",
-        "newsletter": "Would you like to receive our newsletter by email ?",
-        "mailAlert": "Would you like to receive email alerts when receiving new messages on the site ?",
-        "allowContact": "Would you like to be able to be contacted by other users of the site ?",
-        "confirmAdult": "I confirm that I am over 18 years old (article 1124 du code civil)*",
-        "disclaimerVittascience": "Vittascience places the security and confidentiality of its users' personal data at the heart of its concerns. Discover<a href=\"http://vittascience.com/privacy\"> our personal data protection policy</a> ",
-        "mandatory": "Fields marked with <span class=\"c-text-red\">*</span> are mandatory.",
-        "cguVittascience": "By validating this form, you accept the <a href=\"http://vittascience.com/\"> Terms of Service</a>.",
-        "cguOpenSteam": "By validating this form, you accept the <a target=\"_blank\" href=\"/classroom/cgu.php\"> Terms of Service</a>.",
-        "description": "Please complete the following fields to create your account.",
-        "title": "Registration",
-        "registrationFinalizationSuccess": "Your registration has been finalized, you can now connect",
-        "registrationFinalization": "Finalize your registration",
-        "descriptionFinalization": "Please complete the following fields to complete your registration.",
-        "noTokenOrUserActive": "Invalid token or user already active",
-        "noToken": "Missing token"
-      },
-      "notAllowedUpdateUser": "You do not have the rights to update this user.",
-      "notAllowedDeleteGroup": "You do not have the rights to delete this group.",
-      "notAllowedDisableUser": "You do not have the rights to disable this user.",
-      "notAllowedDeleteUser": "You do not have the rights to delete this user.",
-      "passwordUpdatedMessage": "Your password has been successfully changed",
-      "noUserFound": "No user using this address was found.",
-      "noUserFoundToken": "This token does not correspond to any user.",
-      "missingData": "Information is missing to finalize the operation.",
-      "missingDataDate": "Date information is missing to finalize the operation.",
-      "errorSending": "An error occurred while sending the email",
-      "userNotFound": "User not found and / or already active",
-      "userNotFoundId": "User not found",
-      "errorActivation": "An error occurred during activation.",
-      "notAllowedToCreateUserInThisGroup": "You are not authorized to create a user in this group.",
-      "subscriptionOudated": "Your APPNAME app has expired on DATE. For more information contact an administrator."
-    },
-    "users": {
-      "users": "Users",
-      "add": "Add user",
-      "activated": "The account has been activated.",
-      "errorActivation": "An error occurred during activation.",
-      "create": "Create user",
-      "delete": "Delete user",
-      "deleteConfirmation": "Please write \"delete\" in the field below to validate the action.",
-      "deleteIntentionSA": "You are about to delete the user : <span id=\"mdi_firstnameSA\"></span>",
-      "disableIntention": "You are about to disable the user : <span id=\"mde_firstnameSA\"></span>",
-      "deleteConfirmationTitle": "Confirm deletion",
-      "disableConfirmationTitle": "Confirm deactivation",
-      "update": "Update user",
-      "updateAppUser": "Update user apps",
-      "updateApp": "Update apps",
-      "disable": {
-        "message": "Please write \"delete\" in the field below to validate the action.",
-        "intention": "You are about to delete the user : <span id=\"md_firstnameGA\"></span>"
-      },
-      "mail": {
-        "resetPassword": {
-          "subject": "Resetting your password.",
-          "bodyTitle": "Reset password.",
-          "textBeforeLink": "If the button above does not work, copy and paste into your browser the following link :"
-        },
-        "finalizeAccount": {
-          "title": "Registration finalization",
-          "subject": "Registration finalization",
-          "bodyTitle": "Finalize your registration.",
-          "textBeforeLink": "If the button above does not work, copy and paste into your browser the following link :"
-        }
-      },
-      "showResetLinkTitle": "Reset password.",
-      "showResetLink": "Password reset link.",
-      "groupAdmin": "Group administrator",
-      "admin": "Manager",
-      "teacher": "Teacher",
-      "usersPerPage": "Users per page",
-      "userDeleted": "User deleted.",
-      "userDisabled": "User disabled.",
-      "userCreated": "User successfully created",
-      "userUpdated": "User successfully updated",
-      "chooseNewPassword": "Choose your new password",
-      "passwordUpdate": "Your password has been changed",
-      "enterYourEmail": "Enter your e-mail address",
-      "sendResetMailDescription": "By clicking on send an email containing a link to change your password will be sent to you.",
-      "yourMail": "Your email",
-      "emailSended": "An E-mail containing the procedure to follow has just been sent to you",
-      "emailNotReceived": "If you have not received the email, click on start over (the email may take a little while to arrive)",
-      "mailSentToUser": "An email has been sent to the user to complete their registration",
-      "mailNotSentToUser": "the registration finalization email could not be sent to the user",
-      "mailSentToUserReset": "An email has been sent to the user to change their password",
-      "mailNotSentToUserReset": "The password change email could not be sent to the user",
-      "appsUpdated": "User apps have been updated",
-      "updateAppModalTitle": "Application",
-      "globalRestrictions": " Global Restrictions",
-      "teacherGrades": {
-        "0": "Elementary School",
-        "1": "Middle School",
-        "2": "High school",
-        "3": "Technical College",
-        "4": "POST-BAC"
-      },
-      "teacherSubjects": {
-        "0": {
-          "0": "Elementary School",
-          "1": "Other (specify in biography)"
-        },
-        "1": {
-          "0": "Physical and sports education",
-          "1": "Moral and civic education",
-          "2": "Artistic teaching",
-          "3": "French",
-          "4": "History geography",
-          "5": "Living language",
-          "6": "Mathematics",
-          "7": "Chemical Physics",
-          "8": "Life and earth sciences",
-          "9": "Technology",
-          "10": "Other (specify in bio)"
-        },
-        "2": {
-          "0": "Arts",
-          "1": "Circus arts",
-          "2": "Biology Ecology",
-          "3": "Biotechnologies",
-          "4": "Creation and design culture",
-          "5": "Technological creation and innovation",
-          "6": "Ecology-agronomy-territories-development durable",
-          "7": "Physical and sports education",
-          "8": "Moral and civic education",
-          "9": "Science education",
-          "10": "Transversal technological education",
-          "11": "French",
-          "12": "Hippology and horse riding",
-          "13": "History geography",
-          "14": "History geography, geopolitics and political science",
-          "15": "Humanities, literature and philosophy",
-          "16": "Languages and cultures of Antiquity: Latin or Greek",
-          "17": "Living language",
-          "18": "Foreign and regional languages, literatures and cultures",
-          "19": "Literature and languages and cultures of Antiquity",
-          "20": "Management",
-          "21": "Mathematics",
-          "22": "Digital and computer science",
-          "23": "Chemical Physics",
-          "24": "Fundamentals of economics and management",
-          "25": "Health and social",
-          "26": "Life and earth sciences",
-          "27": "Engineering Sciences",
-          "28": "Science and laboratory",
-          "29": "Sciences and techniques of theater, music and dance",
-          "30": "Laboratory science and technology",
-          "31": "Hotel and restaurant sciences and technologies",
-          "32": "Science and technology of industry and sustainable development",
-          "33": "Sciences and technologies of design and applied arts",
-          "34": "Management and sciences and technologies",
-          "35": "Digital science and technology",
-          "36": "Economic and social sciences",
-          "37": "Other (specify in biography)"
-        },
-        "3": {
-          "0": "Applied arts and artistic cultures",
-          "1": "Right economy",
-          "2": "Economy Management",
-          "3": "Physical education and sport",
-          "4": "Moral and civic education",
-          "5": "Transversal technological education",
-          "6": "French",
-          "7": "History geography",
-          "8": "Modern foreign languages",
-          "9": "Mathematics Physics-Chemistry",
-          "10": "Environmental health prevention",
-          "11": "Other (specify in biography)"
-        },
-        "4": {
-          "0": "Higher education",
-          "1": "Other (specify in biography)"
-        }
-      }
-    },
-    "group": {
-      "generalInfo": "General information",
-      "add": "Add group",
-      "create": "Create group",
-      "delete": "Delete group",
-      "deleteIntention": "You are about to delete the group : <span id=\"md_group\"></span>",
-      "update": "Update group",
-      "academy": "Academy",
-      "join": {
-        "firstVisit": "First visit ?",
-        "signin": "Sign in",
-        "signinSubtitle": "Enter your login details to access your account",
-        "addressMail": "Mail address",
-        "disclaimer": "By joining this group, you authorize the group's admin to modify and / or deactivate your account. You will also have the applications that the group owns.",
-        "lastStep": "There is only one step left! Click on the button below to finalize the link.",
-        "joinGroup": "You are about to join the group : \"<span id='groupNameConfirmLink'></span>\"",
-        "notfound": "Group not found !",
-        "notfoundDetails": "We cannot find any groups linked to the code <span id='gourpName3'></span>.",
-        "clickToRedirectLogin": "Click on continue to be redirected to the login page.",
-        "clickToRedirectHome": "Click on continue to be redirected to the home page.",
-        "invalidLink": "Invalid link !",
-        "invalidFormatLink": "The format of the link you entered does not match.",
-        "success": "You joined the group : \"<span id=\"gourpName\"></span>\" !",
-        "alreadyLinked": "You are already part of this group.",
-        "error": "An error occurred while linking.",
-        "userNotFound": "The user was not found, you can click on continue to be redirected to the login page.",
-        "contactAdmin": "If the problem persists contact the administration.",
-        "groupFull": "The group you want to join is full.",
-        "onlyOneGroup": "You are already part of a group, you cannot join another",
-        "mail": {
-          "textBeforeName": "The user : ",
-          "textAfterName": "joined the group : ",
-          "emailSubject": "A user has joined the group"
-        }
-      },
-      "name": "Name of the group <span class=\"c-text-red\">*</span>",
-      "description": "Description of the group <span class=\"c-text-red\">*</span>",
-      "link": "Group link",
-      "applications": "Group applications",
-      "groupsPerPage": "Groups per page",
-      "groupDeleted": "Group deleted.",
-      "groupCreated": "Group successfully created",
-      "groupUpdated": "Group successfully updated",
-      "groupCreateFailed": "The group could not be created, missing data.",
-      "showLinkTitle": "Group's link",
-      "usersWithoutGroups": "Users without groups",
-      "searchResult": "Result of the research",
-      "usersInactiveOrNoRegular": "Inactive users or not regular",
-      "usersWithoutGroupsDescription": "User group not linked to any group",
-      "usersInactiveOrNoRegularDescription": "Group of non-regular users",
-      "groupDeleteError": "The group could not be deleted.",
-      "groupFull": "The group is full.",
-      "groupFullAdminMessage": "The group is full, you cannot add other users.",
-      "toManyStudentsFromTheTeacher": "The teacher you want to add to the group has too many students",
-      "toManyStudentsInGroup": "The group cannot accommodate so many students, the teacher has too many students.",
-      "teachersPerGroup": "Teacher per group",
-      "activitiesPerGroup": "Activities per group",
-      "activitiesPerTeacher": "Activities per teacher",
-      "studentsPerGroup": "Students per group",
-      "studentsPerTeacher": "Students per teacher",
-      "maxStudents": "Maximum students",
-      "maxActivities": "Maximum activities",
-      "groupsRestrictions": " Group Restriction"
-    },
-    "title": {
-      "activeUsers": "Active users",
-      "inactiveUsers": " Inactive users"
-    },
-    "buttons": {
-      "continue": "Continue",
-      "validate": "Validate",
-      "cancel": "Cancel",
-      "activate": "Activate",
-      "finalize": "Finalize",
-      "send": "Send",
-      "login": "Sign in",
-      "signup": "Register",
-      "join": "Join",
-      "save": "Save",
-      "close": "Close",
-      "disable": "Disable",
-      "delete": "Delete",
-      "reset": "Reset",
-      "update": "Update",
-      "search": "Search",
-      "restart": "Restart",
-      "copyLink": "Copy link",
-      "show": "Show",
-      "manage": "Manage",
-      "user": {
-        "add": "Add user",
-        "create": "Create user",
-        "delete": "Delete user",
-        "update": "Update user",
-        "addGroup": "Add group",
-        "createA": "Create user",
-        "updateA": "Update user",
-        "updateApp": "Update applications"
-      },
-      "group": {
-        "add": "Add group",
-        "create": "Create group",
-        "delete": "Delete group",
-        "update": "Update group",
-        "createA": "Create group",
-        "updateA": "Update group"
-      }
-    },
-    "sort": {
-      "user": {
-        "bylastname": "Sort by lastname",
-        "byfirstname": "Sort by firstname"
-      },
-      "group": {
-        "byname": "Sort by name",
-        "bydesc": "Sort by description"
-      }
-    },
-    "input": {
-      "placeholder": {
-        "delete": "delete"
-      },
-      "writeDelete": "You must write delete to validate the action.",
-      "writeDisable": "You must write disable to validate the action."
-    },
-    "table": {
-      "lastname": "Lastname",
-      "firstname": "Firstname",
-      "applications": "Applications",
-      "nbUsers": " Number of users",
-      "group": "Group",
-      "description": "Description",
-      "descriptionMandatory": "Description <span class=\"c-text-red\">*</span>",
-      "right": "Rights",
-      "resetPassword": "Reset password",
-      "link": "Link",
-      "name": "Name",
-      "nameMandatory": "Name <span class=\"c-text-red\">*</span>",
-      "dateBegin": "Begin date",
-      "dateEnd": "End date",
-      "outDated": "Out dated",
-      "status": " Status",
-      "maxStudents": "Maximum students",
-      "actualStudents": "Current students",
-      "maxTeachers": "Maximum teachers",
-      "actualTeachers": "Current teachers",
-      "maxStudentsPerTeachers": "Maximum students per teacher",
-      "maxStudentsPerTeacher": "Maximum students per teacher",
-      "activityType": "Activity type",
-      "maxActivitiesPerGroup": "Maximum activities per group",
-      "maxActivitiesPerTeacher": "Maximum activities per teacher",
-      "monitoring": "Apps monitoring",
-      "image": "Image",
-      "backgroundImage": " Background image",
-      "userNoRights": "No rights assigned",
-      "userAdmin": "Administrator",
-      "userTeacher": "Teacher",
-      "restrictions": "Restrictions",
-      "color": " Color",
-      "restriction": " Restriction",
-      "dateBeginFA": " <i class='far fa-calendar-alt'></i> Start date",
-      "dateEndFA": " <i class='far fa-calendar-alt'></i> End date",
-      "maxStudentsFA": " <i class='fas fa-user-alt'></i> Maximum learners"
-    },
-    "apps": {
-      "apps": "Apps",
-      "create": "Add an app",
-      "updateSuccess": "App successfully updated",
-      "createSuccess": "App successfully created",
-      "deleteSuccess": "App successfully deleted",
-      "deleteIntention": "You are about to delete the app : <span id=\"application_delete_name\"></span>",
-      "outDatedApp": "The app you want to assign is outdated.",
-      "infoMaxStudentsPerTeachers": "Determine the maximum number of students that a teacher in the group can have.",
-      "infoMaxStudentsPerGroups": "Determines the maximum number of students that the group can have (By adding the total of students of teachers who have this application)",
-      "infoMaxTeachers": "Determines the maximum number of teachers who can have the application in this group",
-      "usersLimitation": "Users students limitation",
-      "groupsLimitation": "Groups limitations",
-      "activitiesLimitation": "Activities limitations",
-      "defaultRestrictions": "Default restrictions",
-      "ltiApps": "LTI apps",
-      "clientId": "Client Id <span class=\"c-text-red\">*</span>",
-      "deploymentId": "Deployment Id <span class=\"c-text-red\">*</span>",
-      "toolUrl": "Tool Url <span class=\"c-text-red\">*</span>",
-      "publicKeySet": "Public key set <span class=\"c-text-red\">*</span>",
-      "loginUrl": "Login Url <span class=\"c-text-red\">*</span>",
-      "redirectionUrl": "Redirection url <span class=\"c-text-red\">*</span>",
-      "deepLinkUrl": "Deeplink url <span class=\"c-text-red\">*</span>",
-      "privateKey": "Private key <span class=\"c-text-red\">*</span>",
-      "monitoringApps": " Application information",
-      "monitoringGroup": " Group information",
-      "appStatus0": " Inactive",
-      "appStatus1": " Up to date",
-      "appStatus2": " Expired"
-    },
-    "activitiesRestrictions": {
-      "updateAll": "Update restrictions",
-      "update": "Update restriction",
-      "create": "Create restriction",
-      "delete": "Delete restriction",
-      "updateSuccess": "Restriction successfully updated",
-      "createSuccess": "Restriction successfully created",
-      "deleteSuccess": "Restriction successfully deleted",
-      "deleteIntention": "You are about to delete the restriction : <span id=\"restriction_delete_name\"></span>",
-      "restrictionType": "Activity type",
-      "maxActivity": "Activity maximum",
-      "closeDetail": "Close the detail",
-      "restrictions": "Activity restrictions",
-      "appRestricted": "Create more activities !",
-      "appOutDated": " The application subscription has expired.",
-      "appOutDatedUL1": " Your subscription to this application has expired.",
-      "appOutDatedUL2": " To continue using this application, please contact your administrator.",
-      "appOutDatedSubtitle3": " Contact support",
-      "appRestrictedUL1": "You have reached the limit of {{activities}} activities associated with your account.",
-      "appRestrictedUL2": "To add additional activities, please contact your administrator.",
-      "appRestrictedSubtitle2": "A problem with your subscription ?",
-      "appRestrictedSubtitle3": "Contact support",
-      "appRestrictedGarContent1": "You have reached the limit of {{activities}} activities associated with your account.",
-      "appRestrictedGarContent2": "To add additional activities, please contact the GAR assignment manager at your institution.",
-      "indexPos": " Position index",
-      "appQuantity": " Quantity"
-    },
-    "defaultRestrictions": {
-      "update": "Update default restrictions",
-      "type": "Activity type",
-      "max": "Maximum",
-      "add": "Add a restriction",
-      "updateUsersRestrictionsSuccess": "Default users restrictions updated successfuly",
-      "updateGroupsRestrictionsSuccess": "Default groups restrictions updated successfuly",
-      "updateActivitiesRestrictionsSuccess": "Default activities restrictions updated successfuly",
-      "deleteActivitiesRestrictionsSuccess": "Default activity restriction deleted successfuly",
-      "getDefaultRestrictions": "Show the default restrictions",
-      "restrictionAlreadyExist": "The restriction already exist"
-    }
-  },
-  "navbar": {
-    "items": {
-      "kits": "Hardware",
-      "community": {
-        "title": "Community",
-        "dropdown": {
-          "vittamap": "Vittamap",
-          "blog": "Blog",
-          "gallery": "Gallery",
-          "about": "About"
-        }
-      },
-      "tooltips": {
-        "backToHome": "Go back to the homepage",
-        "programming": "Coding with Vittascience",
-        "resources": "Educational resource center",
-        "classroom": "Manage your classes with Vittascience",
-        "hardware": "Discover our kits and products"
-      },
-      "programming": "Programming",
-      "ressources": "Resources",
-      "classroom": "Classroom",
-      "accessibility": "Change the theme and font of the site",
-      "lang": "Change language",
-      "user_shortcuts": {
-        "welcome": "Welcome!",
-        "signup": "Sign up",
-        "login": "Connect",
-        "hello": "Hello",
-        "account": "My account",
-        "disconnect": "Disconnect",
-        "willSignup": "sign in",
-        "willSignin": "Log in"
-      }
-    }
-  },
-  "newActivities": {
-    "create": "Create a new activity",
-    "delete": "Delete",
-    "addQuiz": "Add a suggestion",
-    "states": "Activity statement <span class=\"c-text-red\">*</span>",
-    "cancel": "Cancel",
-    "autocorrect": "Autocorrect",
-    "correction": "Activity correction",
-    "contentTitle": " Content of the activity",
-    "tolerance1": "Add an error tolerance of",
-    "tolerance2": "character(s) on the entire student response.",
-    "hint": "Hint *: displayed if the answer is wrong",
-    "title": "Activity title <span class=\"c-text-red\">*</span>",
-    "description": "Activity description <span class=\"c-text-red\">*</span>",
-    "content": "Activity content <span class=\"c-text-red\">*</span>",
-    "addField": " Add an answer field",
-    "addFieldTooltip": " By clicking the Add Answer Field button, a stylized text is added. You can write the correct answer in this field. Alternative answers are separated by a double ampersand &&.",
-    "ActivitiesData": {
-      "title": {
-        "reading": " Simple reading",
-        "free": " Free response",
-        "quiz": " MCQS",
-        "fillIn": " Cloze text",
-        "dragAndDrop": " Drag and Drop"
-      },
-      "description": {
-        "reading": " This activity allows you to view images, videos, PDFs, Vittascience interfaces and external tools.",
-        "free": " This activity allows students to respond to an exercise in writing.",
-        "quiz": " This activity assesses knowledge using multiple choice or simple questions.",
-        "fillIn": " This activity allows you to apply your knowledge by filling in the blanks.",
-        "dragAndDrop": " This activity allows you to drag and drop words into different empty spaces."
-      }
-    }
-  }
+		"profil": {
+			"manager": "Switch to manager",
+			"groupAdmin": "Switch to group administrator",
+			"bio": "Bio",
+			"group": "Group",
+			"apps": "Apps",
+			"personalApps": "Personal apps",
+			"email": "E-mail <span class=\"c-text-red\">*</span>",
+			"nickname": "Username",
+			"lastname": "Lastname <span class=\"c-text-red\">*</span>",
+			"firstname": "Firstname <span class=\"c-text-red\">*</span>",
+			"phone": "Phone number",
+			"grade": "Niveau de formation <span class=\"c-text-red\">*</span>",
+			"subject": "Taught subject <span class=\"c-text-red\">*</span>",
+			"school": "School <span class=\"c-text-red\">*</span>",
+			"password": "Password <span class=\"c-text-red\">*</span>",
+			"confirmPassword": "Confirm password <span class=\"c-text-red\">*</span>",
+			"help": "Help",
+			"onlyVisibleGroupAdmin": "Only visible to you as a group administrator:",
+			"onlyVisiblemanager": "Only visible to you as a manager:"
+		},
+		"account": {
+			"activate": {
+				"success": "Your account has been activated !",
+				"alreadyactive": "Your account is already active.",
+				"noToken": "No token is attached to this link."
+			},
+			"active": "Active account",
+			"registration": {
+				"success": "Successful registration !",
+				"emailSent": "An email has just been sent to you, follow the link in it to activate your account and continue your link to the group \"<span id=\"gourpName2\"></span>\"",
+				"accountPublic": "Do you agree that your first and last name are public on the site ?",
+				"newsletter": "Would you like to receive our newsletter by email ?",
+				"mailAlert": "Would you like to receive email alerts when receiving new messages on the site ?",
+				"allowContact": "Would you like to be able to be contacted by other users of the site ?",
+				"confirmAdult": "I confirm that I am over 18 years old (article 1124 du code civil)*",
+				"disclaimerVittascience": "Vittascience places the security and confidentiality of its users' personal data at the heart of its concerns. Discover<a href=\"http://vittascience.com/privacy\"> our personal data protection policy</a> ",
+				"mandatory": "Fields marked with <span class=\"c-text-red\">*</span> are mandatory.",
+				"cguVittascience": "By validating this form, you accept the <a href=\"http://vittascience.com/\"> Terms of Service</a>.",
+				"cguOpenSteam": "By validating this form, you accept the <a target=\"_blank\" href=\"/classroom/cgu.php\"> Terms of Service</a>.",
+				"description": "Please complete the following fields to create your account.",
+				"title": "Registration",
+				"registrationFinalizationSuccess": "Your registration has been finalized, you can now connect",
+				"registrationFinalization": "Finalize your registration",
+				"descriptionFinalization": "Please complete the following fields to complete your registration.",
+				"noTokenOrUserActive": "Invalid token or user already active",
+				"noToken": "Missing token"
+			},
+			"notAllowedUpdateUser": "You do not have the rights to update this user.",
+			"notAllowedDeleteGroup": "You do not have the rights to delete this group.",
+			"notAllowedDisableUser": "You do not have the rights to disable this user.",
+			"notAllowedDeleteUser": "You do not have the rights to delete this user.",
+			"passwordUpdatedMessage": "Your password has been successfully changed",
+			"noUserFound": "No user using this address was found.",
+			"noUserFoundToken": "This token does not correspond to any user.",
+			"missingData": "Information is missing to finalize the operation.",
+			"missingDataDate": "Date information is missing to finalize the operation.",
+			"errorSending": "An error occurred while sending the email",
+			"userNotFound": "User not found and / or already active",
+			"userNotFoundId": "User not found",
+			"errorActivation": "An error occurred during activation.",
+			"notAllowedToCreateUserInThisGroup": "You are not authorized to create a user in this group.",
+			"subscriptionOudated": "Your APPNAME app has expired on DATE. For more information contact an administrator."
+		},
+		"users": {
+			"users": "Users",
+			"add": "Add user",
+			"activated": "The account has been activated.",
+			"errorActivation": "An error occurred during activation.",
+			"create": "Create user",
+			"delete": "Delete user",
+			"deleteConfirmation": "Please write \"delete\" in the field below to validate the action.",
+			"deleteIntentionSA": "You are about to delete the user : <span id=\"mdi_firstnameSA\"></span>",
+			"disableIntention": "You are about to disable the user : <span id=\"mde_firstnameSA\"></span>",
+			"deleteConfirmationTitle": "Confirm deletion",
+			"disableConfirmationTitle": "Confirm deactivation",
+			"update": "Update user",
+			"updateAppUser": "Update user apps",
+			"updateApp": "Update apps",
+			"disable": {
+				"message": "Please write \"delete\" in the field below to validate the action.",
+				"intention": "You are about to delete the user : <span id=\"md_firstnameGA\"></span>"
+			},
+			"mail": {
+				"resetPassword": {
+					"subject": "Resetting your password.",
+					"bodyTitle": "Reset password.",
+					"textBeforeLink": "If the button above does not work, copy and paste into your browser the following link :"
+				},
+				"finalizeAccount": {
+					"title": "Registration finalization",
+					"subject": "Registration finalization",
+					"bodyTitle": "Finalize your registration.",
+					"textBeforeLink": "If the button above does not work, copy and paste into your browser the following link :"
+				}
+			},
+			"showResetLinkTitle": "Reset password.",
+			"showResetLink": "Password reset link.",
+			"groupAdmin": "Group administrator",
+			"admin": "Manager",
+			"teacher": "Teacher",
+			"usersPerPage": "Users per page",
+			"userDeleted": "User deleted.",
+			"userDisabled": "User disabled.",
+			"userCreated": "User successfully created",
+			"userUpdated": "User successfully updated",
+			"chooseNewPassword": "Choose your new password",
+			"passwordUpdate": "Your password has been changed",
+			"enterYourEmail": "Enter your e-mail address",
+			"sendResetMailDescription": "By clicking on send an email containing a link to change your password will be sent to you.",
+			"yourMail": "Your email",
+			"emailSended": "An E-mail containing the procedure to follow has just been sent to you",
+			"emailNotReceived": "If you have not received the email, click on start over (the email may take a little while to arrive)",
+			"mailSentToUser": "An email has been sent to the user to complete their registration",
+			"mailNotSentToUser": "the registration finalization email could not be sent to the user",
+			"mailSentToUserReset": "An email has been sent to the user to change their password",
+			"mailNotSentToUserReset": "The password change email could not be sent to the user",
+			"appsUpdated": "User apps have been updated",
+			"updateAppModalTitle": "Application",
+			"teacherGrades": {
+				"0": "Elementary School",
+				"1": "Middle School",
+				"2": "High school",
+				"3": "Technical College",
+				"4": "POST-BAC"
+			},
+			"teacherSubjects": {
+				"0": {
+					"0": "Elementary School",
+					"1": "Other (specify in biography)"
+				},
+				"1": {
+					"0": "Physical and sports education",
+					"1": "Moral and civic education",
+					"2": "Artistic teaching",
+					"3": "French",
+					"4": "History geography",
+					"5": "Living language",
+					"6": "Mathematics",
+					"7": "Chemical Physics",
+					"8": "Life and earth sciences",
+					"9": "Technology",
+					"10": "Other (specify in bio)"
+				},
+				"2": {
+					"0": "Arts",
+					"1": "Circus arts",
+					"2": "Biology Ecology",
+					"3": "Biotechnologies",
+					"4": "Creation and design culture",
+					"5": "Technological creation and innovation",
+					"6": "Ecology-agronomy-territories-development durable",
+					"7": "Physical and sports education",
+					"8": "Moral and civic education",
+					"9": "Science education",
+					"10": "Transversal technological education",
+					"11": "French",
+					"12": "Hippology and horse riding",
+					"13": "History geography",
+					"14": "History geography, geopolitics and political science",
+					"15": "Humanities, literature and philosophy",
+					"16": "Languages and cultures of Antiquity: Latin or Greek",
+					"17": "Living language",
+					"18": "Foreign and regional languages, literatures and cultures",
+					"19": "Literature and languages and cultures of Antiquity",
+					"20": "Management",
+					"21": "Mathematics",
+					"22": "Digital and computer science",
+					"23": "Chemical Physics",
+					"24": "Fundamentals of economics and management",
+					"25": "Health and social",
+					"26": "Life and earth sciences",
+					"27": "Engineering Sciences",
+					"28": "Science and laboratory",
+					"29": "Sciences and techniques of theater, music and dance",
+					"30": "Laboratory science and technology",
+					"31": "Hotel and restaurant sciences and technologies",
+					"32": "Science and technology of industry and sustainable development",
+					"33": "Sciences and technologies of design and applied arts",
+					"34": "Management and sciences and technologies",
+					"35": "Digital science and technology",
+					"36": "Economic and social sciences",
+					"37": "Other (specify in biography)"
+				},
+				"3": {
+					"0": "Applied arts and artistic cultures",
+					"1": "Right economy",
+					"2": "Economy Management",
+					"3": "Physical education and sport",
+					"4": "Moral and civic education",
+					"5": "Transversal technological education",
+					"6": "French",
+					"7": "History geography",
+					"8": "Modern foreign languages",
+					"9": "Mathematics Physics-Chemistry",
+					"10": "Environmental health prevention",
+					"11": "Other (specify in biography)"
+				},
+				"4": {
+					"0": "Higher education",
+					"1": "Other (specify in biography)"
+				}
+			},
+			"groupFull":"The group is full"
+		},
+		"group": {
+			"generalInfo": "General information",
+			"add": "Add group",
+			"create": "Create group",
+			"delete": "Delete group",
+			"deleteIntention": "You are about to delete the group : <span id=\"md_group\"></span>",
+			"update": "Update group",
+			"academy": "Academy",
+			"join": {
+				"firstVisit": "First visit ?",
+				"signin": "Sign in",
+				"signinSubtitle": "Enter your login details to access your account",
+				"addressMail": "Mail address",
+				"disclaimer": "By joining this group, you authorize the group's admin to modify and / or deactivate your account. You will also have the applications that the group owns.",
+				"lastStep": "There is only one step left! Click on the button below to finalize the link.",
+				"joinGroup": "You are about to join the group : \"<span id='groupNameConfirmLink'></span>\"",
+				"notfound": "Group not found !",
+				"notfoundDetails": "We cannot find any groups linked to the code <span id='gourpName3'></span>.",
+				"clickToRedirectLogin": "Click on continue to be redirected to the login page.",
+				"clickToRedirectHome": "Click on continue to be redirected to the home page.",
+				"invalidLink": "Invalid link !",
+				"invalidFormatLink": "The format of the link you entered does not match.",
+				"success": "You joined the group : \"<span id=\"gourpName\"></span>\" !",
+				"alreadyLinked": "You are already part of this group.",
+				"error": "An error occurred while linking.",
+				"userNotFound": "The user was not found, you can click on continue to be redirected to the login page.",
+				"contactAdmin": "If the problem persists contact the administration.",
+				"groupFull": "The group you want to join is full.",
+				"onlyOneGroup": "You are already part of a group, you cannot join another",
+				"mail": {
+					"textBeforeName": "The user : ",
+					"textAfterName": "joined the group : ",
+					"emailSubject": "A user has joined the group"
+				}
+			},
+			"name": "Name of the group <span class=\"c-text-red\">*</span>",
+			"description": "Description of the group <span class=\"c-text-red\">*</span>",
+			"link": "Group link",
+			"applications": "Group applications",
+			"groupsPerPage": "Groups per page",
+			"groupDeleted": "Group deleted.",
+			"groupCreated": "Group successfully created",
+			"groupUpdated": "Group successfully updated",
+			"groupCreateFailed": "The group could not be created, missing data.",
+			"showLinkTitle": "Group's link",
+			"usersWithoutGroups": "Users without groups",
+			"searchResult": "Result of the research",
+			"usersInactiveOrNoRegular": "Inactive users or not regular",
+			"usersWithoutGroupsDescription": "User group not linked to any group",
+			"usersInactiveOrNoRegularDescription": "Group of non-regular users",
+			"groupDeleteError": "The group could not be deleted.",
+			"groupFull": "The group is full.",
+			"groupFullAdminMessage": "The group is full, you cannot add other users.",
+			"toManyStudentsFromTheTeacher": "The teacher you want to add to the group has too many students",
+			"toManyStudentsInGroup": "The group cannot accommodate so many students, the teacher has too many students.",
+			"teachersPerGroup": "Teacher per group",
+			"studentsPerGroup": "Students per group",
+			"activitiesPerGroup": "Activities per group",
+			"activitiesPerTeacher": "Activities per teacher",
+			"studentsPerTeacher": "Students per teacher",
+			"maxStudents": "Maximum students",
+			"maxActivities": "Maximum activities",
+			"groupsRestrictions": "Group's restrictions",
+			"classroomPerTeacher": "Classroom(s) per teacher"
+		},
+		"title": {
+			"activeUsers": "Active users",
+			"inaactiveUsers": "Inactive users"
+		},
+		"buttons": {
+			"continue": "Continue",
+			"validate": "Validate",
+			"activate": "Activate",
+			"cancel": "Cancel",
+			"finalize": "Finalize",
+			"send": "Send",
+			"login": "Sign in",
+			"signup": "Register",
+			"join": "Join",
+			"save": "Save",
+			"close": "Close",
+			"disable": "Disable",
+			"delete": "Delete",
+			"reset": "Reset",
+			"update": "Update",
+			"search": "Search",
+			"restart": "Restart",
+			"copyLink": "Copy link",
+			"show": "Show",
+			"manage": "Manage",
+			"user": {
+				"add": "Add user",
+				"create": "Create user",
+				"delete": "Delete user",
+				"update": "Update user",
+				"addGroup": "Add group",
+				"createA": "Create user",
+				"updateA": "Update user",
+				"updateApp": "Update applications"
+			},
+			"group": {
+				"add": "Add group",
+				"create": "Create group",
+				"delete": "Delete group",
+				"update": "Update group",
+				"createA": "Create group",
+				"updateA": "Update group"
+			}
+		},
+		"sort": {
+			"user": {
+				"bylastname": "Sort by lastname",
+				"byfirstname": "Sort by firstname"
+			},
+			"group": {
+				"byname": "Sort by name",
+				"bydesc": "Sort by description"
+			}
+		},
+		"input": {
+			"placeholder": {
+				"delete": "delete"
+			},
+			"writeDelete": "You must write delete to validate the action.",
+			"writeDisable": "You must write disable to validate the action."
+		},
+		"table": {
+			"lastname": "Lastname",
+			"firstname": "Firstname",
+			"applications": "Applications",
+			"group": "Group",
+			"description": "Description",
+			"descriptionMandatory": "Description <span class=\"c-text-red\">*</span>",
+			"right": "Rights",
+			"resetPassword": "Reset password",
+			"link": "Link",
+			"name": "Name",
+			"nameMandatory": "Name <span class=\"c-text-red\">*</span>",
+			"dateBegin": "Begin date",
+			"dateEnd": "End date",
+			"outDated": "Out dated",
+			"maxStudents": "Maximum students",
+			"actualStudents": "Current students",
+			"maxTeachers": "Maximum teachers",
+			"actualTeachers": "Current teachers",
+			"maxStudentsPerTeachers": "Maximum students per teacher",
+			"maxStudentsPerTeacher": "Maximum students per teacher",
+			"activityType": "Activity type",
+			"maxActivitiesPerGroup": "Maximum activities per group",
+			"maxActivitiesPerTeacher": "Maximum activities per teacher",
+			"monitoring": "Apps monitoring",
+			"image": "Image",
+			"userNoRights": "No rights assigned",
+			"userAdmin": "Administrator",
+			"userTeacher": "Teacher",
+			"restrictions": "Restrictions"
+		},
+		"apps": {
+			"apps": "Apps",
+			"create": "Add an app",
+			"updateSuccess": "App successfully updated",
+			"createSuccess": "App successfully created",
+			"deleteSuccess": "App successfully deleted",
+			"deleteIntention": "You are about to delete the app : <span id=\"application_delete_name\"></span>",
+			"outDatedApp": "The app you want to assign is outdated.",
+			"infoMaxStudentsPerTeachers": "Determine the maximum number of students that a teacher in the group can have.",
+			"infoMaxStudentsPerGroups": "Determines the maximum number of students that the group can have (By adding the total of students of teachers who have this application)",
+			"infoMaxTeachers": "Determines the maximum number of teachers who can have the application in this group",
+			"usersLimitation": "Users students limitation",
+			"groupsLimitation": "Groups limitations",
+			"activitiesLimitation": "Activities limitations",
+			"defaultRestrictions": "Default restrictions",
+			"ltiApps": "LTI apps",
+			"clientId" : "Client Id <span class=\"c-text-red\">*</span>",
+			"deploymentId" : "Deployment Id <span class=\"c-text-red\">*</span>",
+			"toolUrl" : "Tool Url <span class=\"c-text-red\">*</span>",
+			"publicKeySet" : "Public key set <span class=\"c-text-red\">*</span>",
+			"loginUrl" : "Login Url <span class=\"c-text-red\">*</span>",
+			"redirectionUrl" : "Redirection url <span class=\"c-text-red\">*</span>",
+			"deepLinkUrl" : "Deeplink url <span class=\"c-text-red\">*</span>",
+			"privateKey" : "Private key <span class=\"c-text-red\">*</span>"
+		},
+		"activitiesRestrictions": {
+			"updateAll": "Update restrictions",
+			"update": "Update restriction",
+			"create": "Create restriction",
+			"delete": "Delete restriction",
+			"updateSuccess": "Restriction successfully updated",
+			"createSuccess": "Restriction successfully created",
+			"deleteSuccess": "Restriction successfully deleted",
+			"deleteIntention": "You are about to delete the restriction : <span id=\"restriction_delete_name\"></span>",
+			"restrictionType": "Activity type",
+			"maxActivity": "Activity maximum",
+			"closeDetail": "Close the detail",
+			"restrictions": "Activity restrictions",
+			"appRestricted" : "Create more activities !",
+			"appRestrictedUL1": "You have reached the limit of {{activities}} activities associated with your account.",
+			"appRestrictedUL2": "To add additional activities, please contact your administrator.",
+			"appRestrictedSubtitle2": "A problem with your subscription ?",
+			"appRestrictedSubtitle3": "Contact support",
+			"appRestrictedGarContent1": "You have reached the limit of {{activities}} activities associated with your account.",
+			"appRestrictedGarContent2": "To add additional activities, please contact the GAR assignment manager at your institution."
+		},
+		"defaultRestrictions": {
+			"update": "Update default restrictions",
+			"type": "Activity type",
+			"max": "Maximum",
+			"add": "Add a restriction",
+			"updateUsersRestrictionsSuccess": "Default users restrictions updated successfuly",
+			"updateGroupsRestrictionsSuccess": "Default groups restrictions updated successfuly",
+			"updateActivitiesRestrictionsSuccess": "Default activities restrictions updated successfuly",
+			"deleteActivitiesRestrictionsSuccess": "Default activity restriction deleted successfuly",
+			"getDefaultRestrictions": "Show the default restrictions",
+			"restrictionAlreadyExist": "The restriction already exist"
+		}
+	},
+	"navbar": {
+		"items": {
+			"kits": "Hardware",
+			"community": {
+				"title": "Community",
+				"dropdown": {
+					"vittamap": "Vittamap",
+					"blog": "Blog",
+					"gallery": "Gallery",
+					"about": "About"
+				}
+			},
+			"tooltips": {
+				"backToHome": "Go back to the homepage",
+				"programming": "Coding with Vittascience",
+				"resources": "Educational resource center",
+				"classroom": "Manage your classes with Vittascience",
+				"hardware": "Discover our kits and products"
+			},
+			"programming": "Programming",
+			"classroom": "Classroom",
+			"arduino": "Arduino",
+			"microbit": "Microbit",
+			"microbit-tutorials": "Microbit Tutorials",
+			"ressources": "Resources",
+			"accessibility": "Change the theme and font of the site",
+			"lang": "Change language",
+			"user_shortcuts": {
+				"welcome": "Welcome!",
+				"signup": "Sign up",
+				"login": "Connect",
+				"hello": "Hello",
+				"account": "My account",
+				"disconnect": "Disconnect",
+				"willSignup": "sign in",
+				"willSignin": "Log in"
+			}
+		}
+	},
+	"newActivities": {
+		"create": "Create a new activity",
+		"delete": "Delete",
+		"addQuiz": "Add a suggestion",
+		"states": "Activity statement <span class=\"c-text-red\">*</span>",
+		"cancel": "Cancel",
+		"autocorrect": "Autocorrect",
+		"correction": "Activity correction",
+		"tolerance1": "Add an error tolerance of",
+		"tolerance2": "character(s) on the entire student response.",
+		"hint": "Hint *: displayed if the answer is wrong",
+		"title": "Activity title <span class=\"c-text-red\">*</span>",
+		"description": "Activity description <span class=\"c-text-red\">*</span>",
+		"content": "Activity content <span class=\"c-text-red\">*</span>"
+	},
+	"courses": {
+		"addActivity":"Add an activity",
+		"addActivities":"Add activities",
+		"createActivity": "Create an activity",
+		"searchActivity": "Search an activity",
+		"placeholderTitle": "Activity title",
+		"placeholderDescription": "Activity description",
+		"pagination": {
+			"create":"Course's creation",
+			"title": "Title",
+			"parameters": "Parameters",
+			"attribution": "Attribution"
+		},
+		"parameters": {
+			"title":"Course title <span class=\"c-text-red\">*</span>",
+			"description": "Course's description <span class=\"c-text-red\">*</span>",
+			"difficulty": "Difficulty <span class=\"c-text-red\">*</span>",
+			"difficultyLevel": {
+				"choose": "Choose a difficulty level",
+				"easy": "Easy",
+				"medium": "Medium",
+				"advanced": "Advanced",
+				"expert": "Expert"
+			},
+			"duration": "Duration (minutes) <span class=\"c-text-red\">*</span>",
+			"license": "User license <span class=\"c-text-red\">*</span>",
+			"licenseType": {
+				"choose": "Choose a license",
+				"1": "Private (only you can see this resource)",
+				"2": "Unreferenced (shareable resource by link but not findable on the Resources page)",
+				"3": "Public CC-BY-NC-SA (free, non-commercial and modifiable resource)",
+				"4": "Public CC-BY-NC-ND (free, non-commercial and non-modifiable resource)"
+			}
+		},
+		"successfullyCreated": "Course created successfully",
+		"attribution": "Course attribution <i class='fas fa-chevron-right'></i>",
+		"return": "Return <i class='fas fa-chevron-right'></i>",
+		"update": "Update the course"
+	}
 }
