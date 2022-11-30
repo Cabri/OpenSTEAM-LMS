@@ -14,7 +14,7 @@ function goToDisconnect() {
         });
     }).then(()=>{
         if (UserManager.getUser().isFromGar){
-            window.location = '/classroom/gar_user_disconnected.php';
+            window.location = '/classroom/GAR/gar_user_disconnected.php';
         } else {
             window.location = '/classroom/login.php';
         }
