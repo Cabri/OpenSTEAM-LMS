@@ -756,10 +756,16 @@ button {
     font-size: initial;
 }
 
-.profile-panel #user-name,
-.profile-panel #classroom-name {
+.profile-panel #user-name
+{
     font-size: x-large;
     text-transform: uppercase;
+}
+
+.profile-panel #classroom-name-parent
+{
+    font-size:medium;
+    text-transform:none;
 }
 
 .profile-panel .user-picture {
