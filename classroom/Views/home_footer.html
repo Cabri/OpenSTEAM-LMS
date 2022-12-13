@@ -106,8 +106,11 @@
                                 $('.user-picture').attr('src', '/classroom/assets/media/alphabet/' + UserManager.getUser().pseudo.slice(0, 1).toUpperCase() + '.png')
                                 Main.getClassroomManager().getMyClassroom(UserManager.getUser().id).then(function (classroom) {
                                     var name = classroom.name;
-                                    if(classroom.teacherName) name = `${classroom.name} (${classroom.teacherName})`
-                                    $('#classroom-name').html(name)
+                                    if(classroom.teacherName) {
+                                      $('#classroom-name-parent').text(`${classroom.name} (${classroom.teacherName})`)
+                                    } else {
+                                      $('#classroom-name').text(name)
+                                    }
                                     ClassroomSettings.classroom = classroom.link
                                     if ($_GET('panel') && (ClassroomSettings.mixPanels.includes($_GET('panel')) || ClassroomSettings.studentPanels.includes($_GET('panel')))) {
                                         navigatePanel($_GET('panel'), $_GET('nav'), $_GET('option'), $_GET('interface'))
