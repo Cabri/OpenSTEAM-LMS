@@ -186,6 +186,7 @@ class ClassroomManager {
      * @returns {Array}
      */
     getTeacherActivities(container) {
+        let startTime = performance.now()
         return new Promise((resolve, reject) => {
             let currentTask = (onEnd) => {
                 var process = function (thisInstance, res) {
@@ -209,6 +210,7 @@ class ClassroomManager {
                             process(container, JSON.parse(response));
                             onEnd();
                         });
+                        _paq.push(['setCustomDimension', 1, performance.now()-startTime]);
                     },
                     error: function () {
                         console.log('error')
@@ -226,8 +228,8 @@ class ClassroomManager {
 
     /**
      * create a new classroom
-     * @param {FormData}  
-     * @return {Classroom} 
+     * @param {FormData}
+     * @return {Classroom}
      */
     addClassroom(payload) {
         return new Promise(function (resolve, reject) {
@@ -248,8 +250,8 @@ class ClassroomManager {
 
     /**
      * update a  classroom
-     * @param {FormData}  
-     * @return {Classroom} 
+     * @param {FormData}
+     * @return {Classroom}
      */
     updateClassroom(payload) {
         return new Promise(function (resolve, reject) {
@@ -270,8 +272,8 @@ class ClassroomManager {
 
     /**
      * get a classroom by his link
-     * @param {FormData}  
-     * @return {Classroom} 
+     * @param {FormData}
+     * @return {Classroom}
      */
     getClassroom(link) {
         return new Promise(function (resolve, reject) {
@@ -294,8 +296,8 @@ class ClassroomManager {
 
     /**
      * get a classroom by his student
-     * @param {FormData}  
-     * @return {Classroom} 
+     * @param {FormData}
+     * @return {Classroom}
      */
     getMyClassroom(idStudent) {
         return new Promise(function (resolve, reject) {
@@ -487,7 +489,7 @@ class ClassroomManager {
     /**
      * @ToBeRemoved
      * Last check October 2021
-     * 
+     *
      * Get students list in the classroom
      * @public
      * @returns {Array}
@@ -632,7 +634,7 @@ class ClassroomManager {
     }
 
     /**
-     * 
+     *
      * @public
      * @returns {Array}
      */
@@ -882,12 +884,12 @@ class ClassroomManager {
     attributeActivity(data,container) {
         return new Promise((resolve, reject) =>{
             // Wrap the current action into a task function
-            let currentTask = onEnd => {  
+            let currentTask = onEnd => {
                 $.ajax({
                     type: "POST",
                     url: "/routing/Routing.php?controller=activity_link_user&action=add_users",
                     data: data,
-                    success: function (response) {                        
+                    success: function (response) {
                         if (JSON.parse(response).error_message && JSON.parse(response).error_message !== undefined) {
                             container.errors.push(GET_PUBLIC_PROJECTS_ERROR);
                         }
@@ -1348,7 +1350,7 @@ class ClassroomManager {
 
     /**
      * Return if the activity is limited or not
-     * @param {*} type 
+     * @param {*} type
      * @param {*} id
      */
     isActivitiesRestricted(id = null, type = null) {
@@ -1447,7 +1449,7 @@ class ClassroomManager {
         this._createActivity = {
             function: 'create',
             id: '',
-            title: '', 
+            title: '',
             content: {
                 states: '',
                 description: '',
@@ -1463,21 +1465,21 @@ class ClassroomManager {
                     contentForTeacher: [],
                     contentForStudent: []
                 }
-            }, 
-            type: '', 
+            },
+            type: '',
             solution: [],
             tolerance: ''
         }
         const globalTitle = document.querySelector('#global_title');
         if (globalTitle != null) {
             document.querySelector('#global_title').value = '';
-        } 
+        }
     }
 
     /**
      * Retrieve locally a classroom by its link
      * @param {string} link - A classroom link
-     * @returns The classroom if found, otherwise false 
+     * @returns The classroom if found, otherwise false
      */
     getLocalClassroomByLink(link) {
         if(typeof link !== 'string') {
