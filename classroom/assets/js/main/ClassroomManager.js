@@ -186,7 +186,7 @@ class ClassroomManager {
      * @returns {Array}
      */
     getTeacherActivities(container) {
-        let startTime = performance.now()
+        if(window.matomoManager &&  !window.matomoManager.startTime) window.matomoManager.startTimer()
         return new Promise((resolve, reject) => {
             let currentTask = (onEnd) => {
                 var process = function (thisInstance, res) {
@@ -210,7 +210,8 @@ class ClassroomManager {
                             process(container, JSON.parse(response));
                             onEnd();
                         });
-                        _paq.push(['setCustomDimension', 1, performance.now()-startTime]);
+                        if(window.matomoManager)
+                            window.matomoManager.stopTimer(false)
                     },
                     error: function () {
                         console.log('error')
