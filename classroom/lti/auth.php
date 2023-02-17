@@ -1,5 +1,5 @@
 <?php
-/* 
+/*
 * Copyright (C) 2022 Seif-Eddine Benomar - Cabrilog
 * Contribution to OpenSTEAM Project
 */
@@ -14,14 +14,23 @@ require_once $rootPath . 'bootstrap.php';
 
 use \Firebase\JWT\JWT;
 use Classroom\Entity\LtiTool;
+use Classroom\Entity\Applications;
 
 $nonce = base64_encode(random_bytes(16));
 
 //$platform_url = isset($_SERVER['HTTPS']) ? 'https://' : 'http://' . $_SERVER['HTTP_HOST'];
 $platform_url = getenv('VS_HOST');
 $loginHint = json_decode($_REQUEST['login_hint'], true);
+$activityType = $loginHint['activityType'];
 
-$ltiTool = $entityManager->getRepository(LtiTool::class)->findOneByClientId($_REQUEST['client_id']);
+if(isset($activityType)) {
+    $ltiApplication = $entityManager->getRepository(Applications::class)->findOneBy(["name" => $activityType])->getId();
+    $ltiTool = $entityManager->getRepository(LtiTool::class)->findOneBy(["application" => $ltiApplication]);
+} else {
+    error_log("Warning: only finding app by client_id.");
+    $ltiTool = $entityManager->getRepository(LtiTool::class)->findOneByClientId($_REQUEST['client_id']);
+}
+
 
 if (!$ltiTool) {
 	echo 'Tool not found!';
