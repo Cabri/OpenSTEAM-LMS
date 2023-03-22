@@ -228,10 +228,13 @@ class FoldersManager {
     resetTreeFolders() {
         // only feed the breadcrumb when we're on the activity panel
         if ($_GET('nav') == 'dashboard-activities-teacher') {
-            this.treeFolder.html(`<button class="btn c-btn-outline-primary" onclick="foldersManager.goToFolder(null)">Mes activités</button>`);
+            this.treeFolder.html(`<button class="btn c-btn-outline-primary" onclick="foldersManager.goToFolder(null)"
+                data-i18n="classroom.ids.classroom-dashboard-activities-panel-teacher">
+            </button>`);
         } else {
             this.treeFolder.html();
         }
+        this.treeFolder.localize();
     }
 
     createTreeFolders() {

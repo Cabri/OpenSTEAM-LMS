@@ -42,7 +42,7 @@
         },
         "attribute": {
           "title": "Attribuez les à vos apprenants",
-          "content": "Une fois vos activités créées, vous pouvez les attribuer à vos apprenants. Il est possible d'attribuer individuellement ou bien à des groupes entiers, par exemple une classe ou un club scientifique.</br></br>Les apprenants peuvent se connecter en toute sécurité à l'aide d'un code classe, d'un lien, d'un QRcode ou du GAR, et réaliser les activités qui leurs ont été attribuées."
+          "content": "Une fois vos activités créées, vous pouvez les distribuer à vos apprenants. Il est possible de distribuer individuellement ou bien à des groupes entiers, par exemple une classe ou un club scientifique.</br></br>Les apprenants peuvent se connecter en toute sécurité à l'aide d'un code classe, d'un lien, d'un QRcode ou du GAR, et réaliser les activités qui leurs ont été attribuées."
         },
         "visualize": {
           "title": "Visualisez leurs résultats",
@@ -137,7 +137,7 @@
       "usersAddedFromCsv": "Les comptes ont été créés d'après le fichier csv",
       "activityDeleted": "L'activité {{activityName}} a été supprimée",
       "activityDuplicated": "L'activité {{activityName}} a été dupliquée",
-      "mustAttributeToStudent": "Vous devez attribuer l'activité à des étudiants",
+      "mustAttributeToStudent": "Vous devez distribuer l'activité à des étudiants",
       "activityAttributed": "L'activité {{activityTitle}} a été attribuée aux apprenants listés",
       "activityAttributionChanged": "L'attribution de l'activité {{activityTitle}} a été modifiée pour les apprenants listés",
       "activityCreated": "L'activité {{activityTitle}} a été créée",
@@ -192,7 +192,7 @@
       "bothLimitationsReached": "Vous avez atteint les limitations d'apprenants que vous et votre groupe pouvez avoir. ({{maxG}} maximum par groupe, {{maxP}} maximum personnel)",
       "ClassroomNameInvalid": "Le nom de la classe est requis",
       "reservedNickname": "Le nom : \"{{reservedNickname}}\" ne peut être attribué.",
-      "invalidLink": "Le lien que vous avez entrer n'est pas valide",
+      "invalidLink": "Le lien que vous avez entré n'est pas valide",
       "noUser": "Vous devez renseigner un élève",
       "noUserUsername": "Vous devez rentrer un nom d'utilisateur",
       "pseudoMissingInCsvFile": "Certains élèves n'ont pu être ajouter car leur pseudo était manquant",
@@ -263,8 +263,9 @@
       "selectedStudents": "<span id='attribuate-student-number'>0</span> apprenants sélectionnés",
       "activationLink": "Lien d'activation activé",
       "activationLinkDisabled": "Lien d'activation désactivé",
-      "deleteStudent": "Supprimer l'élève",
-      "deleteStudentConfirm": "Voulez-vous vraiment supprimer cet élève ?"
+      "fullscreen": "Afficher en plein écran",
+      "deleteStudent": "Supprimer ce profil",
+      "deleteStudentConfirm": "Voulez-vous vraiment supprimer ce profil ?"
     },
     "activities": {
       "title": "Activités",
@@ -322,7 +323,7 @@
         "grade": "Note"
       },
       "applist": {
-        "selectApp": "Sélectionnez l'application avec laquelle vous souhaitez créer une activité",
+        "selectApp": "Sélectionnez l'application avec laquelle vous souhaitez créer une activité.",
         "apps": {
           "reading": {
             "title": "Multimédia",
@@ -385,10 +386,10 @@
         "buttonContinue": "Sauvegarder et continuer",
         "button": "Sauvegarder et Valider",
         "success": "Bravo, vous avez créé une activité !",
-        "attribute": "Attribuer l'activité dès maintenant",
-        "attribute2": "Attribuer l'activité ",
+        "attribute": "Distribuer l'activité dès maintenant",
+        "attribute2": "Distribuer l'activité ",
         "return": "Retourner à Mes activités",
-        "hint": "Vous pourrez toujours attribuer plus tard cette activité depuis le tableau de bord.",
+        "hint": "Vous pourrez toujours distribuer plus tard cette activité depuis le tableau de bord.",
         "modify": "Modifier l'activité",
         "select1": "Sélectionner les apprenants",
         "select2": " sélectionnés.",
@@ -419,7 +420,7 @@
         },
         "IMUSCICA": {
           "title": "iMuSciCA",
-          "description": "Utiliser le lecteur iMuSciCA permet de lire dans le studio musical toutes les activités réalisées grâce à l’outil auteur Cabri."
+          "description": "Activités clés en main de sciences et de maths au travers de la musique"
         },
         "IFRAME": {
           "title": "Autre",
@@ -427,11 +428,11 @@
         },
         "EXPRESS": {
           "title": "Express",
-          "description": "Créer une activité grâce aux outils de géométrie dynamique et d’algèbre, à la calculatrice scientifique et graphique, etc."
+          "description": "Outil de mathématiques dynamiques"
         },
         "GENIUS": {
           "title": "Smart",
-          "description": "Créer une activité grâce aux outils Express et ajouter une évaluation automatique."
+          "description": "Outil d'évaluation automatique en mathématiques"
         },
         "IFRAME-CABRI3D": {
           "title": "Cabri 3D",
@@ -524,7 +525,7 @@
       "studentSharedDescription": "Retrouvez ici les programmes partagés par votre enseignant."
     },
     "footer": {
-      "privacy": "Politique de confidentialité ",
+      "privacy": "Politique de confidentialité",
       "legal": "Mentions légales",
       "cgu": "Conditions<br>générales d'utilisation",
       "copyright": ""
@@ -608,7 +609,9 @@
         "descriptionUpdate": "Vous pouvez ajouter un ou plusieurs apprenants d'un seul coup en les important depuis un fichier .csv. <b>ATTENTION</b> : ici, les mots de passe du fichier csv ne sont pas pris en compte ! Voici le fichier .csv modèle : ",
         "csvTemplate": "fichier modèle avec mot de passe",
         "csvTemplateNoPassword": "fichier modèle sans mot de passe",
-        "importStudentByCsvButton": "Importer les apprenants"
+        "importStudentByCsvButton": "Importer les apprenants",
+        "fileChooser": "Choisir un fichier",
+        "fileName": "Aucun fichier choisi"
       },
       "exportCsv": {
         "title": "Exporter au format csv",
@@ -620,7 +623,8 @@
       "listClass": {
         "title": "Passer en mode apprenant",
         "description": "Vous pouvez tester en toute simplicité l'interface en tant qu'apprenant et revenir à tout moment à votre profil d'enseignant. La progression en tant qu'apprenant sera sauvegardée sur le compte \"{{demoStudent}}\".",
-        "switchButton": "Passer en mode apprenant"
+        "switchButton": "Passer en mode apprenant",
+        "noClass" : "Vous devez d'abord créer une classe pour pouvoir utiliser cette fonctionalité"
       },
       "changePseudo": {
         "title": "Modifier le pseudo",
@@ -628,7 +632,7 @@
         "validateButton": "Valider"
       },
       "attributeActivity": {
-        "title": "Attribuer l'activité"
+        "title": "Distribuer l'activité"
       },
       "shareProject": {
         "title": "Partager le projet"
@@ -829,7 +833,7 @@
       "question_list": {
         "1": {
           "title": "À quoi sert l’onglet Mes activités ?",
-          "answer": "Dans l’onglet <b>Mes activités</b>, vous pouvez :<ol><li>créer vos propres activités,</li><li>puis les attribuer à vos apprenants !</li></ol>"
+          "answer": "Dans l’onglet <b>Mes activités</b>, vous pouvez :<ol><li>créer vos propres activités,</li><li>puis les distribuer à vos apprenants !</li></ol>"
         },
         "2": {
           "title": "Qu’est-ce qu’une activité ?",
@@ -840,8 +844,8 @@
           "answer": "<p> Vous pouvez facilement créer ou modifier des activités.</p><p>Pour <b>modifier</b> une activité, rendez-vous dans l’onglet <b>Mes activités</b> et cliquez sur l’icône <i class=\"fas fa-cog\"></i> de votre activité puis cliquez sur Modifier. N’oubliez pas de sauvegarder vos modifications.</p>"
         },
         "4": {
-          "title": "Comment attribuer une activité ?",
-          "answer": "Pour attribuer une activité, vous avez trois options :<ol><li>Vous vous rendez dans l’onglet <b>Mes activités</b> et cliquez sur l’icône <i class=\"fas fa-cog\"></i> de votre activité puis cliquez sur Attribuer. Ensuite, vous n’aurez plus qu’à suivre les étapes.</li><li>Cette option Attribuer est également disponible dans l’activité elle-même une fois ouverte.</li><li>Vous allez dans l’onglet <b>Mes classes</b> et cliquez sur une classe. Une fois arrivé sur le tableau de bord de la classe, vous n’avez plus qu’à cliquer sur le bouton Ajouter une activité.</li></ol>"
+          "title": "Comment distribuer une activité ?",
+          "answer": "Pour distribuer une activité, vous avez trois options :<ol><li>Vous vous rendez dans l’onglet <b>Mes activités</b> et cliquez sur l’icône <i class=\"fas fa-cog\"></i> de votre activité puis cliquez sur Distribuer. Ensuite, vous n’aurez plus qu’à suivre les étapes.</li><li>Cette option Distribuer est également disponible dans l’activité elle-même une fois ouverte.</li><li>Vous allez dans l’onglet <b>Mes classes</b> et cliquez sur une classe. Une fois arrivé sur le tableau de bord de la classe, vous n’avez plus qu’à cliquer sur le bouton Ajouter une activité.</li></ol>"
         },
         "5": {
           "title": "Comment tester une activité ?",
@@ -873,8 +877,8 @@
           "answer": "Cette option sera bientôt disponible ! Cela permettra notamment d’éviter que les apprenants s'inscrivent plusieurs fois dans une même classe par erreur et que des personnes externes entrent dans la classe sans autorisation."
         },
         "5": {
-          "title": "Comment attribuer une activité ?",
-          "answer": "<p>Vous pouvez attribuer une activité à toutes les classes que vous avez créées ou seulement à un apprenant en particulier.</p><p>Pour attribuer une activité, vous avez trois options :</p><ol><li>Vous vous rendez dans l’onglet <b>Mes activités</b> et cliquez sur l’icône <i class=\"fas fa-cog\"></i> de votre activité puis cliquez sur Attribuer. Ensuite, vous n’aurez plus qu’à suivre les étapes.</li><li>Cette option Attribuer est également disponible dans l’activité elle-même une fois ouverte.</li><li>Vous allez dans l’onglet <b>Mes classes</b> et cliquez sur une classe. Une fois arrivé sur le tableau de bord de la classe, vous n’avez plus qu’à cliquer sur le bouton Ajouter une activité.</li></ol>"
+          "title": "Comment distribuer une activité ?",
+          "answer": "<p>Vous pouvez distribuer une activité à toutes les classes que vous avez créées ou seulement à un apprenant en particulier.</p><p>Pour distribuer une activité, vous avez trois options :</p><ol><li>Vous vous rendez dans l’onglet <b>Mes activités</b> et cliquez sur l’icône <i class=\"fas fa-cog\"></i> de votre activité puis cliquez sur Distribuer. Ensuite, vous n’aurez plus qu’à suivre les étapes.</li><li>Cette option Distribuer est également disponible dans l’activité elle-même une fois ouverte.</li><li>Vous allez dans l’onglet <b>Mes classes</b> et cliquez sur une classe. Une fois arrivé sur le tableau de bord de la classe, vous n’avez plus qu’à cliquer sur le bouton Ajouter une activité.</li></ol>"
         },
         "6": {
           "title": "Peut-on revenir sur l'attribution d’une activité ?",
@@ -1144,13 +1148,14 @@
     "help": "aide",
     "duplicate": "dupliquer",
     "delete": "supprimer",
-    "attribute": "attribuer",
+    "attribute": "Distribuer",
     "modify": "modifier",
     "optional": "facultatif",
     "evaluation": "evaluation",
     "exercise": "exercice",
     "return": "retour",
     "anonymize": "anonymiser",
+    "monochrome": "Mode monochrome",
     "days": "jours",
     "hours": "heures",
     "minutes": "minutes",
@@ -1542,7 +1547,7 @@
       "createSuccess": "Application créée avec succès",
       "deleteSuccess": "Application supprimée avec succès",
       "deleteIntention": "Vous vous apprêtez à supprimer l'application : <span id=\"application_delete_name\"></span>",
-      "outDatedApp": "L'application que vous souhaitez attribuer est périmée.",
+      "outDatedApp": "L'application que vous souhaitez distribuer est périmée.",
       "infoMaxStudentsPerTeachers": "Détermine le nombre d'apprenants qu'un enseignant faisant partie du groupe pourra avoir au maximum.",
       "infoMaxStudentsPerGroups": "Détermine le nombre d'apprenants que le groupe pourra avoir au maximum (en additionnant le total d'apprenants des professeurs disposant de cette application)",
       "infoMaxTeachers": "Détermine le nombre maximum de professeurs pouvant disposer de l'application dans ce groupe",
@@ -1663,15 +1668,19 @@
         "reading": "Lecture simple",
         "free": "Réponse libre",
         "quiz": "QCM",
-        "fillIn": "Texte à trous",
-        "dragAndDrop": "Glisser-Déposer"
+        "fillIn": "Texte à compléter",
+        "dragAndDrop": "Texte à trous",
+        "EXPRESS": "Express",
+			  "GENIUS": "Smart"
       },
       "description": {
-        "reading": "Cette activité permet de visualiser des images, vidéos, PDF, interfaces Vittascience ainsi que des outils externes.",
-        "free": "Cette activité permet aux élèves de répondre à un exercice par écrit.",
-        "quiz": "Cette activité permet d’évaluer les connaissances à l’aide de question à choix multiples ou simples.",
-        "fillIn": "Cette activité permet d’appliquer ses connaissances en remplissant des cases vides.",
-        "dragAndDrop": "Cette activité permet de glisser et déposer des mots dans différents espaces vides."
+        "reading": "Page multimédia (textes, images, vidéos, PDF, Genially, ...)",
+        "free": "Réponse libre à une question",
+        "quiz": "Questionnaire à choix simples ou multiples",
+        "fillIn": "Texte à compléter par écrit",
+        "dragAndDrop": "Texte à compléter par des étiquettes",
+        "EXPRESS": "Outil de mathématiques dynamiques",
+			  "GENIUS": "Outil d'évaluation automatique en mathématiques"
       }
     }
   },
@@ -1710,7 +1719,7 @@
       }
     },
     "successfullyCreated": "Parcours créé avec succès",
-    "attribution": "Attribuer le parcours <i class='fas fa-chevron-right'></i>",
+    "attribution": "Distribuer le parcours <i class='fas fa-chevron-right'></i>",
     "return": "Retour <i class='fas fa-chevron-right'></i>",
     "update": "Modifier le parcours"
   }

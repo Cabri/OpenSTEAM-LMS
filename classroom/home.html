@@ -6,6 +6,7 @@
 </head>
 
 <body>
+
 <div id="classroom-dashboard-background">
     <div id="classroom-dashboard-container">
         <div id="classroom-dashboard-sidebar" class="sidebar-classroom" style="display:none;">
@@ -96,9 +97,6 @@
 </div>
 
 <div id="classroom-dashboard-content">
-    <div id="spinner-loading">
-        <div></div>
-    </div>
     <div id="classroom-dashboard-top-bar">
         <!-- Breadcrumb -->
         <div id="breadcrumb" class="row ml-2 mr-auto"></div>
@@ -781,7 +779,7 @@
                 <li class="ml-3 c-checkbox" style="height: 1.6em;">
                     <input type="checkbox" id="is-monochrome" title="" class="mr-2">
                     <label for="is-monochrome">
-                        <span class="mr-2">Mode monochrome</span>
+                        <span class="mr-2" data-i18n="words.monochrome">Mode monochrome</span>
                     </label>
                 </li>
 
@@ -807,7 +805,7 @@
             </span>
         </div>
         
-        <button class="btn c-btn-secondary" class="blocking-class" onclick="navigatePanel('classroom-table-panel-teacher-code', 'dashboard-classroom-teacher')" data-toggle="tooltip" title="Afficher en plein écran">
+        <button class="btn c-btn-secondary" class="blocking-class" id="fullscreen-class-tooltip" onclick="navigatePanel('classroom-table-panel-teacher-code', 'dashboard-classroom-teacher')" data-toggle="tooltip" title="Afficher en plein écran">
             <i class="fa fa-expand"></i>
 
         </button>
@@ -2617,10 +2615,7 @@
                             console.log("Loader failed to load: " + reason);
                             failedToLoad();
                         }
-                    ).then((resolve)=> {
-                        // hide spinner when load
-                        $("#spinner-loading").hide();
-                    });
+                    );
                 })
             },
             (reason) => {

@@ -126,10 +126,7 @@
                             console.log("Loader failed to load: " + reason);
                             failedToLoad();
                         }
-                    ).then((resolve)=> {
-                        // hide spinner when load
-                        $("#spinner-loading").hide();
-                    });
+                    );
                 })
             },
             (reason) => {

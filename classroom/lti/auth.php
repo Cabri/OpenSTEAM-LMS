@@ -19,7 +19,7 @@ use Classroom\Entity\Applications;
 $nonce = base64_encode(random_bytes(16));
 
 //$platform_url = isset($_SERVER['HTTPS']) ? 'https://' : 'http://' . $_SERVER['HTTP_HOST'];
-$platform_url = getenv('VS_HOST');
+$platform_url = $_ENV['VS_HOST'];
 $loginHint = json_decode($_REQUEST['login_hint'], true);
 $activityType = $loginHint['activityType'];
 

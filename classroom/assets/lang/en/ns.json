@@ -257,9 +257,18 @@
 				"delete": "Delete",
 				"copyLink": "Copy the direct link",
 				"learnerMode": "Learner mode",
-				"dueBy":"Due by"
+				"dueBy":"Due by",
+				"timePassed": "Time passed: "
 
-			}
+			},
+			"copyDirectLink": "Copy the direct link",
+     		 "selectStudents": "Select learners",
+     		 "selectedStudents": "<span id='attribuate-student-number'>0</span> learners selected",
+      		"activationLink": "Activation link activated",
+      		"activationLinkDisabled": "Activation link disabled",
+			"fullscreen": "View in full screen",
+     	 	"deleteStudent": "Delete this profil",
+      		"deleteStudentConfirm": "Do you really want to delete this profil?"
 		},
 		"activities": {
 			"title": "Activities",
@@ -280,11 +289,15 @@
 			"vgood": "Satisfactory control",
 			"good": "Fragile control",
 			"refuse": "Insufficient mastery",
+			"nnoted": "Not evaluated",
 			"instruction": "Instruction",
 			"commentary": "Comment",
 			"sendResults": "Send the comment to the learner ",
 			"noSend": "This activity has not been made",
+			"toSend": "Activity due by",
+      		"sentOn": "This activity was completed on",
 			"comments": "Enter your comments here",
+			"timePassed": "Time passed:",
       "activitySubmited2": "Activity submitted on",
 			"sentOn": "This activity was returned on ",
 			"activityOfUser": "Activity of ",
@@ -293,6 +306,7 @@
 			"studentAnswer": "Learner's answer",
 			"comments": "Write your comments there",
 			"return": "Return to the activities",
+			"numberOfTries": "Number of tries: ",
 			"bilan": {
 				"title": "Balance sheet",
 				"results": "Results",
@@ -355,10 +369,11 @@
 				"retroAttribution" : "This activity will be added for every new students"
 			},
 			"toCopy": "This code allows you to easily join your class",
+			"qrCode": "Scan the QR code:",
 			"copyLink": "The link to your class has been added to the clipboard",
 			"dateBefore": "To be returned before",
-      "dateBeforeAvailable": "Available until",
-      "integrate": "Integrate into an activity",
+      		"dateBeforeAvailable": "Available until",
+      		"integrate": "Integrate into an activity",
 			"veryGoodProficiency": "Very good control",
 			"goodProficiency": "Satisfactory control",
 			"weakProficiency": "Fragile control",
@@ -383,11 +398,11 @@
         },
         "EXPRESS": {
           "title": "Express",
-          "description": "Create an activity using dynamic geometry and algebra tools, scientific and graphing calculator, etc."
+          "description": "Dynamic mathematics tool"
         },
         "GENIUS": {
           "title": "Smart",
-          "description": "Create an activity with the Express tools and add an automatic evaluation."
+          "description": "Automatic assessment tool for maths"
         },
         "IFRAME-CABRI3D": {
           "title": "Cabri 3D",
@@ -477,6 +492,7 @@
 		},
 		"footer": {
 			"privacy": "Privacy Policy ",
+			"legal": "Legal information",
 			"cgu": "Terms and conditions of use",
 			"copyright": ""
 		},
@@ -512,7 +528,12 @@
 				"orSeparator": "OR",
 				"attributeActivity": {
 					"title": "View my existing activities",
-					"button": "My activities "
+					"button": "My activities"
+
+				},
+				"shareProject": {
+				  "title": "Share the projet"	
+
 				},
 				"createActivity": {
 					"title": "Create a new activity",
@@ -521,7 +542,7 @@
 				"next": "Next",
 				"limitTitle": "Exceeded limit",
 				"limitDescription": "The limit of the number of activities linked to this account has been reached.",
-        "upgradePlan": "Increase limit"
+        		"upgradePlan": "Increase limit"
       },
 			"updateActivity": {
 				"title": "Update an activity"
@@ -550,9 +571,12 @@
 			"addStudentByCsv": {
 				"title": "Add students with a .csv file",
 				"description": "You can add one or more learners at once by importing them from a .csv file. It is optional to define the password for each of them. Here are the sample .csv files: ",
+				"descriptionUpdate": "You can add one or more learners at once by importing them from a .csv file. <b>Watch out</b> Here, the passwords in the csv file are not supported! Here is the example .csv file: ",
 				"csvTemplate": "template file with password",
 				"csvTemplateNoPassword": "template file without password",
-				"importStudentByCsvButton": "Import learners"
+				"importStudentByCsvButton": "Import learners",
+				"fileChooser": "Choose a file",
+				"fileName": "No files chosen"
 			},
 			"exportCsv": {
 				"title": "Export in csv format",
@@ -564,7 +588,8 @@
 			"listClass": {
 				"title": "Switch to learner mode",
 				"description": "You can easily test the interface as a learner and return to your teacher profile at any time. Your progress as a learner will be saved in your demostudent account.",
-				"switchButton": "Switch to learner mode"
+				"switchButton": "Switch to learner mode",
+				"noClass" : "You must first create a class to use this feature"
 			},
 			"changePseudo": {
 				"title": "Change nickname",
@@ -576,8 +601,21 @@
 			},
 			"shareProject": {
 				"title": "Share project"
-			}
+			},
+			"profileUpdatePasswordConfirm": {
+			  "title": "Confirmation of the password",
+			  "description": "Please enter your current password to validate your profile changes!",
+			  "placeholderInput": "Password",
+			  "validateButton": "Validate"
 		}
+	},
+    "folders": {
+      "folderManagement": "File management",
+      "name": "Folder name <span class=\"mandatory\">*</span>",
+      "title": "Folder",
+      "image": "Folder image"
+    }
+
 	},
 	"login_popup": {
 		"title": "Login",
@@ -685,6 +723,7 @@
 		"exercise": "exercise",
 		"return": "return",
 		"anonymize": "anonymize",
+		"monochrome": "Monochrome mode",
 		"days": "days",
 		"hours": "hours",
 		"minutes": "minutes",
@@ -735,7 +774,7 @@
         },
         "2": {
           "title": "How do I add my learners to my class?",
-          "answer": "You have several options:<ol><li>In class, you can <b>project the code to the board</b>. To do this, go to your classroom and click on the button to enlarge the code below:<br><img class=\"faq-img-center img-fluid\" src=\"assets/media/faq/image1.png\">Your learners will just have to register or log into the site by entering the code. They will also be able to write down this code to log in at home.</li><li>You can also create learners with the \"Add Learner\" button and then <b>send them their password individually</b>, this is visible on the Classroom Dashboard below:<br><img class=\"faq-img-center img-fluid\" src=\"assets/media/faq/image2.png\"></li></ol>"
+          "answer": "You have several options:<ol><li>In class, you can <b>project the code to the board</b>. To do this, go to your classroom and click on the button to enlarge the code below:<br><img class=\"faq-img-center img-fluid\" src=\"assets/media/faq/image1.png\">Your learners will just have to register or log into the site by entering the code. They will also be able to write down this code to log in at home.</li><li>You can also create learners with the \"Add Learner\" button and then <b>send them their password individually</b>, this is visible on the Classroom Dashboard :<br><img class=\"faq-img-center img-fluid\" src=\"assets/media/faq/image2.png\"></li></ol>"
         },
         "3": {
           "title": "Can a learner be in two different classes?",
@@ -1385,13 +1424,37 @@
 		"states": "Activity statement <span class=\"c-text-red\">*</span>",
 		"cancel": "Cancel",
 		"autocorrect": "Autocorrect",
+		"contentTitle": "Content of the activity",
 		"correction": "Activity correction",
 		"tolerance1": "Add an error tolerance of",
 		"tolerance2": "character(s) on the entire student response.",
 		"hint": "Hint *: displayed if the answer is wrong",
 		"title": "Activity title <span class=\"c-text-red\">*</span>",
 		"description": "Activity description <span class=\"c-text-red\">*</span>",
-		"content": "Activity content <span class=\"c-text-red\">*</span>"
+		"content": "Activity content <span class=\"c-text-red\">*</span>",
+		"addField": "Add an aswer field",
+		"addFieldTooltip": "By clicking on the Add an answer field button, a stylized text is added. You can write the correct answer in this field. Alternative answers are separated by a double ampersand &&.",
+		"ActivitiesData": {
+		  "title": {
+			"reading": "Multimedia",
+			"free": "Open answer",
+			"quiz": "MCQS",
+			"fillIn": "Text to complete",
+			"dragAndDrop": "Fill in the blank text",
+			"EXPRESS": "Express",
+			"GENIUS": "Smart"
+		  },
+		  "description": {
+			"reading": "Multimedia page (text, images, videos, PDF, Genially, ...)",
+			"free": "Open answer to a question",
+			"quiz": "Single or multiple choice questionnaire",
+			"fillIn": "Text to be completed in writing",
+			"dragAndDrop": "Text to be completed with labels.",
+			"EXPRESS": "Dynamic mathematics tool",
+			"GENIUS": "Automatic assessment tool for maths"
+
+		  }
+		}
 	},
 	"courses": {
 		"addActivity":"Add an activity",

@@ -625,7 +625,8 @@ button {
 
     #classroom-dashboard-content {
         border-radius: 0px;
-        height: calc(100% - 160px);
+        height: calc(100% - 110px);
+        padding-bottom: 50px;
         margin-top: 3.2em;
     }
 
@@ -3582,31 +3583,3 @@ h3.section-done {
 .image-vh {
     height: 40vh !important;
 }
-
-#spinner-loading {
-    width: 100%;
-    height: 100%;
-    background-color: white;
-    position: absolute;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    z-index: 99999;
-    border-radius: inherit;
-  }
-
-  #spinner-loading div {
-    border-top: 8px solid var(--classroom-dashboard); /* Couleur de la roue */
-    border-radius: 50%;
-    width: 120px;
-    height: 120px;
-    animation: spin 2s linear infinite;
-    margin: auto;
-
-  }
-  
-  @keyframes spin {
-    0% { transform: rotate(0deg); }
-    100% { transform: rotate(360deg); }
-  }
-
