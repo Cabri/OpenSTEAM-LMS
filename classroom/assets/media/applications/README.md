@@ -1,0 +1,1 @@
+# Warning: do not modify these images. They are used in the plugins

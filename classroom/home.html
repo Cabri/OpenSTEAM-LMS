@@ -6,7 +6,6 @@
 </head>
 
 <body>
-
 <div id="classroom-dashboard-background">
     <div id="classroom-dashboard-container">
         <div id="classroom-dashboard-sidebar" class="sidebar-classroom" style="display:none;">
@@ -97,6 +96,9 @@
 </div>
 
 <div id="classroom-dashboard-content">
+    <div id="spinner-loading">
+        <div></div>
+    </div>
     <div id="classroom-dashboard-top-bar">
         <!-- Breadcrumb -->
         <div id="breadcrumb" class="row ml-2 mr-auto"></div>
@@ -150,7 +152,7 @@
         <div class="d-flex flex-column text-center align-items-center">
                 <img src="assets/media/profile_picture.svg?version=VERSIONNUM" alt="Photo de profil" class="user-picture">
                 <span id="user-name" class="mt-4" data-i18n="classroom.profile.identity"></span>
-                <span id="classroom-name-parent"><span data-i18n="classroom.profil.class"></span><span id="classroom-name"></span></span>
+                <span><span data-i18n="classroom.profil.class"></span><span id="classroom-name"></span></span>
                 <!-- <span id="establishment-name"></span> -->
         </div>
 
@@ -230,9 +232,9 @@
 
         <div class="row">
             <div id="main-div-course" class="col-12 col-lg-8 mb-3" style="margin: 0 auto;overflow-wrap: break-word;">
-
+                
                 <h3 id="activity-title-course" class="activity-title"></h3>
-
+               
                 <!-- Used for status / date  -->
                 <p id="activity-details-course" class="activity-details"></p>
 
@@ -256,10 +258,9 @@
 
                 <!-- Used for content -->
                 <div id="activity-content-container-course" style="display:none;">
-                    <label for="activity-content-course" id="label-activity-content-course" class="vitta-modal-title mt-2" data-i18n="newActivities.contentTitle">Contenu de l'activité</label>
-                    <p id="activity-content-course"></p>
+                    <p id="activity-content-course"></p>    
                 </div>
-
+                
                 <div id="activity-input-container-course" style="display:none;">
                     <label for="activity-input-course" class="vitta-modal-title mt-2" data-i18n="classroom.activities.putYourAnswer">Entrez votre réponse</label>
                     <textarea id="activity-input-course" style="height:400px"></textarea>
@@ -290,10 +291,10 @@
                 <div class="d-flex justify-content-center mt-2" id="course-btn-container" style="display:none;">
 
                     <div id="course-validate-buttons">
-                        <button class="btn c-btn-primary mx-1" id="course-validate-course" data-i18n="classroom.activities.validate" onclick="coursesManager.validateCourse(1)">
+                        <button class="btn c-btn-primary mx-1" id="course-validate-course" data-i18n="classroom.activities.validate" onclick="coursesManager.validateCourse(1)"> 
                             <i class="fas fa-chevron-right"></i>
                         </button>
-
+    
                         <button class="btn c-btn-grey mx-2" id="course-save-course" onclick="coursesManager.validateCourse(0)" data-i18n="classroom.activities.save-draft">
                             <i class="fas fa-chevron-right"></i>
                         </button>
@@ -302,11 +303,11 @@
                     <div id="course-options-course-buttons" style="display:none;">
 
                         <div class="row my-1 mx-3">
-                            <button class="btn c-btn-primary mx-1" id="course-next-course" onclick="coursesManager.readCourseFromStudent()">
+                            <button class="btn c-btn-primary mx-1" id="course-next-course" onclick="coursesManager.readCourseFromStudent()"> 
                                 Continuer le parcours >
                             </button>
                         </div>
-
+                        
                         <div class="row my-1 mx-3">
                             <button class="btn c-btn-grey mx-2" id="course-return" onclick="goBackToActivities()">
                                 Retourner au menu des activités
@@ -342,7 +343,7 @@
 
 
                 </div>
-
+    
             </div>
 
         </div>
@@ -351,7 +352,7 @@
 
 </div>
 <div id="classroom-dashboard-sandbox-panel" style="display:none;" class="dashboard-block ">
-
+    
 </div>
 <div id="classroom-dashboard-activities-panel" style="display:none;" class="dashboard-block">
     <div class="section-container section-new">
@@ -366,7 +367,7 @@
     <div class="section-container section-saved">
         <div class="section-header" onclick="sectionToggle('saved')">
             <i id="i-saved" class="ml-2 fas fa-lg fa-chevron-up"></i>
-            <h3 class="section-title" >Brouillons</h3>
+            <h3 class="section-title" data-i18n="classroom.activities.draft">Brouillons</h3>
             <span class="resource-number"> </span>
         </div>
         <div id="saved-activities-list" style="display: none;"></div>
@@ -426,7 +427,6 @@
 
                 <!-- Used for content -->
                 <div id="activity-content-container" style="display:none;">
-                    <label for="activity-content" id="label-activity-content" class="vitta-modal-title mt-2" data-i18n="newActivities.contentTitle">Contenu de l'activité</label>
                     <p id="activity-content"></p>
                 </div>
 
@@ -470,6 +470,124 @@
             </div>
         </div>
 
+    </div>
+</div>
+
+<div id="classroom-dashboard-activity-panel-teacher-result" class="dashboard-block" style="display:none;">
+    <div class="results-teacher-panel">
+        <p>
+            <span data-i18n="[html]classroom.activities.previewTeacherResult"></span>
+        </p>
+
+        <!-- Note of preview -->
+        <div id="preview-note-3" style="display: none;">
+            <div class="bilan-legend bilan-3">
+                <div class="monochrome-grade-div"></div>
+                <div class="monochrome-grade-div"></div>
+                <div class="monochrome-grade-div"></div>
+                <div class="monochrome-grade-div"></div>
+            </div>
+            <span data-i18n="classroom.activities.veryGoodProficiency"></span>
+        </div>
+        <div id="preview-note-2" style="display: none;">
+            <div class="bilan-legend bilan-2">
+                <div class="monochrome-grade-div"></div>
+                <div class="monochrome-grade-div"></div>
+                <div class="monochrome-grade-div"></div>
+                <div class="monochrome-grade-div"></div>
+            </div>
+            <span data-i18n="classroom.activities.goodProficiency"></span>
+        </div>
+        <div id="preview-note-1" style="display: none;">
+            <div class="bilan-legend bilan-1">
+                <div class="monochrome-grade-div"></div>
+                <div class="monochrome-grade-div"></div>
+                <div class="monochrome-grade-div"></div>
+                <div class="monochrome-grade-div"></div>
+            </div>
+            <span data-i18n="classroom.activities.weakProficiency"></span>
+        </div>
+        <div id="preview-note-0" style="display: none;">
+            <div class="bilan-legend bilan-0">
+                <div class="monochrome-grade-div"></div>
+                <div class="monochrome-grade-div"></div>
+                <div class="monochrome-grade-div"></div>
+                <div class="monochrome-grade-div"></div>
+            </div>
+            <span data-i18n="classroom.activities.insufficientProficiency"></span>
+        </div>
+        <div id="preview-note-4" style="display: none;">
+            <div class="bilan-legend bilan-4">
+                <div class="monochrome-grade-div"></div>
+                <div class="monochrome-grade-div"></div>
+                <div class="monochrome-grade-div"></div>
+                <div class="monochrome-grade-div"></div>
+            </div>
+            <span data-i18n="classroom.activities.noProficiency"></span>
+        </div>
+
+        <button class="btn c-btn-primary mx-auto" onclick="goBackToActivitiesTeacher()">
+            <span data-i18n="classroom.activities.return"></span> <i class="fas fa-chevron-right"></i>
+        </button>
+    </div>
+</div>
+
+<div id="classroom-dashboard-activity-panel-student-result" class="dashboard-block" style="display:none;">
+    <div class="results-teacher-panel">
+        <p>
+            <span data-i18n="[html]classroom.activities.studentResult"></span>
+        </p>
+
+        <!-- Note of preview -->
+        <div id="preview-note-3" style="display: none;">
+            <div class="bilan-legend bilan-3">
+                <div class="monochrome-grade-div"></div>
+                <div class="monochrome-grade-div"></div>
+                <div class="monochrome-grade-div"></div>
+                <div class="monochrome-grade-div"></div>
+            </div>
+            <span data-i18n="classroom.activities.veryGoodProficiency"></span>
+        </div>
+        <div id="preview-note-2" style="display: none;">
+            <div class="bilan-legend bilan-2">
+                <div class="monochrome-grade-div"></div>
+                <div class="monochrome-grade-div"></div>
+                <div class="monochrome-grade-div"></div>
+                <div class="monochrome-grade-div"></div>
+            </div>
+            <span data-i18n="classroom.activities.goodProficiency"></span>
+        </div>
+        <div id="preview-note-1" style="display: none;">
+            <div class="bilan-legend bilan-1">
+                <div class="monochrome-grade-div"></div>
+                <div class="monochrome-grade-div"></div>
+                <div class="monochrome-grade-div"></div>
+                <div class="monochrome-grade-div"></div>
+            </div>
+            <span data-i18n="classroom.activities.weakProficiency"></span>
+        </div>
+        <div id="preview-note-0" style="display: none;">
+            <div class="bilan-legend bilan-0">
+                <div class="monochrome-grade-div"></div>
+                <div class="monochrome-grade-div"></div>
+                <div class="monochrome-grade-div"></div>
+                <div class="monochrome-grade-div"></div>
+            </div>
+            <span data-i18n="classroom.activities.insufficientProficiency"></span>
+        </div>
+        <div id="preview-note-4" style="display: none;">
+            <div class="bilan-legend bilan-4">
+                <div class="monochrome-grade-div"></div>
+                <div class="monochrome-grade-div"></div>
+                <div class="monochrome-grade-div"></div>
+                <div class="monochrome-grade-div"></div>
+            </div>
+            <span data-i18n="classroom.activities.noProficiency"></span>
+        </div>
+
+        <button class="btn c-btn-primary mx-auto" onclick="goBackToActivities()">
+            <span data-i18n="classroom.activities.return"></span> <i class="fas fa-chevron-right"></i>
+        </button>
     </div>
 </div>
 
@@ -633,7 +751,7 @@
                 <label for="classroom-form-school-update" class="tutorial-label" data-i18n="classroom.classes.form.school">
                 </label>
                 <input type="text" id="classroom-form-school-update" class="form-control form-control-lg">
-            </div>
+            </div>   
         </div>
         <a href="#" id="update-classroom-student-button" class="new-student-modal btn c-btn-primary m-3"><i class="fas fa-user-plus"></i><span class="ml-1" data-i18n="classroom.classes.form.addStudent"></span></a>
         <div class="table-students" id="table-students-update">
@@ -661,7 +779,7 @@
                 <label for="classroom-form-school" class="tutorial-label" data-i18n="classroom.classes.form.school">
                 </label>
                 <input type="text" id="classroom-form-school" class="form-control form-control-lg">
-            </div>
+            </div>   
         </div>
         <a href="#" id="create-classroom-student-button" class="new-student-modal btn c-btn-primary m-3"><i class="fas fa-user-plus"></i><span class="ml-1" data-i18n="classroom.classes.form.addStudent"></span></a>
         <div class="table-students" id="table-students">
@@ -698,7 +816,7 @@
 
             </div>
         </div>
-
+        
 
     </div>
 
@@ -779,7 +897,7 @@
                 <li class="ml-3 c-checkbox" style="height: 1.6em;">
                     <input type="checkbox" id="is-monochrome" title="" class="mr-2">
                     <label for="is-monochrome">
-                        <span class="mr-2">Mode monochrome</span>
+                        <span class="mr-2" data-i18n="words.monochrome">Mode monochrome</span>
                     </label>
                 </li>
 
@@ -804,8 +922,8 @@
                 <span class="classroom-link"></span>
             </span>
         </div>
-
-        <button class="btn c-btn-secondary" class="blocking-class" onclick="navigatePanel('classroom-table-panel-teacher-code', 'dashboard-classroom-teacher')" data-toggle="tooltip" title="Afficher en plein écran">
+        
+        <button class="btn c-btn-secondary" class="blocking-class" id="fullscreen-class-tooltip" onclick="navigatePanel('classroom-table-panel-teacher-code', 'dashboard-classroom-teacher')" data-toggle="tooltip" title="Afficher en plein écran">
             <i class="fa fa-expand"></i>
 
         </button>
@@ -824,14 +942,14 @@
         <div>
             <span data-i18n="classroom.activities.toCopy"></span>
             <span class="classroom-link" id="classroom-link-share"></span>
-
+            
             <button id="code-copy" class="btn c-btn-secondary" title="Copier le lien direct" class="js-copy" data-target="#classroom-link-tocopy" data-i18n="classroom.classes.panel.copyLink">Copier le lien direct</button>
         </div>
 
         <div>
             <span data-i18n="classroom.activities.qrCode"></span> </br>
             <div id="classroom-code-share-qr-code">
-
+                
             </div>
             <div class="mt-3">
                 <button id="qr-copy" class="btn c-btn-secondary" title="Copier l'image" class="js-copy" data-i18n="classroom.classes.panel.copyImage">Copier l'image</button>
@@ -1134,7 +1252,7 @@
             </p>
         </div>
     </div>
-
+    
     <div class="faq-panel">
         <h2 class="c-text-secondary font-weight-bold text-center mt-3">FAQ</h2>
         <div id="teacher-faq-container"></div>
@@ -1481,7 +1599,7 @@
                             <i class="fas fa-search"></i>
                         </button>
                     </div>
-
+                
                     <!-- View filter -->
                     <div class="col-md form-row">
                         <div class="col-12">
@@ -1490,7 +1608,7 @@
                                 <option value="1" data-i18n="manager.sort.user.byfirstname">Trier par prénom</option>
                             </select>
                         </div>
-
+                
                         <div class="col-12">
                             <label for="users_per_page" data-i18n="manager.users.usersPerPage">Utilisateurs par page</label>
                             <select name="users_per_page" id="users_per_page" class="my-1 form-select">
@@ -1587,7 +1705,7 @@
         </div>
     </nav>
 
-    <div class="container mb-2 part-content-index c-primary-form">
+    <div  id="tool-container" class="container mb-2 part-content-index c-primary-form">
 
         <!-- Free activity part -->
         <div id="activity-free" style="display:none;">
@@ -1595,8 +1713,8 @@
                 <label for="free-content" data-i18n="[html]newActivities.content">Contenu de l'activité</label>
                 <textarea id="free-content" style="height:340px"></textarea>
             </div>
-
-            <div class="c-checkbox">
+           
+            <div class="c-checkbox ml-3">
                 <input type="checkbox" name="free-autocorrect" id="free-autocorrect">
                 <label for="free-autocorrect" data-i18n="newActivities.autocorrect">Autocorrection</label>
             </div>
@@ -1810,40 +1928,39 @@
 
             <div class="preview-container" id="activity-preview" style="display: none;">
                 <h3 class="activity-title" id="preview-title" style="display: none;"></h3>
-
-
+                
+    
                 <div id="preview-states" style="display: none;">
                     <label for="preview-activity-states" class="vitta-modal-title mt-2" data-i18n="classroom.activities.states">Énoncé de l'activité</label>
                     <p id="preview-activity-states"></p>
                 </div>
-
-
+    
+    
                 <div id="preview-content" style="display: none;">
-                    <label for="preview-activity-content" id="label-activity-content" class="vitta-modal-title mt-2" data-i18n="newActivities.contentTitle">Contenu de l'activité</label>
-                    <p id="preview-activity-content"></p>
+                    <p id="preview-activity-content"></p>   
                 </div>
-
-
+    
+    
                 <div id="preview-content-bbcode" style="display: none;">
                     <label class="vitta-modal-title mt-2" for="preview-activity-bbcode-content" data-i18n="[html]newActivities.content"></label>
                     <textarea id="preview-activity-bbcode-content" style="height:400px"></textarea>
                 </div>
-
-
+    
+                
                 <div id="preview-activity-drag-and-drop-container" style="display: none;">
                     <label class="vitta-modal-title mt-2">Drag & drop</label>
                     <div id="preview-drag-and-drop-text">
-
+    
                     </div>
                      <div id="preview-drag-and-drop-fields" class="m-2 drag-and-drop-fields">
-
+    
                     </div>
-
+    
                 </div>
             </div>
 
         </div>
-
+        
 
 
         <div class="row text-center w-100">
@@ -1923,7 +2040,7 @@
             <span class="form-activity form-activity-activate">1</span>
             <span data-i18n="classroom.activities.form.1">Application</span>
         </div>
-
+        
         <div class="col" style="border-bottom: 1px solid var(--classroom-text-1); height: 1px; align-self: center;"></div>
 
 
@@ -2054,7 +2171,7 @@
     <div class="container mb-2 part-content-index c-primary-form">
         <!-- Graphonemo activity part -->
         <div id="activity-custom-content" class="mt-4" style="display:none;">
-
+            
         </div>
 
         <div class="container">
@@ -2075,8 +2192,8 @@
 </div>
 <!-- Main page -->
 <div id="classroom-dashboard-classes-new-course" style="display:none;" class="dashboard-block">
-
-
+    
+    
     <!-- Top progress bar  -->
     <nav class="row form-activity-container" style="margin: 0 auto;">
         <!-- Step 1 -->
@@ -2136,7 +2253,7 @@
             </div>
 
         </div>
-
+        
 
 
         <div class="row text-center w-100">
@@ -2153,8 +2270,8 @@
 
 
 <div id="classroom-dashboard-classes-new-course-title" style="display:none;" class="dashboard-block">
-
-
+    
+    
     <!-- Top progress bar  -->
     <nav class="row form-activity-container" style="margin: 0 auto;">
         <!-- Step 1 -->
@@ -2191,7 +2308,7 @@
     <div class="container">
 
         <div id="course-title-content" class="col-8 course-content">
-
+            
             <div class="form-group">
                 <label for="course-title" data-i18n="[html]courses.parameters.title"></label>
                 <input type="text" class="form-control" id="course-title" data-i18n="[placeholder]courses.placeholderTitle">
@@ -2203,7 +2320,7 @@
             </div>
 
         </div>
-
+        
 
         <div class="row text-center w-100">
             <div class="col-sm mb-2">
@@ -2219,14 +2336,14 @@
         </div>
 
     </div>
-
+    
 
 </div>
 
 
 <div id="classroom-dashboard-classes-new-course-parameters" style="display:none;" class="dashboard-block">
-
-
+    
+    
     <!-- Top progress bar  -->
     <nav class="row form-activity-container" style="margin: 0 auto;">
         <!-- Step 1 -->
@@ -2263,7 +2380,7 @@
     <div class="container">
 
         <div id="course-title-content" class="col-8 course-content">
-
+            
             <div class="form-row c-secondary-form">
                 <div class="form-group col-md">
                     <label for="course-difficulty" data-i18n="[html]courses.parameters.difficulty"></label>
@@ -2276,7 +2393,7 @@
                     </select>
                 </div>
             </div>
-
+            
             <div class="form-row c-secondary-form">
 
                 <div class="form-group col-md">
@@ -2299,10 +2416,10 @@
                 </div>
             </div>
 
-
+           
 
         </div>
-
+        
 
 
         <div class="row text-center w-100">
@@ -2383,7 +2500,7 @@
             <button class="btn c-btn-outline-primary" onclick="coursesManager.updateCourse()" data-i18n="courses.update">
                 Modifier le parcours
             </button>
-
+            
         </div>
     </div>
 
@@ -2449,7 +2566,7 @@
                                 </div>
                             </div>
                         </div>
-
+    
                         <div class="col-12 col-xl-6 c-primary-form assign-activity-calendar">
                             <div class="row">
                                 <div class="col-6 text-right align-middle">
@@ -2615,7 +2732,10 @@
                             console.log("Loader failed to load: " + reason);
                             failedToLoad();
                         }
-                    );
+                    ).then((resolve)=> {
+                        // hide spinner when load
+                        $("#spinner-loading").hide();
+                    });
                 })
             },
             (reason) => {

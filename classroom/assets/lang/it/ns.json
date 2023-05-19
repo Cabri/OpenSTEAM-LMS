@@ -1,1 +1,1465 @@
-{"classroom":{"login":{"noClass":"Il codice inserito non corrisponde a nessuna classe.","countdown1":" Il modulo di gestione delle classi è attualmente in beta. Se vuoi provarlo, per favore <a href=\"/about?contact=1\">contatta il team di Vittascience</a>.","countdown2":" Rilascio ufficiale in","hello1":" Ciao!","hello2":" Ciao!","title":" Gestisci le tue classi con Vittascience","neutralTitle":"La piattaforma Cabri","cabriTitle":" Cabri.com","subtitle":"Scoprire - Imparare - Condividere","cabriSubtitle":" The platform to succeed in math and science","login":"Accedi","activities":"crea facilmente  </br> le tue attività","cabriActivities":" Create exercises</br> automatically in</br> a few minutes","attribute":"assegna i </br> ai tuoi studenti","cabriProgress":" Follow the progress</br> of your learners","visualize":"visualizza </br> i loro risultati","cabriRessources":" Access a </br> variety of activities </br> and share your creations","student":"STUDENTE","codeInput":"Inserisci qui il codice di classe","teacher":"INSEGNANTE","hasAccount":"Hai già un account?","gar":"Approfittate del modulo di classe con l'aiuto di GAR. </br><i class=\"fas fa-exclamation-triangle\" style=\"color:var(--vitta-orange-light)\"></i>  Il collegamento con il GAR non è ancora finalizzato, sarà pronto presto.","signup":"REGISTRARSI","firstVisit":"Prima visita? Si prega di scegliere un login.","signin":"COLLEGARSI","registerLink":"Creare un account","hasReturned":"Di ritorno in questa classe?","forgot":"Ho dimenticato la mia password","error":{"used":"Questo nome utente è già in uso, per favore scegline un altro","badInput":"Il tuo nome utente o la tua password sono sbagliati."},"suscribe":{"title":" sottoscrivere","content":" Il modulo di gestione delle classi è disponibile gratuitamente in una versione di prova. Approfittate di tutte le funzionalità con l'abbonamento Vittascience Premium. Trova tutti i vantaggi e i dettagli dell'offerta Vittascience Premium utilizzando il pulsante qui sotto.","premium":" Scoprire Vittascience Premium"},"carousel":{"activities":{"title":" crea facilmente le tue attività","content":" L'editor di attività rende facile la creazione di contenuti educativi, tra cui testo, immagini, video, API Vittascience, presentazioni Genially e altro ancora.</br></br>Sfogliate la banca di risorse collaborative Vittascience con centinaia di attività gratuite e riutilizzabili. Se l'autore della risorsa lo permette, puoi anche fare delle modifiche per adattare il contenuto ai tuoi studenti!"},"attribute":{"title":" assegnarli ai tuoi studenti","content":" Una volta che hai creato le tue attività, puoi assegnarle ai tuoi studenti. Possono essere assegnati individualmente o a interi gruppi, per esempio una classe o un club scientifico.</br></br>Gli studenti possono accedere in modo sicuro usando un codice di classe, un link, un QRcode o un GAR, e completare le attività loro assegnate."},"visualize":{"title":" vedere i loro risultati","content":" Il dashboard ti permette di seguire i progressi degli studenti mentre si muovono attraverso le attività e i corsi. Trova il lavoro dei tuoi studenti in un click con la possibilità di commentare il rendering.</br></br>Grazie al sistema di correzione automatica per blocchi e Python, la dashboard si riempie direttamente con i risultati degli studenti. Identificare rapidamente gli studenti in difficoltà e risparmiare tempo prezioso per accompagnarli."}},"register":{"title":"Registrazione","description":"Completa i seguenti campi per creare il tuo account.\n","passwordConstraints":"Minimo 8 caratteri.","createButton":"Registrazione"}},"register":{"accountConfirmationEmail":{"emailSubject":"Attivare il mio account","bodyTitle":"Attivare il mio account","textBeforeLink":"Se il pulsante qui sopra non funziona, copia e incolla il seguente link nel tuo browser:"}},"updateUserInfos":{"emailUpdateConfirmation":{"emailSubject":"Conferma il mio nuovo indirizzo e-mail","bodyTitle":"Conferma il mio nuovo indirizzo e-mail","textBeforeLink":"Se il pulsante qui sopra non funziona, copia e incolla il seguente link nel tuo browser:"}},"successPanel":"Bene, ce l'hai fatta!","failPanel":"La risposta non è corretta","toCorrectPanel":"L'attività è stata trasmessa al tuo insegnante, </br>che ti risponderà presto! <i class=\"fas fa-pen\"></i>","bank":{"helpTooltip":" La banca delle risorse contiene molte attività che puoi praticare da solo! Il tuo insegnante non avrà accesso ai risultati di queste attività."},"help":{"student":{"label":"Contatta il tuo insegnante","question":"Fai le tue domande...","title":"Oggetto"},"teacher":{"label":"Contatta il tuo insegnante"}},"profil":{"identity":"Nome Cognome","class":"CLASSE : ","todo":"Attività da fare","done":"Attività svolte","create":"Attività create","correctionToDo":"Correzioni da fare","switchMode":"Passare alla modalità studente","switchModeTeacher":"Torna alla modalità insegnante","accountSettings":{"title":"Il mio account","firstname":"Nome","lastname":"Cognome","nickname":"Nome utente","email":"E-mail","password":"Password","confirmPassword":"Conferma la password","updateButton":"Aggiornare"}},"notif":{"emptyContent":" Il contenuto non può essere vuoto.","emptyTitle":" Il titolo non può essere vuoto.","activityRestricted":" Non si possono creare più attività di questo tipo.","shareProjectTeacher":"Il progetto è stato condiviso con il tuo insegnante","addActivities":"Le attività selezionate sono state aggiunte alla tua lista","addActivity":"L'attività è stata aggiunta alla tua lista","saveProject":"Hai pensato di salvare il tuo lavoro?","savedProject":"La bozza della tua attività è stata salvata.","deleteProject":"Il progetto è stato cancellato.","shareProject":"Il progetto è stato condiviso","corrections":"Nelle tue classi è stato fatto un esercizio","deleteAccount":"Sei sicuro di voler cancellare l'account dello studente?","accountIsDelete":"L'account dello studente è stato cancellato","newPwd":"La nuova password dello studente {{pseudo}} è {{pwd}}","classCreatedButNotUsers":"La classe {{nomeAula}} è stata creata, ma non gli account associati (Il tuo account non ti permette di avere studenti {{numero di studenti}})","classUpdatedButNotUsers":"La classe {{classroomName}} è stata aggiornata, ma non gli account associati (Il tuo account non ti permette di avere studenti {{learnerNumber}})","usersNotAdded":"Lo studente non è stato aggiunto (Il tuo account non ti permette di avere {{learnerNumber}} studenti)","cantLoginLimitLearners":"Non puoi unirti alla classe. Il tuo insegnante ha raggiunto il numero massimo di studenti.","cantLoginClassroomBlocked":"Non puoi unirti alla classe, il tuo insegnante l'ha bloccata.","classNotCreated":"Non puoi avere più di una classe.","attributeActivityUndone":"L'attività è stata disattribuita","pseudoUpdated":"Il nuovo nome utente dello studente è {{newPseudo}}","classroomDeleted":"La classe {{classroomName}} è stata cancellata","classroomCreated":"La classe {{nome dell'aula}} è stata creata, insieme a tutti gli account associati","classroomUpdated":"La classe {{classroomName}} è stata aggiornata, insieme a tutti gli account associati","usersAdded":"Gli account sono stati creati","usersAddedFromCsv":"Gli account sono stati creati secondo il file csv","activityDeleted":"L'attività {{attivitàNome}} è stata cancellata","mustAttributeToStudent":"Devi selezionare gli studenti","activityAttributed":"L'attività {{attivitàTitolo}} è stata assegnata agli studenti elencati","activityAttributionChanged":"L'assegnazione dell'attività {{attivitàTitolo}} è stata cambiata per gli studenti elencati","activityCreated":"L'attività {{attivitàTitolo}} è stata creata","activityChanged":"L'attività {{attivitàTitolo}} è stata modificata","activityTitleMissing":"Devi compilare il titolo dell'attività","activityPlayerMissing":" È necessario inserire un URL del giocatore.","CsvFileMissing":"Non hai scelto un file csv","errorWithCsv":"Errore nell'apertura del file csv: {{errore}}","cantGetPassword":"Errore, non puoi vedere la tua password","cantResetPassword":"Errore, non è possibile reimpostare la password","accountUpdated":"Il tuo account è stato aggiornato","emailUpdated":"Vai al link di conferma del nuovo indirizzo e-mail per completare l'aggiornamento","firstNameTooShort":"Il nome deve essere lungo almeno 2 caratteri","lastNameTooShort":"Il cognome deve essere lungo almeno 2 caratteri","pseudoTooShort":"Il nome utente deve essere lungo almeno 2 caratteri","invalidEmail":"L'indirizzo e-mail inserito non è valido","invalidPassword":"La password inserita non è valida. Deve essere lungo almeno 8 caratteri.","passwordAndConfirmMismatch":"La password e la conferma della password non sono identiche!","unknownUser":"Errore durante l'aggiornamento dell'account: l'utente non esiste!","passwordInvalid":"La password non rispetta i vincoli di sicurezza.","emailInvalid":"L'indirizzo e-mail inviato non è valido","emailExists":"L'indirizzo e-mail è già assegnato a un altro account","UserNotExists":"Errore durante il caricamento/ripristino della password: utente sbagliato!","RegularUserNotAllowed":"Errore durante il caricamento/ripristino della password: solo gli studenti possono vedere/ripristinare la loro password!","PasswordLengthInvalid":"Impossibile recuperare la password: password sbagliata!","accountCreated":"L'account è stato creato. Vai al link di conferma che ti è stato inviato per e-mail per concludere la registrazione e poter accedere.","firstnameMissing":"Devi inserire il tuo nome","surnameMissing":"Devi inserire il tuo cognome","pseudoMissing":"Devi inserire il tuo nome utente","emailMissing":"Devi inserire il tuo indirizzo e-mail","passwordMissing":"Devi inserire la tua password","passwordConfirmMissing":"È necessario confermare la password","passwordsMismatch":"La password e la conferma non sono identiche","invalidUserId":"Errore durante l'invio del messaggio: il tuo login non è valido","helpRequestFromTeacherSent":"Il tuo messaggio è stato inviato. Vi risponderemo il più presto possibile.","subjectMissingTeacherHelpForm":"Devi compilare l'oggetto del messaggio","messageMissingTeacherHelpForm":"Devi inserire il tuo messaggio","invalidUserIdTeacherHelpForm":"Errore durante l'invio del messaggio: il tuo login non è valido","unknownUserTeacherHelpForm":"Errore durante l'invio del messaggio: il tuo login non corrisponde a nessun account dell'insegnante","helpRequestFromLearnerSent":"Il tuo messaggio è stato inviato al tuo insegnante","subjectMissingLearnerHelpForm":"Devi compilare l'oggetto del messaggio","messageMissingLearnerHelpForm":"Devi digitare il tuo messaggio","invalidUserIdLearnerHelpForm":"Errore durante l'invio del messaggio: il tuo login non è valido","unknownUserLearnerHelpForm":"Errore durante l'invio del messaggio: il tuo nome utente è sconosciuto","unknownEmailLearnerHelpForm":"Errore durante l'invio del messaggio: l'indirizzo e-mail del tuo insegnante è sconosciuto","activityTitleInvalid":"L'attività non può essere creata: titolo non valido","activityContentInvalid":"L'attività non può essere creata: contenuto non valido","activityIsFromClassroomInvalid":"L'attività non può essere creata: errore di contesto","activityUserIdInvalid":"L'attività non può essere creata: utente non valido","personalLimitationsReached":" Hai raggiunto il tuo numero massimo di studenti.","groupLimitationsGroup":" Il tuo gruppo non può più ospitare allievi.","groupLimitationsTeacher":" Hai raggiunto il limite di studenti che il tuo gruppo permette.","bothLimitationsReached":" Avete raggiunto i limiti dei discenti che voi e il vostro gruppo potete avere.","ClassroomNameInvalid":" Il nome della classe è richiesto.","reservedNickname":" Il nome: \"{{reservedNickname}}\" non può essere assegnato.","invalidLink":" Il link che hai inserito non è valido.","noUser":" Devi compilare uno studente.","noUserUsername":" È necessario inserire un nome utente.","pseudoMissingInCsvFile":" Alcuni studenti non potevano essere aggiunti perché mancava il loro nickname.","backendReplyPseudoMissingInCsv":" Controlla il file CSV: linea vuota o nickname mancante.","backendReplyPseudoMissingInUsersArray":" C'è un errore in uno o più nomi di allievi.","invalidActivityId":" Errore durante l'invio del lavoro: identificatore di attività non valido!","invalidCorrection":" Errore nell'invio del lavoro: stato di attività non valido!","generalBackendError":" Si è verificato un errore, riprovare più tardi.","currentPasswordDoesNotMatch":" La password inserita non è corretta!","noAnswerInActivity":" È necessario compilare almeno un campo di risposta","courseMissingData":" You must enter a title and a description","courseMissingParameters":" You must set the parameters for the course"},"ids":{"classroom-dashboard-help-panel-teacher":"Aiuto","classroom-dashboard-activities-panel-teacher":"Le mie attività","classroom-dashboard-classes-panel-teacher":"Le mie classi","classroom-dashboard-sandbox-panel":"Sandbox","classroom-dashboard-profil-panel-teacher":"Profilo","classroom-dashboard-activities-panel":"Le mie attività","classroom-dashboard-profil-panel":"Profilo","classroom-dashboard-help-panel":"Aiuto","classroom-dashboard-activities-panel-library-teacher":"Banca delle risorse","classroom-dashboard-new-activity-panel":"Creazione dell'attività","classroom-dashboard-new-activity-panel2":"Intermedio","classroom-dashboard-new-activity-panel3":"Assegnazione","classroom-table-panel-teacher":"Classe {{nome}}","classroom-dashboard-sandbox-creation":"Selezione dell'interfaccia","classroom-dashboard-ide-panel":"Sandbox {{interfaccia}}","classroom-dashboard-activity-panel":"Attività {{nome}}"},"displayCode":" Proiettare il codice","navbar":{"activities":"Attività"},"classes":{"add":"Aggiungere una classe","noClasses":" Non hai ancora una classe.","createClassNow":" Inizia a creare una classe ora!","form":{"title":"Creare una classe","updateTitle":"Modificare una classe","name":"Nome della classe","school":"Nome dell'istituto","addStudent":"Aggiungere un allievo","noStudent":"Non ci sono ancora studenti in questa classe","isBlockedButton":"Limitare a questi studenti, nessun altro potrà unirsi alla classe.","save":"Salvare la classe","return":"Tornare in classe"},"panel":{"seeActivity":"Vedere l'attività","editActivity":"Cambiare l'attività","editAttribution":"Cambiare l'assegnazione","removeAttribution":"Ritirare l'assegnazione","password":"La sua password :","resetPassword":"Rigenerare la password","editNickname":"Cambiare il sopranome","delete":"Ritirare","copyLink":"Copiare il link diretto","learnerMode":"Passare alla modalità studente","dueBy":"Dovuto a"}},"activities":{"title":"Attività","save":"Salvare la bozza ","add":"Creare un'attività","addCabriExpress":" Creare l'attività Express","addCabriGenius":" Creare un'attività intelligente","addOther":" Altro tipo di attività","new":"Nuovo","current":"In attesa di correzione","waiting":"Non ancora completato","done":"Completato","todo":"Da correggere","anonymise":"Anonimizza la tua lista di studenti in modo da poter mostrare il dashboard ai tuoi studenti","save-draft":"Salva come bozza","validate":"Convalidare l'attività","accept":"Molto buono","vgood":"Soddisfacente","good":"Fragile","refuse":"Insufficiente","instruction":"Consegna","commentary":"Commento","sendResults":"Invia il commento allo studente ","noSend":"Questa attività non è stata fatta","comments":"Inserisci i tuoi commenti qui","activitySubmited2":" Activity submitted on","sentOn":" Questa attività è stata completata il","activityOfUser":" Attività di","userSentOn":"  reso su","yourAnswer":" La tua risposta","studentAnswer":" Risposta dell'allievo","return":" Torna alle attività","bilan":{"title":"Bilancio","results":"Risultati","noComment":" Nessun commento"},"applist":{"selectApp":" Seleziona l'applicazione con cui vuoi creare un'attività"},"form":{"1":"Creazione dell'attività","2":"Assegnazione","3":" Titolo","4":" Assegnazione","title":{"label":"Titolo dell'attività","labelCabri":" Qual è il titolo dell'attività?","placeholder":"Titolo del gioco","placeholderCabri":" Titolo dell'attività"},"iframe":{"label":" Qual è l'URL di accesso?","placeholder":" Immettere un URL"},"notebookUpdateMessage":" Non modificare questa sezione se si vuole mantenere il vecchio libro delle attività!","notebookUrl":{"label":" Aggiungere l'URL di un taccuino","placeholder":" URL del taccuino"},"playerUrl":{"label":" Aggiungere l'URL di un giocatore","placeholder":" URL giocatore"},"player":{"labelFileChooser":" Scegliere un file","fileUpload":" Il file è stato caricato con successo","dragDrop":" Trascinamento e rilascio"},"nextButton":" Avanti","endButton":" Finitura","content":{"label":"Contenuto dell'attività"},"back":" Indietro","validate":" Convalidare","buttonContinue":" Salva e continua","button":"Salvare e convalidare","success":"Congratulazioni, hai creato un'attività!","attribute":"Assegnare l'attività da ora","attribute2":"Attribuisci l'attività ","return":"Torna alle mie attività","hint":"Puoi sempre assegnare questa attività in seguito dalla dashboard.","modify":"Modificare l'attività","select1":"Selezione degli studenti","select2":" selezionati.","instructions":"Consegna specifica per questi studenti\n","autocorrect":"Questa attività dispone di una correzione automatica, vuoi attivarla?","nature":"Lo studente può presentare l'attività più di una volta?","dateBegin":"Data di inizio :","dateEnd":"Data di fine :","retroAttribution":" Questa attività sarà assegnata ai nuovi studenti"},"toCopy":"Questo codice rende facile unirsi alla tua classe\n","copyLink":"Il link alla tua classe è stato aggiunto negli appunti\n","dateBefore":"Termine di scadenza della consegna","dateBeforeAvailable":" Disponibile fino a","integrate":"Integrare in un'attività","veryGoodProficiency":"Molto buono","goodProficiency":"Soddisfacente","weakProficiency":"Fragile","insufficientProficiency":"Insufficiente","addLearner":"Aggiungere uno studente","addLearners":" Add learners","addActivity":" Add an activity","exportCsv":"Esportazione csv","players":{"STANDARD":{"title":" Standard","description":" Utilizzando il lettore standard, è possibile leggere online tutti i libri di attività prodotti con lo strumento di authoring Cabri."},"IMUSCICA":{"title":" iMuSciCA","description":" Utilizzando il player iMuSciCA, tutte le attività svolte con lo strumento di authoring Cabri possono essere riprodotte nello studio musicale."},"IFRAME":{"title":" Altro","description":" Scegliete tra una selezione di lettori per utilizzare le attività svolte con lo strumento di authoring Cabri."},"EXPRESS":{"title":" Espresso","description":" Creare un'attività utilizzando strumenti di geometria dinamica e algebra, calcolatrice scientifica e grafica, ecc."},"GENIUS":{"title":" Intelligente","description":" Create un'attività con gli strumenti Express e aggiungete una valutazione automatica."},"IFRAME-CABRI3D":{"title":" Cabri 3D","description":" Creare un'esplorazione geometrica dinamica nello spazio."},"LTI-BLOCKLY":{"title":" Cabri Blockly","description":" Aggiungere azioni dell'utente a un'attività Cabri, come animazioni, serrature, ecc. programmate visivamente come con Scratch o Snap!"}},"tabs":{"players":" Libro di attività","iframes":" Video e pagina web"},"iframes":{"IFRAME-VIDEO":{"title":" Video","description":" Inserire l'URL di un video pubblicato su una piattaforma di hosting."},"IFRAME-PAGE":{"title":" Pagina web","description":" Inserire l'URL della pagina web."}},"month":{"1":" Gennaio","2":" Febbraio","3":" Marzo","4":" Aprile","5":" Maggio","6":" Giugno","7":" Luglio","8":" Agosto","9":" Settembre","10":" Ottobre","11":" Novembre","12":" Dicembre"},"preview":" Anteprima","deleteActivityDisclaimer":" Si sta per eliminare un'attività. Questa azione è irreversibile.","deleteConfirm":" Confermare la cancellazione dell'attività","deleteActivity":" Cancellare l'attività","correctAnswer":" Risposta corretta","nbActivities":" <span class='nb-activities'>{{ nbActi }}</span> Attività </p>","moveToFolder":" Spostarsi a","rootFolder":" Cartella principale","seekFolder":" Andare alla cartella","foldersMessages":{"errorDelete":" Si è verificato un errore durante l'eliminazione della cartella","errorCreate":" Si è verificato un errore durante la creazione del file","errorLenght":" Il nome della cartella deve avere una lunghezza compresa tra 1 e 30 caratteri.","errorUpdate":" Si è verificato un errore durante la modifica del file","errorMoveTo":" Si è verificato un errore durante lo spostamento dell'oggetto","movedTo":" Oggetto spostato con successo","created":" File creato con successo","updated":" File modificato con successo","deleted":" File eliminato con successo","createFolder":" Creare una cartella","deleteFolder":" Confermare l'eliminazione del file","updateFolder":" Modificare il file","nameMandatory":" Nome cartella <span class='mandatory'>*</span>","deleteDisclaimer":" Attenzione, la cartella e tutti i suoi contenuti (attività e sottocartelle) verranno eliminati."},"facultative":" Campi opzionali","previewActivity":" Anteprima dell'attività","infoRetroAttribution":" Questa attività sarà assegnata ai nuovi studenti quando saranno aggiunti alla classe.","infoAutocorrect":" Questa attività ha una correzione automatica","infoEvaluation":" Nella modalità di valutazione, i discenti possono inviare l'attività una sola volta e non hanno accesso a suggerimenti e consigli."},"filter":{"desc":"Dal meno recente al più recente","asc":"Dal più recente al meno recente","cabriExpress":" Attività espresse","cabriGenius":" Attività intelligenti","cabriVittascience":" Attività di Vittascienza","iframe":" Altre attività","placeholder":"Cerca..."},"sandbox":{"mine":"I miei progetti","shared":"Progetti condivisi","add":"Creare un programma","chooseInterface":"Selezionate l'interfaccia sulla quale volete creare un programma: ","teacherSharedDescription":"Trova qui i programmi condivisi dai tuoi studenti.","studentSharedDescription":"Trova qui i programmi condivisi dal tuo insegnante"},"footer":{"privacy":"Politica sulla privacy ","cgu":"Condizioni generali d'uso","copyright":"copyright"},"teacherHelpPanel":{"contactForm":{"title":"Contattaci","objectPlaceholder":"Oggetto","messagePlaceholder":"Scrivi qui il tuo messaggio. (Massimo 800 caratteri)","sendButton":"Invia il messaggio","fillInAllTheFields":"Completa tutti i campi"}},"sandBoxCreationPanel":{"title":" Selezionate l'interfaccia sulla quale volete creare un programma","knowMoreButton":" Maggiori informazioni sulle interfacce","interfacesDescription":{"arduino":" Interfaccia di programmazione per la scheda Arduino","microbit":" Interfaccia di programmazione per la scheda micro:bit","python":" Interfaccia di programmazione per Python 3 progettata per l'istruzione","texas-instruments":" Interfaccia di programmazione per la calcolatrice con la scheda micro:bit","esp32":" Interfaccia di programmazione per schede ESP32 (Wemos D1R32, NodeMCU, Huzzah32, ...)","quickpi":" Interfaccia di programmazione per la scheda Quick-Pi"}},"modals":{"addLtiActivityName":" Qual è il titolo dell'attività?","addActivity":{"title":"Aggiungere un'attività","resourceBank":{"title":"Sfoglia la banca di risorse collaborative","button":"Banca delle risorse "},"orSeparator":"O","attributeActivity":{"title":"Visualizza le mie attività esistenti","button":"Le mie attività "},"createActivity":{"title":"Creare una nuova attività","button":"Creare un'attività "},"next":" Avanti","limitTitle":" Limite superato","limitDescription":" Limite del numero di attività raggiunto per questo account.","upgradePlan":" Aumentare il limite"},"updateActivity":{"title":" Modificare un'attività"},"deleteActivity":{"title":" Eliminare un'attività","description":" Siete sicuri di voler eliminare l'attività?","confirm":" Confermare","cancel":" Annullamento"},"settingsTeacher":{"title":"Impostazioni dell'account","lang":"Lingua","description":"Per cambiare la tua password o altre impostazioni dell'account","accessButton":"Vai al tuo profilo","password":"Password","passwordDescription":"Ecco la tua password. Memorizzala, altrimenti solo il vostro insegnante potrà comunicartela.","resetPassword":"Azzerare"},"addStudent":{"title":"Aggiunta di studenti","pseudo":"Nome utente","addStudentButton":"Aggiungi lo studente","addStudentByCsvButton":"Aggiungere un file studente (.csv)"},"addStudentByCsv":{"title":"Aggiungere studenti con un file .csv","description":"Puoi aggiungere uno o più studenti in una volta importandoli da un file .csv. Opzionalmente, è possibile impostare la password per ciascuno di essi. Ecco i file .csv di esempio: ","csvTemplate":"file modello con password","csvTemplateNoPassword":"file modello senza password","importStudentByCsvButton":"Importare gli studenti"},"exportCsv":{"title":"Esportazione in formato csv","exportLearnersDescription":"Scarica la lista degli studenti di questa classe e le loro password. Il file scaricato è in formato .csv.","exportLearners":"Scarica l'elenco degli studenti","exportDashboardDescription":"Scarica la lista degli studenti per questa classe e, per ognuno di loro, le attività assegnate e lo stato di ogni attività (non ancora fatta, da correggere, completata). Il file scaricato è in formato .csv.","exportDashboard":"Scarica il pannello di controllo"},"listClass":{"title":"Passare alla modalità studente","description":"Puoi facilmente testare l'interfaccia come studente e tornare al tuo profilo di insegnante in qualsiasi momento. I tuoi progressi come studente saranno salvati nel tuo account demostudent.","switchButton":"Passare alla modalità studente"},"changePseudo":{"title":"Cambia il nome utente","description":"Cambia il nome utente","validateButton":"Convalidare"},"attributeActivity":{"title":" Allocare l'attività"},"shareProject":{"title":" Condividere il progetto"}}},"login_popup":{"title":"Accedi","details":"Inserisci i tuoi dati di accesso per accedere al tuo account.","form":{"addressmail":"Indirizzo e-mail","addressmail_placeholder":"esempio@dominio.com","password":"Password","password_placeholder":"La tua password.","forgot_password":"Ho dimenticato la mia password.","btn_connect":"Entrare"},"success":"L'autenticazione ha avuto successo. Reindirizzamento...","error":"Errore. Per favore controlla i tuoi dati di accesso.","mailSuccess":" Un'e-mail di attivazione è stata inviata al tuo indirizzo di posta elettronica.","mailError":" Si è verificato un errore. Per favore, controllate il vostro indirizzo e-mail.","userNotFound":" Nessun utente trovato con queste credenziali.","inactiveAccount":" Il tuo account non è ancora attivo, clicca sul pulsante qui sotto per inviare l'email di convalida.","accountDeactivated":" Il tuo account è stato disattivato, contatta un amministratore se il problema persiste.","errorBeta":"Devi essere un beta tester per accedere a questa funzione. <a href='https://fr.vittascience.com/about#contact'>Contatta il team Vittascience</a> per saperne di più."},"signup-popup":{"title":"Registrazione","notice":"Completa i seguenti campi per creare il tuo account Vittascience.","firstName":"Nome","lastName":"Cognome","mail":"Indirizzo e-mail","telephone":"Telefono","password":"Password","passwordConfirmed":"Conferma","firstNamePlaceholder":"Il tuo nome.","lastNamePlaceholder":"Il tuo cognome.","mailPlaceholder":"Un'e-mail di conferma vi sarà inviata.","telephonePlaceholder":"Il tuo numero di telefono (opzionale).","passwordPlaceholder":"Minimo 8 caratteri. Maiuscole, minuscole e numeri.","passwordConfirmedPlaceholder":"Ripeti la tua password una seconda volta.","mandatory":"I campi segnati con un <span class=\"mandatory\">*</span> sono obbligatori.","submit":"Confermare","back":"Indietro","title2nd":"Per favore, ci fornisca alcune informazioni aggiuntive","areYou":"Sei...","member":"Un particolare?","teacher":"Un insegnante?","teacher-grade":"Livello di formazione","grades":{"primary":"scuola media","middle":"Collegio","high":"Scuola superiore","highbis":"Scuola professionale","higher":"Post-BAC"},"establishement":"Stabilimento","establishementPlaceholder":"Cerca per nome della scuola o città.","subject":"Materia insegnata","bio":"Mini-bio","bioPlaceholder":"Parlaci un po' di te, in modo che gli altri utenti del sito possano conoscere meglio il tuo background :) Massimo 800 caratteri.","profilPicture":"Foto del profilo (opzionale)","allowPictures":"Formati accettati: jpeg, jpg, png. Max. 10Mb","allowPublicName":"Accettate che il vostro nome e cognome siano pubblici sul sito?","allowNewsletter":"Vuoi ricevere la nostra newsletter via e-mail?","allowAlertMessage":"Vuoi ricevere avvisi via e-mail quando ricevi nuovi messaggi sul sito?","allowMessageReceive":"Vuoi essere contattato da altri utenti del sito?","eighteenConfirm":"Confermo di avere più di 18 anni (articolo 1124 del codice civile)","confirmCGU":"Convalidando questo modulo, accetti i <a target=\"_blank\" href=\"/cgu\">termini e condizioni d'uso</a>.","concernedAboutPrivacy":"Vittascience pone la sicurezza e la riservatezza dei dati personali dei suoi utenti al centro delle sue preoccupazioni. Scopri <a target=\"_blank\" href=\"/privacy\">la nostra politica di protezione dei dati personali</a>","errors":{"mailUsed":"La mail {{ mail }} è già in uso. Per favore, scegline un'altra.","mailUsedServer":"L'indirizzo e-mail fornito esiste già.","lastName":"Il cognome fornito non è corretto.","firstName":"Il nome fornito non è corretto.","mailInvalid":"L'indirizzo e-mail non è valido.","passwordInvalid":"La password non rispetta i vincoli di sicurezza.","biographyInvalid":"La biografia non è corretta.","telephoneInvalid":"Il numero di telefono non è corretto.","profilPictureInvalid":"La foto del profilo fornita non è conforme al formato specificato.","establishementIncorrect":"Il nome dell'istituto non è corretto.","gradeIncorrect":"Il livello di insegnamento non è corretto.","subjectIncorrect":"Il nome della materia insegnata non è corretto."},"success":{"main":"La tua registrazione è avvenuta con successo! Un link di conferma ti è stato inviato a <b>{mail }}</b>.","notice":"Devi accedere a questo link prima di poter effettuare il login. Se non riesci a trovare l'email in questione, controlla la tua cartella spam."}},"switchAccessibility":{"title":"Accessibilità","theme":"Tema","light_theme":"Tema chiaro","dark_theme":"Tema scuro","font":"Polizia","basic_font":"Base","know_more":"Leggi di più"},"words":{"send":"inviare","settings":"parametri","disconnect":"disconnessione","help":"aiutare","duplicate":"duplicato","delete":"cancellare","attribute":"attribuire","modify":"modificare","optional":"opzionale","evaluation":"valutazione","exercise":"esercizio","return":"indietro","anonymize":"anonimizzare","days":"giorni","hours":"ore","minutes":"minuti","seconds":"secondi","confirm":"confermare","username":"nome utente","password":"Password","yes":"Sì","no":"No"},"faqTeacherNeutral":{"1":{"section_title":"Attività","question_list":{"1":{"title":"Qual è lo scopo della scheda Le mie attività?","answer":"Nella scheda <b>Le mie attività</b>, sarai in grado di:<ol><li>Creare le tue attività.</li><li>Poi assegnarle ai tuoi studenti!</li></ol>"},"2":{"title":"Cos'è un'attività?","answer":"Un'attività è un contenuto interattivo creato da Cabri Express, Cabri Smart o da un quaderno Cabri esistente."},"3":{"title":"Come creare o modificare un'attività?","answer":"<p>Puoi creare o modificare facilmente le attività.</p><p>Per modificare un'attività, vai alla scheda <b>Le mie attività</b> e clicca sull'icona <i class=\"fas fa-cog\"></i> della tua attività e poi clicca su Modifica. Non dimenticare di salvare le tue modifiche.</p>"},"4":{"title":"Come assegnare un'attività?","answer":"Per assegnare un'attività, hai tre opzioni:<ol><li>O vai alla scheda <b>Le mie attività</b> e clicca sull'icona <i class=\"fas fa-cog\"></i> della tua attività e poi clicca su Assegna. Poi, dovrai solo seguire i passi.</li><li>Questa opzione di assegnazione è disponibile anche nell'attività stessa una volta aperta.</li><li>Oppure, vai alla scheda <b>Le mie classi</b> e clicca su una classe. Una volta arrivati al pannello di controllo della classe, tutto quello che devi fare è cliccare sul pulsante \"Aggiungi attività\".</li></ol>"},"5":{"title":"Come testare un'attività?","answer":"Per testare un'attività, hai due opzioni:<ol><li>O vai su <b>Profilo</b> e clicca sul pulsante \"Passa alla modalità studente\" e poi seleziona la classe in cui vuoi stare. Vi troverete sull'account fittizio di un allievo chiamato \"demostudent\", potrete scoprire l'interfaccia \"Learner\" e svolgere le attività che avete assegnato.</li><li>Oppure andate su <b>Le mie classi</b> nella dashboard di una classe, potrete allora mettervi nella pelle dell'allievo demostudent. Per fare questo, clicca sull'icona <i class=\"fas fa-exchange-alt\"></i>, avrai l'opportunità di diventare uno studente della classe e provare le attività.</li></ol>Per tornare alla modalità \"Insegnante\", basta andare nella scheda <b>Profilo</b> dell'account demostudent e cliccare su \"Torna alla modalità insegnante\"."},"6":{"title":"Come rimuovere l'assegnazione di un'attività senza rimuovere l'attività?","answer":"Per rimuovere l'assegnazione di un'attività, vai alla scheda <b>Classe</b>, apri la dashboard di una delle classi, poi clicca sull'attività (l'icona diventa <i class=\"fas fa-cog\"></i> quando ci passi sopra il mouse) e poi su Modifica assegnazione. Tutto quello che devi fare ora è cambiare le impostazioni, selezionare o deselezionare gli studenti."}}},"2":{"section_title":"Classe","question_list":{"1":{"title":"Qual è lo scopo della scheda Le mie classi?","answer":"Nella scheda Le mie classi, sarai in grado di:<ol><li>Creare le tue classi e aggiungere studenti</li><li>Correggere le risposte dei tuoi studenti alle attività,</li><li>e monitorare i loro progressi.</li></ol>"},"2":{"title":"Come posso aggiungere i miei studenti alla mia classe?","answer":"Ci sono diverse opzioni:<ol><li>In classe, puoi <b>proiettare il codice sulla lavagna</b>. Per farlo, vai nella tua classe e clicca sul pulsante per ingrandire il codice qui sotto:<br><img class=\"faq-img-center img-fluid\" src=\"assets/media/faq/image1.png\">I tuoi studenti dovranno solo registrarsi o accedere al sito inserendo il codice. Saranno anche in grado di scrivere questo codice per accedere da casa.</li><li>Puoi anche creare studenti con il pulsante \"Add Learner\" e poi <b>inviare loro la loro password individualmente</b>, questo è visibile sulla dashboard della classe qui sotto:<br><img class=\"faq-img-center img-fluid\" src=\"assets/media/faq/image2.png\"></li></ol>"},"3":{"title":"Uno studente può essere in due classi diverse?","answer":"No, questo non è attualmente possibile."},"4":{"title":"Come si fa a bloccare l'ingresso di altri studenti in una classe?","answer":"Questa opzione sarà presto disponibile! Questo impedirà agli studenti di iscriversi più volte alla stessa classe per errore e impedirà anche agli estranei di entrare nella classe senza permesso."},"5":{"title":"Come assegnare un'attività?","answer":"<p>Puoi assegnare un'attività a tutte le classi che hai creato o solo a un particolare studente.</p><p>Per assegnare un'attività, hai tre opzioni:</p><ol><li>O vai alla scheda <b>Le mie attività</b> e clicca sull'icona <i class=\"fas fa-cog\"></i> della tua attività e poi clicca su Assegna. Poi, dovrai solo seguire i passi.</li><li>Questa opzione di assegnazione è disponibile anche nell'attività stessa una volta aperta.</li><li>Oppure, vai alla scheda <b>Le mie classi</b> e clicca su una classe. Una volta arrivati al pannello di controllo della classe, tutto quello che devi fare è cliccare sul pulsante \"Aggiungi attività\".</li></ol>"},"6":{"title":"Si può modificare l'assegnazione di un'attività?","answer":"Per modificare l'assegnazione di un'attività, vai alla scheda <b>Classe</b>, apri la dashboard di una delle classi, poi clicca sull'attività (l'icona diventa <i class=\"fas fa-cog\"></i> quando ci passi sopra) e poi su Modifica assegnazione. Tutto quello che devi fare ora è cambiare le impostazioni, selezionare o deselezionare gli studenti."},"7":{"title":"Come vengono valutate le attività?","answer":"Le valutazioni sono:<ul><li>Manuale su 4 livelli: Molto buono; Sufficiente; debole e insufficiente</li><li>Automatico su 2 livelli: molto buono e debole.<Questo tipo di valutazione permette all'allievo di ottenere immediatamente la sua correzione e all'insegnante di beneficiare di un notevole risparmio di tempo.</li></ul><p>Una volta che l'allievo ha completato la sua attività, ha la possibilità di ricominciarla se l'insegnante ha selezionato la modalità \"Esercizio\" al momento dell'assegnazione. Nella modalità \"Valutazione\", lo studente non può ricominciare una volta che l'attività è stata convalidata.</p><p>Per visualizzare i risultati, basta andare al Pannello di controllo della classe.</p><p>Un'attività non corretta è simboleggiata da una matita nel Pannello di controllo. Per correggerla clicca sulla matita, poi semplicemente valuta e commenta il lavoro dello studente.</p>"},"8":{"title":"Come fai a sapere quando gli studenti hanno completato le loro attività?","answer":"Quando un allievo ha completato la sua attività, riceverai una notifica via email.<br>Questa impostazione sarà regolabile in futuro, al momento non è configurabile."},"9":{"title":"Come cambiare il nome di una classe?","answer":"Per cambiare il nome della tua classe, dovrai cliccare sull'icona <i class=\"fas fa-cog\"></i> della scheda Le mie classi, poi su modifica. Tutto quello che devi fare è cambiarne il nome."},"10":{"title":"Come posso rimuovere uno studente da una classe?","answer":"<p>Per cancellare uno studente, basta cliccare sull'icona <i class=\"fas fa-cog\"></i> accanto al nome dello studente nel Pannello di controllo della classe.</p><p>Attenzione, questa azione è irreversibile e chiude l'account dello studente.</p>"},"11":{"title":"Qual è lo scopo del pulsante di anonimizzazione nel Dashboard?","answer":"Questo pulsante sostituisce i nomi degli studenti con dei numeri. Questo permette di proiettare i risultati degli studenti sulla lavagna in modo anonimo per non stigmatizzare alcuni studenti."}}},"3":{"section_title":"Profilo","question_list":{"1":{"title":"A cosa serve la scheda Profilo?","answer":"Nella scheda Profilo, potrai:<ol><li>gestire le impostazioni del tuo account,</li><li>visualizzare le tue statistiche,</li><li>e scambiare messaggi con i tuoi studenti e con il team di Cabrilog se hai bisogno di aiuto.</li></ol>"},"2":{"title":"Come posso cambiare la mia password o altre impostazioni dell'account?","answer":"Per cambiare la tua password o altre impostazioni, vai alla scheda Profilo. Nel caso di GAR, le impostazioni sono quelle del vostro ENT."},"3":{"title":"Come si cambia la lingua?","answer":"Il modulo Classroom è attualmente disponibile in inglese e francese. Per cambiare la lingua, vai alla scheda del profilo, clicca su \"Impostazioni\" e seleziona la lingua che vuoi."},"4":{"title":"Cos'è la modalità studente?","answer":"<p>Nel tuo profilo, puoi cliccare sul pulsante \"Passa alla modalità studente\". Dopo aver scelto una classe, sarete portati a un account fittizio dello studente chiamato \"demostudent\", dove potrete scoprire l'interfaccia dello studente e svolgere le attività che avete assegnato</p><p>Per ritornare alla modalità \"Insegnante\", basta andare al menu<b>Profilo</b>dell'account demostudent e clicca su \"Ritorno alla modalità insegnante\".</p>"}}},"4":{"section_title":"Domande generali","question_list":{"1":{"title":"Con quali supporti è compatibile il modulo di classe?","answer":"<p>Le interfacce funzionano senza installazione, su computer, tablet e smartphone! Gli aggiornamenti sono automatici e i vostri programmi sono salvati nel cloud.</p><p> Per approfittare al massimo di tutte le funzionalità, ti consigliamo di utilizzare Chrome o Firefox. </p>"},"2":{"title":"Come posso creare un collegamento per accedere al modulo Classroom?","answer":"<p>Hai la possibilità di mettere un'icona sul desktop del computer per accedere rapidamente al modulo Classroom. Per fare questo:</p><p>Su Windows e Mac:</p><ol><li>Apri la pagina: <a href=\"/classroom\" target=\"_blank\">classroom/</a>, poi riduci le dimensioni della finestra del browser in modo da poter vedere il desktop accanto ad essa.</li><li>Nel tuo browser web, usa il mouse per selezionare il simbolo a sinistra dell'indirizzo e, senza rilasciare il click, trascina il puntatore sul Desktop. Rilascia per creare il collegamento.</li><li>Il collegamento viene creato. Dovrai solo fare doppio clic su di esso per aprire la pagina web collegata.</li></ol><p>Su Android con Chrome:</p><ol><li>Aprire la pagina:<a href=\"/classroom\" target=\"_blank\">classroom/</a>, poi premere il pulsante del menu, quindi selezionare \"Aggiungi alla schermata iniziale\".</li><li>Nominare la pagina e premere \"Aggiungi\".</li><li>Il collegamento viene creato. Dovrai solo fare doppio clic su di esso per aprire la pagina web collegata.</li></ol><p>Su Android con Firefox:</p><ol><li>Aprire la pagina:<a href=\"/classroom\" target=\"_blank\">classroom/</a>, poi premere il pulsante del menu, quindi premere Page.</li><li>Toccare Aggiungi collegamento alla pagina.</li><li>Il collegamento viene creato nella schermata iniziale. Dovrai solo cliccarci sopra per aprire la pagina web collegata.</li></ol><p>Su iOS con Safari:</p><ol><li>Apri la pagina:<a href=\"/classroom\" target=\"_blank\">classroom/</a>, poi tocca l'icona Condividi.</li><li>Seleziona nella schermata iniziale, poi tocca Aggiungi.</li><li>Il collegamento viene creato nella schermata iniziale. Dovrai solo cliccarci sopra per aprire la pagina web collegata.</li></ol><p>Si possono trovare altri tutorial su internet per creare un collegamento sul desktop.</p>"}}},"5":{"section_title":"Problema tecnico","question_list":{"1":{"title":"Ho un bug, cosa devo fare?","answer":"Quando si verifica un bug, la prima cosa da fare è cercare di aggiornare la pagina. Se il bug persiste, puoi contattarci nella scheda Profilo con il pulsante \"Aiuto\"."},"2":{"title":"Come posso segnalare bug e dare feedback?","answer":"Se il bug persiste, puoi contattarci nella scheda del profilo con il pulsante \"Aiuto\".<br>Per darci un feedback, puoi anche contattarci nella scheda del profilo con il pulsante \"Aiuto\"."}}},"6":{"section_title":"Licenze e permessi","question_list":{"1":{"title":"Possiamo fare una descrizione o una presentazione del modulo Class?","answer":"Sì, puoi riutilizzare le immagini del modulo Classroom per creare una descrizione, una presentazione, una formazione, un tutorial, un corso o altro. Se vuoi includere immagini o contenuti di attività, menziona l'autore (vedi la prossima domanda)."},"2":{"title":"Dove posso trovare il codice sorgente del modulo Class?","answer":"Il codice sorgente del modulo Class è disponibile sul repository git <a href=\"https://github.com/Cabri/OpenSTEAM-LMS/\" target=\"_href\">OpenSTEAM-LMS</a>, sentiti libero di contribuire!"}}},"title":"FAQ"},"faqStudentNeutral":{"1":{"section_title":"Attività","question_list":{"1":{"title":"Qual è lo scopo della scheda Le mie attività?","answer":"Nella scheda Le mie attività, potrai:<ol><li>completare le nuove attività dei tuoi insegnanti.</li><li>Salvare quelle che non hai ancora finito.</li><li>E rivedere quelle che hai fatto!</li></ol>"},"2":{"title":"Cos'è un'attività?","answer":"Un'attività è un contenuto interattivo creato da Cabri Express o un'attività esistente."}}},"2":{"section_title":"Chiama aiuto","question_list":{"1":{"title":"Qual è lo scopo della scheda Call for Help?","answer":"Nella scheda Chiamata d'aiuto, potrai:<ol><li>Richiedere aiuto ai tuoi insegnanti in qualsiasi momento,</li><li>Consultare le domande frequenti.</li></ol> Potrai seguire lo scambio dei tuoi messaggi nella scheda Profilo."}}},"3":{"section_title":"Profilo","question_list":{"1":{"title":"A cosa serve la scheda Profilo?","answer":"Nella scheda Profilo, potrai:<ol><li>gestire le impostazioni del tuo account,</li><li>visualizzare le tue statistiche,</li><li>e scambiare messaggi con i tuoi insegnanti.</li></ol>"},"2":{"title":"Come posso cambiare la mia password o altre impostazioni dell'account?","answer":"Per cambiare la tua password o altre impostazioni, vai alla scheda Profilo."},"3":{"title":"Come si cambia la lingua?","answer":"Il modulo Classroom è attualmente disponibile in inglese e francese. Per cambiare la lingua, vai alla scheda del profilo, clicca sul pulsante \"Impostazioni\", poi seleziona la lingua che vuoi."}}},"4":{"section_title":"Domande generali","question_list":{"1":{"title":"Come usare il modulo Classroom?","answer":"In qualsiasi momento, puoi accedere all'aiuto generale cliccando sull'icona <i class=\"fas fa-question\"></i> in alto a destra per iniziare il modulo Classroom."},"2":{"title":"Con quali supporti è compatibile il modulo di classe?","answer":"<p>Le interfacce funzionano senza installazione, su computer, tablet e smartphone! Gli aggiornamenti sono automatici e i vostri programmi sono salvati nel cloud.</p><p> Per approfittare al massimo di tutte le funzionalità, ti consigliamo di utilizzare Chrome o Firefox. </p>"},"3":{"title":"Come posso creare un collegamento per accedere al modulo Classroom?","answer":"<p>Potete mettere un'icona sul desktop per accedere rapidamente al modulo Classroom. Per farlo, cliccate sull'icona:</p><p>Su Windows e Mac:</p><ol><li>Aprire la pagina:<a href=\"/classroom\" target=\"_blank\">/classroom/</a>Poi riduci la dimensione della finestra del browser per vedere il desktop accanto ad essa.</li><li>Nel tuo browser web, seleziona con il mouse il simbolo a sinistra dell'indirizzo e, senza rilasciare il clic, trascina il puntatore sul Desktop. Rilascia per creare il collegamento.</li><li>Il collegamento viene creato. Ora devi solo fare doppio clic su di esso per aprire la pagina web collegata.</li></ol><p>Su Android con Chrome :</p><ol><li>Aprire la pagina: <a href=\"/classroom\" target=\"_blank\">/classroom/</a>, poi premere il pulsante del menu, quindi selezionare \"Aggiungi alla schermata iniziale\".</li><li>Dai un nome alla pagina e premi \"Aggiungi\".</li><li>Il collegamento viene creato. Tutto quello che devi fare è un doppio clic su di esso per aprire la pagina web collegata.</li></ol><p>Su Android con Firefox :</p><ol><li></p><ol><li>Aprire la pagina: <a href=\"/classroom\" target=\"_blank\">/classroom/</a>, poi premere il pulsante del menu, quindi premere Page.</li><li>Premere Aggiungi collegamento alla pagina.</li><li>Il collegamento viene creato nella schermata iniziale. Basta cliccarci sopra per aprire la pagina web collegata.</li></ol><p>Su iOS con Safari :</p><ol><li> Abrire la pagina: <a href=\"/classroom\" target=\"_blank\">/classroom/</a>, quindi toccare l'icona Condividi.</li><li>Selezionare dalla schermata iniziale, quindi premere Aggiungi.</li><li>Il collegamento viene creato nella schermata iniziale. Basta cliccarci sopra per aprire la pagina web collegata.</li></ol><p>Puoi trovare altri tutorial su Internet per creare un collegamento sul desktop.</p>\n"}}},"5":{"section_title":"Problema tecnico","question_list":{"1":{"title":"Ho un bug, cosa devo fare?","answer":"Quando si verifica un bug, la prima cosa da fare è cercare di aggiornare la pagina. Se il bug persiste, puoi contattare il tuo insegnante nella scheda Chiamata d'aiuto."},"2":{"title":"Come posso segnalare bug e dare feedback?","answer":"<p>Se il bug persiste, puoi contattare il tuo insegnante nella scheda Aiuto.</p><p>Per dare un feedback al tuo insegnante, puoi anche contattarlo nella scheda Aiuto.</p>"}}},"6":{"section_title":"Licenze e permessi","question_list":{"1":{"title":"Dove posso trovare il codice sorgente del modulo Class?","answer":"Il codice sorgente del modulo Class è disponibile su <a href=\"https://github.com/Cabri/OpenSTEAM-LMS/\" target=\"_href\">il repository git di OpenSTEAM-LMS</a>, sentiti libero di contribuire!"}}},"title":"FAQ"},"manager":{"profil":{"manager":" Passa alla modalità manager","groupAdmin":" Passare al modo amministratore di gruppo","bio":" Bio","group":" Gruppo","apps":" Applicazioni","personalApps":" Applicazioni personali","email":" E-mail <span class=\"c-text-red\">*</span>","nickname":" Nome utente","lastname":" Nome <span class=\"c-text-red\">*</span>","firstname":" Nome <span class=\"c-text-red\">*</span>","phone":" Numero di telefono","grade":" Livello di istruzione <span class=\"c-text-red\">*</span>","subject":" Oggetto insegnato <span class=\"c-text-red\">*</span>","school":" Istituzione <span class=\"c-text-red\">*</span>","password":" Password <span class=\"c-text-red\">*</span>","confirmPassword":" Conferma la password <span class=\"c-text-red\">*</span>","help":" Chiama aiuto","onlyVisibleGroupAdmin":" Visibile solo a te come amministratore del gruppo:","onlyVisiblemanager":" Visibile solo a te come manager:"},"account":{"activate":{"success":" Il tuo account è stato attivato!","alreadyactive":" Il tuo account è già attivo.","noToken":" Nessun token è collegato a questo link."},"active":" Conto attivo","registration":{"success":" Registrazione riuscita!","emailSent":" Ti è stata appena inviata una mail, segui il link in essa contenuto per attivare il tuo account e continuare il tuo collegamento al gruppo \"<span id=\"gourpName2\"></span>\"","accountPublic":" Accettate che il vostro nome e cognome siano pubblici sul sito?","newsletter":" Vuoi ricevere la nostra newsletter via e-mail?","mailAlert":" Vuoi ricevere avvisi via e-mail quando ci sono nuovi post sul sito?","allowContact":" Vuoi essere contattato da altri utenti del sito?","confirmAdult":" Confermo di avere più di 18 anni (art. 1124 del Codice Civile).","disclaimerVittascience":" Vittascience pone la sicurezza e la riservatezza dei dati personali dei suoi utenti al centro delle sue preoccupazioni. Scopri<a href=\"http://vittascience.com/privacy\"> la nostra politica di protezione dei dati personali</a>.","mandatory":" I campi segnati con un <span class=\"c-text-red\">*</span> sono obbligatori.","cguVittascience":" Convalidando questo modulo, accetti i <a href=\"http://vittascience.com/\"> termini e condizioni</a>.","cguOpenSteam":" Inviando questo modulo, accetti i <a target=\"_blank\" href=\"/classroom/cgu.php\"> termini e condizioni</a>.","description":" Completa i seguenti campi per creare il tuo account.","title":" Registrazione","registrationFinalizationSuccess":" La tua registrazione è stata completata, ora puoi accedere.","registrationFinalization":" Completa la tua registrazione.","descriptionFinalization":" Completa i seguenti campi per finalizzare la tua registrazione.","noTokenOrUserActive":" Token non valido o utente già attivo.","noToken":" Gettone mancante"},"notAllowedUpdateUser":" Non hai i diritti per modificare questo utente.","notAllowedDeleteGroup":" Non hai i diritti per cancellare questo gruppo.","notAllowedDisableUser":" Non hai i diritti per disabilitare questo utente.","notAllowedDeleteUser":" Non hai i diritti per cancellare questo utente.","passwordUpdatedMessage":" La tua password è stata cambiata con successo.","noUserFound":" Non è stato trovato nessun utente che usa questo indirizzo.","noUserFoundToken":" Questo token non corrisponde a nessun utente.","missingData":" Mancano informazioni per finalizzare l'operazione.","missingDataDate":" Mancano informazioni sulla data per finalizzare l'operazione.","errorSending":" Si è verificato un errore durante l'invio dell'e-mail.","userNotFound":" Utente non trovato e/o già attivo.","userNotFoundId":" Utente non trovato","errorActivation":" Si è verificato un errore durante l'attivazione.","notAllowedToCreateUserInThisGroup":" Non ti è permesso creare un utente in questo gruppo.","subscriptionOudated":" La tua applicazione APPNAME è scaduta in DATA. Per ulteriori informazioni, contattate un amministratore."},"users":{"users":" Utenti","add":" Aggiungere un utente","activated":" L'account è stato attivato con successo.","errorActivation":" Si è verificato un errore durante l'attivazione dell'account.","create":" Creare un utente","delete":" Cancellare un utente","deleteConfirmation":" Per favore, scrivi \"delete\" nel campo sottostante per completare l'azione.","deleteIntentionSA":" Stai per cancellare l'utente: <span id=\"mdi_firstnameSA\"></span>","disableIntention":" Stai per disattivare l'utente: <span id=\"mde_firstnameSA\"></span>","deleteConfirmationTitle":" Confermare la cancellazione","disableConfirmationTitle":" Confermare la disattivazione","update":" Modificare un utente","updateAppUser":" Modificare le applicazioni dell'utente","updateApp":" Modificare le applicazioni","disable":{"message":" Inserisci \"cancella\" nel campo sottostante per completare l'azione.","intention":" Stai per cancellare l'utente: <span id=\"md_firstnameGA\"></span>"},"mail":{"resetPassword":{"subject":" Resetta la tua password.","bodyTitle":" Resettare la password.","textBeforeLink":" Se il pulsante qui sopra non funziona, copia e incolla il seguente link nel tuo browser:"},"finalizeAccount":{"title":" Finalizzazione della registrazione","subject":" Finalizzazione della registrazione","bodyTitle":" Completa la tua registrazione.","textBeforeLink":" Se il pulsante qui sopra non funziona, copia e incolla il seguente link nel tuo browser:"}},"showResetLinkTitle":" Reset della password.","showResetLink":" Link per la reimpostazione della password.","groupAdmin":" Amministratore del gruppo","admin":" Manager","teacher":" Insegnante","usersPerPage":" Utenti per pagina","userDeleted":" Utente cancellato.","userDisabled":" Utente disabilitato.","userCreated":" Utente creato con successo","userUpdated":" Utente modificato con successo","chooseNewPassword":" Scegli la tua nuova password","passwordUpdate":" La tua password è stata cambiata","enterYourEmail":" Inserisci il tuo indirizzo e-mail","sendResetMailDescription":" Cliccando su Invia, ti verrà inviata un'e-mail contenente un link per cambiare la tua password.","yourMail":" Il tuo indirizzo e-mail","emailSended":" Le è stata appena inviata un'e-mail con la procedura da seguire.","emailNotReceived":" Se non avete ricevuto l'e-mail, cliccate su Start again (è possibile un leggero ritardo).","mailSentToUser":" Una e-mail è stata inviata all'utente per finalizzare la registrazione.","mailNotSentToUser":" L'e-mail di completamento della registrazione non può essere inviata all'utente.","mailSentToUserReset":" Un'e-mail è stata inviata all'utente per cambiare la password.","mailNotSentToUserReset":" Non è stato possibile inviare all'utente l'e-mail di cambio password.","appsUpdated":" Le applicazioni dell'utente sono state aggiornate.","updateAppModalTitle":" Applicazione","teacherGrades":{"0":" Primario","1":" College","2":" Scuola superiore","3":" Scuola professionale","4":" POST-BAC"},"teacherSubjects":{"0":{"0":" Scuola elementare","1":" Altro (specificare nella biografia)"},"1":{"0":" Educazione fisica e sportiva (PSE)","1":" Educazione morale e civica","2":" Educazione artistica","3":" Francese","4":" Storia-geografia","5":" Lingua viva","6":" Matematica","7":" Fisica-Chimica","8":" Scienze della vita e della terra (LSE)","9":" Tecnologia","10":" Altro (specificare nella biografia)"},"2":{"0":" Arti","1":" Arti circensi","2":" Biologia Ecologia","3":" Biotecnologia","4":" Cultura della creazione e del design","5":" Creazione e innovazione tecnologica (CIT)","6":" Ecologia-agronomia-territori-sviluppo sostenibile","7":" Educazione fisica e sportiva (PSE)","8":" Educazione morale e civica","9":" Educazione scientifica","10":" Educazione tecnologica trasversale (ETT)","11":" Francese","12":" Ippologia ed equitazione","13":" Storia-geografia","14":" Storia-geografia, geopolitica e scienze politiche","15":" Scienze umane, letteratura e filosofia","16":" Lingue e culture antiche: latino o greco","17":" Lingue moderne","18":" Lingue, letteratura e cultura straniera e regionale","19":" Letteratura e lingue e culture antiche","20":" Gestione e amministrazione","21":" Matematica","22":" Scienza digitale e informatica (NSI)","23":" Fisica e Chimica","24":" Principi fondamentali di economia e gestione","25":" Salute e sociale","26":" Scienze della vita e della terra (LSE)","27":" Scienze ingegneristiche","28":" Scienza e laboratorio","29":" Scienze e tecniche di teatro, musica e danza (S2TMD)","30":" Scienze e tecnologie di laboratorio (STL)","31":" Scienza e tecnologia alberghiera e della ristorazione (STHR)","32":" Scienza e tecnologia dell'industria e sviluppo sostenibile (STI2D)","33":" Scienza e tecnologia del design e delle arti applicate (STD2A)","34":" Scienze e tecnologie di gestione e amministrazione (STMG)","35":" Scienza e tecnologia digitale (NST)","36":" Scienze economiche e sociali (SES)","37":" Altro (specificare nella biografia)"},"3":{"0":" Arti applicate e culture artistiche","1":" Economia-Legge","2":" Economia e gestione","3":" Educazione fisica e sportiva (PSE)","4":" Educazione morale e civica","5":" Educazione tecnologica trasversale (ETT)","6":" Francese","7":" Storia-geografia","8":" Lingue straniere","9":" Matematica Fisica-Chimica","10":" Prevenzione della salute ambientale","11":" Altro (specificare nella biografia)"},"4":{"0":" Educazione superiore","1":" Altro (specificare nella biografia)"}},"groupFull":" The group is full"},"group":{"generalInfo":" Informazioni generali","add":" Aggiungere un gruppo","create":" Creare un gruppo","delete":" Cancellare un gruppo","deleteIntention":" Stai per cancellare il gruppo: <span id=\"md_group\"></span>","update":" Modificare un gruppo","academy":" Accademia","join":{"firstVisit":" Prima visita?","signin":" Entrare","signinSubtitle":" Inserisci i tuoi dati di login per accedere al tuo account","addressMail":" Indirizzo e-mail","disclaimer":" Aderendo a questo gruppo, autorizzi l'amministratore del gruppo a bloccare e/o disattivare il tuo account. Avrai anche accesso alle applicazioni che il gruppo ha.","lastStep":" Rimane solo un passo! Clicca sul pulsante qui sotto per completare il link.","joinGroup":" Stai per entrare nel gruppo \"<span id='groupNameConfirmLink'></span>\"","notfound":" Gruppo non trovato!","notfoundDetails":" Non troviamo nessun gruppo relativo al codice <span id='gourpName3'></span>.","clickToRedirectLogin":" Clicca su Continua per essere reindirizzato alla pagina di accesso.","clickToRedirectHome":" Clicca su Continua per essere reindirizzato alla pagina iniziale.","invalidLink":" Link non valido!","invalidFormatLink":" Il formato del link che hai inserito non corrisponde.","success":" Ti sei unito al gruppo \"<span id=\"gourpName\"></span>\"!","alreadyLinked":" Lei fa già parte di questo gruppo.","error":" Si è verificato un errore durante la connessione.","userNotFound":" L'utente non è stato trovato, puoi cliccare su Continua per essere reindirizzato alla pagina di login.","contactAdmin":" Se il problema persiste, contattate l'amministrazione.","groupFull":" Il gruppo a cui vuoi unirti è pieno.","onlyOneGroup":" Fai già parte di un gruppo, non puoi unirti ad un altro.","mail":{"textBeforeName":" L'utente :","textAfterName":" si è unito al gruppo:","emailSubject":" Un utente si è unito al gruppo."}},"name":" Nome del gruppo","description":" Descrizione del gruppo","link":" Collegamento del gruppo","applications":" Applicazione(i) di gruppo","groupsPerPage":" Gruppi per pagina","groupDeleted":" Gruppo cancellato","groupCreated":" Gruppo stabilito con successo","groupUpdated":" Gruppo modificato con successo","groupCreateFailed":" Il gruppo non può essere creato","showLinkTitle":" Collegamento del gruppo","usersWithoutGroups":" Utenti senza gruppo","searchResult":" Risultato della ricerca","usersInactiveOrNoRegular":" Utenti inattivi e non regolari","usersWithoutGroupsDescription":" Raggruppamento di utenti non collegati a nessun gruppo","usersInactiveOrNoRegularDescription":" Raggruppamento di utenti inattivi e/o non regolari","groupDeleteError":" Il gruppo non può essere cancellato.","groupFull":" Il gruppo è completo.","groupFullAdminMessage":" Il gruppo è completo, non puoi aggiungere altri utenti.","toManyStudentsFromTheTeacher":" L'insegnante che vuoi aggiungere al gruppo ha troppi studenti.","toManyStudentsInGroup":" Il gruppo non può ospitare così tanti studenti, l'insegnante ha troppi studenti.","teachersPerGroup":" Insegnante per gruppo","studentsPerGroup":" Studenti per gruppo","activitiesPerGroup":" Attività per gruppo","activitiesPerTeacher":" Attività dell'insegnante","studentsPerTeacher":" Studenti per insegnante","maxStudents":" Numero massimo di studenti","maxActivities":" Attività massime"},"title":{"activeUsers":" Utenti attivi","inaactiveUsers":" Inactive users"},"buttons":{"continue":" Continua","validate":" Convalidare","activate":" Attivare","cancel":" Cancella","finalize":" Finalizzare","send":" Invia","login":" Entrare","signup":" Registrazione di","join":" Unisciti a","save":" Registra","close":" Chiudere","disable":" Disattivare","delete":" Cancellare","reset":" Azzerare","update":" Modifica","search":" Cerca","restart":" Ricominciare","copyLink":" Copia il link","show":" Vedi","manage":" Gestire","user":{"add":" Aggiungi utente","create":" Crea utente","delete":" Cancellare l'utente","update":" Cambia utente","addGroup":" Aggiungere un gruppo","createA":" Creare un utente","updateA":" Modificare un utente","updateApp":" Modificare le applicazioni"},"group":{"add":" Aggiungere il gruppo","create":" Creare il gruppo","delete":" Cancellare il gruppo","update":" Modificare il gruppo","createA":" Creare un gruppo","updateA":" Modificare un gruppo"}},"sort":{"user":{"bylastname":" Ordina per nome","byfirstname":" Ordina per nome"},"group":{"byname":" Ordina per nome","bydesc":" Ordina per descrizione"}},"input":{"placeholder":{"delete":" cancellare"},"writeDelete":" Dovete scrivere cancellare per convalidare l'azione.","writeDisable":" Dovete scrivere deactivate per convalidare l'azione."},"table":{"lastname":" Nome","firstname":" Nome","applications":" Applicazioni","group":" Gruppo","description":" Descrizione","descriptionMandatory":" Descrizione <span class=\"c-text-red\">*</span>","right":" Ruolo","resetPassword":" Ripristina la password","link":" Link","name":" Nome","nameMandatory":" Nome <span class=\"c-text-red\">*</span>","dateBegin":" Data di inizio","dateEnd":" Data di fine","outDated":" Superato","maxStudents":" Numero massimo di studenti","actualStudents":" Studenti attuali","maxTeachers":" Numero massimo di insegnanti","actualTeachers":" Insegnanti attuali","maxStudentsPerTeachers":" Numero massimo di studenti per insegnante","maxStudentsPerTeacher":" Numero massimo di studenti per insegnante","activityType":" Tipo di attività","maxActivitiesPerGroup":" Numero massimo di attività per gruppo","maxActivitiesPerTeacher":" Numero massimo di attività per insegnante","monitoring":" Monitoraggio delle applicazioni","image":" Immagine","userNoRights":" Nessun diritto assegnato","userAdmin":" Direttore","userTeacher":" Insegnante","restrictions":" Restrizioni"},"apps":{"apps":" Applicazioni","create":" Creare un'applicazione","updateSuccess":" Applicazione modificata con successo","createSuccess":" Applicazione creata con successo","deleteSuccess":" Applicazione cancellata con successo","deleteIntention":" Stai per cancellare l'applicazione: <span id=\"application_delete_name\"></span>","outDatedApp":" L'applicazione che vuoi assegnare non è aggiornata.","infoMaxStudentsPerTeachers":" Determina il numero massimo di studenti che un insegnante del gruppo può avere.","infoMaxStudentsPerGroups":" Determina il numero massimo di studenti che il gruppo può avere (sommando il numero totale di studenti degli insegnanti con questa applicazione)","infoMaxTeachers":" Determina il numero massimo di insegnanti che possono avere l'applicazione in questo gruppo","usersLimitation":" Limitazione degli studenti per utente","groupsLimitation":" Limiti del gruppo","activitiesLimitation":" Limiti di attività","defaultRestrictions":" Restrizioni predefinite","ltiApps":" Applicazioni LTI","clientId":" ID cliente <span class=\"c-text-red\">*</span>","deploymentId":" Deployment id <span class=\"c-text-red\">*</span>","toolUrl":" Strumento url <span class=\"c-text-red\">*</span>","publicKeySet":" Chiave pubblica <span class=\"c-text-red\">*</span>","loginUrl":" Url di accesso <span class=\"c-text-red\">*</span>","redirectionUrl":" Redirect Url <span class=\"c-text-red\">*</span>","deepLinkUrl":" Link profondo url <span class=\"c-text-red\">*</span>","privateKey":" Chiave privata <span class=\"c-text-red\">*</span>"},"activitiesRestrictions":{"updateAll":" Cambiare le restrizioni","update":" Modificare una restrizione","create":" Creare una restrizione","delete":" Rimuove una restrizione","updateSuccess":" Restrizione modificata con successo","createSuccess":" Restrizione creata con successo","deleteSuccess":" Restrizione rimossa con successo","deleteIntention":" Stai per rimuovere la restrizione: <span id=\"restriction_delete_name\"></span>","restrictionType":" Tipo di attività","maxActivity":" Attività massima","closeDetail":" Chiudi il dettaglio","restrictions":" Restrizioni di attività","appRestricted":" Creare più attività!","appRestrictedUL1":" Hai raggiunto il limite di {{attività}} associato al tuo account.","appRestrictedUL2":" Per aggiungere altre attività, contatta il tuo amministratore.","appRestrictedSubtitle2":" Un problema con il tuo abbonamento?","appRestrictedSubtitle3":" Contatta il supporto","appRestrictedGarContent1":" Hai raggiunto il limite di {{attività}} associato al tuo account.","appRestrictedGarContent2":" Per aggiungere altre attività, contatta il responsabile delle assegnazioni RBM della tua scuola."},"defaultRestrictions":{"update":" Cambiare le restrizioni predefinite","type":" Tipo di attività","max":" Massimo","add":" Aggiungere una restrizione","updateUsersRestrictionsSuccess":" Restrizioni utente modificate con successo","updateGroupsRestrictionsSuccess":" Restrizioni di gruppo modificate con successo","updateActivitiesRestrictionsSuccess":" Restrizioni di attività modificate con successo","deleteActivitiesRestrictionsSuccess":" Limitazione delle attività cancellate con successo","getDefaultRestrictions":" Vedere le restrizioni predefinite","restrictionAlreadyExist":" La restrizione esiste già"}},"navbar":{"items":{"kits":" Materiale","community":{"title":" Comunità","dropdown":{"vittamap":" Vittamap","blog":" Blog","gallery":" Galleria","about":" Chi siamo"}},"tooltips":{"backToHome":" Ritorna alla pagina iniziale","programming":" Codificare con Vittascience","resources":" Centro risorse educative","classroom":" Gestisci le tue classi con Vittascience","hardware":" Scopri i nostri kit e prodotti"},"programming":" Programma","classroom":" Classe","arduino":" Arduino","microbit":" Microbit","microbit-tutorials":" Microbit Tutorials","ressources":" Risorse","accessibility":" Cambiare il tema e il carattere del sito","lang":" Cambiare lingua","user_shortcuts":{"welcome":" Benvenuti!","signup":" Iscriviti","login":" Entrare","hello":" Ciao","account":" Il mio account","disconnect":" Scollegare","willSignup":" Mi iscrivo!","willSignin":" Sono online"}}},"newActivities":{"create":" Creare una nuova attività","delete":" Cancellare","addQuiz":" Aggiungere una proposta","states":" Dichiarazione di attività <span class=\"c-text-red\">*</span>","cancel":" Cancella","autocorrect":" Correzione automatica","correction":" Correzione dell'attività","tolerance1":" Aggiungere una tolleranza d'errore di","tolerance2":" carattere(i) sull'intera risposta dello studente.","hint":" Hint * : visualizzato se la risposta è sbagliata","title":" Titolo dell'attività <span class=\"c-text-red\">*</span>","description":" Descrizione dell'attività <span class=\"c-text-red\">*</span>","content":" Contenuto dell'attività <span class=\"c-text-red\">*</span>"},"courses":{"addActivity":" Add an activity","addActivities":" Add activities","createActivity":" Create an activity","searchActivity":" Search an activity","placeholderTitle":" Activity title","placeholderDescription":" Activity description","pagination":{"create":" Course's creation","title":" Title","parameters":" Parameters","attribution":" Attribution"},"parameters":{"title":" Course title <span class=\"c-text-red\">*</span>","description":" Course's description <span class=\"c-text-red\">*</span>","difficulty":" Difficulty <span class=\"c-text-red\">*</span>","difficultyLevel":{"choose":" Choose a difficulty level","easy":" Easy","medium":" Medium","advanced":" Advanced","expert":" Expert"},"duration":" Duration (minutes) <span class=\"c-text-red\">*</span>","license":" User license <span class=\"c-text-red\">*</span>","licenseType":{"1":" Private (only you can see this resource)","2":" Unreferenced (shareable resource by link but not findable on the Resources page)","3":" Public CC-BY-NC-SA (free, non-commercial and modifiable resource)","4":" Public CC-BY-NC-ND (free, non-commercial and non-modifiable resource)","choose":" Choose a license"}},"successfullyCreated":" Course created successfully","attribution":" Course attribution <i class='fas fa-chevron-right'></i>","return":" Return <i class='fas fa-chevron-right'></i>","update":" Update the course"}}
+{
+    "classroom": {
+        "login": {
+            "noClass": "Il codice inserito non corrisponde a nessuna classe.",
+            "countdown1": " Il modulo di gestione delle classi è attualmente in beta. Se vuoi provarlo, per favore <a href=\"/about?contact=1\">contatta il team di Vittascience</a>.",
+            "countdown2": " Rilascio ufficiale in",
+            "hello1": " Ciao!",
+            "hello2": " Ciao!",
+            "title": " Gestisci le tue classi con Vittascience",
+            "neutralTitle": "La piattaforma Cabri",
+            "cabriTitle": " Cabri.com",
+            "subtitle": "Scoprire - Imparare - Condividere",
+            "cabriSubtitle": " The platform to succeed in math and science",
+            "login": "Accedi",
+            "activities": "crea facilmente  </br> le tue attività",
+            "cabriActivities": " Create exercises</br> automatically in</br> a few minutes",
+            "attribute": "assegna i </br> ai tuoi studenti",
+            "cabriProgress": " Follow the progress</br> of your learners",
+            "visualize": "visualizza </br> i loro risultati",
+            "cabriRessources": " Access a </br> variety of activities </br> and share your creations",
+            "student": "STUDENTE",
+            "codeInput": "Inserisci qui il codice di classe",
+            "teacher": "INSEGNANTE",
+            "hasAccount": "Hai già un account?",
+            "gar": "Approfittate del modulo di classe con l'aiuto di GAR. </br><i class=\"fas fa-exclamation-triangle\" style=\"color:var(--vitta-orange-light)\"></i>  Il collegamento con il GAR non è ancora finalizzato, sarà pronto presto.",
+            "signup": "REGISTRARSI",
+            "firstVisit": "Prima visita? Si prega di scegliere un login.",
+            "signin": "COLLEGARSI",
+            "registerLink": "Creare un account",
+            "hasReturned": "Di ritorno in questa classe?",
+            "forgot": "Ho dimenticato la mia password",
+            "error": {
+                "used": "Questo nome utente è già in uso, per favore scegline un altro",
+                "badInput": "Il tuo nome utente o la tua password sono sbagliati."
+            },
+            "suscribe": {
+                "title": " sottoscrivere",
+                "content": " Il modulo di gestione delle classi è disponibile gratuitamente in una versione di prova. Approfittate di tutte le funzionalità con l'abbonamento Vittascience Premium. Trova tutti i vantaggi e i dettagli dell'offerta Vittascience Premium utilizzando il pulsante qui sotto.",
+                "premium": " Scoprire Vittascience Premium"
+            },
+            "carousel": {
+                "activities": {
+                    "title": " crea facilmente le tue attività",
+                    "content": " L'editor di attività rende facile la creazione di contenuti educativi, tra cui testo, immagini, video, API Vittascience, presentazioni Genially e altro ancora.</br></br>Sfogliate la banca di risorse collaborative Vittascience con centinaia di attività gratuite e riutilizzabili. Se l'autore della risorsa lo permette, puoi anche fare delle modifiche per adattare il contenuto ai tuoi studenti!"
+                },
+                "attribute": {
+                    "title": " assegnarli ai tuoi studenti",
+                    "content": " Una volta che hai creato le tue attività, puoi assegnarle ai tuoi studenti. Possono essere assegnati individualmente o a interi gruppi, per esempio una classe o un club scientifico.</br></br>Gli studenti possono accedere in modo sicuro usando un codice di classe, un link, un QRcode o un GAR, e completare le attività loro assegnate."
+                },
+                "visualize": {
+                    "title": " vedere i loro risultati",
+                    "content": " Il dashboard ti permette di seguire i progressi degli studenti mentre si muovono attraverso le attività e i corsi. Trova il lavoro dei tuoi studenti in un click con la possibilità di commentare il rendering.</br></br>Grazie al sistema di correzione automatica per blocchi e Python, la dashboard si riempie direttamente con i risultati degli studenti. Identificare rapidamente gli studenti in difficoltà e risparmiare tempo prezioso per accompagnarli."
+                }
+            },
+            "register": {
+                "title": "Registrazione",
+                "description": "Completa i seguenti campi per creare il tuo account.\n",
+                "passwordConstraints": "Minimo 8 caratteri.",
+                "createButton": "Registrazione"
+            }
+        },
+        "register": {
+            "accountConfirmationEmail": {
+                "emailSubject": "Attivare il mio account",
+                "bodyTitle": "Attivare il mio account",
+                "textBeforeLink": "Se il pulsante qui sopra non funziona, copia e incolla il seguente link nel tuo browser:"
+            }
+        },
+        "updateUserInfos": {
+            "emailUpdateConfirmation": {
+                "emailSubject": "Conferma il mio nuovo indirizzo e-mail",
+                "bodyTitle": "Conferma il mio nuovo indirizzo e-mail",
+                "textBeforeLink": "Se il pulsante qui sopra non funziona, copia e incolla il seguente link nel tuo browser:"
+            }
+        },
+        "successPanel": "Bene, ce l'hai fatta!",
+        "failPanel": "La risposta non è corretta",
+        "toCorrectPanel": "L'attività è stata trasmessa al tuo insegnante, </br>che ti risponderà presto! <i class=\"fas fa-pen\"></i>",
+        "bank": {
+            "helpTooltip": " La banca delle risorse contiene molte attività che puoi praticare da solo! Il tuo insegnante non avrà accesso ai risultati di queste attività."
+        },
+        "help": {
+            "student": {
+                "label": "Contatta il tuo insegnante",
+                "question": "Fai le tue domande...",
+                "title": "Oggetto"
+            },
+            "teacher": {
+                "label": "Contatta il tuo insegnante"
+            }
+        },
+        "profil": {
+            "identity": "Nome Cognome",
+            "class": "CLASSE : ",
+            "todo": "Attività da fare",
+            "done": "Attività svolte",
+            "create": "Attività create",
+            "correctionToDo": "Correzioni da fare",
+            "switchMode": "Passare alla modalità studente",
+            "switchModeTeacher": "Torna alla modalità insegnante",
+            "accountSettings": {
+                "title": "Il mio account",
+                "firstname": "Nome",
+                "lastname": "Cognome",
+                "nickname": "Nome utente",
+                "email": "E-mail",
+                "password": "Password",
+                "confirmPassword": "Conferma la password",
+                "updateButton": "Aggiornare"
+            }
+        },
+        "notif": {
+            "emptyContent": " Il contenuto non può essere vuoto.",
+            "emptyTitle": " Il titolo non può essere vuoto.",
+            "activityRestricted": " Non si possono creare più attività di questo tipo.",
+            "shareProjectTeacher": "Il progetto è stato condiviso con il tuo insegnante",
+            "addActivities": "Le attività selezionate sono state aggiunte alla tua lista",
+            "addActivity": "L'attività è stata aggiunta alla tua lista",
+            "saveProject": "Hai pensato di salvare il tuo lavoro?",
+            "savedProject": "La bozza della tua attività è stata salvata.",
+            "deleteProject": "Il progetto è stato cancellato.",
+            "shareProject": "Il progetto è stato condiviso",
+            "corrections": "Nelle tue classi è stato fatto un esercizio",
+            "deleteAccount": "Sei sicuro di voler cancellare l'account dello studente?",
+            "accountIsDelete": "L'account dello studente è stato cancellato",
+            "newPwd": "La nuova password dello studente {{pseudo}} è {{pwd}}",
+            "classCreatedButNotUsers": "La classe {{nomeAula}} è stata creata, ma non gli account associati (Il tuo account non ti permette di avere studenti {{numero di studenti}})",
+            "classUpdatedButNotUsers": "La classe {{classroomName}} è stata aggiornata, ma non gli account associati (Il tuo account non ti permette di avere studenti {{learnerNumber}})",
+            "usersNotAdded": "Lo studente non è stato aggiunto (Il tuo account non ti permette di avere {{learnerNumber}} studenti)",
+            "cantLoginLimitLearners": "Non puoi unirti alla classe. Il tuo insegnante ha raggiunto il numero massimo di studenti.",
+            "cantLoginClassroomBlocked": "Non puoi unirti alla classe, il tuo insegnante l'ha bloccata.",
+            "classNotCreated": "Non puoi avere più di una classe.",
+            "attributeActivityUndone": "L'attività è stata disattribuita",
+            "pseudoUpdated": "Il nuovo nome utente dello studente è {{newPseudo}}",
+            "classroomDeleted": "La classe {{classroomName}} è stata cancellata",
+            "classroomCreated": "La classe {{nome dell'aula}} è stata creata, insieme a tutti gli account associati",
+            "classroomUpdated": "La classe {{classroomName}} è stata aggiornata, insieme a tutti gli account associati",
+            "usersAdded": "Gli account sono stati creati",
+            "usersAddedFromCsv": "Gli account sono stati creati secondo il file csv",
+            "activityDeleted": "L'attività {{attivitàNome}} è stata cancellata",
+            "mustAttributeToStudent": "Devi selezionare gli studenti",
+            "activityAttributed": "L'attività {{attivitàTitolo}} è stata assegnata agli studenti elencati",
+            "activityAttributionChanged": "L'assegnazione dell'attività {{attivitàTitolo}} è stata cambiata per gli studenti elencati",
+            "activityCreated": "L'attività {{attivitàTitolo}} è stata creata",
+            "activityChanged": "L'attività {{attivitàTitolo}} è stata modificata",
+            "activityTitleMissing": "Devi compilare il titolo dell'attività",
+            "activityPlayerMissing": " È necessario inserire un URL del giocatore.",
+            "CsvFileMissing": "Non hai scelto un file csv",
+            "errorWithCsv": "Errore nell'apertura del file csv: {{errore}}",
+            "cantGetPassword": "Errore, non puoi vedere la tua password",
+            "cantResetPassword": "Errore, non è possibile reimpostare la password",
+            "accountUpdated": "Il tuo account è stato aggiornato",
+            "emailUpdated": "Vai al link di conferma del nuovo indirizzo e-mail per completare l'aggiornamento",
+            "firstNameTooShort": "Il nome deve essere lungo almeno 2 caratteri",
+            "lastNameTooShort": "Il cognome deve essere lungo almeno 2 caratteri",
+            "pseudoTooShort": "Il nome utente deve essere lungo almeno 2 caratteri",
+            "invalidEmail": "L'indirizzo e-mail inserito non è valido",
+            "invalidPassword": "La password inserita non è valida. Deve essere lungo almeno 8 caratteri.",
+            "passwordAndConfirmMismatch": "La password e la conferma della password non sono identiche!",
+            "unknownUser": "Errore durante l'aggiornamento dell'account: l'utente non esiste!",
+            "passwordInvalid": "La password non rispetta i vincoli di sicurezza.",
+            "emailInvalid": "L'indirizzo e-mail inviato non è valido",
+            "emailExists": "L'indirizzo e-mail è già assegnato a un altro account",
+            "UserNotExists": "Errore durante il caricamento/ripristino della password: utente sbagliato!",
+            "RegularUserNotAllowed": "Errore durante il caricamento/ripristino della password: solo gli studenti possono vedere/ripristinare la loro password!",
+            "PasswordLengthInvalid": "Impossibile recuperare la password: password sbagliata!",
+            "accountCreated": "L'account è stato creato. Vai al link di conferma che ti è stato inviato per e-mail per concludere la registrazione e poter accedere.",
+            "firstnameMissing": "Devi inserire il tuo nome",
+            "surnameMissing": "Devi inserire il tuo cognome",
+            "pseudoMissing": "Devi inserire il tuo nome utente",
+            "emailMissing": "Devi inserire il tuo indirizzo e-mail",
+            "passwordMissing": "Devi inserire la tua password",
+            "passwordConfirmMissing": "È necessario confermare la password",
+            "passwordsMismatch": "La password e la conferma non sono identiche",
+            "invalidUserId": "Errore durante l'invio del messaggio: il tuo login non è valido",
+            "helpRequestFromTeacherSent": "Il tuo messaggio è stato inviato. Vi risponderemo il più presto possibile.",
+            "subjectMissingTeacherHelpForm": "Devi compilare l'oggetto del messaggio",
+            "messageMissingTeacherHelpForm": "Devi inserire il tuo messaggio",
+            "invalidUserIdTeacherHelpForm": "Errore durante l'invio del messaggio: il tuo login non è valido",
+            "unknownUserTeacherHelpForm": "Errore durante l'invio del messaggio: il tuo login non corrisponde a nessun account dell'insegnante",
+            "helpRequestFromLearnerSent": "Il tuo messaggio è stato inviato al tuo insegnante",
+            "subjectMissingLearnerHelpForm": "Devi compilare l'oggetto del messaggio",
+            "messageMissingLearnerHelpForm": "Devi digitare il tuo messaggio",
+            "invalidUserIdLearnerHelpForm": "Errore durante l'invio del messaggio: il tuo login non è valido",
+            "unknownUserLearnerHelpForm": "Errore durante l'invio del messaggio: il tuo nome utente è sconosciuto",
+            "unknownEmailLearnerHelpForm": "Errore durante l'invio del messaggio: l'indirizzo e-mail del tuo insegnante è sconosciuto",
+            "activityTitleInvalid": "L'attività non può essere creata: titolo non valido",
+            "activityContentInvalid": "L'attività non può essere creata: contenuto non valido",
+            "activityIsFromClassroomInvalid": "L'attività non può essere creata: errore di contesto",
+            "activityUserIdInvalid": "L'attività non può essere creata: utente non valido",
+            "personalLimitationsReached": " Hai raggiunto il tuo numero massimo di studenti.",
+            "groupLimitationsGroup": " Il tuo gruppo non può più ospitare allievi.",
+            "groupLimitationsTeacher": " Hai raggiunto il limite di studenti che il tuo gruppo permette.",
+            "bothLimitationsReached": " Avete raggiunto i limiti dei discenti che voi e il vostro gruppo potete avere.",
+            "ClassroomNameInvalid": " Il nome della classe è richiesto.",
+            "reservedNickname": " Il nome: \"{{reservedNickname}}\" non può essere assegnato.",
+            "invalidLink": " Il link che hai inserito non è valido.",
+            "noUser": " Devi compilare uno studente.",
+            "noUserUsername": " È necessario inserire un nome utente.",
+            "pseudoMissingInCsvFile": " Alcuni studenti non potevano essere aggiunti perché mancava il loro nickname.",
+            "backendReplyPseudoMissingInCsv": " Controlla il file CSV: linea vuota o nickname mancante.",
+            "backendReplyPseudoMissingInUsersArray": " C'è un errore in uno o più nomi di allievi.",
+            "invalidActivityId": " Errore durante l'invio del lavoro: identificatore di attività non valido!",
+            "invalidCorrection": " Errore nell'invio del lavoro: stato di attività non valido!",
+            "generalBackendError": " Si è verificato un errore, riprovare più tardi.",
+            "currentPasswordDoesNotMatch": " La password inserita non è corretta!",
+            "noAnswerInActivity": " È necessario compilare almeno un campo di risposta",
+            "courseMissingData": " You must enter a title and a description",
+            "courseMissingParameters": " You must set the parameters for the course"
+        },
+        "ids": {
+            "classroom-dashboard-help-panel-teacher": "Aiuto",
+            "classroom-dashboard-activities-panel-teacher": "Le mie attività",
+            "classroom-dashboard-classes-panel-teacher": "Classi",
+            "classroom-dashboard-sandbox-panel": "Sandbox",
+            "classroom-dashboard-ressources": "Applicazioni",
+            "classroom-dashboard-profil-panel-teacher": "Profilo",
+            "classroom-dashboard-activities-panel": "Le mie attività",
+            "classroom-dashboard-profil-panel": "Profilo",
+            "classroom-dashboard-help-panel": "Aiuto",
+            "classroom-dashboard-activities-panel-library-teacher": "Banca delle risorse",
+            "classroom-dashboard-new-activity-panel": "Creazione dell'attività",
+            "classroom-dashboard-new-activity-panel2": "Intermedio",
+            "classroom-dashboard-new-activity-panel3": "Assegnazione",
+            "classroom-table-panel-teacher": "Classe {{nome}}",
+            "classroom-dashboard-sandbox-creation": "Selezione dell'interfaccia",
+            "classroom-dashboard-ide-panel": "Sandbox {{interfaccia}}",
+            "classroom-dashboard-activity-panel": "Attività {{nome}}"
+        },
+        "displayCode": " Proiettare il codice",
+        "navbar": {
+            "activities": "Attività"
+        },
+        "classes": {
+            "add": "Aggiungere una classe",
+            "noClasses": " Non hai ancora una classe.",
+            "createClassNow": " Inizia a creare una classe ora!",
+            "form": {
+                "title": "Creare una classe",
+                "updateTitle": "Modificare una classe",
+                "name": "Nome della classe",
+                "school": "Nome dell'istituto",
+                "addStudent": "Aggiungere un allievo",
+                "noStudent": "Non ci sono ancora studenti in questa classe",
+                "isBlockedButton": "Limitare a questi studenti, nessun altro potrà unirsi alla classe.",
+                "save": "Salvare la classe",
+                "return": "Tornare in classe"
+            },
+            "panel": {
+                "seeActivity": "Vedere l'attività",
+                "editActivity": "Cambiare l'attività",
+                "editAttribution": "Cambiare l'assegnazione",
+                "removeAttribution": "Ritirare l'assegnazione",
+                "password": "La sua password :",
+                "resetPassword": "Rigenerare la password",
+                "editNickname": "Cambiare il sopranome",
+                "delete": "Ritirare",
+                "copyLink": "Copiare il link diretto",
+                "learnerMode": "Passare alla modalità studente",
+                "dueBy": "Dovuto a"
+            },
+            "copyDirectLink": "Copiare il link diretto",
+            "selectStudents": "Selezione degli studenti",
+            "selectedStudents": "<span id='attribuate-student-number'>0</span> studenti selezionati",
+            "activationLink": "Link di attivazione attivato",
+            "activationLinkDisabled": "Link di attivazione disabilitato",
+            "fullscreen": "Visualizza lo schermo intero",
+            "deleteStudent": "Eliminare il profilo",
+            "deleteStudentConfirm": "Vuoi davvero cancellare questo profilo?"
+        },
+        "activities": {
+            "title": "Attività",
+            "save": "Salvare la bozza ",
+            "add": "Aggiungere un'attività",
+            "addCabriExpress": " Creare l'attività Express",
+            "addCabriGenius": " Creare un'attività intelligente",
+            "addOther": " Altro tipo di attività",
+            "new": "Nuovo",
+            "current": "In attesa di correzione",
+            "waiting": "Non ancora completato",
+            "done": "Completato",
+            "todo": "Da correggere",
+            "draft": "Bozza",
+            "anonymise": "Anonimizza la tua lista di studenti in modo da poter mostrare il dashboard ai tuoi studenti",
+            "save-draft": "Salva come bozza",
+            "validate": "Convalidare l'attività",
+            "accept": "Molto buono",
+            "vgood": "Soddisfacente",
+            "good": "Fragile",
+            "refuse": "Insufficiente",
+            "instruction": "Consegna",
+            "commentary": "Commento",
+            "sendResults": "Invia il commento allo studente ",
+            "noSend": "Questa attività non è stata fatta",
+            "comments": "Inserisci i tuoi commenti qui",
+            "activitySubmited2": " Activity submitted on",
+            "sentOn": " Questa attività è stata completata il",
+            "activityOfUser": " Attività di",
+            "userSentOn": "  reso su",
+            "yourAnswer": " La tua risposta",
+            "studentAnswer": " Risposta dell'allievo",
+            "return": " Torna alle attività",
+            "isAutocorrected": "Questo esercizio è stato valutato automaticamente; è possibile modificare il voto qui sotto.",
+            "isAutocorrect": "Questa attività verrà valutata automaticamente.",
+            "bilan": {
+                "title": "Bilancio",
+                "results": "Risultati",
+                "noComment": " Nessun commento"
+            },
+            "applist": {
+                "selectApp": " Seleziona l'applicazione con cui vuoi creare un'attività"
+            },
+            "form": {
+                "1": "Creazione dell'attività",
+                "2": "Assegnazione",
+                "3": " Titolo",
+                "4": " Assegnazione",
+                "title": {
+                    "label": "Titolo dell'attività",
+                    "labelCabri": " Qual è il titolo dell'attività?",
+                    "placeholder": "Titolo del gioco",
+                    "placeholderCabri": " Titolo dell'attività"
+                },
+                "iframe": {
+                    "label": " Qual è l'URL di accesso?",
+                    "placeholder": " Immettere un URL"
+                },
+                "notebookUpdateMessage": " Non modificare questa sezione se si vuole mantenere il vecchio libro delle attività!",
+                "notebookUrl": {
+                    "label": " Aggiungere l'URL di un taccuino",
+                    "placeholder": " URL del taccuino"
+                },
+                "playerUrl": {
+                    "label": " Aggiungere l'URL di un giocatore",
+                    "placeholder": " URL giocatore"
+                },
+                "player": {
+                    "labelFileChooser": " Scegliere un file",
+                    "fileUpload": " Il file è stato caricato con successo",
+                    "dragDrop": " Trascinamento e rilascio"
+                },
+                "nextButton": " Avanti",
+                "endButton": " Finitura",
+                "content": {
+                    "label": "Contenuto dell'attività"
+                },
+                "back": " Indietro",
+                "validate": " Convalidare",
+                "buttonContinue": " Salva e continua",
+                "button": "Salvare e convalidare",
+                "success": "Congratulazioni, hai creato un'attività!",
+                "attribute": "Assegnare l'attività da ora",
+                "attribute2": "Attribuisci l'attività ",
+                "return": "Torna alle mie attività",
+                "hint": "Puoi sempre assegnare questa attività in seguito dalla dashboard.",
+                "modify": "Modificare l'attività",
+                "select1": "Selezione degli studenti",
+                "select2": " selezionati.",
+                "instructions": "Consegna specifica per questi studenti\n",
+                "autocorrect": "Questa attività dispone di una correzione automatica, vuoi attivarla?",
+                "nature": "Lo studente può presentare l'attività più di una volta?",
+                "dateBegin": "Data di inizio :",
+                "dateEnd": "Data di fine :",
+                "retroAttribution": " Questa attività sarà assegnata ai nuovi studenti"
+            },
+            "toCopy": "Questo codice rende facile unirsi alla tua classe\n",
+            "copyLink": "Il link alla tua classe è stato aggiunto negli appunti\n",
+            "dateBefore": "Termine di scadenza della consegna",
+            "dateBeforeAvailable": " Disponibile fino a",
+            "integrate": "Integrare in un'attività",
+            "veryGoodProficiency": "Molto buono",
+            "goodProficiency": "Soddisfacente",
+            "weakProficiency": "Fragile",
+            "insufficientProficiency": "Insufficiente",
+            "addLearner": "Aggiungere uno studente",
+            "addLearners": " Add learners",
+            "addActivity": " Add an activity",
+            "exportCsv": "Esportazione csv",
+            "players": {
+                "STANDARD": {
+                    "title": " Standard",
+                    "description": " Utilizzando il lettore standard, è possibile leggere online tutti i libri di attività prodotti con lo strumento di authoring Cabri."
+                },
+                "IMUSCICA": {
+                    "title": " iMuSciCA",
+                    "description": " Utilizzando il player iMuSciCA, tutte le attività svolte con lo strumento di authoring Cabri possono essere riprodotte nello studio musicale."
+                },
+                "IFRAME": {
+                    "title": " Altro",
+                    "description": " Scegliete tra una selezione di lettori per utilizzare le attività svolte con lo strumento di authoring Cabri."
+                },
+                "EXPRESS": {
+                    "title": "Express",
+                    "description": "Strumenti di matematica dinamica"
+                },
+                "GENIUS": {
+                    "title": " Smart",
+                    "description": "Strumento di valutazione automatica per la matematica"
+                },
+                "IFRAME-CABRI3D": {
+                    "title": " Cabri 3D",
+                    "description": " Creare un'esplorazione geometrica dinamica nello spazio."
+                },
+                "LTI-BLOCKLY": {
+                    "title": " Cabri Blockly",
+                    "description": " Aggiungere azioni dell'utente a un'attività Cabri, come animazioni, serrature, ecc. programmate visivamente come con Scratch o Snap!"
+                }
+            },
+            "tabs": {
+                "players": " Libro di attività",
+                "iframes": " Video e pagina web"
+            },
+            "iframes": {
+                "IFRAME-VIDEO": {
+                    "title": " Video",
+                    "description": " Inserire l'URL di un video pubblicato su una piattaforma di hosting."
+                },
+                "IFRAME-PAGE": {
+                    "title": " Pagina web",
+                    "description": " Inserire l'URL della pagina web."
+                }
+            },
+            "month": {
+                "1": " Gennaio",
+                "2": " Febbraio",
+                "3": " Marzo",
+                "4": " Aprile",
+                "5": " Maggio",
+                "6": " Giugno",
+                "7": " Luglio",
+                "8": " Agosto",
+                "9": " Settembre",
+                "10": " Ottobre",
+                "11": " Novembre",
+                "12": " Dicembre"
+            },
+            "preview": " Anteprima",
+            "previewTeacherResult": "L'alunno avrebbe ricevuto il seguente voto: ",
+            "studentResult" : "Risultato ottenuto: ",
+            "deleteActivityDisclaimer": " Si sta per eliminare un'attività. Questa azione è irreversibile.",
+            "deleteConfirm": " Confermare la cancellazione dell'attività",
+            "deleteActivity": " Cancellare l'attività",
+            "correctAnswer": " Risposta corretta",
+            "nbActivities": " <span class='nb-activities'>{{ nbActi }}</span> Attività </p>",
+            "moveToFolder": " Spostarsi a",
+            "rootFolder": " Cartella principale",
+            "seekFolder": " Andare alla cartella",
+            "foldersMessages": {
+                "errorDelete": " Si è verificato un errore durante l'eliminazione della cartella",
+                "errorCreate": " Si è verificato un errore durante la creazione del file",
+                "errorLenght": " Il nome della cartella deve avere una lunghezza compresa tra 1 e 30 caratteri.",
+                "errorUpdate": " Si è verificato un errore durante la modifica del file",
+                "errorMoveTo": " Si è verificato un errore durante lo spostamento dell'oggetto",
+                "movedTo": " Oggetto spostato con successo",
+                "created": " File creato con successo",
+                "updated": " File modificato con successo",
+                "deleted": " File eliminato con successo",
+                "createFolder": " Creare una cartella",
+                "deleteFolder": " Confermare l'eliminazione del file",
+                "updateFolder": " Modificare il file",
+                "nameMandatory": " Nome cartella <span class='mandatory'>*</span>",
+                "deleteDisclaimer": " Attenzione, la cartella e tutti i suoi contenuti (attività e sottocartelle) verranno eliminati."
+            },
+            "facultative": " Campi opzionali",
+            "previewActivity": " Anteprima dell'attività",
+            "infoRetroAttribution": " Questa attività sarà assegnata ai nuovi studenti quando saranno aggiunti alla classe.",
+            "infoAutocorrect": " Questa attività ha una correzione automatica",
+            "infoEvaluation": " Nella modalità di valutazione, i discenti possono inviare l'attività una sola volta e non hanno accesso a suggerimenti e consigli."
+        },
+        "filter": {
+            "desc": "Dal meno recente al più recente",
+            "asc": "Dal più recente al meno recente",
+            "cabriExpress": " Attività espresse",
+            "cabriGenius": " Attività intelligenti",
+            "cabriVittascience": " Attività di Vittascienza",
+            "iframe": " Altre attività",
+            "placeholder": "Cerca..."
+        },
+        "sandbox": {
+            "mine": "I miei progetti",
+            "shared": "Progetti condivisi",
+            "add": "Creare un programma",
+            "chooseInterface": "Selezionate l'interfaccia sulla quale volete creare un programma: ",
+            "teacherSharedDescription": "Trova qui i programmi condivisi dai tuoi studenti.",
+            "studentSharedDescription": "Trova qui i programmi condivisi dal tuo insegnante"
+        },
+        "footer": {
+            "privacy": "Politica sulla privacy ",
+            "cgu": "Condizioni generali d'uso",
+            "copyright": "copyright"
+        },
+        "teacherHelpPanel": {
+            "contactForm": {
+                "title": "Contattaci",
+                "objectPlaceholder": "Oggetto",
+                "messagePlaceholder": "Scrivi qui il tuo messaggio. (Massimo 800 caratteri)",
+                "sendButton": "Invia il messaggio",
+                "fillInAllTheFields": "Completa tutti i campi"
+            }
+        },
+        "sandBoxCreationPanel": {
+            "title": " Selezionate l'interfaccia sulla quale volete creare un programma",
+            "knowMoreButton": " Maggiori informazioni sulle interfacce",
+            "interfacesDescription": {
+                "arduino": " Interfaccia di programmazione per la scheda Arduino",
+                "microbit": " Interfaccia di programmazione per la scheda micro:bit",
+                "python": " Interfaccia di programmazione per Python 3 progettata per l'istruzione",
+                "texas-instruments": " Interfaccia di programmazione per la calcolatrice con la scheda micro:bit",
+                "esp32": " Interfaccia di programmazione per schede ESP32 (Wemos D1R32, NodeMCU, Huzzah32, ...)",
+                "quickpi": " Interfaccia di programmazione per la scheda Quick-Pi"
+            }
+        },
+        "modals": {
+            "addLtiActivityName": " Qual è il titolo dell'attività?",
+            "addActivity": {
+                "title": "Aggiungere un'attività",
+                "resourceBank": {
+                    "title": "Sfoglia la banca di risorse collaborative",
+                    "button": "Banca delle risorse "
+                },
+                "orSeparator": "O",
+                "attributeActivity": {
+                    "title": "Visualizza le mie attività esistenti",
+                    "button": "Le mie attività "
+                },
+                "createActivity": {
+                    "title": "Creare una nuova attività",
+                    "button": "Creare un'attività "
+                },
+                "next": " Avanti",
+                "limitTitle": " Limite superato",
+                "limitDescription": " Limite del numero di attività raggiunto per questo account.",
+                "upgradePlan": " Aumentare il limite"
+            },
+            "updateActivity": {
+                "title": " Modificare un'attività"
+            },
+            "deleteActivity": {
+                "title": " Eliminare un'attività",
+                "description": " Siete sicuri di voler eliminare l'attività?",
+                "confirm": " Confermare",
+                "cancel": " Annullamento"
+            },
+            "settingsTeacher": {
+                "title": "Impostazioni dell'account",
+                "lang": "Lingua",
+                "description": "Per cambiare la tua password o altre impostazioni dell'account",
+                "accessButton": "Vai al tuo profilo",
+                "password": "Password",
+                "passwordDescription": "Ecco la tua password. Memorizzala, altrimenti solo il vostro insegnante potrà comunicartela.",
+                "resetPassword": "Azzerare"
+            },
+            "addStudent": {
+                "title": "Aggiunta di studenti",
+                "pseudo": "Nome utente",
+                "addStudentButton": "Aggiungi lo studente",
+                "addStudentByCsvButton": "Aggiungere un file studente (.csv)"
+            },
+            "addStudentByCsv": {
+                "title": "Aggiungere studenti con un file .csv",
+                "description": "Puoi aggiungere uno o più studenti in una volta importandoli da un file .csv. Opzionalmente, è possibile impostare la password per ciascuno di essi. Ecco i file .csv di esempio: ",
+                "csvTemplate": "file modello con password",
+                "csvTemplateNoPassword": "file modello senza password",
+                "importStudentByCsvButton": "Importare gli studenti",
+                "fileChooser": "Scegliere un file",
+                "fileName": "Nessun file selezionato"
+            },
+            "exportCsv": {
+                "title": "Esportazione in formato csv",
+                "exportLearnersDescription": "Scarica la lista degli studenti di questa classe e le loro password. Il file scaricato è in formato .csv.",
+                "exportLearners": "Scarica l'elenco degli studenti",
+                "exportDashboardDescription": "Scarica la lista degli studenti per questa classe e, per ognuno di loro, le attività assegnate e lo stato di ogni attività (non ancora fatta, da correggere, completata). Il file scaricato è in formato .csv.",
+                "exportDashboard": "Scarica il pannello di controllo"
+            },
+            "listClass": {
+                "title": "Passare alla modalità studente",
+                "description": "Puoi facilmente testare l'interfaccia come studente e tornare al tuo profilo di insegnante in qualsiasi momento. I tuoi progressi come studente saranno salvati nel tuo account demostudent.",
+                "switchButton": "Passare alla modalità studente",
+                "noClass" : "Per utilizzare questa funzione, è necessario creare prima una classe"
+            },
+            "changePseudo": {
+                "title": "Cambia il nome utente",
+                "description": "Cambia il nome utente",
+                "validateButton": "Convalidare"
+            },
+            "attributeActivity": {
+                "title": " Allocare l'attività"
+            },
+            "shareProject": {
+                "title": " Condividere il progetto"
+            }
+        }
+    },
+    "login_popup": {
+        "title": "Accedi",
+        "details": "Inserisci i tuoi dati di accesso per accedere al tuo account.",
+        "form": {
+            "addressmail": "Indirizzo e-mail",
+            "addressmail_placeholder": "esempio@dominio.com",
+            "password": "Password",
+            "password_placeholder": "La tua password.",
+            "forgot_password": "Ho dimenticato la mia password.",
+            "btn_connect": "Entrare"
+        },
+        "success": "L'autenticazione ha avuto successo. Reindirizzamento...",
+        "error": "Errore. Per favore controlla i tuoi dati di accesso.",
+        "mailSuccess": " Un'e-mail di attivazione è stata inviata al tuo indirizzo di posta elettronica.",
+        "mailError": " Si è verificato un errore. Per favore, controllate il vostro indirizzo e-mail.",
+        "userNotFound": " Nessun utente trovato con queste credenziali.",
+        "inactiveAccount": " Il tuo account non è ancora attivo, clicca sul pulsante qui sotto per inviare l'email di convalida.",
+        "accountDeactivated": " Il tuo account è stato disattivato, contatta un amministratore se il problema persiste.",
+        "errorBeta": "Devi essere un beta tester per accedere a questa funzione. <a href='https://fr.vittascience.com/about#contact'>Contatta il team Vittascience</a> per saperne di più."
+    },
+    "signup-popup": {
+        "title": "Registrazione",
+        "notice": "Completa i seguenti campi per creare il tuo account Vittascience.",
+        "firstName": "Nome",
+        "lastName": "Cognome",
+        "mail": "Indirizzo e-mail",
+        "telephone": "Telefono",
+        "password": "Password",
+        "passwordConfirmed": "Conferma",
+        "firstNamePlaceholder": "Il tuo nome.",
+        "lastNamePlaceholder": "Il tuo cognome.",
+        "mailPlaceholder": "Un'e-mail di conferma vi sarà inviata.",
+        "telephonePlaceholder": "Il tuo numero di telefono (opzionale).",
+        "passwordPlaceholder": "Minimo 8 caratteri. Maiuscole, minuscole e numeri.",
+        "passwordConfirmedPlaceholder": "Ripeti la tua password una seconda volta.",
+        "mandatory": "I campi segnati con un <span class=\"mandatory\">*</span> sono obbligatori.",
+        "submit": "Confermare",
+        "back": "Indietro",
+        "title2nd": "Per favore, ci fornisca alcune informazioni aggiuntive",
+        "areYou": "Sei...",
+        "member": "Un particolare?",
+        "teacher": "Un insegnante?",
+        "teacher-grade": "Livello di formazione",
+        "grades": {
+            "primary": "scuola media",
+            "middle": "Collegio",
+            "high": "Scuola superiore",
+            "highbis": "Scuola professionale",
+            "higher": "Post-BAC"
+        },
+        "establishement": "Stabilimento",
+        "establishementPlaceholder": "Cerca per nome della scuola o città.",
+        "subject": "Materia insegnata",
+        "bio": "Mini-bio",
+        "bioPlaceholder": "Parlaci un po' di te, in modo che gli altri utenti del sito possano conoscere meglio il tuo background :) Massimo 800 caratteri.",
+        "profilPicture": "Foto del profilo (opzionale)",
+        "allowPictures": "Formati accettati: jpeg, jpg, png. Max. 10Mb",
+        "allowPublicName": "Accettate che il vostro nome e cognome siano pubblici sul sito?",
+        "allowNewsletter": "Vuoi ricevere la nostra newsletter via e-mail?",
+        "allowAlertMessage": "Vuoi ricevere avvisi via e-mail quando ricevi nuovi messaggi sul sito?",
+        "allowMessageReceive": "Vuoi essere contattato da altri utenti del sito?",
+        "eighteenConfirm": "Confermo di avere più di 18 anni (articolo 1124 del codice civile)",
+        "confirmCGU": "Convalidando questo modulo, accetti i <a target=\"_blank\" href=\"/cgu\">termini e condizioni d'uso</a>.",
+        "concernedAboutPrivacy": "Vittascience pone la sicurezza e la riservatezza dei dati personali dei suoi utenti al centro delle sue preoccupazioni. Scopri <a target=\"_blank\" href=\"/privacy\">la nostra politica di protezione dei dati personali</a>",
+        "errors": {
+            "mailUsed": "La mail {{ mail }} è già in uso. Per favore, scegline un'altra.",
+            "mailUsedServer": "L'indirizzo e-mail fornito esiste già.",
+            "lastName": "Il cognome fornito non è corretto.",
+            "firstName": "Il nome fornito non è corretto.",
+            "mailInvalid": "L'indirizzo e-mail non è valido.",
+            "passwordInvalid": "La password non rispetta i vincoli di sicurezza.",
+            "biographyInvalid": "La biografia non è corretta.",
+            "telephoneInvalid": "Il numero di telefono non è corretto.",
+            "profilPictureInvalid": "La foto del profilo fornita non è conforme al formato specificato.",
+            "establishementIncorrect": "Il nome dell'istituto non è corretto.",
+            "gradeIncorrect": "Il livello di insegnamento non è corretto.",
+            "subjectIncorrect": "Il nome della materia insegnata non è corretto."
+        },
+        "success": {
+            "main": "La tua registrazione è avvenuta con successo! Un link di conferma ti è stato inviato a <b>{mail }}</b>.",
+            "notice": "Devi accedere a questo link prima di poter effettuare il login. Se non riesci a trovare l'email in questione, controlla la tua cartella spam."
+        }
+    },
+    "switchAccessibility": {
+        "title": "Accessibilità",
+        "theme": "Tema",
+        "light_theme": "Tema chiaro",
+        "dark_theme": "Tema scuro",
+        "font": "Polizia",
+        "basic_font": "Base",
+        "know_more": "Leggi di più"
+    },
+    "words": {
+        "send": "inviare",
+        "settings": "parametri",
+        "disconnect": "disconnessione",
+        "help": "aiutare",
+        "duplicate": "duplicato",
+        "delete": "cancellare",
+        "attribute": "attribuire",
+        "modify": "modificare",
+        "optional": "opzionale",
+        "evaluation": "valutazione",
+        "exercise": "esercizio",
+        "return": "indietro",
+        "anonymize": "anonimizzare",
+        "monochrome": "Modo monocromatico",
+        "days": "giorni",
+        "hours": "ore",
+        "minutes": "minuti",
+        "seconds": "secondi",
+        "confirm": "confermare",
+        "username": "nome utente",
+        "password": "Password",
+        "yes": "Sì",
+        "no": "No"
+    },
+    "faqTeacherNeutral": {
+        "1": {
+            "section_title": "Attività",
+            "question_list": {
+                "1": {
+                    "title": "Qual è lo scopo della scheda Le mie attività?",
+                    "answer": "Nella scheda <b>Le mie attività</b>, sarai in grado di:<ol><li>Creare le tue attività.</li><li>Poi assegnarle ai tuoi studenti!</li></ol>"
+                },
+                "2": {
+                    "title": "Cos'è un'attività?",
+                    "answer": "Un'attività è un contenuto interattivo creato da Cabri Express, Cabri Smart o da un quaderno Cabri esistente."
+                },
+                "3": {
+                    "title": "Come creare o modificare un'attività?",
+                    "answer": "<p>Puoi creare o modificare facilmente le attività.</p><p>Per modificare un'attività, vai alla scheda <b>Le mie attività</b> e clicca sull'icona <i class=\"fas fa-cog\"></i> della tua attività e poi clicca su Modifica. Non dimenticare di salvare le tue modifiche.</p>"
+                },
+                "4": {
+                    "title": "Come assegnare un'attività?",
+                    "answer": "Per assegnare un'attività, hai tre opzioni:<ol><li>O vai alla scheda <b>Le mie attività</b> e clicca sull'icona <i class=\"fas fa-cog\"></i> della tua attività e poi clicca su Assegna. Poi, dovrai solo seguire i passi.</li><li>Questa opzione di assegnazione è disponibile anche nell'attività stessa una volta aperta.</li><li>Oppure, vai alla scheda <b> Classi</b> e clicca su una classe. Una volta arrivati al pannello di controllo della classe, tutto quello che devi fare è cliccare sul pulsante \"Aggiungi attività\".</li></ol>"
+                },
+                "5": {
+                    "title": "Come testare un'attività?",
+                    "answer": "Per testare un'attività, hai due opzioni:<ol><li>O vai su <b>Profilo</b> e clicca sul pulsante \"Passa alla modalità studente\" e poi seleziona la classe in cui vuoi stare. Vi troverete sull'account fittizio di un allievo chiamato \"demostudent\", potrete scoprire l'interfaccia \"Learner\" e svolgere le attività che avete assegnato.</li><li>Oppure andate su <b>Classi</b> nella dashboard di una classe, potrete allora mettervi nella pelle dell'allievo demostudent. Per fare questo, clicca sull'icona <i class=\"fas fa-exchange-alt\"></i>, avrai l'opportunità di diventare uno studente della classe e provare le attività.</li></ol>Per tornare alla modalità \"Insegnante\", basta andare nella scheda <b>Profilo</b> dell'account demostudent e cliccare su \"Torna alla modalità insegnante\"."
+                },
+                "6": {
+                    "title": "Come rimuovere l'assegnazione di un'attività senza rimuovere l'attività?",
+                    "answer": "Per rimuovere l'assegnazione di un'attività, vai alla scheda <b>Classe</b>, apri la dashboard di una delle classi, poi clicca sull'attività (l'icona diventa <i class=\"fas fa-cog\"></i> quando ci passi sopra il mouse) e poi su Modifica assegnazione. Tutto quello che devi fare ora è cambiare le impostazioni, selezionare o deselezionare gli studenti."
+                }
+            }
+        },
+        "2": {
+            "section_title": "Classe",
+            "question_list": {
+                "1": {
+                    "title": "Qual è lo scopo della scheda Classi?",
+                    "answer": "Nella scheda Classi, sarai in grado di:<ol><li>Creare le tue classi e aggiungere studenti</li><li>Correggere le risposte dei tuoi studenti alle attività,</li><li>e monitorare i loro progressi.</li></ol>"
+                },
+                "2": {
+                    "title": "Come posso aggiungere i miei studenti alla mia classe?",
+                    "answer": "Ci sono diverse opzioni:<ol><li>In classe, puoi <b>proiettare il codice sulla lavagna</b>. Per farlo, vai nella tua classe e clicca sul pulsante per ingrandire il codice qui sotto:<br><img class=\"faq-img-center img-fluid\" src=\"assets/media/faq/image1.png\">I tuoi studenti dovranno solo registrarsi o accedere al sito inserendo il codice. Saranno anche in grado di scrivere questo codice per accedere da casa.</li><li>Puoi anche creare studenti con il pulsante \"Add Learner\" e poi <b>inviare loro la loro password individualmente</b>, questo è visibile sulla dashboard della classe qui sotto:<br><img class=\"faq-img-center img-fluid\" src=\"assets/media/faq/image2.png\"></li></ol>"
+                },
+                "3": {
+                    "title": "Uno studente può essere in due classi diverse?",
+                    "answer": "No, questo non è attualmente possibile."
+                },
+                "4": {
+                    "title": "Come si fa a bloccare l'ingresso di altri studenti in una classe?",
+                    "answer": "Questa opzione sarà presto disponibile! Questo impedirà agli studenti di iscriversi più volte alla stessa classe per errore e impedirà anche agli estranei di entrare nella classe senza permesso."
+                },
+                "5": {
+                    "title": "Come assegnare un'attività?",
+                    "answer": "<p>Puoi assegnare un'attività a tutte le classi che hai creato o solo a un particolare studente.</p><p>Per assegnare un'attività, hai tre opzioni:</p><ol><li>O vai alla scheda <b>Le mie attività</b> e clicca sull'icona <i class=\"fas fa-cog\"></i> della tua attività e poi clicca su Assegna. Poi, dovrai solo seguire i passi.</li><li>Questa opzione di assegnazione è disponibile anche nell'attività stessa una volta aperta.</li><li>Oppure, vai alla scheda <b>Classi</b> e clicca su una classe. Una volta arrivati al pannello di controllo della classe, tutto quello che devi fare è cliccare sul pulsante \"Aggiungi attività\".</li></ol>"
+                },
+                "6": {
+                    "title": "Si può modificare l'assegnazione di un'attività?",
+                    "answer": "Per modificare l'assegnazione di un'attività, vai alla scheda <b>Classe</b>, apri la dashboard di una delle classi, poi clicca sull'attività (l'icona diventa <i class=\"fas fa-cog\"></i> quando ci passi sopra) e poi su Modifica assegnazione. Tutto quello che devi fare ora è cambiare le impostazioni, selezionare o deselezionare gli studenti."
+                },
+                "7": {
+                    "title": "Come vengono valutate le attività?",
+                    "answer": "Le valutazioni sono:<ul><li>Manuale su 4 livelli: Molto buono; Sufficiente; debole e insufficiente</li><li>Automatico su 2 livelli: molto buono e debole.<Questo tipo di valutazione permette all'allievo di ottenere immediatamente la sua correzione e all'insegnante di beneficiare di un notevole risparmio di tempo.</li></ul><p>Una volta che l'allievo ha completato la sua attività, ha la possibilità di ricominciarla se l'insegnante ha selezionato la modalità \"Esercizio\" al momento dell'assegnazione. Nella modalità \"Valutazione\", lo studente non può ricominciare una volta che l'attività è stata convalidata.</p><p>Per visualizzare i risultati, basta andare al Pannello di controllo della classe.</p><p>Un'attività non corretta è simboleggiata da una matita nel Pannello di controllo. Per correggerla clicca sulla matita, poi semplicemente valuta e commenta il lavoro dello studente.</p>"
+                },
+                "8": {
+                    "title": "Come fai a sapere quando gli studenti hanno completato le loro attività?",
+                    "answer": "Quando un allievo ha completato la sua attività, riceverai una notifica via email.<br>Questa impostazione sarà regolabile in futuro, al momento non è configurabile."
+                },
+                "9": {
+                    "title": "Come cambiare il nome di una classe?",
+                    "answer": "Per cambiare il nome della tua classe, dovrai cliccare sull'icona <i class=\"fas fa-cog\"></i> della scheda Classi, poi su modifica. Tutto quello che devi fare è cambiarne il nome."
+                },
+                "10": {
+                    "title": "Come posso rimuovere uno studente da una classe?",
+                    "answer": "<p>Per cancellare uno studente, basta cliccare sull'icona <i class=\"fas fa-cog\"></i> accanto al nome dello studente nel Pannello di controllo della classe.</p><p>Attenzione, questa azione è irreversibile e chiude l'account dello studente.</p>"
+                },
+                "11": {
+                    "title": "Qual è lo scopo del pulsante di anonimizzazione nel Dashboard?",
+                    "answer": "Questo pulsante sostituisce i nomi degli studenti con dei numeri. Questo permette di proiettare i risultati degli studenti sulla lavagna in modo anonimo per non stigmatizzare alcuni studenti."
+                }
+            }
+        },
+        "3": {
+            "section_title": "Profilo",
+            "question_list": {
+                "1": {
+                    "title": "A cosa serve la scheda Profilo?",
+                    "answer": "Nella scheda Profilo, potrai:<ol><li>gestire le impostazioni del tuo account,</li><li>visualizzare le tue statistiche,</li><li>e scambiare messaggi con i tuoi studenti e con il team di Cabrilog se hai bisogno di aiuto.</li></ol>"
+                },
+                "2": {
+                    "title": "Come posso cambiare la mia password o altre impostazioni dell'account?",
+                    "answer": "Per cambiare la tua password o altre impostazioni, vai alla scheda Profilo. Nel caso di GAR, le impostazioni sono quelle del vostro ENT."
+                },
+                "3": {
+                    "title": "Come si cambia la lingua?",
+                    "answer": "Il modulo Classroom è attualmente disponibile in inglese e francese. Per cambiare la lingua, vai alla scheda del profilo, clicca su \"Impostazioni\" e seleziona la lingua che vuoi."
+                },
+                "4": {
+                    "title": "Cos'è la modalità studente?",
+                    "answer": "<p>Nel tuo profilo, puoi cliccare sul pulsante \"Passa alla modalità studente\". Dopo aver scelto una classe, sarete portati a un account fittizio dello studente chiamato \"demostudent\", dove potrete scoprire l'interfaccia dello studente e svolgere le attività che avete assegnato</p><p>Per ritornare alla modalità \"Insegnante\", basta andare al menu<b>Profilo</b>dell'account demostudent e clicca su \"Ritorno alla modalità insegnante\".</p>"
+                }
+            }
+        },
+        "4": {
+            "section_title": "Domande generali",
+            "question_list": {
+                "1": {
+                    "title": "Con quali supporti è compatibile il modulo di classe?",
+                    "answer": "<p>Le interfacce funzionano senza installazione, su computer, tablet e smartphone! Gli aggiornamenti sono automatici e i vostri programmi sono salvati nel cloud.</p><p> Per approfittare al massimo di tutte le funzionalità, ti consigliamo di utilizzare Chrome o Firefox. </p>"
+                },
+                "2": {
+                    "title": "Come posso creare un collegamento per accedere al modulo Classroom?",
+                    "answer": "<p>Hai la possibilità di mettere un'icona sul desktop del computer per accedere rapidamente al modulo Classroom. Per fare questo:</p><p>Su Windows e Mac:</p><ol><li>Apri la pagina: <a href=\"/classroom\" target=\"_blank\">classroom/</a>, poi riduci le dimensioni della finestra del browser in modo da poter vedere il desktop accanto ad essa.</li><li>Nel tuo browser web, usa il mouse per selezionare il simbolo a sinistra dell'indirizzo e, senza rilasciare il click, trascina il puntatore sul Desktop. Rilascia per creare il collegamento.</li><li>Il collegamento viene creato. Dovrai solo fare doppio clic su di esso per aprire la pagina web collegata.</li></ol><p>Su Android con Chrome:</p><ol><li>Aprire la pagina:<a href=\"/classroom\" target=\"_blank\">classroom/</a>, poi premere il pulsante del menu, quindi selezionare \"Aggiungi alla schermata iniziale\".</li><li>Nominare la pagina e premere \"Aggiungi\".</li><li>Il collegamento viene creato. Dovrai solo fare doppio clic su di esso per aprire la pagina web collegata.</li></ol><p>Su Android con Firefox:</p><ol><li>Aprire la pagina:<a href=\"/classroom\" target=\"_blank\">classroom/</a>, poi premere il pulsante del menu, quindi premere Page.</li><li>Toccare Aggiungi collegamento alla pagina.</li><li>Il collegamento viene creato nella schermata iniziale. Dovrai solo cliccarci sopra per aprire la pagina web collegata.</li></ol><p>Su iOS con Safari:</p><ol><li>Apri la pagina:<a href=\"/classroom\" target=\"_blank\">classroom/</a>, poi tocca l'icona Condividi.</li><li>Seleziona nella schermata iniziale, poi tocca Aggiungi.</li><li>Il collegamento viene creato nella schermata iniziale. Dovrai solo cliccarci sopra per aprire la pagina web collegata.</li></ol><p>Si possono trovare altri tutorial su internet per creare un collegamento sul desktop.</p>"
+                }
+            }
+        },
+        "5": {
+            "section_title": "Problema tecnico",
+            "question_list": {
+                "1": {
+                    "title": "Ho un bug, cosa devo fare?",
+                    "answer": "Quando si verifica un bug, la prima cosa da fare è cercare di aggiornare la pagina. Se il bug persiste, puoi contattarci nella scheda Profilo con il pulsante \"Aiuto\"."
+                },
+                "2": {
+                    "title": "Come posso segnalare bug e dare feedback?",
+                    "answer": "Se il bug persiste, puoi contattarci nella scheda del profilo con il pulsante \"Aiuto\".<br>Per darci un feedback, puoi anche contattarci nella scheda del profilo con il pulsante \"Aiuto\"."
+                }
+            }
+        },
+        "6": {
+            "section_title": "Licenze e permessi",
+            "question_list": {
+                "1": {
+                    "title": "Possiamo fare una descrizione o una presentazione del modulo Class?",
+                    "answer": "Sì, puoi riutilizzare le immagini del modulo Classroom per creare una descrizione, una presentazione, una formazione, un tutorial, un corso o altro. Se vuoi includere immagini o contenuti di attività, menziona l'autore (vedi la prossima domanda)."
+                },
+                "2": {
+                    "title": "Dove posso trovare il codice sorgente del modulo Class?",
+                    "answer": "Il codice sorgente del modulo Class è disponibile sul repository git <a href=\"https://github.com/Cabri/OpenSTEAM-LMS/\" target=\"_href\">OpenSTEAM-LMS</a>, sentiti libero di contribuire!"
+                }
+            }
+        },
+        "title": "FAQ"
+    },
+    "faqStudentNeutral": {
+        "1": {
+            "section_title": "Attività",
+            "question_list": {
+                "1": {
+                    "title": "Qual è lo scopo della scheda Le mie attività?",
+                    "answer": "Nella scheda Le mie attività, potrai:<ol><li>completare le nuove attività dei tuoi insegnanti.</li><li>Salvare quelle che non hai ancora finito.</li><li>E rivedere quelle che hai fatto!</li></ol>"
+                },
+                "2": {
+                    "title": "Cos'è un'attività?",
+                    "answer": "Un'attività è un contenuto interattivo creato da Cabri Express o un'attività esistente."
+                }
+            }
+        },
+        "2": {
+            "section_title": "Chiama aiuto",
+            "question_list": {
+                "1": {
+                    "title": "Qual è lo scopo della scheda Call for Help?",
+                    "answer": "Nella scheda Chiamata d'aiuto, potrai:<ol><li>Richiedere aiuto ai tuoi insegnanti in qualsiasi momento,</li><li>Consultare le domande frequenti.</li></ol> Potrai seguire lo scambio dei tuoi messaggi nella scheda Profilo."
+                }
+            }
+        },
+        "3": {
+            "section_title": "Profilo",
+            "question_list": {
+                "1": {
+                    "title": "A cosa serve la scheda Profilo?",
+                    "answer": "Nella scheda Profilo, potrai:<ol><li>gestire le impostazioni del tuo account,</li><li>visualizzare le tue statistiche,</li><li>e scambiare messaggi con i tuoi insegnanti.</li></ol>"
+                },
+                "2": {
+                    "title": "Come posso cambiare la mia password o altre impostazioni dell'account?",
+                    "answer": "Per cambiare la tua password o altre impostazioni, vai alla scheda Profilo."
+                },
+                "3": {
+                    "title": "Come si cambia la lingua?",
+                    "answer": "Il modulo Classroom è attualmente disponibile in inglese e francese. Per cambiare la lingua, vai alla scheda del profilo, clicca sul pulsante \"Impostazioni\", poi seleziona la lingua che vuoi."
+                }
+            }
+        },
+        "4": {
+            "section_title": "Domande generali",
+            "question_list": {
+                "1": {
+                    "title": "Come usare il modulo Classroom?",
+                    "answer": "In qualsiasi momento, puoi accedere all'aiuto generale cliccando sull'icona <i class=\"fas fa-question\"></i> in alto a destra per iniziare il modulo Classroom."
+                },
+                "2": {
+                    "title": "Con quali supporti è compatibile il modulo di classe?",
+                    "answer": "<p>Le interfacce funzionano senza installazione, su computer, tablet e smartphone! Gli aggiornamenti sono automatici e i vostri programmi sono salvati nel cloud.</p><p> Per approfittare al massimo di tutte le funzionalità, ti consigliamo di utilizzare Chrome o Firefox. </p>"
+                },
+                "3": {
+                    "title": "Come posso creare un collegamento per accedere al modulo Classroom?",
+                    "answer": "<p>Potete mettere un'icona sul desktop per accedere rapidamente al modulo Classroom. Per farlo, cliccate sull'icona:</p><p>Su Windows e Mac:</p><ol><li>Aprire la pagina:<a href=\"/classroom\" target=\"_blank\">/classroom/</a>Poi riduci la dimensione della finestra del browser per vedere il desktop accanto ad essa.</li><li>Nel tuo browser web, seleziona con il mouse il simbolo a sinistra dell'indirizzo e, senza rilasciare il clic, trascina il puntatore sul Desktop. Rilascia per creare il collegamento.</li><li>Il collegamento viene creato. Ora devi solo fare doppio clic su di esso per aprire la pagina web collegata.</li></ol><p>Su Android con Chrome :</p><ol><li>Aprire la pagina: <a href=\"/classroom\" target=\"_blank\">/classroom/</a>, poi premere il pulsante del menu, quindi selezionare \"Aggiungi alla schermata iniziale\".</li><li>Dai un nome alla pagina e premi \"Aggiungi\".</li><li>Il collegamento viene creato. Tutto quello che devi fare è un doppio clic su di esso per aprire la pagina web collegata.</li></ol><p>Su Android con Firefox :</p><ol><li></p><ol><li>Aprire la pagina: <a href=\"/classroom\" target=\"_blank\">/classroom/</a>, poi premere il pulsante del menu, quindi premere Page.</li><li>Premere Aggiungi collegamento alla pagina.</li><li>Il collegamento viene creato nella schermata iniziale. Basta cliccarci sopra per aprire la pagina web collegata.</li></ol><p>Su iOS con Safari :</p><ol><li> Abrire la pagina: <a href=\"/classroom\" target=\"_blank\">/classroom/</a>, quindi toccare l'icona Condividi.</li><li>Selezionare dalla schermata iniziale, quindi premere Aggiungi.</li><li>Il collegamento viene creato nella schermata iniziale. Basta cliccarci sopra per aprire la pagina web collegata.</li></ol><p>Puoi trovare altri tutorial su Internet per creare un collegamento sul desktop.</p>\n"
+                }
+            }
+        },
+        "5": {
+            "section_title": "Problema tecnico",
+            "question_list": {
+                "1": {
+                    "title": "Ho un bug, cosa devo fare?",
+                    "answer": "Quando si verifica un bug, la prima cosa da fare è cercare di aggiornare la pagina. Se il bug persiste, puoi contattare il tuo insegnante nella scheda Chiamata d'aiuto."
+                },
+                "2": {
+                    "title": "Come posso segnalare bug e dare feedback?",
+                    "answer": "<p>Se il bug persiste, puoi contattare il tuo insegnante nella scheda Aiuto.</p><p>Per dare un feedback al tuo insegnante, puoi anche contattarlo nella scheda Aiuto.</p>"
+                }
+            }
+        },
+        "6": {
+            "section_title": "Licenze e permessi",
+            "question_list": {
+                "1": {
+                    "title": "Dove posso trovare il codice sorgente del modulo Class?",
+                    "answer": "Il codice sorgente del modulo Class è disponibile su <a href=\"https://github.com/Cabri/OpenSTEAM-LMS/\" target=\"_href\">il repository git di OpenSTEAM-LMS</a>, sentiti libero di contribuire!"
+                }
+            }
+        },
+        "title": "FAQ"
+    },
+    "manager": {
+        "profil": {
+            "manager": " Passa alla modalità manager",
+            "groupAdmin": " Passare al modo amministratore di gruppo",
+            "bio": " Bio",
+            "group": " Gruppo",
+            "apps": " Applicazioni",
+            "personalApps": " Applicazioni personali",
+            "email": " E-mail <span class=\"c-text-red\">*</span>",
+            "nickname": " Nome utente",
+            "lastname": " Nome <span class=\"c-text-red\">*</span>",
+            "firstname": " Nome <span class=\"c-text-red\">*</span>",
+            "phone": " Numero di telefono",
+            "grade": " Livello di istruzione <span class=\"c-text-red\">*</span>",
+            "subject": " Oggetto insegnato <span class=\"c-text-red\">*</span>",
+            "school": " Istituzione <span class=\"c-text-red\">*</span>",
+            "password": " Password <span class=\"c-text-red\">*</span>",
+            "confirmPassword": " Conferma la password <span class=\"c-text-red\">*</span>",
+            "help": " Chiama aiuto",
+            "onlyVisibleGroupAdmin": " Visibile solo a te come amministratore del gruppo:",
+            "onlyVisiblemanager": " Visibile solo a te come manager:"
+        },
+        "account": {
+            "activate": {
+                "success": " Il tuo account è stato attivato!",
+                "alreadyactive": " Il tuo account è già attivo.",
+                "noToken": " Nessun token è collegato a questo link."
+            },
+            "active": " Conto attivo",
+            "registration": {
+                "success": " Registrazione riuscita!",
+                "emailSent": " Ti è stata appena inviata una mail, segui il link in essa contenuto per attivare il tuo account e continuare il tuo collegamento al gruppo \"<span id=\"gourpName2\"></span>\"",
+                "accountPublic": " Accettate che il vostro nome e cognome siano pubblici sul sito?",
+                "newsletter": " Vuoi ricevere la nostra newsletter via e-mail?",
+                "mailAlert": " Vuoi ricevere avvisi via e-mail quando ci sono nuovi post sul sito?",
+                "allowContact": " Vuoi essere contattato da altri utenti del sito?",
+                "confirmAdult": " Confermo di avere più di 18 anni (art. 1124 del Codice Civile).",
+                "disclaimerVittascience": " Vittascience pone la sicurezza e la riservatezza dei dati personali dei suoi utenti al centro delle sue preoccupazioni. Scopri<a href=\"http://vittascience.com/privacy\"> la nostra politica di protezione dei dati personali</a>.",
+                "mandatory": " I campi segnati con un <span class=\"c-text-red\">*</span> sono obbligatori.",
+                "cguVittascience": " Convalidando questo modulo, accetti i <a href=\"http://vittascience.com/\"> termini e condizioni</a>.",
+                "cguOpenSteam": " Inviando questo modulo, accetti i <a target=\"_blank\" href=\"/classroom/cgu.php\"> termini e condizioni</a>.",
+                "description": " Completa i seguenti campi per creare il tuo account.",
+                "title": " Registrazione",
+                "registrationFinalizationSuccess": " La tua registrazione è stata completata, ora puoi accedere.",
+                "registrationFinalization": " Completa la tua registrazione.",
+                "descriptionFinalization": " Completa i seguenti campi per finalizzare la tua registrazione.",
+                "noTokenOrUserActive": " Token non valido o utente già attivo.",
+                "noToken": " Gettone mancante"
+            },
+            "notAllowedUpdateUser": " Non hai i diritti per modificare questo utente.",
+            "notAllowedDeleteGroup": " Non hai i diritti per cancellare questo gruppo.",
+            "notAllowedDisableUser": " Non hai i diritti per disabilitare questo utente.",
+            "notAllowedDeleteUser": " Non hai i diritti per cancellare questo utente.",
+            "passwordUpdatedMessage": " La tua password è stata cambiata con successo.",
+            "noUserFound": " Non è stato trovato nessun utente che usa questo indirizzo.",
+            "noUserFoundToken": " Questo token non corrisponde a nessun utente.",
+            "missingData": " Mancano informazioni per finalizzare l'operazione.",
+            "missingDataDate": " Mancano informazioni sulla data per finalizzare l'operazione.",
+            "errorSending": " Si è verificato un errore durante l'invio dell'e-mail.",
+            "userNotFound": " Utente non trovato e/o già attivo.",
+            "userNotFoundId": " Utente non trovato",
+            "errorActivation": " Si è verificato un errore durante l'attivazione.",
+            "notAllowedToCreateUserInThisGroup": " Non ti è permesso creare un utente in questo gruppo.",
+            "subscriptionOudated": " La tua applicazione APPNAME è scaduta in DATA. Per ulteriori informazioni, contattate un amministratore."
+        },
+        "users": {
+            "users": " Utenti",
+            "add": " Aggiungere un utente",
+            "activated": " L'account è stato attivato con successo.",
+            "errorActivation": " Si è verificato un errore durante l'attivazione dell'account.",
+            "create": " Creare un utente",
+            "delete": " Cancellare un utente",
+            "deleteConfirmation": " Per favore, scrivi \"delete\" nel campo sottostante per completare l'azione.",
+            "deleteIntentionSA": " Stai per cancellare l'utente: <span id=\"mdi_firstnameSA\"></span>",
+            "disableIntention": " Stai per disattivare l'utente: <span id=\"mde_firstnameSA\"></span>",
+            "deleteConfirmationTitle": " Confermare la cancellazione",
+            "disableConfirmationTitle": " Confermare la disattivazione",
+            "update": " Modificare un utente",
+            "updateAppUser": " Modificare le applicazioni dell'utente",
+            "updateApp": " Modificare le applicazioni",
+            "disable": {
+                "message": " Inserisci \"cancella\" nel campo sottostante per completare l'azione.",
+                "intention": " Stai per cancellare l'utente: <span id=\"md_firstnameGA\"></span>"
+            },
+            "mail": {
+                "resetPassword": {
+                    "subject": " Resetta la tua password.",
+                    "bodyTitle": " Resettare la password.",
+                    "textBeforeLink": " Se il pulsante qui sopra non funziona, copia e incolla il seguente link nel tuo browser:"
+                },
+                "finalizeAccount": {
+                    "title": " Finalizzazione della registrazione",
+                    "subject": " Finalizzazione della registrazione",
+                    "bodyTitle": " Completa la tua registrazione.",
+                    "textBeforeLink": " Se il pulsante qui sopra non funziona, copia e incolla il seguente link nel tuo browser:"
+                }
+            },
+            "showResetLinkTitle": " Reset della password.",
+            "showResetLink": " Link per la reimpostazione della password.",
+            "groupAdmin": " Amministratore del gruppo",
+            "admin": " Manager",
+            "teacher": " Insegnante",
+            "usersPerPage": " Utenti per pagina",
+            "userDeleted": " Utente cancellato.",
+            "userDisabled": " Utente disabilitato.",
+            "userCreated": " Utente creato con successo",
+            "userUpdated": " Utente modificato con successo",
+            "chooseNewPassword": " Scegli la tua nuova password",
+            "passwordUpdate": " La tua password è stata cambiata",
+            "enterYourEmail": " Inserisci il tuo indirizzo e-mail",
+            "sendResetMailDescription": " Cliccando su Invia, ti verrà inviata un'e-mail contenente un link per cambiare la tua password.",
+            "yourMail": " Il tuo indirizzo e-mail",
+            "emailSended": " Le è stata appena inviata un'e-mail con la procedura da seguire.",
+            "emailNotReceived": " Se non avete ricevuto l'e-mail, cliccate su Start again (è possibile un leggero ritardo).",
+            "mailSentToUser": " Una e-mail è stata inviata all'utente per finalizzare la registrazione.",
+            "mailNotSentToUser": " L'e-mail di completamento della registrazione non può essere inviata all'utente.",
+            "mailSentToUserReset": " Un'e-mail è stata inviata all'utente per cambiare la password.",
+            "mailNotSentToUserReset": " Non è stato possibile inviare all'utente l'e-mail di cambio password.",
+            "appsUpdated": " Le applicazioni dell'utente sono state aggiornate.",
+            "updateAppModalTitle": " Applicazione",
+            "teacherGrades": {
+                "0": " Primario",
+                "1": " College",
+                "2": " Scuola superiore",
+                "3": " Scuola professionale",
+                "4": " POST-BAC"
+            },
+            "teacherSubjects": {
+                "0": {
+                    "0": " Scuola elementare",
+                    "1": " Altro (specificare nella biografia)"
+                },
+                "1": {
+                    "0": " Educazione fisica e sportiva (PSE)",
+                    "1": " Educazione morale e civica",
+                    "2": " Educazione artistica",
+                    "3": " Francese",
+                    "4": " Storia-geografia",
+                    "5": " Lingua viva",
+                    "6": " Matematica",
+                    "7": " Fisica-Chimica",
+                    "8": " Scienze della vita e della terra (LSE)",
+                    "9": " Tecnologia",
+                    "10": " Altro (specificare nella biografia)"
+                },
+                "2": {
+                    "0": " Arti",
+                    "1": " Arti circensi",
+                    "2": " Biologia Ecologia",
+                    "3": " Biotecnologia",
+                    "4": " Cultura della creazione e del design",
+                    "5": " Creazione e innovazione tecnologica (CIT)",
+                    "6": " Ecologia-agronomia-territori-sviluppo sostenibile",
+                    "7": " Educazione fisica e sportiva (PSE)",
+                    "8": " Educazione morale e civica",
+                    "9": " Educazione scientifica",
+                    "10": " Educazione tecnologica trasversale (ETT)",
+                    "11": " Francese",
+                    "12": " Ippologia ed equitazione",
+                    "13": " Storia-geografia",
+                    "14": " Storia-geografia, geopolitica e scienze politiche",
+                    "15": " Scienze umane, letteratura e filosofia",
+                    "16": " Lingue e culture antiche: latino o greco",
+                    "17": " Lingue moderne",
+                    "18": " Lingue, letteratura e cultura straniera e regionale",
+                    "19": " Letteratura e lingue e culture antiche",
+                    "20": " Gestione e amministrazione",
+                    "21": " Matematica",
+                    "22": " Scienza digitale e informatica (NSI)",
+                    "23": " Fisica e Chimica",
+                    "24": " Principi fondamentali di economia e gestione",
+                    "25": " Salute e sociale",
+                    "26": " Scienze della vita e della terra (LSE)",
+                    "27": " Scienze ingegneristiche",
+                    "28": " Scienza e laboratorio",
+                    "29": " Scienze e tecniche di teatro, musica e danza (S2TMD)",
+                    "30": " Scienze e tecnologie di laboratorio (STL)",
+                    "31": " Scienza e tecnologia alberghiera e della ristorazione (STHR)",
+                    "32": " Scienza e tecnologia dell'industria e sviluppo sostenibile (STI2D)",
+                    "33": " Scienza e tecnologia del design e delle arti applicate (STD2A)",
+                    "34": " Scienze e tecnologie di gestione e amministrazione (STMG)",
+                    "35": " Scienza e tecnologia digitale (NST)",
+                    "36": " Scienze economiche e sociali (SES)",
+                    "37": " Altro (specificare nella biografia)"
+                },
+                "3": {
+                    "0": " Arti applicate e culture artistiche",
+                    "1": " Economia-Legge",
+                    "2": " Economia e gestione",
+                    "3": " Educazione fisica e sportiva (PSE)",
+                    "4": " Educazione morale e civica",
+                    "5": " Educazione tecnologica trasversale (ETT)",
+                    "6": " Francese",
+                    "7": " Storia-geografia",
+                    "8": " Lingue straniere",
+                    "9": " Matematica Fisica-Chimica",
+                    "10": " Prevenzione della salute ambientale",
+                    "11": " Altro (specificare nella biografia)"
+                },
+                "4": {
+                    "0": " Educazione superiore",
+                    "1": " Altro (specificare nella biografia)"
+                }
+            },
+            "groupFull": " The group is full"
+        },
+        "group": {
+            "generalInfo": " Informazioni generali",
+            "add": " Aggiungere un gruppo",
+            "create": " Creare un gruppo",
+            "delete": " Cancellare un gruppo",
+            "deleteIntention": " Stai per cancellare il gruppo: <span id=\"md_group\"></span>",
+            "update": " Modificare un gruppo",
+            "academy": " Accademia",
+            "join": {
+                "firstVisit": " Prima visita?",
+                "signin": " Entrare",
+                "signinSubtitle": " Inserisci i tuoi dati di login per accedere al tuo account",
+                "addressMail": " Indirizzo e-mail",
+                "disclaimer": " Aderendo a questo gruppo, autorizzi l'amministratore del gruppo a bloccare e/o disattivare il tuo account. Avrai anche accesso alle applicazioni che il gruppo ha.",
+                "lastStep": " Rimane solo un passo! Clicca sul pulsante qui sotto per completare il link.",
+                "joinGroup": " Stai per entrare nel gruppo \"<span id='groupNameConfirmLink'></span>\"",
+                "notfound": " Gruppo non trovato!",
+                "notfoundDetails": " Non troviamo nessun gruppo relativo al codice <span id='gourpName3'></span>.",
+                "clickToRedirectLogin": " Clicca su Continua per essere reindirizzato alla pagina di accesso.",
+                "clickToRedirectHome": " Clicca su Continua per essere reindirizzato alla pagina iniziale.",
+                "invalidLink": " Link non valido!",
+                "invalidFormatLink": " Il formato del link che hai inserito non corrisponde.",
+                "success": " Ti sei unito al gruppo \"<span id=\"gourpName\"></span>\"!",
+                "alreadyLinked": " Lei fa già parte di questo gruppo.",
+                "error": " Si è verificato un errore durante la connessione.",
+                "userNotFound": " L'utente non è stato trovato, puoi cliccare su Continua per essere reindirizzato alla pagina di login.",
+                "contactAdmin": " Se il problema persiste, contattate l'amministrazione.",
+                "groupFull": " Il gruppo a cui vuoi unirti è pieno.",
+                "onlyOneGroup": " Fai già parte di un gruppo, non puoi unirti ad un altro.",
+                "mail": {
+                    "textBeforeName": " L'utente :",
+                    "textAfterName": " si è unito al gruppo:",
+                    "emailSubject": " Un utente si è unito al gruppo."
+                }
+            },
+            "name": " Nome del gruppo",
+            "description": " Descrizione del gruppo",
+            "link": " Collegamento del gruppo",
+            "applications": " Applicazione(i) di gruppo",
+            "groupsPerPage": " Gruppi per pagina",
+            "groupDeleted": " Gruppo cancellato",
+            "groupCreated": " Gruppo stabilito con successo",
+            "groupUpdated": " Gruppo modificato con successo",
+            "groupCreateFailed": " Il gruppo non può essere creato",
+            "showLinkTitle": " Collegamento del gruppo",
+            "usersWithoutGroups": " Utenti senza gruppo",
+            "searchResult": " Risultato della ricerca",
+            "usersInactiveOrNoRegular": " Utenti inattivi e non regolari",
+            "usersWithoutGroupsDescription": " Raggruppamento di utenti non collegati a nessun gruppo",
+            "usersInactiveOrNoRegularDescription": " Raggruppamento di utenti inattivi e/o non regolari",
+            "groupDeleteError": " Il gruppo non può essere cancellato.",
+            "groupFull": " Il gruppo è completo.",
+            "groupFullAdminMessage": " Il gruppo è completo, non puoi aggiungere altri utenti.",
+            "toManyStudentsFromTheTeacher": " L'insegnante che vuoi aggiungere al gruppo ha troppi studenti.",
+            "toManyStudentsInGroup": " Il gruppo non può ospitare così tanti studenti, l'insegnante ha troppi studenti.",
+            "teachersPerGroup": " Insegnante per gruppo",
+            "studentsPerGroup": " Studenti per gruppo",
+            "activitiesPerGroup": " Attività per gruppo",
+            "activitiesPerTeacher": " Attività dell'insegnante",
+            "studentsPerTeacher": " Studenti per insegnante",
+            "maxStudents": " Numero massimo di studenti",
+            "maxActivities": " Attività massime"
+        },
+        "title": {
+            "activeUsers": " Utenti attivi",
+            "inaactiveUsers": " Inactive users"
+        },
+        "buttons": {
+            "continue": " Continua",
+            "validate": " Convalidare",
+            "activate": " Attivare",
+            "cancel": " Cancella",
+            "finalize": " Finalizzare",
+            "send": " Invia",
+            "login": " Entrare",
+            "signup": " Registrazione di",
+            "join": " Unisciti a",
+            "save": " Registra",
+            "close": " Chiudere",
+            "disable": " Disattivare",
+            "delete": " Cancellare",
+            "reset": " Azzerare",
+            "update": " Modifica",
+            "search": " Cerca",
+            "restart": " Ricominciare",
+            "copyLink": " Copia il link",
+            "show": " Vedi",
+            "manage": " Gestire",
+            "user": {
+                "add": " Aggiungi utente",
+                "create": " Crea utente",
+                "delete": " Cancellare l'utente",
+                "update": " Cambia utente",
+                "addGroup": " Aggiungere un gruppo",
+                "createA": " Creare un utente",
+                "updateA": " Modificare un utente",
+                "updateApp": " Modificare le applicazioni"
+            },
+            "group": {
+                "add": " Aggiungere il gruppo",
+                "create": " Creare il gruppo",
+                "delete": " Cancellare il gruppo",
+                "update": " Modificare il gruppo",
+                "createA": " Creare un gruppo",
+                "updateA": " Modificare un gruppo"
+            }
+        },
+        "sort": {
+            "user": {
+                "bylastname": " Ordina per nome",
+                "byfirstname": " Ordina per nome"
+            },
+            "group": {
+                "byname": " Ordina per nome",
+                "bydesc": " Ordina per descrizione"
+            }
+        },
+        "input": {
+            "placeholder": {
+                "delete": " cancellare"
+            },
+            "writeDelete": " Dovete scrivere cancellare per convalidare l'azione.",
+            "writeDisable": " Dovete scrivere deactivate per convalidare l'azione."
+        },
+        "table": {
+            "lastname": " Nome",
+            "firstname": " Nome",
+            "applications": " Applicazioni",
+            "group": " Gruppo",
+            "description": " Descrizione",
+            "descriptionMandatory": " Descrizione <span class=\"c-text-red\">*</span>",
+            "right": " Ruolo",
+            "resetPassword": " Ripristina la password",
+            "link": " Link",
+            "name": " Nome",
+            "nameMandatory": " Nome <span class=\"c-text-red\">*</span>",
+            "dateBegin": " Data di inizio",
+            "dateEnd": " Data di fine",
+            "outDated": " Superato",
+            "maxStudents": " Numero massimo di studenti",
+            "actualStudents": " Studenti attuali",
+            "maxTeachers": " Numero massimo di insegnanti",
+            "actualTeachers": " Insegnanti attuali",
+            "maxStudentsPerTeachers": " Numero massimo di studenti per insegnante",
+            "maxStudentsPerTeacher": " Numero massimo di studenti per insegnante",
+            "activityType": " Tipo di attività",
+            "maxActivitiesPerGroup": " Numero massimo di attività per gruppo",
+            "maxActivitiesPerTeacher": " Numero massimo di attività per insegnante",
+            "monitoring": " Monitoraggio delle applicazioni",
+            "image": " Immagine",
+            "userNoRights": " Nessun diritto assegnato",
+            "userAdmin": " Direttore",
+            "userTeacher": " Insegnante",
+            "restrictions": " Restrizioni"
+        },
+        "apps": {
+            "apps": " Applicazioni",
+            "create": " Creare un'applicazione",
+            "updateSuccess": " Applicazione modificata con successo",
+            "createSuccess": " Applicazione creata con successo",
+            "deleteSuccess": " Applicazione cancellata con successo",
+            "deleteIntention": " Stai per cancellare l'applicazione: <span id=\"application_delete_name\"></span>",
+            "outDatedApp": " L'applicazione che vuoi assegnare non è aggiornata.",
+            "infoMaxStudentsPerTeachers": " Determina il numero massimo di studenti che un insegnante del gruppo può avere.",
+            "infoMaxStudentsPerGroups": " Determina il numero massimo di studenti che il gruppo può avere (sommando il numero totale di studenti degli insegnanti con questa applicazione)",
+            "infoMaxTeachers": " Determina il numero massimo di insegnanti che possono avere l'applicazione in questo gruppo",
+            "usersLimitation": " Limitazione degli studenti per utente",
+            "groupsLimitation": " Limiti del gruppo",
+            "activitiesLimitation": " Limiti di attività",
+            "defaultRestrictions": " Restrizioni predefinite",
+            "ltiApps": " Applicazioni LTI",
+            "clientId": " ID cliente <span class=\"c-text-red\">*</span>",
+            "deploymentId": " Deployment id <span class=\"c-text-red\">*</span>",
+            "toolUrl": " Strumento url <span class=\"c-text-red\">*</span>",
+            "publicKeySet": " Chiave pubblica <span class=\"c-text-red\">*</span>",
+            "loginUrl": " Url di accesso <span class=\"c-text-red\">*</span>",
+            "redirectionUrl": " Redirect Url <span class=\"c-text-red\">*</span>",
+            "deepLinkUrl": " Link profondo url <span class=\"c-text-red\">*</span>",
+            "privateKey": " Chiave privata <span class=\"c-text-red\">*</span>"
+        },
+        "activitiesRestrictions": {
+            "updateAll": " Cambiare le restrizioni",
+            "update": " Modificare una restrizione",
+            "create": " Creare una restrizione",
+            "delete": " Rimuove una restrizione",
+            "updateSuccess": " Restrizione modificata con successo",
+            "createSuccess": " Restrizione creata con successo",
+            "deleteSuccess": " Restrizione rimossa con successo",
+            "deleteIntention": " Stai per rimuovere la restrizione: <span id=\"restriction_delete_name\"></span>",
+            "restrictionType": " Tipo di attività",
+            "maxActivity": " Attività massima",
+            "closeDetail": " Chiudi il dettaglio",
+            "restrictions": " Restrizioni di attività",
+            "appRestricted": " Creare più attività!",
+            "appRestrictedUL1": " Hai raggiunto il limite di {{attività}} associato al tuo account.",
+            "appRestrictedUL2": " Per aggiungere altre attività, contatta il tuo amministratore.",
+            "appRestrictedSubtitle2": " Un problema con il tuo abbonamento?",
+            "appRestrictedSubtitle3": " Contatta il supporto",
+            "appRestrictedGarContent1": " Hai raggiunto il limite di {{attività}} associato al tuo account.",
+            "appRestrictedGarContent2": " Per aggiungere altre attività, contatta il responsabile delle assegnazioni RBM della tua scuola."
+        },
+        "defaultRestrictions": {
+            "update": " Cambiare le restrizioni predefinite",
+            "type": " Tipo di attività",
+            "max": " Massimo",
+            "add": " Aggiungere una restrizione",
+            "updateUsersRestrictionsSuccess": " Restrizioni utente modificate con successo",
+            "updateGroupsRestrictionsSuccess": " Restrizioni di gruppo modificate con successo",
+            "updateActivitiesRestrictionsSuccess": " Restrizioni di attività modificate con successo",
+            "deleteActivitiesRestrictionsSuccess": " Limitazione delle attività cancellate con successo",
+            "getDefaultRestrictions": " Vedere le restrizioni predefinite",
+            "restrictionAlreadyExist": " La restrizione esiste già"
+        }
+    },
+    "navbar": {
+        "items": {
+            "kits": " Materiale",
+            "community": {
+                "title": " Comunità",
+                "dropdown": {
+                    "vittamap": " Vittamap",
+                    "blog": " Blog",
+                    "gallery": " Galleria",
+                    "about": " Chi siamo"
+                }
+            },
+            "tooltips": {
+                "backToHome": " Ritorna alla pagina iniziale",
+                "programming": " Codificare con Vittascience",
+                "resources": " Centro risorse educative",
+                "classroom": " Gestisci le tue classi con Vittascience",
+                "hardware": " Scopri i nostri kit e prodotti"
+            },
+            "programming": " Programma",
+            "classroom": " Classe",
+            "arduino": " Arduino",
+            "microbit": " Microbit",
+            "microbit-tutorials": " Microbit Tutorials",
+            "ressources": " Risorse",
+            "accessibility": " Cambiare il tema e il carattere del sito",
+            "lang": " Cambiare lingua",
+            "user_shortcuts": {
+                "welcome": " Benvenuti!",
+                "signup": " Iscriviti",
+                "login": " Entrare",
+                "hello": " Ciao",
+                "account": " Il mio account",
+                "disconnect": " Scollegare",
+                "willSignup": " Mi iscrivo!",
+                "willSignin": " Sono online"
+            }
+        }
+    },
+    "newActivities": {
+        "create": " Creare una nuova attività",
+        "delete": " Cancellare",
+        "addQuiz": " Aggiungere una proposta",
+        "states": " Dichiarazione di attività <span class=\"c-text-red\">*</span>",
+        "cancel": " Cancella",
+        "autocorrect": " Correzione automatica",
+        "correction": " Correzione dell'attività",
+        "tolerance1": " Aggiungere una tolleranza d'errore di",
+        "tolerance2": " carattere(i) sull'intera risposta dello studente.",
+        "hint": " Hint * : visualizzato se la risposta è sbagliata",
+        "title": " Titolo dell'attività <span class=\"c-text-red\">*</span>",
+        "description": " Descrizione dell'attività <span class=\"c-text-red\">*</span>",
+        "content": " Contenuto dell'attività <span class=\"c-text-red\">*</span>",
+        "addField": "Aggiungere un campo di risposta",
+		"addFieldTooltip": "Facendo clic sul pulsante Aggiungi campo di risposta, viene aggiunto un testo stilizzato. In questo campo è possibile scrivere la risposta corretta. Le risposte alternative sono separate da un doppio ampersand &&.",
+		"ActivitiesData": {
+		  "title": {
+			"reading": "Multimediale",
+			"free": "Risposta libera",
+			"quiz": "Questionari a scelta multipla",
+			"fillIn": "Testo da completare",
+			"dragAndDrop": "Testo di cloche"
+		  },
+		  "description": {
+			"reading": "Pagina multimediale (testo, immagini, video, PDF, Genially, ...)",
+			"free": "Risposta libera a una domanda",
+			"quiz": "Questionario a scelta singola o multipla",
+			"fillIn": "Testo da completare per iscritto",
+			"dragAndDrop": "Testo da completare con le etichette"
+        
+		  }
+		}
+    },
+    "courses": {
+        "addActivity": " Add an activity",
+        "addActivities": " Add activities",
+        "createActivity": " Create an activity",
+        "searchActivity": " Search an activity",
+        "placeholderTitle": " Activity title",
+        "placeholderDescription": " Activity description",
+        "pagination": {
+            "create": " Course's creation",
+            "title": " Title",
+            "parameters": " Parameters",
+            "attribution": " Attribution"
+        },
+        "parameters": {
+            "title": " Course title <span class=\"c-text-red\">*</span>",
+            "description": " Course's description <span class=\"c-text-red\">*</span>",
+            "difficulty": " Difficulty <span class=\"c-text-red\">*</span>",
+            "difficultyLevel": {
+                "choose": " Choose a difficulty level",
+                "easy": " Easy",
+                "medium": " Medium",
+                "advanced": " Advanced",
+                "expert": " Expert"
+            },
+            "duration": " Duration (minutes) <span class=\"c-text-red\">*</span>",
+            "license": " User license <span class=\"c-text-red\">*</span>",
+            "licenseType": {
+                "1": " Private (only you can see this resource)",
+                "2": " Unreferenced (shareable resource by link but not findable on the Resources page)",
+                "3": " Public CC-BY-NC-SA (free, non-commercial and modifiable resource)",
+                "4": " Public CC-BY-NC-ND (free, non-commercial and non-modifiable resource)",
+                "choose": " Choose a license"
+            }
+        },
+        "successfullyCreated": " Course created successfully",
+        "attribution": " Course attribution <i class='fas fa-chevron-right'></i>",
+        "return": " Return <i class='fas fa-chevron-right'></i>",
+        "update": " Update the course"
+    }
+}

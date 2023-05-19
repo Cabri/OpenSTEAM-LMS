@@ -19,7 +19,7 @@ use Classroom\Entity\Applications;
 $nonce = base64_encode(random_bytes(16));
 
 //$platform_url = isset($_SERVER['HTTPS']) ? 'https://' : 'http://' . $_SERVER['HTTP_HOST'];
-$platform_url = getenv('VS_HOST');
+$platform_url = $_ENV['VS_HOST'];
 $loginHint = json_decode($_REQUEST['login_hint'], true);
 $activityType = $loginHint['activityType'];
 
@@ -88,11 +88,6 @@ else  {
   $jwt_payload['https://purl.imsglobal.org/spec/lti/claim/resource_link'] = [
     "id" => $loginHint['lineitemId']
   ];
-  $jwt_payload["https://purl.imsglobal.org/spec/lti/claim/launch_presentation"] = [
-    "locale" => "en",
-    "document_target" => "iframe",
-    "return_url" => $platform_url . "/classroom/lti/redirection.html"
-  ];
   $jwt_payload["https://purl.imsglobal.org/spec/lti/claim/target_link_uri"] = $loginHint['lineitemId'];
   $jwt_payload["https://purl.imsglobal.org/spec/lti-ags/claim/endpoint"] = [
     "scope" => [
@@ -105,6 +100,18 @@ else  {
 		"lineitem" => $platform_url . "/classroom/lti/score.php?activity_id=" . urlencode($loginHint['activitiesLinkUser'])
   ];
 }
+if(array_key_exists("lng", $_COOKIE)){
+  $lang = htmlspecialchars($_COOKIE["lng"]) ?? "fr";
+}
+else{
+  $lang = "fr";
+}
+$jwt_payload["https://purl.imsglobal.org/spec/lti/claim/launch_presentation"] = [
+  "locale" => $lang ?? "fr",
+  "document_target" => "iframe",
+  "return_url" => $platform_url . "/classroom/lti/redirection.html"
+];
+
 
 $token = JWT::encode(
   $jwt_payload,
@@ -112,6 +119,7 @@ $token = JWT::encode(
   'RS256',
   $ltiTool->getKid()
 );
+
 ?>
 
 <form name="post_redirect" method="post" action="<?php echo $_REQUEST['redirect_uri']?>">
@@ -127,4 +135,3 @@ $token = JWT::encode(
     document.forms["post_redirect"].submit();
   }
 </script>
-

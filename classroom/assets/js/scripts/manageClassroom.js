@@ -20,36 +20,72 @@ async function readEvent (event) {
     switch(msg.type) {
         // Message received when an LTI resource launch has gone to submission
         case 'end-lti-score':
-            // Update the activities from database
-            await Main.getClassroomManager().getStudentActivities(Main.getClassroomManager());
-            // Get the results of the current activity
-            for (let state in Main.getClassroomManager()._myActivities) {
-                const currentSearch = Main.getClassroomManager()._myActivities[state].filter(x => x.id == Activity.id)[0];
-                if (typeof currentSearch != 'undefined') {
-                    Activity = currentSearch;
-                    break;
-                }
-            }
-            // If the current activity needs a manual review, display the relevant panel
-            if (Activity.correction == 1) {
-                navigatePanel('classroom-dashboard-activity-panel-correcting', 'dashboard-activities');
-            } else {
-                // Otherwise display the relevant panel for success or fail
-                switch (Activity.note) {
-                    case 0:
-                        navigatePanel('classroom-dashboard-activity-panel-fail', 'dashboard-activities');
-                        break;
-                    case 3:
-                        navigatePanel('classroom-dashboard-activity-panel-success', 'dashboard-activities');
-                        break;
+            const possibilityNote = [0, 1, 2, 3, 4]
+            
+            //teacher preview auto-evaluate activity
+            if(UserManager.getUser().isRegular && Activity.isAutocorrect) {
+                // hidden all notes
+                possibilityNote.forEach(note => {
+                    $(`#classroom-dashboard-activity-panel-teacher-result #preview-note-${note}`).hide()
+                })
+                
+                // Update the activities from database
+                await Main.getClassroomManager().getTeacherActivities(Main.getClassroomManager());
 
-                    default:
-                        navigatePanel('classroom-dashboard-activities-panel', 'dashboard-activities');
-                        break;
+                // Refresh variable activity from database data
+                const activity = getTeacherActivityInList(Activity.id);
+                if(activity)
+                    Activity = getTeacherActivityInList(Activity.id); 
+                
+                // Show note of preview
+                const note = Activity.previewNote;
+                if(note || note === 0) {
+                    $(`#classroom-dashboard-activity-panel-teacher-result #preview-note-${note}`).show()
+                } 
+                else {
+                    $("#classroom-dashboard-activity-panel-teacher-result #preview-note-4").show()
                 }
+
+                // Otherwise display the relevant panel for success or fail
+                navigatePanel('classroom-dashboard-activity-panel-teacher-result', 'dashboard-activities-teacher');
             }
-            // Clearing the LTI content div
-            document.querySelector('#lti-loader-container').innerHTML = '';
+            // student doing auto-evaluate activity
+            else {
+                // hidden all notes
+                possibilityNote.forEach(note => {
+                    $(`#classroom-dashboard-activity-panel-student-result #preview-note-${note}`).hide()
+                })
+
+                // Update the activities from database
+                await Main.getClassroomManager().getStudentActivities(Main.getClassroomManager());
+                // Get the results of the current activity
+                for (let state in Main.getClassroomManager()._myActivities) {
+                    const currentSearch = Main.getClassroomManager()._myActivities[state].filter(x => x.id == Activity.id)[0];
+                    if (typeof currentSearch != 'undefined') {
+                        Activity = currentSearch; // possède la note
+                        break;
+                    }
+                }
+
+                // If the current activity needs a manual review, display the relevant panel
+                if (Activity.correction == 1) {
+                    navigatePanel('classroom-dashboard-activity-panel-correcting', 'dashboard-activities');
+                } else {
+                    // Show note of preview
+                    const note = Activity.note;
+                    if(note || note === 0) {
+                        $(`#classroom-dashboard-activity-panel-student-result #preview-note-${note}`).show()
+                    } 
+                    else {
+                        $("#classroom-dashboard-activity-panel-student-result #preview-note-4").show()
+                    }
+
+                    // Otherwise display the relevant panel for success or fail
+                    navigatePanel('classroom-dashboard-activity-panel-student-result', 'dashboard-activities');
+                }
+                // Clearing the LTI content div
+                document.querySelector('#lti-loader-container').innerHTML = '';
+            }
             break;
         // Message received when an LTI deep link has returned
         case 'end-lti-deeplink':
@@ -65,6 +101,7 @@ async function readEvent (event) {
             console.log(event.data);
     }
 }
+
 
 //formulaire de création de classe
 $('body').on('click', '.teacher-new-classe', function (event) {

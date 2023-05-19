@@ -259,13 +259,14 @@
         "selectedStudents": "تم اختيار <span id='attribuate-student-number'>0</span> طلاب",
         "activationLink": "تفعيل رابط تفعيل",
         "activationLinkDisabled": "رابط التنشيط معطل",
+        "fullscreen": "وضع ملء الشاشة",
         "deleteStudent": "احذف الطالب",
         "deleteStudentConfirm": "هل أنت متأكد أنك تريد حذف هذا الطالب؟"
       },
       "activities": {
         "title": "أنشطة",
         "save": "احفظ المسودة",
-        "add": "قم بإنشاء نشاط",
+        "add": "إنشاء نشاط",
         "new": "جديد",
         "current": "في تَقَدم",
         "waiting": "لم تكتمل بعد",
@@ -295,8 +296,8 @@
         "comments": "اكتب تعليقاتك هناك",
         "return": "العودة إلى الأنشطة",
         "numberOfTries": "عدد المحاولات",
-        "isAutocorrected": "تم تصحيح هذا النشاط تلقائيًا ، يمكنك تغيير الملاحظة أدناه",
-        "isAutocorrect": "سيتم تصحيح هذا النشاط تلقائيًا",
+        "isAutocorrected": "تم تقييم هذا التمرين تلقائيا، يمكنك تعديل الدرجة أدناه.",
+        "isAutocorrect": "سيتم تقييم هذا النشاط تلقائيا.",
         "states": "حالات النشاط",
         "content": "محتوى النشاط",
         "correction": "تصحيح",
@@ -354,6 +355,8 @@
           "دجنبر"
         ],
         "preview": "معاينة",
+        "previewTeacherResult": "يكون الطالب قد حصل على العلامة التالية:",
+        "studentResult" : "النتيجة المحصلة:",
         "deleteActivityDisclaimer": "سيتم حذف هذا النشاط من المنصة",
         "deleteConfirm": "هل تريد حقًا حذف هذا النشاط؟",
         "deleteActivity": "احذف النشاط",
@@ -461,7 +464,9 @@
           "descriptionUpdate": "يمكنك إضافة متعلم واحد أو أكثر مرة واحدة عن طريق استيرادهم من ملف .csv. <b>تحذير</b> : هنا ، لا يتم استخدام كلمات مرور ملف csv! هنا ملف نموذج .csv",
           "csvTemplate": "ملف قالب بكلمة مرور",
           "csvTemplateNoPassword": "ملف قالب بدون كلمة مرور",
-          "importStudentByCsvButton": "استيراد المتعلمين"
+          "importStudentByCsvButton": "استيراد المتعلمين",
+          "fileChooser": "Choose a file",
+          "fileName": "No files chosen"
         },
         "exportCsv": {
           "title": "تصدير بتنسيق csv",
@@ -473,7 +478,8 @@
         "listClass": {
           "title": "التبديل في وضع الطالب",
           "description": "يمكنك بسهولة اختبار الواجهة كمتعلم والعودة إلى ملف تعريف المعلم الخاص بك في أي وقت. سيتم حفظ التقدم كمتعلم في الحساب &quot; {{demoStudent}} &quot;",
-          "switchButton": "قم بالتبديل إلى وضع المتعلم"
+          "switchButton": "قم بالتبديل إلى وضع المتعلم",
+          "noClass" : "Vous devez d'abord créer une classe pour pouvoir utiliser cette fonctionalité"
         },
         "changePseudo": {
           "title": "تغيير الكنية ",
@@ -688,6 +694,7 @@
       "exercise": "تمرين",
       "return": "إرجاع",
       "anonymize": "إخفاء الهوية",
+      "monochrome": "عرض أحادي اللون",
       "days": "أيام",
       "hours": "ساعات",
       "minutes": "الدقائق",

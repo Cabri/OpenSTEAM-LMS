@@ -21,7 +21,9 @@ class FoldersManager {
         this.dragula = dragula();
         this.getAllUserFolders().then(res => {
             this.userFolders = res;
-            this.dragulaInitObjects();
+            setTimeout(() => {
+                this.dragulaInitObjects();
+            }, 1000);
         })
 
         $('#dashboard-activities-teacher').on('click', () => {
@@ -52,7 +54,7 @@ class FoldersManager {
         pseudoModal.openModal("folder-manager-modal");
         $("#create-folder-manager").show();
     }
-    
+
     persistCreateFolder() {
         let name = $("#folder_create_name").val(),
             parent = this.actualFolder;
@@ -73,9 +75,9 @@ class FoldersManager {
             })
         } else {
             displayNotification('#notif-div', "classroom.activities.foldersMessages.errorLenght", "error");
-        } 
+        }
     }
-    
+
     persistDeleteFolder() {
         let id = this.actualFolder,
             parent = this.getFolderById(this.actualFolder).parentFolder;
@@ -98,11 +100,11 @@ class FoldersManager {
             displayNotification('#notif-div', "manager.input.writeDelete", "error");
         }
     }
-    
+
     persistUpdateFolder() {
         let id = this.actualFolder,
             name = $("#folder_update_name").val();
-            
+
         this.updateFolderById(id, name).then(res => {
             if (!res.hasOwnProperty("error")) {
                 this.replaceFolderData(res);
@@ -114,7 +116,7 @@ class FoldersManager {
             }
         })
     }
-    
+
     deleteFolder(folderId) {
         this.resetInputs();
         this.actualFolder = folderId;
@@ -191,23 +193,10 @@ class FoldersManager {
         if (this.treeFolder.html() == "") {
             this.resetTreeFolders();
         }
-
-        let breadCrumbFolderItems = document.querySelectorAll(".folder-breadcrumb-item"),
-            alreadyExist = false;
-
-        breadCrumbFolderItems.forEach(e => {
-            if (e.dataset.id == folder.id) {
-                alreadyExist = true;
-            }
-        });
-        
-        if (!alreadyExist) {
-            this.treeFolder.append(`<span class="chevron-breadcrumb"> <i class="fas fa-chevron-right"></i> </span> <button class="btn c-btn-outline-primary folder-breadcrumb-item" data-id="${folder.id}" onclick="foldersManager.goToFolder(${folder.id})"><i class="fas fa-folder-open folder-breadcrumb"></i> ${folder.name}</button>`);  
-        }
+        this.treeFolder.append(`<span class="chevron-breadcrumb"> <i class="fas fa-chevron-right"></i> </span> <button class="btn c-btn-outline-primary" data-id="${folder.id}" onclick="foldersManager.goToFolder(${folder.id})"><i class="fas fa-folder-open folder-breadcrumb"></i> ${folder.name}</button>`);
     }
 
     goToFolder(folderId) {
-        this.resetDashboardList();
         this.actualFolder = folderId;
         this.resetTreeFolders();
         if (folderId != null) {
@@ -216,22 +205,13 @@ class FoldersManager {
         this.displayAndDragulaInitObjects();
     }
 
-    resetDashboardList() {
-        document.getElementById("list-activities-teacher").innerHTML = "";
-    }
-
     deleteFolderFromUserFolders(id) {
         let index = this.userFolders.findIndex(f => f.id == id);
         this.userFolders.splice(index, 1);
     }
 
     resetTreeFolders() {
-        // only feed the breadcrumb when we're on the activity panel
-        if ($_GET('nav') == 'dashboard-activities-teacher') {
-            this.treeFolder.html(`<button class="btn c-btn-outline-primary" onclick="foldersManager.goToFolder(null)">Mes activités</button>`);
-        } else {
-            this.treeFolder.html();
-        }
+        this.treeFolder.html(`<button class="btn c-btn-outline-primary" onclick="foldersManager.goToFolder(null)">Mes activités</button>`);
     }
 
     createTreeFolders() {
@@ -242,7 +222,7 @@ class FoldersManager {
         if (actualFolder != null && actualFolder.parentFolder != undefined) {
             parent = actualFolder.parentFolder;
         }
-        
+
         while (parent) {
             idOfParents.push(parent);
             parent = this.getFolderById(parent.id).parentFolder;
@@ -279,7 +259,7 @@ class FoldersManager {
         let folderTreeContent = !seek ? $("#folders-tree-content-modal") : $("#folders-seek-tree-content-modal"),
             content = "",
             rootFolderTranslation = i18next.t("classroom.activities.rootFolder");
-        
+
         folderTreeContent.html("");
         if (foldersWithoutParent.length > 0) {
             let randomString = this.createRandomString();
@@ -319,6 +299,7 @@ class FoldersManager {
         let radioString = this.makeTreeWithOutInitialFolderAndChildren(item);
         let content = `<ul>
                         ${radioString}
+                        
                         ${this.createChildUl(item.id)}
                     </ul>`
         return content;
@@ -368,6 +349,7 @@ class FoldersManager {
         if (children.length > 0) {
             content += `<ul>`;
             children.forEach(child => {
+                console.log(child);
                 content += `<li>
                                 <label> <img src="${this.icons.hasOwnProperty(child.type) ? this.icons[child.type] : "💻"}" alt="${child.type}" class="folder-icons"> ${child.title}</label>
                             </li>`;
@@ -382,7 +364,6 @@ class FoldersManager {
         if (folderId == "0") {
             folderId = null;
         }
-
         if (this.objectToMove == "folder") {
             this.moveFolderToFolder(this.objectId, folderId).then(res => {
                 this.manageResponseFromMoved(res);
@@ -391,17 +372,9 @@ class FoldersManager {
             this.moveActivityToFolder(this.objectId, folderId).then(res => {
                 this.manageResponseFromMoved(res);
             })
-        } else if (this.objectToMove == "course") {
-            this.moveCourseToFolder(this.objectId, folderId).then(resMove => {
-                coursesManager._requestGetMyCourseTeacher().then((res) => {
-                    coursesManager.myCourses = res;
-                    this.manageResponseFromMoved(resMove);
-                });
-            })
         }
         this.resetInputs();
     }
-    
 
     // WARNING
     manageResponseFromMoved(res) {
@@ -424,25 +397,13 @@ class FoldersManager {
             activitiesArray = document.querySelectorAll('.activity-item'),
             activitiesListArray = document.querySelectorAll('.folder-item-list'),
             foldersListArray = document.querySelectorAll('.activity-item-list'),
-            coursesListArray = document.querySelectorAll('.course-item-list'),
-            coursesArray = document.querySelectorAll('.course-item'),
-            dragableObjects = [],
-            viewMode = null;
+            dragableObjects = [];
 
-
-        // sometime classroomManager is not loader
-        if (Main.getClassroomManager() != null) {
-            viewMode = Main.getClassroomManager().displayMode; 
+        if (Main.getClassroomManager().displayMode == "list") {
+            dragableObjects = [...foldersListArray, ...activitiesListArray];
         } else {
-            viewMode = localStorage.getItem('classroomViewMode') != null ? localStorage.getItem('classroomViewMode') : 'card'
+            dragableObjects = [...foldersArray, ...activitiesArray];
         }
-
-        if (viewMode == "list") {
-            dragableObjects = [...foldersListArray, ...activitiesListArray, ...coursesListArray];
-        } else {
-            dragableObjects = [...foldersArray, ...activitiesArray, ...coursesArray, ];
-        }
-
 
         dragableObjects.forEach(object => {
             object.style.touchAction = "none";
@@ -454,21 +415,14 @@ class FoldersManager {
                     if ($(target).hasClass("folder-item") || $(target).hasClass("folder-item-list")) {
                         let elId = source.getAttribute('data-id'),
                             targetId = target.getAttribute('data-id');
-                        
+
                         if ($(source).hasClass("folder-item") || $(source).hasClass("folder-item-list")) {
                             foldersManager.moveFolderToFolder(elId, targetId).then(res => {
                                 foldersManager.manageResponseFromMoved(res);
                             })
-                        } else if ($(source).hasClass("activity-item") || $(source).hasClass("activity-item-list")) {
+                        } else {
                             foldersManager.moveActivityToFolder(elId, targetId).then(res => {
                                 foldersManager.manageResponseFromMoved(res);
-                            })
-                        } else if ($(source).hasClass("course-item") || $(source).hasClass("course-item-list")) {
-                            foldersManager.moveCourseToFolder(elId, targetId).then(resMove => {
-                                coursesManager._requestGetMyCourseTeacher().then((res) => {
-                                    coursesManager.myCourses = res;
-                                    foldersManager.manageResponseFromMoved(resMove);
-                                });
                             })
                         }
                     } else {
@@ -477,7 +431,7 @@ class FoldersManager {
                 } else {
                     foldersManager.displayAndDragulaInitObjects();
                 }
-            }).on('shadow', function(el) { 
+            }).on('shadow', function(el) {
                 document.querySelectorAll('.gu-transit').forEach(element => {
                     element.style.display = "none";
                 })
@@ -624,25 +578,6 @@ class FoldersManager {
                 data: {
                     folderId: folderId,
                     destinationFolderId: destinationFolderId
-                },
-                success: function (res) {
-                    resolve(JSON.parse(res));
-                },
-                error: function () {
-                    reject();
-                }
-            });
-        })
-    }
-
-    moveCourseToFolder(courseId, folderId) {
-        return new Promise(function (resolve, reject) {
-            $.ajax({
-                type: "POST",
-                url: "/routing/Routing.php?controller=course&action=moveCourseToFolder",
-                data: {
-                    courseId: courseId,
-                    folderId: folderId
                 },
                 success: function (res) {
                     resolve(JSON.parse(res));

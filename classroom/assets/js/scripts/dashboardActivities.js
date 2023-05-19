@@ -694,11 +694,6 @@ function loadActivityForTeacher() {
     /**
      * Content title management
      */
-    if (UserManager.getUser().isRegular && Activity.correction > 1) {
-        $('#label-activity-content').text(i18next.t("newActivities.correction"));
-    } else {
-        $('#label-activity-content').text(i18next.t("newActivities.contentTitle"));
-    }
 
 
     if (Activity.correction >= 1) {

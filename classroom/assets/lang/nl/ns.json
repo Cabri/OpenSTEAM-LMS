@@ -1,0 +1,1491 @@
+{
+	"classroom": {
+		"login": {
+			"noClass": " De ingevoerde code komt niet overeen met een klaslokaal.",
+			"countdown1": " De module Klassenbeheer bevindt zich momenteel in de betafase. Als u deze wilt uitproberen, neem dan <a href=\"/about?contact=1\">contact op met het team van Vittascience</a>.",
+			"countdown2": " Officiële vrijgave in",
+			"hello1": " \"Hallo!",
+			"hello2": " Hallo!",
+			"title": " Beheer uw klaslokalen</br>met Vittascience",
+			"neutralTitle": " OpenSTEAM LMS",
+			"cabriTitle": " Cabri.com",
+			"subtitle": " Ontdekken - Leren - Delen",
+			"cabriSubtitle": " Het platform om te slagen in wiskunde en wetenschap",
+			"login": " Inloggen",
+			"activities": " gemakkelijk uw activiteiten creëren",
+			"cabriActivities": " Automatisch oefeningen maken in enkele minuten",
+			"attribute": " wijs ze toe aan je leerlingen",
+			"cabriProgress": " Volg de vooruitgang</br> van uw leerlingen",
+			"visualize": " hun resultaten visualiseren",
+			"cabriRessources": " Krijg toegang tot een verscheidenheid aan activiteiten en deel je creaties.",
+			"student": " Student",
+			"codeInput": "  Voer uw klaslokaalcode in",
+			"teacher": " Leraar",
+			"hasAccount": " Heb je al een account?",
+			"gar": " Geniet met gemak van de klaslokaalmodule met behulp van GAR.",
+			"signup": " AANMELDEN",
+			"firstVisit": " Eerste keer? Kies een gebruikersnaam.",
+			"signin": " Aanmelden",
+			"registerLink": " Een account aanmaken",
+			"hasReturned": " Terug naar deze klas?",
+			"forgot": " Ik ben mijn wachtwoord vergeten",
+			"error": {
+				"used": " Deze gebruikersnaam is al in gebruik, kies een andere",
+				"badInput": " Uw gebruikersnaam of wachtwoord is verkeerd."
+			},
+			"suscribe": {
+				"title": " schrijf je in op",
+				"content": " De module Klassenbeheer is gratis beschikbaar als proefversie. Profiteer van alle functies met het Vittascience Premium abonnement. Ontdek alle voordelen en details van het Vittascience Premium aanbod via onderstaande knop.",
+				"premium": " Ontdek Vittascience Premium"
+			},
+			"carousel": {
+				"activities": {
+					"title": " Eenvoudig uw activiteiten creëren",
+					"content": " De activiteiteneditor maakt het gemakkelijk om instructie-inhoud te creëren door tekst, afbeeldingen, video's, Vittascience API's, Geniale presentaties en meer op te nemen.</br></br>Bekijk de gezamenlijke bronnenbank van Vittascience, die honderden gratis en herbruikbare activiteiten bevat. Als de auteur van een bron het toestaat, kunt u zelfs wijzigingen aanbrengen om de inhoud aan te passen aan uw leerlingen."
+				},
+				"attribute": {
+					"title": " Wijs ze toe aan uw leerlingen",
+					"content": " Zodra uw activiteiten zijn gemaakt, kunt u ze toewijzen aan uw leerlingen. Ze kunnen individueel worden toegewezen of aan hele groepen, zoals een klas of een wetenschapsclub.</br></br>De leerlingen kunnen veilig inloggen met een Classroom-code, link, QR-code of GAR, en de hun toegewezen activiteiten voltooien."
+				},
+				"visualize": {
+					"title": " Hun resultaten visualiseren",
+					"content": " Met het dashboard kunt u de voortgang van de leerlingen volgen terwijl ze de activiteiten en cursussen doorlopen. Vind het werk van uw leerlingen in één klik en laat commentaar achter.</br></br>Dankzij het automatische validatie-/correctiesysteem voor blokken en Python vult het dashboard zich automatisch met de resultaten van uw leerlingen. Identificeer snel leerlingen met problemen en win kostbare tijd om ze te begeleiden."
+				}
+			},
+			"register": {
+				"title": " Registratie",
+				"description": " Vul de volgende velden in om uw account aan te maken.",
+				"passwordConstraints": " Minimaal 8 karakters.",
+				"createButton": " Registreer"
+			}
+		},
+		"register": {
+			"accountConfirmationEmail": {
+				"emailSubject": " Mijn account activeren",
+				"bodyTitle": " Mijn account activeren",
+				"textBeforeLink": " Als de bovenstaande knop niet werkt, kopieer en plak dan de volgende link in uw browser:"
+			}
+		},
+		"updateUserInfos": {
+			"emailUpdateConfirmation": {
+				"emailSubject": " Mijn nieuwe e-mailadres bevestigen",
+				"bodyTitle": " Mijn nieuwe e-mailadres bevestigen",
+				"textBeforeLink": " Als de bovenstaande knop niet werkt, kopieer en plak dan de volgende link in uw browser:"
+			}
+		},
+		"successPanel": " Goed gedaan, het is je gelukt!",
+		"failPanel": " Het antwoord is niet juist.",
+		"toCorrectPanel": " De activiteit is doorgegeven aan je leraar,</br> die binnenkort contact met je opneemt! <i class=\"fas fa-pen\"></i>",
+		"bank": {
+			"helpTooltip": " Het bronnencentrum bevat talrijke activiteiten die je vrij kunt gebruiken! Je leraar heeft geen toegang tot je activiteitenresultaten"
+		},
+		"help": {
+			"student": {
+				"label": " Neem contact op met uw leraar",
+				"question": " Stel uw vragen...",
+				"title": " Object"
+			},
+			"teacher": {
+				"label": " Neem contact op met uw leraar"
+			}
+		},
+		"profil": {
+			"identity": " Voornaam Achternaam",
+			"class": " KLASSE:",
+			"todo": " Activiteiten om te doen",
+			"done": " Uitgevoerde activiteiten",
+			"create": " Gecreëerde activiteiten",
+			"correctionToDo": " Aan te brengen correcties",
+			"switchMode": " Overschakelen naar de leerlingmodus",
+			"switchModeTeacher": " Terug naar de lerarenmodus",
+			"accountSettings": {
+				"title": " Mijn rekening",
+				"firstname": " Voornaam",
+				"lastname": " Naam",
+				"nickname": " Gebruikersnaam",
+				"email": " E-mail",
+				"password": " Wachtwoord",
+				"confirmPassword": " Wachtwoord bevestigen",
+				"updateButton": " Update"
+			}
+		},
+		"notif": {
+			"emptyContent": " De inhoud kan niet leeg zijn",
+			"emptyTitle": " De titel mag niet leeg zijn",
+			"activityRestricted": " U kunt niet meer activiteiten van dit type maken",
+			"shareProjectTeacher": " Het project werd gedeeld met je leraar",
+			"addActivities": " De geselecteerde activiteiten zijn toegevoegd aan uw lijst",
+			"addActivity": " De activiteit is toegevoegd aan uw lijst",
+			"saveProject": " Heb je eraan gedacht om je activiteit op te slaan?",
+			"savedProject": " Het ontwerp van uw activiteit is opgeslagen.",
+			"deleteProject": " Het project is verwijderd.",
+			"shareProject": " Het project werd gedeeld",
+			"corrections": " Een oefening is voltooid in uw lessen",
+			"deleteAccount": " Weet u zeker dat u het account van de leerling wilt verwijderen?",
+			"accountIsDelete": " De account van de leerling is verwijderd",
+			"newPwd": " Het nieuwe leerling-wachtwoord {{pseudo}} is {{pwd}}",
+			"classCreatedButNotUsers": " De {{classroomName}} klasse is aangemaakt, maar niet de bijbehorende accounts (Uw account staat u niet toe om {{learnerNumber}} leerlingen te hebben)",
+			"classUpdatedButNotUsers": " De {{classroomName}} klasse is bijgewerkt, maar niet de bijbehorende accounts (Met uw account kunt u geen {{learnerNumber}} leerlingen hebben)",
+			"usersNotAdded": " De leerling kon niet worden toegevoegd (Uw account staat niet toe dat u {{learnerNumber}} leerlingen heeft)",
+			"cantLoginLimitLearners": " Je kunt niet deelnemen aan de klas. Uw leraar heeft het maximum aantal leerlingen bereikt.",
+			"cantLoginClassroomBlocked": " Je kunt niet in de klas komen, je leraar heeft hem gesloten.",
+			"classNotCreated": " Je kunt niet meer dan één klas hebben.",
+			"attributeActivityUndone": " De activiteit is geschrapt.",
+			"pseudoUpdated": " De nieuwe bijnaam van de leerling is {{newPseudo}}",
+			"classroomDeleted": " De klasse {{classroomName}} is verwijderd.",
+			"classroomCreated": " De klasse {{classroomName}} is aangemaakt, evenals alle bijbehorende accounts",
+			"classroomUpdated": " De klasse {{classroomName}} is bijgewerkt, evenals alle bijbehorende accounts.",
+			"usersAdded": " De rekeningen zijn aangemaakt",
+			"usersAddedFromCsv": " De rekeningen werden aangemaakt volgens het csv-bestand",
+			"activityDeleted": " De {{activityName}} activiteit is verwijderd.",
+			"mustAttributeToStudent": " U moet de activiteit toewijzen aan leerlingen",
+			"activityAttributed": " De activiteit {{activityTitle}} is toegewezen aan de vermelde cursisten.",
+			"activityAttributionChanged": " De {{activityTitle}} opdracht is gewijzigd voor de vermelde leerlingen",
+			"activityCreated": " De activiteit {{activityTitle}} is aangemaakt",
+			"activityChanged": " De {{activityTitle}} activiteit is gewijzigd",
+			"activityTitleMissing": " U moet de titel van de activiteit invullen",
+			"activityPlayerMissing": " U moet de URL van de speler invullen",
+			"CsvFileMissing": " U hebt geen csv-bestand gekozen",
+			"errorWithCsv": " Fout bij het openen van csv bestand : {{error}}",
+			"cantGetPassword": " Fout, u kunt uw wachtwoord niet zien.",
+			"cantResetPassword": " Fout, u kunt uw wachtwoord niet resetten",
+			"accountUpdated": " Uw account is bijgewerkt",
+			"emailUpdated": " Ga naar de bevestigingslink die u zojuist is toegezonden op het nieuwe e-mailadres om de update te voltooien.",
+			"firstNameTooShort": " De eerste naam moet uit ten minste 2 tekens bestaan",
+			"lastNameTooShort": " De naam moet minstens 2 tekens lang zijn",
+			"pseudoTooShort": " De bijnaam moet ten minste 2 tekens lang zijn",
+			"invalidEmail": " Het ingevoerde e-mailadres is ongeldig",
+			"invalidPassword": " Het ingevoerde wachtwoord is ongeldig. Het moet minstens 8 tekens bevatten.",
+			"passwordAndConfirmMismatch": " Het wachtwoord en de wachtwoordbevestiging zijn niet identiek!",
+			"unknownUser": " Fout bij het bijwerken van de account: de gebruiker bestaat niet!",
+			"passwordInvalid": " Het wachtwoord voldoet niet aan de veiligheidsvoorschriften.",
+			"emailInvalid": " Het verzonden e-mailadres is ongeldig",
+			"emailExists": " Het e-mailadres is al toegewezen aan een andere account",
+			"UserNotExists": " Fout bij laden/resetten wachtwoord: Onjuiste gebruiker!",
+			"RegularUserNotAllowed": " Fout bij laden / resetten wachtwoord: alleen leerlingen kunnen hun wachtwoord tonen / resetten!",
+			"PasswordLengthInvalid": " Kan wachtwoord niet herstellen: verkeerd wachtwoord!",
+			"accountCreated": " De account is aangemaakt. Ga naar de bevestigingslink die u zojuist per e-mail is toegezonden om de registratie af te ronden en verbinding te kunnen maken.",
+			"firstnameMissing": " U moet uw voornaam invullen",
+			"surnameMissing": " U moet uw naam invullen",
+			"pseudoMissing": " Je moet je bijnaam hernoemen",
+			"emailMissing": " U moet uw e-mailadres invullen",
+			"passwordMissing": " U moet uw wachtwoord invoeren",
+			"passwordConfirmMissing": " U moet de wachtwoordbevestiging invullen",
+			"passwordsMismatch": " Wachtwoord en bevestiging zijn niet identiek",
+			"invalidUserId": " Fout bij het verzenden van het bericht: uw login is ongeldig",
+			"helpRequestFromTeacherSent": " Uw bericht is verzonden. Wij zullen u zo spoedig mogelijk antwoorden.",
+			"subjectMissingTeacherHelpForm": " U moet het onderwerp van het bericht invullen",
+			"messageMissingTeacherHelpForm": " U moet uw bericht invoeren",
+			"invalidUserIdTeacherHelpForm": " Fout bij het verzenden van het bericht: uw login is ongeldig",
+			"unknownUserTeacherHelpForm": " Fout bij het versturen van het bericht: uw login komt niet overeen met een lerarenaccount",
+			"helpRequestFromLearnerSent": " Uw bericht is verzonden naar uw leraar",
+			"subjectMissingLearnerHelpForm": " U moet het onderwerp van het bericht invullen",
+			"messageMissingLearnerHelpForm": " U moet uw bericht typen",
+			"invalidUserIdLearnerHelpForm": " Fout bij het verzenden van het bericht: uw login is ongeldig",
+			"unknownUserLearnerHelpForm": " Fout bij het verzenden van het bericht: uw gebruikersnaam is onbekend",
+			"unknownEmailLearnerHelpForm": " Fout bij het verzenden van het bericht: het e-mailadres van uw leraar is onbekend",
+			"activityTitleInvalid": " Activiteit kon niet worden aangemaakt: ongeldige titel",
+			"activityContentInvalid": " Activiteit kon niet worden aangemaakt: ongeldige inhoud",
+			"activityIsFromClassroomInvalid": " Activiteit kon niet worden aangemaakt: contextfout",
+			"activityUserIdInvalid": " Activiteit kon niet worden aangemaakt: ongeldige gebruiker",
+			"personalLimitationsReached": " Je hebt je maximum aantal studenten bereikt. ({{max}} max)",
+			"groupLimitationsGroup": " Uw groep kan geen leerlingen meer ontvangen",
+			"groupLimitationsTeacher": " Je hebt de leerlimiet bereikt die je groep je toekent",
+			"bothLimitationsReached": " Je hebt de studentenbeperkingen bereikt die jij en je groep kunnen hebben. ({{maxG}} groep max, {{maxP}} persoonlijk max)",
+			"ClassroomNameInvalid": " De naam van de klas is verplicht",
+			"reservedNickname": " De naam : \"{{reservedNickname}}\" kan niet worden toegekend.",
+			"invalidLink": " De ingevoerde link is niet geldig",
+			"noUser": " Je moet een student toevoegen",
+			"noUserUsername": " U moet een gebruikersnaam invoeren",
+			"pseudoMissingInCsvFile": " Sommige studenten konden niet worden toegevoegd omdat hun pseudo ontbrak.",
+			"backendReplyPseudoMissingInCsv": " Controleer het CSV-bestand: lege regel of pseudo ontbreekt",
+			"backendReplyPseudoMissingInUsersArray": " Er is een of meer fout(en) in de naam van de student(en)",
+			"invalidActivityId": " Fout bij het indienen van de opdracht: Ongeldige activiteit ID!",
+			"invalidCorrection": " Erreur die taak indient: Ongeldige activiteitsstatus!",
+			"generalBackendError": " Er is een fout opgetreden, probeer het later nog eens",
+			"currentPasswordDoesNotMatch": " Het ingevoerde wachtwoord is niet correct!",
+			"noAnswerInActivity": " U moet ten minste één antwoordveld hebben",
+			"courseMissingData": " U moet een titel en een beschrijving invoeren",
+			"courseMissingParameters": " U moet de parameters voor de cursus instellen"
+		},
+		"ids": {
+			"classroom-dashboard-help-panel-teacher": " Help",
+			"classroom-dashboard-activities-panel-teacher": " Mijn activiteiten",
+			"classroom-dashboard-classes-panel-teacher": " Klassen",
+			"classroom-dashboard-sandbox-panel": " Sandbox",
+			"classroom-dashboard-ressources": " Toepassingen",
+			"classroom-dashboard-profil-panel-teacher": " Profiel",
+			"classroom-dashboard-activities-panel": " Mijn activiteiten",
+			"classroom-dashboard-profil-panel": " Profiel",
+			"classroom-dashboard-help-panel": " Help",
+			"classroom-dashboard-activities-panel-library-teacher": " Bronnenbank",
+			"classroom-dashboard-new-activity-panel": " Creatie van de activiteit",
+			"classroom-dashboard-new-activity-panel2": " Intermediair",
+			"classroom-dashboard-new-activity-panel3": " Toewijzing",
+			"classroom-table-panel-teacher": " Klasse {{naam}}",
+			"classroom-dashboard-sandbox-creation": " Selectie van de interface",
+			"classroom-dashboard-ide-panel": " Sandbox {{interface}}",
+			"classroom-dashboard-activity-panel": " Activiteit {{naam}}"
+		},
+		"displayCode": " De code weergeven",
+		"navbar": {
+			"activities": " Activiteiten"
+		},
+		"classes": {
+			"add": " Een klasse toevoegen",
+			"noClasses": " Je hebt nog geen klas.",
+			"createClassNow": " Begin nu met het maken van een klas!",
+			"form": {
+				"title": " Een klasse maken",
+				"updateTitle": " Update klaslokaal",
+				"name": " Naam van de klas",
+				"school": " Naam van de instelling",
+				"addStudent": " Een leerling toevoegen",
+				"noStudent": " Nog geen leerlingen in deze klas",
+				"isBlockedButton": " Beperkt tot deze leerlingen, niemand anders zal aan de klas kunnen deelnemen.",
+				"save": " De klas opslaan",
+				"return": " Terug naar de klas"
+			},
+			"panel": {
+				"seeActivity": " Open de activiteit",
+				"editActivity": " De activiteit bewerken",
+				"editAttribution": " De toekenning bewerken",
+				"removeAttribution": " De toekenning verwijderen",
+				"password": " Uw wachtwoord:",
+				"resetPassword": " Wachtwoord opnieuw instellen",
+				"editNickname": " Wijzig uw bijnaam",
+				"delete": " Verwijder",
+				"copyLink": " Kopieer de directe link",
+				"learnerMode": " Leerlingenmodus",
+				"dueBy": " Verschuldigd door",
+				"timePassed": " De tijd ging voorbij:"
+			},
+			"copyDirectLink": " Kopieer de directe link",
+			"selectStudents": " Selecteer leerlingen",
+			"selectedStudents": " <span id='attribuate-student-number'>0</span> geselecteerde leerlingen",
+			"activationLink": " Activeringslink geactiveerd",
+			"activationLinkDisabled": " Activeringslink uitgeschakeld",
+			"fullscreen": " Bekijk in volledig scherm",
+			"deleteStudent": " Verwijder dit profiel",
+			"deleteStudentConfirm": " Wil je dit profiel echt verwijderen?"
+		},
+		"activities": {
+			"title": " Activiteiten",
+			"save": " Het ontwerp opslaan",
+			"add": " Een activiteit toevoegen",
+			"addCabriExpress": " Express-activiteit creëren",
+			"addCabriGenius": " Slimme activiteit creëren",
+			"addOther": " Ander type activiteit",
+			"new": " Nieuw",
+			"current": " In afwachting van correctie",
+			"waiting": " Nog niet voltooid",
+			"done": " Voltooid",
+			"todo": " Te corrigeren",
+			"draft": " Ontwerp",
+			"anonymise": " Anonimiseer uw cursistenlijst, zodat u het dashboard aan uw cursisten kunt tonen.",
+			"save-draft": " Opslaan als ontwerp",
+			"validate": " De activiteit valideren",
+			"accept": " Zeer goede controle",
+			"vgood": " Bevredigende controle",
+			"good": " Breekbare controle",
+			"refuse": " Onvoldoende beheersing",
+			"nnoted": " Niet geëvalueerd",
+			"instruction": " Instructie",
+			"commentary": " Commentaar",
+			"sendResults": " Stuur het commentaar naar de leerling",
+			"noSend": " Deze activiteit is niet gemaakt",
+			"toSend": " Activiteit verschuldigd voor",
+			"sentOn": " Deze activiteit is teruggekeerd op",
+			"comments": " Schrijf uw opmerkingen daar",
+			"isAutocorrected": " Deze oefening is automatisch gecorrigeerd, je kunt de score hieronder wijzigen.",
+			"isAutocorrect": " Deze activiteit wordt automatisch gecorrigeerd.",
+			"timePassed": " De tijd ging voorbij:",
+			"activitySubmited2": " Activiteit ingediend op",
+			"activityOfUser": " Activiteit van",
+			"userSentOn": "  verzonden op",
+			"yourAnswer": " Uw antwoord",
+			"studentAnswer": " Antwoord van de leerling",
+			"return": " Terug naar de activiteiten",
+			"numberOfTries": " Aantal pogingen:",
+			"bilan": {
+				"title": " Balans",
+				"results": " Resultaten",
+				"noComment": " Nog geen commentaar"
+			},
+			"applist": {
+				"selectApp": " Selecteer de toepassing waarmee u een activiteit wilt creëren"
+			},
+			"form": {
+				"1": " Toepassing",
+				"2": " Inhoud",
+				"3": " Titel",
+				"4": " Naamsvermelding",
+				"title": {
+					"label": " Titel van de activiteit",
+					"labelCabri": " Wat is de titel van de activiteit?",
+					"placeholder": " Titel van het spel",
+					"placeholderCabri": " Titel van de activiteit"
+				},
+				"iframe": {
+					"label": " Wat is de toegangs-URL?",
+					"placeholder": " Voer een URL in"
+				},
+				"notebookUpdateMessage": " Wijzig dit gedeelte niet als u het oude activiteitenboek wilt behouden!",
+				"notebookUrl": {
+					"label": " Een URL voor het notitieblok toevoegen",
+					"placeholder": " Notebook URL"
+				},
+				"playerUrl": {
+					"label": " Een speler-URL toevoegen",
+					"placeholder": " Speler URL"
+				},
+				"player": {
+					"labelFileChooser": " Kies een bestand",
+					"fileUpload": " Het bestand is succesvol geüpload",
+					"dragDrop": " Slepen en neerzetten"
+				},
+				"nextButton": " Volgende",
+				"endButton": " Afwerking",
+				"content": {
+					"label": " Inhoud van de activiteit"
+				},
+				"back": " Terug",
+				"validate": " Valideer",
+				"buttonContinue": " Opslaan en doorgaan",
+				"button": " Opslaan en goedkeuren",
+				"success": " Gefeliciteerd, je hebt een activiteit gecreëerd!",
+				"attribute": " Schrijf de activiteit nu toe",
+				"attribute2": " Schrijf de activiteit toe",
+				"return": " Terug naar mijn activiteiten",
+				"hint": " U kunt deze activiteit later alsnog toewijzen vanaf uw dashboard.",
+				"modify": " De activiteit wijzigen",
+				"select1": " Selecteer de leerlingen",
+				"select2": "  geselecteerd.",
+				"instructions": " Specifieke instructies voor deze leerlingen",
+				"autocorrect": " Deze activiteit heeft autocorrectie, wil je die activeren?",
+				"nature": " Kan de leerling de activiteit meer dan eens indienen?",
+				"dateBegin": " Startdatum:",
+				"dateEnd": " Einddatum :",
+				"retroAttribution": " Deze activiteit zal worden toegevoegd voor elke nieuwe student"
+			},
+			"toCopy": " Met deze code kunt u gemakkelijk uw klas",
+			"qrCode": " Scan de QR-code:",
+			"copyLink": " De link naar uw klas is toegevoegd aan het klembord",
+			"dateBefore": " Terug te sturen voor",
+			"dateBeforeAvailable": " Beschikbaar tot",
+			"integrate": " Integreren in een activiteit",
+			"veryGoodProficiency": " Zeer goede controle",
+			"goodProficiency": " Bevredigende controle",
+			"weakProficiency": " Breekbare controle",
+			"insufficientProficiency": " Onvoldoende beheersing",
+			"noProficiency": " Niet geëvalueerd",
+			"addLearner": " Een leerling toevoegen",
+			"addLearners": " Leerlingen toevoegen",
+			"addActivity": " Een activiteit toevoegen",
+			"exportCsv": " Export csv",
+			"players": {
+				"STANDARD": {
+					"title": " Standaard",
+					"description": " Met de standaardspeler kunt u alle activiteitenboeken lezen die met de Cabri-auteurstool zijn gemaakt."
+				},
+				"IMUSCICA": {
+					"title": " iMuSciCA",
+					"description": " De iMuSciCA-speler maakt het mogelijk om in de muziekstudio alle activiteiten te lezen die met de Cabri-auteurstool zijn gerealiseerd."
+				},
+				"IFRAME": {
+					"title": " Autre",
+					"description": " Kies uit een selectie van lezers voor gebruik in uw activiteiten met de Cabri authoring tool."
+				},
+				"EXPRESS": {
+					"title": " Express",
+					"description": " Dynamisch wiskunde-instrument"
+				},
+				"GENIUS": {
+					"title": " Slim",
+					"description": " Automatisch beoordelingsinstrument voor wiskunde"
+				},
+				"IFRAME-CABRI3D": {
+					"title": " Cabri 3D",
+					"description": " Maak een dynamische verkenning van de ruimtegeometrie."
+				},
+				"LTI-BLOCKLY": {
+					"title": " Cabri Blockly",
+					"description": " Voeg gebruikersacties toe aan een Cabri activiteit, zoals animaties, sloten,... visueel geprogrammeerd in dezelfde geest als met Scratch of Snap !"
+				}
+			},
+			"tabs": {
+				"players": " Activiteitenboek",
+				"iframes": " Video en webpagina"
+			},
+			"iframes": {
+				"IFRAME-VIDEO": {
+					"title": " Video",
+					"description": " Voer de URL in van een video die op een hostingplatform is gepubliceerd."
+				},
+				"IFRAME-PAGE": {
+					"title": " Webpagina",
+					"description": " Voer de URL van de webpagina in."
+				}
+			},
+			"month": {
+				"1": "  Januari",
+				"2": "  Februari",
+				"3": "  Maart",
+				"4": "  April",
+				"5": "  Mei",
+				"6": "  Juni",
+				"7": "  Juli",
+				"8": "  Augustus",
+				"9": "  September",
+				"10": "  Oktober",
+				"11": "  November",
+				"12": "  December"
+			},
+			"preview": "  Voorbeeld",
+			"previewTeacherResult": " De leerling zou de volgende score hebben gekregen:",
+			"studentResult": " Verkregen resultaat:",
+			"deleteActivityDisclaimer": "  U staat op het punt een activiteit te verwijderen. Deze actie is onomkeerbaar.",
+			"deleteConfirm": "  De verwijdering van de activiteit bevestigen",
+			"deleteActivity": "  De activiteit verwijderen",
+			"correctAnswer": "  Correct antwoord",
+			"nbActivities": "  <span class='nb-activities'>{{ nbActi }}</span> Activiteiten </p>",
+			"moveToFolder": "  Ga naar",
+			"rootFolder": "  Hoofdmap",
+			"seekFolder": "  Ga naar de map",
+			"foldersMessages": {
+				"errorDelete": "  Er is een fout opgetreden bij het verwijderen van de map",
+				"errorCreate": "  Er is een fout opgetreden bij het aanmaken van het bestand",
+				"errorLenght": "  De mapnaam moet tussen 1 en 30 tekens bevatten",
+				"errorUpdate": "  Er is een fout opgetreden tijdens het bewerken van het bestand",
+				"errorMoveTo": "  Er is een fout opgetreden bij het verplaatsen van het object",
+				"movedTo": "  Object succesvol verplaatst",
+				"created": "  Succesvol aangemaakt bestand",
+				"updated": "  Succesvol gewijzigd bestand",
+				"deleted": "  Bestand succesvol verwijderd",
+				"createFolder": "  Een map aanmaken",
+				"deleteFolder": "  Bevestig de verwijdering van het bestand",
+				"updateFolder": "  Wijzig het bestand",
+				"nameMandatory": "  Mapnaam <span class='mandatory'>*</span>",
+				"deleteDisclaimer": "  Let op, de map en al zijn inhoud (activiteiten en submappen) worden verwijderd."
+			},
+			"facultative": "  Facultatieve velden",
+			"previewActivity": "  Voorbeeld van de activiteit",
+			"infoRetroAttribution": "  Deze activiteit wordt toegewezen aan nieuwe leerlingen wanneer zij aan uw klas worden toegevoegd.",
+			"infoAutocorrect": "  Deze activiteit heeft automatische correctie",
+			"infoEvaluation": "  In de beoordelingsmodus kunnen leerlingen de activiteit slechts eenmaal indienen en hebben ze geen toegang tot hints en aanwijzingen."
+		},
+		"filter": {
+			"desc": " Van de minst recente naar de meest recente",
+			"asc": " Van meest recent naar minst recent",
+			"cabriExpress": " Express activiteiten",
+			"cabriGenius": " Slimme activiteiten",
+			"cabriVittascience": " Vittascience activiteiten",
+			"iframe": " Andere activiteiten",
+			"placeholder": " Zoek naar..."
+		},
+		"sandbox": {
+			"mine": " Mijn projecten",
+			"shared": " Gedeelde projecten",
+			"add": " Maak een programma",
+			"chooseInterface": " Selecteer de interface waarop u een programma wilt maken:",
+			"teacherSharedDescription": " Vind hier de programma's die door uw leerlingen worden gedeeld.",
+			"studentSharedDescription": " Vind hier de programma's gedeeld door uw leraar"
+		},
+		"footer": {
+			"privacy": " Privacybeleid",
+			"legal": " Juridische informatie",
+			"cgu": " Gebruiksvoorwaarden",
+			"copyright": " "
+		},
+		"teacherHelpPanel": {
+			"contactForm": {
+				"title": " Contacteer ons",
+				"objectPlaceholder": " Object",
+				"messagePlaceholder": " Schrijf hier uw bericht. (Maximaal 800 tekens)",
+				"sendButton": " Stuur het bericht",
+				"fillInAllTheFields": " Vul alle velden in"
+			}
+		},
+		"sandBoxCreationPanel": {
+			"title": " Selecteer de interface waarop u een programma wilt maken",
+			"knowMoreButton": " Meer informatie over interfaces",
+			"interfacesDescription": {
+				"arduino": " Programmeerinterface voor het Arduino-bord",
+				"microbit": " Programmeerinterface voor het Micro:bit bord",
+				"python": " Programmeerinterface voor Python 3 gedacht voor het onderwijs",
+				"texas-instruments": " Programmeerinterface voor rekenmachine met het micro:bit bord",
+				"esp32": " Programmeerinterface voor de ESP32-borden (Wemos D1R32, NodeMCU, Huzzah32, ...)",
+				"quickpi": " Programmeerinterface voor het Quick-Pi bord"
+			}
+		},
+		"modals": {
+			"addLtiActivityName": " Wat is de titel van de activiteit ?",
+			"addActivity": {
+				"title": " Een activiteit toevoegen",
+				"resourceBank": {
+					"title": " Bekijk de gezamenlijke bronnenbank",
+					"button": " Bronnenbank"
+				},
+				"orSeparator": " OF",
+				"attributeActivity": {
+					"title": " Mijn bestaande activiteiten bekijken",
+					"button": " Mijn activiteiten"
+				},
+				"shareProject": {
+					"title": " Deel het project"
+				},
+				"createActivity": {
+					"title": " Een nieuwe activiteit creëren",
+					"button": " Een activiteit creëren"
+				},
+				"next": " Volgende",
+				"limitTitle": " Overschreden limiet",
+				"limitDescription": " De limiet van het aantal aan deze rekening gekoppelde activiteiten is bereikt.",
+				"upgradePlan": " Limiet verhogen"
+			},
+			"updateActivity": {
+				"title": " Een activiteit bijwerken"
+			},
+			"deleteActivity": {
+				"title": " Activiteit verwijderen",
+				"description": " Weet je zeker dat je de activiteit wilt verwijderen?",
+				"confirm": " Bevestig",
+				"cancel": " Annuleren"
+			},
+			"settingsTeacher": {
+				"title": " Accountinstellingen",
+				"lang": " Taal",
+				"description": " Om uw wachtwoord of andere accountinstellingen te wijzigen",
+				"accessButton": " Ga naar uw profiel",
+				"password": " Wachtwoord",
+				"passwordDescription": " Hier is je wachtwoord. Onthoud het, anders kan alleen je leraar het je teruggeven.",
+				"resetPassword": " Reset"
+			},
+			"addStudent": {
+				"title": " Studenten toevoegen",
+				"pseudo": " Pseudoniem",
+				"addStudentButton": " Leerling toevoegen",
+				"addStudentByCsvButton": " Een leerlingbestand toevoegen (.csv)"
+			},
+			"addStudentByCsv": {
+				"title": " Studenten toevoegen met een .csv-bestand",
+				"description": " U kunt een of meer deelnemers tegelijk toevoegen door ze te importeren uit een .csv-bestand. Het is optioneel om voor elk van hen een wachtwoord in te stellen. Hier zijn de voorbeeld .csv-bestanden:",
+				"descriptionUpdate": " Je kunt een of meer deelnemers tegelijk toevoegen door ze te importeren uit een .csv-bestand. <b>Kijk uit</b> Hier worden de wachtwoorden in het csv-bestand niet ondersteund! Hier is het voorbeeld .csv-bestand:",
+				"csvTemplate": " sjabloonbestand met wachtwoord",
+				"csvTemplateNoPassword": " sjabloonbestand zonder wachtwoord",
+				"importStudentByCsvButton": " Leerlingen importeren",
+				"fileChooser": " Kies een bestand",
+				"fileName": " Geen bestanden gekozen"
+			},
+			"exportCsv": {
+				"title": " Exporteren in csv-formaat",
+				"exportLearnersDescription": " Download de lijst met deelnemers voor deze klas en hun wachtwoorden. Het gedownloade bestand is in .csv-formaat.",
+				"exportLearners": " Download de lijst van deelnemers",
+				"exportDashboardDescription": " Download de lijst van leerlingen voor deze klas en, voor elk van hen, hun toegewezen activiteiten en de status van elke activiteit (nog niet gedaan, te corrigeren, voltooid). Het gedownloade bestand is in .csv-formaat.",
+				"exportDashboard": " Download het dashboard"
+			},
+			"listClass": {
+				"title": " Overschakelen naar de leerlingmodus",
+				"description": " U kunt de interface gemakkelijk testen als leerling en op elk moment terugkeren naar uw lerarenprofiel. Uw vorderingen als leerling worden opgeslagen in uw demostudentenaccount.",
+				"switchButton": " Overschakelen naar de leerlingmodus",
+				"noClass": " Je moet eerst een klasse maken om deze functie te gebruiken"
+			},
+			"changePseudo": {
+				"title": " Bijnaam wijzigen",
+				"description": " Bijnaam wijzigen",
+				"validateButton": " Valideer"
+			},
+			"attributeActivity": {
+				"title": " Activiteit toewijzen"
+			},
+			"shareProject": {
+				"title": " Project delen"
+			},
+			"profileUpdatePasswordConfirm": {
+				"title": " Bevestiging van het wachtwoord",
+				"description": " Voer uw huidige wachtwoord in om uw profielwijzigingen te valideren!",
+				"placeholderInput": " Wachtwoord",
+				"validateButton": " Valideer"
+			}
+		},
+		"folders": {
+			"folderManagement": " Beheer van bestanden",
+			"name": " Mapnaam <span class=\"mandatory\">*</span>",
+			"title": " Map",
+			"image": " Map afbeelding"
+		}
+	},
+	"login_popup": {
+		"title": " Inloggen",
+		"details": " Voer uw inloggegevens in om toegang te krijgen tot uw account.",
+		"form": {
+			"addressmail": " E-mailadres",
+			"addressmail_placeholder": " exemple@domaine.com",
+			"password": " Wachtwoord",
+			"password_placeholder": " Uw wachtwoord.",
+			"forgot_password": " Ik ben mijn wachtwoord vergeten.",
+			"btn_connect": " Inloggen"
+		},
+		"success": " De authenticatie was succesvol. Omleiding...",
+		"error": " Fout. Controleer uw inloggegevens.",
+		"mailSuccess": " Er is een activeringsmail naar uw e-mailadres gestuurd.",
+		"mailError": " Er is een fout opgetreden. Controleer uw e-mailadres.",
+		"userNotFound": " Geen gekoppelde gebruiker gevonden bij deze mail.",
+		"inactiveAccount": " Uw account is niet actief, klik op de knop hieronder om een nieuwe validatiemail te sturen.",
+		"accountDeactivated": " Uw account is gedeactiveerd, neem contact op met een beheerder als het probleem aanhoudt.",
+		"errorBeta": " U moet een beta-tester zijn om toegang te krijgen tot deze functie. <a href='https://fr.vittascience.com/about#contact'>Contacteer het Vittascience team</a> voor meer informatie."
+	},
+	"signup-popup": {
+		"title": " Registratie",
+		"notice": " Vul de volgende velden in om uw Vittascience account aan te maken.",
+		"firstName": " Voornaam",
+		"lastName": " Naam",
+		"mail": " E-mailadres",
+		"telephone": " Telefoon",
+		"password": " Wachtwoord",
+		"passwordConfirmed": " Bevestiging",
+		"firstNamePlaceholder": " Uw voornaam.",
+		"lastNamePlaceholder": " Je naam.",
+		"mailPlaceholder": " U krijgt een bevestigingsmail.",
+		"telephonePlaceholder": " Uw telefoonnummer (facultatief).",
+		"passwordPlaceholder": " Minimaal 8 tekens. Hoofdletters, kleine letters en cijfers.",
+		"passwordConfirmedPlaceholder": " Herhaal uw wachtwoord een tweede keer.",
+		"mandatory": " Velden gemarkeerd met een <span class=\"mandatory\">*</span> zijn verplicht.",
+		"submit": " Bevestig",
+		"back": " Terug",
+		"title2nd": " Geef ons wat aanvullende informatie",
+		"areYou": " Bent u...",
+		"member": " Een individu?",
+		"teacher": " Een leraar?",
+		"teacher-grade": " Niveau van de opleiding",
+		"grades": {
+			"primary": " Primair",
+			"middle": " College",
+			"high": " High School",
+			"highbis": " Professionele Hoge School",
+			"higher": " Post-BAC"
+		},
+		"establishement": " Instelling",
+		"establishementPlaceholder": " Zoek op schoolnaam of stad.",
+		"subject": " Onderwerp geleerd",
+		"bio": " Mini-bio",
+		"bioPlaceholder": " Vertel ons een beetje over jezelf, zodat andere gebruikers van de site iets meer over je achtergrond weten :) Maximaal 800 tekens.",
+		"profilPicture": " Profielfoto (optioneel)",
+		"allowPictures": " Geaccepteerde formaten: jpeg, jpg, png. Max. 10Mb",
+		"allowPublicName": " Accepteert u dat uw naam en achternaam openbaar zijn op de site?",
+		"allowNewsletter": " Wilt u onze nieuwsbrief per e-mail ontvangen?",
+		"allowAlertMessage": " Wilt u per e-mail gewaarschuwd worden wanneer er nieuwe berichten op de site binnenkomen?",
+		"allowMessageReceive": " Wilt u gecontacteerd worden door andere gebruikers van de site?",
+		"eighteenConfirm": " Ik bevestig dat ik ouder ben dan 18 jaar (artikel 1124 van het burgerlijk wetboek)",
+		"confirmCGU": " Door dit formulier te valideren, gaat u akkoord met de <a target=\"_blank\" href=\"/cgu\">Voorwaarden</a>.",
+		"concernedAboutPrivacy": " Vittascience hecht veel belang aan de veiligheid en vertrouwelijkheid van de persoonsgegevens van haar gebruikers. Ontdek <a target=\"_blank\" href=\"/privacy\">onze bescherming van persoonsgegevens</a>",
+		"errors": {
+			"mailUsed": " De mail {{ mail }} is al in gebruik. Kies een andere.",
+			"mailUsedServer": " Het opgegeven e-mailadres bestaat al.",
+			"lastName": " De opgegeven naam is onjuist.",
+			"firstName": " De opgegeven voornaam is onjuist.",
+			"mailInvalid": " Het e-mailadres is ongeldig.",
+			"passwordInvalid": " Het wachtwoord voldoet niet aan de veiligheidsvoorschriften.",
+			"biographyInvalid": " De biografie is onjuist.",
+			"telephoneInvalid": " Het telefoonnummer is onjuist.",
+			"profilPictureInvalid": " De verstrekte profielfoto voldoet niet aan het aangegeven formaat.",
+			"establishementIncorrect": " De vestigingsnaam is onjuist.",
+			"gradeIncorrect": " Het niveau van het onderwijs is onjuist.",
+			"subjectIncorrect": " De naam van het onderwezen onderwerp is onjuist."
+		},
+		"success": {
+			"main": " Uw registratie is succesvol geregistreerd! Een bevestigingslink is naar u gestuurd op <b>{mail }}</b>.",
+			"notice": " U moet deze link openen voordat u kunt inloggen. Als u de betreffende e-mail niet kunt vinden, controleer dan uw spamfolder."
+		}
+	},
+	"switchAccessibility": {
+		"title": " Toegankelijkheid",
+		"theme": " Thema",
+		"light_theme": " Duidelijk thema",
+		"dark_theme": " Donker thema",
+		"font": " Politie",
+		"basic_font": " Basis",
+		"know_more": " Meer lezen"
+	},
+	"words": {
+		"send": " stuur",
+		"settings": " parameters",
+		"disconnect": " ontkoppeling",
+		"help": " help",
+		"duplicate": " dubbel",
+		"delete": " verwijder",
+		"attribute": " toewijzen",
+		"modify": " edit",
+		"optional": " optionele",
+		"evaluation": " evaluatie",
+		"exercise": " oefening",
+		"return": " terug",
+		"anonymize": " anonimiseren",
+		"monochrome": " Monochrome modus",
+		"days": " dagen",
+		"hours": " uren",
+		"minutes": " minuten",
+		"seconds": " seconden",
+		"confirm": " bevestig",
+		"username": " pseudoniem",
+		"password": " Wachtwoord",
+		"yes": " Ja",
+		"no": " Geen"
+	},
+	"faqTeacherNeutral": {
+		"1": {
+			"section_title": " Activiteiten",
+			"question_list": {
+				"1": {
+					"title": " Wat is het doel van het tabblad Mijn activiteiten?",
+					"answer": " In het tabblad <b>Mijn activiteiten</b> kunt u:<ol><li>Eigen activiteiten aanmaken.</li><li>Toewijzen aan uw leerlingen! </li></ol>."
+				},
+				"2": {
+					"title": " Wat is een activiteit?",
+					"answer": " Een activiteit is interactieve inhoud die wordt gecreëerd vanuit Cabri Express, Cabri Smart of een bestaand Cabri-schrift."
+				},
+				"3": {
+					"title": " Hoe een activiteit creëren of wijzigen?",
+					"answer": " <p>U kunt eenvoudig activiteiten aanmaken of bewerken.</p><p>Om een activiteit te bewerken, gaat u naar het tabblad <b>Mijn activiteiten</b> en klikt u op het <i class=\"fas fa-cog\"></i> pictogram voor uw activiteit en klikt u vervolgens op Bewerken. Vergeet niet uw wijzigingen op te slaan.</p>"
+				},
+				"4": {
+					"title": " Hoe wijs ik een activiteit toe?",
+					"answer": " Om een activiteit toe te wijzen, hebt u drie opties:<ol><li>Ofwel gaat u naar het tabblad <b>Mijn activiteiten</b> en klikt u op het <i class=\"fas fa-cog\"></i> pictogram voor uw activiteit en klikt u vervolgens op Toewijzen. </li><li>Deze toewijzingsoptie is ook beschikbaar in de activiteit zelf zodra deze is geopend.</li><li>Daarna gaat u naar het tabblad <b>Klassen</b> en klikt u op een klas. In het dashboard van de klas klikt u op de knop \"Activiteit toevoegen\"."
+				},
+				"5": {
+					"title": " Hoe test je een activiteit?",
+					"answer": " Om een activiteit te testen heb je twee opties:<ol><li>Of je gaat naar <b>Profiel</b> en klikt op de knop \"Overschakelen naar de Leerlingmodus\" en selecteert vervolgens de klas waarin je wilt zitten. U bevindt zich dan in de fictieve account van een leerling genaamd \"demostudent\", u kunt de interface \"Learner\" ontdekken en de toegewezen activiteiten uitvoeren.</li><li>Of ga naar <b>Klassen</b> in het dashboard van een klas, u kunt dan in de huid kruipen van de leerling-demostudent. Klik hiervoor op het <i class=\"fas fa-exchange-alt\"></i> pictogram, je krijgt dan de mogelijkheid om leerling te worden in de klas en de activiteiten uit te proberen.</li></ol>Om terug te keren naar de \"Leerkracht\"-modus, ga je gewoon naar het tabblad <b>Profiel</b> van de demostudentaccount en klik je op \"Terug naar de Leerkrachtmodus.\"."
+				},
+				"6": {
+					"title": " Hoe verwijder je een activiteitstoewijzing zonder de activiteit te verwijderen?",
+					"answer": " Om de opdracht van een activiteit te verwijderen, ga je naar het tabblad <b>Klas</b>, open je het dashboard voor een van de klassen, klik je op de activiteit (het pictogram wordt <i class=\"fas fa-cog\"></i> als je er met de muis overheen gaat) en vervolgens op Opdracht bewerken. U hoeft nu alleen nog maar de instellingen te wijzigen en deelnemers te selecteren of te deselecteren."
+				}
+			}
+		},
+		"2": {
+			"section_title": " Klasse",
+			"question_list": {
+				"1": {
+					"title": " Wat is het doel van het tabblad Klassen?",
+					"answer": " In het tabblad Klassen kunt u:<ol><li>Eigen klassen maken en leerlingen toevoegen</li><li>De reacties van uw leerlingen op activiteiten corrigeren,</li><li>en hun vorderingen bijhouden.</li></ol>."
+				},
+				"2": {
+					"title": " Hoe voeg ik mijn leerlingen toe aan mijn klas?",
+					"answer": " Je hebt verschillende opties:<ol><li>In de klas kun je <b>de code projecteren op het bord</b>. Ga hiervoor naar uw klas en klik op de knop om de onderstaande code te vergroten:<br><img class=\"faq-img-center img-fluid\" src=\"assets/media/faq/image1.png\">Uw leerlingen hoeven zich alleen maar te registreren of in te loggen op de site door de code in te voeren. Ze kunnen deze code ook opschrijven om thuis in te loggen.</li><li>U kunt ook leerlingen aanmaken met de knop \"Leerling toevoegen\" en ze dan <b>hun wachtwoord individueel toezenden</b>, dit is zichtbaar op het Dashboard van de klas :<br><img class=\"faq-img-center img-fluid\" src=\"assets/media/faq/image2.png\"></li></ol>"
+				},
+				"3": {
+					"title": " Kan een leerling in twee verschillende klassen zitten?",
+					"answer": " Nee, dit is momenteel niet mogelijk."
+				},
+				"4": {
+					"title": " Hoe blokkeer je andere leerlingen in een klas?",
+					"answer": " Deze optie is binnenkort beschikbaar! Dit voorkomt dat leerlingen zich per ongeluk meerdere keren voor dezelfde klas inschrijven, en voorkomt ook dat buitenstaanders zonder toestemming de klas binnenkomen."
+				},
+				"5": {
+					"title": " Hoe wijs ik een activiteit toe?",
+					"answer": " <p>U kunt een activiteit toewijzen aan alle klassen die u hebt gemaakt of alleen aan een specifieke leerling.</p><p>Om een activiteit toe te wijzen, hebt u drie opties:</p><ol><li>Ofwel gaat u naar het tabblad <b>Mijn activiteiten</b> en klikt u op het <i class=\"fas fa-cog\"></i> pictogram voor uw activiteit en klikt u vervolgens op Toewijzen. </li><li>Deze toewijzingsoptie is ook beschikbaar in de activiteit zelf zodra deze is geopend.</li><li> Vervolgens gaat u naar het tabblad <b>Klassen</b> en klikt u op een klas. In het dashboard van de klas klikt u op de knop \"Activiteit toevoegen\"."
+				},
+				"6": {
+					"title": " Kunnen we terugkomen op de toewijzing van een activiteit?",
+					"answer": " Om terug te gaan naar het toewijzen van een activiteit, ga je naar het tabblad <b>Klas</b>, open je het dashboard voor een van de klassen, klik je op de activiteit (het pictogram wordt <i class=\"fas fa-cog\"></i> als je er met de muis overheen gaat) en vervolgens op Opdracht bewerken. U hoeft nu alleen nog maar de instellingen te wijzigen en deelnemers te selecteren of te deselecteren."
+				},
+				"7": {
+					"title": " Hoe worden de activiteiten geëvalueerd?",
+					"answer": " De beoordelingen zijn:<ul><li>handmatig op 4 niveaus: Zeer goede beheersing; Voldoende beheersing; Zwakke beheersing en Onvoldoende beheersing</li><li>Of automatisch op 2 niveaus: <br>Dit type beoordeling zorgt ervoor dat de leerling onmiddellijk gecorrigeerd wordt en dat de docent veel tijd bespaart.</li></ul><p>Als de leerling zijn activiteit heeft voltooid, kan hij deze opnieuw starten als de docent bij het toewijzen de modus \"Oefenen\" heeft geselecteerd. In de modus \"Beoordeling\" kan de leerling niet opnieuw beginnen zodra de activiteit is gevalideerd.</p><p>Om de resultaten te bekijken, gaat u naar het Dashboard van de klas.</p><p>Een niet-gecorrigeerde activiteit wordt gesymboliseerd door een potlood in het Dashboard. Om deze te corrigeren klikt u op het potlood, waarna u het werk van de leerling beoordeelt en van commentaar voorziet.</p><p>"
+				},
+				"8": {
+					"title": " Hoe weten we wanneer leerlingen hun activiteiten hebben voltooid?",
+					"answer": " Wanneer een leerling zijn activiteit heeft voltooid, ontvangt u een e-mail notificatie.<br>Deze instelling zal in de toekomst worden aangepast, voorlopig is het niet instelbaar."
+				},
+				"9": {
+					"title": " Hoe de naam van een klas veranderen?",
+					"answer": " Om de naam van je klas te veranderen, moet je klikken op het <i class=\"fas fa-cog\"></i> icoontje van het tabblad Klassen, en dan op bewerken. U hoeft dan alleen de naam te veranderen."
+				},
+				"10": {
+					"title": " Hoe verwijder ik een leerling uit een klas?",
+					"answer": " <p>Om een leerling te verwijderen, klikt u gewoon op het <i class=\"fas fa-cog\"></i> pictogram naast de naam van de leerling in het Klasdashboard.</p><p>Waarschuwing: deze actie is onomkeerbaar en sluit de account van de leerling.</p>"
+				},
+				"11": {
+					"title": " Wat is het doel van de anonimiseringsknop in het Dashboard?",
+					"answer": " Deze knop vervangt de namen van de leerlingen door nummers. Zo kunt u de resultaten van de leerlingen anoniem op het bord projecteren om bepaalde leerlingen niet te stigmatiseren."
+				}
+			}
+		},
+		"3": {
+			"section_title": " Profiel",
+			"question_list": {
+				"1": {
+					"title": " Wat is het doel van het tabblad Profiel?",
+					"answer": " In het tabblad Profiel kunt u:<ol><li>de instellingen van uw account beheren,</li><li>uw statistieken bekijken,</li><li>en berichten uitwisselen met uw leerlingen en het Cabrilog-team als u hulp nodig hebt.</li></ol>"
+				},
+				"2": {
+					"title": " Hoe verander ik mijn wachtwoord of andere accountinstellingen?",
+					"answer": " Om uw wachtwoord of andere instellingen te wijzigen, gaat u naar het tabblad Profiel. In het geval van GAR zijn de instellingen die van uw ENT."
+				},
+				"3": {
+					"title": " Hoe verander je de taal?",
+					"answer": " De klaslokaalmodule is momenteel beschikbaar in het Engels en het Frans. Om de taal te wijzigen, gaat u naar het tabblad Profiel, klikt u op de knop \"Instellingen\" en selecteert u de gewenste taal."
+				},
+				"4": {
+					"title": " Wat is de leerlingmodus?",
+					"answer": " <p>In je profiel kun je op de knop \"Switch to Learner Mode\" klikken. Nadat je een klas hebt gekozen, ga je naar een fictieve leerling-account genaamd \"demostudent\", waar je de Learner-interface kunt ontdekken en de toegewezen activiteiten kunt uitvoeren.</p><p>Om terug te keren naar de \"Docent\"-modus, ga je naar het tabblad <b>Profiel</b> van de demostudent-account en klik je op \"Terug naar Docentenmodus\".</p>"
+				}
+			}
+		},
+		"4": {
+			"section_title": " Algemene vragen",
+			"question_list": {
+				"1": {
+					"title": " Op welke media is de klassemodule compatibel?",
+					"answer": " <p>De interfaces werken zonder installatie, op computer, tablet en smartphone! Updates gebeuren automatisch en van uw programma's wordt een back-up gemaakt in de cloud.</p><p>Om alle functies ten volle te benutten, raden wij u aan Chrome of Firefox te gebruiken.</p>"
+				},
+				"2": {
+					"title": " Hoe maak ik een snelkoppeling naar de klaslokaalmodule?",
+					"answer": " <p>U hebt de mogelijkheid om een pictogram op het bureaublad van uw computer te plaatsen om snel toegang te krijgen tot de klaslokaalmodule. Om dit te doen:</p><p>On Windows en Mac:</p><ol><li>Open de pagina: <a href=\"/klaslokaal\" target=\"_blank\">klaslokaal/</a> en verklein vervolgens het browservenster zodat u het bureaublad ernaast kunt zien.</li><li>Selecteer in uw webbrowser het symbool links van het adres en sleep de aanwijzer naar het bureaublad zonder de muisknop los te laten. Laat los om de snelkoppeling te maken.</li><li>De snelkoppeling is gemaakt. U hoeft er alleen maar op te dubbelklikken om de gekoppelde webpagina te openen.</li></ol><p>Op Android met Chrome:</p><ol><li>Open de pagina:<a href=\"/classroom\" target=\"_blank\">classroom/</a>, druk vervolgens op de menuknop en selecteer \"Toevoegen aan beginscherm\".</li><li>Noem de pagina en druk op \"Toevoegen\".</li><li>De snelkoppeling wordt gemaakt. U hoeft er alleen maar op te dubbelklikken om de gekoppelde webpagina te openen.</li></ol><p>Op Android met Firefox:</p><ol><li>Open de pagina:<a href=\"/classroom\" target=\"_blank\">classroom/</a>, druk vervolgens op de menuknop en vervolgens op Pagina.</li><li>Tik op Snelkoppeling toevoegen aan pagina.</li><li>De snelkoppeling wordt gemaakt op het startscherm. U hoeft er alleen maar op te klikken om de gekoppelde webpagina te openen.</li></ol><p>Op iOS met Safari:</p><ol><li>Open de pagina:<a href=\"/classroom\" target=\"_blank\">classroom/</a> en tik vervolgens op het pictogram Delen.</li><li>Selecteer op het startscherm en tik vervolgens op Toevoegen.</li><li>De snelkoppeling wordt gemaakt op het startscherm. Je hoeft er alleen maar op te klikken om de gekoppelde webpagina te openen.</li></ol><p>Je kunt op internet meer tutorials vinden om een snelkoppeling op het bureaublad te maken.</p>"
+				}
+			}
+		},
+		"5": {
+			"section_title": " Technisch probleem",
+			"question_list": {
+				"1": {
+					"title": " Ik heb een bug, wat kan ik doen?",
+					"answer": " Wanneer zich een bug voordoet, probeer dan eerst de pagina te verversen. Als de bug blijft bestaan, kunt u contact met ons opnemen in het tabblad Profiel met de knop \"Help\"."
+				},
+				"2": {
+					"title": " Hoe meld ik bugs en geef ik feedback?",
+					"answer": " Als de bug blijft bestaan, kunt u contact met ons opnemen in het tabblad Profiel met de knop \"Help\".<br>Om ons feedback te geven, kunt u ook contact met ons opnemen in het tabblad Profiel met de knop \"Help\"."
+				}
+			}
+		},
+		"6": {
+			"section_title": " Vergunningen",
+			"question_list": {
+				"1": {
+					"title": " Kunnen we een beschrijving of presentatie van de Klassenmodule maken?",
+					"answer": " Ja, u kunt de afbeeldingen voor de klaslokaalmodule hergebruiken om een beschrijving, presentatie, training, zelfstudie, cursus of andere te maken. Als u afbeeldingen of inhoud van activiteiten wilt opnemen, vermeld dan de auteur (zie volgende vraag)."
+				},
+				"2": {
+					"title": " Waar kan ik de broncode van de Class-module vinden?",
+					"answer": " De broncode van de Class-module is beschikbaar op de <a href=\"https://github.com/Cabri/OpenSTEAM-LMS/\" target=\"_href\">OpenSTEAM-LMS git repository</a>, voel je vrij om bij te dragen!"
+				}
+			}
+		},
+		"title": " FAQ"
+	},
+	"faqStudentNeutral": {
+		"1": {
+			"section_title": " Activiteiten",
+			"question_list": {
+				"1": {
+					"title": " Wat is het doel van het tabblad Mijn activiteiten?",
+					"answer": " In het tabblad Mijn activiteiten kun je:<ol><li>Nieuwe activiteiten van je leraren voltooien.</li><li>Opslaan die je nog niet hebt voltooid.</li><li>En de activiteiten die je al hebt gedaan bekijken!\"</li></ol>."
+				},
+				"2": {
+					"title": " Wat is een activiteit?",
+					"answer": " Een activiteit is interactieve inhoud die is gemaakt met Cabri Express of Cabri Author."
+				}
+			}
+		},
+		"2": {
+			"section_title": " Bel voor hulp",
+			"question_list": {
+				"1": {
+					"title": " Wat is het doel van het tabblad Hulpaanvraag?",
+					"answer": " In het tabblad Vraag om hulp kun je:<ol><li>Op elk moment hulp vragen aan je docenten,</li><li>Veel gestelde vragen raadplegen.</li></ol>Je kunt je berichtenuitwisseling volgen in het tabblad Profiel."
+				}
+			}
+		},
+		"3": {
+			"section_title": " Profiel",
+			"question_list": {
+				"1": {
+					"title": " Wat is het doel van het tabblad Profiel?",
+					"answer": " In het tabblad Profiel kun je:<ol><li>Je accountinstellingen beheren,</li><li>Je statistieken bekijken,</li><li>en berichten uitwisselen met je leraren.</li></ol>"
+				},
+				"2": {
+					"title": " Hoe verander ik mijn wachtwoord of andere accountinstellingen?",
+					"answer": " Om uw wachtwoord of andere instellingen te wijzigen, gaat u naar het tabblad Profiel."
+				},
+				"3": {
+					"title": " Hoe verander je de taal?",
+					"answer": " De klaslokaalmodule is momenteel beschikbaar in het Engels en het Frans. Om de taal te wijzigen, gaat u naar het tabblad Profiel, klikt u op de knop \"Instellingen\" en selecteert u de gewenste taal."
+				}
+			}
+		},
+		"4": {
+			"section_title": " Algemene vragen",
+			"question_list": {
+				"1": {
+					"title": " Hoe begin ik met de klaslokaalmodule?",
+					"answer": " U kunt op elk moment algemene hulp krijgen door te klikken op het <i class=\"fas fa-question\"></i> pictogram rechtsboven om een handvat te krijgen voor de Klassenmodule."
+				},
+				"2": {
+					"title": " Op welke media is de klassemodule compatibel?",
+					"answer": " <p>De interfaces werken zonder installatie, op computer, tablet en smartphone! Updates worden automatisch uitgevoerd en uw programma's worden opgeslagen in de cloud.</p><p>Om alle functies ten volle te benutten, raden wij u aan Chrome of Firefox te gebruiken.</p>"
+				},
+				"3": {
+					"title": " Hoe maak ik een snelkoppeling naar de klaslokaalmodule?",
+					"answer": " <p>U hebt de mogelijkheid om een pictogram op het bureaublad van uw computer te plaatsen om snel toegang te krijgen tot de klaslokaalmodule. Om dit te doen:</p><p>On Windows en Mac:</p><ol><li>Open de pagina: <a href=\"/klaslokaal\" target=\"_blank\">/klaslokaal/</a> en verklein vervolgens het browservenster zodat u het bureaublad ernaast kunt zien.</li><li> Selecteer in uw webbrowser met de muis het symbool links van het adres en sleep de aanwijzer naar het bureaublad zonder deze los te laten. Laat los om de snelkoppeling te maken.</li><li>De snelkoppeling is gemaakt. U hoeft er alleen maar op te dubbelklikken om de gekoppelde webpagina te openen.</li></ol><p>Op Android met Chrome:</p><ol><li>Open de pagina: <a href=\"/klaslokaal\" target=\"_blank\">/klaslokaal/</a>, druk vervolgens op de menuknop en selecteer \"Toevoegen aan beginscherm\".</li><li>Noem de pagina en druk op \"Toevoegen\".</li><li>De snelkoppeling wordt gemaakt. Je hoeft er alleen maar op te dubbelklikken om de gekoppelde webpagina te openen.</li></ol><p>Op Android met Firefox:</p><ol><li>Open de pagina: <a href=\"/klaslokaal\" target=\"_blank\">/klaslokaal/</a>, tik op de menuknop en vervolgens op Pagina.</li><li>Tik op Snelkoppeling naar pagina toevoegen.</li><li>De snelkoppeling wordt gemaakt op het beginscherm. U hoeft er alleen maar op te klikken om de gekoppelde webpagina te openen.</li></ol><p>Op iOS met Safari:</p><ol><li>Open de pagina:<a href=\"/klaslokaal\" target=\"_blank\">/klaslokaal/</a>, tik vervolgens op het pictogram Delen.</li><li>Selecteer op het startscherm en tik vervolgens op Toevoegen.</li><li>De snelkoppeling wordt gemaakt op het startscherm. Je hoeft er alleen maar op te klikken om de gekoppelde webpagina te openen.</li></ol><p>Je kunt op internet meer tutorials vinden voor het maken van een snelkoppeling op het bureaublad.</p>"
+				}
+			}
+		},
+		"5": {
+			"section_title": " Technisch probleem",
+			"question_list": {
+				"1": {
+					"title": " Ik heb een bug, wat kan ik doen?",
+					"answer": " Wanneer zich een bug voordoet, is het eerste wat u moet doen de pagina proberen te verversen. Als de bug blijft bestaan, kunt u contact opnemen met uw leraar in het tabblad Hulp vragen."
+				},
+				"2": {
+					"title": " Hoe meld ik bugs en geef ik feedback?",
+					"answer": " <p>Als de bug blijft bestaan, kun je contact opnemen met je leraar in het tabblad Help.</p><p>Om feedback te geven aan je leraar, kun je ook contact opnemen met hem/haar in het tabblad Help.</p>"
+				}
+			}
+		},
+		"6": {
+			"section_title": " Vergunningen",
+			"question_list": {
+				"1": {
+					"title": " Waar kan ik de broncode van de Class-module vinden?",
+					"answer": " De broncode van de Klassenmodule is beschikbaar op <a href=\"https://github.com/Cabri/OpenSTEAM-LMS/\" target=\"_href\">de OpenSTEAM-LMS git repository</a>, voel je vrij om bij te dragen!"
+				}
+			}
+		},
+		"title": " FAQ"
+	},
+	"manager": {
+		"profil": {
+			"manager": " Overschakelen naar manager",
+			"groupAdmin": " Schakel over naar groepsbeheerder",
+			"bio": " Bio",
+			"group": " Groep",
+			"apps": " Apps",
+			"personalApps": " Persoonlijke apps",
+			"email": " E-mail <span class=\"c-tekst-rood\">*</span>",
+			"nickname": " Gebruikersnaam",
+			"lastname": " Achternaam <span class=\"c-tekst-rood\">*</span>",
+			"firstname": " Voornaam <span class=\"c-tekst-rood\">*</span>",
+			"phone": " Telefoonnummer",
+			"grade": " Niveau van de opleiding <span class=\"c-tekst-rood\">*</span>",
+			"subject": " Onderwezen onderwerp <span class=\"c-tekst-rood\">*</span>",
+			"school": " School <span class=\"c-tekst-rood\">*</span>",
+			"password": " Wachtwoord <span class=\"c-tekst-rood\">*</span>",
+			"confirmPassword": " Wachtwoord bevestigen <span class=\"c-tekst-rood\">*</span>",
+			"help": " Help",
+			"onlyVisibleGroupAdmin": " Alleen zichtbaar voor u als groepsbeheerder:",
+			"onlyVisiblemanager": " Alleen zichtbaar voor u als manager:"
+		},
+		"account": {
+			"activate": {
+				"success": " Uw account is geactiveerd!",
+				"alreadyactive": " Uw account is al actief.",
+				"noToken": " Aan deze link is geen token verbonden."
+			},
+			"active": " Actieve rekening",
+			"registration": {
+				"success": " Succesvolle registratie !",
+				"emailSent": " Er is zojuist een e-mail naar u verzonden, volg de link daarin om uw account te activeren en uw link naar de groep \"<span id=\"gourpName2\"></span>\" voort te zetten.",
+				"accountPublic": " Gaat u ermee akkoord dat uw voor- en achternaam openbaar zijn op de site?",
+				"newsletter": " Wilt u onze nieuwsbrief per e-mail ontvangen?",
+				"mailAlert": " Wilt u per e-mail gewaarschuwd worden wanneer u nieuwe berichten op de site ontvangt ?",
+				"allowContact": " Wilt u gecontacteerd kunnen worden door andere gebruikers van de site ?",
+				"confirmAdult": " Ik bevestig dat ik ouder ben dan 18 jaar (artikel 1124 du code civil)*.",
+				"disclaimerVittascience": " Vittascience hecht veel belang aan de veiligheid en vertrouwelijkheid van de persoonsgegevens van haar gebruikers. Ontdek<a href=\"http://vittascience.com/privacy\"> ons beleid inzake de bescherming van persoonsgegevens</a>",
+				"mandatory": " Velden gemarkeerd met <span class=\"c-tekst-rood\">*</span> zijn verplicht.",
+				"cguVittascience": " Door dit formulier te valideren, aanvaardt u de <a href=\"http://vittascience.com/\"> Servicevoorwaarden</a>.",
+				"cguOpenSteam": " Door dit formulier te valideren, aanvaardt u de <a target=\"_blank\" href=\"/classroom/cgu.php\"> Servicevoorwaarden</a>.",
+				"description": " Vul de volgende velden in om uw account aan te maken.",
+				"title": " Registratie",
+				"registrationFinalizationSuccess": " Uw registratie is voltooid, u kunt nu verbinden",
+				"registrationFinalization": " Voltooi uw registratie",
+				"descriptionFinalization": " Vul de volgende velden in om uw registratie te voltooien.",
+				"noTokenOrUserActive": " Ongeldig token of gebruiker reeds actief",
+				"noToken": " Ontbrekende penning"
+			},
+			"notAllowedUpdateUser": " Je hebt geen rechten om deze gebruiker bij te werken.",
+			"notAllowedDeleteGroup": " Je hebt geen rechten om deze groep te verwijderen.",
+			"notAllowedDisableUser": " Je hebt geen rechten om deze gebruiker uit te schakelen.",
+			"notAllowedDeleteUser": " Je hebt geen rechten om deze gebruiker te verwijderen.",
+			"passwordUpdatedMessage": " Uw wachtwoord is succesvol gewijzigd",
+			"noUserFound": " Er is geen gebruiker gevonden die dit adres gebruikt.",
+			"noUserFoundToken": " Dit token komt niet overeen met een gebruiker.",
+			"missingData": " Er ontbreekt informatie om de operatie af te ronden.",
+			"missingDataDate": " Datuminformatie ontbreekt om de operatie af te ronden.",
+			"errorSending": " Er is een fout opgetreden tijdens het verzenden van de e-mail",
+			"userNotFound": " Gebruiker niet gevonden en/of reeds actief",
+			"userNotFoundId": " Gebruiker niet gevonden",
+			"errorActivation": " Er is een fout opgetreden tijdens de activering.",
+			"notAllowedToCreateUserInThisGroup": " U bent niet gemachtigd om een gebruiker in deze groep aan te maken.",
+			"subscriptionOudated": " Uw APPNAME app is verlopen op DATUM. Neem voor meer informatie contact op met een beheerder."
+		},
+		"users": {
+			"users": " Gebruikers",
+			"add": " Gebruiker toevoegen",
+			"activated": " De rekening is geactiveerd.",
+			"errorActivation": " Er is een fout opgetreden tijdens de activering.",
+			"create": " Gebruiker aanmaken",
+			"delete": " Gebruiker verwijderen",
+			"deleteConfirmation": " Schrijf \"verwijderen\" in het onderstaande veld om de actie te valideren.",
+			"deleteIntentionSA": " U staat op het punt de gebruiker te verwijderen : <span id=\"mdi_firstnameSA\"></span>",
+			"disableIntention": " U gaat de gebruiker uitschakelen : <span id=\"mde_firstnameSA\"></span>",
+			"deleteConfirmationTitle": " Verwijdering bevestigen",
+			"disableConfirmationTitle": " Deactivering bevestigen",
+			"update": " Gebruiker bijwerken",
+			"updateAppUser": " Gebruikersapps bijwerken",
+			"updateApp": " Apps bijwerken",
+			"disable": {
+				"message": " Schrijf \"verwijderen\" in het onderstaande veld om de actie te valideren.",
+				"intention": " U staat op het punt de gebruiker te verwijderen : <span id=\"md_firstnameGA\"></span>"
+			},
+			"mail": {
+				"resetPassword": {
+					"subject": " Uw wachtwoord opnieuw instellen.",
+					"bodyTitle": " Wachtwoord opnieuw instellen.",
+					"textBeforeLink": " Als de bovenstaande knop niet werkt, kopieer en plak dan de volgende link in uw browser:"
+				},
+				"finalizeAccount": {
+					"title": " Definitieve registratie",
+					"subject": " Definitieve registratie",
+					"bodyTitle": " Rond uw registratie af.",
+					"textBeforeLink": " Als de bovenstaande knop niet werkt, kopieer en plak dan de volgende link in uw browser:"
+				}
+			},
+			"showResetLinkTitle": " Wachtwoord opnieuw instellen.",
+			"showResetLink": " Wachtwoord reset link.",
+			"groupAdmin": " Groepsbeheerder",
+			"admin": " Manager",
+			"teacher": " Leraar",
+			"usersPerPage": " Gebruikers per pagina",
+			"userDeleted": " Gebruiker verwijderd.",
+			"userDisabled": " Gebruiker uitgeschakeld.",
+			"userCreated": " Gebruiker succesvol aangemaakt",
+			"userUpdated": " Gebruiker succesvol bijgewerkt",
+			"chooseNewPassword": " Kies uw nieuwe wachtwoord",
+			"passwordUpdate": " Uw wachtwoord is gewijzigd",
+			"enterYourEmail": " Voer uw e-mailadres in",
+			"sendResetMailDescription": " Als u op verzenden klikt, krijgt u een e-mail met een link om uw wachtwoord te wijzigen.",
+			"yourMail": " Uw e-mail",
+			"emailSended": " Een e-mail met de te volgen procedure is u zojuist toegezonden.",
+			"emailNotReceived": " Als u de e-mail niet hebt ontvangen, klik dan op opnieuw beginnen (het kan even duren voordat de e-mail aankomt).",
+			"mailSentToUser": " Er is een e-mail naar de gebruiker gestuurd om zijn registratie te voltooien.",
+			"mailNotSentToUser": " de registratie-eindmail kon niet worden verzonden naar de gebruiker",
+			"mailSentToUserReset": " Er is een e-mail gestuurd naar de gebruiker om zijn wachtwoord te wijzigen",
+			"mailNotSentToUserReset": " De e-mail voor de wachtwoordwijziging kon niet worden verzonden naar de gebruiker",
+			"appsUpdated": " Gebruikers-apps zijn bijgewerkt",
+			"updateAppModalTitle": " Toepassing",
+			"teacherGrades": {
+				"0": " Basisschool",
+				"1": " Middelbare school",
+				"2": " Middelbare school",
+				"3": " Technisch College",
+				"4": " POST-BAC"
+			},
+			"teacherSubjects": {
+				"0": {
+					"0": " Basisschool",
+					"1": " Andere (specificeer in biografie)"
+				},
+				"1": {
+					"0": " Lichamelijke en sportieve opvoeding",
+					"1": " Moreel en burgerlijk onderwijs",
+					"2": " Artistiek onderwijs",
+					"3": " Frans",
+					"4": " Geschiedenis geografie",
+					"5": " Levende taal",
+					"6": " Wiskunde",
+					"7": " Chemische fysica",
+					"8": " Levens- en aardwetenschappen",
+					"9": " Technologie",
+					"10": " Andere (specificeer in bio)"
+				},
+				"2": {
+					"0": " Kunst",
+					"1": " Circus kunsten",
+					"2": " Biologie Ecologie",
+					"3": " Biotechnologieën",
+					"4": " Creatie en ontwerpcultuur",
+					"5": " Technologische creatie en innovatie",
+					"6": " Ecologie-agronomie-territoria-ontwikkeling duurzaam",
+					"7": " Lichamelijke en sportieve opvoeding",
+					"8": " Moreel en burgerlijk onderwijs",
+					"9": " Wetenschappelijk onderwijs",
+					"10": " Transversaal technologisch onderwijs",
+					"11": " Frans",
+					"12": " Hippologie en paardrijden",
+					"13": " Geschiedenis geografie",
+					"14": " Geschiedenis geografie, geopolitiek en politieke wetenschappen",
+					"15": " Geesteswetenschappen, literatuur en filosofie",
+					"16": " Talen en culturen uit de Oudheid: Latijn of Grieks",
+					"17": " Levende taal",
+					"18": " Buitenlandse en regionale talen, literaturen en culturen",
+					"19": " Literatuur en talen en culturen van de Oudheid",
+					"20": " Beheer",
+					"21": " Wiskunde",
+					"22": " Digitale en computerwetenschappen",
+					"23": " Chemische fysica",
+					"24": " Grondbeginselen van economie en management",
+					"25": " Gezondheid en sociale",
+					"26": " Levens- en aardwetenschappen",
+					"27": " Ingenieurswetenschappen",
+					"28": " Wetenschap en laboratorium",
+					"29": " Wetenschappen en technieken van theater, muziek en dans",
+					"30": " Laboratoriumwetenschappen en -technologie",
+					"31": " Hotel- en restaurantwetenschappen en -technologieën",
+					"32": " Wetenschap en technologie van de industrie en duurzame ontwikkeling",
+					"33": " Wetenschappen en technologieën van design en toegepaste kunst",
+					"34": " Management en wetenschappen en technologieën",
+					"35": " Digitale wetenschap en technologie",
+					"36": " Economische en sociale wetenschappen",
+					"37": " Andere (specificeer in biografie)"
+				},
+				"3": {
+					"0": " Toegepaste kunsten en artistieke culturen",
+					"1": " Juiste economie",
+					"2": " Beheer van de economie",
+					"3": " Lichamelijke opvoeding en sport",
+					"4": " Moreel en burgerlijk onderwijs",
+					"5": " Transversaal technologisch onderwijs",
+					"6": " Frans",
+					"7": " Geschiedenis geografie",
+					"8": " Moderne vreemde talen",
+					"9": " Wiskunde Natuurkunde-Chemie",
+					"10": " Milieugezondheidspreventie",
+					"11": " Andere (specificeer in biografie)"
+				},
+				"4": {
+					"0": " Hoger onderwijs",
+					"1": " Andere (specificeer in biografie)"
+				}
+			},
+			"groupFull": " De groep is vol"
+		},
+		"group": {
+			"generalInfo": " Algemene informatie",
+			"add": " Groep toevoegen",
+			"create": " Groep aanmaken",
+			"delete": " Groep verwijderen",
+			"deleteIntention": " U staat op het punt de groep te verwijderen : <span id=\"md_group\"></span>",
+			"update": " Update groep",
+			"academy": " Academie",
+			"join": {
+				"firstVisit": " Eerste bezoek?",
+				"signin": " Aanmelden",
+				"signinSubtitle": " Voer uw inloggegevens in om toegang te krijgen tot uw account",
+				"addressMail": " Postadres",
+				"disclaimer": " Door lid te worden van deze groep geeft u de beheerder van de groep toestemming om uw account te wijzigen en/of te deactiveren. U beschikt ook over de toepassingen die de groep bezit.",
+				"lastStep": " Er is nog maar één stap! Klik op de knop hieronder om de link definitief te maken.",
+				"joinGroup": " U staat op het punt lid te worden van de groep : \"<span id='groupNameConfirmLink'></span>\"",
+				"notfound": " Groep niet gevonden !",
+				"notfoundDetails": " We kunnen geen groepen vinden die gekoppeld zijn aan de code <span id='gourpName3'></span>.",
+				"clickToRedirectLogin": " Klik op doorgaan om naar de inlogpagina te gaan.",
+				"clickToRedirectHome": " Klik op doorgaan om naar de startpagina te gaan.",
+				"invalidLink": " Ongeldige link !",
+				"invalidFormatLink": " Het formaat van de door u ingevoerde link komt niet overeen.",
+				"success": " Je bent lid geworden van de groep: \"<span id=\"gourpName\"></span>\"!",
+				"alreadyLinked": " Je maakt al deel uit van deze groep.",
+				"error": " Er is een fout opgetreden tijdens het koppelen.",
+				"userNotFound": " De gebruiker is niet gevonden, u kunt op doorgaan klikken om naar de inlogpagina te gaan.",
+				"contactAdmin": " Als het probleem aanhoudt, neem dan contact op met de administratie.",
+				"groupFull": " De groep waar je bij wilt is vol.",
+				"onlyOneGroup": " U maakt al deel uit van een groep, u kunt geen lid worden van een andere",
+				"mail": {
+					"textBeforeName": " De gebruiker:",
+					"textAfterName": " sloot zich aan bij de groep:",
+					"emailSubject": " Een gebruiker is lid geworden van de groep"
+				}
+			},
+			"name": " Naam van de groep <span class=\"c-tekst-rood\">*</span>",
+			"description": " Beschrijving van de groep <span class=\"c-tekst-rood\">*</span>",
+			"link": " Groepsverband",
+			"applications": " Groepstoepassingen",
+			"groupsPerPage": " Groepen per pagina",
+			"groupDeleted": " Groep verwijderd.",
+			"groupCreated": " Groep succesvol aangemaakt",
+			"groupUpdated": " Groep succesvol bijgewerkt",
+			"groupCreateFailed": " De groep kon niet worden aangemaakt, ontbrekende gegevens.",
+			"showLinkTitle": " Link van de groep",
+			"usersWithoutGroups": " Gebruikers zonder groepen",
+			"searchResult": " Resultaat van het onderzoek",
+			"usersInactiveOrNoRegular": " Inactieve gebruikers of niet regelmatige",
+			"usersWithoutGroupsDescription": " Gebruikersgroep niet gekoppeld aan een groep",
+			"usersInactiveOrNoRegularDescription": " Groep niet-reguliere gebruikers",
+			"groupDeleteError": " De groep kon niet worden verwijderd.",
+			"groupFull": " De groep is vol.",
+			"groupFullAdminMessage": " De groep is vol, u kunt geen andere gebruikers toevoegen.",
+			"toManyStudentsFromTheTeacher": " De leraar die u wilt toevoegen aan de groep heeft te veel leerlingen",
+			"toManyStudentsInGroup": " De groep kan niet zoveel leerlingen herbergen, de leraar heeft te veel leerlingen.",
+			"teachersPerGroup": " Leraar per groep",
+			"studentsPerGroup": " Studenten per groep",
+			"activitiesPerGroup": " Activiteiten per groep",
+			"activitiesPerTeacher": " Activiteiten per leraar",
+			"studentsPerTeacher": " Studenten per leraar",
+			"maxStudents": " Maximaal aantal studenten",
+			"maxActivities": " Maximale activiteiten",
+			"groupsRestrictions": " Beperkingen van de groep",
+			"classroomPerTeacher": " Klas(sen) per leraar"
+		},
+		"title": {
+			"activeUsers": " Actieve gebruikers",
+			"inaactiveUsers": " Inactieve gebruikers"
+		},
+		"buttons": {
+			"continue": " Ga verder",
+			"validate": " Valideer",
+			"activate": " Activeer",
+			"cancel": " Annuleren",
+			"finalize": " Afronden",
+			"send": " Stuur",
+			"login": " Aanmelden",
+			"signup": " Registreer",
+			"join": " Word lid van",
+			"save": " Sla",
+			"close": " Sluit",
+			"disable": " Schakel  uit.",
+			"delete": " Verwijder",
+			"reset": " Reset",
+			"update": " Update",
+			"search": " Zoek op",
+			"restart": " Herstart",
+			"copyLink": " Link kopiëren",
+			"show": " Toon",
+			"manage": " Beheer",
+			"user": {
+				"add": " Gebruiker toevoegen",
+				"create": " Gebruiker aanmaken",
+				"delete": " Gebruiker verwijderen",
+				"update": " Gebruiker bijwerken",
+				"addGroup": " Groep toevoegen",
+				"createA": " Gebruiker aanmaken",
+				"updateA": " Gebruiker bijwerken",
+				"updateApp": " Toepassingen bijwerken"
+			},
+			"group": {
+				"add": " Groep toevoegen",
+				"create": " Groep aanmaken",
+				"delete": " Groep verwijderen",
+				"update": " Update groep",
+				"createA": " Groep aanmaken",
+				"updateA": " Update groep"
+			}
+		},
+		"sort": {
+			"user": {
+				"bylastname": " Sorteren op achternaam",
+				"byfirstname": " Sorteren op voornaam"
+			},
+			"group": {
+				"byname": " Sorteren op naam",
+				"bydesc": " Sorteren op beschrijving"
+			}
+		},
+		"input": {
+			"placeholder": {
+				"delete": " verwijder"
+			},
+			"writeDelete": " Je moet delete schrijven om de actie te valideren.",
+			"writeDisable": " U moet uitschakelen schrijven om de actie te valideren."
+		},
+		"table": {
+			"lastname": " Achternaam",
+			"firstname": " Voornaam",
+			"applications": " Toepassingen",
+			"group": " Groep",
+			"description": " Beschrijving",
+			"descriptionMandatory": " Beschrijving <span class=\"c-tekst-rood\">*</span>",
+			"right": " Rechten",
+			"resetPassword": " Wachtwoord opnieuw instellen",
+			"link": " Link",
+			"name": " Naam",
+			"nameMandatory": " Naam <span class=\"c-tekst-rood\">*</span>",
+			"dateBegin": " Begindatum",
+			"dateEnd": " Einddatum",
+			"outDated": " Gedateerd",
+			"maxStudents": " Maximaal aantal studenten",
+			"actualStudents": " Huidige studenten",
+			"maxTeachers": " Maximale leraren",
+			"actualTeachers": " Huidige leraren",
+			"maxStudentsPerTeachers": " Maximaal aantal leerlingen per leraar",
+			"maxStudentsPerTeacher": " Maximaal aantal leerlingen per leraar",
+			"activityType": " Soort activiteit",
+			"maxActivitiesPerGroup": " Maximale activiteiten per groep",
+			"maxActivitiesPerTeacher": " Maximale activiteiten per leraar",
+			"monitoring": " Controle van apps",
+			"image": " Afbeelding",
+			"userNoRights": " Geen rechten toegewezen",
+			"userAdmin": " Beheerder",
+			"userTeacher": " Leraar",
+			"restrictions": " Beperkingen"
+		},
+		"apps": {
+			"apps": " Apps",
+			"create": " Een app toevoegen",
+			"updateSuccess": " App succesvol bijgewerkt",
+			"createSuccess": " App succesvol gemaakt",
+			"deleteSuccess": " App succesvol verwijderd",
+			"deleteIntention": " U staat op het punt de app te verwijderen: <span id=\"application_delete_name\"></span>",
+			"outDatedApp": " De app die u wilt toewijzen is verouderd.",
+			"infoMaxStudentsPerTeachers": " Bepaal het maximum aantal leerlingen dat een leraar in de groep kan hebben.",
+			"infoMaxStudentsPerGroups": " Bepaalt het maximum aantal leerlingen dat de groep kan hebben (Door het totaal van de leerlingen van leerkrachten die deze toepassing hebben op te tellen)",
+			"infoMaxTeachers": " Bepaalt het maximum aantal leerkrachten dat de toepassing in deze groep kan hebben",
+			"usersLimitation": " Gebruikers studenten beperking",
+			"groupsLimitation": " Groepsbeperkingen",
+			"activitiesLimitation": " Beperkingen van de activiteiten",
+			"defaultRestrictions": " Standaard beperkingen",
+			"ltiApps": " LTI apps",
+			"clientId": " Klant Id <span class=\"c-tekst-rood\">*</span>",
+			"deploymentId": " Deployment Id <span class=\"c-tekst-rood\">*</span>",
+			"toolUrl": " Tool Url <span class=\"c-tekst-rood\">*</span>",
+			"publicKeySet": " Openbare sleutel ingesteld <span class=\"c-tekst-rood\">*</span>",
+			"loginUrl": " Login Url <span class=\"c-tekst-rood\">*</span>",
+			"redirectionUrl": " Redirection url <span class=\"c-tekst-rood\">*</span>",
+			"deepLinkUrl": " Deeplink url <span class=\"c-tekst-rood\">*</span>",
+			"privateKey": " Particuliere sleutel <span class=\"c-tekst-rood\">*</span>"
+		},
+		"activitiesRestrictions": {
+			"updateAll": " Beperkingen bijwerken",
+			"update": " Update beperking",
+			"create": " Beperking creëren",
+			"delete": " Beperking verwijderen",
+			"updateSuccess": " Beperking succesvol bijgewerkt",
+			"createSuccess": " Beperking succesvol aangemaakt",
+			"deleteSuccess": " Beperking succesvol verwijderd",
+			"deleteIntention": " U staat op het punt de beperking te verwijderen: <span id=\"restriction_delete_name\"></span>",
+			"restrictionType": " Soort activiteit",
+			"maxActivity": " Activiteit maximaal",
+			"closeDetail": " Sluit het detail",
+			"restrictions": " Activiteitsbeperkingen",
+			"appRestricted": " Maak meer activiteiten !",
+			"appRestrictedUL1": " Je hebt de limiet bereikt van {{activities}} activiteiten gekoppeld aan je account.",
+			"appRestrictedUL2": " Om extra activiteiten toe te voegen, kunt u contact opnemen met uw beheerder.",
+			"appRestrictedSubtitle2": " Een probleem met uw abonnement?",
+			"appRestrictedSubtitle3": " Contact ondersteuning",
+			"appRestrictedGarContent1": " Je hebt de limiet bereikt van {{activities}} activiteiten gekoppeld aan je account.",
+			"appRestrictedGarContent2": " Om extra activiteiten toe te voegen, kunt u contact opnemen met de GAR-toewijzingsbeheerder van uw instelling."
+		},
+		"defaultRestrictions": {
+			"update": " Standaardbeperkingen bijwerken",
+			"type": " Soort activiteit",
+			"max": " Maximum",
+			"add": " Een beperking toevoegen",
+			"updateUsersRestrictionsSuccess": " Standaard gebruikersbeperkingen succesvol bijgewerkt",
+			"updateGroupsRestrictionsSuccess": " Standaard groepsbeperkingen succesvol bijgewerkt",
+			"updateActivitiesRestrictionsSuccess": " Standaard activiteitenbeperkingen succesvol bijgewerkt",
+			"deleteActivitiesRestrictionsSuccess": " Standaard activiteitsbeperking succesvol verwijderd",
+			"getDefaultRestrictions": " Toon de standaard beperkingen",
+			"restrictionAlreadyExist": " De beperking bestaat al"
+		}
+	},
+	"navbar": {
+		"items": {
+			"kits": " Hardware",
+			"community": {
+				"title": " Gemeenschap",
+				"dropdown": {
+					"vittamap": " Vittamap",
+					"blog": " Blog",
+					"gallery": " Galerie",
+					"about": " Over"
+				}
+			},
+			"tooltips": {
+				"backToHome": " Ga terug naar de homepage",
+				"programming": " Coderen met Vittascience",
+				"resources": " Centrum voor leermiddelen",
+				"classroom": " Beheer uw klassen met Vittascience",
+				"hardware": " Ontdek onze kits en producten"
+			},
+			"programming": " Programmering",
+			"classroom": " Klas",
+			"arduino": " Arduino",
+			"microbit": " Microbit",
+			"microbit-tutorials": " Microbit Handleidingen",
+			"ressources": " Middelen",
+			"accessibility": " Het thema en het lettertype van de site wijzigen",
+			"lang": " Taal veranderen",
+			"user_shortcuts": {
+				"welcome": " Welkom!",
+				"signup": " Aanmelden",
+				"login": " Verbind",
+				"hello": " Hallo",
+				"account": " Mijn rekening",
+				"disconnect": " Ontkoppelen",
+				"willSignup": " aanmelden",
+				"willSignin": " Inloggen"
+			}
+		}
+	},
+	"newActivities": {
+		"create": " Een nieuwe activiteit creëren",
+		"delete": " Verwijder",
+		"addQuiz": " Een suggestie toevoegen",
+		"states": " Activiteitenverklaring <span class=\"c-tekst-rood\">*</span>",
+		"cancel": " Annuleren",
+		"autocorrect": " Autocorrectie",
+		"contentTitle": " Inhoud van de activiteit",
+		"correction": " Activiteitscorrectie",
+		"tolerance1": " Voeg een fouttolerantie toe van",
+		"tolerance2": " teken(s) op het gehele antwoord van de leerling.",
+		"hint": " Hint *: weergegeven als het antwoord fout is",
+		"title": " Titel van de activiteit <span class=\"c-tekst-rood\">*</span>",
+		"description": " Activiteit beschrijving <span class=\"c-tekst-rood\">*</span>",
+		"content": " Activiteit inhoud <span class=\"c-tekst-rood\">*</span>",
+		"addField": " Een antwoordveld toevoegen",
+		"addFieldTooltip": " Door op de knop Antwoordveld toevoegen te klikken, wordt een gestileerde tekst toegevoegd. In dit veld kunt u het juiste antwoord schrijven. Alternatieve antwoorden worden gescheiden door een dubbele ampersand &&.",
+		"ActivitiesData": {
+			"title": {
+				"reading": " Multimedia",
+				"free": " Open antwoord",
+				"quiz": " MCQS",
+				"fillIn": " In te vullen tekst",
+				"dragAndDrop": " Vul de lege tekst in"
+			},
+			"description": {
+				"reading": " Multimediapagina (tekst, afbeeldingen, video's, PDF, Geniaal, ...)",
+				"free": " Open antwoord op een vraag",
+				"quiz": " Enkelvoudige of meerkeuzevragenlijst",
+				"fillIn": " Schriftelijk in te vullen tekst",
+				"dragAndDrop": " Tekst aan te vullen met etiketten."
+			}
+		}
+	},
+	"courses": {
+		"addActivity": " Een activiteit toevoegen",
+		"addActivities": " Activiteiten toevoegen",
+		"createActivity": " Een activiteit creëren",
+		"searchActivity": " Een activiteit zoeken",
+		"placeholderTitle": " Titel van de activiteit",
+		"placeholderDescription": " Beschrijving van de activiteit",
+		"pagination": {
+			"create": " Creatie van de cursus",
+			"title": " Titel",
+			"parameters": " Parameters",
+			"attribution": " Naamsvermelding"
+		},
+		"parameters": {
+			"title": " Cursus titel <span class=\"c-tekst-rood\">*</span>",
+			"description": " Cursusbeschrijving <span class=\"c-tekst-rood\">*</span>",
+			"difficulty": " Moeilijkheid <span class=\"c-tekst-rood\">*</span>",
+			"difficultyLevel": {
+				"choose": " Kies een moeilijkheidsgraad",
+				"easy": " Gemakkelijk",
+				"medium": " Medium",
+				"advanced": " Geavanceerd",
+				"expert": " Expert"
+			},
+			"duration": " Duur (minuten) <span class=\"c-tekst-rood\">*</span>",
+			"license": " Gebruikerslicentie <span class=\"c-tekst-rood\">*</span>",
+			"licenseType": {
+				"1": " Privé (alleen u kunt deze bron zien)",
+				"2": " Unreferenced (deelbare bron via link maar niet vindbaar op de pagina Resources)",
+				"3": " Publiek CC-BY-NC-SA (vrije, niet-commerciële en wijzigbare bron)",
+				"4": " Openbaar CC-BY-NC-ND (vrije, niet-commerciële en niet-wijzigbare bron)",
+				"choose": " Kies een licentie"
+			}
+		},
+		"successfullyCreated": " Cursus succesvol gemaakt",
+		"attribution": " Course attribution <i class='fas fa-chevron-right'></i>",
+		"return": " Return <i class='fas fa-chevron-right'></i>",
+		"update": " De cursus bijwerken"
+	}
+}

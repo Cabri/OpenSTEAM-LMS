@@ -27,7 +27,7 @@ $subjectValue = $decodedToken->$subjectKey;
 
 // todo HTTP_HOST is insecure (controlled by the client)
 //$platform_url = isset($_SERVER['HTTPS']) ? 'https://' : 'http://' . $_SERVER['HTTP_HOST'];
-$platform_url = getenv('VS_HOST');
+$platform_url = $_ENV['VS_HOST'];
 
 // decode jwt token and check signature using jwks public key
 $ltiTool = $entityManager->getRepository(LtiTool::class)->findOneByClientId($subjectValue);

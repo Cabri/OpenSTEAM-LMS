@@ -6,3 +6,7 @@ composer.lock
 classroom/assets/plugins
 /EmailTemplates
 .idea/
+
+classroom/cookie.php
+
+classroom/legalnotice.css

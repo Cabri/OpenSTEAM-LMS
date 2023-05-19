@@ -340,7 +340,8 @@ CREATE TABLE `learn_activities` (
   `tolerance` int(11) DEFAULT NULL,
   `is_autocorrect` tinyint(1) DEFAULT NULL,
   `folder` int(11) DEFAULT NULL,
-  `is_collapsed` tinyint(4) DEFAULT 0
+  `is_collapsed` tinyint(4) DEFAULT 0,
+  `preview_note` tinyint(1) DEFAULT NULL, -- use by teacher when he is trying an activity auto-evaluate (ex: smart) 
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_unicode_ci;
 
 -- --------------------------------------------------------

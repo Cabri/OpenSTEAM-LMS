@@ -305,6 +305,9 @@ DisplayPanel.prototype.classroom_table_panel_teacher = function (link) {
                 $('#blocking-class-tooltip').tooltip("dispose");
                 $('#blocking-class-tooltip').attr("title", i18next.t('classroom.classes.activationLinkDisabled')).tooltip();
             }
+            
+            $('#fullscreen-class-tooltip').tooltip("dispose");
+            $('#fullscreen-class-tooltip').attr("title", i18next.t('classroom.classes.fullscreen')).tooltip();
 
             Main.getClassroomManager().getClasses(Main.getClassroomManager()).then(() => {
                 let students = getClassroomInListByLink(link)[0].students
@@ -446,10 +449,10 @@ function getTeacherActivity() {
         if (funct) {
             funct[1](contentParsed, Activity);
         } else {
-
+            
             // LTI Activity
             if (Activity.isLti) {
-                launchLtiResource(Activity.id, Activity.type, JSON.parse(Activity.content).description);
+                launchLtiResource(Activity.id, Activity.type, JSON.parse(Activity.content).description, Activity.isAutocorrect);
             } else {
                 // Non core and non LTI Activity fallback
                 $("#activity-content").html(bbcodeToHtml(contentParsed));

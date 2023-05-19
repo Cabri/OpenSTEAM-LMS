@@ -288,6 +288,10 @@ function navigatePanel(id, idNav, option = "", interface = '', isOnpopstate = fa
     if (id == 'classroom-dashboard-activities-panel-teacher' && idNav == 'dashboard-activities-teacher') {
         foldersManager.goToFolder(foldersManager.actualFolder);
     }
+
+    // custom event to trigger click on panel
+    const event = new Event('navigatePanel');
+    document.dispatchEvent(event);
 }
 
 /**

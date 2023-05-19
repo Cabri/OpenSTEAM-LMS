@@ -11,7 +11,7 @@
     <div class="section-container section-saved">
         <div class="section-header" onclick="sectionToggle('saved')">
             <i id="i-saved" class="ml-2 fas fa-lg fa-chevron-up"></i>
-            <h3 class="section-title" >Brouillons</h3>
+            <h3 class="section-title" data-i18n="classroom.activities.draft">Brouillons</h3>
             <span class="resource-number"> </span>
         </div>
         <div id="saved-activities-list" style="display: none;"></div>
@@ -71,7 +71,6 @@
 
                 <!-- Used for content -->
                 <div id="activity-content-container" style="display:none;">
-                    <label for="activity-content" id="label-activity-content" class="vitta-modal-title mt-2" data-i18n="newActivities.contentTitle">Contenu de l'activité</label>
                     <p id="activity-content"></p>
                 </div>
 
@@ -115,6 +114,65 @@
             </div>
         </div>
 
+    </div>
+</div>
+
+<div id="classroom-dashboard-activity-panel-student-result" class="dashboard-block" style="display:none;">
+    <div class="results-teacher-panel">
+        <p>
+            <span data-i18n="[html]classroom.activities.studentResult"></span>
+        </p>
+
+        <!-- Note of preview -->
+        <div id="preview-note-3" style="display: none;">
+            <div class="bilan-legend bilan-3">
+                <div class="monochrome-grade-div"></div>
+                <div class="monochrome-grade-div"></div>
+                <div class="monochrome-grade-div"></div>
+                <div class="monochrome-grade-div"></div>
+            </div>
+            <span data-i18n="classroom.activities.veryGoodProficiency"></span>
+        </div>
+        <div id="preview-note-2" style="display: none;">
+            <div class="bilan-legend bilan-2">
+                <div class="monochrome-grade-div"></div>
+                <div class="monochrome-grade-div"></div>
+                <div class="monochrome-grade-div"></div>
+                <div class="monochrome-grade-div"></div>
+            </div>
+            <span data-i18n="classroom.activities.goodProficiency"></span>
+        </div>
+        <div id="preview-note-1" style="display: none;">
+            <div class="bilan-legend bilan-1">
+                <div class="monochrome-grade-div"></div>
+                <div class="monochrome-grade-div"></div>
+                <div class="monochrome-grade-div"></div>
+                <div class="monochrome-grade-div"></div>
+            </div>
+            <span data-i18n="classroom.activities.weakProficiency"></span>
+        </div>
+        <div id="preview-note-0" style="display: none;">
+            <div class="bilan-legend bilan-0">
+                <div class="monochrome-grade-div"></div>
+                <div class="monochrome-grade-div"></div>
+                <div class="monochrome-grade-div"></div>
+                <div class="monochrome-grade-div"></div>
+            </div>
+            <span data-i18n="classroom.activities.insufficientProficiency"></span>
+        </div>
+        <div id="preview-note-4" style="display: none;">
+            <div class="bilan-legend bilan-4">
+                <div class="monochrome-grade-div"></div>
+                <div class="monochrome-grade-div"></div>
+                <div class="monochrome-grade-div"></div>
+                <div class="monochrome-grade-div"></div>
+            </div>
+            <span data-i18n="classroom.activities.noProficiency"></span>
+        </div>
+
+        <button class="btn c-btn-primary mx-auto" onclick="goBackToActivities()">
+            <span data-i18n="classroom.activities.return"></span> <i class="fas fa-chevron-right"></i>
+        </button>
     </div>
 </div>
 
