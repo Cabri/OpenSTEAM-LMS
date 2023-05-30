@@ -75,13 +75,15 @@ try {
   }
 
   // computed score
-  $convertedScore = 3 / $scoreMaximum * $scoreGiven;
+  if ($scoreMaximum) {
+      $convertedScore = 3 / $scoreMaximum * $scoreGiven;
+  }
 
   // In case of teacher which preview auto-evaluate activity
   if(isset($user) && $gradingProgress == "FullyGraded") {
     $activity = $entityManager->getRepository(Activity::class)->find($activityId);
     $activity->setNote((int) $convertedScore);
-  } 
+  }
   else {
       // $lineItemId is the id of the activityLinkUser (sent back from the tool)
       $activityLinkUser = $entityManager->getRepository(ActivityLinkUser::class)->find($activityId);
@@ -96,7 +98,7 @@ try {
         $activityLinkUser->setCorrection(1);
       }
   }
-  
+
   $entityManager->flush();
 
 
