@@ -21,27 +21,27 @@ async function readEvent (event) {
         // Message received when an LTI resource launch has gone to submission
         case 'end-lti-score':
             const possibilityNote = [0, 1, 2, 3, 4]
-            
+
             //teacher preview auto-evaluate activity
             if(UserManager.getUser().isRegular && Activity.isAutocorrect) {
                 // hidden all notes
                 possibilityNote.forEach(note => {
                     $(`#classroom-dashboard-activity-panel-teacher-result #preview-note-${note}`).hide()
                 })
-                
+
                 // Update the activities from database
                 await Main.getClassroomManager().getTeacherActivities(Main.getClassroomManager());
 
                 // Refresh variable activity from database data
                 const activity = getTeacherActivityInList(Activity.id);
                 if(activity)
-                    Activity = getTeacherActivityInList(Activity.id); 
-                
+                    Activity = getTeacherActivityInList(Activity.id);
+
                 // Show note of preview
                 const note = Activity.previewNote;
                 if(note || note === 0) {
                     $(`#classroom-dashboard-activity-panel-teacher-result #preview-note-${note}`).show()
-                } 
+                }
                 else {
                     $("#classroom-dashboard-activity-panel-teacher-result #preview-note-4").show()
                 }
@@ -75,7 +75,7 @@ async function readEvent (event) {
                     const note = Activity.note;
                     if(note || note === 0) {
                         $(`#classroom-dashboard-activity-panel-student-result #preview-note-${note}`).show()
-                    } 
+                    }
                     else {
                         $("#classroom-dashboard-activity-panel-student-result #preview-note-4").show()
                     }
@@ -996,20 +996,22 @@ function displayStudentsInClassroom(students, link=false) {
         // Loop in the classroom activities index (with ids) to generate the dashboard table header and body
         for(let i=0; i<arrayIndexesActivities.length; i++){
             if (element.user.pseudo == demoStudentName) {
+                let title = arrayIndexesActivities[i].title
+                if(title) title = title.replace(/"/g, "&quot;").replace(/'/g, "&amp;")
                 $('#header-table-teach').append(`
-                <th data-toggle="tooltip" data-placement="top" title="${ arrayIndexesActivities[i].title }">
+                <th data-toggle="tooltip" data-placement="top" title="${ title }">
                     <div class="dropdown dropdown-act" style="width:30px;">
                         <div id="dropdown-act-${activityNumber}" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             <span class="span-act">Act.</br>n°${ activityNumber }</span>
                             <i style="display:none;font-size:2em;" class="fa fa-cog i-act" aria-hidden="true"></i>
                             <div class="dropdown-menu" aria-labelledby="dropdown-act-${activityNumber}" data-id="${arrayIndexesActivities[i].id}" style="text-transform: none;">
                             <li class="ml-5" style="border-bottom:solid 2px black;">
-                                <b>${ arrayIndexesActivities[i].title }</b>
+                                <b>${ title }</b>
                             </li>
                             <li class="classroom-clickable col-12 dropdown-item " onclick="activityWatch(${arrayIndexesActivities[i].id})" ><i class="fas fa-eye"></i> <span data-i18n="classroom.classes.panel.seeActivity">Voir l'activité</span></li>
                             <li class=" classroom-clickable col-12 dropdown-item" onclick="activityModify(${arrayIndexesActivities[i].id})"><i class="fas fa-pen"></i> <span data-i18n="classroom.classes.panel.editActivity">Modifier l'activité</span></li>
                             <li class="classroom-clickable col-12 dropdown-item" onclick="attributeActivity(${arrayIndexesActivities[i].id},${arrayIndexesActivities[i].reference})"><i class="fas fa-user-alt"></i> <span data-i18n="classroom.classes.panel.editAttribution">Modifier l'attribution</span></li>
-                            <li class="dropdown-item classroom-clickable col-12" onclick="undoAttributeActivity(${arrayIndexesActivities[i].reference},'${arrayIndexesActivities[i].title}','${Main.getClassroomManager().getClassroomIdByLink(ClassroomSettings.classroom)}')"><i class="fas fa-trash-alt"></i> <span data-i18n="classroom.classes.panel.removeAttribution">Retirer l'attribution</span></li>
+                            <li class="dropdown-item classroom-clickable col-12" onclick="undoAttributeActivity(${arrayIndexesActivities[i].reference},'${title}','${Main.getClassroomManager().getClassroomIdByLink(ClassroomSettings.classroom)}')"><i class="fas fa-trash-alt"></i> <span data-i18n="classroom.classes.panel.removeAttribution">Retirer l'attribution</span></li>
                         </div>
                     </div>
                 </th>`);
