@@ -1244,7 +1244,7 @@
       "errorActivation": "Une erreur est survenue lors de l'activation du compte.",
       "create": "Créer un utilisateur",
       "delete": "Supprimer un utilisateur",
-      "deleteConfirmation": "Veuillez écrire \"supprimer\" dans le champ si dessous pour valider l'action.",
+      "deleteConfirmation": "Veuillez écrire \"supprimer\" dans le champ ci-dessous pour valider l'action.",
       "deleteIntentionSA": "Vous vous apprêtez à supprimer l'utilisateur : <span id=\"mdi_firstnameSA\"></span>",
       "disableIntention": "Vous vous apprêtez à désactiver l'utilisateur : <span id=\"mde_firstnameSA\"></span>",
       "deleteConfirmationTitle": "Confirmer la suppression",
@@ -1253,7 +1253,7 @@
       "updateAppUser": "Modifier les applications de l'utilisateur",
       "updateApp": "Modifier les applications",
       "disable": {
-        "message": "Veuillez écrire 'supprimer' dans le champ si dessous pour valider l'action.",
+        "message": "Veuillez écrire 'supprimer' dans le champ ci-dessous pour valider l'action.",
         "intention": "Vous vous apprêtez à supprimer l'utilisateur : <span id=\"md_firstnameGA\"></span>"
       },
       "mail": {
