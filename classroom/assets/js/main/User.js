@@ -5,7 +5,7 @@ var UserManager = (function () {
     function init() {
         var promiseToGetUser = new Promise(function (resolve, reject) {
             $.ajax({
-                type: "GET",
+                type: "POST",
                 url: "/routing/Routing.php?controller=session",
                 success: function (response) {
                     if (response != "null") {
