@@ -21,11 +21,13 @@ use Classroom\Entity\LtiTool;
 use Learn\Entity\Activity;
 use phpseclib\Crypt\RSA;
 
+$self_call_base = "http://127.0.0.1:8080";
 $headers = apache_request_headers();
-$jwtToken = explode("Bearer ", $headers['Authorization'])[1];
+$jwtToken = $headers['Authorization'];
+if(str_starts_with($jwtToken, "Bearer ")) $jwtToken = substr($jwtToken, 7);
 
 
-  $decodedToken = json_decode(base64_decode(str_replace('_', '/', str_replace('-','+',explode('.', $jwtToken)[1]))));
+  $decodedToken = json_decode(base64_decode(str_replace('_', '/', str_replace('-','+',$jwtToken))));
 
   $ltiIssuer = $decodedToken->sub;
 
@@ -36,16 +38,16 @@ $jwtToken = explode("Bearer ", $headers['Authorization'])[1];
     //$platform_url = isset($_SERVER['HTTPS']) ? 'https://' : 'http://' . $_SERVER['HTTP_HOST'];
     //$platform_url = $_ENV['VS_HOST'];
     $platform_url = $_ENV['VS_HOST'];
-    $jwks = json_decode(file_get_contents($platform_url."/classroom/lti/certs.php"), true);
+    $jwks = json_decode(file_get_contents($self_call_base."/classroom/lti/certs.php"), true);
 
     JWT::$leeway = 60; // $leeway in seconds
 
     $validatedToken = JWT::decode(
       $jwtToken,
-      JWK::parseKeySet($jwks),
-      array('RS256')
+      JWK::parseKeySet($jwks, 'RS256'),
     );
   } catch (\Exception $e) {
+    error_log("Error at receiving score: ". var_export($e,1));
     echo json_encode(['Error:' => $e->getMessage()]);
     exit;
   }
