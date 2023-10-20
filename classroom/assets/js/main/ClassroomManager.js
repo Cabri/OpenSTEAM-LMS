@@ -1284,7 +1284,7 @@ class ClassroomManager {
     }
 
     // create a new activity
-    createNewActivity($title, $type, $content, $solution, $tolerance, $autocorrect, $folder) {
+    createNewActivity($title, $type, $content, $solution, $tolerance, $autocorrect, $folder, $typeTool) {
         return new Promise(function (resolve, reject) {
             $.ajax({
                 type: "POST",
@@ -1296,7 +1296,8 @@ class ClassroomManager {
                     'solution' : $solution,
                     'tolerance' : $tolerance,
                     'autocorrect' : $autocorrect,
-                    'folder' : $folder
+                    'folder' : $folder,
+                    'typetool': $typeTool ? $typeTool : "applications"
                 },
                 success: function (response) {
                     resolve(JSON.parse(response));
@@ -1309,7 +1310,7 @@ class ClassroomManager {
     }
 
     // update an activity
-    updateActivity($id, $title, $type, $content, $solution, $tolerance, $autocorrect) {
+    updateActivity($id, $title, $type, $content, $solution, $tolerance, $autocorrect, $typeTool) {
         return new Promise(function (resolve, reject) {
             $.ajax({
                 type: "POST",
@@ -1321,7 +1322,8 @@ class ClassroomManager {
                     'content' : $content,
                     'solution' : $solution,
                     'tolerance' : $tolerance,
-                    'autocorrect' : $autocorrect
+                    'autocorrect' : $autocorrect,
+                    'typetool': $typeTool ? $typeTool : "applications",
                 },
                 success: function (response) {
                     resolve(JSON.parse(response));
@@ -1357,7 +1359,7 @@ class ClassroomManager {
 
     /**
      * Return if the activity is limited or not
-     * @param {*} type
+     * @param {*} type 
      * @param {*} id
      */
     isActivitiesRestricted(id = null, type = null) {
@@ -1456,7 +1458,7 @@ class ClassroomManager {
         this._createActivity = {
             function: 'create',
             id: '',
-            title: '',
+            title: '', 
             content: {
                 states: '',
                 description: '',
@@ -1472,8 +1474,8 @@ class ClassroomManager {
                     contentForTeacher: [],
                     contentForStudent: []
                 }
-            },
-            type: '',
+            }, 
+            type: '', 
             solution: [],
             tolerance: ''
         }

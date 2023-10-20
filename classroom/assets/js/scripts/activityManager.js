@@ -172,7 +172,7 @@ function titleBackward() {
 /**
  * Title part
  */
- function titleForward() {
+ function titleForward(msg = {typeLtiTool: "applications", typeTool: "", autocorrect: "false"}) {
     Main.getClassroomManager()._createActivity.title = $('#global_title').val();
     $('#activity-title-forward').attr('disabled', true);
     // Check if the title is empty
@@ -181,32 +181,36 @@ function titleBackward() {
         $('#activity-title-forward').attr('disabled', false);
     } else {
         let title = Main.getClassroomManager()._createActivity.title,
-            type = Main.getClassroomManager()._createActivity.id,
+            type = msg.typeTool !== "" ? msg.typeTool : Main.getClassroomManager()._createActivity.id,
             content = JSON.stringify(Main.getClassroomManager()._createActivity.content),
             solution = JSON.stringify(Main.getClassroomManager()._createActivity.solution),
             tolerance = Main.getClassroomManager()._createActivity.tolerance,
             autocorrect = Main.getClassroomManager()._createActivity.autocorrect,
             folder = foldersManager.actualFolder;
-
-        // is an activity auto evaluate    
+        
+        // is an activity auto evaluate TODO : refactor it for manage more precisely    
         const autoCorrectTypeApps = ["dragAndDrop", "fillIn", "quiz", "GENIUS"]    
-        if (autoCorrectTypeApps.includes(type)) {
+        if (autoCorrectTypeApps.includes(type) || msg.autocorrect === "true") {
             autocorrect = true;
         }
 
-        if (Main.getClassroomManager()._createActivity.function == "create") {
-            Main.getClassroomManager().createNewActivity(title, type, content, solution, tolerance, autocorrect, folder).then((response) => {
+        if (Main.getClassroomManager()._createActivity.function == "create") {  
+            Main.getClassroomManager().createNewActivity(title, type, content, solution, tolerance, autocorrect, folder, msg.typeLtiTool).then((response) => {
                 if (response.success == true) {
                     Main.getClassroomManager()._lastCreatedActivity = response.id;
-                    displayNotification('#notif-div', "classroom.notif.activityCreated", "success", `'{"activityTitle": "${title}"}'`);
-                    navigatePanel('classroom-dashboard-classes-new-activity-attribution', 'dashboard-proactivities-teacher');
+                    
+                    if(msg.typeLtiTool === "collections" || msg.typeTool !== "") {
+                        displayNotification('#notif-div', "classroom.notif.activityImported", "success", `'{"activityTitle": "${title}"}'`);
+                    } else {
+                        navigatePanel('classroom-dashboard-classes-new-activity-attribution', 'dashboard-proactivities-teacher');
+                        displayNotification('#notif-div', "classroom.notif.activityCreated", "success", `'{"activityTitle": "${title}"}'`);
+                    }
                 } else {
                     displayNotification('#notif-div', "manager.account.errorSending", "error");
                 }
-                $('#activity-title-forward').attr('disabled', false);
             });
         } else if (Main.getClassroomManager()._createActivity.function == "update") {
-            Main.getClassroomManager().updateActivity(ClassroomSettings.activity, title, type, content, solution, tolerance, autocorrect).then((response) => {
+            Main.getClassroomManager().updateActivity(ClassroomSettings.activity, title, type, content, solution, tolerance, autocorrect, msg.typeLtiTool).then((response) => {
                 if (response.success == true) {
                     Main.getClassroomManager()._lastCreatedActivity = response.id;
                     displayNotification('#notif-div', "classroom.notif.activityChanged", "success", `'{"activityTitle": "${title}"}'`);
@@ -214,10 +218,10 @@ function titleBackward() {
                 } else {
                     displayNotification('#notif-div', "manager.account.errorSending", "error");
                 }
-                $('#activity-title-forward').attr('disabled', false);
             });
         }
     }
+    $('#activity-title-forward').attr('disabled', false);
     document.querySelector('#preview-activity-content').innerHTML = '';
 }
 
@@ -629,7 +633,7 @@ function parseQuizFieldsAndSaveThem() {
     // check empty fields
     let emptyFields = checkEmptyQuizFields();
     let checkBox = checkQuizCheckbox();
-    if (emptyFields) {
+    if (emptyFields) { 
         displayNotification('error', 'newActivities.emptyFields');
         return false;
     } else if (!checkBox) {
@@ -725,8 +729,8 @@ function launchLtiResource(activityId, activityType, activityContent, isStudentL
             <input type="hidden" id="activities_link_user" name="activities_link_user" value="${activityId}">
             <input type="hidden" id="student_resource_url" name="student_resource_url" value="${studentResourceUrl}">
         </form>
-        <iframe id="lti_student_iframe" src="about:blank" name="lti_student_iframe" title="Tool Content" width="100%" style="
-        height: 60vh;" allowfullscreen></iframe>
+        <iframe id="lti_student_iframe" src="about:blank" name="lti_student_iframe" title="Tool Content" width="100%" style=""
+         allowfullscreen></iframe>
         `;
     document.forms["resource_launch_form"].submit();
     $("#activity-content-container").show();

@@ -106,15 +106,23 @@ function cancelDeleteActivity() {
 
 //activité modal-->supprimer
 $('body').on('click', '.modal-activity-delete', function () {
-    pseudoModal.openModal('delete-activity-modal');
     let activityId = ClassroomSettings.activity,
         courseArray = [];
+    
+    // display title of activity in deleting message
+    const activityTitle = getActivity(activityId).title;
+    const options = `{"activityName": "${activityTitle}"}`;
+    document.getElementById('delete-activity-text').setAttribute("data-i18n-options", options);
+
+    // manage display for parcours feature
     coursesManager.myCourses.forEach(course => {
         if (course.activities.find(c => c.id == activityId)) {
             courseArray.push(course.title);
         }
     });
     document.getElementById('activity-linked-to-course-message').style.display = courseArray.length > 0 ? 'block' : 'none';
+
+    pseudoModal.openModal('delete-activity-modal');
 })
 
 

@@ -422,21 +422,7 @@ function getTeacherActivity() {
         </button>
 
         <ul class="dropdown-menu">
-            <li class="dropdown-item" onclick="attributeActivity(${Activity.id})">
-                ${capitalizeFirstLetter(i18next.t('words.attribute'))}
-            </li>
-        
-            <li class="dropdown-item" onclick="createActivity(null,${Activity.id})">
-                ${capitalizeFirstLetter(i18next.t('words.duplicate'))}
-            </li>
-                
-            <li class="dropdown-item" onclick="activityModify(${Activity.id})">
-                ${capitalizeFirstLetter(i18next.t('words.modify'))}
-            </li>
-
-            <li class="dropdown-item modal-activity-delete">
-                ${capitalizeFirstLetter(i18next.t('words.delete'))}
-            </li>
+            ${listOfOptions(Activity)}
         </ul>
     </div>`
     $('#activity-title').append(activityDropdownElt);
@@ -500,8 +486,7 @@ function showTeacherQuizActivity(contentParsed, Activity) {
                         <label class="form-check-label" for="quiz-checkbox-${i}" id="show-quiz-label-checkbox-${i}">${data[i-1].inputVal}</label>
                     </div>`;
     }
-    $('#activity-content-container').append(htmlToPush);
-
+    $('#activity-content').append(htmlToPush);
     $("#activity-content-container").show();
     $("#activity-states-container").show();
 }

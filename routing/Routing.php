@@ -52,7 +52,6 @@ $action = isset($_GET['action']) ? $_GET['action'] : null;
 // Intercept action.
 $logPath = isset($_ENV['VS_LOG_PATH']) ? $_ENV['VS_LOG_PATH'] : "/logs/log.log";
 $log = Log::createSharedInstance($controller, $logPath, Logger::NOTICE);
-
 try {
     // Get User.
     session_start();

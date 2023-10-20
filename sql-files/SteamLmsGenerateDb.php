@@ -3,8 +3,17 @@ require("./vendor/autoload.php");
 use Dotenv\Dotenv;
 
 // Load .env file data
-$dotenv = Dotenv::createImmutable(__DIR__."/../");
-$dotenv->safeLoad();
+# $dotenv = Dotenv::createImmutable(__DIR__."/../");
+# $dotenv->safeLoad();
+
+$dataLines = file(__DIR__.'/../.env', FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES);
+foreach($dataLines as $line){
+    if(strpos(trim($line),'#') === 0) continue;
+    list($key,$value) = explode('=',$line,2);
+    $_ENV[trim($key)] = trim($value);
+}
+
+
 
 class SteamLmsGenerateDb{
     protected $dbHost;
@@ -27,9 +36,9 @@ class SteamLmsGenerateDb{
         $this->adminPseudo = $ENV['ADMIN_PSEUDO'];
         $this->adminPassword = $ENV['ADMIN_PASSWORD'];
         $this->adminEmail = $ENV['ADMIN_EMAIL'];
-        
+
     }
-    
+
     /**
      * createDatabase
      *
@@ -38,15 +47,16 @@ class SteamLmsGenerateDb{
     public function createDatabase(){
         // get the connection without the db name to create the database and create the database
         $this->db = $this->getConnection();
+        $this->db->query("DROP DATABASE {$this->dbName}");
         $this->db->query("
             CREATE DATABASE IF NOT EXISTS {$this->dbName}
             CHARACTER SET = 'utf8'
             COLLATE = 'utf8_unicode_ci'
-        "); 
-        
+        ");
+
         return $this;
     }
-    
+
     /**
      * createTables
      *
@@ -62,10 +72,10 @@ class SteamLmsGenerateDb{
         $this->queryFile = file_get_contents("sql-files/steam-lms-generate-db.sql");
         $req = $this->db->prepare($this->queryFile);
         $req->execute();
-        
+
         return $this;
     }
-    
+
     /**
      * createAdminUser
      *
@@ -90,22 +100,22 @@ class SteamLmsGenerateDb{
             VALUES (?, ?, ?, ?, ?, ?)
         ");
         $req->execute(array($lastInsertedId,$this->adminEmail,0,1,1,0));
-        
+
         return $this;
     }
 
     public function getConnection($db_created=false){
         // set the dsn according to the action to perform (create the db or insert tables and admin)
-        $this->dsn = $db_created === false 
-                        ? "mysql:host={$this->dbHost}" 
-                        : "mysql:host={$this->dbHost};dbname={$this->dbName}" ;
-    
+        $this->dsn = $db_created === false
+            ? "mysql:host={$this->dbHost}"
+            : "mysql:host={$this->dbHost};dbname={$this->dbName}" ;
+
         try{
             // create the connection, set the options and return it
             $this->db = new PDO($this->dsn,$this->dbUser,$this->dbPassword);
             $this->db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
             return $this->db;
-           
+
         } catch(Exception $e){
             // display errors
             echo $e->getMessage();
@@ -115,9 +125,10 @@ class SteamLmsGenerateDb{
 }
 
 $steamLmsGenerateDb = new SteamLmsGenerateDb($_ENV);
-$steamLmsGenerateDb->createDatabase()
-                    ->createTables()
-                    ->createAdminUser();
+$steamLmsGenerateDb->createDatabase();
+echo("Created database\n");
+$steamLmsGenerateDb->createTables();
+echo("Created tables\n");
+$steamLmsGenerateDb->createAdminUser();
+echo "done";
 
- 
-echo "done"; 

@@ -139,8 +139,9 @@
         "mustAttributeToStudent": "يجب عليك تخصيص النشاط للطلاب",
         "activityAttributed": "تم تخصيص النشاط {{activityTitle}} للمتعلمين المدرجين في القائمة",
         "activityAttributionChanged": "تم تغيير تعيين النشاط {{activityTitle}} للمتعلمين المدرجين",
-        "activityCreated": "تم إنشاء النشاط {{activityTitle}}",
-        "activityChanged": "تم تغيير النشاط {{activityTitle}}",
+        "activityCreated": "{{activityTitle}} تم إنشاء النشاط",
+        "activityChanged": "{{activityTitle}} تم تغيير النشاط",
+        "activityImported": "{{activityTitle}} تم تحميل النشاط",
         "activityTitleMissing": "يجب عليك إدخال عنوان النشاط",
         "CsvFileMissing": "أنت لم تختر ملف csv",
         "errorWithCsv": "خطأ أثناء فتح ملف csv: {{error}}",
@@ -357,7 +358,7 @@
         "preview": "معاينة",
         "previewTeacherResult": "يكون الطالب قد حصل على العلامة التالية:",
         "studentResult" : "النتيجة المحصلة:",
-        "deleteActivityDisclaimer": "سيتم حذف هذا النشاط من المنصة",
+        "deleteActivityDisclaimer": ".وأعمال الطلاب المرتبطة به بشكل نهائي \"{{activityName}}\" سيتم حذف النشاط",
         "deleteConfirm": "هل تريد حقًا حذف هذا النشاط؟",
         "deleteActivity": "احذف النشاط",
         "correctAnswer": "اجابة صحيحة",
@@ -376,7 +377,7 @@
           "updated": "تم تحديث المجلد",
           "deleted": "تم حذف المجلد",
           "createFolder": "قم بإنشاء مجلد",
-          "deleteFolder": "قم بتأكيد حذف المجلد",
+          "deleteFolder": ".ومحتوياته نهائيًا \"{{folderName}}\" سيتم حذف المجلد",
           "updateFolder": "قم بتحديث المجلد",
           "nameMandatory": "اسم المجلد <span class='mandatory'>*</span>",
           "deleteDisclaimer": "كن حذرًا ، سيتم حذف المجلد ومحتوياته (الأنشطة والمجلدات الفرعية)"
@@ -501,6 +502,7 @@
       },
       "folders": {
         "folderManagement": "إدارة المجلد",
+        "folderDelete": "حذف المجلد",
         "name": "اسم",
         "title": "المجلدات"
       },
@@ -983,7 +985,7 @@
       },
       "buttons": {
         "continue": "إكمال ",
-        "validate": "تحقق",
+        "validate": "تأكيد",
         "activate": "تفعيل",
         "cancel": "إلغاء ",
         "finalize": "وضع اللمسات الأخيرة",

@@ -634,7 +634,6 @@ button {
 
 /* BREADCRUMB */
 #breadcrumb button {
-    text-transform: uppercase;
     padding: 0.1rem 0.8rem;
     font-weight: 600;
     font-size: 0.8rem;
@@ -1977,24 +1976,24 @@ h3.section-done {
     object-fit: contain;
 }
 
-#classroom-dashboard-classes-new-activity {
+.classroom-dashboard-new-activity {
     display: flex;
     flex-direction: column;
     flex-grow: 1;
 }
 
-#activity-custom {
+.activity-custom {
     flex-grow: 1;
     margin-left: 15px;
 }
 
-#tool-container {
+.tool-container {
     flex-grow: 1;
     display: flex;
     flex-direction: column;
 }
 
-#lti-loader-container {
+.lti-loader-container {
     width: 100%;
     height: 100%;
 }
@@ -3638,3 +3637,22 @@ h3.section-done {
     100% { transform: rotate(360deg); }
   }
 
+/* TEACHER PREVIEW ACTIVITY VIEW */
+  #activity-content {
+    height: 100%;
+  }
+
+  #activity-content-container {
+    height: 100%;
+    position: relative;
+  }
+
+  #classroom-dashboard-activity-panel {
+    flex-grow: 1;
+  }
+  #classroom-dashboard-activity-panel .row {
+    height: 100%;
+  }
+  #classroom-dashboard-activity-panel .container-fluid {
+    height: 100%;
+  }

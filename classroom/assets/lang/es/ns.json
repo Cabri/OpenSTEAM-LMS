@@ -143,6 +143,7 @@
             "activityAttributionChanged": "La asignación de la actividad {{activityTitle}} se ha modificado para los alumnos inscriptos",
             "activityCreated": "La actividad  {{activityTitle}} ha sido creada",
             "activityChanged": "La actividad  {{activityTitle}} ha sido modificada",
+            "activityImported": "La actividad {{activityTitle}} fue importada",
             "activityTitleMissing": "Debes ingresar el título de la actividad",
             "activityPlayerMissing": " Debe introducir una URL de jugador.",
             "CsvFileMissing": "No has elegido el archivo csv",
@@ -437,7 +438,7 @@
             "preview": " Vista previa",
             "previewTeacherResult": "El alumno habría recibido la siguiente nota :",
             "studentResult" : "Resultado obtenido :",
-            "deleteActivityDisclaimer": " Está a punto de eliminar una actividad. Esta acción es irreversible.",
+            "deleteActivityDisclaimer": "La actividad \"{{activityName}}\" y el trabajo de los alumnos se borrarán de forma permanente.",
             "deleteConfirm": " Confirmar la supresión de la actividad",
             "deleteActivity": " Eliminar la actividad",
             "correctAnswer": " Respuesta correcta",
@@ -456,7 +457,7 @@
                 "updated": " Archivo modificado con éxito",
                 "deleted": " Archivo eliminado con éxito",
                 "createFolder": " Crear una carpeta",
-                "deleteFolder": " Confirmar la eliminación del archivo",
+                "deleteFolder": " La carpeta \"{{folderName}}\" y su contenido se borrarán de forma permanente.",
                 "updateFolder": " Modificar el archivo",
                 "nameMandatory": " Nombre de la carpeta <span class='mandatory'>*</span>",
                 "deleteDisclaimer": " Atención, la carpeta y todo su contenido (actividades y subcarpetas) se eliminará"
@@ -589,7 +590,13 @@
             "shareProject": {
                 "title": "Compartir el proyecto"
             }
-        }
+        },
+        "folders": {
+            "folderManagement": "Gestión de carpetas",
+            "folderDelete": "Suprimir la carpeta",
+            "title": "Carpeta",
+            "image": "Imagen de la carpeta"
+          }
     },
     "login_popup": {
         "title": "Login",
@@ -1205,7 +1212,7 @@
         },
         "buttons": {
             "continue": "Continuar",
-            "validate": "Validar",
+            "validate": "Confirmar",
             "activate": "Activar",
             "cancel": "Cancelar",
             "finalize": "Finalizar",

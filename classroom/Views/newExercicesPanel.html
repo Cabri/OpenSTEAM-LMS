@@ -1,5 +1,5 @@
 <!-- content part -->
-<div id="classroom-dashboard-classes-new-activity" style="display:none;" class="dashboard-block classes-panel">
+<div id="classroom-dashboard-classes-new-activity" style="display:none;" class="classroom-dashboard-new-activity dashboard-block classes-panel">
     <nav class="row form-activity-container" style="margin: 0 auto;">
         <div class="col text-center">
             <span class="form-activity form-activity-secondary"><i class="fas fa-check"></i></span>
@@ -28,7 +28,7 @@
         </div>
     </nav>
 
-    <div id="tool-container" class="mb-2 part-content-index c-primary-form">
+    <div id="tool-container" class="tool-container mb-2 part-content-index c-primary-form">
 
         <!-- Free activity part -->
         <div id="activity-free" style="display:none;">
@@ -180,8 +180,8 @@
 
 
         <!-- Custom & probably Lti -->
-        <div id="activity-custom" style="display:none;">
-            <div id="lti-loader-container"></div>
+        <div id="activity-custom" style="display:none;" class="activity-custom">
+            <div id="lti-loader-container" class="lti-loader-container"></div>
         </div>
 
         <div class="container">
@@ -418,4 +418,14 @@
             <span data-i18n="classroom.activities.form.4">Attribution</span>
         </div>
     </nav>
+</div>
+
+<!-- content part -->
+<div id="classroom-dashboard-collections-new-activity" style="display:none;" class="classroom-dashboard-new-activity dashboard-block classes-panel">
+    <div id="tool-container" class="tool-container mb-2 part-content-index c-primary-form">
+        <!-- Custom & probably Lti -->
+        <div id="activity-custom-collections" class="activity-custom" style="display:none;">
+            <div id="lti-loader-container-collections" class="lti-loader-container"></div>
+        </div>
+    </div>
 </div>

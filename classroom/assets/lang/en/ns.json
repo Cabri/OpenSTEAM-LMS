@@ -144,6 +144,7 @@
 			"activityAttributionChanged": "The {{activityTitle}} assignment has been changed for the learners listed",
 			"activityCreated": "The activity {{activityTitle}} has been created",
 			"activityChanged": "The {{activityTitle}} activity has been modified",
+			"activityImported": "The activity {{activityTitle}} has been imported",
 			"activityTitleMissing": "You must fill in the title of the activity",
       "activityPlayerMissing": "You must fill in the player URL",
 			"CsvFileMissing": "You did not choose a csv file",
@@ -214,7 +215,7 @@
 			"classroom-dashboard-activities-panel-teacher": "My activities",
 			"classroom-dashboard-classes-panel-teacher": "Classes",
 			"classroom-dashboard-sandbox-panel": "Sandbox",
-			"classroom-dashboard-ressources": "Applications",
+			"classroom-dashboard-ressources": "Resources",
 			"classroom-dashboard-profil-panel-teacher": "Profile",
 			"classroom-dashboard-activities-panel": "My activities",
 			"classroom-dashboard-profil-panel": "Profile",
@@ -449,7 +450,7 @@
 	"preview": " Preview",
 	"previewTeacherResult": "The student would have received the following score:",
     "studentResult" : "Result obtained:",
-	"deleteActivityDisclaimer": " You are about to delete an activity. This action is irreversible.",
+	"deleteActivityDisclaimer": " The activity \"{{activityName}}\" and any associated student work will be permanently deleted.",
 	"deleteConfirm": " Confirm the deletion of the activity",
 	"deleteActivity": " Delete the activity",
 	"correctAnswer": " Correct answer",
@@ -468,7 +469,7 @@
 		"updated": " Successfully modified file",
 		"deleted": " File successfully deleted",
 		"createFolder": " Create a folder",
-		"deleteFolder": " Confirm the deletion of the file",
+		"deleteFolder": " The folder \"{{folderName}}\" and its content will be permanently deleted.",
 		"updateFolder": " Modify the file",
 		"nameMandatory": " Folder Name <span class='mandatory'>*</span>",
 		"deleteDisclaimer": " Attention, the folder and all its contents (activities and subfolders) will be deleted"
@@ -617,6 +618,7 @@
 	},
     "folders": {
       "folderManagement": "File management",
+	  "folderDelete" : "Delete the folder",
       "name": "Folder name <span class=\"mandatory\">*</span>",
       "title": "Folder",
       "image": "Folder image"
@@ -1239,7 +1241,7 @@
 		},
 		"buttons": {
 			"continue": "Continue",
-			"validate": "Validate",
+			"validate": "Confirm",
 			"activate": "Activate",
 			"cancel": "Cancel",
 			"finalize": "Finalize",

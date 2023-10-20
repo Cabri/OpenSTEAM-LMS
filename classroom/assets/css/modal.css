@@ -272,3 +272,7 @@ div#modal-gpsmap .vitta-modal-content {
 		height: 35vh;
 	}
 }
+
+.btn-blue {
+    background-color: var(--classroom-primary);
+}

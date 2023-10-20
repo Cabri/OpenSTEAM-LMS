@@ -1,7 +1,8 @@
 {
     var pseudoModal = new Modal("a")
     $.each(classroomModals, (element, modal) => {
-        document.querySelector('body').appendChild(new Modal(element, modal));
+        const modalEl = new Modal(element, modal);
+        document.querySelector('body').appendChild(modalEl);
     });
     $(".vitta-modal").draggable();
 

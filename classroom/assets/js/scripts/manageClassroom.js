@@ -91,10 +91,19 @@ async function readEvent (event) {
         case 'end-lti-deeplink':
             // Saving the deeplink response into the activity creation data
             Main.getClassroomManager()._createActivity.content.description = msg.content;
-            // Automatically stepping forward in the activity creation process
-            contentForward();
-            // Clear the activity content to close the LTI iframe
-            document.querySelector('#activity-content').innerHTML = '';
+
+            if(msg.typeLtiTool === "collections" || msg.typeTool !== "") {
+                $('#global_title').val(msg.title);
+                titleForward(msg);
+            }
+            else {
+                // Automatically stepping forward in the activity creation process
+                contentForward();
+                
+                // Clear the activity content to close the LTI iframe
+                document.querySelector('#activity-content').innerHTML = '';
+            }
+            
             break;
         default:
             console.warn('The current message type isn\'t supported!');

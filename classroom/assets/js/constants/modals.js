@@ -115,6 +115,9 @@ const classroomModals = {
             <button class="btn c-btn-secondary" onclick="changeLang('es')">
                 Español
             </button>
+            <button class="btn c-btn-secondary" onclick="changeLang('nl')">
+                Nederlands
+            </button>  
             <button class="btn c-btn-secondary" onclick="changeLang('ar')">
                 العربية
             </button>
@@ -150,9 +153,12 @@ const classroomModals = {
                         <button class="btn c-btn-secondary" onclick="changeLang('es')">
                             Español
                         </button>
+                        <button class="btn c-btn-secondary" onclick="changeLang('nl')">
+                            Nederlands
+                        </button>   
                         <button class="btn c-btn-secondary" onclick="changeLang('ar')">
                             العربية
-                        </button>    
+                        </button>
                     </div>
                     <h4 data-i18n="classroom.modals.settingsTeacher.description">Pour modifier votre mot de passe ou d'autres paramètres de votre compte</h4>
                     <div class="d-flex flex-column align-items-center" style="gap: 0.5rem;">
@@ -1191,19 +1197,40 @@ const classroomModals = {
         content: `  <div id="delete-activities-modal">
                         <div class="col-12">
                             <div class="alert" id="alertDisableUserGA" role="alert" style="display:none;"></div>
-                            <h3 class="font-weight-bold c-text-red m-auto text-center" data-i18n="classroom.activities.deleteConfirm">Confirmer la désactivation</h3>
+        
                             <p id="activity-linked-to-course-message" class="text-center mt-2"> Cette activité est liée à un ou plusieurs parcours.  </p>
-                            <p class="text-center" data-i18n="classroom.activities.deleteActivityDisclaimer"></p>
-                            <div class="text-center c-secondary-form">
-                                <p class="text-center" data-i18n="manager.users.deleteConfirmation">Veuillez écrire "supprimer" dans le champ si dessous pour valider l'action.</p>
-                                <input type="text" name="validation-delete-activity" id="validation-delete-activity" data-i18n="[placeholder]manager.input.placeholder.delete" placeholder="supprimer">
+                            <div class="d-flex flex-row justify-content-center align-items-center align-content-around">
+                                <i class="fas fa-exclamation-triangle fa-3x mr-3" style="color: #ffb636;"></i>                   
+                                <p id="delete-activity-text" class="m-0" data-i18n="classroom.activities.deleteActivityDisclaimer"></p>
                             </div>
-                            <div class="text-center">
-                                <button class="btn c-btn-light mx-auto mt-3 btn-lg" onclick="cancelDeleteActivity()" data-i18n="manager.buttons.cancel">Annuler</button>
-                                <button class="btn c-btn-secondary mx-auto mt-3 btn-lg" onclick="persistDeleteActivity()" data-i18n="manager.buttons.validate">Valider</button>
+                            <div class="text-right">
+                                <button class="btn c-btn-secondary mx-auto mt-3 btn-lg" onclick="persistDeleteActivity()" data-i18n="manager.buttons.validate">Confirmer</button>
+                                <button class="btn c-btn-light btn-blue mx-auto mt-3 btn-lg" onclick="cancelDeleteActivity()" data-i18n="manager.buttons.cancel">Annuler</button>
                             </div>
                         </div>
                     </div>`,
+        footer: ``
+    },
+    'folder-delete-modal': {
+        selector: '',
+        header: {
+            icon: '',
+            title: 'classroom.folders.folderDelete'
+        },
+        content: `  <div id="folder-manager-modal-content">
+            <!-- DELETE -->
+            <div class="col-12" id="delete-folder">
+                <div class="d-flex flex-row justify-content-center align-items-center align-content-around">
+                    <i class="fas fa-exclamation-triangle fa-3x mr-3" style="color: #ffb636;"></i>                   
+                    <p id="delete-folder-text" class="m-0" data-i18n="classroom.activities.foldersMessages.deleteFolder"></p>
+                </div>
+
+                <div class="text-right">
+                    <button class="btn c-btn-secondary mx-auto mt-3 btn-lg" onclick="foldersManager.persistDeleteFolder()" data-i18n="manager.buttons.validate">Confirmer</button>
+                    <button class="btn c-btn-light btn-blue mx-auto mt-3 btn-lg" onclick="foldersManager.resetInputs()" data-i18n="manager.buttons.cancel">Annuler</button>
+                </div>
+            </div>
+    </div>`,
         footer: ``
     },
     'folder-manager-modal': {
@@ -1229,26 +1256,6 @@ const classroomModals = {
             <button class="btn c-btn-secondary my-3 btn" onclick="foldersManager.persistUpdateFolder()" data-i18n="manager.buttons.update">Modifier</button>
             <button class="btn c-btn-light my-3 btn" onclick="foldersManager.resetInputs()" data-i18n="manager.buttons.cancel">Annuler</button>
         </div>
-    
-    
-        <!-- DELETE -->
-        <div class="col-12" id="delete-folder-manager" style="display:none;">
-    
-            <h3 class="font-weight-bold text-danger m-auto text-center" data-i18n="classroom.activities.foldersMessages.deleteFolder">Confirmer la suppression</h3>
-            <p class="text-center" data-i18n="classroom.activities.foldersMessages.deleteDisclaimer">Attention, le dossier et l'ensemble de son contenu (activités et sous-dossiers) seront supprimés.</p>
-            <p class="text-center" data-i18n="manager.users.deleteConfirmation">Veuillez écrire "supprimer" dans le champ si dessous pour valider l'action.</p>
-    
-            <div class="text-center c-secondary-form">
-                <input type="hidden" name="validation-delete-folder_id" id="validation-delete-folder_id">
-                <input type="text" name="validation-delete-folder" id="validation-delete-folder" data-i18n="[placeholder]manager.input.placeholder.delete" placeholder="supprimer">
-            </div>
-    
-            <div class="text-center">
-                <button class="btn c-btn-red mx-auto mt-3 btn-lg" onclick="foldersManager.persistDeleteFolder()" data-i18n="manager.buttons.validate">Valider</button>
-                <button class="btn c-btn-light mx-auto mt-3 btn-lg" onclick="foldersManager.resetInputs()" data-i18n="manager.buttons.cancel">Annuler</button>
-            </div>
-        </div>
-        
     
         <!-- CREATE -->
         <div class="container-fluid" id="create-folder-manager" style="display:none;">
