@@ -713,7 +713,7 @@ function launchLtiDeepLinkCreate(type, isUpdate) {
         ${updateInput}
     </form>
     <div style="width: 100%; height: 100%;" class="lti-iframe-holder">
-        <iframe id="lti_teacher_iframe" src="about:blank" name="lti_teacher_iframe" title="Tool Content" width="100%"  height="100%" allowfullscreen></iframe>
+        <iframe id="lti_teacher_iframe" src="about:blank" name="lti_teacher_iframe" title="Tool Content" width="100%"  height="100%" allow="fullscreen *; microphone *; camera *; serial *; usb *"></iframe>
     </div>`;
 
     document.forms["contentitem_request_form"].submit();
