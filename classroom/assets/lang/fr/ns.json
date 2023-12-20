@@ -540,7 +540,7 @@
       "contactForm": {
         "title": "Nous contacter",
         "objectPlaceholder": "Objet",
-        "messagePlaceholder": "Écrivez votre message ici (maximum 800 caractères).",
+        "messagePlaceholder": "Écrivez votre message ici (maximum 800 caractères). Si vous voulez être recontacté, merci d'indiquer votre adresse e-mail.",
         "sendButton": "Envoyer le message",
         "fillInAllTheFields": "Complétez tous les champs"
       }
