@@ -16,7 +16,7 @@ use \Firebase\JWT\JWT;
 use Classroom\Entity\LtiTool;
 use Classroom\Entity\Applications;
 
-$nonce = base64_encode(random_bytes(16));
+$nonce = $_REQUEST['nonce'];
 
 //$platform_url = isset($_SERVER['HTTPS']) ? 'https://' : 'http://' . $_SERVER['HTTP_HOST'];
 $platform_url = $_ENV['VS_HOST'];
