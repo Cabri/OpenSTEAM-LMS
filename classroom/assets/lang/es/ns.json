@@ -146,6 +146,7 @@
             "activityImported": "La actividad {{activityTitle}} fue importada",
             "activityTitleMissing": "Debes ingresar el título de la actividad",
             "activityPlayerMissing": " Debe introducir una URL de jugador.",
+		"activityDuplicated": "La actividad {{activityName}} ha sido duplicada.",	
             "CsvFileMissing": "No has elegido el archivo csv",
             "errorWithCsv": "Error al abrir el archivo csv : {{error}}",
             "cantGetPassword": "Error, no puede ver su contraseña",
@@ -250,7 +251,7 @@
             "panel": {
                 "seeActivity": "Ver la actividad",
                 "editActivity": "Modificar la actividad",
-                "editAttribution": "Modifier la asignación",
+                "editAttribution": "Modificar la asignación",
                 "removeAttribution": "Eliminar la asignación",
                 "password": "Su contraseña :",
                 "resetPassword": "Regenerar la contraseña",
@@ -349,7 +350,7 @@
                 "validate": "Validar",
                 "buttonContinue": "Guardar y continuar",
                 "button": "Guardar y validar",
-                "success": "¡Bravo, ha creado una actividad!",
+                "success": "¡Muy bien, ha creado una actividad!",
                 "attribute": "Asignar ahora la actividad",
                 "attribute2": "Asignar la actividad",
                 "return": "Regresar a Mis actividades",
@@ -374,8 +375,8 @@
             "weakProficiency": "Poco satisfactorio",
             "insufficientProficiency": "Insuficiente",
             "addLearner": "Agregar un alumno",
-            "addLearners": " Add learners",
-            "addActivity": " Add an activity",
+            "addLearners": " Agregar un alumno",
+            "addActivity": " Agregar una actividad",
             "exportCsv": "Exportar csv",
             "players": {
                 "STANDARD": {
@@ -733,7 +734,7 @@
                 },
                 "4": {
                     "title": "¿Cómo asignar una actividad?",
-                    "answer": "Para asignar una actividad, cuenta con tres opciones:: <ol> <li> Vaya a la pestaña <b> Mis actividades </b> y haga clic en el icono <i class = \"fas fa-cog\"> </i> de su actividad y luego haga clic en Asignar. Enseguida, sólo siga los pasos. </li> <li> Esta opción de Asignar también está disponible en la propia actividad una vez abierta.</li> <li> De lo contrario, vaya a la pestaña <b> Clases </b> y haga clic en una clase. Una vez en el panel de control del aula, todo lo que tiene que hacer es hacer clic en el botón \"Agregar una actividad\". </li> </ol>abierta."
+                    "answer": "Para asignar una actividad, cuenta con tres opciones: <li> Vaya a la pestaña <b> Mis actividades </b> y haga clic en el icono <i class = \"fas fa-cog\"> </i> de su actividad y luego haga clic en Asignar. Enseguida, sólo siga los pasos. </li> <li> Esta opción de Asignar también está disponible en la propia actividad una vez abierta.</li> <li> De lo contrario, vaya a la pestaña <b> Clases </b> y haga clic en una clase. Una vez en el panel de control del aula, todo lo que tiene que hacer es hacer clic en el botón \"Agregar una actividad\". </li> ."
                 },
                 "5": {
                     "title": "¿Cómo probar una actividad?",
@@ -1430,24 +1431,24 @@
 		}
     },
     "courses": {
-        "addActivity": " Add an activity",
-        "addActivities": " Add activities",
-        "createActivity": " Create an activity",
-        "searchActivity": " Search an activity",
-        "placeholderTitle": " Activity title",
-        "placeholderDescription": " Activity description",
+        "addActivity": " Añadir actividades",
+        "addActivities": " Añadir actividades",
+        "createActivity": " Crear una actividad",
+        "searchActivity": " Buscar una actividad",
+        "placeholderTitle": " Título de la actividad",
+        "placeholderDescription": " Descripción de la actividad",
         "pagination": {
-            "create": " Course's creation",
-            "title": " Title",
-            "parameters": " Parameters",
-            "attribution": " Attribution"
+            "create": " Creación del curso",
+            "title": " Título",
+            "parameters": " Parámetros",
+            "attribution": " Asignación"
         },
         "parameters": {
-            "title": " Course title <span class=\"c-text-red\">*</span>",
-            "description": " Course's description <span class=\"c-text-red\">*</span>",
+            "title": " Título de la actividad <span class=\"c-text-red\">*</span>",
+            "description": " Descripción de la actividad <span class=\"c-text-red\">*</span>",
             "difficulty": " Difficulty <span class=\"c-text-red\">*</span>",
             "difficultyLevel": {
-                "choose": " Choose a difficulty level",
+                "choose": " Elige un nivel de dificultad",
                 "easy": " Easy",
                 "medium": " Medium",
                 "advanced": " Advanced",
