@@ -713,7 +713,8 @@ function launchLtiDeepLinkCreate(type, isUpdate) {
         ${updateInput}
     </form>
     <div style="width: 100%; height: 100%;" class="lti-iframe-holder">
-        <iframe id="lti_teacher_iframe" src="about:blank" name="lti_teacher_iframe" title="Tool Content" width="100%"  height="100%" allow="fullscreen *; microphone *; camera *; serial *; usb *"></iframe>
+        <iframe id="lti_teacher_iframe" src="about:blank" name="lti_teacher_iframe" title="Tool Content" width="100%"  height="100%" allow="fullscreen *; microphone *; camera *; serial *; usb *"
+></iframe>
     </div>`;
 
     document.forms["contentitem_request_form"].submit();
@@ -730,7 +731,7 @@ function launchLtiResource(activityId, activityType, activityContent, isStudentL
             <input type="hidden" id="student_resource_url" name="student_resource_url" value="${studentResourceUrl}">
         </form>
         <iframe id="lti_student_iframe" src="about:blank" name="lti_student_iframe" title="Tool Content" width="100%" style=""
-         allowfullscreen></iframe>
+         allow="fullscreen *; microphone *; camera *; serial *; usb *"></iframe>
         `;
     document.forms["resource_launch_form"].submit();
     $("#activity-content-container").show();
