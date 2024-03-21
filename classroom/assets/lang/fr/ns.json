@@ -288,10 +288,10 @@
       "validate": "Valider l'activité",
       "validateWarning": "<i class='fas fa-exclamation-triangle'></i> Attention, tu ne pourras soumettre cette activité qu'une seule fois !",
       "validateNoEval": "<i class='fas fa-thumbs-up'></i> Tu peux soumettre cette activité autant de fois que tu le souhaites.",
-      "accept": "Très bonne maîtrise",
-      "vgood": "Maîtrise satisfaisante",
-      "good": "Maîtrise fragile",
-      "refuse": "Maîtrise insuffisante",
+      "accept": "Très bien",
+      "vgood": "Satisfaisant",
+      "good": "Peu satisfaisant",
+      "refuse": "Insuffisant",
       "nnoted": "Non-noté",
       "instruction": "Consigne",
       "commentary": "Commentaire",
@@ -410,10 +410,10 @@
       "dateBefore": "À rendre avant le",
       "dateBeforeAvailable": "Disponible jusqu'au",
       "integrate": "Intégrer dans une activité",
-      "veryGoodProficiency": "Très bonne maîtrise",
-      "goodProficiency": "Maîtrise satisfaisante",
-      "weakProficiency": "Maîtrise fragile",
-      "insufficientProficiency": "Maîtrise insuffisante",
+      "veryGoodProficiency": "Très bien",
+      "goodProficiency": "Satisfaisant",
+      "weakProficiency": "Peu satisfaisant",
+      "insufficientProficiency": "Insuffisant",
       "noProficiency": "Non-noté",
       "addLearner": "Ajouter un apprenant",
       "exportCsv": "Exporter csv",
@@ -893,7 +893,7 @@
         },
         "7": {
           "title": "Comment l’évaluation des activités se fait-elle ?",
-          "answer": "Les évaluations sont :<ul><li>soit manuelles sur 4 niveaux : Très bonne maîtrise ; Maîtrise suffisante ; Maîtrise faible et Maîtrise insuffisante,</li><li>soit automatiques sur 2 niveaux : Très bonne maîtrise et Maîtrise faible.<br>Ce type d’évaluation permet à l’apprenant d’obtenir sa correction immédiatement et à l’enseignant de bénéficier d’un gain de temps non négligeable.</li></ul><p>Une fois que l’apprenant a terminé son activité, il a la possibilité de la recommencer si l’enseignant a sélectionné le mode Exercice lors de l’attribution. Dans le mode Évaluation, l’élève ne peut pas recommencer une fois l’activité validée.</p><p>Pour visualiser les résultats, il vous suffit de vous rendre dans le tableau de bord de la classe.</p><p>Une activité non corrigée est symbolisée par un crayon dans le tableau de bord. Pour la corriger, cliquez sur le crayon, vous pouvez ensuite évaluer et commenter le travail de l’apprenant.</p>"
+          "answer": "Les évaluations sont :<ul><li>soit manuelles sur 4 niveaux : Très bien ; satisfaisant ; peu satisfaisant et insuffisant,</li><li>soit automatiques sur 2 niveaux : Très bonne maîtrise et Maîtrise faible.<br>Ce type d’évaluation permet à l’apprenant d’obtenir sa correction immédiatement et à l’enseignant de bénéficier d’un gain de temps non négligeable.</li></ul><p>Une fois que l’apprenant a terminé son activité, il a la possibilité de la recommencer si l’enseignant a sélectionné le mode Exercice lors de l’attribution. Dans le mode Évaluation, l’élève ne peut pas recommencer une fois l’activité validée.</p><p>Pour visualiser les résultats, il vous suffit de vous rendre dans le tableau de bord de la classe.</p><p>Une activité non corrigée est symbolisée par un crayon dans le tableau de bord. Pour la corriger, cliquez sur le crayon, vous pouvez ensuite évaluer et commenter le travail de l’apprenant.</p>"
         },
         "8": {
           "title": "Comment sait-on lorsque les apprenants ont terminé leurs activités ?",
