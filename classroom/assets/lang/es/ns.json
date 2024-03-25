@@ -285,10 +285,10 @@
             "anonymise": "Proteja la lista de sus alumnos con otros nombres para que pueda mostrar el panel a sus alumnos",
             "save-draft": "Guardar como borrador",
             "validate": "Validar la actividad",
-            "accept": "Alta competencia",
-            "vgood": "Competencia satisfactoria",
-            "good": "Competencia frágil",
-            "refuse": "Competencia insuficiente",
+            "accept": "Muy bien",
+            "vgood": "Satisfactorio",
+            "good": "Poco satisfactorio",
+            "refuse": "Insuficiente",
             "instruction": "Consigna",
             "commentary": "Comentario",
             "sendResults": "Enviar el comentario al alumno",
@@ -369,10 +369,10 @@
             "dateBefore": "Para ser devuelto antes de",
             "dateBeforeAvailable": " Disponible hasta",
             "integrate": "Integrar dentro de una actividad",
-            "veryGoodProficiency": "Alta competencia",
-            "goodProficiency": "Competencia satisfactoria",
-            "weakProficiency": "Competencia frágil",
-            "insufficientProficiency": "Competencia insuficiente",
+            "veryGoodProficiency": "Muy bien",
+            "goodProficiency": "Satisfactorio",
+            "weakProficiency": "Poco satisfactorio",
+            "insufficientProficiency": "Insuficiente",
             "addLearner": "Agregar un alumno",
             "addLearners": " Add learners",
             "addActivity": " Add an activity",
@@ -774,7 +774,7 @@
                 },
                 "7": {
                     "title": "¿Cómo se hace la evaluación de las actividades?",
-                    "answer": "Las evaluaciones son: <ul> <li>manualmente en 4 niveles: Muy buen dominio; Aprendizaje suficiente; Aprendizaje débil y Aprendizaje insuficiente </li> <li> Automático en 2 niveles: Aprendizaje muy bueno y Aprendizaje bajo. <br>Este tipo de evaluación permite al alumno obtener su corrección de inmediato y que el maestro se beneficie de un ahorro significativo de tiempo. </li> </ul> <p> Una vez que el alumno ha terminado su actividad, puede comenzar de nuevo si el profesor ha seleccionado el modo \"Ejercicio\" en la asignación. En el modo \"Evaluación\", el alumno no puede comenzar de nuevo una vez que la actividad ha sido validada. </p> <p> Para ver los resultados, simplemente vaya al Panel de control de la clase. </p> <p> Se simboliza una actividad no corregida con un lápiz en el Tablero de control. Para corregirla, haga clic en el lápiz, luego solo tiene que evaluar y comentar el trabajo del alumno. </p>"
+                    "answer": "Las evaluaciones son: <ul> <li>manualmente en 4 niveles: Muy buen; Satisfactorio; Poco satisfactorio y Insuficiente </li> <li> Automático en 2 niveles: Aprendizaje muy bueno y Aprendizaje bajo. <br>Este tipo de evaluación permite al alumno obtener su corrección de inmediato y que el maestro se beneficie de un ahorro significativo de tiempo. </li> </ul> <p> Una vez que el alumno ha terminado su actividad, puede comenzar de nuevo si el profesor ha seleccionado el modo \"Ejercicio\" en la asignación. En el modo \"Evaluación\", el alumno no puede comenzar de nuevo una vez que la actividad ha sido validada. </p> <p> Para ver los resultados, simplemente vaya al Panel de control de la clase. </p> <p> Se simboliza una actividad no corregida con un lápiz en el Tablero de control. Para corregirla, haga clic en el lápiz, luego solo tiene que evaluar y comentar el trabajo del alumno. </p>"
                 },
                 "8": {
                     "title": "¿Cómo se sabe cuándo los estudiantes han terminado sus actividades?",

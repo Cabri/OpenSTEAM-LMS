@@ -285,9 +285,9 @@
             "anonymise": "Anonimizza la tua lista di studenti in modo da poter mostrare il dashboard ai tuoi studenti",
             "save-draft": "Salva come bozza",
             "validate": "Convalidare l'attività",
-            "accept": "Molto buono",
+            "accept": "Molto bene",
             "vgood": "Soddisfacente",
-            "good": "Fragile",
+            "good": "Insoddisfacente",
             "refuse": "Insufficiente",
             "instruction": "Consegna",
             "commentary": "Commento",
@@ -369,9 +369,9 @@
             "dateBefore": "Termine di scadenza della consegna",
             "dateBeforeAvailable": " Disponibile fino a",
             "integrate": "Integrare in un'attività",
-            "veryGoodProficiency": "Molto buono",
+            "veryGoodProficiency": "Molto bene",
             "goodProficiency": "Soddisfacente",
-            "weakProficiency": "Fragile",
+            "weakProficiency": "Insoddisfacente",
             "insufficientProficiency": "Insufficiente",
             "addLearner": "Aggiungere uno studente",
             "addLearners": " Add learners",
@@ -775,7 +775,7 @@
                 },
                 "7": {
                     "title": "Come vengono valutate le attività?",
-                    "answer": "Le valutazioni sono:<ul><li>Manuale su 4 livelli: Molto buono; Sufficiente; debole e insufficiente</li><li>Automatico su 2 livelli: molto buono e debole.<Questo tipo di valutazione permette all'allievo di ottenere immediatamente la sua correzione e all'insegnante di beneficiare di un notevole risparmio di tempo.</li></ul><p>Una volta che l'allievo ha completato la sua attività, ha la possibilità di ricominciarla se l'insegnante ha selezionato la modalità \"Esercizio\" al momento dell'assegnazione. Nella modalità \"Valutazione\", lo studente non può ricominciare una volta che l'attività è stata convalidata.</p><p>Per visualizzare i risultati, basta andare al Pannello di controllo della classe.</p><p>Un'attività non corretta è simboleggiata da una matita nel Pannello di controllo. Per correggerla clicca sulla matita, poi semplicemente valuta e commenta il lavoro dello studente.</p>"
+                    "answer": "Le valutazioni sono:<ul><li>Manuale su 4 livelli: Molto bene; soddisfacente; insoddisfacente e insufficiente</li><li>Automatico su 2 livelli: molto buono e debole.<Questo tipo di valutazione permette all'allievo di ottenere immediatamente la sua correzione e all'insegnante di beneficiare di un notevole risparmio di tempo.</li></ul><p>Una volta che l'allievo ha completato la sua attività, ha la possibilità di ricominciarla se l'insegnante ha selezionato la modalità \"Esercizio\" al momento dell'assegnazione. Nella modalità \"Valutazione\", lo studente non può ricominciare una volta che l'attività è stata convalidata.</p><p>Per visualizzare i risultati, basta andare al Pannello di controllo della classe.</p><p>Un'attività non corretta è simboleggiata da una matita nel Pannello di controllo. Per correggerla clicca sulla matita, poi semplicemente valuta e commenta il lavoro dello studente.</p>"
                 },
                 "8": {
                     "title": "Come fai a sapere quando gli studenti hanno completato le loro attività?",

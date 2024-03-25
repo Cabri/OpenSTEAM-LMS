@@ -290,8 +290,8 @@
 			"validate": "Validate the activity",
 			"accept": "Very good",
 			"vgood": "Satisfactory",
-			"good": "Weak",
-			"refuse": "Insufficient",
+			"good": "Poor",
+			"refuse": "Unsatisfactory",
 			"nnoted": "Not evaluated",
 			"instruction": "Instruction",
 			"commentary": "Comment",
@@ -381,8 +381,8 @@
       		"integrate": "Integrate into an activity",
 			"veryGoodProficiency": "Very good",
 			"goodProficiency": "Satisfactory",
-			"weakProficiency": "Weak",
-			"insufficientProficiency": "Insufficient",
+			"weakProficiency": "Poor",
+			"insufficientProficiency": "Unsatisfactory",
 			"noProficiency": "Not evaluated",
 			"addLearner": "Add a learner",
 			"addLearners": "Add learners",
@@ -802,7 +802,7 @@
         },
         "7": {
           "title": "How are activities evaluated?",
-          "answer": "The assessments are:<ul><li>either manually on 4 levels: Very good; Satisfactory; Weak and Insufficient</li><li>Or automatically on 2 levels: Very good mastery and Weak mastery.<br>This type of assessment allows the learner to get his correction immediately and for the teacher to benefit from a significant time saving.</li></ul><p>Once the learner has completed his activity, he has the possibility to start it again if the teacher has selected the \"Exercise\" mode when assigning. In the \"Assessment\" mode, the student cannot restart once the activity has been validated.</p><p>To view the results, simply go to the Class Dashboard.</p><p>An uncorrected activity is symbolized by a pencil in the Dashboard. To correct it, click on the pencil, then simply assess and comment on the learner's work.</p>"
+          "answer": "The assessments are:<ul><li>either manually on 4 levels: Very good; Satisfactory; Poor and Unsatisfactory</li><li>Or automatically on 2 levels: Very good mastery and Weak mastery.<br>This type of assessment allows the learner to get his correction immediately and for the teacher to benefit from a significant time saving.</li></ul><p>Once the learner has completed his activity, he has the possibility to start it again if the teacher has selected the \"Exercise\" mode when assigning. In the \"Assessment\" mode, the student cannot restart once the activity has been validated.</p><p>To view the results, simply go to the Class Dashboard.</p><p>An uncorrected activity is symbolized by a pencil in the Dashboard. To correct it, click on the pencil, then simply assess and comment on the learner's work.</p>"
         },
         "8": {
           "title": "How do we know when learners have completed their activities?",
