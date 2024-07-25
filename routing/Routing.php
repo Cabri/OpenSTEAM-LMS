@@ -121,7 +121,11 @@ try {
         case 'user':
             $controller = new ControllerUser($entityManager, $user);
             echo (json_encode($controller->action($action, $_POST)));
-            $log->info($action, OK);
+            $session_id = session_id();
+            $sessionRepository = $entityManager->getRepository(Session::class);
+            $sessionRepository->createSession($session_id, $user['id']);
+            echo (json_encode(["session_id" => $session_id]));
+            $log->info($action, OK);    
             break;
         case 'project':
             $controller = new ControllerProject($entityManager, $user);
