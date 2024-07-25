@@ -121,6 +121,7 @@ try {
         case 'user':
             $controller = new ControllerUser($entityManager, $user);
             echo (json_encode($controller->action($action, $_POST)));
+            error_log("User data: " . print_r($user, true)); 
             $session_id = session_id();
             $sessionRepository = $entityManager->getRepository(Session::class);
             $sessionRepository->createSession($session_id, $user['id']);
