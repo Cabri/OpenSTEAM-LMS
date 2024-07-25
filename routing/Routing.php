@@ -133,16 +133,22 @@ try {
             echo (json_encode($controller->action($action, $_POST)));
             $log->info($action, OK);
             break;
-        case 'classroom':
-            $controller = new ControllerClassroom($entityManager, $user);
-            echo (json_encode($controller->action($action, $_POST)));
-            error_log("User data: " . print_r($user, true)); 
-            $session_id = session_id();
-            $sessionRepository = $entityManager->getRepository(Session::class);
-            $sessionRepository->createSession($session_id, $user['id']);
-            echo (json_encode(["session_id" => $session_id]));
-            $log->info($action, OK);
-            break;
+            case 'classroom':
+                $controller = new ControllerClassroom($entityManager, $user);
+                
+                $action_result = $controller->action($action, $_POST);
+                echo json_encode($action_result);
+            
+                error_log("User data: " . print_r($user, true)); 
+                
+                $session_id = session_id();
+                $sessionRepository = $entityManager->getRepository(Session::class);
+                $sessionRepository->createSession($session_id, $user['id']);
+            
+                echo json_encode(["session_id" => $session_id]);
+            
+                $log->info($action, OK);
+                break;
         case 'classroom_link_user':
             $controller = new ControllerClassroomLinkUser($entityManager, $user);
             echo (json_encode($controller->action($action, $_POST)));
