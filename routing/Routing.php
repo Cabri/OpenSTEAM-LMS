@@ -133,16 +133,66 @@ try {
             echo (json_encode($controller->action($action, $_POST)));
             $log->info($action, OK);
             break;
-        case 'classroom':
-            $controller = new ControllerClassroom($entityManager, $user);
-            echo (json_encode($controller->action($action, $_POST)));
-            error_log("User data: " . print_r($user, true)); 
-            $session_id = session_id();
-            $sessionRepository = $entityManager->getRepository(Session::class);
-            $sessionRepository->createSession($session_id, $user['id']);
-            echo (json_encode(["session_id" => $session_id]));
-            $log->info($action, OK);
-            break;
+            case 'classroom':
+                try {
+                    // Log initial action
+                    error_log("Starting action: $action with POST data: " . print_r($_POST, true));
+            
+                    // Assuming $entityManager and $user are defined elsewhere
+                    $controller = new ControllerClassroom($entityManager, $user);
+                    $result = $controller->action($action, $_POST);
+            
+                    // Log result of the action
+                    error_log("Action result: " . print_r($result, true));
+                    // Delay the response for the action result until session creation is complete
+                    $action_result = $result;
+                } catch (Exception $e) {
+                    // Log exception details
+                    error_log("Error processing action: " . $e->getMessage());
+                    echo json_encode(["error" => $e->getMessage()]);
+                    break;  // Exit case if there is an error
+                }
+            
+                try {
+                    // Initialize session and log the session ID
+                    $session_id = session_id();
+                    if (!$session_id) {
+                        throw new Exception("Session ID is null");
+                    }
+                    error_log("Session ID: " . $session_id);
+            
+                    // Check user ID
+                    if (!isset($user['id'])) {
+                        throw new Exception("User ID is not set");
+                    }
+                    error_log("User ID: " . $user['id']);
+            
+                    // Create and persist the session
+                    $sessionRepository = $entityManager->getRepository(Session::class);
+                    $sessionRepository->createSession($session_id, $user['id']);
+                    error_log("Session created in repository with session_id: $session_id and user_id: " . $user['id']);
+            
+                    // Formulate the response
+                    $response = [
+                        "session_id" => $session_id,
+                        "action_result" => $action_result
+                    ];
+                    $json_response = json_encode($response);
+                    if ($json_response === false) {
+                        throw new Exception("JSON encoding error: " . json_last_error_msg());
+                    }
+                    error_log("Response: " . $json_response);
+                    echo $json_response;
+                } catch (Exception $e) {
+                    // Log exception details
+                    error_log("Error creating session: " . $e->getMessage());
+                    echo json_encode(["error" => $e->getMessage()]);
+                }
+            
+                // Ensure logging action is correct
+                $log->info($action, OK);
+                error_log("End of processing");
+                break;            
         case 'classroom_link_user':
             $controller = new ControllerClassroomLinkUser($entityManager, $user);
             echo (json_encode($controller->action($action, $_POST)));
