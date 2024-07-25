@@ -133,21 +133,22 @@ try {
             echo (json_encode($controller->action($action, $_POST)));
             $log->info($action, OK);
             break;
-            case 'classroom':
+        case 'classroom':
                 $controller = new ControllerClassroom($entityManager, $user);
                 $action_result = $controller->action($action, $_POST);
                 
-                // Create session after action
                 $session_id = session_id();
                 $sessionRepository = $entityManager->getRepository(Session::class);
                 $sessionRepository->createSession($session_id, $user['id']);
-    
-                $response = [
-                    'action_result' => $action_result,
-                    'session_id' => $session_id,
-                ];
-                echo json_encode($response);
-    
+            
+                if (is_array($action_result)) {
+                    $action_result['session_id'] = $session_id;
+                } else if (is_object($action_result)) {
+                    $action_result->session_id = $session_id;
+                }
+                
+                echo json_encode($action_result);
+            
                 error_log("User data: " . print_r($user, true));
                 $log->info($action, OK);
                 break;
