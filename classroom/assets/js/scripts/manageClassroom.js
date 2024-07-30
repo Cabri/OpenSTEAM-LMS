@@ -1104,7 +1104,7 @@ function getRandomInt(max) {
 
 function displayNotification(div, message, status, options = '{}') {
     let randId = getRandomInt(10000)
-    let html = `<div id='notif-` + randId + `' class="vitta-notif status-` + status + `" data-i18n="` + message + `" data-i18n-options=` + options + `><div class="vitta-notif-exit-btn"><i class="fa fa-times-circle"></i></div></div>`
+    let html = `<div id='notif-` + randId + `' class="vitta-notif status-` + status + `" data-i18n="[html]` + message + `" data-i18n-options=` + options + `><div class="vitta-notif-exit-btn"><i class="fa fa-times-circle"></i></div></div>`
     $(div).append(html)
     $(div).localize()
     setTimeout(function () {

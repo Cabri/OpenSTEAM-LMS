@@ -1201,7 +1201,7 @@ const classroomModals = {
                             <p id="activity-linked-to-course-message" class="text-center mt-2"> Cette activité est liée à un ou plusieurs parcours.  </p>
                             <div class="d-flex flex-row justify-content-center align-items-center align-content-around">
                                 <i class="fas fa-exclamation-triangle fa-3x mr-3" style="color: #ffb636;"></i>                   
-                                <p id="delete-activity-text" class="m-0" data-i18n="classroom.activities.deleteActivityDisclaimer"></p>
+                                <p id="delete-activity-text" class="m-0" data-i18n="[html]classroom.activities.deleteActivityDisclaimer"></p>
                             </div>
                             <div class="text-right">
                                 <button class="btn c-btn-secondary mx-auto mt-3 btn-lg" onclick="persistDeleteActivity()" data-i18n="manager.buttons.validate">Confirmer</button>

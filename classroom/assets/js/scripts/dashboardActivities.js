@@ -140,7 +140,7 @@ function teacherActivityItem(activity, displayStyle) {
                             <div class="activity-card ${activityType}">
                                 <div class="activity-card-top">
                                 ${activity.isAutocorrect ? `<img src='${_PATH}assets/media/auto-icon.svg' title='Auto'>` : "" }
-                                <div class="dropdown">
+                                <div class="dropdown update-activity-id">
                                     <i class="fas fa-cog fa-2x" type="button" id="dropdown-activityItem-${activity.id}" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                     </i>
                                     <div class="dropdown-menu" aria-labelledby="dropdown-activityItem-${activity.id}" data-id="${activity.id}">

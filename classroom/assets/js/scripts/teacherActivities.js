@@ -81,13 +81,23 @@ $('body').on('click', '.activity-list-options i', function () {
     ClassroomSettings.activity = $(this).attr('id').replace("dropdown-list-activityItem-", "");
 })
 
+$('body').on('click', '.update-activity-id i', function () {
+    let id = $(this).attr('id');
+    let prefix = "dropdown-list-activityItem-";
+    if (id.startsWith(prefix)) {
+        ClassroomSettings.activity = id.substring(prefix.length);
+    }
+    console.log("ClassroomSettings.activity = ", ClassroomSettings.activity)
+})
+
 function persistDeleteActivity() {
     let validation = $('#validation-delete-activity').val();
     let placeholderWord = $('#validation-delete-activity').attr('placeholder');
     if (validation == placeholderWord) {
         let activityTitle = getActivity(ClassroomSettings.activity).title;
+
         Main.getClassroomManager().deleteActivity(ClassroomSettings.activity).then(function (activity) {
-            displayNotification('#notif-div', "classroom.notif.activityDeleted", "success", `'{"activityName": "${activityTitle}"}'`);
+            displayNotification('#notif-div', "classroom.notif.activityDeleted", "success",`'{"activityName": "${activityTitle}"}'`);
             deleteTeacherActivityInList(activity.id);
             teacherActivitiesDisplay();
             DisplayActivities();
@@ -108,11 +118,7 @@ function cancelDeleteActivity() {
 $('body').on('click', '.modal-activity-delete', function () {
     let activityId = ClassroomSettings.activity,
         courseArray = [];
-    
-    // display title of activity in deleting message
-    const activityTitle = getActivity(activityId).title;
-    const options = `{"activityName": "${activityTitle}"}`;
-    document.getElementById('delete-activity-text').setAttribute("data-i18n-options", options);
+    console.log("activityId : ", activityId)
 
     // manage display for parcours feature
     coursesManager.myCourses.forEach(course => {
@@ -123,6 +129,16 @@ $('body').on('click', '.modal-activity-delete', function () {
     document.getElementById('activity-linked-to-course-message').style.display = courseArray.length > 0 ? 'block' : 'none';
 
     pseudoModal.openModal('delete-activity-modal');
+
+    const activityTitle = getActivity(activityId).title;
+
+    const options = JSON.stringify({ activityName: activityTitle });
+
+    const deleteActivityTextElement = document.getElementById('delete-activity-text');
+    deleteActivityTextElement.setAttribute("data-i18n-options", options);
+
+    const optionsObject = JSON.parse(options);
+    deleteActivityTextElement.innerHTML = i18next.t('classroom.activities.deleteActivityDisclaimer', optionsObject);
 })
 
 
@@ -417,6 +433,7 @@ $('.new-activity-panel2').click(function () {
             }else{
                 ClassroomSettings.activity = activity.id;
                 displayNotification('#notif-div', "classroom.notif.activityCreated", "success", `'{"activityTitle": "${activity.title}"}'`);
+
                 navigatePanel('classroom-dashboard-new-activity-panel2', 'dashboard-activities-teacher', ClassroomSettings.activity);
                 addTeacherActivityInList(activity);
                 teacherActivitiesDisplay();
