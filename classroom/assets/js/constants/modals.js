@@ -1222,7 +1222,7 @@ const classroomModals = {
             <div class="col-12" id="delete-folder">
                 <div class="d-flex flex-row justify-content-center align-items-center align-content-around">
                     <i class="fas fa-exclamation-triangle fa-3x mr-3" style="color: #ffb636;"></i>                   
-                    <p id="delete-folder-text" class="m-0" data-i18n="classroom.activities.foldersMessages.deleteFolder"></p>
+                    <p id="delete-folder-text" class="m-0" data-i18n="[html]classroom.activities.foldersMessages.deleteFolder"></p>
                 </div>
 
                 <div class="text-right">
