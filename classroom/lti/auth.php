@@ -20,7 +20,7 @@ use Dotenv\Dotenv;
 
 $dotenv = Dotenv::createImmutable($rootPath);
 $dotenv->load();
-$versionNum = $_ENV['VERSIONNUM'];
+$versionNum = $_ENV['VERSION'.'NUM'];
 $traceLrsEndpoint = $_ENV['TRACE_LRS_ENDPOINT'];
 
 error_log("VERSIONNUM: $versionNum");
@@ -64,7 +64,9 @@ $jwt_payload = [
       "updateUrl" => $loginHint['updateUrl'] ?? '',
       "redirectionUrl" => $platform_url . '/lti/redirection.html',
       "studentResourceUrl" => isset($loginHint['studentResourceUrl']) ? $loginHint['studentResourceUrl'] : false,
-      "sessionId" => $session_id
+      "sessionId" => $session_id,
+      "versionNum" => $versionNum,  
+      "traceLrsEndpoint" => $traceLrsEndpoint 
   ]
 ];
 
