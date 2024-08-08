@@ -18,7 +18,7 @@ $page = isset($_GET['page']) ? htmlspecialchars($_GET['page']) : null;
 
 if (!$page) {
     // Load env variables
-    $dotenv = Dotenv::createImmutable(__DIR__."/../");
+    $dotenv = Dotenv::createImmutable(__DIR__ . "/../");
     $dotenv->safeLoad();
     // bind and sanitize incoming token
     $confirmToken = isset($_GET['token'])

@@ -23,6 +23,9 @@ $dotenv->load();
 $versionNum = $_ENV['VERSIONNUM'];
 $traceLrsEndpoint = $_ENV['TRACE_LRS_ENDPOINT'];
 
+error_log("VERSIONNUM: $versionNum");
+error_log("TRACE_LRS_ENDPOINT: $traceLrsEndpoint");
+
 session_start();
 $session_id = session_id();
 
