@@ -721,6 +721,11 @@ function launchLtiDeepLinkCreate(type, isUpdate) {
 }
 
 function launchLtiResource(activityId, activityType, activityContent, isStudentLaunch = false, studentResourceUrl = false, activityContentId = "#activity-content") {
+
+    const clmcUrl = (isStudentLaunch && studentResourceUrl) ? studentResourceUrl.replace(/.*[&?]clmc=([^&]*)(&.*|$)/,"$1") : ""
+    const playerUrl = (isStudentLaunch && studentResourceUrl) ? studentResourceUrl.replace(/(.*)\?.*/,"$1") : ""
+    if(clmcUrl && playerUrl)
+        activityContent = activityContent.replace(/([&?]clmc=)(.*)(&.*|$)/,"$1" + clmcUrl+ "&player=" + playerUrl + "$3")
     document.querySelector(activityContentId).innerHTML =
         `<input id="activity-score" type="text" hidden/>
         <form name="resource_launch_form" action="${_PATH}lti/ltilaunch.php" method="post" target="lti_student_iframe">
