@@ -137,12 +137,6 @@ try {
             $controller = new ControllerClassroom($entityManager, $user);
             $action_result = $controller->action($action, $_POST);
 
-            if(!is_null($user)) {
-                $session_id = session_id();
-                $sessionRepository = $entityManager->getRepository(Session::class);
-                $sessionRepository->createSession($session_id, $user['id']);
-                $action_result['session_id'] = $session_id;
-            }
             echo json_encode($action_result);
             $log->info($action, OK);
             break;
@@ -198,6 +192,12 @@ try {
             $log->info($action, OK);
             break;
         case 'session':
+            if(!is_null($user)) {
+                $session_id = session_id();
+                $sessionRepository = $entityManager->getRepository(Session::class);
+                $sessionRepository->createSession($session_id, $user['id']);
+                $user['session_id'] = $session_id;
+            }
             echo (json_encode($user));
             $log->info($action, OK);
             break;
