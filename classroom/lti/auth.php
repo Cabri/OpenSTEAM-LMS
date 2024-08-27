@@ -49,6 +49,8 @@ if (!$ltiTool) {
     exit;
 }
 
+$action_result = $controller->action($action, $_POST);
+
 $jwt_payload = [
   "iss" => $platform_url,
   "aud" => $_REQUEST['client_id'],
@@ -66,7 +68,8 @@ $jwt_payload = [
       "studentResourceUrl" => isset($loginHint['studentResourceUrl']) ? $loginHint['studentResourceUrl'] : false,
       "sessionId" => $session_id,
       "versionNum" => $versionNum,  
-      "traceLrsEndpoint" => $traceLrsEndpoint 
+      "traceLrsEndpoint" => $traceLrsEndpoint,
+      "action_result" => $action_result
   ]
 ];
 
