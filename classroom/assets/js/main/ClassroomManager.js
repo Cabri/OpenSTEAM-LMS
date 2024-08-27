@@ -1521,5 +1521,28 @@ class ClassroomManager {
         return false;
     }
 
+    /**
+     * Get session IDs for a specific user by ID
+     * @param {number} userId - ID of the user
+     * @returns {Promise<Array>} - A promise that resolves to an array of session IDs
+     */
+    getUserSessionIds(userId) {
+        return new Promise((resolve, reject) => {
+            $.ajax({
+                type: "POST",
+                url: "/routing/Routing.php?controller=classroom&action=get_user_sessions",
+                data: {
+                    "userId": userId
+                },
+                success: function (response) {
+                    resolve(JSON.parse(response));
+                },
+                error: function () {
+                    reject("Failed to retrieve user session IDs");
+                }
+            });
+        });
+    }
+
 }
 
