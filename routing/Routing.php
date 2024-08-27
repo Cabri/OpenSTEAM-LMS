@@ -136,24 +136,14 @@ try {
         case 'classroom':
             $controller = new ControllerClassroom($entityManager, $user);
             $action_result = $controller->action($action, $_POST);
-            $response = [
-                'action_result' => $action_result,
-            ];
 
             if(!is_null($user)) {
                 $session_id = session_id();
                 $sessionRepository = $entityManager->getRepository(Session::class);
                 $sessionRepository->createSession($session_id, $user['id']);
-                $response = [
-                    'action_result' => $action_result,
-                    'session_id' => $session_id
-                ];
-            } else {
-                $response = [
-                    'action_result' => $action_result,
-                ];
+                $action_result['session_id'] = $session_id;
             }
-            echo json_encode($response);
+            echo json_encode($action_result);
             $log->info($action, OK);
             break;
         case 'classroom_link_user':
