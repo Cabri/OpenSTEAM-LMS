@@ -1522,18 +1522,27 @@ class ClassroomManager {
     }
 
     /**
-     * Get session IDs for a specific user by ID
-     * @param {number} userId - ID of the user
-     * @returns {Promise<Array>} - A promise that resolves to an array of session IDs
+     * Get session IDs for all users in a specific classroom by classroom ID
+     * @param {number} classroomId - ID of the classroom
+     * @returns {Promise<Array>} - A promise that resolves to an array of objects, each containing a user and their associated session IDs
      */
-    getUserSessionIds(userId) {
+    getUserSessionIds(classroomId, userId) {
         return new Promise((resolve, reject) => {
+            let data = {};
+    
+            if (classroomId) {
+                data["classroomId"] = classroomId;
+            } else if (userId) {
+                data["userId"] = userId;
+            } else {
+                reject("Invalid parameters. Provide either classroomId or userId.");
+                return;
+            }
+    
             $.ajax({
                 type: "POST",
                 url: "/routing/Routing.php?controller=classroom&action=get_user_sessions",
-                data: {
-                    "userId": userId
-                },
+                data: data,
                 success: function (response) {
                     resolve(JSON.parse(response));
                 },
@@ -1542,7 +1551,6 @@ class ClassroomManager {
                 }
             });
         });
-    }
-
+    }    
 }
 
