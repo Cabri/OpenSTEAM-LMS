@@ -3,12 +3,9 @@ session_start();
 /**
  * Handle sending a user to a tool provider to initiate a content-item selection.
  */
-require_once __DIR__ . "/findrelativeroute.php";
-
-$rootPath = findRelativeRoute();
+$rootPath = "../../";
 
 require_once $rootPath . 'vendor/autoload.php';
-
 require_once $rootPath . 'bootstrap.php';
 
 use Classroom\Entity\Applications;

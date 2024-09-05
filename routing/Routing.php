@@ -40,6 +40,7 @@ use Utils\Exceptions\EntityDataIntegrityException;
 use Classroom\Controller\ControllerActivityLinkUser;
 use Interfaces\Controller\ControllerProjectLinkUser;
 use Classroom\Controller\ControllerClassroomLinkUser;
+use Classroom\Entity\Session;
 
 
 $dotenv = Dotenv::createImmutable(__DIR__ . "/../");
@@ -195,7 +196,8 @@ try {
             if(!is_null($user)) {
                 $session_id = session_id();
                 $sessionRepository = $entityManager->getRepository(Session::class);
-                $sessionRepository->createSession($session_id, $user['id']);
+                if (is_null($sessionRepository->find($session_id)))
+                    $sessionRepository->createSession($session_id, $user['id']);
                 $user['session_id'] = $session_id;
             }
             echo (json_encode($user));
